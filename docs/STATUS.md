@@ -1,29 +1,44 @@
-# Kit status
+# Kit status · 0.2.0
 
-## Adversarial self-review · 0.1.1
+The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response →](REVIEW.md)
 
-The local follow-up on 15 October 2026 fixes repeated-backup duplication, lost empty-block quotation separators, collapsed visual stanza spacing, unfinished-note dismissal, connection drafts lost during navigation/rerendering, stale-tab connection overwrites, and one damaged record hiding the whole local library. Prepared books now reject unsupported structure rather than silently removing it. Raw recovery exports include damaged book records. The Vercel upload list is exact, and the history audit also scans commit and annotated-tag metadata.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. No kit Vercel site has been deployed. Neither personal reference reader was changed, redeployed or copied into this repository.
 
-All 16 current Node tests pass and the public build still contains exactly 11 app/sample outputs. Chromium and WebKit pass the expanded regression at all five viewport sizes below, including measured visible stanza gaps, close/Escape/navigation draft guards, connection conflicts and draft export, healthy-book availability beside a damaged record, and raw recovery export. Both engines pass offline reload; WebKit uses a stopped origin with a failing direct network request as a negative control. Neither recorded script errors or external requests. The exact 36-file working/index set and reachable history pass the strengthened publication audit.
+## Current verification · 15 October 2026
 
-A separate critical review by the existing Canetti builder remains pending; reading the reference project's revision notes is not a substitute. Documented lessons already added to the agent guide include quiet reading controls, complete chapter continuation, meaningful contextual depth with measured duration, and real offline tests with negative controls. Existing personal readers remain untouched.
+All 18 Node tests pass. They cover exact Unicode/whitespace, source anchors, conflict-preserving and repeatable backup merges, edition-aware connections, literal occurrences, build exclusions, shallow-history rejection, reviewed retired-file hashes, historical credentials, and incomplete Git inspection and non-commit tree snapshots. A failed inspection also replaces any stale successful audit receipt with a failure.
 
-## Published first-release receipt
+The browser suite passes through Playwright’s Chromium API using installed Chrome and through WebKit on the desktop test host:
 
-Version 0.1.0 is published as the public GitHub template [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), on `main`. The user approved that exact destination after the file/history review. The initial source commit `eb363c2` was verified against the remote. No Vercel site was deployed from this kit. The existing personal readers remain separate; this task made no changes to them.
+- Five baseline viewports per engine: 402×874, 874×402, 820×1180, 1180×820 and 320×740, including Large print. Comparison layouts also pass at phone, tablet and narrow-phone sizes. Representative phone/tablet captures were visually inspected; comparison selectors have measured touch-sized bounds and fixed verse remains locally scrollable and keyboard-focusable.
+- Exact characters, measured differences between source blank runs, emphasis and fixed-line behavior in main text and companion excerpts. An index returns both occurrences in one block. Chosen comparisons preserve both passage references.
+- Annotation persistence, note/dialog/navigation draft guards, quota-failure retention, tab conflicts, repeated restore, local Unicode import, malformed backups and independent reading/spoiler state. A locked sample pair is not disclosed by exporting an unbound connection draft.
+- A healthy local book opens with only `library.json` blocked and workers disabled. Damaged local books are isolated and retained.
+- Damaged-state repair previews a validated backup, rolls back both writes on failure, preserves the original in quarantine and keeps books. Successful recovery then saves a note through the normal UI. Stale repair cannot replace healthy state.
+- Exact prepared-edition download and record export restore in a fresh browser context at a different loopback hostname. Books, annotations, connection references and missing reading places match; normal restore does not widen spoiler permissions. A separate hostname in the same browser context also starts with independent storage.
+- A synthetic work of **6,483,888 characters and 15,000 blocks** saves and renders, survives a cache upgrade and reload, and retains its note. A failed precache leaves the last complete active version usable; the missing asset returns 404 as a negative control. This tests cache lifecycle with compatible code, not arbitrary future data-schema migrations or physical-phone performance.
+- Offline reload includes a local import in both engines. WebKit uses a stopped origin and a failing direct network request as its negative control. The baseline request/error monitors report no external requests or script errors.
 
-Implemented: dependency-free static reader; two original sample works; direct text/prepared-JSON imports; exact text, whitespace and emphasis renderer; highlights/comments; focus and presets; per-book progress; separate spoiler boundaries; atomic browser storage; backup merge/recovery; three interactive sample experiences; local importer; explicit build inventory and publication audit; four-step agent and GitHub/Vercel guides.
+The public build contains exactly **11 app/original-sample outputs** with build fingerprint `12dc79aed82a5e84`. Personal files are outside both the build and Vercel input allowlists. Browser receipts and original-fixture captures stay in ignored `test-results/`. The exact staged-file/history publication receipt stays in ignored `.reader/publication-review.json`; it identifies its HEAD and local refs. The reviewed release inventory contains 39 files, including only original sample writing. Human inspection accompanies the heuristic scan.
 
-Verified on 15 October 2026:
+CI now runs Node/build/publication checks and a separate Chromium/WebKit browser job. Consult [GitHub Actions](https://github.com/lamentierschweinchen/personal-reader-kit/actions) for the exact published revision’s result; a local pass is not a claim that a later remote run has finished.
 
-- All 12 Node tests pass, including exact Unicode/whitespace conservation, anchor/source mismatch handling, backup conflicts, independent spoiler state, excluded build files and detection of removed private files in Git history.
-- Chromium and WebKit pass five viewport sizes each: 402×874, 874×402, 820×1180, 1180×820 and 320×740. Reading is also checked at the Large print preset. Source text remains exact and layouts have no page-level horizontal overflow in the tested flows.
-- Both engines pass selection/highlighting, comment persistence, failed-write draft retention, independent progress, spoiler gating, same- and different-note tab conflicts, draft export, corrupt-state preservation, local Unicode import, reload and malformed backup rejection. No script errors or external requests were observed.
-- Chromium passes offline reload with a locally imported book. WebKit passes reload with the origin server stopped, including the local book; a direct network request correctly fails as a negative control.
-- The production build includes exactly 11 application/original-sample files. No application dependencies or backend are required.
+## Product and editorial changes
 
-These are automated browser-engine checks, not physical iPhone/iPad tests or a live Vercel deployment. Local screenshots and the machine-readable browser receipt are in ignored `test-results/`; exact publication inventory receipts are in ignored `.reader/`. All browser fixtures are newly written test text, not personal books or actual annotations. Final commit and publication status are in the completion handoff.
+Local reading is independent of optional demonstration content. Recovery is an intentional transaction rather than a raw export dead end. Settings exports exact editions and explains device/domain migration and the trust placed in future same-origin code. The file-handoff guide explains the agent/model processing boundary separately from the finished app’s local storage.
 
-Next choices: whether the working name “Reading” should remain, and which real material-led experience to refine next. The public repository destination is established. A future personal website needs its own target, privacy choice and deployment verification using the included guide.
+Echo index accepts chosen literal text across permitted books. Facing pages accepts kept passages and stores two edition-aware anchors with each connection; legacy unbound reflections remain readable. Focus hides companion administration while retaining title and continuation. Phone comparison chrome is compact; short landscape views keep one reading toolbar sticky.
 
-Known first-version limits: EPUB/PDF conversion is assisted rather than automatic; no DRM bypass, image/table renderer, interactive source-footnote engine, full-text search, live map/routing, automatic cross-device sync or authenticated hosted-book backend. Original-sample prototypes demonstrate the workflow; they do not automatically adapt to imported works. Physical iOS selection and storage behavior remain to be checked on real devices.
+The workflow delivers ordinary reading first, keeps appearance independent of exploration, and uses three material-led prototypes for an undecided exploratory choice. An already chosen direction is refined without restarting that ceremony. The [Westminster Bridge case](COMPANION-CASE-STUDY.md) records edition disagreement, historical evidence, uncertainty and reasons to decline a mechanism. Its original editorial prose does not distribute the poem, maps or private reader content.
+
+## Remaining limits
+
+Physical iPhone/iPad selection handles, menus, safe areas, orientation, text zoom and storage retention still require actual devices. Browser emulation and DOM Range selection do not establish those behaviors. No live Vercel deployment, cross-device transfer or authenticated hosted-book model has been verified for this kit.
+
+The research case is a sourced editorial brief, not an on-site survey, a verified current itinerary, expert-reviewed scholarship or a demonstrated learning outcome. Those checks are explicit next work. The fictional listening walk remains labeled fiction. No automatic research or companion generation is implemented.
+
+EPUB/PDF conversion remains assisted. There is no DRM bypass, image/table renderer, interactive source-footnote engine, linguistic/semantic search, live routing, automatic sync or authenticated hosted-book backend. Preserve exact prepared editions, raw sources and private backups. Existing historical notes recover as quotations when their source is absent or changed; the app does not guess new anchors.
+
+## Earlier releases
+
+The first public release used commit `eb363c2` and passed 12 Node tests plus the initial browser suite. Version 0.1.1 (`aa60a42`) passed 16 Node tests and added draft guards, source-gap fidelity, repeatable conflict restore, isolated damaged books and tighter upload/history checks. These are historical receipts; the current evidence is above.

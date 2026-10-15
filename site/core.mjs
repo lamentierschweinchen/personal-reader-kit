@@ -65,7 +65,7 @@ export async function fromText(text, { title = 'Untitled', author = 'Unknown', k
 }
 export function bookText(book) { return book.sections.map(s => s.blocks.map(b => b.text + b.after).join('')).join(''); }
 export function newState() {
-  return {schema:1,revision:0,prefs:{theme:'paper',size:21,leading:1.7,measure:'book',focus:false},positions:{},boundaries:{},notes:[],reflections:{},lastBook:null};
+  return {schema:1,revision:0,prefs:{theme:'paper',size:21,leading:1.7,measure:'book',focus:false},positions:{},boundaries:{},notes:[],connections:[],reflections:{},lastBook:null};
 }
 export function validateState(value) {
   require(object(value) && value.schema === 1 && Number.isSafeInteger(value.revision) && value.revision >= 0, 'This backup has an unsupported schema.');
@@ -82,7 +82,15 @@ export function validateState(value) {
     require(Array.isArray(note.segments) && note.segments.length > 0 && note.segments.length <= 500, 'Invalid passage segments.');
     for (const s of note.segments) require(object(s) && id(s.blockId) && Number.isInteger(s.start) && Number.isInteger(s.end) && s.start >= 0 && s.end > s.start && str(s.quote) && s.quote.length === s.end - s.start && str(s.prefix,40) && str(s.suffix,40), 'Invalid passage anchor.');
   }
-  return structuredClone(value);
+  const connections=value.connections ?? [];
+  require(Array.isArray(connections)&&connections.length<=5000,'Invalid connections.');
+  unique(connections.map(c=>c.id),'connection IDs');
+  for(const connection of connections) {
+    require(object(connection)&&id(connection.id)&&str(connection.note,50000)&&finite(connection.updated,0,8.64e15)&&Array.isArray(connection.passages)&&connection.passages.length===2,'Invalid connection.');
+    // Reuse the annotation contract: both sides keep exact evidence and edition identity.
+    for(const passage of connection.passages) validateState({...newState(),notes:[{...passage,id:'connection-anchor',note:'',updated:0}]});
+  }
+  return {...structuredClone(value),connections:structuredClone(connections)};
 }
 export function selectionQuote(section, segments) {
   if (!segments.length) return '';
@@ -110,6 +118,37 @@ export function visibleThrough(state, book) {
   const b = state.boundaries[book.id];
   return b?.revision === book.source.sha256 ? b.index : -1;
 }
+export function passageAt(book, section, block, start=0, end=block.text.length) {
+  require(Number.isInteger(start)&&Number.isInteger(end)&&start>=0&&end>start&&end<=block.text.length,'Invalid passage range.');
+  return {bookId:book.id,sectionId:section.id,revision:book.source.sha256,quote:block.text.slice(start,end),segments:[{blockId:block.id,start,end,quote:block.text.slice(start,end),prefix:block.text.slice(Math.max(0,start-40),start),suffix:block.text.slice(end,end+40)}]};
+}
+export function excerptSection(passage,book) {
+  const status=anchorStatus(passage,book);require(status.valid,status.reason);
+  const first=passage.segments[0],last=passage.segments.at(-1),blocks=status.section.blocks;
+  const from=blocks.findIndex(b=>b.id===first.blockId),to=blocks.findIndex(b=>b.id===last.blockId);
+  return {id:status.section.id,blocks:blocks.slice(from,to+1).map((b,i,all)=>{
+    const start=i===0?first.start:0,end=i===all.length-1?last.end:b.text.length;
+    return {...b,text:b.text.slice(start,end),after:i<all.length-1?b.after:'',marks:b.marks.filter(m=>m.start<end&&m.end>start).map(m=>({...m,start:Math.max(m.start,start)-start,end:Math.min(m.end,end)-start}))};
+  })};
+}
+export function findOccurrences(books,state,term,limit=200) {
+  const hits=[];let count=0;
+  if(!term)return {hits,count};
+  for(const book of books)for(const [index,section] of book.sections.entries())if(index<=visibleThrough(state,book))for(const block of section.blocks) {
+    let offset=0;
+    while((offset=block.text.indexOf(term,offset))!==-1) {
+      if(hits.length<limit) {
+        // Do not split a surrogate pair at an excerpt boundary.
+        let start=Math.max(0,offset-65),end=Math.min(block.text.length,offset+term.length+85);
+        if(start>0&&/[\uDC00-\uDFFF]/.test(block.text[start]))start--;
+        if(end<block.text.length&&/[\uDC00-\uDFFF]/.test(block.text[end]))end++;
+        hits.push({passage:passageAt(book,section,block,start,end),offset,matchStart:offset-start,matchEnd:offset-start+term.length});
+      }
+      count++;offset+=term.length;
+    }
+  }
+  return {hits,count};
+}
 export function mergeBackup(current, incoming, uuid = () => crypto.randomUUID()) {
   const out = validateState(current), other = validateState(incoming);
   const signature=n=>JSON.stringify([n.bookId,n.revision,n.sectionId,n.quote,n.note,n.updated,n.segments.map(s=>[s.blockId,s.start,s.end,s.quote,s.prefix,s.suffix])]);
@@ -125,6 +164,14 @@ export function mergeBackup(current, incoming, uuid = () => crypto.randomUUID())
   for (const [key,text] of Object.entries(other.reflections)) {
     if (!Object.hasOwn(out.reflections,key)) out.reflections[key] = text;
     else if (out.reflections[key] !== text && !Object.entries(out.reflections).some(([k,v])=>k.startsWith('restored-')&&v===text)) out.reflections[`restored-${uuid()}`] = text;
+  }
+  const connectionSignature=c=>JSON.stringify([c.note,c.updated,c.passages.map(p=>[p.bookId,p.sectionId,p.revision,p.quote,p.segments])]);
+  const connectionIds=new Set(out.connections.map(c=>c.id)),connectionSignatures=new Set(out.connections.map(connectionSignature));
+  for(const connection of other.connections) {
+    const signature=connectionSignature(connection);
+    if(!connectionIds.has(connection.id)||!connectionSignatures.has(signature)) {
+      const copy={...connection,id:connectionIds.has(connection.id)?uuid():connection.id};out.connections.push(copy);connectionIds.add(copy.id);connectionSignatures.add(signature);
+    }
   }
   return validateState(out);
 }

@@ -56,6 +56,35 @@ export async function updateState(change) {
     };
   });
 }
+export async function recoveryArchives() {
+  const db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const records=[],request=db.transaction('state').objectStore('state').openCursor();
+    request.onsuccess=()=>{const cursor=request.result;if(!cursor){resolve(records);return;}if(String(cursor.key).startsWith('recovery-'))records.push({key:cursor.key,...cursor.value});cursor.continue();};
+    request.onerror=()=>reject(request.error);
+  });
+}
+// Repair is intentionally separate from ordinary merges. Quarantine and replacement
+// commit together, and an already healthy state can never be overwritten by a stale
+// recovery dialog. Books live in another store and are not touched.
+export async function recoverState(replacement) {
+  const next=validateState(replacement),db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction('state','readwrite'),store=tx.objectStore('state');let failure;
+    tx.oncomplete=()=>resolve(next);
+    tx.onerror=tx.onabort=()=>reject(failure||tx.error||new Error('Recovery could not be saved. The original data is unchanged.'));
+    const request=store.get('reader');
+    request.onsuccess=()=>{
+      try {
+        let healthy=request.result===undefined;
+        if(!healthy)try{validateState(request.result);healthy=true;}catch{/* The invalid object will be retained verbatim. */}
+        if(healthy)throw new Error('The saved state is already readable. Reopen Settings and use normal restore; no records were replaced.');
+        store.put({savedAt:new Date().toISOString(),original:request.result},`recovery-${crypto.randomUUID()}`);
+        next.revision+=1;store.put(next,'reader');
+      }catch(error){failure=error;tx.abort();}
+    };
+  });
+}
 export async function removeBook(id) {
   const db = await openDB();
   return new Promise((resolve,reject) => {

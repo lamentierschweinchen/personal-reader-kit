@@ -25,7 +25,7 @@ Noindex discourages search engines. An unshared URL and a private Git repository
 
 1. Confirm the intended GitHub owner/name, repository visibility, Vercel account/project, production branch and audience. Reuse established choices; do not ask again unnecessarily.
 2. Run `npm test`, `npm run build`, and `npm run test:browser`. Review limitations and the actual reader on a phone/tablet when available.
-3. Stage only intended files, review the diff, and run `npm run audit:public`. Inspect its full `.reader/publication-review.json` inventory and all history. Verify sample provenance. This scanner cannot prove copyright status or catch every secret.
+3. Stage only intended files, review the diff, and run `npm run audit:public`. Inspect its full `.reader/publication-review.json` inventory, HEAD/ref scope and complete local history. A shallow or partial clone must not pass; fetch the complete intended refs before reviewing. Safe retired public files need content-pinned historical review entries, not a weakened current inventory. Verify sample provenance. This scanner cannot prove copyright status or catch every secret.
 4. Inspect `dist/`: it must contain only the 11 listed app/sample outputs. Confirm no input books, backups, notes, `.env`, `.vercel`, `.reader`, test screenshots or existing reader source is included. The build uses a fixed allowlist and approved original-sample hash.
 5. Commit the reviewed source. Show the user the commit, file inventory, output boundary and exact target. Obtain any still-required publication approval at this point, with a reviewable result ready.
 
@@ -56,3 +56,14 @@ Do not equate a successful build with a usable site. After the approved deployme
 - Check the actual phone/iPad selection menus, keyboard, safe areas, zoom and orientation; emulation is only partial evidence.
 
 Return the usable URL, commit and deployment identifiers, verification receipt, privacy model, recovery instructions and remaining limits. Keep credentials and provider linkage out of Git. Do not call a URL live or a push synchronized without checking the result.
+
+## Choose an address and move without losing your library
+
+Choose the canonical production origin before substantial importing. Localhost, preview URLs, a custom domain and a new domain are separate browser-storage identities. Switching addresses does not transfer or delete the old library.
+
+1. On the old address, open Settings. Export **passages & progress**, then **each exact edition**. Keep these files private; edition exports include full books. Also keep the raw originals and conversion receipt. Do not rely on re-converting an EPUB/PDF later to reproduce identical anchors.
+2. Open the destination in a fresh browser profile/context, or use the new device. Import the prepared edition JSON files and restore the records backup. Confirm edition IDs, source fingerprints, exact quotations, emphasis/lineation, comments, saved comparisons and reading places. Set spoiler boundaries explicitly; normal restore does not widen them.
+3. Reload and check an anchored passage and continued reading. Verify offline behavior separately after the cache is ready. Retain the old address and private backup until the destination is proved usable.
+4. Before software or editorial updates, repeat the exports. The public shell’s new code has access to existing same-origin browser records: review the supplier and update, not just the absence of an upload API in an earlier release.
+
+The browser suite exercises a fresh browser context at a different loopback hostname using exact edition exports and record restore. This proves the storage/restore path in those engines; it does not establish physical-device transfer, all domain/provider behavior or indefinite storage retention.

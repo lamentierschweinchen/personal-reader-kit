@@ -3,6 +3,7 @@ import {spawn} from 'node:child_process';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
+import {reviewChecks} from './review-browser.mjs';
 const require=createRequire(import.meta.url);
 let playwright;
 try {playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');}catch{throw new Error('Install Playwright for optional browser tests: npm install --no-save --package-lock=false playwright@1.62.1');}
@@ -58,7 +59,7 @@ try {
       await page.getByRole('button',{name:'Choose what I’ve read'}).click();await page.locator('#boundary-bell').selectOption('3');await page.locator('#boundary-rain').selectOption('2');await page.getByRole('button',{name:'Set my boundaries'}).click();
       await page.getByRole('button',{name:'Open the passage',exact:false}).click();await page.waitForSelector('#context-text');await page.getByRole('button',{name:'Close ×',exact:true}).click();assert.deepEqual((await state(page)).positions.bell,before);
       await page.getByRole('button',{name:'02 An echo index',exact:false}).click();assert.ok(await page.locator('.echo-list li').count()>0);
-      await page.getByRole('button',{name:'03 Facing pages',exact:false}).click();await page.locator('#reflection').fill('An original connection.');await page.getByRole('button',{name:'Keep this connection',exact:false}).click();assert.equal((await state(page)).reflections['facing-pages'],'An original connection.');
+      await page.getByRole('button',{name:'03 Facing pages',exact:false}).click();await page.locator('#reflection').fill('An original connection.');await page.getByRole('button',{name:'Keep this connection',exact:false}).click();assert.equal((await state(page)).connections[0].note,'An original connection.');
       await page.getByRole('button',{name:'Return to your book',exact:false}).click();await page.waitForSelector('#reading-text');assert.deepEqual((await state(page)).positions.bell,before);
       // Concurrent tabs do not overwrite each other's note collection.
       const second=await context.newPage();await second.goto(base+'/#read/bell/arrival');await second.waitForSelector('#reading-text');await select(second);await second.locator('#selection-save').click();await second.locator('#note-text').fill('A second tab’s thought.');await second.getByRole('button',{name:'Save on this device',exact:true}).click();await second.waitForFunction(()=>!document.querySelector('#dialog').open);await second.close();
@@ -108,16 +109,16 @@ try {
       });
       assert.equal(gaps.quote,'One\n\n\n\nTwo');assert.ok(Math.abs(gaps.four-gaps.two-2*gaps.leading)<1,JSON.stringify(gaps));
       // A connection survives rerenders/navigation; a stale tab cannot replace it.
-      const draftContext=await browser.newContext(),connection=await draftContext.newPage();await connection.goto(base+'/#companion');
+      const draftContext=await browser.newContext(),connection=await draftContext.newPage();await connection.goto(base+'/#companion');await connection.waitForSelector('.experiment');await connection.evaluate(async()=>{const samples=await (await fetch('/library.json')).json();await (await import('/db.mjs')).updateState(s=>{for(const b of samples)s.boundaries[b.id]={index:b.sections.length-1,revision:b.source.sha256};return s;});});await connection.reload();await connection.getByRole('button',{name:'Choose what I’ve read'}).waitFor();
       await connection.getByRole('button',{name:'03 Facing pages',exact:false}).click();await connection.locator('#reflection').fill('A connection still being written.');
       await connection.locator('[data-action="choose-prototype"]').click();assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');
       await connection.getByRole('link',{name:'Books',exact:true}).click();await connection.getByRole('link',{name:'Companion',exact:true}).click();assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');
-      await connection.evaluate(async()=>{await (await import('/db.mjs')).updateState(s=>{s.reflections['facing-pages']='A newer connection from another tab.';return s;});});
+      await connection.evaluate(async()=>{const books=await (await fetch('/library.json')).json(),{passageAt}=await import('/core.mjs');const refs=[['bell','crossing','bell-8'],['rain','table','rain-4']].map(([id,sid,bid])=>{const b=books.find(b=>b.id===id),s=b.sections.find(s=>s.id===sid);return passageAt(b,s,s.blocks.find(x=>x.id===bid));});await (await import('/db.mjs')).updateState(s=>{s.connections.push({id:'concurrent-pair',passages:refs,note:'A newer connection from another tab.',updated:1});return s;});});
       await connection.getByRole('button',{name:'Keep this connection',exact:false}).click();await connection.waitForFunction(()=>document.querySelector('#status').textContent.includes('another tab'));
-      assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');assert.equal((await state(connection)).reflections['facing-pages'],'A newer connection from another tab.');
+      assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');assert.equal((await state(connection)).connections[0].note,'A newer connection from another tab.');
       const connectionDownload=connection.waitForEvent('download');await connection.getByRole('button',{name:'Export connection draft',exact:true}).click();const connectionFile=await connectionDownload;
       await connectionFile.saveAs(new URL(`${engine}-connection.reader-backup.json`,output).pathname);
-      assert.equal(JSON.parse(await readFile(new URL(`${engine}-connection.reader-backup.json`,output),'utf8')).reflections['facing-pages'],'A connection still being written.');await draftContext.close();
+      assert.equal(JSON.parse(await readFile(new URL(`${engine}-connection.reader-backup.json`,output),'utf8')).connections[0].note,'A connection still being written.');await draftContext.close();
       // Corrupted persistent data remains available for recovery and is never zeroed on load.
       const brokenContext=await browser.newContext(),broken=await brokenContext.newPage();await broken.goto(base);await broken.waitForSelector('.shelf');
       await broken.evaluate(async()=>{const dbm=await import('/db.mjs'),core=await import('/core.mjs');await dbm.saveBook(await core.fromText('A healthy original fixture.',{title:'Healthy fixture'}));const db=await dbm.openDB();await new Promise((resolve,reject)=>{const tx=db.transaction('books','readwrite');tx.objectStore('books').put({id:'damaged-fixture',schema:999,original:'Do not delete this record'});tx.oncomplete=resolve;tx.onerror=reject;});});
@@ -128,12 +129,13 @@ try {
       await broken.evaluate(async()=>{const db=await (await import('/db.mjs')).openDB();await new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite');tx.objectStore('state').put({schema:999,original:'Preserve this fixture'},'reader');tx.oncomplete=resolve;tx.onerror=reject;});});
       await broken.reload();await broken.waitForSelector('#storage-warning:not([hidden])');await broken.getByRole('button',{name:'Open the book',exact:false}).first().click();await broken.waitForSelector('#reading-text');await select(broken);await broken.locator('#selection-save').click();await broken.locator('#note-text').fill('A recovery draft.');await broken.getByRole('button',{name:'Save on this device',exact:true}).click();await broken.waitForFunction(()=>document.querySelector('#dialog-error').textContent.length>0);
       assert.deepEqual(await broken.evaluate(async()=> (await import('/db.mjs')).rawState()),{schema:999,original:'Preserve this fixture'});await brokenContext.close();
+      const independentReview=await reviewChecks({browser,base,engine,output});
       if(engine==='chromium') {
         await context.setOffline(true);await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,viewports:5,textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
+      receipts.push({engine,independentReview,viewports:5,textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);

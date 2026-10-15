@@ -71,3 +71,19 @@ test('restoring the same conflict backup twice is idempotent',()=>{
   const reordered={...backup,notes:backup.notes.map(n=>Object.fromEntries(Object.entries(n).reverse()))};
   assert.deepEqual(mergeBackup(twice,reordered),once);
 });
+
+test('companion occurrences include every literal match and preserve clipped emphasis',async()=>{
+  const {findOccurrences,passageAt,excerptSection}=await import('../site/core.mjs');
+  const book=await fromText('room room Room\n    雨雨\n\nAnother room.',{kind:'verse'});
+  book.sections[0].blocks[0].marks=[{kind:'em',start:0,end:9}];
+  const state=newState();state.boundaries[book.id]={index:0,revision:book.source.sha256};
+  const result=findOccurrences([book],state,'room');assert.equal(result.count,3);assert.deepEqual(result.hits.map(h=>h.offset),[0,5,8]);
+  assert.equal(findOccurrences([book],newState(),'room').count,0);assert.equal(findOccurrences([book],state,'雨').count,2);
+  const p=passageAt(book,book.sections[0],book.sections[0].blocks[0],5,13),excerpt=excerptSection(p,book);
+  assert.equal(excerpt.blocks[0].text,'room Roo');assert.deepEqual(excerpt.blocks[0].marks,[{kind:'em',start:0,end:4}]);
+  const backup=newState();backup.connections=[{id:'pair',passages:[p,p],note:'Two independent readings.',updated:1}];
+  const merged=mergeBackup(state,backup,()=> 'conflict');assert.equal(merged.connections.length,1);assert.equal(mergeBackup(merged,backup).connections.length,1);
+  const changed=structuredClone(backup);changed.connections[0].note='Another reading.';
+  const conflicts=mergeBackup(merged,changed,()=> 'conflict');assert.equal(conflicts.connections.length,2);assert.equal(mergeBackup(conflicts,changed).connections.length,2);
+  assert.equal(anchorStatus(conflicts.connections[0].passages[0],{...book,source:{...book.source,sha256:'f'.repeat(64)}}).valid,false);
+});

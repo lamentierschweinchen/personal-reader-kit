@@ -1,4 +1,13 @@
-import {selectionQuote} from './core.mjs';
+import {selectionQuote,excerptSection} from './core.mjs';
+export function renderPassage(container,passage,book,hit) {
+  const section=excerptSection(passage,book);
+  renderText(container,section);
+  if(hit) {
+    const block=section.blocks[0];
+    renderText(container,section,[{id:'occurrence',segments:[{blockId:block.id,start:hit.matchStart,end:hit.matchEnd}]}]);
+    container.querySelectorAll('mark').forEach(mark=>mark.removeAttribute('data-note'));
+  }
+}
 export function renderText(container, section, notes = []) {
   container.replaceChildren();
   for (const block of section.blocks) {

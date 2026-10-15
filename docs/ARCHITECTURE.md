@@ -34,9 +34,13 @@ Public website output
   dist/                  exactly 11 application/sample files; no private inputs
 ```
 
-There are zero application dependencies, no backend and no runtime model calls. Node is only the build/import/test tool. The two sample experiences that connect passages use a modal context surface; opening it never touches main progress. Spoiler permission is an explicit section boundary, independent of scroll position. A reader can skim ahead without automatically being shown later interpretations.
+There are zero application dependencies, no backend and no runtime model calls. Node is only the build/import/test tool. Passage-based companions, including imported-book matches and reader-chosen comparisons, use the common source renderer and a modal context surface; opening it never touches main progress. Spoiler permission is an explicit section boundary, independent of scroll position. A reader can skim ahead without automatically being shown later interpretations.
 
-IndexedDB read/write transactions read the latest state before each mutation, preventing one tab's stale full snapshot from replacing another tab's notes. Conflicting edits of the same note are rejected with the draft retained. Corrupt state is read-only until recovered. Backup merges preserve conflicts rather than choosing a silent winner. There is no remote synchronization; cross-device use requires imports and backups.
+IndexedDB read/write transactions read the latest state before each mutation, preventing one tab's stale full snapshot from replacing another tab's notes. Conflicting edits of the same note are rejected with the draft retained. Corrupt state is read-only until an explicit repair transaction archives it and installs a validated replacement. Both writes commit together; local books are untouched, and a healthy state cannot be replaced by a stale repair dialog. Backup merges preserve conflicts rather than choosing a silent winner. There is no remote synchronization; cross-device or cross-origin use requires exact prepared edition exports and record backups. A raw EPUB/PDF alone may not recreate the same conversion.
+
+Local books/state hydrate before optional sample fetching. Failed demonstration downloads produce a limited warning, not a failed shelf. Connections carry two edition-aware passage records and private commentary; legacy unbound reflections remain readable without inventing source relationships. Literal occurrence search includes all permitted books, returns individual ranges, caps displayed results explicitly and makes no language-specific tokenization claim.
+
+The default presentation keeps the fictional walk separate from a sourced [editorial research case](COMPANION-CASE-STUDY.md). That case records unresolved access and learning validation; it is not a claim of automated research or a live itinerary.
 
 The default publishing model is a public shell with browser-local books. It makes a useful personal site without distributing books or asking for authentication infrastructure. A privately hosted shared library is a later backend/access-control project, not a hidden build flag.
 
@@ -44,7 +48,7 @@ The default publishing model is a public shell with browser-local books. It make
 
 1. **P0, working foundation:** exact text, selectable highlights/comments, recoverable persistence, progress, focus and responsive reading; safe public shell and original samples.
 2. **P1, guided product:** the four-step agent workflow, honest format limits, three differentiated prototypes, sourced background contract, explicit spoilers, GitHub/Vercel walkthrough and publication review.
-3. **Next, earned by real use:** physical iOS selection and large-book performance; reviewed EPUB adapter with notes/illustrations; local PDF/OCR tools and proofing; search; reader-chosen experience on a real book.
+3. **Next, earned by real use:** physical iOS selection and device-scale large-book performance; reviewed EPUB adapter with notes/illustrations; local PDF/OCR tools and proofing; linguistic or semantic search; reader-chosen experience on a real book.
 4. **Only if needed:** authenticated hosted libraries or encrypted multi-device sync, route/map extensions, complex source geometry and richer anthology tools.
 
 Do not add a universal importer, map engine, database service or model API to every installation. Add an adapter when the actual book and user's preferred experience require it. Preserve the small dependable reading path.
