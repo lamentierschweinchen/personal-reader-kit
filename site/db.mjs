@@ -16,12 +16,20 @@ async function get(store,key) {
 }
 export const rawState = () => get('state','reader');
 export async function loadState() { const value = await rawState();return value === undefined ? newState() : validateState(value); }
-export async function loadBooks() {
+export async function rawBooks() {
   const db = await openDB();
   return new Promise((resolve,reject) => {
     const r = db.transaction('books').objectStore('books').getAll();
-    r.onsuccess = () => {try {resolve(r.result.map(validateBook));}catch(e){reject(e);}};r.onerror = () => reject(r.error);
+    r.onsuccess = () => resolve(r.result);r.onerror = () => reject(r.error);
   });
+}
+export async function loadBooks() {
+  const books=[],rejected=[];
+  for(const record of await rawBooks()) {
+    try {books.push(validateBook(record));}
+    catch(error) {rejected.push({id:typeof record?.id==='string'?record.id:null,reason:error.message});}
+  }
+  return {books,rejected};
 }
 export async function saveBook(book) {
   const checked = validateBook(book), db = await openDB();

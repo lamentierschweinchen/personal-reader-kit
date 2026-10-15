@@ -4,6 +4,7 @@ export function renderText(container, section, notes = []) {
   for (const block of section.blocks) {
     const node = document.createElement(block.kind === 'heading' ? 'h3' : 'div');
     node.className = `text-block ${block.kind}${block.layout === 'fixed' ? ' fixed-lines' : ''}`;node.dataset.block = block.id;
+    if(block.layout==='fixed') {node.tabIndex=0;node.setAttribute('role','group');node.setAttribute('aria-label','Fixed source lines; scroll horizontally when needed');}
     const highlights = notes.flatMap(note => note.segments.filter(s => s.blockId === block.id).map(s => ({...s,id:note.id})));
     const points = [...new Set([0,block.text.length,...block.marks.flatMap(m => [m.start,m.end]),...highlights.flatMap(h => [h.start,h.end])])].sort((a,b) => a-b);
     for (let i = 0; i < points.length - 1; i++) {

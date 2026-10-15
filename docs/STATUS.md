@@ -1,4 +1,14 @@
-# Initial kit status
+# Kit status
+
+## Adversarial self-review · 0.1.1
+
+The local follow-up on 15 October 2026 fixes repeated-backup duplication, lost empty-block quotation separators, collapsed visual stanza spacing, unfinished-note dismissal, connection drafts lost during navigation/rerendering, stale-tab connection overwrites, and one damaged record hiding the whole local library. Prepared books now reject unsupported structure rather than silently removing it. Raw recovery exports include damaged book records. The Vercel upload list is exact, and the history audit also scans commit and annotated-tag metadata.
+
+All 16 current Node tests pass and the public build still contains exactly 11 app/sample outputs. Chromium and WebKit pass the expanded regression at all five viewport sizes below, including measured visible stanza gaps, close/Escape/navigation draft guards, connection conflicts and draft export, healthy-book availability beside a damaged record, and raw recovery export. Both engines pass offline reload; WebKit uses a stopped origin with a failing direct network request as a negative control. Neither recorded script errors or external requests. The exact 36-file working/index set and reachable history pass the strengthened publication audit.
+
+A separate critical review by the existing Canetti builder remains pending; reading the reference project's revision notes is not a substitute. Documented lessons already added to the agent guide include quiet reading controls, complete chapter continuation, meaningful contextual depth with measured duration, and real offline tests with negative controls. Existing personal readers remain untouched.
+
+## Published first-release receipt
 
 Version 0.1.0 is published as the public GitHub template [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), on `main`. The user approved that exact destination after the file/history review. The initial source commit `eb363c2` was verified against the remote. No Vercel site was deployed from this kit. The existing personal readers remain separate; this task made no changes to them.
 

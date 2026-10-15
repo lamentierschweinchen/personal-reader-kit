@@ -1,5 +1,5 @@
 import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,LIMIT} from './core.mjs';
-import {loadState,loadBooks,saveBook,updateState,rawState,removeBook} from './db.mjs';
+import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook} from './db.mjs';
 import {renderText,readSelection} from './text.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
@@ -7,6 +7,9 @@ const main = $('#main'), dialog = $('#dialog');
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
 let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
+let reflectionDraft = null, reflectionBase = '';
+const dirtyNote = () => dialog.open && editing && $('#note-text') && $('#note-text').value !== (editing.note || '');
+const dirtyReflection = () => reflectionDraft && reflectionDraft.text !== reflectionDraft.base;
 const bookById = id => books.find(b => b.id === id);
 const path = (book,section) => `#read/${encodeURIComponent(book)}/${encodeURIComponent(section)}`;
 const returnLink = () => state.lastBook && bookById(state.lastBook) ? `<button class="text" data-action="resume" data-book="${esc(state.lastBook)}">Return to your book ↗</button>` : '';
@@ -93,8 +96,9 @@ function echoes() {
   return `<div class="experiment"><p class="eyebrow">02 / A word changes rooms</p><h2>An echo index.</h2><p class="experiment-lead">Follow a word across the two works. Decide for yourself whether it means the same thing.</p><div class="echo-words" role="group" aria-label="Words to follow">${['room','sound','window','water'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${hits.length ? `<ol class="echo-list">${hits.map(h=>`<li><div><span class="eyebrow">${esc(h.b.title)}</span><span class="small">${esc(h.s.title)}</span></div><button data-action="context" data-book="${h.b.id}" data-section="${h.s.id}" data-block="${h.block.id}"><q>${esc(h.quote)}</q></button></li>`).join('')}</ol>` : '<p class="empty">These words are still ahead of you.<br>Set your reading boundary to let them in.</p>'}<p class="sample-notice">Exact word matches from permitted sections; an index, not a claim about intention.</p></div>`;
 }
 function facing() {
+  if (!reflectionDraft) reflectionBase = state.reflections['facing-pages'] || '';
   const pairs = [{book:'bell',section:'crossing',block:'bell-8'},{book:'rain',section:'table',block:'rain-4'}];
-  return `<div class="experiment"><p class="eyebrow">03 / Two works, a space between</p><h2>Facing pages.</h2><p class="experiment-lead">One fragment keeps moving. Another remains. What belongs in the space between them?</p><div class="facing-pages">${pairs.map(p=>{const b=bookById(p.book),s=b.sections.find(s=>s.id===p.section),block=s.blocks.find(b=>b.id===p.block);return `<div><p class="eyebrow">${esc(b.title)}</p>${allowed(p.book,p.section) ? `<blockquote>${esc(block.text)}</blockquote>` : '<p class="empty">A fragment waiting<br>for you to reach it.</p>'}${passageButton(p.book,p.section,p.block,'Read around it')}</div>`;}).join('')}</div><div class="reflection"><label for="reflection">Your connection</label><textarea id="reflection" maxlength="50000" placeholder="A thought, a question, or just two words…">${esc(state.reflections['facing-pages']||'')}</textarea><button class="text" data-action="save-reflection">Keep this connection ↗</button></div></div>`;
+  return `<div class="experiment"><p class="eyebrow">03 / Two works, a space between</p><h2>Facing pages.</h2><p class="experiment-lead">One fragment keeps moving. Another remains. What belongs in the space between them?</p><div class="facing-pages">${pairs.map(p=>{const b=bookById(p.book),s=b.sections.find(s=>s.id===p.section),block=s.blocks.find(b=>b.id===p.block);return `<div><p class="eyebrow">${esc(b.title)}</p>${allowed(p.book,p.section) ? `<blockquote>${esc(block.text)}</blockquote>` : '<p class="empty">A fragment waiting<br>for you to reach it.</p>'}${passageButton(p.book,p.section,p.block,'Read around it')}</div>`;}).join('')}</div><div class="reflection"><label for="reflection">Your connection</label><textarea id="reflection" maxlength="50000" aria-describedby="reflection-status" placeholder="A thought, a question, or just two words…">${esc(reflectionDraft?.text ?? state.reflections['facing-pages'] ?? '')}</textarea><p id="reflection-status" class="small" role="status">${dirtyReflection() ? 'Unsaved draft · kept in this tab while you explore.' : 'Saved connections appear in Passages.'}</p><button class="text" data-action="save-reflection">Keep this connection ↗</button> <button class="text" data-action="export-reflection">Export connection draft</button></div></div>`;
 }
 function companion() {
   return `<section class="page"><header class="page-head companion-heading"><p class="eyebrow">Three small experiments · original sample anthology</p><h1>Other ways<br>into a book.</h1><p>The reading stays the same. The companion can follow a place, a word, or a connection you make yourself.</p></header><div class="companion-top"><p class="small">Unread passages stay hidden. Set a boundary explicitly; opening an experiment never advances your reading place.</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="experiment-tabs" role="group" aria-label="Experience prototypes"><button data-action="experiment" data-experiment="walk" aria-pressed="${experiment==='walk'}">01 &nbsp; A listening walk</button><button data-action="experiment" data-experiment="echo" aria-pressed="${experiment==='echo'}">02 &nbsp; An echo index</button><button data-action="experiment" data-experiment="facing" aria-pressed="${experiment==='facing'}">03 &nbsp; Facing pages</button></div>${experiment==='walk' ? walk() : experiment==='echo' ? echoes() : facing()}<div class="prototype-choice"><p>These are sketches to try. Your agent should study your own books before proposing three directions for them.</p><button class="secondary" data-action="choose-prototype">${state.reflections['prototype-choice']===experiment ? '✓ Your preferred direction' : 'Keep this direction'}</button></div></section>`;
@@ -124,13 +128,21 @@ function finishDialog() {
   if(origin)scrollTo(0,origin.scroll);
   editing=null;selection=null;
 }
-function closeDialog() {dialog.close();getSelection()?.removeAllRanges();finishDialog();}
+function closeDialog(saved=false) {
+  if (!saved && dirtyNote() && !confirm('Discard this unsaved note? Choose Cancel to keep editing or export the draft.')) return false;
+  dialog.close();getSelection()?.removeAllRanges();finishDialog();return true;
+}
+dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
 function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
 function download(value,name) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
   openDialog('Make room for reading.',`<p class="small">Simple presets, one familiar reading surface.</p><div class="settings-presets"><button data-action="preset" data-preset="paper">Paper</button><button data-action="preset" data-preset="dusk">Dusk</button><button data-action="preset" data-preset="large">Large print</button></div><form id="settings-form"><label for="size">Type size · <output id="size-value">${p.size}</output> px</label><input id="size" name="size" type="range" min="17" max="36" value="${p.size}"><label for="leading">Line spacing</label><input id="leading" name="leading" type="range" min="1.3" max="2.2" step="0.1" value="${p.leading}"><div class="form-row"><div><label for="theme">Page</label><select id="theme" name="theme">${['paper','dusk','ink'].map(t=>`<option value="${t}" ${p.theme===t?'selected':''}>${t[0].toUpperCase()+t.slice(1)}</option>`).join('')}</select></div><div><label for="measure">Line length</label><select id="measure" name="measure"><option value="book" ${p.measure==='book'?'selected':''}>Book</option><option value="wide" ${p.measure==='wide'?'selected':''}>Wide</option></select></div></div><div class="dialog-actions"><button class="primary" type="submit">Apply to my reader</button></div></form><div class="settings-group"><h3>Keep your marginalia.</h3><p>Export includes quotations and personal notes. Keep the file private. Original book files are not included. To move devices, import your books again and restore this backup.</p><button class="text" data-action="export">Export passages & progress ↗</button><label for="restore-file">Restore a backup</label><input id="restore-file" type="file" accept=".json"><p>Restore adds missing passages and preserves conflicting edits as separate notes. It keeps this device’s progress, appearance and spoiler boundaries.</p></div><div class="settings-group"><h3>On this device.</h3><p id="offline-detail">${offlineReady ? 'The application and original samples have been checked in the offline cache.' : 'The offline application copy is not verified yet. Reconnect and check again.'} Imported books and notes use browser storage. Storage can be cleared or evicted; keep your originals and exported notes.</p><button class="text" data-action="persist">Ask browser to retain local storage</button><button class="text" data-action="check-offline">Check offline copy</button>${storageError ? '<button class="text" data-action="raw-export">Export original recovery data</button>' : ''}</div>`);
+  if(storageError) {
+    const explanation=document.createElement('p');explanation.textContent='Raw recovery includes full local books and notes, including damaged records. Keep it private; ask your agent to repair it before restoring.';
+    dialog.querySelector('[data-action="raw-export"]')?.before(explanation);
+  }
 }
 function importDialog() {
   openDialog('Bring a book.',`<p>Choose a UTF-8 text file or a prepared reader JSON file. It stays in this browser.</p><form id="import-form"><label for="book-file">Book file · up to 8 MB</label><input id="book-file" name="file" type="file" accept=".txt,.json" required><label for="book-title">Title for a text file</label><input id="book-title" name="title" maxlength="500" placeholder="Use the file name"><label for="book-form">Text layout</label><select id="book-form" name="kind"><option value="prose">Prose · keep supplied line breaks</option><option value="verse">Poetry · keep lines, stanzas and indentation</option></select><p class="preset-note">EPUB and PDF need your agent’s conversion first. Ask it to check DRM, source quality, emphasis, notes and poetry layout. Scans need local OCR and review; protected ebooks may not be importable.</p><div class="dialog-actions"><button class="primary" type="submit">Add on this device <span aria-hidden="true">＋</span></button></div></form>`);
@@ -180,21 +192,26 @@ async function act(target) {
     case 'focus': {const pos=currentPosition();await commit(s=>{s.prefs.focus=!s.prefs.focus;return s;});await restorePosition(pos);break;}
     case 'contents':openDialog('Inside this book.',`<ol class="contents-list">${activeBook.sections.map(s=>`<li><a href="${path(activeBook.id,s.id)}" data-section-start>${esc(s.title)}</a></li>`).join('')}</ol>`);break;
     case 'boundary':boundaries();break;
-    case 'experiment':if($('#reflection') && $('#reflection').value !== (state.reflections['facing-pages']||'') && !confirm('Leave this unsaved connection? Choose Cancel to keep editing.'))return;experiment=target.dataset.experiment;await render({keepScroll:true});break;
+    case 'experiment':experiment=target.dataset.experiment;await render({keepScroll:true});break;
     case 'stop':stop=Number(target.dataset.stop);await render({keepScroll:true});break;
     case 'echo':echo=target.dataset.word;await render({keepScroll:true});break;
     case 'choose-prototype':await commit(s=>{s.reflections['prototype-choice']=experiment;return s;});await render({keepScroll:true});say('Preference kept. Tell your agent what drew you to this direction.');break;
-    case 'save-reflection': {const text=$('#reflection').value;await commit(s=>{s.reflections['facing-pages']=text;return s;});say('Connection saved on this device.');break;}
+    case 'save-reflection': {
+      const text=$('#reflection').value,base=reflectionDraft?.base ?? reflectionBase;
+      await commit(s=>{const current=s.reflections['facing-pages']||'';if(current!==base&&current!==text)throw new Error('This connection changed in another tab. Your draft is still here; export it before reloading the saved version.');s.reflections['facing-pages']=text;return s;});
+      reflectionDraft=null;reflectionBase=text;const indicator=$('#reflection-status');if(indicator)indicator.textContent='Connection saved on this device.';say('Connection saved on this device.');break;
+    }
+    case 'export-reflection': {const backup=newState();backup.reflections['facing-pages']=$('#reflection').value;download(backup,'private-connection.reader-backup.json');break;}
     case 'context':if(!allowed(target.dataset.book,target.dataset.section))throw new Error('Allow this section in Companion first.');context(target.dataset.book,target.dataset.section,target.dataset.block);break;
     case 'note-context': {const note=state.notes.find(n=>n.id===target.dataset.note);if(note&&anchorStatus(note,bookById(note.bookId)).valid)context(note.bookId,note.sectionId,note.segments[0].blockId,note);break;}
     case 'edit-note': {const n=state.notes.find(n=>n.id===target.dataset.note);if(n)noteDialog(n);break;}
     case 'delete-note': {
       if(!confirm('Remove this passage and its note from this device?'))return;const snapshot=editing;
-      await commit(s=>{const current=s.notes.find(n=>n.id===snapshot.id);if(current&&current.updated!==snapshot.updated)throw new Error('This note changed in another tab. Your draft is still here; export it before reopening the current note.');s.notes=s.notes.filter(n=>n.id!==snapshot.id);return s;});closeDialog();await render({keepScroll:true});break;
+      await commit(s=>{const current=s.notes.find(n=>n.id===snapshot.id);if(current&&current.updated!==snapshot.updated)throw new Error('This note changed in another tab. Your draft is still here; export it before reopening the current note.');s.notes=s.notes.filter(n=>n.id!==snapshot.id);return s;});closeDialog(true);await render({keepScroll:true});break;
     }
     case 'export-draft': {const backup=newState();backup.notes=[{...editing,id:editing.id||crypto.randomUUID(),updated:Date.now(),note:$('#note-text').value}];download(backup,'private-draft.reader-backup.json');break;}
     case 'export':download(await loadState(),'private-passages.reader-backup.json');say('Backup downloaded. It contains private quotations and notes.');break;
-    case 'raw-export':download(await rawState(),'private-recovery.reader-backup.json');break;
+    case 'raw-export':download({state:await rawState(),books:await rawBooks()},'private-raw-recovery.json');say('Raw recovery downloaded. It includes full local books and notes; keep it private.');break;
     case 'preset': {
       const pos=currentPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
     }
@@ -214,13 +231,19 @@ document.addEventListener('click',event=>{
   const link=event.target.closest('a[href^="#"]');
   if(link?.hasAttribute('data-section-start')){
     requestedPosition=null;
-    if(link.hash===location.hash){event.preventDefault();if(dialog.open)closeDialog();void savePosition().then(()=>render());return;}
+    if(link.hash===location.hash){event.preventDefault();if(dialog.open&&!closeDialog())return;void savePosition().then(()=>render());return;}
   }
-  if(link && dialog.open)closeDialog();
+  if(link && dialog.open && !closeDialog()){event.preventDefault();return;}
   const mark=event.target.closest('mark[data-note]');
   if(mark && getSelection()?.isCollapsed){const note=state.notes.find(n=>n.id===mark.dataset.note);if(note)noteDialog(note);}
 });
-document.addEventListener('input',event=>{if(event.target.id==='size')$('#size-value').textContent=event.target.value;});
+document.addEventListener('input',event=>{
+  if(event.target.id==='size')$('#size-value').textContent=event.target.value;
+  if(event.target.id==='reflection') {
+    reflectionDraft={text:event.target.value,base:reflectionDraft?.base ?? reflectionBase};
+    $('#reflection-status').textContent=dirtyReflection()?'Unsaved draft · kept in this tab while you explore.':'No changes to save.';
+  }
+});
 document.addEventListener('submit',async event=>{
   event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
   try {
@@ -237,7 +260,7 @@ document.addEventListener('submit',async event=>{
     } else if(form.id==='note-form') {
       const snapshot=editing,note={...snapshot,id:snapshot.id||crypto.randomUUID(),note:$('#note-text').value,updated:Date.now()};
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
-      await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog();await render({keepScroll:true});say('Passage saved on this device.');
+      await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
       const pos=currentPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
       await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
@@ -259,13 +282,16 @@ $('#selection-save').addEventListener('pointerdown',e=>e.preventDefault());
 $('#selection-save').addEventListener('click',()=>{if(selection){const saved=selection;getSelection()?.removeAllRanges();noteDialog(saved);}});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!dialog.open&&state.prefs.focus&&route.view==='read')act($('#focus-exit')).catch(fail);});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
-window.addEventListener('hashchange',async()=>{await savePosition();if(dialog.open)closeDialog();route=parseRoute();await render();main.focus({preventScroll:true});});
+window.addEventListener('hashchange',async event=>{
+  if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
+  await savePosition();route=parseRoute();await render();main.focus({preventScroll:true});
+});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)void savePosition();});
 window.addEventListener('pagehide',()=>{void savePosition();});
-window.addEventListener('beforeunload',event=>{const draft=$('#note-text');const reflection=$('#reflection');if((draft&&draft.value!==(editing?.note||''))||(reflection&&reflection.value!==(state.reflections['facing-pages']||''))){event.preventDefault();event.returnValue='';}});
+window.addEventListener('beforeunload',event=>{if(dirtyNote()||dirtyReflection()){event.preventDefault();event.returnValue='';}});
 try {
   const response=await fetch('/library.json');if(!response.ok)throw new Error('The sample library could not load. Reconnect and reload.');samples=(await response.json()).map(validateBook);books=[...samples];
   try {state=await loadState();}catch {showWarning('Saved reader data could not be opened. It has not been replaced. You can read the samples and export recovery data from Settings.');}
-  try {books.push(...(await loadBooks()).filter(b=>!samples.some(s=>s.id===b.id)));}catch {showWarning('Local books could not be opened. Stored data has not been removed. Keep original files and export your notes from Settings.');}
+  try {const local=await loadBooks();books.push(...local.books.filter(b=>!samples.some(s=>s.id===b.id)));if(local.rejected.length)showWarning(`${local.rejected.length} local book record(s) need recovery. Other books are available. Nothing was removed; export original recovery data from Settings.`);}catch {showWarning('Local books could not be opened. Stored data has not been removed. Keep original files and export your notes from Settings.');}
   route=parseRoute();await render();void offline();
 } catch(error) {main.innerHTML=`<section class="page"><h1>The shelf could not open.</h1><p>${esc(error.message)}</p><button data-action="settings">Open recovery settings</button></section>`;}

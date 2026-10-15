@@ -59,7 +59,7 @@ The live examples are in `samples/library.json`. A book is:
 }
 ```
 
-Offsets are JavaScript UTF-16 code-unit offsets, the same model as DOM Range. Do not index by encoded UTF-8 bytes. Preserve Unicode normalization exactly. `em`, `strong`, `sup` and `sub` ranges can overlap; the renderer splits intervals without changing text. Raw HTML is deliberately rejected. CSS `pre-wrap` retains whitespace and allows a long line to wrap to the screen; `fixed` preserves line geometry with local horizontal scrolling. Stanzas remain separate in both modes. Structural block styles must never invent italics absent from the source.
+Offsets are JavaScript UTF-16 code-unit offsets, the same model as DOM Range. Do not index by encoded UTF-8 bytes. Preserve Unicode normalization exactly. `em`, `strong`, `sup` and `sub` ranges can overlap; the renderer splits intervals without changing text. Raw HTML and unknown contract fields are deliberately rejected, including unsupported source-note or image fields. Extend and test the adapter/renderer together rather than dropping them. CSS `pre-wrap` retains whitespace and allows a long line to wrap to the screen; `fixed` preserves line geometry with keyboard-focusable local horizontal scrolling. Source separators, including those on empty blocks, control visible stanza gaps. Structural block styles must never invent italics absent from the source.
 
 Book/section/block IDs must be stable ASCII identifiers, not titles or filesystem paths. A changed source must have a new source hash. Stable work IDs allow the UI to retain old notes for review when a new edition replaces a stored book. Text imports use content-derived IDs, so changed text is a separate book by default.
 
@@ -70,3 +70,5 @@ Do not claim an EPUB/PDF text hash proves transcription fidelity. Its raw source
 A saved passage records the book hash, section, block IDs, start/end offsets, exact quote, and up to 40 characters of prefix/suffix context for each segment. Separators between selected blocks are retained. Highlight wrappers must leave DOM `textContent` exactly unchanged. Quotes are checked against their source before rendering or opening them.
 
 If a book is missing or changed, show the saved quote and note with the recovery reason. Never fuzzy-match and move it automatically. Backup import preserves conflicting notes under separate IDs, fills missing reading places, keeps existing places and appearance, and never widens spoiler boundaries. Corrupt stored state must not be replaced with an empty object; export its raw data for private recovery.
+
+Restoring an unchanged backup repeatedly must not multiply preserved conflict copies. A damaged book is isolated from valid records. Settings can export raw recovery data containing local books as well as state; this private recovery bundle is for repair by the reader's agent, not the normal annotation-restore input. Nothing is deleted automatically.

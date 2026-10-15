@@ -19,3 +19,9 @@ test('public build excludes private input and arbitrary site files',async()=>{
     for(const name of output)assert.doesNotMatch(await readFile(new URL('../dist/'+name,import.meta.url),'utf8'),/PRIVATE TEST SENTINEL/);
   } finally {await rm(privateFile);await rm(extra);}
 });
+test('Vercel upload exceptions name only the reviewed build inputs',async()=>{
+  const rules=(await readFile(new URL('../.vercelignore',import.meta.url),'utf8')).trim().split('\n');
+  const included=rules.filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  assert.equal(rules[0],'**');
+  assert.deepEqual(included.sort(),['package.json','vercel.json','publication.json','scripts/build.mjs','samples/library.json',...assets.map(x=>'site/'+x)].sort());
+});

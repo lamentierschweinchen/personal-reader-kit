@@ -34,6 +34,12 @@ try {
       assert.equal(canonical,sample.sections[0].blocks.map(b=>b.text+b.after).join(''));
       const quote=await select(page);await page.locator('#selection-save').click();assert.equal(await page.locator('.dialog-quote').textContent(),quote);
       await page.locator('#note-text').fill('An exact note. <img src=x onerror=alert(1)>');
+      // Closing, Escape and browser navigation must not silently discard a draft.
+      const dismissDraft=d=>d.dismiss();page.on('dialog',dismissDraft);
+      await page.getByRole('button',{name:'Close ×',exact:true}).click();assert.equal(await page.locator('#dialog').evaluate(el=>el.open),true);
+      await page.keyboard.press('Escape');assert.match(await page.locator('#note-text').inputValue(),/exact note/);
+      const noteURL=page.url();await page.evaluate(()=>{location.hash='#shelf';});await page.waitForURL(noteURL);
+      assert.match(await page.locator('#note-text').inputValue(),/exact note/);page.off('dialog',dismissDraft);
       await page.evaluate(()=>{window.oldPut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(...args){if(this.name==='state')throw new DOMException('Test quota failure','QuotaExceededError');return window.oldPut.apply(this,args);};});
       await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#dialog-error').textContent.length>0);
       assert.equal(await page.locator('#dialog').evaluate(el=>el.open),true);assert.match(await page.locator('#note-text').inputValue(),/exact note/);
@@ -87,9 +93,38 @@ try {
       const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export draft',exact:true}).click();const download=await downloadPromise;
       await download.saveAs(new URL(`${engine}-private-fixture.reader-backup.json`,output).pathname);
       const draft=JSON.parse(await readFile(new URL(`${engine}-private-fixture.reader-backup.json`,output),'utf8'));assert.equal(draft.schema,1);assert.equal(draft.notes[0].note,'My unsaved concurrent draft.');
+      page.once('dialog',d=>d.accept());
       await page.getByRole('button',{name:'Close ×',exact:true}).click();
+      // Empty source blocks retain both visible gap size and exact selected words.
+      const gaps=await page.evaluate(async()=>{
+        const {renderText,readSelection}=await import('/text.mjs');
+        const host=document.createElement('article');host.className='reading-surface';document.body.append(host);
+        const section={id:'gap',blocks:[{id:'a',kind:'verse',text:'One',after:'\n\n',marks:[]},{id:'empty',kind:'verse',text:'',after:'\n\n',marks:[]},{id:'b',kind:'verse',text:'Two',after:'',marks:[]}]};
+        const spacing=()=>host.lastElementChild.getBoundingClientRect().top-host.firstElementChild.getBoundingClientRect().top;
+        renderText(host,section);const four=spacing(),leading=parseFloat(getComputedStyle(host).lineHeight);
+        const range=document.createRange();range.setStart(host.firstElementChild.firstChild,0);range.setEnd(host.lastElementChild.firstChild,3);getSelection().removeAllRanges();getSelection().addRange(range);
+        const quote=readSelection(host,{id:'gap-book',source:{sha256:'a'.repeat(64)}},section).quote;
+        section.blocks[1].after='';renderText(host,section);const two=spacing();getSelection().removeAllRanges();host.remove();return {four,two,leading,quote};
+      });
+      assert.equal(gaps.quote,'One\n\n\n\nTwo');assert.ok(Math.abs(gaps.four-gaps.two-2*gaps.leading)<1,JSON.stringify(gaps));
+      // A connection survives rerenders/navigation; a stale tab cannot replace it.
+      const draftContext=await browser.newContext(),connection=await draftContext.newPage();await connection.goto(base+'/#companion');
+      await connection.getByRole('button',{name:'03 Facing pages',exact:false}).click();await connection.locator('#reflection').fill('A connection still being written.');
+      await connection.locator('[data-action="choose-prototype"]').click();assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');
+      await connection.getByRole('link',{name:'Books',exact:true}).click();await connection.getByRole('link',{name:'Companion',exact:true}).click();assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');
+      await connection.evaluate(async()=>{await (await import('/db.mjs')).updateState(s=>{s.reflections['facing-pages']='A newer connection from another tab.';return s;});});
+      await connection.getByRole('button',{name:'Keep this connection',exact:false}).click();await connection.waitForFunction(()=>document.querySelector('#status').textContent.includes('another tab'));
+      assert.equal(await connection.locator('#reflection').inputValue(),'A connection still being written.');assert.equal((await state(connection)).reflections['facing-pages'],'A newer connection from another tab.');
+      const connectionDownload=connection.waitForEvent('download');await connection.getByRole('button',{name:'Export connection draft',exact:true}).click();const connectionFile=await connectionDownload;
+      await connectionFile.saveAs(new URL(`${engine}-connection.reader-backup.json`,output).pathname);
+      assert.equal(JSON.parse(await readFile(new URL(`${engine}-connection.reader-backup.json`,output),'utf8')).reflections['facing-pages'],'A connection still being written.');await draftContext.close();
       // Corrupted persistent data remains available for recovery and is never zeroed on load.
       const brokenContext=await browser.newContext(),broken=await brokenContext.newPage();await broken.goto(base);await broken.waitForSelector('.shelf');
+      await broken.evaluate(async()=>{const dbm=await import('/db.mjs'),core=await import('/core.mjs');await dbm.saveBook(await core.fromText('A healthy original fixture.',{title:'Healthy fixture'}));const db=await dbm.openDB();await new Promise((resolve,reject)=>{const tx=db.transaction('books','readwrite');tx.objectStore('books').put({id:'damaged-fixture',schema:999,original:'Do not delete this record'});tx.oncomplete=resolve;tx.onerror=reject;});});
+      await broken.reload();await broken.getByRole('button',{name:'Healthy fixture',exact:true}).waitFor();await broken.waitForSelector('#storage-warning:not([hidden])');
+      await broken.getByRole('button',{name:'Reading settings'}).click();const recoveryDownload=broken.waitForEvent('download');await broken.getByRole('button',{name:'Export original recovery data',exact:true}).click();const recoveryFile=await recoveryDownload;
+      await recoveryFile.saveAs(new URL(`${engine}-raw-recovery.json`,output).pathname);const recovery=JSON.parse(await readFile(new URL(`${engine}-raw-recovery.json`,output),'utf8'));
+      assert.deepEqual(recovery.books.find(b=>b.id==='damaged-fixture'),{id:'damaged-fixture',schema:999,original:'Do not delete this record'});assert.ok(recovery.books.some(b=>b.title==='Healthy fixture'));await broken.getByRole('button',{name:'Close ×',exact:true}).click();
       await broken.evaluate(async()=>{const db=await (await import('/db.mjs')).openDB();await new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite');tx.objectStore('state').put({schema:999,original:'Preserve this fixture'},'reader');tx.oncomplete=resolve;tx.onerror=reject;});});
       await broken.reload();await broken.waitForSelector('#storage-warning:not([hidden])');await broken.getByRole('button',{name:'Open the book',exact:false}).first().click();await broken.waitForSelector('#reading-text');await select(broken);await broken.locator('#selection-save').click();await broken.locator('#note-text').fill('A recovery draft.');await broken.getByRole('button',{name:'Save on this device',exact:true}).click();await broken.waitForFunction(()=>document.querySelector('#dialog-error').textContent.length>0);
       assert.deepEqual(await broken.evaluate(async()=> (await import('/db.mjs')).rawState()),{schema:999,original:'Preserve this fixture'});await brokenContext.close();
@@ -98,7 +133,7 @@ try {
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,viewports:5,textFidelity:true,annotations:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
+      receipts.push({engine,viewports:5,textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);

@@ -45,7 +45,7 @@ A walk, map, historical context, secondary literature, a visual experiment or a 
 - Phone and tablet layouts; focus mode; adjustable type size, spacing, measure and page color; keyboard-accessible controls.
 - Exact text rendering, emphasis ranges, hard line breaks, stanza gaps and indentation. Fixed-layout verse can scroll within its block.
 - Multi-block highlights and comments, edition-aware anchors, saved reading places and separate spoiler boundaries.
-- Private browser imports, local persistence, annotation export/merge, retained conflicting notes, recoverable old-edition quotations.
+- Private browser imports, local persistence, repeatable annotation export/merge, retained conflicting notes, recoverable old-edition quotations and isolated damaged-book records.
 - Three interactive original-sample prototypes: a listening walk, an echo index, and facing passages with your own connection.
 - Offline application and original samples; imported books remain in browser storage. Storage eviction is still possible.
 - An explicit public build list, original-sample fingerprints, and an inventory/history audit before publication.
@@ -60,7 +60,7 @@ npm run build        # Public shell + reviewed original samples only, into dist/
 npm run audit:public # Exact staged/working inventory and all reachable Git history
 ```
 
-The public audit expects the final file set to be staged. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, binary files and differences between the index and working copy. Human review remains required: a scanner cannot establish rights or detect every secret.
+The public audit expects the final file set to be staged. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.
 
 Optional browser verification:
 

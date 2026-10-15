@@ -23,5 +23,11 @@ test('public audit finds removed private files and credentials in reachable hist
     const report=await audit(directory);assert.equal(report.passed,false);assert.equal(report.reachableCommits,2);
     assert.ok(report.failures.some(x=>x.includes('(history')&&x.includes('private/book')));
     assert.ok(report.failures.some(x=>x.includes('(history')&&x.includes('credential')));
+    // A clean tree does not make credentials in messages or annotated tags safe.
+    const fake='ghp_'+'B'.repeat(36);
+    git('commit','--allow-empty','-m',fake);git('tag','-a','metadata-fixture','-m',fake);
+    const metadata=await audit(directory);
+    assert.ok(metadata.failures.some(x=>x.includes('commit metadata')&&x.includes('credential')));
+    assert.ok(metadata.failures.some(x=>x.includes('tag metadata')&&x.includes('credential')));
   } finally {await rm(directory,{recursive:true,force:true});}
 });

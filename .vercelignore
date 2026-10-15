@@ -5,6 +5,14 @@
 !scripts/
 !scripts/build.mjs
 !site/
-!site/**
+!site/index.html
+!site/app.mjs
+!site/core.mjs
+!site/db.mjs
+!site/text.mjs
+!site/style.css
+!site/manifest.webmanifest
+!site/icon.svg
+!site/robots.txt
 !samples/
 !samples/library.json

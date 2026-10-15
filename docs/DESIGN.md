@@ -8,7 +8,9 @@ Interaction thesis: a short page entrance, a precise underline on navigation, an
 
 Use the device's bookish serif stack (Iowan Old Style, Palatino, Georgia) with its system UI face. Type and space carry the composition; fonts require no remote requests. A red margin rule and expressive shelf titles stay outside the text surface. Source emphasis is explicit and never inferred from a block's decorative role.
 
-The working name is **Reading**. The repository slug is provisional. Simple presets are Paper, Dusk and Large print; they share exactly one reading interface and adjustable type size, leading and measure.
+The working name is **Reading**. The published repository is `personal-reader-kit`. Simple presets are Paper, Dusk and Large print; they share exactly one reading interface and adjustable type size, leading and measure.
+
+Source whitespace owns the reading rhythm: do not replace differing stanza gaps with uniform paragraph margins. Keep operational status quiet in the normal reading flow, while making failures legible and recovery reachable. A chapter's title and an in-flow continuation belong to the reading experience, including in focus mode.
 
 The original sample, *The distance of a bell*, is about a walk, incomplete attention and return. *A room after rain* provides a second small work. Their three prototypes are structurally different:
 

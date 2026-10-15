@@ -8,7 +8,11 @@ export function inspectFile(name,bytes,allowed) {
   const problems=[];
   if(!allowed.includes(name))problems.push('not in the reviewed file inventory');
   if(/(^|\/)(?:\.reader|\.env(?:\..*)?|\.vercel|node_modules|test-results|source|books|annotations|private)(\/|$)/i.test(name) || /\.(?:epub|pdf|mobi|azw3?|docx|pem|key|reader\.json|reader-backup\.json)$/i.test(name))problems.push('private/book path or disallowed format');
-  if(bytes.includes(0))problems.push('binary file requires a separate provenance review');
+  return [...problems,...inspectContent(bytes)];
+}
+export function inspectContent(bytes) {
+  const problems=[];
+  if(bytes.includes(0))problems.push('binary data requires a separate provenance review');
   const text=bytes.toString('utf8');
   if(/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(text) || /\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-(?:proj-)?[A-Za-z0-9_-]{30,}|AKIA[A-Z0-9]{16})\b/.test(text))problems.push('possible credential');
   if(/\/Users\/[A-Za-z0-9._-]+\//.test(text))problems.push('personal absolute filesystem path');
@@ -34,10 +38,10 @@ export async function audit(directory=root) {
     inventory.push({path:name,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length});
   }
   for(const name of allowed)if(!tracked.includes(name))failures.push(`${name}: approved inventory path is not staged/tracked`);
-  let commits=[];
-  try{commits=git('rev-list','--all').trim().split('\n').filter(Boolean);}catch{}
+  const commits=git('rev-list','--all').trim().split('\n').filter(Boolean);
   const seen=new Set();
   for(const commit of commits) {
+    for(const reason of inspectContent(Buffer.from(git('cat-file','commit',commit))))failures.push(`commit metadata ${commit.slice(0,8)}: ${reason}`);
     const entries=git('ls-tree','-r','-z',commit).split('\0').filter(Boolean);
     for(const entry of entries) {
       const [meta,name]=entry.split('\t'),[mode,type,hash]=meta.split(' '),key=`${name}:${hash}`;
@@ -46,6 +50,11 @@ export async function audit(directory=root) {
       const data=execFileSync('git',['-C',directory,'cat-file','blob',hash],{maxBuffer:32*1024*1024});
       for(const reason of inspectFile(name,data,allowed))failures.push(`${name} (history ${commit.slice(0,8)}): ${reason}`);
     }
+  }
+  const tags=git('for-each-ref','--format=%(objecttype) %(objectname)','refs/tags').trim().split('\n').filter(Boolean);
+  for(const tag of tags) {
+    const [type,hash]=tag.split(' ');
+    if(type==='tag')for(const reason of inspectContent(Buffer.from(git('cat-file','tag',hash))))failures.push(`tag metadata ${hash.slice(0,8)}: ${reason}`);
   }
   const sample=await readFile(path.join(directory,'samples/library.json'));
   if(createHash('sha256').update(sample).digest('hex')!==manifest.originalSampleSha256)failures.push('Original sample bytes differ from their reviewed hash.');

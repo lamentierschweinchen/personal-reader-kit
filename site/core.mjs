@@ -5,25 +5,33 @@ const id = x => str(x, 100) && /^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(x) && !['const
 const finite = (x, a, b) => Number.isFinite(x) && x >= a && x <= b;
 function require(value, message) { if (!value) throw new Error(message); }
 function unique(items, label) { require(new Set(items).size === items.length, `Duplicate ${label}.`); }
+function fields(value, allowed, label) { require(Object.keys(value).every(k=>allowed.includes(k)), `Unsupported ${label} field. A reviewed adapter must preserve this content; it cannot be silently discarded.`); }
 const blockKinds = new Set(['prose', 'verse', 'heading', 'note']);
 export const LIMIT = 8 * 1024 * 1024;
 export function validateBook(value) {
   require(object(value) && value.schema === 1 && id(value.id), 'Unsupported book format. Use a version 1 reader JSON file.');
+  fields(value,['schema','id','title','author','edition','language','source','sections','context'],'book');
   require(str(value.title, 500) && value.title.length && str(value.author, 500) && str(value.edition, 1000), 'Book title, author and edition are required.');
   require(str(value.language, 35) && /^[a-zA-Z0-9-]+$/.test(value.language), 'Invalid language tag.');
   require(object(value.source) && /^[a-f0-9]{64}$/.test(value.source.sha256) && str(value.source.format, 100) && str(value.source.description, 2000), 'A source hash and description are required.');
+  fields(value.source,['sha256','format','description'],'source');
   require(Array.isArray(value.sections) && value.sections.length > 0 && value.sections.length <= 2000, 'A book needs 1–2000 sections.');
   unique(value.sections.map(s => s.id), 'section IDs');
   let count = 0, total = 0;
   for (const section of value.sections) {
     require(object(section) && id(section.id) && str(section.title, 1000) && Array.isArray(section.blocks) && section.blocks.length > 0, 'Invalid section.');
+    fields(section,['id','title','blocks'],'section');
     unique(section.blocks.map(b => b.id), 'block IDs');
     for (const block of section.blocks) {
       require(object(block) && id(block.id) && blockKinds.has(block.kind) && str(block.text) && str(block.after, 1000), 'Invalid text block.');
       require(!Object.hasOwn(block, 'html') && !Object.hasOwn(block, 'image'), 'HTML and images need a reviewed adapter; they cannot be silently discarded.');
+      fields(block,['id','kind','text','after','marks','layout'],'block');
       require(block.layout === undefined || ['reflow', 'fixed'].includes(block.layout), 'Invalid layout.');
       require(Array.isArray(block.marks) && block.marks.length <= 10000, 'Invalid emphasis marks.');
-      for (const mark of block.marks) require(object(mark) && ['em', 'strong', 'sup', 'sub'].includes(mark.kind) && Number.isInteger(mark.start) && Number.isInteger(mark.end) && mark.start >= 0 && mark.end > mark.start && mark.end <= block.text.length, 'Invalid emphasis range.');
+      for (const mark of block.marks) {
+        require(object(mark) && ['em', 'strong', 'sup', 'sub'].includes(mark.kind) && Number.isInteger(mark.start) && Number.isInteger(mark.end) && mark.start >= 0 && mark.end > mark.start && mark.end <= block.text.length, 'Invalid emphasis range.');
+        fields(mark,['kind','start','end'],'emphasis');
+      }
       count++; total += block.text.length + block.after.length;
     }
   }
@@ -31,6 +39,7 @@ export function validateBook(value) {
   require(Array.isArray(value.context) && value.context.length <= 100, 'Invalid background notes.');
   for (const item of value.context) {
     require(object(item) && str(item.label, 300) && str(item.text, 10000) && ['source', 'editorial', 'author'].includes(item.kind), 'Invalid background note.');
+    fields(item,['label','text','kind','through','url'],'background');
     require(item.url === undefined || (str(item.url, 2000) && /^https:\/\//.test(item.url)), 'Context sources must use HTTPS.');
     require(item.through === null || value.sections.some(s => s.id === item.through), 'Background notes need a valid spoiler boundary or null for introductory context.');
   }
@@ -76,7 +85,12 @@ export function validateState(value) {
   return structuredClone(value);
 }
 export function selectionQuote(section, segments) {
-  return segments.map((s, i) => s.quote + (i < segments.length - 1 ? section.blocks.find(b => b.id === s.blockId).after : '')).join('');
+  if (!segments.length) return '';
+  const first=segments[0],last=segments.at(-1),start=section.blocks.findIndex(b=>b.id===first.blockId),end=section.blocks.findIndex(b=>b.id===last.blockId);
+  require(start>=0 && end>=start, 'The selected source blocks are missing or out of order.');
+  // Empty blocks still carry source separators. Reconstruct the contiguous source
+  // span instead of joining only the non-empty highlighted segments.
+  return section.blocks.slice(start,end+1).map((b,i,all)=>b.text.slice(i===0?first.start:0,i===all.length-1?last.end:undefined)+(i<all.length-1?b.after:'')).join('');
 }
 export function anchorStatus(note, book) {
   if (!book) return {valid:false,reason:'Reimport this book to reopen the passage.'};
@@ -98,17 +112,19 @@ export function visibleThrough(state, book) {
 }
 export function mergeBackup(current, incoming, uuid = () => crypto.randomUUID()) {
   const out = validateState(current), other = validateState(incoming);
+  const signature=n=>JSON.stringify([n.bookId,n.revision,n.sectionId,n.quote,n.note,n.updated,n.segments.map(s=>[s.blockId,s.start,s.end,s.quote,s.prefix,s.suffix])]);
+  const ids=new Set(out.notes.map(n=>n.id)),signatures=new Set(out.notes.map(signature));
   for (const note of other.notes) {
-    const old = out.notes.find(n => n.id === note.id);
-    if (!old) out.notes.push(note);
-    else if (JSON.stringify(old) !== JSON.stringify(note)) out.notes.push({...note,id:uuid()});
+    const key=signature(note);
+    if (!ids.has(note.id)) {out.notes.push(note);ids.add(note.id);signatures.add(key);}
+    else if (!signatures.has(key)) {const copy={...note,id:uuid()};out.notes.push(copy);ids.add(copy.id);signatures.add(key);}
   }
   // Fill missing reading places; never replace a current device's place or widen its spoiler choices.
   for (const [key,pos] of Object.entries(other.positions)) if (!Object.hasOwn(out.positions,key)) out.positions[key] = pos;
   if (!out.lastBook) out.lastBook = other.lastBook;
   for (const [key,text] of Object.entries(other.reflections)) {
     if (!Object.hasOwn(out.reflections,key)) out.reflections[key] = text;
-    else if (out.reflections[key] !== text) out.reflections[`restored-${uuid()}`] = text;
+    else if (out.reflections[key] !== text && !Object.entries(out.reflections).some(([k,v])=>k.startsWith('restored-')&&v===text)) out.reflections[`restored-${uuid()}`] = text;
   }
   return validateState(out);
 }

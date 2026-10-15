@@ -22,6 +22,12 @@ test('unsupported HTML adapters, invalid ranges and unsafe IDs fail explicitly',
   const bad=structuredClone(book);bad.id='__proto__';assert.throws(()=>validateBook(bad));
   const source=structuredClone(book);source.context[0].url='javascript:alert(1)';assert.throws(()=>validateBook(source));
 });
+test('unsupported source structure is rejected instead of silently stripped',()=>{
+  for(const target of ['book','section','block']) {
+    const source=structuredClone(book),node=target==='book'?source:target==='section'?source.sections[0]:source.sections[0].blocks[0];
+    node.footnotes=[{text:'An original source note'}];assert.throws(()=>validateBook(source),/cannot be silently discarded/);
+  }
+});
 test('anchors require edition, exact words, context and order',()=>{
   const n=note();assert.equal(anchorStatus(n,book).valid,true);
   const changed=structuredClone(book);changed.source.sha256='a'.repeat(64);assert.equal(anchorStatus(n,changed).valid,false);
@@ -49,3 +55,19 @@ test('backup merge preserves conflicting notes, reflections and current position
   const empty=mergeBackup(newState(),b);assert.equal(empty.positions[book.id].sectionId,'return');
 });
 test('malformed backups are rejected before changing existing data',()=>{const s=newState();const corrupt={...s,prefs:{...s.prefs,size:900}};assert.throws(()=>validateState(corrupt));assert.throws(()=>mergeBackup(s,corrupt));assert.equal(s.prefs.size,21);});
+test('quotations retain separators carried by empty source blocks',()=>{
+  const section={id:'stanzas',blocks:[{id:'a',text:'One',after:'\n\n'},{id:'gap',text:'',after:'\n\n'},{id:'b',text:'Two',after:''}]};
+  const segments=[{blockId:'a',start:0,end:3,quote:'One',prefix:'',suffix:''},{blockId:'b',start:0,end:3,quote:'Two',prefix:'',suffix:''}];
+  const source={...book,sections:[section]},n={...note(),sectionId:'stanzas',segments,quote:'One\n\n\n\nTwo'};
+  assert.equal(selectionQuote(section,segments),n.quote);assert.equal(anchorStatus(n,source).valid,true);
+  source.sections[0].blocks[1].after='\n';assert.equal(anchorStatus(n,source).valid,false);
+});
+test('restoring the same conflict backup twice is idempotent',()=>{
+  const current=newState(),backup=newState();current.notes=[note()];backup.notes=[{...note(),note:'A different saved revision',updated:2}];
+  current.reflections.pair='Current';backup.reflections.pair='Recovered';
+  const once=mergeBackup(current,backup),twice=mergeBackup(once,backup);
+  assert.deepEqual(twice,once);assert.equal(once.notes.length,2);assert.equal(Object.keys(once.reflections).length,2);
+  // Property ordering in a JSON export is not a new note revision.
+  const reordered={...backup,notes:backup.notes.map(n=>Object.fromEntries(Object.entries(n).reverse()))};
+  assert.deepEqual(mergeBackup(twice,reordered),once);
+});

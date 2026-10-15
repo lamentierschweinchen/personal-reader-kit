@@ -14,6 +14,8 @@ Prepare conversions in `.reader/private/`. Use local extraction/OCR tools when s
 
 Write a private fidelity receipt: counts and coverage, source fingerprints, exact-text comparisons, notes/links/emphasis checks, representative and high-risk page comparisons, uncertainties and unsupported features. Preserve uncertainties and original defects instead of silently correcting them. Do not label an import complete if meaningful images, tables, lineation or source notes were discarded.
 
+Check the rendered page as well as extracted characters. A matching `textContent` can still conceal collapsed stanza gaps, missing indentation or an inaccessible horizontally scrolling line. Use original fixtures with different blank-line counts, empty blocks, emphasis and long lines; compare their actual spacing. Unsupported JSON fields must fail visibly rather than quietly dropping source notes or illustrations.
+
 ## 2. Choose the companion
 
 After the inspection, ask: **“Would you like simple presets, or an exploratory reader shaped around these books?”**
@@ -34,9 +36,13 @@ Keep the core reading surface usable without exploration. Context opens beside o
 
 For a real walking companion, distinguish named places, areas and inferences. Link stops to exact passages. Check present-day route continuity and permitted pedestrian edges, attribution and offline behavior. Unknown historical addresses remain unknown. A literary route is not live navigation or an on-ground access survey. Request location only after an explicit action, process it locally when possible, and preserve a no-location path.
 
+Match the requested depth with actual material. If a reader asks for a substantial historical reading, a caption with a long reading-time label is not sufficient. Agree on the intended duration and scope, measure the finished word count, disclose the reading-speed assumption, and build a small readable structure with sources beside the claims they support. Keep contemporary history, historical setting, literary interpretation and practical walking guidance distinct. Cache the actual contextual readings when offline use is promised; explain that external bibliography pages still need a connection.
+
 For an anthology, preserve each work’s edition and reading place. Let the reader create optional connections. Do not force the works into a single automatic thesis. Reading and comparing are different actions.
 
 Acceptance: exact source words and meaningful layout; selectable text; reliable multi-block notes; draft retention on failure; export and recovery; unchanged main progress after exploration; correct spoiler filtering; contrast, focus order, touch targets, enlarged text and reduced motion; no unexpected external book requests. Test at phone and tablet sizes in Chromium and WebKit, then ask the person to try real touch selection.
+
+Also test the awkward exits: close and Escape while a note is unfinished, browser Back, choosing a prototype while a connection is unfinished, conflicting edits in two tabs, restoring the same backup twice, and one damaged book alongside healthy books. Keep original damaged records available for private recovery. Verify every section's title and sequential next/previous links, including in focus mode. Everyday storage status should be quiet; failures and recovery actions must be easy to find. A stopped-origin offline test needs a failing raw network request as its negative control.
 
 ## 4. A personal website
 
