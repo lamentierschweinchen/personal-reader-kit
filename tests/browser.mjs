@@ -14,6 +14,12 @@ let serverErrors='';server.stderr.on('data',x=>serverErrors+=x);
 await new Promise((resolve,reject)=>{server.stdout.on('data',x=>{if(x.toString().includes('local only'))resolve();});server.on('exit',()=>reject(new Error('Preview server failed: '+serverErrors)));});
 const engines=process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'];const receipts=[];
 const state=page=>page.evaluate(async()=> (await import('/db.mjs')).loadState());
+async function checkOverflow(page,label,engine) {
+  const report=await page.evaluate(()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,offenders:[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,class:el.className,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width})).filter(x=>x.width>0&&(x.right>innerWidth+1||x.left< -1)).slice(0,16)}));
+  if(report.documentWidth>report.viewport)await page.screenshot({path:new URL(`${engine}-${label}-overflow.png`,output).pathname,animations:'disabled',fullPage:true});
+  assert.ok(report.documentWidth<=report.viewport,label+' overflow: '+JSON.stringify(report));
+}
+
 async function waitState(page,predicate) {for(let i=0;i<100;i++){const value=await state(page);if(predicate(value))return value;await page.waitForTimeout(50);}throw new Error('Reader state did not reach the expected value.');}
 const select=page=>page.evaluate(()=>{
   const blocks=document.querySelectorAll('#reading-text [data-block]'),range=document.createRange();
@@ -76,12 +82,12 @@ try {
       // Responsive samples: phone, phone landscape, iPad portrait/landscape, narrow phone.
       for(const [label,width,height] of [['phone',402,874],['phone-landscape',874,402],['ipad',820,1180],['ipad-landscape',1180,820],['small',320,740]]) {
         await page.setViewportSize({width,height});await page.goto(base+'/#shelf');await page.waitForSelector('.shelf');
-        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,label+' shelf overflow');
+        await checkOverflow(page,label+'-shelf',engine);
         await page.screenshot({path:new URL(`${engine}-${label}-shelf.png`,output).pathname,animations:'disabled'});
         await page.goto(base+'/#read/bell/arrival');await page.waitForSelector('#reading-text');await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Large print',exact:true}).click();await page.getByRole('button',{name:'Close ×',exact:true}).click();
-        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,label+' reading overflow');assert.equal(await page.locator('#reading-text').textContent(),canonical);
+        await checkOverflow(page,label+'-reading',engine);assert.equal(await page.locator('#reading-text').textContent(),canonical);
         await page.screenshot({path:new URL(`${engine}-${label}-reading.png`,output).pathname,animations:'disabled'});
-        await page.goto(base+'/#companion');await page.waitForSelector('.experiment');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,label+' companion overflow');
+        await page.goto(base+'/#companion');await page.waitForSelector('.experiment');await checkOverflow(page,label+'-companion',engine);
       }
       await page.setViewportSize({width:1180,height:820});await page.screenshot({path:new URL(`${engine}-companion.png`,output).pathname,animations:'disabled',fullPage:true});
       await page.goto(base+'/#passages');await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);assert.equal(await page.locator('.passage img').count(),0);
