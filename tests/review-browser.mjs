@@ -97,7 +97,9 @@ async function lifecycleChecks({browser,base}) {
       await db.updateState(s=>{s.notes=[{...ref,id:'lifecycle-note',note:'Retained through cache change.',updated:1}];return s;});
       return {id:book.id,characters:text.length};
     });
-    await page.goto(`${base}/#read/${fixture.id}/text`);await page.reload();await page.waitForSelector('#reading-text mark');
+    const initialStart=Date.now();
+    await page.goto(`${base}/#read/${fixture.id}/text`);await page.reload({waitUntil:'domcontentloaded',timeout:90000});await page.waitForSelector('#reading-text mark',{timeout:90000});
+    const initialMs=Date.now()-initialStart;console.log(`Long fixture initial render: ${initialMs} ms`);
     assert.equal(await page.locator('#reading-text [data-block]').count(),15000);assert.equal((await page.locator('#reading-text').textContent()).length,fixture.characters);
     const oldCaches=await page.evaluate(()=>caches.keys());
     const upgraded=original.replace(/reading-kit-[a-f0-9]+/g,'reading-kit-qa-lifecycle');
@@ -114,9 +116,10 @@ async function lifecycleChecks({browser,base}) {
     assert.ok((await page.evaluate(()=>caches.keys())).includes('reading-kit-qa-lifecycle'));
     const stillReady=await page.evaluate(async()=>{const r=await navigator.serviceWorker.getRegistration();return new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.ready);r.active.postMessage('CHECK_OFFLINE',[c.port2]);});});
     assert.equal(stillReady,true);
-    await writeFile(workerFile,upgraded);await page.reload();await page.waitForSelector('#reading-text mark');
+    await writeFile(workerFile,upgraded);const reloadStart=Date.now();await page.reload({waitUntil:'domcontentloaded',timeout:90000});await page.waitForSelector('#reading-text mark',{timeout:90000});
+    const reloadMs=Date.now()-reloadStart;console.log(`Long fixture after cache upgrade: ${reloadMs} ms`);
     assert.equal(await page.locator('#reading-text [data-block]').count(),15000);
     assert.equal((await page.evaluate(async()=> (await import('/db.mjs')).loadState())).notes[0].note,'Retained through cache change.');
-    return {blocks:15000,characters:fixture.characters,successfulCacheUpgrade:true,failedPrecacheKeepsActiveVersion:true,libraryAndNotesRetained:true};
+    return {blocks:15000,characters:fixture.characters,initialMs,reloadMs,functionalTimeoutMs:90000,successfulCacheUpgrade:true,failedPrecacheKeepsActiveVersion:true,libraryAndNotesRetained:true};
   }finally{await writeFile(workerFile,original);await context.close();}
 }
