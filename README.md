@@ -8,7 +8,14 @@ Give your own agent this repository and one or more book files. It helps you mak
 
 ## Try it
 
-With Node.js 22 or later installed, open a terminal in this folder:
+Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:
+
+```sh
+git clone https://github.com/lamentierschweinchen/personal-reader-kit.git
+cd personal-reader-kit
+```
+
+With Node.js 22 or later installed, open a terminal in the kit folder:
 
 ```sh
 npm run dev

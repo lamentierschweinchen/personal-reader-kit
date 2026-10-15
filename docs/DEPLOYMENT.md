@@ -6,7 +6,7 @@ The default deployment is a public reader shell with original samples. Open its 
 
 If GitHub is unfamiliar, your agent should guide you through creating/signing into your own account in the browser. Never send credentials in chat. Once the public kit's repository is available, either download its ZIP, clone its exact URL, or use **Use this template** if the maintainer has enabled that option. Choose your own repository name and visibility. A private personal copy is a useful default for future custom work, but still keep books out of Git.
 
-At this initial local handoff, the kit's public owner/name and URL are not established. Do not present a made-up clone URL. Publication happens after the owner selects the destination and the exact file/history review passes. GitHub documents [template repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).
+The public kit is [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` with **Use this template** enabled. Give the user's personal copy its own name and destination; do not push their books or personal changes back to the upstream kit. GitHub documents [template repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).
 
 Install Node.js 22 or later if needed. Open the folder in your agent and run `npm run dev`. Verify the sample reader locally before connecting a hosting account. No application packages or API keys are needed.
 

@@ -1,6 +1,8 @@
 # History boundary
 
-The Reading directory is one independent kit repository. Its initial branch is `codex/reader-kit`; no remote has yet been approved. Local checkpoints are authorized. Public publication is intended, subject to an exact file/history review and confirmation of the repository owner/name.
+The Reading directory is one independent kit repository. Work began on `codex/reader-kit` with a local reviewed checkpoint. On 15 October 2026, after the 36-file / one-commit audit, the user explicitly selected **Publish as lamentierschweinchen/personal-reader-kit**.
+
+The approved public destination is `https://github.com/lamentierschweinchen/personal-reader-kit`, remote `origin`, published branch `main`. It is a GitHub template repository. The initial implementation commit is `eb363c2e9b7c53be6b6b06959ef580d2b5b8a179`; its remote SHA, public visibility and template setting were verified after publication. Subsequent documentation records the now-established destination. Routine reviewed kit updates are authorized for this repository; no Vercel project was created or deployed as part of the kit publication.
 
 Existing personal readers were inspected read-only. Their site-specific hosting authorization does not transfer to this repository. No source history or book files from them are imported here.
 

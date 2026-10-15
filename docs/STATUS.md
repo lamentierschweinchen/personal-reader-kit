@@ -1,6 +1,6 @@
 # Initial kit status
 
-This is a local, public-intended version 0.1.0 in the Reading repository. No remote is established and nothing has been pushed or deployed from this kit. The existing personal readers remain separate and unchanged.
+Version 0.1.0 is published as the public GitHub template [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), on `main`. The user approved that exact destination after the file/history review. The initial source commit `eb363c2` was verified against the remote. No Vercel site was deployed from this kit. The existing personal readers remain separate; this task made no changes to them.
 
 Implemented: dependency-free static reader; two original sample works; direct text/prepared-JSON imports; exact text, whitespace and emphasis renderer; highlights/comments; focus and presets; per-book progress; separate spoiler boundaries; atomic browser storage; backup merge/recovery; three interactive sample experiences; local importer; explicit build inventory and publication audit; four-step agent and GitHub/Vercel guides.
 
@@ -14,6 +14,6 @@ Verified on 15 October 2026:
 
 These are automated browser-engine checks, not physical iPhone/iPad tests or a live Vercel deployment. Local screenshots and the machine-readable browser receipt are in ignored `test-results/`; exact publication inventory receipts are in ignored `.reader/`. All browser fixtures are newly written test text, not personal books or actual annotations. Final commit and publication status are in the completion handoff.
 
-Still to decide: the public GitHub owner/name; whether the working name “Reading” should remain; which real material-led experience to refine next. A public push requires the final exact file/history review and target confirmation. The naming decision does not block local implementation.
+Next choices: whether the working name “Reading” should remain, and which real material-led experience to refine next. The public repository destination is established. A future personal website needs its own target, privacy choice and deployment verification using the included guide.
 
 Known first-version limits: EPUB/PDF conversion is assisted rather than automatic; no DRM bypass, image/table renderer, interactive source-footnote engine, full-text search, live map/routing, automatic cross-device sync or authenticated hosted-book backend. Original-sample prototypes demonstrate the workflow; they do not automatically adapt to imported works. Physical iOS selection and storage behavior remain to be checked on real devices.
