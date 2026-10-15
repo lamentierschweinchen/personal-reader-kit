@@ -1,0 +1,10 @@
+**
+!package.json
+!vercel.json
+!publication.json
+!scripts/
+!scripts/build.mjs
+!site/
+!site/**
+!samples/
+!samples/library.json

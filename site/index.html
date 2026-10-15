@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f2e9">
+  <meta name="description" content="A quiet personal reader. Bring a book; find your own way into it.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css">
+  <title>Reading · in good company</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to reading</a>
+  <header class="masthead">
+    <a class="wordmark" href="#shelf" aria-label="Reading, your shelf">Reading<span class="wordmark-dot">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#shelf" data-nav="shelf">Books</a>
+      <a href="#companion" data-nav="companion">Companion</a>
+      <a href="#passages" data-nav="passages">Passages</a>
+    </nav>
+    <button class="type-button" data-action="settings" aria-label="Reading settings">Aa</button>
+  </header>
+  <div id="storage-warning" class="warning" role="alert" hidden></div>
+  <main id="main" tabindex="-1"><p class="loading">Opening your shelf…</p></main>
+  <button id="focus-exit" data-action="focus" hidden>Exit focus <span aria-hidden="true">↗</span></button>
+  <button id="selection-save" hidden>Keep this passage <span aria-hidden="true">＋</span></button>
+  <footer class="site-footer"><span>Take your time.</span><button id="offline-status" data-action="offline">Checking offline copy…</button><button data-action="import">Add a book ↗</button></footer>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <noscript>This reader needs JavaScript to store books and annotations on your device. No book is uploaded by this application.</noscript>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>
