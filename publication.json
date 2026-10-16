@@ -23,12 +23,451 @@
     "docs/RIGHTS.md",
     "docs/STATUS.md",
     "docs/UPGRADING.md",
+    "examples/README.md",
+    "examples/alice-in-wonderland/.github/workflows/check.yml",
+    "examples/alice-in-wonderland/.gitignore",
+    "examples/alice-in-wonderland/.vercelignore",
+    "examples/alice-in-wonderland/AGENTS.md",
+    "examples/alice-in-wonderland/LICENSE",
+    "examples/alice-in-wonderland/README.md",
+    "examples/alice-in-wonderland/VERSION-HISTORY.md",
+    "examples/alice-in-wonderland/docs/AGENT-GUIDE.md",
+    "examples/alice-in-wonderland/docs/ARCHITECTURE.md",
+    "examples/alice-in-wonderland/docs/BOOK-FORMAT.md",
+    "examples/alice-in-wonderland/docs/COMPANION-CASE-STUDY.md",
+    "examples/alice-in-wonderland/docs/DEPLOYMENT.md",
+    "examples/alice-in-wonderland/docs/DESIGN.md",
+    "examples/alice-in-wonderland/docs/FIDELITY.md",
+    "examples/alice-in-wonderland/docs/KIT-FEEDBACK.md",
+    "examples/alice-in-wonderland/docs/PILOT.md",
+    "examples/alice-in-wonderland/docs/PRIVACY.md",
+    "examples/alice-in-wonderland/docs/REVIEW.md",
+    "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md",
+    "examples/alice-in-wonderland/docs/STATUS.md",
+    "examples/alice-in-wonderland/docs/TRIAL-README.md",
+    "examples/alice-in-wonderland/docs/UPGRADING.md",
+    "examples/alice-in-wonderland/edition/assets.json",
+    "examples/alice-in-wonderland/edition/library.json",
+    "examples/alice-in-wonderland/package.json",
+    "examples/alice-in-wonderland/publication.json",
+    "examples/alice-in-wonderland/samples/README.md",
+    "examples/alice-in-wonderland/samples/library.json",
+    "examples/alice-in-wonderland/scripts/audit-edition.mjs",
+    "examples/alice-in-wonderland/scripts/audit.mjs",
+    "examples/alice-in-wonderland/scripts/build.mjs",
+    "examples/alice-in-wonderland/scripts/check-alice-source.py",
+    "examples/alice-in-wonderland/scripts/check-upgrade.mjs",
+    "examples/alice-in-wonderland/scripts/edition.mjs",
+    "examples/alice-in-wonderland/scripts/import-epub.mjs",
+    "examples/alice-in-wonderland/scripts/import-text.mjs",
+    "examples/alice-in-wonderland/scripts/prepare-alice.py",
+    "examples/alice-in-wonderland/scripts/prepare-epub.py",
+    "examples/alice-in-wonderland/scripts/serve.mjs",
+    "examples/alice-in-wonderland/site/app.mjs",
+    "examples/alice-in-wonderland/site/bundle.mjs",
+    "examples/alice-in-wonderland/site/core.mjs",
+    "examples/alice-in-wonderland/site/db.mjs",
+    "examples/alice-in-wonderland/site/icon.svg",
+    "examples/alice-in-wonderland/site/index.html",
+    "examples/alice-in-wonderland/site/manifest.webmanifest",
+    "examples/alice-in-wonderland/site/robots.txt",
+    "examples/alice-in-wonderland/site/share.mjs",
+    "examples/alice-in-wonderland/site/style.css",
+    "examples/alice-in-wonderland/site/text.mjs",
+    "examples/alice-in-wonderland/tests/alice-browser.mjs",
+    "examples/alice-in-wonderland/tests/alice.test.mjs",
+    "examples/alice-in-wonderland/tests/browser.mjs",
+    "examples/alice-in-wonderland/tests/bundle-browser.mjs",
+    "examples/alice-in-wonderland/tests/bundle.test.mjs",
+    "examples/alice-in-wonderland/tests/core.test.mjs",
+    "examples/alice-in-wonderland/tests/epub.test.mjs",
+    "examples/alice-in-wonderland/tests/experience-browser.mjs",
+    "examples/alice-in-wonderland/tests/history.test.mjs",
+    "examples/alice-in-wonderland/tests/publication.test.mjs",
+    "examples/alice-in-wonderland/tests/review-browser.mjs",
+    "examples/alice-in-wonderland/tests/share-browser.mjs",
+    "examples/alice-in-wonderland/tests/share.test.mjs",
+    "examples/alice-in-wonderland/tests/ui-icons.test.mjs",
+    "examples/alice-in-wonderland/tests/upgrade.test.mjs",
+    "examples/alice-in-wonderland/vercel.json",
+    "examples/catalog.json",
+    "examples/pride-and-prejudice/.github/workflows/check.yml",
+    "examples/pride-and-prejudice/.gitignore",
+    "examples/pride-and-prejudice/.vercelignore",
+    "examples/pride-and-prejudice/AGENTS.md",
+    "examples/pride-and-prejudice/LICENSE",
+    "examples/pride-and-prejudice/README.md",
+    "examples/pride-and-prejudice/VERSION-HISTORY.md",
+    "examples/pride-and-prejudice/docs/AGENT-GUIDE.md",
+    "examples/pride-and-prejudice/docs/ARCHITECTURE.md",
+    "examples/pride-and-prejudice/docs/ART-DIRECTION.md",
+    "examples/pride-and-prejudice/docs/BOOK-FORMAT.md",
+    "examples/pride-and-prejudice/docs/COMPANION-CASE-STUDY.md",
+    "examples/pride-and-prejudice/docs/DEPLOYMENT.md",
+    "examples/pride-and-prejudice/docs/DESIGN.md",
+    "examples/pride-and-prejudice/docs/FIDELITY.md",
+    "examples/pride-and-prejudice/docs/KIT-FEEDBACK.md",
+    "examples/pride-and-prejudice/docs/LOCAL-ADAPTER.md",
+    "examples/pride-and-prejudice/docs/PILOT.md",
+    "examples/pride-and-prejudice/docs/PRIVACY.md",
+    "examples/pride-and-prejudice/docs/REVIEW.md",
+    "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+    "examples/pride-and-prejudice/docs/STATUS.md",
+    "examples/pride-and-prejudice/docs/TRIAL-README.md",
+    "examples/pride-and-prejudice/docs/UPGRADING.md",
+    "examples/pride-and-prejudice/docs/VERIFICATION.md",
+    "examples/pride-and-prejudice/edition/austen-colophon.png",
+    "examples/pride-and-prejudice/edition/austen-cover.jpg",
+    "examples/pride-and-prejudice/edition/austen-front.png",
+    "examples/pride-and-prejudice/edition/austen-i_003.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_008.png",
+    "examples/pride-and-prejudice/edition/austen-i_010.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_026.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_030.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_031.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_034.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_035_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_035_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_038.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_039_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_039_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_041.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_044.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_047_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_047_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_051_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_051_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_053.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_055.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_056_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_056_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_060.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_065_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_065_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_069.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_073.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_074_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_074_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_082_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_082_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_089_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_089_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_096.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_098_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_098_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_104_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_104_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_107_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_107_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_113_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_113_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_116.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_118_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_118_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_124_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_124_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_126.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_137_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_137_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_142_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_142_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_147.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_161_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_161_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_168_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_168_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_172.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_175_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_175_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_177.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_183_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_183_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_185.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_190_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_190_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_195.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_197_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_197_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_204_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_204_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_206.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_210_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_210_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_218_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_218_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_223_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_223_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_227.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_229_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_229_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_238_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_238_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_240.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_242.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_244_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_244_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_250_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_250_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_254.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_257_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_257_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_264_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_264_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_272_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_272_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_282_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_282_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_285.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_290_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_290_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_292.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_296_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_296_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_299.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_301_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_301_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_307_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_307_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_312.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_314_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_314_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_319.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_323_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_323_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_330_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_330_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_347_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_347_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_350.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_356_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_356_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_363_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_363_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_368.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_374_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_374_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_388_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_388_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_392.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_397_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_397_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_399.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_406_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_406_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_414_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_414_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_422_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_422_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_433_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_433_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_444_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_444_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_449.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_451_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_451_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_460_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_460_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_463.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_471_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_471_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_477_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_477_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_486_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_486_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_495_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_495_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_501_a.jpg",
+    "examples/pride-and-prejudice/edition/austen-i_501_b.png",
+    "examples/pride-and-prejudice/edition/austen-i_505.jpg",
+    "examples/pride-and-prejudice/edition/austen-peacock-1894.png",
+    "examples/pride-and-prejudice/edition/inventory.json",
+    "examples/pride-and-prejudice/edition/library.json",
+    "examples/pride-and-prejudice/package.json",
+    "examples/pride-and-prejudice/publication.json",
+    "examples/pride-and-prejudice/samples/README.md",
+    "examples/pride-and-prejudice/samples/library.json",
+    "examples/pride-and-prejudice/scripts/audit-example.mjs",
+    "examples/pride-and-prejudice/scripts/audit.mjs",
+    "examples/pride-and-prejudice/scripts/build.mjs",
+    "examples/pride-and-prejudice/scripts/check-upgrade.mjs",
+    "examples/pride-and-prejudice/scripts/import-epub.mjs",
+    "examples/pride-and-prejudice/scripts/import-text.mjs",
+    "examples/pride-and-prejudice/scripts/prepare-austen.py",
+    "examples/pride-and-prejudice/scripts/prepare-epub.py",
+    "examples/pride-and-prejudice/scripts/serve.mjs",
+    "examples/pride-and-prejudice/site/app.mjs",
+    "examples/pride-and-prejudice/site/bundle.mjs",
+    "examples/pride-and-prejudice/site/core.mjs",
+    "examples/pride-and-prejudice/site/db.mjs",
+    "examples/pride-and-prejudice/site/icon.svg",
+    "examples/pride-and-prejudice/site/index.html",
+    "examples/pride-and-prejudice/site/manifest.webmanifest",
+    "examples/pride-and-prejudice/site/robots.txt",
+    "examples/pride-and-prejudice/site/share.mjs",
+    "examples/pride-and-prejudice/site/style.css",
+    "examples/pride-and-prejudice/site/text.mjs",
+    "examples/pride-and-prejudice/tests/austen-browser.mjs",
+    "examples/pride-and-prejudice/tests/austen.test.mjs",
+    "examples/pride-and-prejudice/tests/browser.mjs",
+    "examples/pride-and-prejudice/tests/bundle-browser.mjs",
+    "examples/pride-and-prejudice/tests/bundle.test.mjs",
+    "examples/pride-and-prejudice/tests/core.test.mjs",
+    "examples/pride-and-prejudice/tests/epub.test.mjs",
+    "examples/pride-and-prejudice/tests/experience-browser.mjs",
+    "examples/pride-and-prejudice/tests/history.test.mjs",
+    "examples/pride-and-prejudice/tests/publication.test.mjs",
+    "examples/pride-and-prejudice/tests/review-browser.mjs",
+    "examples/pride-and-prejudice/tests/share-browser.mjs",
+    "examples/pride-and-prejudice/tests/share.test.mjs",
+    "examples/pride-and-prejudice/tests/ui-icons.test.mjs",
+    "examples/pride-and-prejudice/tests/upgrade.test.mjs",
+    "examples/pride-and-prejudice/vercel.json",
+    "examples/schopenhauer-hegel/.github/workflows/check.yml",
+    "examples/schopenhauer-hegel/.gitignore",
+    "examples/schopenhauer-hegel/.vercelignore",
+    "examples/schopenhauer-hegel/AGENTS.md",
+    "examples/schopenhauer-hegel/LICENSE",
+    "examples/schopenhauer-hegel/README.md",
+    "examples/schopenhauer-hegel/VERSION-HISTORY.md",
+    "examples/schopenhauer-hegel/docs/AGENT-GUIDE.md",
+    "examples/schopenhauer-hegel/docs/ARCHITECTURE.md",
+    "examples/schopenhauer-hegel/docs/ART-DIRECTION.md",
+    "examples/schopenhauer-hegel/docs/BOOK-FORMAT.md",
+    "examples/schopenhauer-hegel/docs/COMPANION-CASE-STUDY.md",
+    "examples/schopenhauer-hegel/docs/CONCEPT.md",
+    "examples/schopenhauer-hegel/docs/DEPLOYMENT.md",
+    "examples/schopenhauer-hegel/docs/DESIGN.md",
+    "examples/schopenhauer-hegel/docs/FIDELITY.md",
+    "examples/schopenhauer-hegel/docs/KIT-FEEDBACK.md",
+    "examples/schopenhauer-hegel/docs/PILOT.md",
+    "examples/schopenhauer-hegel/docs/PRIVACY.md",
+    "examples/schopenhauer-hegel/docs/REVIEW.md",
+    "examples/schopenhauer-hegel/docs/RIGHTS.md",
+    "examples/schopenhauer-hegel/docs/SOURCE-FILES.json",
+    "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
+    "examples/schopenhauer-hegel/docs/STATUS.md",
+    "examples/schopenhauer-hegel/docs/TRIAL-README.md",
+    "examples/schopenhauer-hegel/docs/UPGRADING.md",
+    "examples/schopenhauer-hegel/editions/hegel.json",
+    "examples/schopenhauer-hegel/editions/inventory.json",
+    "examples/schopenhauer-hegel/editions/schopenhauer.json",
+    "examples/schopenhauer-hegel/package.json",
+    "examples/schopenhauer-hegel/publication.json",
+    "examples/schopenhauer-hegel/samples/README.md",
+    "examples/schopenhauer-hegel/samples/library.json",
+    "examples/schopenhauer-hegel/scripts/audit.mjs",
+    "examples/schopenhauer-hegel/scripts/build.mjs",
+    "examples/schopenhauer-hegel/scripts/check-upgrade.mjs",
+    "examples/schopenhauer-hegel/scripts/edition-assets.mjs",
+    "examples/schopenhauer-hegel/scripts/import-epub.mjs",
+    "examples/schopenhauer-hegel/scripts/import-text.mjs",
+    "examples/schopenhauer-hegel/scripts/prepare-epub.py",
+    "examples/schopenhauer-hegel/scripts/prepare-sources.mjs",
+    "examples/schopenhauer-hegel/scripts/serve.mjs",
+    "examples/schopenhauer-hegel/site/app.mjs",
+    "examples/schopenhauer-hegel/site/broadside.css",
+    "examples/schopenhauer-hegel/site/bundle.mjs",
+    "examples/schopenhauer-hegel/site/core.mjs",
+    "examples/schopenhauer-hegel/site/db.mjs",
+    "examples/schopenhauer-hegel/site/icon.svg",
+    "examples/schopenhauer-hegel/site/index.html",
+    "examples/schopenhauer-hegel/site/lectures.mjs",
+    "examples/schopenhauer-hegel/site/manifest.webmanifest",
+    "examples/schopenhauer-hegel/site/robots.txt",
+    "examples/schopenhauer-hegel/site/share.mjs",
+    "examples/schopenhauer-hegel/site/style.css",
+    "examples/schopenhauer-hegel/site/text.mjs",
+    "examples/schopenhauer-hegel/tests/browser.mjs",
+    "examples/schopenhauer-hegel/tests/bundle-browser.mjs",
+    "examples/schopenhauer-hegel/tests/bundle.test.mjs",
+    "examples/schopenhauer-hegel/tests/core.test.mjs",
+    "examples/schopenhauer-hegel/tests/design-browser.mjs",
+    "examples/schopenhauer-hegel/tests/editions.test.mjs",
+    "examples/schopenhauer-hegel/tests/epub.test.mjs",
+    "examples/schopenhauer-hegel/tests/experience-browser.mjs",
+    "examples/schopenhauer-hegel/tests/history.test.mjs",
+    "examples/schopenhauer-hegel/tests/publication.test.mjs",
+    "examples/schopenhauer-hegel/tests/review-browser.mjs",
+    "examples/schopenhauer-hegel/tests/share-browser.mjs",
+    "examples/schopenhauer-hegel/tests/share.test.mjs",
+    "examples/schopenhauer-hegel/tests/trial-browser.mjs",
+    "examples/schopenhauer-hegel/tests/ui-icons.test.mjs",
+    "examples/schopenhauer-hegel/tests/upgrade.test.mjs",
+    "examples/schopenhauer-hegel/vercel.json",
+    "examples/walden/.github/workflows/check.yml",
+    "examples/walden/.gitignore",
+    "examples/walden/.vercelignore",
+    "examples/walden/AGENTS.md",
+    "examples/walden/LICENSE",
+    "examples/walden/README.md",
+    "examples/walden/VERSION-HISTORY.md",
+    "examples/walden/docs/AGENT-GUIDE.md",
+    "examples/walden/docs/ARCHITECTURE.md",
+    "examples/walden/docs/BOOK-FORMAT.md",
+    "examples/walden/docs/COMPANION-CASE-STUDY.md",
+    "examples/walden/docs/DEPLOYMENT.md",
+    "examples/walden/docs/DESIGN.md",
+    "examples/walden/docs/FIDELITY.md",
+    "examples/walden/docs/KIT-FEEDBACK.md",
+    "examples/walden/docs/PILOT.md",
+    "examples/walden/docs/PRIVACY.md",
+    "examples/walden/docs/REVIEW.md",
+    "examples/walden/docs/SOURCE-RIGHTS.md",
+    "examples/walden/docs/STATUS.md",
+    "examples/walden/docs/TRIAL-README.md",
+    "examples/walden/docs/UPGRADING.md",
+    "examples/walden/edition/cover.jpg",
+    "examples/walden/edition/library.json",
+    "examples/walden/edition/walden-pond-map.jpg",
+    "examples/walden/package.json",
+    "examples/walden/publication.json",
+    "examples/walden/samples/README.md",
+    "examples/walden/samples/library.json",
+    "examples/walden/scripts/audit-walden.mjs",
+    "examples/walden/scripts/audit.mjs",
+    "examples/walden/scripts/build.mjs",
+    "examples/walden/scripts/check-upgrade.mjs",
+    "examples/walden/scripts/import-epub.mjs",
+    "examples/walden/scripts/import-text.mjs",
+    "examples/walden/scripts/prepare-epub.py",
+    "examples/walden/scripts/prepare-walden.py",
+    "examples/walden/scripts/serve.mjs",
+    "examples/walden/site/app.mjs",
+    "examples/walden/site/bundle.mjs",
+    "examples/walden/site/companion.mjs",
+    "examples/walden/site/core.mjs",
+    "examples/walden/site/db.mjs",
+    "examples/walden/site/icon.svg",
+    "examples/walden/site/index.html",
+    "examples/walden/site/manifest.webmanifest",
+    "examples/walden/site/robots.txt",
+    "examples/walden/site/share.mjs",
+    "examples/walden/site/style.css",
+    "examples/walden/site/text.mjs",
+    "examples/walden/tests/browser.mjs",
+    "examples/walden/tests/bundle-browser.mjs",
+    "examples/walden/tests/bundle.test.mjs",
+    "examples/walden/tests/core.test.mjs",
+    "examples/walden/tests/epub.test.mjs",
+    "examples/walden/tests/experience-browser.mjs",
+    "examples/walden/tests/history.test.mjs",
+    "examples/walden/tests/publication.test.mjs",
+    "examples/walden/tests/review-browser.mjs",
+    "examples/walden/tests/share.test.mjs",
+    "examples/walden/tests/sharing-browser.mjs",
+    "examples/walden/tests/ui-icons.test.mjs",
+    "examples/walden/tests/upgrade.test.mjs",
+    "examples/walden/tests/walden-browser.mjs",
+    "examples/walden/tests/walden-design-browser.mjs",
+    "examples/walden/tests/walden.test.mjs",
+    "examples/walden/vercel.json",
     "package.json",
     "publication.json",
     "samples/README.md",
     "samples/library.json",
     "scripts/audit.mjs",
     "scripts/build.mjs",
+    "scripts/check-examples.mjs",
     "scripts/check-upgrade.mjs",
     "scripts/import-epub.mjs",
     "scripts/import-text.mjs",
@@ -59,5 +498,1110 @@
     "tests/ui-icons.test.mjs",
     "tests/upgrade.test.mjs",
     "vercel.json"
+  ],
+  "starterFiles": [
+    ".github/workflows/check.yml",
+    ".gitignore",
+    ".vercelignore",
+    "AGENTS.md",
+    "LICENSE",
+    "README.md",
+    "VERSION-HISTORY.md",
+    "docs/ADAPTERS.md",
+    "docs/AGENT-GUIDE.md",
+    "docs/ARCHITECTURE.md",
+    "docs/BOOK-FORMAT.md",
+    "docs/COMPANION-CASE-STUDY.md",
+    "docs/DEPLOYMENT.md",
+    "docs/DESIGN.md",
+    "docs/PILOT.md",
+    "docs/PRIVACY.md",
+    "docs/REVIEW.md",
+    "docs/RIGHTS.md",
+    "docs/STATUS.md",
+    "docs/UPGRADING.md",
+    "package.json",
+    "publication.json",
+    "samples/README.md",
+    "samples/library.json",
+    "scripts/audit.mjs",
+    "scripts/build.mjs",
+    "scripts/check-examples.mjs",
+    "scripts/check-upgrade.mjs",
+    "scripts/import-epub.mjs",
+    "scripts/import-text.mjs",
+    "scripts/prepare-epub.py",
+    "scripts/serve.mjs",
+    "site/app.mjs",
+    "site/bundle.mjs",
+    "site/core.mjs",
+    "site/db.mjs",
+    "site/icon.svg",
+    "site/index.html",
+    "site/manifest.webmanifest",
+    "site/robots.txt",
+    "site/share.mjs",
+    "site/style.css",
+    "site/text.mjs",
+    "tests/browser.mjs",
+    "tests/bundle-browser.mjs",
+    "tests/bundle.test.mjs",
+    "tests/core.test.mjs",
+    "tests/epub.test.mjs",
+    "tests/experience-browser.mjs",
+    "tests/history.test.mjs",
+    "tests/publication.test.mjs",
+    "tests/review-browser.mjs",
+    "tests/share-browser.mjs",
+    "tests/share.test.mjs",
+    "tests/ui-icons.test.mjs",
+    "tests/upgrade.test.mjs",
+    "vercel.json"
+  ],
+  "reviewedEditionFiles": [
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-colophon.png",
+      "sha256": "c757484ae3a9446ae021db86fac4faa8560e78439062c60cc6fb121b1c6a3bdb",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-cover.jpg",
+      "sha256": "d7ffa5b624f7bfa70dbc92c213ab9ab6fe8eb32cd3f69e41c0bde68c68e8b97b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-front.png",
+      "sha256": "9bbda1886422aa2bf96ce32d3f18921e47e266e24d38053fde93e24f20d31b84",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_003.jpg",
+      "sha256": "5e11aff9e091ae4ad80ab73d32aa63aefe60851e41777012e9df944ecebd58db",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_008.png",
+      "sha256": "e37c8dda855454e71dac80a5f2ca9c02e187acf46825b64891fd2183d8fc2eb2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_010.jpg",
+      "sha256": "1a36172eae411bdf14b9f860e5bb69d2a5fcbd6278885dafa890e188ca5ddfb7",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_026.jpg",
+      "sha256": "b09d604793265c30e2f105bcbfcc674747d49b59d54e311525be15929c54af1b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_030.jpg",
+      "sha256": "ab1831408b0f827ed1d61efd1183df8a08b260b085069f8327bc7b8020565584",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_031.jpg",
+      "sha256": "980d0fe66a74cf846d206adec18aa8417fec9b933ae519a21cf09e9bde43afb8",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_034.jpg",
+      "sha256": "a50313f8caf6f67b1548087e76f08991fa980b58a1b0922a732e4771ebad6cb0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_035_a.jpg",
+      "sha256": "ab04a629e81e75340005d82d7796f662f8b5749087d9346ebe82eb55d200e3aa",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_035_b.png",
+      "sha256": "0cca36c7086432be09cb8c63c733ab7b05f215d4504e1ccfe63eaee037973706",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_038.jpg",
+      "sha256": "b1c9259c0bce848d54d361ce6df8cbaccfc937a3d2770cdb72a634ed173881e0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_039_a.jpg",
+      "sha256": "7ffa068cc2e9332b3c1cd59221e7684b2fb189fd1522d5f9f6cf669c1269454e",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_039_b.png",
+      "sha256": "85cae72fba8142e33f62d0af3d3b9f847fb58f1f11721b83dbeefaa027dee281",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_041.jpg",
+      "sha256": "ee6356698287597cbd34c1728f8f67e6582ebae5c1e2f593277192ce307fcebe",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_044.jpg",
+      "sha256": "8c2b95c3e9a3ae9a5d060edef6aa31b563580bf8dff2e854aac5f77eb19e00ec",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_047_a.jpg",
+      "sha256": "51eaef302d98af1f640eab68591d4cdd613a9c87436b30448eace74d6aa87d89",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_047_b.png",
+      "sha256": "b091448b3234c87ae06145726b87dbd0e4f1c83bc340576e07bd972234a6e0d1",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_051_a.jpg",
+      "sha256": "9cfdf07d05b063dd503031f41641714b20b79cc9d6df47a15ed4f993740733b6",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_051_b.png",
+      "sha256": "dd46f463c3100c5f7474e2e22d0088b4a6a0d6c262ffb5f6612cf1066fe0498f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_053.jpg",
+      "sha256": "46f7f0371e8a273654ea516d4abdc0fe02e48771c2dd069cd65c98081e93f4e0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_055.jpg",
+      "sha256": "f4123e29910c2e05b2813dcdb15ecef665d504978538055e67adf81205d92e68",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_056_a.jpg",
+      "sha256": "58d6f1250e9b1cb8fee3295273e1f1f5028cc5ac2c26be715af2812b7d51e8f2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_056_b.png",
+      "sha256": "dd117d4e1af7d31786072b88b4c890574357ab4175401f76cad1859fd00582ae",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_060.jpg",
+      "sha256": "7c85673c6c998144abf509ded87cf16e8d71d2527fdb7b13ee74fc6d77cf853d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_065_a.jpg",
+      "sha256": "48d1ffdcbae9170e3853155b5870f1ef64370e3d9ba0f03933ed092891cf1b74",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_065_b.png",
+      "sha256": "c4b3a1be1894ff7c138d475d7f98c7599e6d9f2128bcbc6671d89663d3ee5cc3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_069.jpg",
+      "sha256": "ce9874afa721bae18f512348a26f147a21b1d2a9b470c8381bfa27670ed27f84",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_073.jpg",
+      "sha256": "ead856df7fa7386abf041453a1eae989e77213dfc7e313cde17a90d6711cf898",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_074_a.jpg",
+      "sha256": "6dc2de9c7d197c0999d64aded59bd9bd470c35096cfa84db824adf4411e1f39f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_074_b.png",
+      "sha256": "ee9228fedfac6e4ebc693f330a2709270cc8f090cf881626dad43bb004e578ab",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_082_a.jpg",
+      "sha256": "ec5c81b6efa00e098aa5a3c4837f1f562127eb783919eb9b3d1272d5a2a0018c",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_082_b.png",
+      "sha256": "065204246a70b7407291d86ecd6133d9f0350c7460438b626e4d56c2c3910a87",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_089_a.jpg",
+      "sha256": "2522b918eb8870d46b20c6cc9dd0b3f61a2a040e98f4afcb83c458fc07b00bdb",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_089_b.png",
+      "sha256": "a241405405d16cfd1d053bea167dc108a9a82d7d5908983667f2e4efb9f69f5f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_096.jpg",
+      "sha256": "743e37f56ba2cd9c77ebb2a0577e438b479ff027183838c352880671ffa3b33c",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_098_a.jpg",
+      "sha256": "fbf9759cc35fbb8342809448762010ea451bc6357bb10a1e5b0bb271024dd9a0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_098_b.png",
+      "sha256": "aabdfce9ca63a623b483fe709dea7b4c8a13effb0703bb9e67f77d9063eb2b51",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_104_a.jpg",
+      "sha256": "cb3299b1ac79dd2fb0a0904da2590c4318dad2caac8cb419caa21643630db4bf",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_104_b.png",
+      "sha256": "0bf2b16edcb75accd91aa4693d60ee033c4b3683331cbf1e9e95ed349cac29d1",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_107_a.jpg",
+      "sha256": "cc815589a0b3702aa8e38c5e91d2e3114a1a86607c364c545616b8a93c73d7d8",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_107_b.png",
+      "sha256": "74b24e956c4a27da9c6829c27c571999ac03780d124e2c280e6fbdea25cdbd20",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_113_a.jpg",
+      "sha256": "c29e1ecfc51606c32284c16d3750bc83f56088c76f7ed3270472c45e2e6875ae",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_113_b.png",
+      "sha256": "7876530ee431e82e7b3013bf555263dc139a6fd677747a580dd5e82e25c4f6e6",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_116.jpg",
+      "sha256": "e17c2642b6e00a7214ddf9a18c87bb5512080ccf466f67be951bedbe7261be28",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_118_a.jpg",
+      "sha256": "9036dff3b33a38046a5ba364729cbfc835b131fa557157c397cf52d15b0f8a81",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_118_b.png",
+      "sha256": "42fc2e1b7129b3645937adf121b9e0394ff2b2b682eabc41c71040a094c8b1f9",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_124_a.jpg",
+      "sha256": "ab8e251a29051e650bce99116acfa89eaf63a121f73b6ba8e669b712391d496d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_124_b.png",
+      "sha256": "448cf8aa3b271da411d17ea55f4ee3d959a1fb8eb272c8a486e59517556797e2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_126.jpg",
+      "sha256": "c614fc3ca62260f979f35bd832a9866a52aeddd8d04d01bb3e3a1558ad0c2cfc",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_137_a.jpg",
+      "sha256": "cb6ffc21cffe3e733691ff8f2c41b5c2c52c4719c9200f752834e09c2584bd1f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_137_b.png",
+      "sha256": "64b600406f28266010d238696e0693d05d9831ab29aef87c141d33465178b20e",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_142_a.jpg",
+      "sha256": "585462e505e9440401230ecbd716dac9aaa62dfede1556342f29499d1a9868e4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_142_b.png",
+      "sha256": "dcae86a7a907e2eef60e13d96fde3dcbaa569cfc2170d3863e48b7b97e681342",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_147.jpg",
+      "sha256": "5419558140aaad3731689603f186ea0eecc1691324b7d6b56c4b2193980e95f2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_161_a.jpg",
+      "sha256": "05bef8aea5b1edc40bba3a5246d70656d74677356899f1734788a3991a95a2df",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_161_b.png",
+      "sha256": "eb83cd4db836f1487a5a95267ff525fee88e9a6d8a0eaa1c28225a08ae44f9c5",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_168_a.jpg",
+      "sha256": "29ec124dd19b32ae05db425ae50123aac05bc7c277f8afcc39924f77b071f8f7",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_168_b.png",
+      "sha256": "4e9d0bfed64f381db45b37549490082b88a24f5e1199384a86577efe5f678158",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_172.jpg",
+      "sha256": "807e4e6fca12fbb535689009c50e843d31d644ee4f3a72dc985b857e54b063c0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_175_a.jpg",
+      "sha256": "4541149303f1638b52551cb8fa66c9ebde0d4c0c0e109a47455dd1c5ca89c4c1",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_175_b.png",
+      "sha256": "2e8c4b2c6c16f5d63530e5e902e7d903ad888eb16213dd2ae8163f23707f9a12",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_177.jpg",
+      "sha256": "f64fb8c8ac3ad62c77d03770e8eee893327393dcb2e6e1db30044eb7e5dd4f74",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_183_a.jpg",
+      "sha256": "384393d19c0526e07db2432601bfb98fb5eb29712b4a2da815ece18caa00b58c",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_183_b.png",
+      "sha256": "b6ab6ddc5806eebdc427ce9c799600d87e111c6e60724b808111f42c5b1d5765",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_185.jpg",
+      "sha256": "4d4b8a50f7facad15969d4ad31ad38d012d012fc026138df3f48882e8bba7192",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_190_a.jpg",
+      "sha256": "3763073ec39e6cdefe89f2ea35220d8e025be6c19596e33b4e78ab97430c882b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_190_b.png",
+      "sha256": "9be9a650be60be7f7e9d6bc568bab6a65be2d22e659cf307f49a3887694384ca",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_195.jpg",
+      "sha256": "33a820316a312ba353e329a1e6d0d281a0faa8b00f9a0ca83984d5a9da530b1a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_197_a.jpg",
+      "sha256": "eda8346d2852ff7f8b96cda288c50d233c9948e1efea078db5a02fd39d02f402",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_197_b.png",
+      "sha256": "0f73e117bb1f1c666455db02cbddd7dc6a00dbe34a66a6968978304ee0b4a714",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_204_a.jpg",
+      "sha256": "9bf14d01a335cac6ecf6c7f4a80fa89427e8fcbc3b5920be928725fcddb18f0e",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_204_b.png",
+      "sha256": "7643ee9d84a191f7dc380a029feb7dbe98ea3b072b3ada15563d11c9d53a059b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_206.jpg",
+      "sha256": "61ad7300f60724ee084ff2a36c57c271842595c2e842d1c3c0c07ce347c1d406",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_210_a.jpg",
+      "sha256": "3662f6fcd7bf036263034caa56354e4f0eb1b01dadad034fc6370c210f397047",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_210_b.png",
+      "sha256": "accd4cb9ce06fa43fde6ed14ae3ff11d605fa70cb9a2cfc7d00611412770fc14",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_218_a.jpg",
+      "sha256": "3faf23278c5f34efe056150666694552ff89a4d17430293563f46bfce0386258",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_218_b.png",
+      "sha256": "99d58a8f79f1f54a3fcb3a6a2410f74546e7ba1155ef16395f18bfbb5b667fc4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_223_a.jpg",
+      "sha256": "74ecbb74db82f751260f3d878621a1e3948b9f8a615df01409b9aa3075a241fb",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_223_b.png",
+      "sha256": "1e3245f979c9dad0fd407f7241800b708ab10a64313a81017911d2fafdc93816",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_227.jpg",
+      "sha256": "e3c95345b4572cc322c83844dba5aa31af6d3a8ba13983b9a42258cf45f47bb3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_229_a.jpg",
+      "sha256": "f21e2f65541ab27778675c7605a402bc5f77607c5deae768f09b8e6ee3af96b9",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_229_b.png",
+      "sha256": "c7ec8448cda0f22190bac8d7e2edcbfdfddece56a5f61c07e783b722658275d6",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_238_a.jpg",
+      "sha256": "ba5e1767b054384949c4965da0accf02c4d7d19defbba9966dbbfbbdedd5bc74",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_238_b.png",
+      "sha256": "a6d4e6bf49024d2abcc87bdb7cae4acdd7bb3aa9dce89af0de50a8646e3167cc",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_240.jpg",
+      "sha256": "c9fb4cc94b566cf46df1f4c3b05f0b72ab36d8776ad97f5d93338d58607ddb2b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_242.jpg",
+      "sha256": "0533fe683f016afdb103d9755d902f081c608fbf0a8ce2d7a5f28bc3bc4eb55a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_244_a.jpg",
+      "sha256": "1e79e83e72caca3fed86944e7d9ff1979504418083779ac2c78b02cc20eaf0b3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_244_b.png",
+      "sha256": "67b6305a53ce6bcc5ddbf7b6f4995f36243a5a68a30d56763d88fadfc67459ce",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_250_a.jpg",
+      "sha256": "c3347fc52d84aaf80c6abcdd8385110e71171616c9d37aed05cee642063e57de",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_250_b.png",
+      "sha256": "8286a654ff3ef48152c4564eee9e8731b1468361579c35963da1b1544a25804b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_254.jpg",
+      "sha256": "a304eb9b6f067e99998ec32d4404380e416670f42d614b15f735602f61ea3c63",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_257_a.jpg",
+      "sha256": "d6f1b257b1432fa7a6025a5986860792e63b3a30d6cdb25db0e62cb6e5c2d7d4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_257_b.png",
+      "sha256": "5effa46ea4b96a8546b74aecea2033da112e7a8adad3e1eacd618166d07d8999",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_264_a.jpg",
+      "sha256": "6eaae0e7315855b9994a5cdc0d06bfdf4c8d083f27abaa73029556a33959eee2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_264_b.png",
+      "sha256": "901fcb71b05453c8188eba7c1b7f2b655cb49ecf240de6effa3e56685cb8935d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_272_a.jpg",
+      "sha256": "ee7702f2c856d299bfeb2235de6c2949a2887897da91518cc48e743b6a2ad86d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_272_b.png",
+      "sha256": "c5267df47f1e79484b495bdb821e8e7e50c3b1b448ef82a72593b704ce11c5b6",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_282_a.jpg",
+      "sha256": "6d5dea4dc50c500dc3f42301b2fcf1593a667db3eb22908f3207e829b301b7f2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_282_b.png",
+      "sha256": "b0a59c8d1840d1ebb721ffd7178ad968f88c06bc5287d1ad55c20dadf526749b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_285.jpg",
+      "sha256": "4c93a9c81d2575599f0676155dee644e74081ef829a57f678231f52296ce88e8",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_290_a.jpg",
+      "sha256": "ed518cd7a8b363d6ac6a92c2707eea54b476226161333ccd18b6b5f0bd00a6a3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_290_b.png",
+      "sha256": "fb2f9ca5c624c926e0471d2496174ca0183166782b800b0a3c216b0d81ddac3d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_292.jpg",
+      "sha256": "d9d22167ff14247a1f6544b9d1cf55721eba182bb49a5e400b52e9887e6df6f0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_296_a.jpg",
+      "sha256": "5326d93ccd7f70c1c485c9d8fdd463bb97e9e5432a166075cdcb7f3b01872ca4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_296_b.png",
+      "sha256": "579abc8efbba4df09c9d7b73e029fffc89ee6582b0f5f38edf1b88351be896a0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_299.jpg",
+      "sha256": "f59a95f8aff4a22dd7902cd08ee9dc2b0625d756c429e8956281a9800ce659f7",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_301_a.jpg",
+      "sha256": "d6e1d0add39b4fcbaebce2c26731f91db4710fd114f92845442dace3e20cc139",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_301_b.png",
+      "sha256": "ec6dc299ec5394038dac5990eddfd6a76a9158c8cc383eefb332da18e22a76c3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_307_a.jpg",
+      "sha256": "95fedffac22e631ef336c056dee8574b138c4373c01c7e9d66922c33925100ab",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_307_b.png",
+      "sha256": "dd59cdbc8f9ff4a2647f763898d0168c8ca13181b755f83b3b10bbcdac30adbb",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_312.jpg",
+      "sha256": "4b143d5dd110764de7e90770c5256f1aee31e8f75ff572cda016182d5acabb12",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_314_a.jpg",
+      "sha256": "d6665330a79dcbf171c59a975161a49824f4462ac96e5b5a4dd8d3a3b6e33717",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_314_b.png",
+      "sha256": "f58a3c77d33c9662e85c2d8d20dcb59492e20c4d8b30eee0a093b36f015ad0a3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_319.jpg",
+      "sha256": "44773361d85cbe47b7216d7d850e4828d94b8e6f3e17104d52f7d445aeb891d4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_323_a.jpg",
+      "sha256": "1d0e274f33ed0211bbfd8db3317c74eb6641bc6367e9b9084b5d1b440bcb7aec",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_323_b.png",
+      "sha256": "9c9dee6ecd38f0a44c48f5217d504164e45351607f734b1aa070f2e91d57e36c",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_330_a.jpg",
+      "sha256": "086b98076423f7725492713712872a74b0a5895177111841760722e15126c4a8",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_330_b.png",
+      "sha256": "e2e61f6efaffa09c152f8fd534f90bfdfc24e51a9661fff3dc85c92f8b1baddc",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_347_a.jpg",
+      "sha256": "9973be58afd9bf10461aad384e941cc9a4f1b97f34f80f31adfb88544dc6bf0e",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_347_b.png",
+      "sha256": "116a7481fcb24ba0e2965de484f055a075c20072c8fdeef01999561ed4b662bd",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_350.jpg",
+      "sha256": "fb101da5f1ac19b637c6b5d4f94115e6db1131d483649f68f012708f351d9d4a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_356_a.jpg",
+      "sha256": "dd2168b1aefb19fe6eeeb4e89cd53a1e80cb2db542bc844032902c9d00587f40",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_356_b.png",
+      "sha256": "d00ab7dd00224c402f414a77e412d0b30c3e49c903c44cc058460a90f36b70c4",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_363_a.jpg",
+      "sha256": "05a870741ccdd0b13ec9539c88865d5550f7014c2ee9e076ec81ac736aab144f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_363_b.png",
+      "sha256": "617899219ae4f3432877185491c4b1f63d6b2646c8274f60c9ae9850e5615186",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_368.jpg",
+      "sha256": "ba5c33a6864715c23ceda05109212f87550a9f77f417fde4959a5bac21aead97",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_374_a.jpg",
+      "sha256": "ba5116e8a17ee007a01dce868d2c8328bc0181a2b7340d26d2c0705c00c2fd0d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_374_b.png",
+      "sha256": "442d74c61f48d0322aaa89fdf64415bfe1231f55c1643d93bae15b8958dbb99d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_388_a.jpg",
+      "sha256": "5617d0f8d7333d7170701830c3292daa10a3143b3cbd4ba9d1b5d4fe76b6e8b3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_388_b.png",
+      "sha256": "2d985b07980b027222dd17abee2697069897e9677936d7548e2991702083b96d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_392.jpg",
+      "sha256": "a30a53e57be4685c55f87bf1dcfb8c8a0ad1116cef3b977a22b0aac121fb3669",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_397_a.jpg",
+      "sha256": "2ae80bc4bfc9175e91fca2b1b2510fb4255a6e0d3929c72869307dfdc7757744",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_397_b.png",
+      "sha256": "992137f855828591aa5f0be438ddd0a7aa495dc7bde09185f048a0df86951b9b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_399.jpg",
+      "sha256": "1b80317674ed0341aeffbe890677abc406128d799e23c47e47aad955bb63222f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_406_a.jpg",
+      "sha256": "3b9d5eb5da1c31a7d9e27488f9d66efc26b93dceb185ee69d1aef21af00a8125",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_406_b.png",
+      "sha256": "fdc606a11794d90c7777ae82530ddfaa5e1ff38bfa6ae2421ef225f6949afdd9",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_414_a.jpg",
+      "sha256": "055b2af0b24eeacc9f2c53fe50adf085e9575f0f3107ee91d5c52866fc3f3a51",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_414_b.png",
+      "sha256": "0d513c3ca9c525339a68f9c874e54055c8440107601b23b3fbccc9451e1b31e3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_422_a.jpg",
+      "sha256": "de3926fb507c1c26c14fca1500dd05be5d5f14bcd1690705a258efdeaaa7199a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_422_b.png",
+      "sha256": "d21e4a3ef4cde163acf44d16b6f903596cbb1a17c1d210db5078f91c76e65bb3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_433_a.jpg",
+      "sha256": "6b80fae1881a40b8debf83abb4bbf518fb2c0a22a3d95aacfab1463e1f313c0b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_433_b.png",
+      "sha256": "c944b1a3c1750063acb68c0e587a1a455f1c35bf0ef74611d9008f099e1ae65a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_444_a.jpg",
+      "sha256": "c023cf8e7851b1172e72e54def0e68ac20221c3a38fb3e68adce6a49c1aadda3",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_444_b.png",
+      "sha256": "e44a3e005233b29d4c1fdf992d4b937c22d1438e7b95f75786a767be0f46f426",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_449.jpg",
+      "sha256": "feece7e75b7c4eea00509e1025c4e713f8d9e2a24ad72aa3a5cdeb609a8c8f3b",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_451_a.jpg",
+      "sha256": "87e1920cc53149a924b77814a8f238826c7b5dcfc5da9197f8ad1ee29fbd9c03",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_451_b.png",
+      "sha256": "a8634341e6d609acdfd7205594382884e49319fbdb996c601bb6bcb72c422f69",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_460_a.jpg",
+      "sha256": "27d3fbe508c40e32f1f35b9e2aaab5e9a4ca21646f2af33e32d98649d75838a8",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_460_b.png",
+      "sha256": "04b97e0fbd87675a428071e6285bcf5fd1ab6ee4559bb47b6482a3846424d261",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_463.jpg",
+      "sha256": "66b983a5273823bff8f99a2b553063367ee92570da37d008f7301e95c3e701f0",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_471_a.jpg",
+      "sha256": "8deb1e4989fe9938eb902f895ebc683af64e1f1f5d611f82e153c99419658d8f",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_471_b.png",
+      "sha256": "01cbc6abaaba475e4031954ab553818eed8846832dddac40118ab6ec2ae61814",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_477_a.jpg",
+      "sha256": "22b98013523e9f806970e3907a117eed375a51d472a97255ff45c3be281624f5",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_477_b.png",
+      "sha256": "ccc04383584ad88242a02b73d9466e23d52a8e8950eab4bf6d41bda05017598d",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_486_a.jpg",
+      "sha256": "c7adf6370b047b9d707dc43a2117596b077542fd0bb4f08a1dcd55e25b068dac",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_486_b.png",
+      "sha256": "5e5cfeb692d1ce9f7e0d1af40a03c93b897c53d23442ad7de19a8fba87487a1a",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_495_a.jpg",
+      "sha256": "f5b623fde3eb55c3e2f6177b0940dc9f244b04dfe30d6408821e0d92cae60d38",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_495_b.png",
+      "sha256": "b1a2634078839bfb9dc5d5a90289fc878add7096958f0d47f37f7121901d66df",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_501_a.jpg",
+      "sha256": "50b5627cfec1bdc3c8bc498cc1aaf452fb75f09b79731127e86091c5e1be71a2",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_501_b.png",
+      "sha256": "2fa2205f5d910adb8821f6767d57069881116d0e17cb2074cb7cecb5261986fe",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-i_505.jpg",
+      "sha256": "c2e3e7a36b172cf9477ab72f7c368e352b3a41c6c4a90deeceaf325dac3c4dd7",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/austen-peacock-1894.png",
+      "sha256": "05bea702ed1f8c4133baa9f8f648edcf9e46a9ef7db73a0b371ceec88bb23c26",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/inventory.json",
+      "sha256": "79d084028b00ae4ff8d22ff65fbb2cc7b564eb586806964971c26ae55143c128",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/pride-and-prejudice/edition/library.json",
+      "sha256": "a3f77b3c8ca231236d89891a4917e72c6e2250a18a1b4a134797ee80ae84a679",
+      "provenance": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 335de093f27837a3b06219407d5fb9b8792c8274. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/alice-in-wonderland/edition/assets.json",
+      "sha256": "2b566b34a3cf532dbd7774631d5da081955f10bdba1798731660e2576401b556",
+      "provenance": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 5a6b643134e885e8ac9a6688aed05767d5eac8b7. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/alice-in-wonderland/edition/library.json",
+      "sha256": "49c5ff3991360abd76354da5080165929bc9ee6fe2b2333affb512ac0f9f60ea",
+      "provenance": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 5a6b643134e885e8ac9a6688aed05767d5eac8b7. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/walden/edition/cover.jpg",
+      "sha256": "d9f70a4fb5dbb0ca17f2eb2f669d9e5002223c2490cda726545067fa0994a436",
+      "provenance": "examples/walden/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 2893d3cbd416275145465e2fabe00af722a819a8. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/walden/edition/library.json",
+      "sha256": "4fc46334e02a038d43f892870f9d5e53b1f5ee42856d59956fa55a74235421a8",
+      "provenance": "examples/walden/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 2893d3cbd416275145465e2fabe00af722a819a8. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/walden/edition/walden-pond-map.jpg",
+      "sha256": "c79c45dd901a67f9763118d7d6367582d5b82722795b458387e4e0709a6df174",
+      "provenance": "examples/walden/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 2893d3cbd416275145465e2fabe00af722a819a8. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/editions/hegel.json",
+      "sha256": "a74d1368fecb264ff9688d5a125cdfc13ce20ac5e431a1afa95a3806c7578471",
+      "provenance": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 6b160fad13729f07808248be3071a6e33afb3a80. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/editions/inventory.json",
+      "sha256": "99f5ccf6d55993317f636b6985cb11d6f71fc87c6c3e171ab3e15a3c90c6eba8",
+      "provenance": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 6b160fad13729f07808248be3071a6e33afb3a80. Source terms and US territorial evidence retained."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/editions/schopenhauer.json",
+      "sha256": "ccd7ccd39c185b2a47ab68b943081bb69daedd40e2f5a5c3adbee91be9bb752b",
+      "provenance": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 6b160fad13729f07808248be3071a6e33afb3a80. Source terms and US territorial evidence retained."
+    }
   ]
 }

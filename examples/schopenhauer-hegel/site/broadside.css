@@ -1,0 +1,240 @@
+/* A course notice outside; a calm book inside. All fonts are local system faces. */
+:root {
+  --paper: #f7f6f2;
+  --ink: #211e1a;
+  --muted: #645e55;
+  --line: #b8b0a4;
+  --accent: #704531;
+  --wash: #e9e6df;
+  --mark: #e9d6a4;
+  --hall-hegel: #3c5376;
+  --hall-schopenhauer: #91452c;
+  --hall-green: var(--hall-hegel);
+  --masthead-height: 64px;
+}
+:root[data-theme=ink] {
+  --paper: #fffefa;
+  --ink: #211e1a;
+  --muted: #615b53;
+  --line: #aaa297;
+  --accent: #704531;
+  --wash: #eeece6;
+  --mark: #e9d6a4;
+}
+:root[data-theme=dusk] {
+  --paper: #24211e;
+  --ink: #f1ece2;
+  --muted: #c3b9ac;
+  --line: #7e7366;
+  --accent: #e1bd98;
+  --wash: #302b25;
+  --mark: #635036;
+  --hall-hegel: #abc3e4;
+  --hall-schopenhauer: #e8b18d;
+}
+
+/* Compact upright sign, with two door-shaped strokes rather than an emblem. */
+.masthead {
+  gap: 24px;
+  margin: 0 5vw;
+  min-height: var(--masthead-height);
+  border-bottom: 1px solid var(--ink);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  font: 750 11px/1.15 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.hall-mark {width: 24px; height: 29px; fill: none; stroke: currentColor; stroke-width: 2.2}
+.masthead nav {gap: 8px}
+.masthead nav a {display: flex; align-items: center; min-height: 44px; padding: 8px; font-size: 12px}
+.masthead nav a::after {left: 8px; right: 8px; bottom: 3px; height: 2px; transition: none}
+.type-button {min-width: 44px; min-height: 44px; padding: 8px; font-size: 20px}
+main > .shelf, main > .page, dialog[open] {animation: none}
+.site-footer {margin: 0 5vw; padding: 18px 0; border-color: var(--ink)}
+.site-footer > span {font: 12px/1.5 var(--sans); letter-spacing: .03em}
+
+/* One broadside: title, equal doorways, compact course program. */
+.noticeboard {max-width: 1320px; padding: 36px 5vw 60px}
+.notice-title {border: 0; padding: 0}
+.notice-kicker {margin: 0 0 17px; font: 650 11px/1.4 var(--sans); letter-spacing: .15em; text-transform: uppercase}
+.notice-title h1 {
+  max-width: none;
+  margin: 0 0 22px;
+  font: 800 clamp(42px, 6.8vw, 90px)/.98 var(--sans);
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+.notice-title h1 span {display: block; margin-top: 13px; font: 650 18px/1.2 var(--sans); letter-spacing: .24em}
+.notice-deck {display: flex; justify-content: space-between; gap: 24px; padding: 0 0 18px; border-bottom: 4px double var(--ink)}
+.notice-deck p {margin: 0; font: 17px/1.45 var(--serif)}
+.notice-deck p + p {font: 12px/1.5 var(--sans); color: var(--muted); align-self: end}
+.hall-entrances {position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; padding: 30px 0}
+.hall-entrances::before {content: ''; position: absolute; top: 28px; bottom: 28px; left: 50%; width: 10px; transform: translateX(-50%); border-inline: 1px solid var(--ink); pointer-events: none}
+.hall-entrance {display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 0; border: 0; min-width: 0}
+.hall-label {display: flex; justify-content: space-between; gap: 15px; font: 650 11px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .13em}
+.hall-label > span:first-child {border-bottom: 3px solid currentColor; padding-bottom: 7px; min-width: 65px}
+.hall-entrance[data-hall=hegel] .hall-label {color: var(--hall-hegel)}
+.hall-entrance[data-hall=schopenhauer] .hall-label {color: var(--hall-schopenhauer)}
+.hall-entrance h2 {margin: 18px 0 19px; font: 750 clamp(28px, 3.6vw, 46px)/1.08 var(--sans); letter-spacing: -.045em; text-transform: uppercase}
+.hall-entrance h3 {margin: 0 0 12px; min-height: 3.65em; font: 23px/1.23 var(--serif); letter-spacing: -.015em}
+.hall-entrance .book-title {width: 100%; min-height: 44px; color: var(--ink); font: inherit; text-align: left}
+.hall-entrance .book-title:hover {text-decoration: underline; text-decoration-thickness: 1px}
+.hall-entrance p.edition-label {margin: 0 0 21px; color: var(--muted); font: 12px/1.6 var(--sans)}
+.hall-entrance .book-actions {margin-top: auto; text-align: left; border-top: 1px solid var(--line); padding-top: 10px}
+.hall-entrance .hall-enter {display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 0; padding: 8px 0; font-size: 13px; font-weight: 650; border: 0; text-align: left}
+.hall-entrance .book-actions .small {display: block; margin: 0; font-size: 11px; color: var(--muted)}
+.question-list {border-top: 4px double var(--ink); padding-top: 16px}
+.program-heading {display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 9px}
+.program-heading h2 {margin: 0; font: 700 13px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .1em}
+.program-heading p {margin: 0; color: var(--muted); font-size: 11px}
+.question-row {grid-template-columns: 35px minmax(0, 1fr) 22px; gap: 20px; min-height: 76px; padding: 14px 0; border-bottom: 1px solid var(--line)}
+.question-row h3 {margin: 0 0 3px; font: 500 clamp(19px, 2.2vw, 25px)/1.25 var(--serif); letter-spacing: -.015em}
+.question-row p {font-size: 12px; line-height: 1.45}
+.session-number {align-self: start; padding-top: 5px; color: var(--ink); font: 650 12px/1.3 var(--sans); font-variant-numeric: tabular-nums}
+.question-row .ui-icon, .question-row:hover .ui-icon {transform: none; transition: none}
+.historical-strip {border: 0; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; padding: 24px 0 0; align-items: start}
+.historical-strip p {font-size: 12px; line-height: 1.6; max-width: 680px}
+.historical-strip button {padding: 0 0 0 8px; font-size: 11px; min-height: 44px}
+.shelf-colophon {margin-top: 15px; max-width: 760px; font-size: 11px; line-height: 1.6}
+.personal-shelf {margin-top: 45px}
+.personal-shelf h2 {font: 700 18px var(--sans)}
+.personal-shelf .book-row {grid-template-columns: 1fr auto}
+
+/* The corridor is a reading workspace, not a second poster. */
+.page {padding: 36px 5vw 64px}
+.page-head h1, .session-heading h1 {font: 650 clamp(30px, 4.5vw, 52px)/1.08 var(--sans); letter-spacing: -.04em}
+.page-head .eyebrow, .session-heading > .eyebrow {font-weight: 650}
+.session-heading {max-width: 860px; margin-bottom: 24px}
+.session-heading > .text-link {display: inline-flex; align-items: center; min-height: 44px; padding: 6px 0}
+.session-heading > .eyebrow {margin-top: 14px}
+.session-heading > p:last-child {font: 18px/1.5 var(--serif)}
+.take-seat {border-top: 3px solid var(--ink)}
+.seat-choices button {border-color: var(--ink); font-size: 14px}
+.seat-choices [data-hall=hegel] {color: var(--hall-hegel)}
+.seat-choices [data-hall=schopenhauer] {color: var(--hall-schopenhauer)}
+.hall-switch {display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; padding: 4px 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--line); scroll-margin-top: 76px}
+.hall-switch [aria-pressed] {min-width: 44px; padding: 8px 12px; font-size: 12px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase}
+.hall-switch [aria-pressed=true] {box-shadow: inset 0 -3px var(--ink)}
+.hall-switch .cross-action {margin: 0; min-width: 70px; padding: 8px 10px; font-size: 12px; text-decoration: none}
+.lecture-halls {gap: 48px; margin-top: 24px}
+.lecture-hall + .lecture-hall {border-left: 1px solid var(--ink); padding-left: 32px}
+.lecture-hall > header > .eyebrow {font-size: 11px; font-weight: 700; letter-spacing: .08em; margin-bottom: 12px}
+.lecture-hall[data-hall=hegel] > header > .eyebrow {color: var(--hall-hegel)}
+.lecture-hall[data-hall=schopenhauer] > header > .eyebrow {color: var(--hall-schopenhauer)}
+.lecture-hall h2 {font-size: 26px; line-height: 1.15; letter-spacing: -.02em; min-height: 2.3em}
+.lecture-hall .small {font-size: 12px; line-height: 1.5}
+.edition-line {font-style: normal}
+.orientation {font-size: 12px; margin: 6px 0 12px}
+.hall-scroll {padding-top: 18px; border-color: var(--line)}
+.hall-actions {gap: 12px; font-size: 12px}
+.hall-actions button {min-width: 44px; min-height: 44px}
+.corridor-note > .eyebrow {font-weight: 650; color: var(--ink)}
+.reflection > label {font: 650 23px/1.3 var(--sans); letter-spacing: -.02em}
+.session-return a {display: inline-flex; align-items: center; min-height: 44px}
+
+/* Book type, source marks and source spacing stay under the existing renderer. */
+.reading {padding: 24px 5vw 75px}
+.reader-tools {top: var(--masthead-height); min-height: 54px; padding: 5px 0; margin-bottom: 42px; align-items: center}
+.reader-tools button {padding: 8px 4px; min-width: 44px; min-height: 44px; font-size: 12px}
+.reader-tools .tool-group {gap: 14px}
+.reader-heading h1 {font-size: clamp(30px, 3.5vw, 43px); letter-spacing: -.025em; line-height: 1.16}
+.reader-heading .eyebrow {font-size: 10px; line-height: 1.6; margin-bottom: 22px; letter-spacing: .08em}
+.chapter-links a {display: block; min-width: 44px; min-height: 44px}
+.chapter-links .small {font-weight: 650}
+.focus .reader-heading .eyebrow {color: var(--muted)}
+.dialog-header h2 {font-family: var(--sans); font-weight: 600; font-size: 20px; letter-spacing: -.025em}
+.dialog-header {border-color: var(--ink)}
+.dialog-quote {border-color: var(--ink)}
+.settings-presets button {font: 13px/1.5 var(--sans); min-width: 76px}
+button.primary, .primary {background: var(--ink); border-color: var(--ink); color: var(--paper)}
+#selection-save {border-radius: 0; background: var(--ink); color: var(--paper); box-shadow: none}
+.status {box-shadow: none}
+
+@media(max-width: 900px) {
+  .masthead {gap: 16px}
+  .hall-entrances {gap: 48px}
+  .hall-entrance h3 {font-size: 21px}
+  .lecture-halls {gap: 28px}
+  .lecture-hall + .lecture-hall {padding-left: 24px}
+}
+@media(max-width: 700px) {
+  :root {--masthead-height: 64px}
+  .masthead {display: flex; margin-inline: 5vw; gap: 8px; padding-top: 0; flex-wrap: nowrap}
+  .masthead nav {gap: 0; margin-left: auto}
+  .masthead nav a {font-size: 11px; padding: 8px 7px}
+  .type-button {padding: 8px; min-width: 44px}
+  .noticeboard {padding-top: 26px}
+  .notice-kicker {font-size: 9px; letter-spacing: .1em; margin-bottom: 15px}
+  .notice-title h1 {font-size: 44px; max-width: 390px; margin-bottom: 18px}
+  .notice-title h1 span {font-size: 15px; margin-top: 12px}
+  .notice-deck {display: block; padding-bottom: 15px}
+  .notice-deck p {font-size: 17px}
+  .notice-deck p + p {margin-top: 3px; font-size: 11px}
+  .hall-entrances {display: block; padding: 0 0 0 25px; border-left: 1px solid var(--ink); margin: 22px 0}
+  .hall-entrances::before {left: 6px; width: 0; border-left: 1px solid var(--ink); border-right: 0; transform: none; top: 0; bottom: 0}
+  .hall-entrance {position: relative; padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line)}
+  .hall-entrance:last-child {margin-bottom: 0; padding-bottom: 0; border-bottom: 0}
+  .hall-entrance::before {content: ''; position: absolute; top: 14px; left: -25px; width: 15px; border-top: 1px solid var(--ink)}
+  .hall-label {font-size: 10px}
+  .hall-label > span:first-child {padding-bottom: 4px; min-width: 55px; border-bottom-width: 2px}
+  .hall-entrance h2 {font-size: clamp(25px, 7.5vw, 32px); margin: 12px 0 9px}
+  .hall-entrance h3 {font-size: 19px; line-height: 1.2; min-height: 0; margin-bottom: 9px}
+  .hall-entrance p.edition-label {font-size: 11px; line-height: 1.5; margin-bottom: 10px}
+  .hall-entrance .book-actions {display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 0}
+  .hall-entrance .hall-enter {width: auto; min-width: 140px; gap: 18px; font-size: 12px}
+  .hall-entrance .book-actions .small {font-size: 10px; text-align: right}
+  .program-heading {display: block; margin-bottom: 5px}
+  .program-heading p {margin-top: 3px}
+  .question-row {grid-template-columns: 24px minmax(0, 1fr) 16px; gap: 12px; min-height: 78px; padding: 13px 0}
+  .question-row h3 {font-size: 20px}
+  .question-row p {font-size: 11px}
+  .historical-strip {display: block; padding-top: 22px}
+  .historical-strip button {padding: 8px 0}
+  .shelf-colophon {margin-top: 5px}
+  .personal-shelf .book-row {display: block}
+  .page {padding: 26px 5vw 50px}
+  .session-heading h1 {font-size: 32px}
+  .hall-switch {grid-template-columns: 1fr 1fr auto; gap: 2px; flex-wrap: nowrap; scroll-margin-top: 76px}
+  .hall-switch [aria-pressed] {padding-inline: 4px; font-size: 10px; letter-spacing: .015em}
+  .hall-switch .cross-action {min-width: 61px; padding-inline: 6px; font-size: 11px}
+  .lecture-halls {display: block; margin-top: 20px}
+  .lecture-hall + .lecture-hall {padding-left: 0; border-left: 0}
+  .lecture-hall h2 {font-size: 26px; min-height: 0}
+  .reader-tools {gap: 8px; margin-bottom: 30px}
+  .reader-tools .tool-group {gap: 8px}
+  .reading {padding-top: 16px}
+  .dialog-inner {padding: 20px}
+  .dialog-header h2 {font-size: 18px}
+}
+@media(max-width: 380px) {
+  :root {--masthead-height: 102px}
+  .masthead {display: grid; grid-template-columns: 1fr 44px; gap: 0 12px; padding-top: 5px}
+  .masthead .wordmark {font-size: 10px}
+  .masthead nav {grid-column: 1 / -1; grid-row: 2; margin: 0; justify-content: space-between}
+  .masthead nav a {padding-inline: 10px}
+  .type-button {grid-column: 2; grid-row: 1}
+  .notice-title h1 {font-size: 38px}
+  .hall-entrances {padding-left: 20px}
+  .hall-entrance::before {left: -20px; width: 12px}
+  .hall-entrance h2 {font-size: 25px}
+  .hall-entrance .hall-enter {min-width: 128px}
+  .hall-switch {scroll-margin-top: 114px}
+}
+@media(max-height: 500px) {
+  .masthead {position: static}
+  .reader-tools {position: static; min-height: 44px; margin-bottom: 20px}
+  .hall-switch {scroll-margin-top: 10px}
+  .reading {padding-top: 10px}
+  .focus .reading {padding-top: 20px}
+}
+@media(max-height: 500px) and (max-width: 1000px) {
+  .lecture-halls {display: block}
+  .lecture-hall.hall-away {display: none}
+  .lecture-hall + .lecture-hall {border: 0; padding: 0}
+  .lecture-hall h2 {font-size: 24px; min-height: 0}
+}

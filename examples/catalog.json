@@ -1,0 +1,1195 @@
+{
+  "schema": 1,
+  "status": "Source examples; no hosted destination selected.",
+  "examples": [
+    {
+      "id": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "description": "A restrained illustrated title page, Thomson’s peacock ornament and a chapter-limited word index.",
+      "directory": "examples/pride-and-prejudice",
+      "sourceCommit": "335de093f27837a3b06219407d5fb9b8792c8274",
+      "sourceFileCount": 230,
+      "packagingChanges": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "package.json",
+        "publication.json",
+        "docs/TRIAL-README.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:book"
+      ],
+      "url": null,
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 69433,
+          "sha256": "8e9ceca09613b74024155afc194f201d29ec83a41c82577160d2e48893aa386f"
+        },
+        {
+          "path": "austen-colophon.png",
+          "bytes": 14567,
+          "sha256": "c757484ae3a9446ae021db86fac4faa8560e78439062c60cc6fb121b1c6a3bdb"
+        },
+        {
+          "path": "austen-cover.jpg",
+          "bytes": 209891,
+          "sha256": "d7ffa5b624f7bfa70dbc92c213ab9ab6fe8eb32cd3f69e41c0bde68c68e8b97b"
+        },
+        {
+          "path": "austen-front.png",
+          "bytes": 104191,
+          "sha256": "9bbda1886422aa2bf96ce32d3f18921e47e266e24d38053fde93e24f20d31b84"
+        },
+        {
+          "path": "austen-i_003.jpg",
+          "bytes": 109569,
+          "sha256": "5e11aff9e091ae4ad80ab73d32aa63aefe60851e41777012e9df944ecebd58db"
+        },
+        {
+          "path": "austen-i_008.png",
+          "bytes": 14976,
+          "sha256": "e37c8dda855454e71dac80a5f2ca9c02e187acf46825b64891fd2183d8fc2eb2"
+        },
+        {
+          "path": "austen-i_010.jpg",
+          "bytes": 211508,
+          "sha256": "1a36172eae411bdf14b9f860e5bb69d2a5fcbd6278885dafa890e188ca5ddfb7"
+        },
+        {
+          "path": "austen-i_026.jpg",
+          "bytes": 222725,
+          "sha256": "b09d604793265c30e2f105bcbfcc674747d49b59d54e311525be15929c54af1b"
+        },
+        {
+          "path": "austen-i_030.jpg",
+          "bytes": 255065,
+          "sha256": "ab1831408b0f827ed1d61efd1183df8a08b260b085069f8327bc7b8020565584"
+        },
+        {
+          "path": "austen-i_031.jpg",
+          "bytes": 252972,
+          "sha256": "980d0fe66a74cf846d206adec18aa8417fec9b933ae519a21cf09e9bde43afb8"
+        },
+        {
+          "path": "austen-i_034.jpg",
+          "bytes": 254628,
+          "sha256": "a50313f8caf6f67b1548087e76f08991fa980b58a1b0922a732e4771ebad6cb0"
+        },
+        {
+          "path": "austen-i_035_a.jpg",
+          "bytes": 254364,
+          "sha256": "ab04a629e81e75340005d82d7796f662f8b5749087d9346ebe82eb55d200e3aa"
+        },
+        {
+          "path": "austen-i_035_b.png",
+          "bytes": 2636,
+          "sha256": "0cca36c7086432be09cb8c63c733ab7b05f215d4504e1ccfe63eaee037973706"
+        },
+        {
+          "path": "austen-i_038.jpg",
+          "bytes": 243542,
+          "sha256": "b1c9259c0bce848d54d361ce6df8cbaccfc937a3d2770cdb72a634ed173881e0"
+        },
+        {
+          "path": "austen-i_039_a.jpg",
+          "bytes": 251895,
+          "sha256": "7ffa068cc2e9332b3c1cd59221e7684b2fb189fd1522d5f9f6cf669c1269454e"
+        },
+        {
+          "path": "austen-i_039_b.png",
+          "bytes": 3193,
+          "sha256": "85cae72fba8142e33f62d0af3d3b9f847fb58f1f11721b83dbeefaa027dee281"
+        },
+        {
+          "path": "austen-i_041.jpg",
+          "bytes": 255517,
+          "sha256": "ee6356698287597cbd34c1728f8f67e6582ebae5c1e2f593277192ce307fcebe"
+        },
+        {
+          "path": "austen-i_044.jpg",
+          "bytes": 253645,
+          "sha256": "8c2b95c3e9a3ae9a5d060edef6aa31b563580bf8dff2e854aac5f77eb19e00ec"
+        },
+        {
+          "path": "austen-i_047_a.jpg",
+          "bytes": 242662,
+          "sha256": "51eaef302d98af1f640eab68591d4cdd613a9c87436b30448eace74d6aa87d89"
+        },
+        {
+          "path": "austen-i_047_b.png",
+          "bytes": 2822,
+          "sha256": "b091448b3234c87ae06145726b87dbd0e4f1c83bc340576e07bd972234a6e0d1"
+        },
+        {
+          "path": "austen-i_051_a.jpg",
+          "bytes": 255735,
+          "sha256": "9cfdf07d05b063dd503031f41641714b20b79cc9d6df47a15ed4f993740733b6"
+        },
+        {
+          "path": "austen-i_051_b.png",
+          "bytes": 3624,
+          "sha256": "dd46f463c3100c5f7474e2e22d0088b4a6a0d6c262ffb5f6612cf1066fe0498f"
+        },
+        {
+          "path": "austen-i_053.jpg",
+          "bytes": 247792,
+          "sha256": "46f7f0371e8a273654ea516d4abdc0fe02e48771c2dd069cd65c98081e93f4e0"
+        },
+        {
+          "path": "austen-i_055.jpg",
+          "bytes": 239137,
+          "sha256": "f4123e29910c2e05b2813dcdb15ecef665d504978538055e67adf81205d92e68"
+        },
+        {
+          "path": "austen-i_056_a.jpg",
+          "bytes": 200911,
+          "sha256": "58d6f1250e9b1cb8fee3295273e1f1f5028cc5ac2c26be715af2812b7d51e8f2"
+        },
+        {
+          "path": "austen-i_056_b.png",
+          "bytes": 3437,
+          "sha256": "dd117d4e1af7d31786072b88b4c890574357ab4175401f76cad1859fd00582ae"
+        },
+        {
+          "path": "austen-i_060.jpg",
+          "bytes": 255566,
+          "sha256": "7c85673c6c998144abf509ded87cf16e8d71d2527fdb7b13ee74fc6d77cf853d"
+        },
+        {
+          "path": "austen-i_065_a.jpg",
+          "bytes": 253053,
+          "sha256": "48d1ffdcbae9170e3853155b5870f1ef64370e3d9ba0f03933ed092891cf1b74"
+        },
+        {
+          "path": "austen-i_065_b.png",
+          "bytes": 2611,
+          "sha256": "c4b3a1be1894ff7c138d475d7f98c7599e6d9f2128bcbc6671d89663d3ee5cc3"
+        },
+        {
+          "path": "austen-i_069.jpg",
+          "bytes": 247980,
+          "sha256": "ce9874afa721bae18f512348a26f147a21b1d2a9b470c8381bfa27670ed27f84"
+        },
+        {
+          "path": "austen-i_073.jpg",
+          "bytes": 254298,
+          "sha256": "ead856df7fa7386abf041453a1eae989e77213dfc7e313cde17a90d6711cf898"
+        },
+        {
+          "path": "austen-i_074_a.jpg",
+          "bytes": 251918,
+          "sha256": "6dc2de9c7d197c0999d64aded59bd9bd470c35096cfa84db824adf4411e1f39f"
+        },
+        {
+          "path": "austen-i_074_b.png",
+          "bytes": 2957,
+          "sha256": "ee9228fedfac6e4ebc693f330a2709270cc8f090cf881626dad43bb004e578ab"
+        },
+        {
+          "path": "austen-i_082_a.jpg",
+          "bytes": 254089,
+          "sha256": "ec5c81b6efa00e098aa5a3c4837f1f562127eb783919eb9b3d1272d5a2a0018c"
+        },
+        {
+          "path": "austen-i_082_b.png",
+          "bytes": 2975,
+          "sha256": "065204246a70b7407291d86ecd6133d9f0350c7460438b626e4d56c2c3910a87"
+        },
+        {
+          "path": "austen-i_089_a.jpg",
+          "bytes": 240175,
+          "sha256": "2522b918eb8870d46b20c6cc9dd0b3f61a2a040e98f4afcb83c458fc07b00bdb"
+        },
+        {
+          "path": "austen-i_089_b.png",
+          "bytes": 3344,
+          "sha256": "a241405405d16cfd1d053bea167dc108a9a82d7d5908983667f2e4efb9f69f5f"
+        },
+        {
+          "path": "austen-i_096.jpg",
+          "bytes": 255905,
+          "sha256": "743e37f56ba2cd9c77ebb2a0577e438b479ff027183838c352880671ffa3b33c"
+        },
+        {
+          "path": "austen-i_098_a.jpg",
+          "bytes": 251092,
+          "sha256": "fbf9759cc35fbb8342809448762010ea451bc6357bb10a1e5b0bb271024dd9a0"
+        },
+        {
+          "path": "austen-i_098_b.png",
+          "bytes": 2734,
+          "sha256": "aabdfce9ca63a623b483fe709dea7b4c8a13effb0703bb9e67f77d9063eb2b51"
+        },
+        {
+          "path": "austen-i_104_a.jpg",
+          "bytes": 260629,
+          "sha256": "cb3299b1ac79dd2fb0a0904da2590c4318dad2caac8cb419caa21643630db4bf"
+        },
+        {
+          "path": "austen-i_104_b.png",
+          "bytes": 4692,
+          "sha256": "0bf2b16edcb75accd91aa4693d60ee033c4b3683331cbf1e9e95ed349cac29d1"
+        },
+        {
+          "path": "austen-i_107_a.jpg",
+          "bytes": 133875,
+          "sha256": "cc815589a0b3702aa8e38c5e91d2e3114a1a86607c364c545616b8a93c73d7d8"
+        },
+        {
+          "path": "austen-i_107_b.png",
+          "bytes": 3501,
+          "sha256": "74b24e956c4a27da9c6829c27c571999ac03780d124e2c280e6fbdea25cdbd20"
+        },
+        {
+          "path": "austen-i_113_a.jpg",
+          "bytes": 219578,
+          "sha256": "c29e1ecfc51606c32284c16d3750bc83f56088c76f7ed3270472c45e2e6875ae"
+        },
+        {
+          "path": "austen-i_113_b.png",
+          "bytes": 1289,
+          "sha256": "7876530ee431e82e7b3013bf555263dc139a6fd677747a580dd5e82e25c4f6e6"
+        },
+        {
+          "path": "austen-i_116.jpg",
+          "bytes": 254949,
+          "sha256": "e17c2642b6e00a7214ddf9a18c87bb5512080ccf466f67be951bedbe7261be28"
+        },
+        {
+          "path": "austen-i_118_a.jpg",
+          "bytes": 187276,
+          "sha256": "9036dff3b33a38046a5ba364729cbfc835b131fa557157c397cf52d15b0f8a81"
+        },
+        {
+          "path": "austen-i_118_b.png",
+          "bytes": 2789,
+          "sha256": "42fc2e1b7129b3645937adf121b9e0394ff2b2b682eabc41c71040a094c8b1f9"
+        },
+        {
+          "path": "austen-i_124_a.jpg",
+          "bytes": 253735,
+          "sha256": "ab8e251a29051e650bce99116acfa89eaf63a121f73b6ba8e669b712391d496d"
+        },
+        {
+          "path": "austen-i_124_b.png",
+          "bytes": 2965,
+          "sha256": "448cf8aa3b271da411d17ea55f4ee3d959a1fb8eb272c8a486e59517556797e2"
+        },
+        {
+          "path": "austen-i_126.jpg",
+          "bytes": 252643,
+          "sha256": "c614fc3ca62260f979f35bd832a9866a52aeddd8d04d01bb3e3a1558ad0c2cfc"
+        },
+        {
+          "path": "austen-i_137_a.jpg",
+          "bytes": 252333,
+          "sha256": "cb6ffc21cffe3e733691ff8f2c41b5c2c52c4719c9200f752834e09c2584bd1f"
+        },
+        {
+          "path": "austen-i_137_b.png",
+          "bytes": 3215,
+          "sha256": "64b600406f28266010d238696e0693d05d9831ab29aef87c141d33465178b20e"
+        },
+        {
+          "path": "austen-i_142_a.jpg",
+          "bytes": 253742,
+          "sha256": "585462e505e9440401230ecbd716dac9aaa62dfede1556342f29499d1a9868e4"
+        },
+        {
+          "path": "austen-i_142_b.png",
+          "bytes": 3595,
+          "sha256": "dcae86a7a907e2eef60e13d96fde3dcbaa569cfc2170d3863e48b7b97e681342"
+        },
+        {
+          "path": "austen-i_147.jpg",
+          "bytes": 248825,
+          "sha256": "5419558140aaad3731689603f186ea0eecc1691324b7d6b56c4b2193980e95f2"
+        },
+        {
+          "path": "austen-i_161_a.jpg",
+          "bytes": 252729,
+          "sha256": "05bef8aea5b1edc40bba3a5246d70656d74677356899f1734788a3991a95a2df"
+        },
+        {
+          "path": "austen-i_161_b.png",
+          "bytes": 2993,
+          "sha256": "eb83cd4db836f1487a5a95267ff525fee88e9a6d8a0eaa1c28225a08ae44f9c5"
+        },
+        {
+          "path": "austen-i_168_a.jpg",
+          "bytes": 252241,
+          "sha256": "29ec124dd19b32ae05db425ae50123aac05bc7c277f8afcc39924f77b071f8f7"
+        },
+        {
+          "path": "austen-i_168_b.png",
+          "bytes": 2583,
+          "sha256": "4e9d0bfed64f381db45b37549490082b88a24f5e1199384a86577efe5f678158"
+        },
+        {
+          "path": "austen-i_172.jpg",
+          "bytes": 253813,
+          "sha256": "807e4e6fca12fbb535689009c50e843d31d644ee4f3a72dc985b857e54b063c0"
+        },
+        {
+          "path": "austen-i_175_a.jpg",
+          "bytes": 252643,
+          "sha256": "4541149303f1638b52551cb8fa66c9ebde0d4c0c0e109a47455dd1c5ca89c4c1"
+        },
+        {
+          "path": "austen-i_175_b.png",
+          "bytes": 2619,
+          "sha256": "2e8c4b2c6c16f5d63530e5e902e7d903ad888eb16213dd2ae8163f23707f9a12"
+        },
+        {
+          "path": "austen-i_177.jpg",
+          "bytes": 252923,
+          "sha256": "f64fb8c8ac3ad62c77d03770e8eee893327393dcb2e6e1db30044eb7e5dd4f74"
+        },
+        {
+          "path": "austen-i_183_a.jpg",
+          "bytes": 249275,
+          "sha256": "384393d19c0526e07db2432601bfb98fb5eb29712b4a2da815ece18caa00b58c"
+        },
+        {
+          "path": "austen-i_183_b.png",
+          "bytes": 3283,
+          "sha256": "b6ab6ddc5806eebdc427ce9c799600d87e111c6e60724b808111f42c5b1d5765"
+        },
+        {
+          "path": "austen-i_185.jpg",
+          "bytes": 249486,
+          "sha256": "4d4b8a50f7facad15969d4ad31ad38d012d012fc026138df3f48882e8bba7192"
+        },
+        {
+          "path": "austen-i_190_a.jpg",
+          "bytes": 253775,
+          "sha256": "3763073ec39e6cdefe89f2ea35220d8e025be6c19596e33b4e78ab97430c882b"
+        },
+        {
+          "path": "austen-i_190_b.png",
+          "bytes": 3523,
+          "sha256": "9be9a650be60be7f7e9d6bc568bab6a65be2d22e659cf307f49a3887694384ca"
+        },
+        {
+          "path": "austen-i_195.jpg",
+          "bytes": 253129,
+          "sha256": "33a820316a312ba353e329a1e6d0d281a0faa8b00f9a0ca83984d5a9da530b1a"
+        },
+        {
+          "path": "austen-i_197_a.jpg",
+          "bytes": 239150,
+          "sha256": "eda8346d2852ff7f8b96cda288c50d233c9948e1efea078db5a02fd39d02f402"
+        },
+        {
+          "path": "austen-i_197_b.png",
+          "bytes": 2577,
+          "sha256": "0f73e117bb1f1c666455db02cbddd7dc6a00dbe34a66a6968978304ee0b4a714"
+        },
+        {
+          "path": "austen-i_204_a.jpg",
+          "bytes": 254894,
+          "sha256": "9bf14d01a335cac6ecf6c7f4a80fa89427e8fcbc3b5920be928725fcddb18f0e"
+        },
+        {
+          "path": "austen-i_204_b.png",
+          "bytes": 2904,
+          "sha256": "7643ee9d84a191f7dc380a029feb7dbe98ea3b072b3ada15563d11c9d53a059b"
+        },
+        {
+          "path": "austen-i_206.jpg",
+          "bytes": 249551,
+          "sha256": "61ad7300f60724ee084ff2a36c57c271842595c2e842d1c3c0c07ce347c1d406"
+        },
+        {
+          "path": "austen-i_210_a.jpg",
+          "bytes": 253496,
+          "sha256": "3662f6fcd7bf036263034caa56354e4f0eb1b01dadad034fc6370c210f397047"
+        },
+        {
+          "path": "austen-i_210_b.png",
+          "bytes": 2939,
+          "sha256": "accd4cb9ce06fa43fde6ed14ae3ff11d605fa70cb9a2cfc7d00611412770fc14"
+        },
+        {
+          "path": "austen-i_218_a.jpg",
+          "bytes": 248477,
+          "sha256": "3faf23278c5f34efe056150666694552ff89a4d17430293563f46bfce0386258"
+        },
+        {
+          "path": "austen-i_218_b.png",
+          "bytes": 2701,
+          "sha256": "99d58a8f79f1f54a3fcb3a6a2410f74546e7ba1155ef16395f18bfbb5b667fc4"
+        },
+        {
+          "path": "austen-i_223_a.jpg",
+          "bytes": 253932,
+          "sha256": "74ecbb74db82f751260f3d878621a1e3948b9f8a615df01409b9aa3075a241fb"
+        },
+        {
+          "path": "austen-i_223_b.png",
+          "bytes": 3260,
+          "sha256": "1e3245f979c9dad0fd407f7241800b708ab10a64313a81017911d2fafdc93816"
+        },
+        {
+          "path": "austen-i_227.jpg",
+          "bytes": 253052,
+          "sha256": "e3c95345b4572cc322c83844dba5aa31af6d3a8ba13983b9a42258cf45f47bb3"
+        },
+        {
+          "path": "austen-i_229_a.jpg",
+          "bytes": 253833,
+          "sha256": "f21e2f65541ab27778675c7605a402bc5f77607c5deae768f09b8e6ee3af96b9"
+        },
+        {
+          "path": "austen-i_229_b.png",
+          "bytes": 2957,
+          "sha256": "c7ec8448cda0f22190bac8d7e2edcbfdfddece56a5f61c07e783b722658275d6"
+        },
+        {
+          "path": "austen-i_238_a.jpg",
+          "bytes": 251354,
+          "sha256": "ba5e1767b054384949c4965da0accf02c4d7d19defbba9966dbbfbbdedd5bc74"
+        },
+        {
+          "path": "austen-i_238_b.png",
+          "bytes": 3275,
+          "sha256": "a6d4e6bf49024d2abcc87bdb7cae4acdd7bb3aa9dce89af0de50a8646e3167cc"
+        },
+        {
+          "path": "austen-i_240.jpg",
+          "bytes": 249768,
+          "sha256": "c9fb4cc94b566cf46df1f4c3b05f0b72ab36d8776ad97f5d93338d58607ddb2b"
+        },
+        {
+          "path": "austen-i_242.jpg",
+          "bytes": 255863,
+          "sha256": "0533fe683f016afdb103d9755d902f081c608fbf0a8ce2d7a5f28bc3bc4eb55a"
+        },
+        {
+          "path": "austen-i_244_a.jpg",
+          "bytes": 255063,
+          "sha256": "1e79e83e72caca3fed86944e7d9ff1979504418083779ac2c78b02cc20eaf0b3"
+        },
+        {
+          "path": "austen-i_244_b.png",
+          "bytes": 3340,
+          "sha256": "67b6305a53ce6bcc5ddbf7b6f4995f36243a5a68a30d56763d88fadfc67459ce"
+        },
+        {
+          "path": "austen-i_250_a.jpg",
+          "bytes": 254968,
+          "sha256": "c3347fc52d84aaf80c6abcdd8385110e71171616c9d37aed05cee642063e57de"
+        },
+        {
+          "path": "austen-i_250_b.png",
+          "bytes": 3292,
+          "sha256": "8286a654ff3ef48152c4564eee9e8731b1468361579c35963da1b1544a25804b"
+        },
+        {
+          "path": "austen-i_254.jpg",
+          "bytes": 249378,
+          "sha256": "a304eb9b6f067e99998ec32d4404380e416670f42d614b15f735602f61ea3c63"
+        },
+        {
+          "path": "austen-i_257_a.jpg",
+          "bytes": 252749,
+          "sha256": "d6f1b257b1432fa7a6025a5986860792e63b3a30d6cdb25db0e62cb6e5c2d7d4"
+        },
+        {
+          "path": "austen-i_257_b.png",
+          "bytes": 2990,
+          "sha256": "5effa46ea4b96a8546b74aecea2033da112e7a8adad3e1eacd618166d07d8999"
+        },
+        {
+          "path": "austen-i_264_a.jpg",
+          "bytes": 250937,
+          "sha256": "6eaae0e7315855b9994a5cdc0d06bfdf4c8d083f27abaa73029556a33959eee2"
+        },
+        {
+          "path": "austen-i_264_b.png",
+          "bytes": 2775,
+          "sha256": "901fcb71b05453c8188eba7c1b7f2b655cb49ecf240de6effa3e56685cb8935d"
+        },
+        {
+          "path": "austen-i_272_a.jpg",
+          "bytes": 254622,
+          "sha256": "ee7702f2c856d299bfeb2235de6c2949a2887897da91518cc48e743b6a2ad86d"
+        },
+        {
+          "path": "austen-i_272_b.png",
+          "bytes": 2822,
+          "sha256": "c5267df47f1e79484b495bdb821e8e7e50c3b1b448ef82a72593b704ce11c5b6"
+        },
+        {
+          "path": "austen-i_282_a.jpg",
+          "bytes": 251324,
+          "sha256": "6d5dea4dc50c500dc3f42301b2fcf1593a667db3eb22908f3207e829b301b7f2"
+        },
+        {
+          "path": "austen-i_282_b.png",
+          "bytes": 5236,
+          "sha256": "b0a59c8d1840d1ebb721ffd7178ad968f88c06bc5287d1ad55c20dadf526749b"
+        },
+        {
+          "path": "austen-i_285.jpg",
+          "bytes": 249020,
+          "sha256": "4c93a9c81d2575599f0676155dee644e74081ef829a57f678231f52296ce88e8"
+        },
+        {
+          "path": "austen-i_290_a.jpg",
+          "bytes": 243982,
+          "sha256": "ed518cd7a8b363d6ac6a92c2707eea54b476226161333ccd18b6b5f0bd00a6a3"
+        },
+        {
+          "path": "austen-i_290_b.png",
+          "bytes": 3190,
+          "sha256": "fb2f9ca5c624c926e0471d2496174ca0183166782b800b0a3c216b0d81ddac3d"
+        },
+        {
+          "path": "austen-i_292.jpg",
+          "bytes": 252148,
+          "sha256": "d9d22167ff14247a1f6544b9d1cf55721eba182bb49a5e400b52e9887e6df6f0"
+        },
+        {
+          "path": "austen-i_296_a.jpg",
+          "bytes": 251506,
+          "sha256": "5326d93ccd7f70c1c485c9d8fdd463bb97e9e5432a166075cdcb7f3b01872ca4"
+        },
+        {
+          "path": "austen-i_296_b.png",
+          "bytes": 2858,
+          "sha256": "579abc8efbba4df09c9d7b73e029fffc89ee6582b0f5f38edf1b88351be896a0"
+        },
+        {
+          "path": "austen-i_299.jpg",
+          "bytes": 254781,
+          "sha256": "f59a95f8aff4a22dd7902cd08ee9dc2b0625d756c429e8956281a9800ce659f7"
+        },
+        {
+          "path": "austen-i_301_a.jpg",
+          "bytes": 251773,
+          "sha256": "d6e1d0add39b4fcbaebce2c26731f91db4710fd114f92845442dace3e20cc139"
+        },
+        {
+          "path": "austen-i_301_b.png",
+          "bytes": 3096,
+          "sha256": "ec6dc299ec5394038dac5990eddfd6a76a9158c8cc383eefb332da18e22a76c3"
+        },
+        {
+          "path": "austen-i_307_a.jpg",
+          "bytes": 247053,
+          "sha256": "95fedffac22e631ef336c056dee8574b138c4373c01c7e9d66922c33925100ab"
+        },
+        {
+          "path": "austen-i_307_b.png",
+          "bytes": 3436,
+          "sha256": "dd59cdbc8f9ff4a2647f763898d0168c8ca13181b755f83b3b10bbcdac30adbb"
+        },
+        {
+          "path": "austen-i_312.jpg",
+          "bytes": 249473,
+          "sha256": "4b143d5dd110764de7e90770c5256f1aee31e8f75ff572cda016182d5acabb12"
+        },
+        {
+          "path": "austen-i_314_a.jpg",
+          "bytes": 253786,
+          "sha256": "d6665330a79dcbf171c59a975161a49824f4462ac96e5b5a4dd8d3a3b6e33717"
+        },
+        {
+          "path": "austen-i_314_b.png",
+          "bytes": 2872,
+          "sha256": "f58a3c77d33c9662e85c2d8d20dcb59492e20c4d8b30eee0a093b36f015ad0a3"
+        },
+        {
+          "path": "austen-i_319.jpg",
+          "bytes": 254283,
+          "sha256": "44773361d85cbe47b7216d7d850e4828d94b8e6f3e17104d52f7d445aeb891d4"
+        },
+        {
+          "path": "austen-i_323_a.jpg",
+          "bytes": 255045,
+          "sha256": "1d0e274f33ed0211bbfd8db3317c74eb6641bc6367e9b9084b5d1b440bcb7aec"
+        },
+        {
+          "path": "austen-i_323_b.png",
+          "bytes": 2465,
+          "sha256": "9c9dee6ecd38f0a44c48f5217d504164e45351607f734b1aa070f2e91d57e36c"
+        },
+        {
+          "path": "austen-i_330_a.jpg",
+          "bytes": 246617,
+          "sha256": "086b98076423f7725492713712872a74b0a5895177111841760722e15126c4a8"
+        },
+        {
+          "path": "austen-i_330_b.png",
+          "bytes": 2706,
+          "sha256": "e2e61f6efaffa09c152f8fd534f90bfdfc24e51a9661fff3dc85c92f8b1baddc"
+        },
+        {
+          "path": "austen-i_347_a.jpg",
+          "bytes": 251990,
+          "sha256": "9973be58afd9bf10461aad384e941cc9a4f1b97f34f80f31adfb88544dc6bf0e"
+        },
+        {
+          "path": "austen-i_347_b.png",
+          "bytes": 2826,
+          "sha256": "116a7481fcb24ba0e2965de484f055a075c20072c8fdeef01999561ed4b662bd"
+        },
+        {
+          "path": "austen-i_350.jpg",
+          "bytes": 254462,
+          "sha256": "fb101da5f1ac19b637c6b5d4f94115e6db1131d483649f68f012708f351d9d4a"
+        },
+        {
+          "path": "austen-i_356_a.jpg",
+          "bytes": 246288,
+          "sha256": "dd2168b1aefb19fe6eeeb4e89cd53a1e80cb2db542bc844032902c9d00587f40"
+        },
+        {
+          "path": "austen-i_356_b.png",
+          "bytes": 2948,
+          "sha256": "d00ab7dd00224c402f414a77e412d0b30c3e49c903c44cc058460a90f36b70c4"
+        },
+        {
+          "path": "austen-i_363_a.jpg",
+          "bytes": 222700,
+          "sha256": "05a870741ccdd0b13ec9539c88865d5550f7014c2ee9e076ec81ac736aab144f"
+        },
+        {
+          "path": "austen-i_363_b.png",
+          "bytes": 2743,
+          "sha256": "617899219ae4f3432877185491c4b1f63d6b2646c8274f60c9ae9850e5615186"
+        },
+        {
+          "path": "austen-i_368.jpg",
+          "bytes": 253770,
+          "sha256": "ba5c33a6864715c23ceda05109212f87550a9f77f417fde4959a5bac21aead97"
+        },
+        {
+          "path": "austen-i_374_a.jpg",
+          "bytes": 252059,
+          "sha256": "ba5116e8a17ee007a01dce868d2c8328bc0181a2b7340d26d2c0705c00c2fd0d"
+        },
+        {
+          "path": "austen-i_374_b.png",
+          "bytes": 3307,
+          "sha256": "442d74c61f48d0322aaa89fdf64415bfe1231f55c1643d93bae15b8958dbb99d"
+        },
+        {
+          "path": "austen-i_388_a.jpg",
+          "bytes": 241654,
+          "sha256": "5617d0f8d7333d7170701830c3292daa10a3143b3cbd4ba9d1b5d4fe76b6e8b3"
+        },
+        {
+          "path": "austen-i_388_b.png",
+          "bytes": 2878,
+          "sha256": "2d985b07980b027222dd17abee2697069897e9677936d7548e2991702083b96d"
+        },
+        {
+          "path": "austen-i_392.jpg",
+          "bytes": 253471,
+          "sha256": "a30a53e57be4685c55f87bf1dcfb8c8a0ad1116cef3b977a22b0aac121fb3669"
+        },
+        {
+          "path": "austen-i_397_a.jpg",
+          "bytes": 249168,
+          "sha256": "2ae80bc4bfc9175e91fca2b1b2510fb4255a6e0d3929c72869307dfdc7757744"
+        },
+        {
+          "path": "austen-i_397_b.png",
+          "bytes": 2771,
+          "sha256": "992137f855828591aa5f0be438ddd0a7aa495dc7bde09185f048a0df86951b9b"
+        },
+        {
+          "path": "austen-i_399.jpg",
+          "bytes": 252151,
+          "sha256": "1b80317674ed0341aeffbe890677abc406128d799e23c47e47aad955bb63222f"
+        },
+        {
+          "path": "austen-i_406_a.jpg",
+          "bytes": 254390,
+          "sha256": "3b9d5eb5da1c31a7d9e27488f9d66efc26b93dceb185ee69d1aef21af00a8125"
+        },
+        {
+          "path": "austen-i_406_b.png",
+          "bytes": 2627,
+          "sha256": "fdc606a11794d90c7777ae82530ddfaa5e1ff38bfa6ae2421ef225f6949afdd9"
+        },
+        {
+          "path": "austen-i_414_a.jpg",
+          "bytes": 251950,
+          "sha256": "055b2af0b24eeacc9f2c53fe50adf085e9575f0f3107ee91d5c52866fc3f3a51"
+        },
+        {
+          "path": "austen-i_414_b.png",
+          "bytes": 3332,
+          "sha256": "0d513c3ca9c525339a68f9c874e54055c8440107601b23b3fbccc9451e1b31e3"
+        },
+        {
+          "path": "austen-i_422_a.jpg",
+          "bytes": 254481,
+          "sha256": "de3926fb507c1c26c14fca1500dd05be5d5f14bcd1690705a258efdeaaa7199a"
+        },
+        {
+          "path": "austen-i_422_b.png",
+          "bytes": 4416,
+          "sha256": "d21e4a3ef4cde163acf44d16b6f903596cbb1a17c1d210db5078f91c76e65bb3"
+        },
+        {
+          "path": "austen-i_433_a.jpg",
+          "bytes": 253929,
+          "sha256": "6b80fae1881a40b8debf83abb4bbf518fb2c0a22a3d95aacfab1463e1f313c0b"
+        },
+        {
+          "path": "austen-i_433_b.png",
+          "bytes": 2685,
+          "sha256": "c944b1a3c1750063acb68c0e587a1a455f1c35bf0ef74611d9008f099e1ae65a"
+        },
+        {
+          "path": "austen-i_444_a.jpg",
+          "bytes": 253058,
+          "sha256": "c023cf8e7851b1172e72e54def0e68ac20221c3a38fb3e68adce6a49c1aadda3"
+        },
+        {
+          "path": "austen-i_444_b.png",
+          "bytes": 2880,
+          "sha256": "e44a3e005233b29d4c1fdf992d4b937c22d1438e7b95f75786a767be0f46f426"
+        },
+        {
+          "path": "austen-i_449.jpg",
+          "bytes": 251636,
+          "sha256": "feece7e75b7c4eea00509e1025c4e713f8d9e2a24ad72aa3a5cdeb609a8c8f3b"
+        },
+        {
+          "path": "austen-i_451_a.jpg",
+          "bytes": 253125,
+          "sha256": "87e1920cc53149a924b77814a8f238826c7b5dcfc5da9197f8ad1ee29fbd9c03"
+        },
+        {
+          "path": "austen-i_451_b.png",
+          "bytes": 2913,
+          "sha256": "a8634341e6d609acdfd7205594382884e49319fbdb996c601bb6bcb72c422f69"
+        },
+        {
+          "path": "austen-i_460_a.jpg",
+          "bytes": 250028,
+          "sha256": "27d3fbe508c40e32f1f35b9e2aaab5e9a4ca21646f2af33e32d98649d75838a8"
+        },
+        {
+          "path": "austen-i_460_b.png",
+          "bytes": 2528,
+          "sha256": "04b97e0fbd87675a428071e6285bcf5fd1ab6ee4559bb47b6482a3846424d261"
+        },
+        {
+          "path": "austen-i_463.jpg",
+          "bytes": 254629,
+          "sha256": "66b983a5273823bff8f99a2b553063367ee92570da37d008f7301e95c3e701f0"
+        },
+        {
+          "path": "austen-i_471_a.jpg",
+          "bytes": 254542,
+          "sha256": "8deb1e4989fe9938eb902f895ebc683af64e1f1f5d611f82e153c99419658d8f"
+        },
+        {
+          "path": "austen-i_471_b.png",
+          "bytes": 2953,
+          "sha256": "01cbc6abaaba475e4031954ab553818eed8846832dddac40118ab6ec2ae61814"
+        },
+        {
+          "path": "austen-i_477_a.jpg",
+          "bytes": 252814,
+          "sha256": "22b98013523e9f806970e3907a117eed375a51d472a97255ff45c3be281624f5"
+        },
+        {
+          "path": "austen-i_477_b.png",
+          "bytes": 2503,
+          "sha256": "ccc04383584ad88242a02b73d9466e23d52a8e8950eab4bf6d41bda05017598d"
+        },
+        {
+          "path": "austen-i_486_a.jpg",
+          "bytes": 254473,
+          "sha256": "c7adf6370b047b9d707dc43a2117596b077542fd0bb4f08a1dcd55e25b068dac"
+        },
+        {
+          "path": "austen-i_486_b.png",
+          "bytes": 2369,
+          "sha256": "5e5cfeb692d1ce9f7e0d1af40a03c93b897c53d23442ad7de19a8fba87487a1a"
+        },
+        {
+          "path": "austen-i_495_a.jpg",
+          "bytes": 253494,
+          "sha256": "f5b623fde3eb55c3e2f6177b0940dc9f244b04dfe30d6408821e0d92cae60d38"
+        },
+        {
+          "path": "austen-i_495_b.png",
+          "bytes": 3456,
+          "sha256": "b1a2634078839bfb9dc5d5a90289fc878add7096958f0d47f37f7121901d66df"
+        },
+        {
+          "path": "austen-i_501_a.jpg",
+          "bytes": 248031,
+          "sha256": "50b5627cfec1bdc3c8bc498cc1aaf452fb75f09b79731127e86091c5e1be71a2"
+        },
+        {
+          "path": "austen-i_501_b.png",
+          "bytes": 2590,
+          "sha256": "2fa2205f5d910adb8821f6767d57069881116d0e17cb2074cb7cecb5261986fe"
+        },
+        {
+          "path": "austen-i_505.jpg",
+          "bytes": 249434,
+          "sha256": "c2e3e7a36b172cf9477ab72f7c368e352b3a41c6c4a90deeceaf325dac3c4dd7"
+        },
+        {
+          "path": "austen-peacock-1894.png",
+          "bytes": 21236,
+          "sha256": "05bea702ed1f8c4133baa9f8f648edcf9e46a9ef7db73a0b371ceec88bb23c26"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 20216,
+          "sha256": "23ba36a319aebec58eeacba125180f0414c3d529ebd9d78b43f75fbeec6d7d93"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 252,
+          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2964,
+          "sha256": "9ce346170e12137263fa7330866b241cfa36122c272fcbe2964d7df5cbf8400b"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1435087,
+          "sha256": "a3f77b3c8ca231236d89891a4917e72c6e2250a18a1b4a134797ee80ae84a679"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 328,
+          "sha256": "55a2a1b8516f8dc20191e161b512d487fc4ba16bb4aeee1cb6ec8eeac1a3a6ea"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 33087,
+          "sha256": "326260e2477e46b0d17ea1263922a806d98fdc805963dc43b63541268216854a"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 4661,
+          "sha256": "bc447330577cf31fb7b1452014c5937470b4bb1349bed5e935df2624240540e1"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 6108,
+          "sha256": "567ca00639315b115af06fcb1f3916429cf466d0400c4bcb741a8ee4e5d06d4e"
+        }
+      ]
+    },
+    {
+      "id": "alice-in-wonderland",
+      "title": "Alice’s Adventures in Wonderland",
+      "description": "Rackham’s drawings, an asymmetric storybook entrance and a close-looking companion.",
+      "directory": "examples/alice-in-wonderland",
+      "sourceCommit": "5a6b643134e885e8ac9a6688aed05767d5eac8b7",
+      "sourceFileCount": 65,
+      "packagingChanges": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "package.json",
+        "publication.json",
+        "docs/TRIAL-README.md"
+      ],
+      "rights": "docs/SOURCE-AND-RIGHTS.md",
+      "browserCommands": [
+        "test:browser",
+        "test:share"
+      ],
+      "url": null,
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 72991,
+          "sha256": "52ebe6fa4c77492ef105dd0145be30796fe78901f9d793acb072c2ed34f2d7bd"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 21351,
+          "sha256": "f1a8afbb8ebbfa4bd3f5410a1aa00df4d3999b3f0edd37cd799f1b9f35b285df"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 240,
+          "sha256": "5957be54a615c38b6bedde4f32caf2be63784f458797c89c857e5937b56f8595"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2934,
+          "sha256": "6bd5600f00d4cd420a71b3bde6118596a53e968c7c68f6e736c9788e235184ac"
+        },
+        {
+          "path": "library.json",
+          "bytes": 2106036,
+          "sha256": "49c5ff3991360abd76354da5080165929bc9ee6fe2b2333affb512ac0f9f60ea"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 239,
+          "sha256": "8d24b91a4e8ea39c801e0949cad56c0aa630971aa628f52398c320fba933f2be"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 35612,
+          "sha256": "8b963bc6e5e9e9a73aa3f1b6b751429f4566bc7678f5fcee309abfce3940645b"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1131,
+          "sha256": "9e0da0fadcc6a11a0b6b0f76f2daf37d704f74b6a91ae1355a6329e6c15aa683"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 6812,
+          "sha256": "74b9ebcb8b4f91466dfe22f271312f7bc219aa1f8c35fff5a73a418a1ae6e3f0"
+        }
+      ]
+    },
+    {
+      "id": "walden",
+      "title": "Walden & Civil Disobedience",
+      "description": "A cool-paper field notebook, the original pond survey and the sourced Keeping account companion.",
+      "directory": "examples/walden",
+      "sourceCommit": "2893d3cbd416275145465e2fabe00af722a819a8",
+      "sourceFileCount": 66,
+      "packagingChanges": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "package.json",
+        "publication.json",
+        "docs/TRIAL-README.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:walden-browser"
+      ],
+      "url": null,
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 65341,
+          "sha256": "f3a639d732184a7e180f078812e747ce20636ae4e7e5abbf8decbf707b4aed87"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
+        },
+        {
+          "path": "companion.mjs",
+          "bytes": 6924,
+          "sha256": "8b1ae39fcce5c3d77cf14681a15a9057fbebef7f497ab15781f514f9855e555c"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 18812,
+          "sha256": "38856b35f55d8510e1d4caf3c3d1a9f6a8021ec8d5b391092df4055977c1c444"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 298,
+          "sha256": "f5253877ced8029426c6eba8284e0d8e386ef271eb5363fdf6d9d97065cdec5d"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2953,
+          "sha256": "17af9822a732b172a3bb2898c75c4257b8704374d42bbdba3973278e8ebaf08f"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1710167,
+          "sha256": "4fc46334e02a038d43f892870f9d5e53b1f5ee42856d59956fa55a74235421a8"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 248,
+          "sha256": "7e0cc781df2881ef6bdd8285ace158edb5658522a4d42b30c305012dd71d5922"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 32979,
+          "sha256": "f1e91586e755e1198966bcc7d30b7b26d991466c0da5e49bf862f7d317a2cad8"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1148,
+          "sha256": "239c5b3017ddea8ef75f4a70311cc4ce1b4f4752d0b0ad7461bb92a25995feab"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4352,
+          "sha256": "c478e75af90a34032fb87a2d047b14239ff472400f5a669a28e2d4258eefb5ac"
+        }
+      ]
+    },
+    {
+      "id": "schopenhauer-hegel",
+      "title": "Two lecture halls, one hour",
+      "description": "A university broadside with equal doorways and three paired readings across the corridor.",
+      "directory": "examples/schopenhauer-hegel",
+      "sourceCommit": "6b160fad13729f07808248be3071a6e33afb3a80",
+      "sourceFileCount": 71,
+      "packagingChanges": [
+        "AGENTS.md",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "package.json",
+        "publication.json",
+        "docs/TRIAL-README.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:browser",
+        "test:share"
+      ],
+      "url": null,
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 64838,
+          "sha256": "5fd634176f34c921882b85f3c219bd0bb001c5a8dcdb3075f5084adaa679b975"
+        },
+        {
+          "path": "broadside.css",
+          "bytes": 13839,
+          "sha256": "258f629e16c9144eb5f5c8f5bb110804c87b9603b26a411acb8efd2f16e31e23"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 20022,
+          "sha256": "2b56cce313cea747324c50fb6168c723788757ec8dbf2c7530d9e55f7b6a2f44"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 200,
+          "sha256": "f9da8a6c8938babc004da2dfd7ae13901873c7cbb4923676d060b577f6c6c021"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3131,
+          "sha256": "8ab4704db49fad5bebdf3ffb083ba7041445fb9a90fed6c474bf1902361009c6"
+        },
+        {
+          "path": "lectures.mjs",
+          "bytes": 5423,
+          "sha256": "9248e463c252f20828ec926ce06bcbd322872b0e83d271942468cf45d8df30fe"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1412513,
+          "sha256": "908a5e4a251de157cf2013dddd121ea3e4969e18f75b727091b458f4de1c61b7"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 277,
+          "sha256": "ae18940abfa4ed94a3cbc9b45a1f9376af9a8b85169c3d61ea0c179a06160a56"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 30648,
+          "sha256": "5a3f9e322d46e12c0485ff7b0a44fb5a80d6c896029fbcd991f504bfc134fa84"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1164,
+          "sha256": "1143ce098c95cd8a03f2d8f2cb84033c43171c3956b2f91a15402af70b9b297f"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 5320,
+          "sha256": "b78f4b7947057801e34571b2bb9be565e3a55efeca31bc3f8f7798a1e961cd14"
+        }
+      ]
+    }
+  ]
+}

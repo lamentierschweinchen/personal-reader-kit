@@ -1,0 +1,23 @@
+{
+  "name": "walden-reader-example",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "audit:public": "node ../../scripts/audit.mjs",
+    "import:text": "node scripts/import-text.mjs",
+    "check": "npm test && npm run build && npm run audit:public",
+    "import:epub": "node scripts/import-epub.mjs",
+    "upgrade:check": "node scripts/check-upgrade.mjs",
+    "audit:kit": "node ../../scripts/audit.mjs",
+    "test:walden-browser": "node tests/walden-browser.mjs",
+    "prepare:walden": "python3 scripts/prepare-walden.py"
+  }
+}

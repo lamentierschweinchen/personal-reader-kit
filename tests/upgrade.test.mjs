@@ -18,6 +18,10 @@ test('upgrade compares three public snapshots without overwriting customization 
     assert.equal(get('app.mjs').status,'upstream-only');assert.equal(get('style.css').status,'review-conflict');assert.equal(get('new.mjs').operation,'add');assert.equal(get('retired.md').operation,'remove');assert.equal(get('same.md').status,'already-current');
     assert.doesNotMatch(JSON.stringify(report),/PRIVATE|private.txt|personal/);assert.equal(await readFile(path.join(dirs.current,'style.css'),'utf8'),'personal');assert.equal(await readFile(path.join(dirs.current,'retired.md'),'utf8'),'old');
     await writeFile(path.join(dirs.target,'style.css'),'old');assert.equal((await compareUpgrade(dirs)).files.find(f=>f.path==='style.css').status,'keep-local');
+    const targetManifest=JSON.parse(await readFile(path.join(dirs.target,'publication.json'),'utf8'));
+    targetManifest.starterFiles=[...targetManifest.files];targetManifest.files.push('examples/original/edition/library.json');
+    await writeFile(path.join(dirs.target,'publication.json'),JSON.stringify(targetManifest));
+    assert.equal((await compareUpgrade(dirs)).files.some(f=>f.path.startsWith('examples/')),false);
     await rm(path.join(dirs.current,'app.mjs'));await symlink(path.join(dirs.current,'private.txt'),path.join(dirs.current,'app.mjs'));await assert.rejects(()=>compareUpgrade(dirs),/Symlink/);
     await writeFile(path.join(dirs.target,'publication.json'),JSON.stringify({files:['../private.txt']}));await assert.rejects(()=>compareUpgrade(dirs),/Unsafe/);
   }finally{await rm(root,{recursive:true,force:true});}

@@ -5,14 +5,14 @@ This repository is a reusable, public-intended kit. The user's books are data, n
 ## Boundaries
 
 - Inspect Git status before edits. Preserve unrelated work and existing readers. Do not copy a personal reader's library, notes, URLs, credentials, configuration or Git history into this repository.
-- Only original sample writing belongs in `samples/`. Personal input, conversions, intake notes and QA captures belong under ignored `.reader/` or `test-results/`. Never put personal books in `site/`, `samples/`, docs, tests or commits. `.gitignore` cannot remove data from history.
+- Only original sample writing belongs in `samples/`. The four specifically reviewed public-domain readers in `examples/` are an explicit user-authorized exception, with separate exact edition inventories. Personal input, conversions, intake notes and QA captures belong under ignored `.reader/` or `test-results/`. Never put personal books in `site/`, `samples/`, examples, docs, tests or commits. `.gitignore` cannot remove data from history.
 - The default build is a public shell plus reviewed original samples. Browser imports use IndexedDB and never upload the book. Changing that boundary requires an explicit user choice and verified access control on every book URL.
 - An unlisted URL, noindex, a private Git repository or a client-side password is not private hosting. Never upload a personal book to an unprotected preview to test whether protection works.
 - Never ask for a password or token in chat. Let the user authenticate with the provider. Do not send book passages to external AI, OCR, image, analytics or map services without specific informed authorization. Do not bypass DRM.
 
 ## Fidelity and product
 
-Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The kit's original-sample boundary remains in force; keep book-specific examples in their own projects.
+Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The default build remains original-samples-only. The [four packaged examples](examples/README.md) are separate applications; their authorization does not admit another book or personal project into this repository. New personal readers use `publication.json.starterFiles` rather than copying the optional collection.
 
 Keep exact source characters, emphasis, lineation, stanzas, meaningful spaces, notes and sequence. Preserve source defects and uncertainty; report them. Edition hashes and quoted evidence anchor annotations. Changed-source notes must remain recoverable and must not silently move.
 
@@ -32,6 +32,6 @@ Real-edition trials require [source-aware adapter decisions](docs/ADAPTERS.md): 
 
 ## Finish and publish
 
-Run `npm test`, `npm run build`, browser tests when UI changes, and `npm run audit:public`. Audit the exact index, working files and all reachable history. The audit is a guardrail, not a copyright or secret-detection guarantee. Manually review the complete file inventory and sample provenance.
+Run `npm test`, `npm run build`, browser tests when UI changes, and `npm run audit:public`. When packaging or changing examples, also run `npm run check:examples` and the changed example’s relevant browser journey. Audit the exact index, working files and all reachable history. Every example edition file, including JSON with embedded images, needs a path/hash/provenance entry in `publication.json.reviewedEditionFiles`. The audit is a guardrail, not a copyright or secret-detection guarantee. Manually review the complete file inventory and sample provenance.
 
 Commit reviewed paths on a `codex/` branch. The approved public kit destination is `https://github.com/lamentierschweinchen/personal-reader-kit`, with `main` as the published branch. Routine reviewed kit updates may be synchronized there; always rerun the file/history audit. This does not authorize hosting personal books or changing the audience of another project. For a user's own copy, establish its target account/repository rather than pushing their customizations to this upstream. Before a new public destination, show the exact publication receipt and confirm the owner/name and audience. See VERSION-HISTORY.md.

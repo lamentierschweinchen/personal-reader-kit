@@ -51,3 +51,9 @@ Version 0.5.0 adds explicit native passage sharing and attributed plain-text cop
 The offline journey now creates and edits an annotation during an outage, then reloads and checks persistence, alongside chapter and companion navigation. Current execution evidence and limits are in docs/STATUS.md. Native OS share-sheet delivery and physical iOS gestures require device testing; automated sharing checks use original fixtures and API stubs.
 
 The Walden and Two Halls trial checks exposed two related continuity defects. The kit now captures the main place before a dialog opens and suppresses delayed/visibility saves behind it; loaded built-in editions refresh a previously unavailable source on the saved-passages page. Original-fixture tests reproduce the relevant queued scroll, resized dialog, pagehide and delayed-library conditions. These are source-free behavior fixes, not imported book customizations.
+
+## Four public examples packaged · 16 October 2026
+
+The user explicitly selected the four completed public-domain readers for an examples folder in this established public repository. Their committed current source snapshots are included without independent histories, private preparation or captures. README, instruction and audit entry points now reflect the enclosing repository; runtime and edition bytes remain unchanged. Each remains a separate application with its own adapter and build. The root application/upload list still contains only original samples.
+
+The complete-history auditor now accepts only exact path/hash/provenance-reviewed example edition files, including JSON with embedded images. Credential/private-path checks remain active. CI runs every example’s Node/build checks and compares every output byte with its reviewed inventory. Starter files are explicit so new personal projects omit the optional example collection. No website, domain or deployment was created.

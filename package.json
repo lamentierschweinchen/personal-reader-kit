@@ -15,6 +15,7 @@
     "import:text": "node scripts/import-text.mjs",
     "check": "npm test && npm run build && npm run audit:public",
     "import:epub": "node scripts/import-epub.mjs",
-    "upgrade:check": "node scripts/check-upgrade.mjs"
+    "upgrade:check": "node scripts/check-upgrade.mjs",
+    "check:examples": "node scripts/check-examples.mjs"
   }
 }

@@ -14,6 +14,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 ## Try it
 
+**Read a complete example:** [Pride and Prejudice](examples/pride-and-prejudice/README.md), [Alice](examples/alice-in-wonderland/README.md), [Walden & Civil Disobedience](examples/walden/README.md), or [Two lecture halls: Schopenhauer and Hegel](examples/schopenhauer-hegel/README.md). Each has its own visual identity, source adapter, credited edition and offline reading. [Run the examples and see the hosting plan](examples/README.md). They are source examples; live website addresses have not been selected.
+
 Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:
 
 ```sh
@@ -75,9 +77,10 @@ Personalized readers have a [read-only upgrade comparison and migration procedur
 npm test              # Source fidelity, anchors, recovery, spoiler and build-boundary tests
 npm run build        # Public shell + reviewed original samples only, into dist/
 npm run audit:public # Exact staged/working inventory and all reachable Git history
+npm run check:examples # Optional collection: each reader's tests and exact build bytes
 ```
 
-The public audit expects the final file set to be staged and a complete clone. Shallow/partial history, replacement refs, grafts and inspection errors cannot pass. The receipt identifies HEAD and all locally present refs; it cannot inspect unfetched remote refs or unreachable objects. For a safely retired or renamed public file, keep its reviewed old path, SHA-256 and reason in `publication.json.reviewedHistoricalFiles`. This list does not admit the file into the current build or weaken private-path checks. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.
+The public audit expects the final file set to be staged and a complete clone. Shallow/partial history, replacement refs, grafts and inspection errors cannot pass. The receipt identifies HEAD and all locally present refs; it cannot inspect unfetched remote refs or unreachable objects. For a safely retired or renamed public file, keep its reviewed old path, SHA-256 and reason in `publication.json.reviewedHistoricalFiles`. This list does not admit the file into the current build or weaken private-path checks. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, unreviewed binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. The four optional example editions have separate path/hash/provenance entries; their source-specific build gates also validate decoded images. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.
 
 Optional browser verification:
 
@@ -91,4 +94,4 @@ The harness starts and stops its own loopback server. It checks Chromium and Web
 
 [Independent review and response](docs/REVIEW.md) · [A demanding editorial case](docs/COMPANION-CASE-STUDY.md) · [Architecture and reuse decisions](docs/ARCHITECTURE.md) · [Agent guide](docs/AGENT-GUIDE.md) · [Book format](docs/BOOK-FORMAT.md) · [Privacy](docs/PRIVACY.md) · [Design](docs/DESIGN.md) · [Release status](docs/STATUS.md)
 
-Code and original samples are provided under [MIT](LICENSE). See [sample provenance](samples/README.md). Supplied personal books retain their existing rights and are not covered by this license.
+Code and original samples are provided under [MIT](LICENSE). See [sample provenance](samples/README.md). The public-domain examples retain their edition-specific credits and source terms; the MIT license does not relicense third-party contributions. Supplied personal books retain their existing rights and are not covered by this license.

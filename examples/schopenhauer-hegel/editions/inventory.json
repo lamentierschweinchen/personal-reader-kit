@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-10-16",
+  "scope": "Local trial; no publication destination selected",
+  "jurisdictionEvidence": "Source catalogues: public domain in the USA; not worldwide clearance",
+  "review": "Source text, all five Hegel images, source terms and exact transformation reviewed by the builder agent. Human editorial review and publication-territory decision remain.",
+  "assets": [
+    {
+      "path": "embedded:hegel:images/logo.jpg",
+      "bytes": 4615,
+      "sha256": "62b131f7ba201690f864bd6c717469d5f97045e8f3de7a4a989425f3a9974678",
+      "source": "https://www.gutenberg.org/cache/epub/51635/images/logo.jpg"
+    },
+    {
+      "path": "embedded:hegel:images/ill-276a.jpg",
+      "bytes": 4294,
+      "sha256": "e95f149ffea431a9206d5c0311e87c0972fad8f406465bbee33eb1f6a4383c4e",
+      "source": "https://www.gutenberg.org/cache/epub/51635/images/ill-276a.jpg"
+    },
+    {
+      "path": "embedded:hegel:images/ill-276b.jpg",
+      "bytes": 4224,
+      "sha256": "c2886b10a70b3ffc9aa74021587f98fc885e22bbad85383bc713efa533479b58",
+      "source": "https://www.gutenberg.org/cache/epub/51635/images/ill-276b.jpg"
+    },
+    {
+      "path": "embedded:hegel:images/ill-276c.jpg",
+      "bytes": 3547,
+      "sha256": "a718979f460a5235abb8f68c30bc2aa7842c419456134520da4561b62f7dbc77",
+      "source": "https://www.gutenberg.org/cache/epub/51635/images/ill-276c.jpg"
+    },
+    {
+      "path": "embedded:hegel:images/cover.jpg",
+      "bytes": 22436,
+      "sha256": "af434166f44d467cda579b5b070409fde341596c3f43619e3b0b1885e25b7ef1",
+      "source": "https://www.gutenberg.org/cache/epub/51635/images/cover.jpg"
+    },
+    {
+      "path": "editions/hegel.json",
+      "sha256": "a74d1368fecb264ff9688d5a125cdfc13ce20ac5e431a1afa95a3806c7578471",
+      "bytes": 1456458,
+      "sourceSha256": "8f8d0575d8a5fd82f93dc36ed1aba280fe0b8b1bf330216760b9e43a3b139c5e",
+      "source": "https://www.gutenberg.org/cache/epub/51635/pg51635-images.html"
+    },
+    {
+      "path": "editions/schopenhauer.json",
+      "sha256": "ccd7ccd39c185b2a47ab68b943081bb69daedd40e2f5a5c3adbee91be9bb752b",
+      "bytes": 256706,
+      "sourceSha256": "f8d9d3c36ea136d6f6dc16de2843fe08069826b8af63ac018c05de3ba7fb67f8",
+      "source": "https://www.gutenberg.org/cache/epub/10731/pg10731-images.html"
+    }
+  ]
+}

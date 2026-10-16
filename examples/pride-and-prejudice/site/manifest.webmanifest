@@ -1,0 +1,16 @@
+{
+  "name": "Pride and Prejudice \u2014 Illustrated reader",
+  "short_name": "Austen",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfcf9",
+  "theme_color": "#fdfcf9",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -63,3 +63,28 @@ test('audit rejects a shallow view and permits only pinned retired public conten
     assert.equal(JSON.parse(await readFile(path.join(directory,'.reader/publication-review.json'),'utf8')).passed,false);
   }finally{await rm(directory,{recursive:true,force:true});await rm(clone,{recursive:true,force:true});}
 });
+
+test('example provenance admits only exact reviewed bytes in current files and complete history',async()=>{
+  const directory=await mkdtemp(path.join(tmpdir(),'reader-edition-history-'));
+  const git=(...args)=>execFileSync('git',['-C',directory,...args],{stdio:'pipe'}),digest=b=>createHash('sha256').update(b).digest('hex');
+  const asset='examples/original/edition/diagram.png',provenance='examples/original/RIGHTS.md';
+  try {
+    git('init','-b','test');git('config','user.name','Reader test');git('config','user.email','reader-test@example.invalid');
+    await mkdir(path.join(directory,'samples'));await mkdir(path.join(directory,'examples/original/edition'),{recursive:true});
+    await writeFile(path.join(directory,'samples/library.json'),'[]\n');await writeFile(path.join(directory,'.gitignore'),'.reader/\n');
+    await writeFile(path.join(directory,provenance),'Synthetic original fixture bytes, created for this regression.\n');
+    const bytes=Buffer.from([137,80,78,71,0,1]),manifest={originalSampleSha256:digest('[]\n'),files:['.gitignore','publication.json','samples/library.json',asset,provenance],reviewedEditionFiles:[{path:asset,sha256:digest(bytes),provenance,reason:'Reviewed original synthetic binary.'}]};
+    await writeFile(path.join(directory,asset),bytes);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add','.');git('commit','-m','Original source fixture');
+    assert.equal((await audit(directory)).passed,true);
+    const changed=Buffer.from([137,80,78,71,0,2]);await writeFile(path.join(directory,asset),changed);git('add',asset);
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('working')&&f.includes('edition bytes')));
+    manifest.reviewedEditionFiles[0].sha256=digest(changed);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add','publication.json');git('commit','-m','New synthetic source fixture');
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('(history')&&f.includes('edition bytes')));
+    // An exact binary exception cannot conceal recognized credentials.
+    const secret=Buffer.concat([bytes,Buffer.from('ghp_'+'C'.repeat(36))]);manifest.reviewedEditionFiles[0].sha256=digest(secret);
+    await writeFile(path.join(directory,asset),secret);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add',asset,'publication.json');
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('(working)')&&f.includes('credential')));
+    manifest.reviewedEditionFiles[0].path='private/diagram.png';await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));
+    await assert.rejects(()=>audit(directory),/Edition review/);
+  }finally{await rm(directory,{recursive:true,force:true});}
+});

@@ -20,8 +20,9 @@ async function readRegular(root,name,optional=false) {
   return readFile(current);
 }
 async function inventory(root) {
-  const value=JSON.parse(await readRegular(root,'publication.json')),files=value.files;
+  const value=JSON.parse(await readRegular(root,'publication.json')),files=value.starterFiles??value.files;
   if(!Array.isArray(files)||!files.length||files.length>2000||new Set(files).size!==files.length)throw new Error('Invalid publication inventory.');
+  if(value.starterFiles&&files.some(name=>!value.files.includes(name)))throw new Error('Starter files must belong to the reviewed publication inventory.');
   files.forEach(safeName);return files;
 }
 // Only named public kit files are read. No enumeration of a personal reader's

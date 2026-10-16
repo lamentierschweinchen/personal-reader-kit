@@ -1,0 +1,958 @@
+{
+  "schema": 1,
+  "source": {
+    "url": "https://www.gutenberg.org/cache/epub/28885/pg28885-h.zip",
+    "accessed": "2026-10-16",
+    "sha256": "7f697b6970ebe918109c824fc613ff8c8027b7cb96cc23c98686edebaf4969c5",
+    "bytes": 1443318,
+    "htmlSha256": "d0eaeb19950d989bdf76045dd55eef750b298b5e3b50074ba3f267ea8be8b4a1"
+  },
+  "librarySha256": "49c5ff3991360abd76354da5080165929bc9ee6fe2b2333affb512ac0f9f60ea",
+  "images": [
+    {
+      "id": "p0003-rabbithole-png",
+      "archivePath": "images/p0003-rabbithole.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0003-rabbithole.png",
+      "sha256": "db51c04a8cffad5cf14cb689d097b3988eafe74d260cb42cc57f2777952376e2",
+      "bytes": 67399,
+      "width": 600,
+      "height": 825,
+      "mime": "image/png",
+      "alt": "A black-and-white drawing of the dark rabbit-hole under roots and brambles.",
+      "role": "source illustration or binding image",
+      "originalAlt": [],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-01",
+          "block": "chapter-01-b010",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "cover-jpg",
+      "archivePath": "images/cover.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/cover.jpg",
+      "sha256": "66df4f19476070f83e72c6c2cd23e79364f7ede2ad95119e3595d49a8ba66335",
+      "bytes": 53530,
+      "width": 350,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Red book cover with an inset illustration. Lettering: Alice’s Adventures in Wonderland. By Lewis Carroll. Illustrated by Arthur Rackham.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        ""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "front",
+          "block": "front-b001",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "endpapers-jpg",
+      "archivePath": "images/endpapers.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/endpapers.jpg",
+      "sha256": "a67685ae73fb25b7d025194e2ca364cf55cf60b463ace7331a2acaf15824e365",
+      "bytes": 36401,
+      "width": 600,
+      "height": 401,
+      "mime": "image/jpeg",
+      "alt": "Green endpaper drawing: a small house and a bare tree beside a winding path.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Endpapers"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "front",
+          "block": "front-b002",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "f0002-image-jpg",
+      "archivePath": "images/f0002-image.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/f0002-image.jpg",
+      "sha256": "7f30ff7845e921fcc7763053893d169051d1152a072b4effb128f714c3aee133",
+      "bytes": 41361,
+      "width": 256,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Frontispiece: Alice stands facing the viewer, her hands held together in front of her.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "\"Alice\""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "front",
+          "block": "front-b008",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "title-png",
+      "archivePath": "images/title.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/title.png",
+      "sha256": "5ef1a1d48a5ce028ef6a55e3094cf0fe40623640cc0583bdee034c25a5db8b9a",
+      "bytes": 32935,
+      "width": 373,
+      "height": 500,
+      "mime": "image/png",
+      "alt": "Decorated title page: Alice’s Adventures in Wonderland by Lewis Carroll. Illustrated by Arthur Rackham. With a proem by Austin Dobson. London: William Heinemann. New York: Doubleday, Page & Co.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Title page"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "front",
+          "block": "front-b009",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "spine-jpg",
+      "archivePath": "images/spine.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/spine.jpg",
+      "sha256": "cd1f1d2882ed7c94f4a6c524d2b393de3ff88677870ea1d10bc2dc54a3d615c0",
+      "bytes": 9558,
+      "width": 65,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Red book spine with gold title, author, illustrator and publisher lettering.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Book spine"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "contents",
+          "block": "contents-b002",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "a-png",
+      "archivePath": "images/a.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/a.png",
+      "sha256": "6bfb0e5aa0d2bb3e4fb15ad0c5fbc11e6f5868bd58bcc5c434688aaa57c95029",
+      "bytes": 1976,
+      "width": 71,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial A",
+      "role": "decorated initial",
+      "originalAlt": [
+        "A"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-01",
+          "block": "chapter-01-b003",
+          "role": "initial"
+        },
+        {
+          "section": "chapter-08",
+          "block": "chapter-08-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "c-quote-png",
+      "archivePath": "images/c-quote.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/c-quote.png",
+      "sha256": "ae2ee94d57b1ce855f7dc6955de2e6fc60971a304fb159c55b640291e893aa09",
+      "bytes": 2023,
+      "width": 80,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial \"C",
+      "role": "decorated initial",
+      "originalAlt": [
+        "\"C"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-02",
+          "block": "chapter-02-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0015-image-png",
+      "archivePath": "images/p0015-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0015-image.png",
+      "sha256": "74eb97b4a39b230c897b25efacb81e475ecf81f313591f61d4fc6aa356480372",
+      "bytes": 14129,
+      "width": 183,
+      "height": 450,
+      "mime": "image/png",
+      "alt": "Alice with a very long neck and body, standing in a narrow frame.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Curiouser and Curiouser"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-02",
+          "block": "chapter-02-b010",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0022-insert2-jpg",
+      "archivePath": "images/p0022-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0022-insert2.jpg",
+      "sha256": "52dcb0b971c6c6ae4e422663df44ea0ed8eaba386ba449ed369350000c9c3216",
+      "bytes": 68883,
+      "width": 373,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice swims in the pool of tears among small animals and a large bird.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Pool of Tears"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-02",
+          "block": "chapter-02-b028",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "t-png",
+      "archivePath": "images/t.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/t.png",
+      "sha256": "78871785b14bb81107f7c4226095e298c0dc06cf5ad39a783eb0cf5121c34e76",
+      "bytes": 2287,
+      "width": 75,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial T",
+      "role": "decorated initial",
+      "originalAlt": [
+        "T"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-03",
+          "block": "chapter-03-b003",
+          "role": "initial"
+        },
+        {
+          "section": "chapter-05",
+          "block": "chapter-05-b003",
+          "role": "initial"
+        },
+        {
+          "section": "chapter-07",
+          "block": "chapter-07-b003",
+          "role": "initial"
+        },
+        {
+          "section": "chapter-10",
+          "block": "chapter-10-b003",
+          "role": "initial"
+        },
+        {
+          "section": "chapter-11",
+          "block": "chapter-11-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0028-insert2-jpg",
+      "archivePath": "images/p0028-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0028-insert2.jpg",
+      "sha256": "c6490b3152594bdce58840f83103da2b9b79afd66bacd79872be24af492cfbae",
+      "bytes": 68713,
+      "width": 359,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice stands among a crowd of birds and animals gathered after the race.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "They all crowded round it panting and asking,\"But who has won?\""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-03",
+          "block": "chapter-03-b027",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0030-dormouse-png",
+      "archivePath": "images/p0030-dormouse.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0030-dormouse.png",
+      "sha256": "3c00991329550e1d919597bf049840f0d0c2471fde40d7ba5367bf12d4b298f2",
+      "bytes": 14964,
+      "width": 450,
+      "height": 300,
+      "mime": "image/png",
+      "alt": "Alice sits opposite a small mouse standing upright with its long tail curling behind it.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Alice and the Dormouse"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-03",
+          "block": "chapter-03-b037",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "i-png",
+      "archivePath": "images/i.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/i.png",
+      "sha256": "8d2b2ba7219f61351457e3545cd755c404af21d3ebd507cc16e68b0c3808721e",
+      "bytes": 2108,
+      "width": 73,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial I",
+      "role": "decorated initial",
+      "originalAlt": [
+        "I"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-04",
+          "block": "chapter-04-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0036-insert2-jpg",
+      "archivePath": "images/p0036-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0036-insert2.jpg",
+      "sha256": "cacc443f8652525a229e86513c118b3e688c79c701a09bef5fd8b3d660536bfe",
+      "bytes": 52425,
+      "width": 353,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice stands at the left of a path while the White Rabbit gestures beside a bare tree.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Why, Mary Ann, what are you doing out here?"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-04",
+          "block": "chapter-04-b007",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0050-insert2-jpg",
+      "archivePath": "images/p0050-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0050-insert2.jpg",
+      "sha256": "e8329314a89313fbf8f6cc34d6051b345941769647e1955e1dbe288ed92b1d4a",
+      "bytes": 72562,
+      "width": 337,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice looks up at a Caterpillar seated on a mushroom and smoking a hookah.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Advice from a Caterpillar"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-05",
+          "block": "chapter-05-b018",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0056-image-png",
+      "archivePath": "images/p0056-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0056-image.png",
+      "sha256": "d42ed2014cfb49bbb8e534579aead19a56aeb614cf605e7fb1009b43f3bbf48a",
+      "bytes": 16649,
+      "width": 400,
+      "height": 279,
+      "mime": "image/png",
+      "alt": "Alice leans away as a flurry of birds rushes past her.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "She was frightened"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-05",
+          "block": "chapter-05-b050",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0059-image-png",
+      "archivePath": "images/p0059-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0059-image.png",
+      "sha256": "d41f19b04320899c4fde860623d1a85d03e3ef422b6f8cd26832f3d0ac4af700",
+      "bytes": 70814,
+      "width": 332,
+      "height": 500,
+      "mime": "image/png",
+      "alt": "Alice’s long neck winds among a tree’s branches.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "As a tree"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-05",
+          "block": "chapter-05-b064",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "f-png",
+      "archivePath": "images/f.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/f.png",
+      "sha256": "103d28b22d71e1f54cbbd67ef1cfa1d33b7666ffc720751e9abf439611478b10",
+      "bytes": 2110,
+      "width": 74,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial F",
+      "role": "decorated initial",
+      "originalAlt": [
+        "F"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0067-image-png",
+      "archivePath": "images/p0067-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0067-image.png",
+      "sha256": "4f3f14542525f9fe1a4924e30609045d5ce45d5c2ca654b89118f48660df3803",
+      "bytes": 23700,
+      "width": 351,
+      "height": 400,
+      "mime": "image/png",
+      "alt": "Alice stands outside a door beside a seated, formally dressed footman.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Footman and Alice"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b016",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0070-insert2-jpg",
+      "archivePath": "images/p0070-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0070-insert2.jpg",
+      "sha256": "905e2a5b56e8d10fda24346b2740fe45715e6f51d5564c2258ad9a74dbff42d7",
+      "bytes": 81028,
+      "width": 384,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "The Duchess holds a baby in a crowded kitchen with Alice, the cook, the Cheshire Cat and flying utensils.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "An unusually large saucepan flew close by it, and very nearly carried it off"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b036",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0074-insert2-jpg",
+      "archivePath": "images/p0074-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0074-insert2.jpg",
+      "sha256": "eb434a53c9b82786afd394ab3321fd2319aa5c07e6ed434269e51528fa0429d5",
+      "bytes": 64101,
+      "width": 357,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice holds a small pig in her arms beneath the trees.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "It grunted again so violently that she looked down into its face in some alarm"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b054",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0075-image-png",
+      "archivePath": "images/p0075-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0075-image.png",
+      "sha256": "53d2dcb1f6df7a4bc765d032b64c29976fceee1e8067359619714725d063bc7d",
+      "bytes": 18538,
+      "width": 400,
+      "height": 258,
+      "mime": "image/png",
+      "alt": "The Cheshire Cat lies on a tree branch, its wide grin turned outward.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Cheshire cat in a tree"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b056",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0079-image-png",
+      "archivePath": "images/p0079-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0079-image.png",
+      "sha256": "45d4f0fbe3a536f75825512a3d159c392a48a568f1fc17856e091d27662584eb",
+      "bytes": 42697,
+      "width": 372,
+      "height": 500,
+      "mime": "image/png",
+      "alt": "Alice looks up toward the Cheshire Cat in a gnarled tree.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Cheshire cat again"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-06",
+          "block": "chapter-06-b086",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0084-insert2-jpg",
+      "archivePath": "images/p0084-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0084-insert2.jpg",
+      "sha256": "4567446596638cc92459da30160b50d60f8093350e4c55277b67fce6bf04f9b2",
+      "bytes": 67273,
+      "width": 359,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice sits at a long tea table outdoors with the Hatter, March Hare and Dormouse.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "A Mad Tea Party"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-07",
+          "block": "chapter-07-b025",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0100-insert2-jpg",
+      "archivePath": "images/p0100-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0100-insert2.jpg",
+      "sha256": "f5f30b45733e1be1729e1b843cff5b7e2c8a92eb2d8dccc8b15a5acba7386631",
+      "bytes": 72600,
+      "width": 364,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "The Queen stands beside Alice and the Knave while card gardeners lie on the ground.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Queen turned angrily away from him and said to the Knave, \"Turn them over\""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-08",
+          "block": "chapter-08-b029",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0103-image-png",
+      "archivePath": "images/p0103-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0103-image.png",
+      "sha256": "99521aefa8e9874252d46f80d0962adc34a12d162c084474ac9e20e2fb347172",
+      "bytes": 17042,
+      "width": 300,
+      "height": 400,
+      "mime": "image/png",
+      "alt": "Alice holds a flamingo whose neck bends down toward a hedgehog.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Playing croquet"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-08",
+          "block": "chapter-08-b045",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0106-image-png",
+      "archivePath": "images/p0106-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0106-image.png",
+      "sha256": "da792d5cc40c4a31a6d5d16fbf5158f78d285e7113c93c4a6569164774174e40",
+      "bytes": 8540,
+      "width": 380,
+      "height": 179,
+      "mime": "image/png",
+      "alt": "The Cheshire Cat’s grinning head appears alone amid curved lines.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The cat"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-08",
+          "block": "chapter-08-b054",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0109-image-png",
+      "archivePath": "images/p0109-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0109-image.png",
+      "sha256": "0d7c537236a9d20cc1e2bd77090709a97efafae96842aa9bf02cf952d9d3fb9f",
+      "bytes": 9905,
+      "width": 286,
+      "height": 300,
+      "mime": "image/png",
+      "alt": "The executioner stands with a large axe.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Executioner"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-08",
+          "block": "chapter-08-b072",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "y-quote-png",
+      "archivePath": "images/y-quote.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/y-quote.png",
+      "sha256": "c3631284b8bde861e3fa65085521a39dbbf46fd48a12416f69b07f46188da6cc",
+      "bytes": 2270,
+      "width": 86,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial \"Y",
+      "role": "decorated initial",
+      "originalAlt": [
+        "\"Y"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-09",
+          "block": "chapter-09-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0116-insert2-jpg",
+      "archivePath": "images/p0116-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0116-insert2.jpg",
+      "sha256": "9cc12dd96652555a3e9bc694f523a54e1c52629ef6a398ce91dd7750752dfd90",
+      "bytes": 61661,
+      "width": 364,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice, the Queen and several card courtiers in a wooded croquet scene, with hedgehogs on the ground.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Queen never left off quarrelling with the other players, and shouting \"Off with his head!\" or, \"Off with her head!\""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-09",
+          "block": "chapter-09-b038",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0119-image-png",
+      "archivePath": "images/p0119-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0119-image.png",
+      "sha256": "8e8c9633bda34626fd4908aec9fb2111f3f66d4a1ac26ae69b792fd84432202b",
+      "bytes": 31860,
+      "width": 355,
+      "height": 500,
+      "mime": "image/png",
+      "alt": "A Gryphon sits beneath the branches of a tree.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Gryphon"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-09",
+          "block": "chapter-09-b051",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0132-insert2-jpg",
+      "archivePath": "images/p0132-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0132-insert2.jpg",
+      "sha256": "1e824e08f15c495433140f71f2a080230fd64cb5fb3c7ce68ca12c678d55160a",
+      "bytes": 67405,
+      "width": 372,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice sits between the Gryphon and Mock Turtle near the shore.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "The Mock Turtle drew a long breath and said, \"That's very curious\""
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-10",
+          "block": "chapter-10-b051",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0136-image-png",
+      "archivePath": "images/p0136-image.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0136-image.png",
+      "sha256": "1714ad48de7d37e87eadacaceaad45de75a3bd01114c10f069fdea5064894530",
+      "bytes": 8059,
+      "width": 192,
+      "height": 300,
+      "mime": "image/png",
+      "alt": "The Mock Turtle stands upright, lifting one hoof beside its long face.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Mock turtle"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-10",
+          "block": "chapter-10-b071",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0140-insert2-jpg",
+      "archivePath": "images/p0140-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0140-insert2.jpg",
+      "sha256": "34bd49d03b9474b05959627757c8a568cc5f42d51b72126b9a9219393c6e6c11",
+      "bytes": 76505,
+      "width": 359,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "The King and Queen preside over a crowded courtroom, with the White Rabbit nearby.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Who stole the tarts?"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-11",
+          "block": "chapter-11-b009",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "p0149-image-jpg",
+      "archivePath": "images/p0149-image.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0149-image.jpg",
+      "sha256": "ffdb2627b01567c70478e7cf42bd6d6d30d90dd48e67cae5165c1d746a9568d8",
+      "bytes": 9712,
+      "width": 176,
+      "height": 250,
+      "mime": "image/jpeg",
+      "alt": "The cook stands holding a pepper pot.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "Cook"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-11",
+          "block": "chapter-11-b075",
+          "role": "figure"
+        }
+      ]
+    },
+    {
+      "id": "h-quote-png",
+      "archivePath": "images/h-quote.png",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/h-quote.png",
+      "sha256": "1862b79db209a63798aa98c4f58ccb26b0d1a5e795f23d691681a0d23dbb3ee1",
+      "bytes": 1775,
+      "width": 85,
+      "height": 75,
+      "mime": "image/png",
+      "alt": "Decorated initial \"H",
+      "role": "decorated initial",
+      "originalAlt": [
+        "\"H"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-12",
+          "block": "chapter-12-b003",
+          "role": "initial"
+        }
+      ]
+    },
+    {
+      "id": "p0158-insert2-jpg",
+      "archivePath": "images/p0158-insert2.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/28885/images/p0158-insert2.jpg",
+      "sha256": "c91f9bd7d42fd9e67cf4a6e12369d5fde78ee68b564d52b964c3b0efbcea2916",
+      "bytes": 70329,
+      "width": 356,
+      "height": 500,
+      "mime": "image/jpeg",
+      "alt": "Alice raises her hands as a pack of playing cards flies around her.",
+      "role": "source illustration or binding image",
+      "originalAlt": [
+        "At this the whole pack rose up into the air, and came flying down upon her"
+      ],
+      "rights": "Part of PG 28885, catalogued public domain in the USA; other jurisdictions unassessed.",
+      "attribution": "Arthur Rackham illustration edition; source scans credited to University of Florida Digital Collections; digitization by Jana Srna, Emmy and the Online Distributed Proofreading Team.",
+      "uses": [
+        {
+          "section": "chapter-12",
+          "block": "chapter-12-b053",
+          "role": "figure"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "sections": 19,
+    "chapters": 12,
+    "blocks": 964,
+    "imageAssets": 38,
+    "imageUses": 43,
+    "transcriberNotes": 13,
+    "sourcePageMarkers": 168,
+    "verseBlocks": 19
+  }
+}

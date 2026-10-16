@@ -1,6 +1,6 @@
 # From the small reader to a real edition
 
-Four independent public-domain trials covered an illustrated novel, an illustrated story with shaped verse, essays with accounts and a survey, and philosophy with Greek, notes and tables. Every trial needed a source-specific adapter. This demonstrates the guided workflow, not automatic support in the stock importer. Their book files and adaptations remain outside this repository. Use the existing [agent workflow](AGENT-GUIDE.md), [format boundaries](BOOK-FORMAT.md) and [rights guide](RIGHTS.md).
+Four independent public-domain trials covered an illustrated novel, an illustrated story with shaped verse, essays with accounts and a survey, and philosophy with Greek, notes and tables. Every trial needed a source-specific adapter. This demonstrates the guided workflow, not automatic support in the stock importer. Their explicitly reviewed source snapshots are now in [examples/](../examples/README.md), with separate build boundaries and exact asset reviews. Use the existing [agent workflow](AGENT-GUIDE.md), [format boundaries](BOOK-FORMAT.md) and [rights guide](RIGHTS.md).
 
 ## Inspect before extending
 

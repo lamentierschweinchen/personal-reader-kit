@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "note": "Raw files are preserved unchanged in ignored project-local storage. This public record contains identities only, not the raw archives or Stanford article.",
+  "files": [
+    {
+      "localName": "hegel-catalogue.html",
+      "url": "https://www.gutenberg.org/ebooks/51635",
+      "accessed": "2026-10-16",
+      "bytes": 24807,
+      "sha256": "505cb5c99d227e2ac96f56c4a8e09dbb06a40a6a7117fa1792d893584d817334",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "schopenhauer-catalogue.html",
+      "url": "https://www.gutenberg.org/ebooks/10731",
+      "accessed": "2026-10-16",
+      "bytes": 24736,
+      "sha256": "4c51016cad2ac97bf9e462621a1d424221cf17917bf94ab1d9c695a2904d780f",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg51635.html",
+      "url": "https://www.gutenberg.org/cache/epub/51635/pg51635-images.html",
+      "accessed": "2026-10-16",
+      "bytes": 1132626,
+      "sha256": "8f8d0575d8a5fd82f93dc36ed1aba280fe0b8b1bf330216760b9e43a3b139c5e",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg10731.html",
+      "url": "https://www.gutenberg.org/cache/epub/10731/pg10731-images.html",
+      "accessed": "2026-10-16",
+      "bytes": 220230,
+      "sha256": "f8d9d3c36ea136d6f6dc16de2843fe08069826b8af63ac018c05de3ba7fb67f8",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg51635.epub",
+      "url": "https://www.gutenberg.org/ebooks/51635.epub3.images",
+      "accessed": "2026-10-16",
+      "bytes": 478292,
+      "sha256": "481e2939b46a4e580364590756b692529e3fae5502fef244b05ace78a53f8cbd",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg10731.epub",
+      "url": "https://www.gutenberg.org/ebooks/10731.epub3.images",
+      "accessed": "2026-10-16",
+      "bytes": 162625,
+      "sha256": "e2937d9051a9882d0cb67d7b6dc4e3ca9d41779a85e2c331baaecdcae53d7d8c",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg-license.html",
+      "url": "https://www.gutenberg.org/policy/license.html",
+      "accessed": "2026-10-16",
+      "bytes": 32478,
+      "sha256": "8a5137aecb0911dc0700e4ff636834326f6eade4beb997229269658a5ccd82f7",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "pg-permission.html",
+      "url": "https://www.gutenberg.org/policy/permission.html",
+      "accessed": "2026-10-16",
+      "bytes": 18907,
+      "sha256": "c6df9d5913daf11aab5638744adaae02e2af0b27135a614e02f66260b2fcd8a7",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "sep-schopenhauer.html",
+      "url": "https://plato.stanford.edu/entries/schopenhauer/",
+      "accessed": "2026-10-16",
+      "bytes": 103458,
+      "sha256": "db0095bd8f60322f6596bba37d521d40720f2e15fb2ed59e52221cbf52f4fa50",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "hegel-logo.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/51635/images/logo.jpg",
+      "accessed": "2026-10-16",
+      "bytes": 4615,
+      "sha256": "62b131f7ba201690f864bd6c717469d5f97045e8f3de7a4a989425f3a9974678",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "hegel-cover.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/51635/images/cover.jpg",
+      "accessed": "2026-10-16",
+      "bytes": 22436,
+      "sha256": "af434166f44d467cda579b5b070409fde341596c3f43619e3b0b1885e25b7ef1",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "hegel-276a.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/51635/images/ill-276a.jpg",
+      "accessed": "2026-10-16",
+      "bytes": 4294,
+      "sha256": "e95f149ffea431a9206d5c0311e87c0972fad8f406465bbee33eb1f6a4383c4e",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "hegel-276b.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/51635/images/ill-276b.jpg",
+      "accessed": "2026-10-16",
+      "bytes": 4224,
+      "sha256": "c2886b10a70b3ffc9aa74021587f98fc885e22bbad85383bc713efa533479b58",
+      "rawIsIgnored": true
+    },
+    {
+      "localName": "hegel-276c.jpg",
+      "url": "https://www.gutenberg.org/cache/epub/51635/images/ill-276c.jpg",
+      "accessed": "2026-10-16",
+      "bytes": 3547,
+      "sha256": "a718979f460a5235abb8f68c30bc2aa7842c419456134520da4561b62f7dbc77",
+      "rawIsIgnored": true
+    }
+  ]
+}
