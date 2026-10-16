@@ -11,7 +11,7 @@ function note() {
 }
 test('original samples have exact provenance fingerprints',()=>{for(const input of books){const b=validateBook(input);assert.equal(createHash('sha256').update(bookText(b)).digest('hex'),b.source.sha256);}});
 test('TXT conserves Unicode, BOM, CRLF, whitespace, stanzas and separators byte for byte',async()=>{
-  const text='\uFEFFὁδός — café\r\n    indented\r\n\r\n\r\nsecond\tline\n\n\nlast line  \n';
+  const text='\uFEFFὁδός — café ↗ → ➡️\r\n    indented\r\n\r\n\r\nsecond\tline\n\n\nlast line  \n';
   const bytes=new TextEncoder().encode(text),imported=await fromText(text,{title:'A test',kind:'verse',bytes});
   assert.equal(bookText(imported),text);assert.equal(imported.source.sha256,createHash('sha256').update(bytes).digest('hex'));assert.ok(imported.sections[0].blocks.every(b=>b.kind==='verse'));
 });

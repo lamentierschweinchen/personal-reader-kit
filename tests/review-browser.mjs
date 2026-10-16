@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {settledCapture} from './experience-browser.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 
 export async function reviewChecks({browser,base,engine,output}) {
@@ -32,14 +33,14 @@ export async function reviewChecks({browser,base,engine,output}) {
     assert.equal(await page.locator('#reading-text em').textContent(),'First');
     const geometry=await page.evaluate(()=>{const b=[...document.querySelectorAll('#reading-text [data-block]')],lh=parseFloat(getComputedStyle(document.querySelector('#reading-text')).lineHeight);return {two:b[1].getBoundingClientRect().top-b[0].getBoundingClientRect().top,four:b[2].getBoundingClientRect().top-b[1].getBoundingClientRect().top,lh};});
     assert.ok(geometry.four>geometry.two+geometry.lh,JSON.stringify(geometry));
-    await page.getByRole('button',{name:'Focus ↗',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));assert.equal(await page.locator('.boundary-button').isVisible(),false);assert.equal(await page.locator('.reader-heading h1').isVisible(),true);assert.equal(await page.locator('.chapter-links').isVisible(),true);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));
+    await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));assert.equal(await page.locator('.boundary-button').isVisible(),false);assert.equal(await page.locator('.reader-heading h1').isVisible(),true);assert.equal(await page.locator('.chapter-links').isVisible(),true);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));
     await page.getByRole('link',{name:'Companion',exact:true}).click();await page.getByRole('button',{name:'02 An echo index',exact:false}).click();await page.locator('#echo-term').fill('room');await page.getByRole('button',{name:'Find occurrences'}).click();
     assert.equal(await page.locator('.echo-list li').count(),2);assert.equal(await page.locator('.echo-list mark').count(),2);assert.equal(await page.locator('.echo-list strong').count(),2);assert.equal(await page.locator('.echo-list .fixed-lines').count(),2);
     await page.getByRole('button',{name:'03 Facing pages',exact:false}).click();await page.locator('#facing-0').selectOption('0');await page.locator('#facing-1').selectOption('1');
-    assert.equal(await page.locator('#facing-0').evaluate(el=>el.getBoundingClientRect().height>=44),true);
+    assert.equal(await page.locator('#facing-0').evaluate(el=>el.getBoundingClientRect().height>=44&&el.getBoundingClientRect().width>=44),true);
     assert.equal(await page.locator('.facing-pages .fixed-lines').evaluate(el=>getComputedStyle(el).whiteSpace==='pre'&&el.scrollWidth>el.clientWidth&&el.tabIndex===0),true);
     assert.equal(await page.locator('.facing-pages em').textContent(),'First');assert.equal(await page.locator('.facing-pages strong').textContent(),'Third');
-    for(const [label,width,height] of [['phone',402,874],['ipad',820,1180],['narrow',320,740]]) {await page.setViewportSize({width,height});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`${label} comparison overflow`);await page.screenshot({path:new URL(`${engine}-${label}-comparison.png`,output).pathname,animations:'disabled',fullPage:true});}
+    for(const [label,width,height] of [['phone',402,874],['ipad',820,1180],['narrow',320,740]]) {await page.setViewportSize({width,height});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`${label} comparison overflow`);await settledCapture(page,{path:new URL(`${engine}-${label}-comparison.png`,output).pathname,animations:'disabled',fullPage:true});}
     await page.setViewportSize({width:402,height:874});
     await page.locator('#reflection').fill('Their difference matters more than their similarity.');await page.getByRole('button',{name:'Keep this connection',exact:false}).click();await page.waitForFunction(()=>document.querySelector('#reflection-status').textContent.includes('Connection saved'));
     await page.getByRole('link',{name:'Passages',exact:true}).click();assert.equal(await page.locator('.saved-connection em').textContent(),'First');

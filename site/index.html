@@ -12,6 +12,7 @@
   <title>Reading · in good company</title>
 </head>
 <body>
+  <svg class="icon-definitions" aria-hidden="true" focusable="false"><defs><path id="ui-arrow" d="M3 8h10M8 3l5 5-5 5"/></defs></svg>
   <a class="skip-link" href="#main">Skip to reading</a>
   <header class="masthead">
     <a class="wordmark" href="#shelf" aria-label="Reading, your shelf">Reading<span class="wordmark-dot">.</span></a>
@@ -24,9 +25,9 @@
   </header>
   <div id="storage-warning" class="warning" role="alert" hidden></div>
   <main id="main" tabindex="-1"><p class="loading">Opening your shelf…</p></main>
-  <button id="focus-exit" data-action="focus" hidden>Exit focus <span aria-hidden="true">↗</span></button>
+  <button id="focus-exit" data-action="focus" hidden>Exit focus <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button>
   <button id="selection-save" hidden>Keep this passage <span aria-hidden="true">＋</span></button>
-  <footer class="site-footer"><span>Take your time.</span><button id="offline-status" data-action="offline">Checking offline copy…</button><button data-action="import">Add a book ↗</button></footer>
+  <footer class="site-footer"><span>Take your time.</span><button id="offline-status" data-action="offline">Checking offline copy…</button><button data-action="import">Add a book <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button></footer>
   <p id="status" class="status" role="status" aria-live="polite"></p>
   <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
   <noscript>This reader needs JavaScript to store books and annotations on your device. No book is uploaded by this application.</noscript>

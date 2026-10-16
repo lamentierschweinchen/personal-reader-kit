@@ -24,3 +24,6 @@
    the wordmark, three links and a touch-sized settings control off the page. */
 @media(max-width:540px){.masthead{min-height:108px;display:grid;grid-template-columns:1fr auto;gap:0 10px;padding-top:8px}.masthead .wordmark{grid-column:1;grid-row:1}.masthead nav{grid-column:1/-1;grid-row:2;margin-left:0;justify-content:space-between;gap:16px}.type-button{grid-column:2;grid-row:1;border:0;min-width:44px;padding:8px}.reader-tools{top:108px}}
 @media(max-height:500px){.reader-tools{top:0}}
+
+/* Interface arrows share one path; source-book punctuation is never substituted. */
+.icon-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}.ui-icon{display:inline-block;width:.95em;height:.95em;vertical-align:-.125em;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.ui-icon--up-right{transform:rotate(-45deg)}.ui-icon--left{transform:rotate(180deg)}

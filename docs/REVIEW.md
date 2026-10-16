@@ -35,3 +35,9 @@ Editorial revisions are lifecycle events. Preserve exact prepared editions as we
 ## What is deliberately still open
 
 Physical iPhone/iPad selection, touch menus, storage retention, zoom and safe areas need actual devices. No kit deployment or private hosted-book access control has been verified. The research case has not undergone an on-site route survey, subject-expert review or reader learning study. Those are concrete next checks, not accomplishments inferred from a browser test or a long essay. Neither reference reader was changed.
+
+## Follow-up experience observations · 16 October 2026
+
+The reference-reader handoff identified recurring iPhone arrow glyphs and additional distinctions between passing functional tests and a usable reading experience. The kit now uses shared decorative SVG arrows and plain source links. The general criteria are recorded in [the agent guide](AGENT-GUIDE.md#verify-the-reading-experience) and [design notes](DESIGN.md#reading-ergonomics): visible range geometry, available reading height, both touch dimensions, quiet-mode orientation, title hierarchy, exact search matches, settled screenshots and offline reload.
+
+Inspection found two related kit defects: context scrolled to the containing block rather than a late saved range, and an occurrence's context button dropped its offsets. The bounded correction retains those ranges and reveals their start, with original-fixture geometry checks. The existing focus-exit overlay placement and broader title/layout design were not changed. See [status](STATUS.md) for the exact verification scope and remaining physical-device limits. No personal reader text, screenshots, notes or assets were copied.

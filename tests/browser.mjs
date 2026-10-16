@@ -4,6 +4,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
 import {reviewChecks} from './review-browser.mjs';
+import {experienceChecks,settledCapture} from './experience-browser.mjs';
 const require=createRequire(import.meta.url);
 let playwright;
 try {playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');}catch{throw new Error('Install Playwright for optional browser tests: npm install --no-save --package-lock=false playwright@1.62.1');}
@@ -16,8 +17,17 @@ const engines=process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'
 const state=page=>page.evaluate(async()=> (await import('/db.mjs')).loadState());
 async function checkOverflow(page,label,engine) {
   const report=await page.evaluate(()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,offenders:[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,class:el.className,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width})).filter(x=>x.width>0&&(x.right>innerWidth+1||x.left< -1)).slice(0,16)}));
-  if(report.documentWidth>report.viewport)await page.screenshot({path:new URL(`${engine}-${label}-overflow.png`,output).pathname,animations:'disabled',fullPage:true});
+  if(report.documentWidth>report.viewport)await settledCapture(page,{path:new URL(`${engine}-${label}-overflow.png`,output).pathname,animations:'disabled',fullPage:true});
   assert.ok(report.documentWidth<=report.viewport,label+' overflow: '+JSON.stringify(report));
+}
+
+async function checkUIIcons(page) {
+  const icons=await page.locator('svg.ui-icon').evaluateAll(nodes=>nodes.filter(el=>el.getBoundingClientRect().width>0).map(el=>{
+    const style=getComputedStyle(el),use=el.querySelector('use'),box=use?.getBBox();
+    return {hidden:el.getAttribute('aria-hidden'),focusable:el.getAttribute('focusable'),tabindex:el.getAttribute('tabindex'),text:el.textContent,href:use?.getAttribute('href'),drawn:box?.width>0&&box?.height>0,stroke:style.stroke,color:getComputedStyle(el.parentElement).color,strokeWidth:style.strokeWidth,width:parseFloat(style.width),font:parseFloat(style.fontSize)};
+  }));
+  assert.ok(icons.length>0,'Expected visible interface SVGs');
+  for(const icon of icons){assert.equal(icon.hidden,'true');assert.equal(icon.focusable,'false');assert.equal(icon.tabindex,null);assert.equal(icon.text,'');assert.equal(icon.href,'#ui-arrow');assert.equal(icon.drawn,true);assert.equal(icon.stroke,icon.color);assert.equal(icon.strokeWidth,'1.5px');assert.ok(Math.abs(icon.width-.95*icon.font)<.1);}
 }
 
 async function waitState(page,predicate) {for(let i=0;i<100;i++){const value=await state(page);if(predicate(value))return value;await page.waitForTimeout(50);}throw new Error('Reader state did not reach the expected value.');}
@@ -55,7 +65,7 @@ try {
       // Focus mode and appearance changes preserve the same logical block.
       await page.evaluate(()=>{const block=document.querySelector('[data-block="bell-4"]');scrollTo(0,scrollY+block.getBoundingClientRect().top-165);});
       const position=(await waitState(page,s=>s.positions.bell?.blockId && s.positions.bell.blockId!=='bell-1')).positions.bell;
-      await page.getByRole('button',{name:'Focus ↗',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));
+      await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));
       await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));
       await page.reload();await page.waitForSelector('#reading-text mark');assert.equal((await state(page)).positions.bell.blockId,position.blockId);
       // Exploration opens in context, and only explicit boundaries unlock passages.
@@ -72,10 +82,16 @@ try {
       await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Dusk',exact:true}).click();assert.equal((await state(page)).notes.length,2);await page.getByRole('button',{name:'Close ×',exact:true}).click();
       // Local import: exact Unicode/whitespace, markup inert, no external requests.
       await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'Bring a book',exact:false}).click();
-      const text='ὁδός — café <script>window.bad=true</script>\r\n    line two\r\n\r\n\r\nA final line.  \n';
+      const text='ὁδός — café <script>window.bad=true</script>\r\n    line two\r\n\r\n\r\nA final line.  \nSource-book arrows stay: ↗ → ➡️\n';
       await page.locator('#book-file').setInputFiles({name:'original-test.txt',mimeType:'text/plain',buffer:Buffer.from(text)});await page.locator('#book-title').fill('A local test <script>');await page.locator('#book-form').selectOption('verse');await page.getByRole('button',{name:'Add on this device',exact:false}).click();
       await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);assert.equal(await page.evaluate(()=>window.bad),undefined);
       await page.reload();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);
+      // Bibliographic links stay plain and underlined; source-book arrows stay exact.
+      await page.evaluate(async()=>{const db=await import('/db.mjs'),{books}=await db.loadBooks(),book=books.find(b=>b.title==='A local test <script>');book.context.push({label:'Original source-link fixture',text:'Original writing for interface verification.',kind:'source',through:null,url:'https://example.invalid/original-fixture'});await db.saveBook(book);});
+      await page.reload();await page.waitForSelector('#reading-text');await page.getByRole('button',{name:'About this work',exact:true}).click();
+      const source=page.getByRole('link',{name:'Source',exact:true});assert.equal(await source.count(),1);assert.equal(await source.locator('svg').count(),0);assert.equal(await source.textContent(),'Source');assert.match(await source.evaluate(el=>getComputedStyle(el).textDecorationLine),/underline/);
+      for(const [label,width,height] of [['phone',402,874],['ipad',820,1180]]){await page.setViewportSize({width,height});await settledCapture(page,{path:new URL(`${engine}-${label}-plain-source.png`,output).pathname,animations:'disabled'});}
+      await page.getByRole('button',{name:'Close ×',exact:true}).click();assert.equal(await page.locator('#reading-text').textContent(),text);
       // Importing malformed backups cannot replace existing state.
       await page.getByRole('button',{name:'Reading settings'}).click();const beforeBad=(await state(page)).notes;
       await page.locator('#restore-file').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"schema":999}')});await page.waitForFunction(()=>document.querySelector('#dialog-error').textContent.length>0);assert.deepEqual((await state(page)).notes,beforeBad);await page.getByRole('button',{name:'Close ×',exact:true}).click();
@@ -83,13 +99,24 @@ try {
       for(const [label,width,height] of [['phone',402,874],['phone-landscape',874,402],['ipad',820,1180],['ipad-landscape',1180,820],['small',320,740]]) {
         await page.setViewportSize({width,height});await page.goto(base+'/#shelf');await page.waitForSelector('.shelf');
         await checkOverflow(page,label+'-shelf',engine);
-        await page.screenshot({path:new URL(`${engine}-${label}-shelf.png`,output).pathname,animations:'disabled'});
+        await checkUIIcons(page);assert.equal(await page.getByRole('button',{name:'Bring a book',exact:true}).count(),1);
+        await settledCapture(page,{path:new URL(`${engine}-${label}-shelf.png`,output).pathname,animations:'disabled'});
         await page.goto(base+'/#read/bell/arrival');await page.waitForSelector('#reading-text');await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Large print',exact:true}).click();await page.getByRole('button',{name:'Close ×',exact:true}).click();
         await checkOverflow(page,label+'-reading',engine);assert.equal(await page.locator('#reading-text').textContent(),canonical);
-        await page.screenshot({path:new URL(`${engine}-${label}-reading.png`,output).pathname,animations:'disabled'});
+        await checkUIIcons(page);assert.equal(await page.getByRole('button',{name:'Focus',exact:true}).count(),1);
+        await settledCapture(page,{path:new URL(`${engine}-${label}-reading.png`,output).pathname,animations:'disabled'});
+        if(label==='phone'||label==='ipad') {
+          await page.locator('.chapter-links').scrollIntoViewIfNeeded();await settledCapture(page,{path:new URL(`${engine}-${label}-continuation.png`,output).pathname,animations:'disabled'});
+          await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));await checkUIIcons(page);assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),true);
+          await settledCapture(page,{path:new URL(`${engine}-${label}-focus.png`,output).pathname,animations:'disabled'});await page.keyboard.press('Escape');
+          await page.goto(base+'/#read/bell/crossing');await page.waitForSelector('#reading-text');await page.locator('.chapter-links').scrollIntoViewIfNeeded();await checkUIIcons(page);
+          assert.equal(await page.locator('.chapter-links .ui-icon--left').count(),1);assert.equal(await page.locator('.chapter-links .ui-icon--right').count(),1);
+          assert.equal(await page.getByRole('link',{name:/Previous/}).count(),1);assert.equal(await page.getByRole('link',{name:/Next/}).count(),1);
+          await settledCapture(page,{path:new URL(`${engine}-${label}-both-directions.png`,output).pathname,animations:'disabled'});
+        }
         await page.goto(base+'/#companion');await page.waitForSelector('.experiment');await checkOverflow(page,label+'-companion',engine);
       }
-      await page.setViewportSize({width:1180,height:820});await page.screenshot({path:new URL(`${engine}-companion.png`,output).pathname,animations:'disabled',fullPage:true});
+      await page.setViewportSize({width:1180,height:820});await settledCapture(page,{path:new URL(`${engine}-companion.png`,output).pathname,animations:'disabled',fullPage:true});
       await page.goto(base+'/#passages');await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);assert.equal(await page.locator('.passage img').count(),0);
       // A concurrent edit of the SAME note rejects stale replacement and keeps the draft.
       const firstNote=(await state(page)).notes[0];
@@ -136,12 +163,13 @@ try {
       await broken.reload();await broken.waitForSelector('#storage-warning:not([hidden])');await broken.getByRole('button',{name:'Open the book',exact:false}).first().click();await broken.waitForSelector('#reading-text');await select(broken);await broken.locator('#selection-save').click();await broken.locator('#note-text').fill('A recovery draft.');await broken.getByRole('button',{name:'Save on this device',exact:true}).click();await broken.waitForFunction(()=>document.querySelector('#dialog-error').textContent.length>0);
       assert.deepEqual(await broken.evaluate(async()=> (await import('/db.mjs')).rawState()),{schema:999,original:'Preserve this fixture'});await brokenContext.close();
       const independentReview=await reviewChecks({browser,base,engine,output});
+      const readingExperience=await experienceChecks({browser,base,engine,output});
       if(engine==='chromium') {
         await context.setOffline(true);await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,independentReview,viewports:5,textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
+      receipts.push({engine,independentReview,readingExperience,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);

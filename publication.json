@@ -38,9 +38,11 @@
     "site/text.mjs",
     "tests/browser.mjs",
     "tests/core.test.mjs",
+    "tests/experience-browser.mjs",
     "tests/history.test.mjs",
     "tests/publication.test.mjs",
     "tests/review-browser.mjs",
+    "tests/ui-icons.test.mjs",
     "vercel.json"
   ]
 }

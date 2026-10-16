@@ -15,3 +15,9 @@ Version 0.1.1 repairs source-spacing and quotation fidelity around empty blocks,
 ## Independent Canetti review · 15 October 2026
 
 The 0.2.0 follow-up addresses incomplete-history auditing, content-pinned retired-file review, faithful companion excerpts, local-first startup, transactional damaged-state repair and exact-edition/origin migration. It extends literal occurrence search to imported books and stores chosen comparisons with both source references. Focus mode excludes companion administration. Editorial lessons, a sourced research case, explicit limits and the finding-by-finding disposition are in `docs/REVIEW.md`; execution and publication status are in `docs/STATUS.md`. No personal reader was changed.
+
+## Interface and reading-experience learnings · 16 October 2026
+
+Version 0.2.1 incorporates the recurring iPhone arrow-glyph issue reported from both reference readers. Authored interface arrows reuse one decorative SVG path with inherited color and textual control names; repeated source links omit the icon. Source-book characters and sample bytes remain unchanged. AGENTS.md, the agent guide and design guidance record the rule, the limits of emulation, and the need to judge visual/editorial quality separately from functional checks and word counts. The regression targets interface files and verifies imported literary arrows remain exact. Neither personal reader was changed.
+
+The bounded follow-up also records range visibility, landscape reading space, both touch dimensions, quiet-mode orientation, long-title navigation, match-level search, settled captures and offline-reload evidence. Saved-passage and occurrence context in the kit now reveal their exact ranges; original-fixture browser checks cover those defects. Wider layout changes and physical-device verification remain outside this pass.

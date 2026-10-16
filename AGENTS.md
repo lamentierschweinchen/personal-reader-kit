@@ -18,6 +18,10 @@ Reading stands alone. Exploration is optional and must not advance the main read
 
 Keep touch targets, keyboard controls, focus visibility, text zoom, contrast, screen-reader order and reduced motion usable. Test phone and tablet layouts. Browser emulation is not physical iOS gesture testing. Avoid unsolicited summaries and spoilers; unlock discussion only through an explicit reader-set boundary.
 
+Authored interface arrows must use a small shared SVG/path with `currentColor`, deliberate stroke, size and baseline, `aria-hidden="true"` and `focusable="false"`. Keep the control's textual accessible name. Unicode arrows can become colored emoji or inconsistent fallback glyphs on iPhone; font choices and text-presentation selectors are not a fix. Omit arrows from quiet, repeated bibliographic links when their labels and underlines suffice. Never replace arrows or punctuation inside source books. Follow [the icon guidance](docs/DESIGN.md#interface-icons), run the scoped UI regression, and inspect Chromium/WebKit phone/tablet screenshots. Functional tests and word counts do not establish visual or editorial quality.
+
+For context and search, reveal the actual selected/matched range inside its usable scroll viewport; finding a highlight or a containing paragraph is insufficient. Check both touch-target dimensions, available reading height in landscape, full source headings versus navigation previews, and focus-mode orientation/continuation/selection/exit. Settle screenshots on the requested book/section, fonts and finite transitions. Offline claims need a successful reload without the origin, not merely an open book or note editing. Follow the concrete review criteria in [the agent guide](docs/AGENT-GUIDE.md#verify-the-reading-experience).
+
 ## Finish and publish
 
 Run `npm test`, `npm run build`, browser tests when UI changes, and `npm run audit:public`. Audit the exact index, working files and all reachable history. The audit is a guardrail, not a copyright or secret-detection guarantee. Manually review the complete file inventory and sample provenance.

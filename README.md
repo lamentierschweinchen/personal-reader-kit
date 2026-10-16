@@ -38,7 +38,7 @@ The agent follows four steps:
 1. **Meet the books.** Check formats, edition, languages, source quality and import rights. Prepare local reading files with exact wording, poetry structure and an honest conversion report.
 2. **Choose the kind of companion.** First make ordinary reading useful. Presets are available in either mode; optional exploration starts with questions about your interests, travel, attention and spoilers.
 3. **Try, then make.** For exploratory mode, the agent studies the material and proposes three genuinely different experiences, makes a small working prototype of each, asks what draws you in, and refines your choice. Reading remains available throughout. If you already chose a direction, tell the agent; it should refine that choice instead of restarting an unwanted selection exercise.
-4. **Make it yours online.** The agent helps you get the repository through GitHub if needed, set up Vercel, choose the right privacy boundary, deploy, and verify the actual site on your devices. [Deployment guide →](docs/DEPLOYMENT.md)
+4. **Make it yours online.** The agent helps you get the repository through GitHub if needed, set up Vercel, choose the right privacy boundary, deploy, and verify the actual site on your devices. [Deployment guide](docs/DEPLOYMENT.md)
 
 A walk, map, historical context, secondary literature, a visual experiment or a conversation between works may fit. None is compulsory. The kit’s three sample sketches show different structures; they are not automatic templates to impose on every book.
 
