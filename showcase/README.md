@@ -11,7 +11,7 @@ npm run build
 node check.mjs
 ```
 
-Host this directory as its own Vercel project with `npm run build`, output `dist`, and `node --version` as the install command. The root reader and the four `examples/` builds are independent. Do not deploy the surrounding local workspace. Keep all exact assets and `assets/OFL.txt` together.
+Host this directory as its own Vercel project with `npm run build`, output `dist`, and `node --version` as the install command. Disable inclusion of source files outside the selected root directory. The exact upload rules support both standalone and repository-root Git builds. The root reader and the four `examples/` builds are independent. Do not deploy the surrounding local workspace. Keep all exact assets and `assets/OFL.txt` together.
 
 The four canonical readers are `austen.lookatseel.com`, `alice.lookatseel.com`, `walden.lookatseel.com` and `two-halls.lookatseel.com`. Preserve their addresses after launch: changing origins requires a verified data migration for existing readers. The personal site’s apex and `www` addresses are separate projects.
 

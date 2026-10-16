@@ -1,8 +1,9 @@
-import {readFile,readdir,lstat,mkdir,writeFile} from 'node:fs/promises';
+import {readFile,readdir,lstat,mkdir,writeFile,mkdtemp,rm} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import {tmpdir} from 'node:os';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const publication=JSON.parse(await readFile(path.join(root,'publication.json'),'utf8'));
@@ -36,6 +37,25 @@ const list=async(directory,prefix='')=>{
   return files.sort();
 };
 const reports=[];
+// Git-based Vercel deployments evaluate a selected app's ignore rules against
+// repository-root paths. Check both scopes and actual exclusion behavior.
+async function checkDeploymentInputs(directory){
+  const rules=await readFile(path.join(root,directory,'.vercelignore'),'utf8');
+  const included=rules.split('\n').filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  const prefix=directory+'/',local=included.filter(x=>!x.startsWith(prefix));
+  if(JSON.stringify(included.filter(x=>x.startsWith(prefix)).sort())!==JSON.stringify(local.map(x=>prefix+x).sort()))throw Error(directory+': standalone and Git deployment allowlists differ.');
+  const denied=['private/sentinel.txt','.reader/INTAKE.md','.env','site/unreviewed.txt',prefix+'.reader/private.txt',prefix+'.env',prefix+'site/unreviewed.txt',prefix+'assets/unreviewed.webp',prefix+'edition/unreviewed.json','examples/unrelated/edition/library.json'];
+  const fixture=await mkdtemp(path.join(tmpdir(),'reader-deployment-inputs-'));
+  try{
+    run('git',['init','--quiet'],fixture);await writeFile(path.join(fixture,'.gitignore'),rules);
+    const result=spawnSync('git',['check-ignore','--no-index','--stdin','-z'],{cwd:fixture,input:[...included,...denied].join('\0')+'\0',encoding:'utf8'});
+    if(result.error||![0,1].includes(result.status))throw Error(directory+': ignore-rule inspection failed.');
+    const ignored=new Set(result.stdout.split('\0'));
+    if(included.some(x=>ignored.has(x))||denied.some(x=>!ignored.has(x)))throw Error(directory+': required input missing or private/unreviewed path admitted.');
+  }finally{await rm(fixture,{recursive:true,force:true});}
+  return true;
+}
+if(publication.files.includes('showcase/.vercelignore'))await checkDeploymentInputs('showcase');
 for(const example of catalogue.examples){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(example.id)||example.directory!=='examples/'+example.id||!(/^[a-f0-9]{40}$/).test(example.sourceCommit))throw Error('Unsafe example entry.');
   const cwd=path.join(root,example.directory);
@@ -45,6 +65,7 @@ for(const example of catalogue.examples){
     const entry=pkg.scripts[command]?.match(/^node (tests\/[a-zA-Z0-9.-]+\.mjs)$/)?.[1];
     if(!entry||!(await lstat(path.join(cwd,entry))).isFile())throw Error(example.id+': missing browser entry point '+command);
   }
+  const deploymentInputs=await checkDeploymentInputs(example.directory);
   const tests=run('npm',['test'],cwd),matches=tests.match(/(?:#|ℹ) tests (\d+)/g);
   if(!matches)throw Error(example.id+': successful test command did not report its test count.');
   run('npm',['run','build'],cwd);
@@ -55,7 +76,7 @@ for(const example of catalogue.examples){
     const bytes=await readFile(path.join(cwd,'dist',file.path));
     if(bytes.length!==file.bytes||sha(bytes)!==file.sha256)throw Error(example.id+': output differs from reviewed reader: '+file.path);
   }
-  const report={id:example.id,nodeTests:Number(matches?.at(-1)?.split(' ').at(-1)),outputs:actual.length,sourceCommit:example.sourceCommit,exactReviewedBuild:true};
+  const report={id:example.id,nodeTests:Number(matches?.at(-1)?.split(' ').at(-1)),outputs:actual.length,sourceCommit:example.sourceCommit,exactReviewedBuild:true,deploymentInputs};
   reports.push(report);console.log(JSON.stringify(report));
 }
 await writeFile(receipt,JSON.stringify({checkedAt:new Date().toISOString(),passed:true,examples:reports,limits:'Node checks and byte-identical builds. Browser, physical-device, editorial and rights evidence are separate; no live deployment is implied.'},null,2)+'\n');

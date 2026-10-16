@@ -21,7 +21,10 @@ test('public build excludes private input and arbitrary site files',async()=>{
 });
 test('Vercel upload exceptions name only the reviewed build inputs',async()=>{
   const rules=(await readFile(new URL('../.vercelignore',import.meta.url),'utf8')).trim().split('\n');
-  const included=rules.filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  const allIncluded=rules.filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  const prefix='examples/alice-in-wonderland/';
+  const included=allIncluded.filter(x=>!x.startsWith(prefix));
+  assert.deepEqual(allIncluded.filter(x=>x.startsWith(prefix)).sort(),included.map(x=>prefix+x).sort());
   assert.equal(rules[0],'**');
   assert.deepEqual(included.sort(),['package.json','vercel.json','publication.json','scripts/build.mjs','scripts/edition.mjs','edition/library.json','edition/assets.json','samples/library.json',...assets.map(x=>'site/'+x)].sort());
 });

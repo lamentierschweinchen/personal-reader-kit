@@ -908,6 +908,10 @@
           "bytes": 6108,
           "sha256": "567ca00639315b115af06fcb1f3916429cf466d0400c4bcb741a8ee4e5d06d4e"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "tests/publication.test.mjs"
       ]
     },
     {
@@ -997,6 +1001,10 @@
           "bytes": 6812,
           "sha256": "74b9ebcb8b4f91466dfe22f271312f7bc219aa1f8c35fff5a73a418a1ae6e3f0"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "tests/publication.test.mjs"
       ]
     },
     {
@@ -1090,6 +1098,10 @@
           "bytes": 4352,
           "sha256": "c478e75af90a34032fb87a2d047b14239ff472400f5a669a28e2d4258eefb5ac"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "tests/publication.test.mjs"
       ]
     },
     {
@@ -1189,6 +1201,10 @@
           "bytes": 5320,
           "sha256": "b78f4b7947057801e34571b2bb9be565e3a55efeca31bc3f8f7798a1e961cd14"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "tests/publication.test.mjs"
       ]
     }
   ],

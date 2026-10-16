@@ -11,3 +11,17 @@ assets/*
 !assets/fraunces-normal.woff2
 !assets/fraunces-italic.woff2
 !assets/OFL.txt
+
+# Vercel Git deployments evaluate these paths from the repository root.
+!showcase/
+!showcase/package.json
+!showcase/build.mjs
+!showcase/vercel.json
+!showcase/index.html
+!showcase/style.css
+!showcase/favicon.svg
+!showcase/assets/
+!showcase/assets/book.webp
+!showcase/assets/fraunces-normal.woff2
+!showcase/assets/fraunces-italic.woff2
+!showcase/assets/OFL.txt

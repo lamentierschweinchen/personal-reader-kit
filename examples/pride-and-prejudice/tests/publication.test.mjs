@@ -22,7 +22,10 @@ test('public build excludes private input and arbitrary site files',async()=>{
 });
 test('Vercel upload exceptions name only the reviewed build inputs',async()=>{
   const rules=(await readFile(new URL('../.vercelignore',import.meta.url),'utf8')).trim().split('\n');
-  const included=rules.filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  const allIncluded=rules.filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
+  const prefix='examples/pride-and-prejudice/';
+  const included=allIncluded.filter(x=>!x.startsWith(prefix));
+  assert.deepEqual(allIncluded.filter(x=>x.startsWith(prefix)).sort(),included.map(x=>prefix+x).sort());
   assert.equal(rules[0],'**');
   const inventory=JSON.parse(await readFile(new URL('../edition/inventory.json',import.meta.url),'utf8'));
   assert.deepEqual(included.sort(),['package.json','vercel.json','publication.json','scripts/build.mjs','samples/library.json','edition/inventory.json',...inventory.assets.map(a=>a.path),...assets.map(x=>'site/'+x)].sort());
