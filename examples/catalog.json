@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Canonical addresses selected; production verification is recorded in docs/STATUS.md.",
+  "status": "Published on the canonical addresses; production verification and limits are recorded in docs/STATUS.md.",
   "examples": [
     {
       "id": "pride-and-prejudice",
