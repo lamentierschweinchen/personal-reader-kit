@@ -42,6 +42,7 @@
     "site/index.html",
     "site/manifest.webmanifest",
     "site/robots.txt",
+    "site/share.mjs",
     "site/style.css",
     "site/text.mjs",
     "tests/browser.mjs",
@@ -53,6 +54,8 @@
     "tests/history.test.mjs",
     "tests/publication.test.mjs",
     "tests/review-browser.mjs",
+    "tests/share-browser.mjs",
+    "tests/share.test.mjs",
     "tests/ui-icons.test.mjs",
     "tests/upgrade.test.mjs",
     "vercel.json"

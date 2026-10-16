@@ -21,6 +21,7 @@ Public repository
   site/bundle.mjs        private portable editions/records, integrity and merge preview
   site/db.mjs            serialized IndexedDB transactions for books and reader state
   site/text.mjs          exact text rendering, emphasis and selection
+  site/share.mjs         attributed quotation projection and explicit device share/copy
   site/app.mjs           shelf, reader, passages, optional companion prototypes
   samples/               reviewed original writing only
   scripts/               local importer, allowlisted build, local preview, history audit

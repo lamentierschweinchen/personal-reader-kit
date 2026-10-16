@@ -1,6 +1,6 @@
 import {validateBook,validateState,mergeBackup,sha256,anchorStatus} from './core.mjs';
 
-export const KIT_VERSION='0.4.1';
+export const KIT_VERSION='0.5.0';
 export const BUNDLE_LIMIT=64*1024*1024;
 export const canonical=value=>JSON.stringify(value,(_key,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.keys(item).sort().map(key=>[key,item[key]])):item);
 const bytes=value=>new TextEncoder().encode(canonical(value));

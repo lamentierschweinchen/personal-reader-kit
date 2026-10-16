@@ -4,6 +4,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
 import {bundleChecks} from './bundle-browser.mjs';
+import {shareChecks,sharingContinuityChecks} from './share-browser.mjs';
 import {reviewChecks} from './review-browser.mjs';
 import {experienceChecks,handoffChecks,quietFocusChecks,builderTrialChecks,settledCapture} from './experience-browser.mjs';
 const require=createRequire(import.meta.url);
@@ -30,6 +31,15 @@ async function offlineJourney(page,sample) {
   await page.getByRole('link',{name:'Companion',exact:true}).click();await page.getByRole('button',{name:'01 A listening walk',exact:false}).click();
   const before=(await state(page)).positions.bell;await page.locator('[data-action="stop"][data-stop="1"]').click();await page.getByRole('button',{name:'Open the passage',exact:false}).click();await page.locator('#context-text[data-location-ready="true"]').waitFor();assert.equal(await page.locator('#context-text').textContent(),sample.sections[1].blocks.map(b=>b.text+b.after).join(''));
   await page.getByRole('button',{name:'Close ×',exact:true}).click();await page.getByRole('button',{name:'Return to your book',exact:false}).click();await page.locator('#reading-text[data-section="crossing"]').waitFor();assert.deepEqual((await state(page)).positions.bell,before);
+  // Exercise new durable writes during the outage, not only previously saved data.
+  const quote=await select(page);await page.locator('#selection-save').click();
+  if(await page.getByRole('button',{name:'Keep as a new passage',exact:true}).isVisible())await page.getByRole('button',{name:'Keep as a new passage',exact:true}).click();
+  await page.locator('#note-text').fill('Written while the origin is unavailable.');await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'});
+  await page.reload();await page.locator('#reading-text[data-section="crossing"][data-position-ready="true"]').waitFor();
+  const saved=(await state(page)).notes.find(n=>n.note==='Written while the origin is unavailable.');assert.ok(saved);assert.equal(saved.quote,quote);
+  await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator(`[data-action="edit-note"][data-note="${saved.id}"]`).click();
+  await page.locator('#note-text').fill('Edited offline; still here after reopening.');await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'});
+  await page.reload();await page.locator('.passage').first().waitFor();assert.equal((await state(page)).notes.find(n=>n.id===saved.id).note,'Edited offline; still here after reopening.');
 }
 
 async function checkUIIcons(page) {
@@ -178,18 +188,20 @@ try {
       const reciprocalHandoff=await handoffChecks({browser,base,engine,output});
       const quietFocus=await quietFocusChecks({browser,base,engine,output});
       const portableBundle=await bundleChecks({browser,base,engine,output});
+      const passageSharing=await shareChecks({browser,base,engine,output});
+      passageSharing.continuity=await sharingContinuityChecks({browser,base});
       const builderTrials=await builderTrialChecks({browser,base});
       if(engine==='chromium') {
         await context.setOffline(true);await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await offlineJourney(page,sample);assert.equal(await page.evaluate(async()=>{try{await fetch('/network-negative-control');return false;}catch{return true;}}),true);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,builderTrials,portableBundle,independentReview,readingExperience,reciprocalHandoff,quietFocus,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapter navigation and companion round trip; failed direct fetch negative control':'pending stopped-origin check',errors,external});
+      receipts.push({engine,passageSharing,builderTrials,portableBundle,independentReview,readingExperience,reciprocalHandoff,quietFocus,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapters and companion; new and edited notes survive offline reload; failed direct fetch negative control':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);
-        await assert.rejects(()=>page.request.get(base,{timeout:2000}));await offlineJourney(page,sample);receipts.at(-1).offline='stopped-origin reload, local book, chapters and companion round trip; direct network negative control passed';
+        await assert.rejects(()=>page.request.get(base,{timeout:2000}));await offlineJourney(page,sample);receipts.at(-1).offline='stopped-origin reload, local book, chapters and companion; new and edited notes survive offline reload; direct network negative control passed';
       }
       console.log(JSON.stringify(receipts.at(-1)));
     } finally {await browser.close();}

@@ -2,6 +2,7 @@ import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough
 import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,recoverState,recoveryArchives,librarySnapshot,restoreBundle} from './db.mjs';
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
 import {renderText,readSelection,renderPassage} from './text.mjs';
+import {passageShareData,sharePassage,copyPassage} from './share.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const amount=(number,label)=>`${number} ${label}${number===1?'':'s'}`;
@@ -41,7 +42,7 @@ function currentPosition() {
   return {sectionId:activeSection.id,blockId:scrollY < 5 ? null : node.dataset.block,ratio:scrollY < 5 ? 0 : Math.min(1,Math.max(0,(edge-rect.top)/Math.max(1,rect.height))),revision:activeBook.source.sha256};
 }
 async function savePosition() {
-  clearTimeout(pendingScroll);if(bundleCandidate&&dialog.open)return;const pos = currentPosition(), book = activeBook;
+  clearTimeout(pendingScroll);if(dialog.open)return;const pos = currentPosition(), book = activeBook;
   if (!pos || !book) return;
   try {await commit(s => {s.positions[book.id] = pos;s.lastBook = book.id;return s;});}
   catch {if (!storageError) showWarning('Your reading position could not be saved. Keep this tab open; export your passages from Settings.');}
@@ -137,7 +138,7 @@ async function render({keepScroll=false}={}) {
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
 function openDialog(title,html) {
-  if (!dialog.open) dialogOrigin = {element:document.activeElement,scroll:scrollY};
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
@@ -186,8 +187,28 @@ function importDialog() {
 }
 function noteDialog(note,rangeChanged=false) {
   editing = structuredClone(note);editingRangeChanged=rangeChanged;
-  openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`<blockquote class="dialog-quote">${esc(note.quote)}</blockquote><form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
+  const book=bookById(note.bookId),valid=anchorStatus(note,book).valid;
+  const sharing=valid?`<section class="passage-sharing" aria-label="Share the quotation"><p class="small">${esc(book.author)} · ${esc(book.title)}<br>${esc(book.sections.find(s=>s.id===note.sectionId).title)}${book.edition?`<br>${esc(book.edition)}`:''}</p><div class="dialog-actions"><button type="button" class="text" data-action="share-passage">Share passage</button><button type="button" class="text" data-action="copy-passage">Copy passage</button></div><p class="small" id="share-status" role="status">Quotation and source attribution only. Your note stays private.</p><div id="share-fallback" hidden><label for="share-text">Passage with attribution · select to copy</label><textarea id="share-text" readonly rows="7" spellcheck="false"></textarea></div></section>`:'<p class="small">Restore the exact edition to share this passage with attribution. Your saved quotation remains available.</p>';
+  openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`<blockquote class="dialog-quote">${esc(note.quote)}</blockquote>${sharing}<form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
   $('#dialog-title').tabIndex=-1;$('#dialog-title').focus({preventScroll:true});
+}
+async function sendPassage(action) {
+  const data=passageShareData(editing,bookById(editing.bookId)),status=$('#share-status'),fallback=$('#share-fallback'),field=$('#share-text');
+  const controls=[...dialog.querySelectorAll('[data-action="share-passage"],[data-action="copy-passage"]')];
+  controls.forEach(button=>button.disabled=true);
+  try {
+    const result=action==='share-passage'?await sharePassage(data):await copyPassage(data);
+    if(!status.isConnected)return;
+    fallback.hidden=true;
+    if(action==='share-passage') {
+      status.textContent=result==='opened'?'Share menu opened. Delivery depends on the app you choose.':result==='cancelled'?'Share dismissed. Your passage and note are unchanged.':'Sharing is unavailable here. Use Copy passage, or select the text below.';
+      if(result!=='unavailable')return;
+    }else {
+      status.textContent=result?'Passage and attribution copied. Your note was not included.':'Automatic copy is unavailable. Select and copy the text below.';
+      if(result)return;
+    }
+    fallback.hidden=false;field.value=data.text;field.focus();field.select();
+  }finally{controls.forEach(button=>{if(button.isConnected)button.disabled=false;});}
 }
 function beginSelection(passage) {
   const matches=state.notes.filter(n=>anchorStatus(n,activeBook).valid&&passagesOverlap(n,passage));
@@ -274,6 +295,7 @@ async function act(target) {
     case 'selection-extend': {if(!selectionChoice)break;const old=selectionChoice.notes[Number(target.dataset.choice)];if(old)noteDialog({...old,...extendPassage(old,selectionChoice.passage,bookById(old.bookId))},true);break;}
     case 'selection-edit': {const old=selectionChoice?.notes[Number(target.dataset.choice)];if(old)noteDialog(old);break;}
     case 'edit-note': {const n=state.notes.find(n=>n.id===target.dataset.note);if(n)noteDialog(n);break;}
+    case 'share-passage':case 'copy-passage':await sendPassage(action);break;
     case 'delete-note': {
       if(!confirm('Remove this passage and its note from this device?'))return;const snapshot=editing;
       await commit(s=>{const current=s.notes.find(n=>n.id===snapshot.id);if(current&&current.updated!==snapshot.updated)throw new Error('This note changed in another tab. Your draft is still here; export it before reopening the current note.');s.notes=s.notes.filter(n=>n.id!==snapshot.id);return s;});closeDialog(true);await render({keepScroll:true});break;
@@ -443,6 +465,7 @@ try {
   samples=records.map(validateBook);books=[...samples,...books.filter(b=>!sampleIds.has(b.id))];
   // Do not disturb a reader, selection or open import dialog when a slow download finishes.
   if(!dialog.open&&route.view==='shelf'){route=parseRoute();await render({keepScroll:route.view!=='read'});}
+  else if(!dialog.open&&route.view==='passages')await render({keepScroll:true});
   else if(!dialog.open&&route.view==='companion'&&!dirtyReflection())await render({keepScroll:true});
 }catch {showWarning('Original samples are unavailable. Your local books and records are independent; reconnect and reload to retry the samples.',false);}
 void offline();
