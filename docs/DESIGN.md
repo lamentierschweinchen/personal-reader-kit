@@ -30,6 +30,8 @@ An edition's line drawing, typographic form, historical survey or two parallel a
 
 Review home, ordinary reading, companion, saved passages, settings and recovery as one system. Compare settled phone/tablet views with the previous design and sibling examples; check whether identity survives grayscale and removal of decorative accents. Source headings remain exact. Usable reading height, night-mode illustrations, 44px targets and focus selection matter more than an impressive cover. Take a focused second revision if the result still looks like the same template.
 
+When replacing a header, inspect inherited breakpoint overrides and the toolbar offsets they still affect. Measure every added source-layout control as part of persistent chrome; a verse or illustration option can belong in a quiet disclosure rather than a second sticky row. Retain access to the faithful layout choice. Move the pointer to a neutral margin for settled screenshots, then review hover/focus states separately so an incidental hover is not mistaken for a second active route.
+
 ## Interface icons
 
 Unicode arrows used as interface icons have appeared as colored emoji or inconsistent fallback glyphs on iPhone in both reference-reader experiences. Treat this as a recurring platform issue. Do not rely on a preferred font or a text-presentation selector to suppress emoji.
