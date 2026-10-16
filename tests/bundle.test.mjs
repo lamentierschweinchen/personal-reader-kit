@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {fromText,newState,passageAt,anchorStatus} from '../site/core.mjs';
+import {fromText,newState,passageAt,anchorStatus,validateBook,READER_PROFILE} from '../site/core.mjs';
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,KIT_VERSION} from '../site/bundle.mjs';
 
 async function fixture() {
@@ -44,4 +44,17 @@ test('edition conflicts include layout changes and public IDs; snapshots detect 
   assert.equal(planBundleRestore(bundle,{books:[],state:newState()},source.books).existing.length,1);
   assert.notEqual(snapshotToken(source),snapshotToken({...source,books:[changed]}));
   assert.notEqual(snapshotToken(source),snapshotToken({...source,state:{...source.state,revision:1}}));
+});
+
+test('reader profiles name incompatible editions without weakening exact contract or bundle validation',async()=>{
+  const source=await fixture(),book=source.books[0];
+  assert.equal(Object.hasOwn(validateBook(book),'profile'),false); // Legacy bytes stay unchanged.
+  const explicit={...book,profile:READER_PROFILE};
+  assert.equal(validateBook(explicit).profile,READER_PROFILE);
+  const bundle=await createBundle({...source,books:[explicit]});
+  assert.deepEqual((await validateBundle(bundle)).books,[explicit]);
+  assert.equal(planBundleRestore(bundle,source).conflicts.length,1); // Adding metadata is an edition change.
+  assert.throws(()=>validateBook({...book,profile:'original-fixture/illustrated@1',assets:[]}),/requires reader profile.*original-fixture\/illustrated@1/);
+  await assert.rejects(()=>createBundle({...source,books:[{...book,profile:'original-fixture/illustrated@1'}]}),/reader profile/);
+  assert.throws(()=>validateBook({...explicit,assets:[]}),/Unsupported book field/); // A profile is not an extension bypass.
 });

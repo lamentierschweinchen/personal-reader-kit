@@ -65,3 +65,32 @@ test('EPUB inspection rejects unsupported meaning, encryption and unsafe archive
     }
   }finally{await rm(dir,{recursive:true,force:true});}
 });
+
+test('an early unsupported cover still produces a complete safe resource and feature inventory',async()=>{
+  const dir=await mkdtemp(path.join(tmpdir(),'reader-epub-inventory-'));
+  try {
+    const files=entries();
+    files['EPUB/package.opf']=files['EPUB/package.opf'].replace('<manifest>','<manifest><item id="cover" href="cover.svg" media-type="image/svg+xml" properties="cover-image"/><item id="css" href="layout.css" media-type="text/css"/>').replace('idref="later"','idref="later" linear="no"');
+    files['EPUB/cover.svg']='<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10"/></svg>';
+    files['EPUB/layout.css']='.original { margin-left: 2em }';
+    files['EPUB/first.xhtml']=xhtml('<p class="original">An original styled sentence.</p><img src="cover.svg" alt="Original square"/><table><tr><td>Original cell</td></tr></table><p><a href="later.xhtml#note">Original note link</a></p>');
+    files['EPUB/later.xhtml']=xhtml('<h1>Later heading</h1><aside xmlns:epub="http://www.idpf.org/2007/ops" epub:type="footnote" id="note"><p>Original source note.</p></aside>');
+    const result=await prepareEpub(await archive(dir,files)),report=result.report;
+    assert.equal(result.book,null);assert.equal(report.candidate,false);assert.equal(report.issues[0].code,'manifest-feature');assert.match(report.issues[0].detail,/cover-image/);
+    assert.equal(report.resources.length,4);assert.equal(report.spine.length,2);assert.equal(report.spine[1].linear,'no');
+    assert.equal(report.inspection.packageInventoried,true);assert.equal(report.inspection.safeXmlScanComplete,true);assert.equal(report.inspection.xmlDocuments.length,3);
+    for(const code of ['manifest-feature','image-resource','stylesheet-resource','svg','images','tables','links','styled-elements','source-note-semantics','nonlinear-spine'])assert.ok(report.features.some(f=>f.code===code),code);
+    assert.equal(report.fidelity.proofread,false);
+  }finally{await rm(dir,{recursive:true,force:true});}
+});
+
+test('diagnostic XML inspection never resolves entities or approves unreadable navigation',async()=>{
+  const dir=await mkdtemp(path.join(tmpdir(),'reader-epub-unsafe-nav-'));
+  try {
+    const files=entries();files['EPUB/package.opf']=files['EPUB/package.opf'].replace('</manifest>','<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/></manifest>');
+    files['EPUB/nav.xhtml']='<!DOCTYPE html [<!ENTITY original "Do not expand">]>'+xhtml('<p>&original;</p>');
+    const result=await prepareEpub(await archive(dir,files));
+    assert.equal(result.book,null);assert.equal(result.report.inspection.safeXmlScanComplete,false);
+    assert.equal(result.report.inspection.errors[0].code,'xml-declaration');assert.equal(result.report.issues[0].code,'xml-declaration');
+  }finally{await rm(dir,{recursive:true,force:true});}
+});

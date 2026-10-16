@@ -31,6 +31,8 @@ Open **http://127.0.0.1:4173**. No package installation is needed for the applic
 
 Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, up to 8 MB. Files are stored locally in IndexedDB. Imports on a phone, tablet and desktop are separate; export a **private reading bundle** from Settings. It carries selected exact editions and all saved records in one unencrypted file, with a restore preview and conflict checks. Separate record/edition exports remain available. A different site address also has a separate library; [verify a restore before moving](docs/DEPLOYMENT.md#choose-an-address-and-move-without-losing-your-library). See [file compatibility](docs/BOOK-FORMAT.md).
 
+The real-book trials required adapters for illustrations, notes, tables and shaped verse. The stock kit still uses its narrow text contract. [Adapter decisions](docs/ADAPTERS.md) explain compatibility, asset recovery and how to test an adapted reader without overstating automatic import support.
+
 ## Make your reader, with an agent
 
 If you have the repository open in an agent that can work with local files, start with:

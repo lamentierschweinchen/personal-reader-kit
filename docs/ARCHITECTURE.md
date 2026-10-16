@@ -55,3 +55,7 @@ The default publishing model is a public shell with browser-local books. It make
 Do not add a universal importer, map engine, database service or model API to every installation. Add an adapter when the actual book and user's preferred experience require it. Preserve the small dependable reading path.
 
 Private bundle restore reads the books and state stores together, checks that the reviewed snapshot is still current, and commits both together. Exact prepared content, rather than only the raw EPUB hash, detects edition collisions. Bundles are size-limited, unencrypted local files; no upload or sync service was added. The upgrade comparator reads only public inventory paths and never applies changes. The EPUB preparer produces private candidates/reports and is excluded from deployed assets. See [upgrades](UPGRADING.md), [format boundaries](BOOK-FORMAT.md) and [human pilot criteria](PILOT.md).
+
+## Lessons from independent book builds
+
+The four source-aware trials reuse the reading/storage core but have different media and apparatus contracts. Optional reader profiles now make named incompatibility explicit; they do not load extensions or make the stock renderer support images. The EPUB diagnostic pass inventories safe resources before conversion refusal. Sample-independent geometry helpers can be reused by dedicated actual-book journeys. [ADAPTERS.md](ADAPTERS.md) records the extension, portability and publication boundaries.

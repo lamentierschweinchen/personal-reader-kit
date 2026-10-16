@@ -16,6 +16,8 @@ Prepare conversions in `.reader/private/`. Use local extraction/OCR tools when s
 
 Distinguish complete import coverage, character conservation or OCR agreement, and actual proofreading; none establishes the other. Write a private fidelity receipt: counts and coverage, source fingerprints, exact-text comparisons, notes/links/emphasis checks, representative and high-risk page comparisons, uncertainties and unsupported features. Preserve uncertainties and original defects instead of silently correcting them. Do not label an import complete if meaningful images, tables, lineation or source notes were discarded.
 
+When a real edition needs an extension, follow [ADAPTERS.md](ADAPTERS.md): inventory the whole safe package, name the contract profile, preserve source apparatus and test asset portability. A specialized reader sharing schema 1 is not automatically compatible with stock bundles. Keep source-heavy example projects separate from the upstream original samples.
+
 Check the rendered page as well as extracted characters. A matching `textContent` can still conceal collapsed stanza gaps, missing indentation or an inaccessible horizontally scrolling line. Use original fixtures with different blank-line counts, empty blocks, emphasis and long lines; compare their actual spacing. Unsupported JSON fields must fail visibly rather than quietly dropping source notes or illustrations.
 
 ## 2. Choose the companion
@@ -33,6 +35,8 @@ For a reader choosing an open-ended exploratory direction, present exactly three
 Build a small interactive prototype of each in the same project. Use a short authorized local excerpt or original stand-in; keep private prototypes under `.reader/` and never host them by default. Test the characteristic interaction: opening a passage from a route, comparing two works, hearing rhythm through controlled pacing, or another material-led action. A static screenshot is not enough for an interaction choice.
 
 Show all three with clear, comparable navigation. Ask which they prefer and what should change. A hybrid is useful only if it stays coherent. Record the preference privately, refine, then build the chosen direction. If the person has already chosen, do not repeatedly ask for approval.
+
+Give the chosen reader a visual identity from its material: a brief thesis and structural choices in composition, type, navigation or genuine source imagery. Use [the design review](DESIGN.md#give-each-reader-a-visual-identity), including settled ordinary-reading and awkward-state views. Do not deliver the sample layout with only a new title and accent. Simple mode should stay restrained and require no additional design interview.
 
 Keep the core reading surface usable without exploration. Context opens beside or over the book and returns to the same place. Main progress, explicit spoiler boundary and exploratory location are separate concepts. Background may be factual, interpretive or uncertain: label those distinctions. Verify factual claims from primary or authoritative sources, with links and access dates. Do not manufacture quotes, scholarship, historical geography or authorial intention.
 

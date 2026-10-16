@@ -8,7 +8,7 @@ export async function settledCapture(page,options) {
   return page.screenshot(options);
 }
 
-async function rangeInViewport(page) {
+export async function rangeInViewport(page) {
   await page.locator('#context-text[data-location-ready="true"]').waitFor();
   const geometry=await page.evaluate(()=>{
     const dialog=document.querySelector('#dialog'),header=dialog.querySelector('.dialog-header'),marks=[...dialog.querySelectorAll('#context-text mark')],range=document.createRange();
@@ -19,6 +19,38 @@ async function rangeInViewport(page) {
   assert.ok(geometry.rects.length);
   for(const rect of geometry.rects)assert.ok(rect.top>=geometry.top-1&&rect.bottom<=geometry.bottom+1&&rect.left>=geometry.left-1&&rect.right<=geometry.right+1,JSON.stringify(geometry));
   return geometry;
+}
+
+// Real-book trial regressions use only original sample material.
+export async function builderTrialChecks({browser,base}) {
+  const ctx=await browser.newContext({viewport:{width:402,height:874},serviceWorkers:'block'}),page=await ctx.newPage();
+  try {
+    await page.goto(base+'/#read/bell/arrival');
+    await page.locator('#reading-text[data-section="arrival"][data-position-ready="true"]').waitFor();
+    await page.getByRole('link',{name:/Next/}).click();
+    await page.locator('#reading-text[data-section="crossing"][data-position-ready="true"]').waitFor();
+    // Exercise the footer action before scrolling/debounce saves the new place.
+    await page.locator('.site-footer [data-action="import"]').evaluate(el=>el.click());
+    await page.locator('#import-form').waitFor();
+    const positionAtImport=await page.evaluate(async()=> (await (await import('/db.mjs')).loadState()).positions.bell);
+    await page.locator('#book-file').setInputFiles({name:'original-trial.txt',mimeType:'text/plain',buffer:Buffer.from('An original trial import. No other edition is used.')});
+    await page.getByRole('button',{name:'Add on this device',exact:false}).click();await page.waitForSelector('.shelf');
+    const positionAfterImport=await page.evaluate(async()=> (await (await import('/db.mjs')).loadState()).positions.bell);
+    await page.goto(base+'/#read/bell/arrival');await page.locator('#reading-text[data-position-ready="true"]').waitFor();
+    await page.getByRole('button',{name:'Focus',exact:true}).click();
+    await page.waitForFunction(()=>document.body.classList.contains('focus')&&document.querySelector('#reading-text')?.dataset.positionReady==='true');
+    await page.evaluate(()=>document.querySelector('#main').focus({preventScroll:true}));await page.keyboard.press('c');
+    await page.waitForFunction(()=>!document.querySelector('#focus-tools').hidden);
+    // Synthetic delayed notification: the document position has not moved.
+    await page.evaluate(async()=>{document.dispatchEvent(new Event('scroll'));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
+    const retainedAfterNotification=await page.locator('#focus-tools').isVisible();
+    await page.evaluate(()=>document.querySelector('#main').focus({preventScroll:true}));await page.keyboard.press('c');
+    await page.waitForFunction(()=>!document.querySelector('#focus-tools').hidden);
+    await page.evaluate(()=>scrollBy(0,100));await page.waitForFunction(()=>document.querySelector('#focus-tools').hidden);
+    const result={positionAtImport,positionAfterImport,retainedAfterNotification,actualMovementHides:true};
+    assert.ok(positionAtImport?.sectionId==='crossing'&&positionAfterImport?.sectionId==='crossing'&&retainedAfterNotification,JSON.stringify(result));
+    return {importSavesCurrentSection:true,importPreservesPreviousBook:true,queuedScrollDoesNotHideRecall:true,actualMovementHides:true};
+  } finally {await ctx.close();}
 }
 
 export async function experienceChecks({browser,base,engine,output}) {

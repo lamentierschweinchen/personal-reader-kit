@@ -9,7 +9,7 @@ const arrow = (direction='up-right') => `<svg class="ui-icon ui-icon--${directio
 const main = $('#main'), dialog = $('#dialog');
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
-let focusControls=false,focusPointer=null,focusTap=null;
+let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0,y:0};
 let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
 const sampleIds=new Set(['bell','rain']);
@@ -238,7 +238,7 @@ async function act(target) {
   switch(action) {
     case 'close':closeDialog();break;
     case 'settings':await savePosition();settings();break;
-    case 'import':importDialog();break;
+    case 'import':await savePosition();importDialog();break;
     case 'offline':await savePosition();settings();break;
     case 'background':background();break;
     case 'boundaries':boundaries();break;
@@ -317,18 +317,24 @@ function hideFocusControls(returnFocus=false) {
   if(returnFocus||(hadFocus&&getSelection()?.isCollapsed))main.focus({preventScroll:true});
 }
 function showFocusControls(keyboard=false) {
-  if(!inFocus())return;focusControls=true;applyPrefs();if(keyboard)$('#focus-exit').focus({preventScroll:true});
+  if(!inFocus())return;focusRecallPosition={x:scrollX,y:scrollY};focusControls=true;applyPrefs();if(keyboard)$('#focus-exit').focus({preventScroll:true});
 }
 // Only a short stationary pointer gesture on non-interactive reading content
 // recalls chrome. Record selection before the browser can clear it on pointerdown.
 document.addEventListener('pointerdown',event=>{
   focusPointer=null;focusTap=null;
   if(!inFocus()||!event.isPrimary||event.button!==0||!event.target.closest('.reading')||focusActionTarget(event.target))return;
-  focusPointer={id:event.pointerId,x:event.clientX,y:event.clientY,at:performance.now(),moved:false,hadSelection:!getSelection()?.isCollapsed};
+  focusPointer={id:event.pointerId,x:event.clientX,y:event.clientY,scrollX,scrollY,at:performance.now(),moved:false,hadSelection:!getSelection()?.isCollapsed};
 },true);
 document.addEventListener('pointermove',event=>{if(focusPointer?.id===event.pointerId&&Math.hypot(event.clientX-focusPointer.x,event.clientY-focusPointer.y)>10)focusPointer.moved=true;},{passive:true});
 document.addEventListener('pointercancel',()=>{focusPointer=null;focusTap=null;});
-document.addEventListener('scroll',()=>{if(focusPointer)focusPointer.moved=true;if(inFocus()&&focusControls)hideFocusControls();},{capture:true,passive:true});
+document.addEventListener('scroll',event=>{
+  const nested=event.target!==document&&event.target!==window;
+  if(focusPointer&&(nested||Math.abs(scrollX-focusPointer.scrollX)>1||Math.abs(scrollY-focusPointer.scrollY)>1))focusPointer.moved=true;
+  // Restoring a place can queue a document scroll notification until after
+  // keyboard recall. Hide only for movement since recall, or nested scrolling.
+  if(inFocus()&&focusControls&&(nested||Math.abs(scrollX-focusRecallPosition.x)>1||Math.abs(scrollY-focusRecallPosition.y)>1))hideFocusControls();
+},{capture:true,passive:true});
 document.addEventListener('pointerup',event=>{if(focusPointer?.id===event.pointerId){focusTap={...focusPointer,ended:performance.now()};focusPointer=null;}});
 document.addEventListener('click',event=>{
   const gesture=focusTap;focusTap=null;

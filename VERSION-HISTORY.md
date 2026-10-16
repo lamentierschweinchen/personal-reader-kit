@@ -37,3 +37,9 @@ Version 0.4.0 adds private reading bundles with selected exact editions, all sav
 ## Rights and real-book trials · 16 October 2026
 
 The rights guide and import notice distinguish owning a copy, processing permission and public redistribution. Public examples require edition/contributor evidence and a reviewed asset inventory. Three independent local trials were started from v0.4.0 using Pride and Prejudice, Alice's Adventures in Wonderland and Walden with Civil Disobedience; they are not completed human-pilot or hosted-site evidence. Their sources stay outside this kit. The book-format guide scopes a proposed EPUB export and explicitly distinguishes it from the existing JSON backups and EPUB preparer; export is not yet implemented.
+
+## Independent builder feedback and visual direction · 16 October 2026
+
+Version 0.4.1 incorporates the four local real-book trials. Opening Import first saves the current reading place; delayed document scroll notifications no longer dismiss newly recalled focus controls without actual movement. Original-fixture regressions cover both behaviors. EPUB refusals now retain the safe manifest/spine and feature inventory, while archive/XML safety and no-partial-book rules stay strict. Optional text-profile validation gives named compatibility errors without accepting unsupported media or silently rewriting legacy editions.
+
+The adapter guide records distinct media schemas, apparatus spoilers, source-layout fidelity, exact asset/history review, actual-book journeys and honest recovery limits. The visual guide requires material-led composition rather than color-only reskins. The four examples remain independent projects; no literary files or their screenshots enter this kit. EPUB export, common media support, physical-device tests and human acceptance remain unimplemented or unperformed as documented in STATUS.md.

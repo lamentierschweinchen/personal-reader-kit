@@ -8,9 +8,12 @@ function unique(items, label) { require(new Set(items).size === items.length, `D
 function fields(value, allowed, label) { require(Object.keys(value).every(k=>allowed.includes(k)), `Unsupported ${label} field. A reviewed adapter must preserve this content; it cannot be silently discarded.`); }
 const blockKinds = new Set(['prose', 'verse', 'heading', 'note']);
 export const LIMIT = 8 * 1024 * 1024;
+export const READER_PROFILE = 'personal-reader/text@1';
 export function validateBook(value) {
   require(object(value) && value.schema === 1 && id(value.id), 'Unsupported book format. Use a version 1 reader JSON file.');
-  fields(value,['schema','id','title','author','edition','language','source','sections','context'],'book');
+  require(value.profile===undefined||str(value.profile,100), 'Invalid reader profile.');
+  require(value.profile===undefined||value.profile===READER_PROFILE, `This edition requires reader profile “${value.profile}”. Use its matching reader and recovery instructions; nothing was imported.`);
+  fields(value,['schema','profile','id','title','author','edition','language','source','sections','context'],'book');
   require(str(value.title, 500) && value.title.length && str(value.author, 500) && str(value.edition, 1000), 'Book title, author and edition are required.');
   require(str(value.language, 35) && /^[a-zA-Z0-9-]+$/.test(value.language), 'Invalid language tag.');
   require(object(value.source) && /^[a-f0-9]{64}$/.test(value.source.sha256) && str(value.source.format, 100) && str(value.source.description, 2000), 'A source hash and description are required.');
@@ -45,7 +48,7 @@ export function validateBook(value) {
   }
   // Rebuild the contract explicitly. Arbitrary input properties never become executable HTML.
   return {
-    schema: 1, id: value.id, title: value.title, author: value.author, edition: value.edition, language: value.language,
+    schema: 1, ...(value.profile?{profile:value.profile}:{}), id: value.id, title: value.title, author: value.author, edition: value.edition, language: value.language,
     source: { sha256: value.source.sha256, format: value.source.format, description: value.source.description },
     sections: value.sections.map(s => ({ id: s.id, title: s.title, blocks: s.blocks.map(b => ({ id: b.id, kind: b.kind, text: b.text, after: b.after, marks: b.marks.map(m => ({kind:m.kind,start:m.start,end:m.end})), ...(b.layout ? {layout:b.layout} : {}) })) })),
     context: value.context.map(c => ({label:c.label,text:c.text,kind:c.kind,through:c.through,...(c.url ? {url:c.url} : {})}))

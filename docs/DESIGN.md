@@ -22,6 +22,14 @@ These demonstrate the breadth of the agent workflow. An undecided exploratory jo
 
 The shared renderer is used for source excerpts as well as main reading. Neutral comparison prompts leave room for difference, refusal or no relationship. The companion introduction stays compact on a phone so comparison does not begin after a page of administration.
 
+## Give each reader a visual identity
+
+The sample journal is a starting point, not a required house style. Write a visual thesis from the actual work and edition, then make at least two structural decisions: title/entry composition, type hierarchy, navigation, margins or the role of genuine source imagery. A color swap and another italic headline do not create a distinct reader. Simple readers can remain spare; distinction does not require more features.
+
+An edition's line drawing, typographic form, historical survey or two parallel arguments can determine composition. Keep attribution and spoiler permissions intact. Do not manufacture historical imagery, manuscript texture, routes or authorial connections for atmosphere. Ordinary reading should be calmer than the entrance or companion, and Begin/Resume should appear promptly on a phone.
+
+Review home, ordinary reading, companion, saved passages, settings and recovery as one system. Compare settled phone/tablet views with the previous design and sibling examples; check whether identity survives grayscale and removal of decorative accents. Source headings remain exact. Usable reading height, night-mode illustrations, 44px targets and focus selection matter more than an impressive cover. Take a focused second revision if the result still looks like the same template.
+
 ## Interface icons
 
 Unicode arrows used as interface icons have appeared as colored emoji or inconsistent fallback glyphs on iPhone in both reference-reader experiences. Treat this as a recurring platform issue. Do not rely on a preferred font or a text-presentation selector to suppress emoji.

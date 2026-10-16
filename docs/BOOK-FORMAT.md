@@ -36,7 +36,9 @@ Stylesheets, inline styles/classes, images, lists, tables, active content, linke
 
 Archive checks reject encryption declarations (including obfuscation this adapter does not interpret), encrypted entries, unsafe or duplicate paths, symlinks, external manifest references, DTD/entity declarations and excessive sizes/compression. Limits are 64 MB compressed/expanded, 2,048 members, 8 MB per member, a 150:1 compression ratio, and the existing reader/import ceilings. A rejection is not proof of malicious content or DRM; it marks this adapter's boundary. Do not remove encryption or discard assets merely to get a green result.
 
-The private receipt identifies the source hash, resource/spine coverage, unsupported feature and required review. It contains no claim that a count or checksum substitutes for comparison with the actual source. Complete a faithful adapter in the same project if the book warrants it. Keep the exact final prepared edition with your private bundle; a later conversion can produce different anchors.
+The private receipt identifies the source hash, full safe manifest/spine inventory, XML element/attribute feature counts, unlisted resources, inspection errors and required review. An early unsupported cover no longer hides later stylesheets, images, tables or source-note indicators. Unsafe archive checks still stop inspection immediately. Counts do not interpret CSS or image meaning. It contains no claim that a count or checksum substitutes for comparison with the actual source. Complete a faithful adapter in the same project if the book warrants it. Keep the exact final prepared edition with your private bundle; a later conversion can produce different anchors.
+
+See [source-aware adapter decisions](ADAPTERS.md) for real-edition structure, asset portability, exact publication inventories and reusable acceptance checks.
 
 ## Book contract
 
@@ -76,6 +78,8 @@ The live examples are in `samples/library.json`. A book is:
   }]
 }
 ```
+
+An optional top-level `profile: "personal-reader/text@1"` identifies the stock text contract. Untagged legacy editions remain accepted without changes to their bytes. Unknown profiles fail with a named compatibility message, and the base profile never permits unknown fields. Do not tag old editions silently: metadata changes participate in exact-edition conflict detection. Project-specific media profiles need their own reviewed validator/renderer and recovery procedure; they are not supported here.
 
 Offsets are JavaScript UTF-16 code-unit offsets, the same model as DOM Range. Do not index by encoded UTF-8 bytes. Preserve Unicode normalization exactly. `em`, `strong`, `sup` and `sub` ranges can overlap; the renderer splits intervals without changing text. Raw HTML and unknown contract fields are deliberately rejected, including unsupported source-note or image fields. Extend and test the adapter/renderer together rather than dropping them. CSS `pre-wrap` retains whitespace and allows a long line to wrap to the screen; `fixed` preserves line geometry with keyboard-focusable local horizontal scrolling. Source separators, including those on empty blocks, control visible stanza gaps. Structural block styles must never invent italics absent from the source.
 

@@ -13,6 +13,7 @@ import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
 import zipfile
+from collections import Counter
 
 MAX_ARCHIVE = 64 * 1024 * 1024
 MAX_MEMBER = 8 * 1024 * 1024
@@ -136,10 +137,105 @@ def content_blocks(body, section_index):
     return blocks
 
 
+def inspect_package(archive, package_path, metadata, manifest, spine, report):
+    """Inventory safe local resources even when conversion will be refused.
+
+    This is evidence for choosing an adapter, not a second conversion path. It
+    never extracts files, follows links, executes content or relaxes ZIP/XML checks.
+    """
+    features, errors, documents = [], [], []
+    names = set(archive.namelist())
+
+    def feature(code, path, count=1, **detail):
+        features.append({"code": code, "path": path, "count": count, **detail})
+
+    for item in manifest:
+        record = {"id": item.get("id", ""), "href": item.get("href", ""),
+                  "type": item.get("media-type", ""), "properties": item.get("properties", "").split()}
+        try:
+            record["path"] = referenced(package_path, record["href"])
+            record["present"] = record["path"] in names
+            if not record["present"]:
+                errors.append({"path": record["path"], "code": "manifest", "detail": "A listed resource is missing from the archive."})
+        except (Unsupported, ValueError, UnicodeError) as error:
+            errors.append({"path": package_path, "code": getattr(error, "code", "invalid-reference"),
+                           "detail": "A manifest path could not be safely inspected."})
+        for key in ("fallback", "media-overlay"):
+            if item.get(key):
+                record[key] = item.get(key)
+        report["resources"].append(record)
+        path = record.get("path", package_path)
+        if set(record["properties"]) - {"nav"} or record.get("fallback") or record.get("media-overlay"):
+            feature("manifest-feature", path, properties=record["properties"],
+                    fallback=record.get("fallback"), mediaOverlay=record.get("media-overlay"))
+        kind = record["type"]
+        if kind == "text/css":
+            feature("stylesheet-resource", path)
+        elif kind.startswith("image/"):
+            feature("image-resource", path)
+        elif "font" in kind:
+            feature("font-resource", path)
+        elif kind.startswith(("audio/", "video/")):
+            feature("media-resource", path)
+
+    by_id = {r["id"]: r for r in report["resources"]}
+    for index, ref in enumerate(spine):
+        record = {"index": index, "idref": ref.get("idref", ""), "linear": ref.get("linear", "yes"),
+                  "properties": ref.get("properties", "").split(), "path": by_id.get(ref.get("idref"), {}).get("path")}
+        report["spine"].append(record)
+        if record["linear"] != "yes" or record["properties"]:
+            feature("nonlinear-spine", record["path"] or package_path)
+    if spine.get("page-progression-direction") not in (None, "default"):
+        feature("directionality", package_path)
+    if any("rendition:" in (el.get("property", "") + (el.text or "")) or
+           el.get("name") in ("fixed-layout", "original-resolution", "orientation-lock") for el in metadata):
+        feature("specialized-rendition", package_path)
+
+    ids = {r["idref"] for r in report["spine"]}
+    for record in report["resources"]:
+        record["coverage"] = ("spine-source; not yet converted" if record["id"] in ids else
+                              "navigation-only; source navigation needs manual comparison" if
+                              record["type"] == "application/x-dtbncx+xml" or record["properties"] == ["nav"] else
+                              "requires adapter review")
+        if not record.get("present") or record["type"] not in ("application/xhtml+xml", "image/svg+xml", "application/x-dtbncx+xml"):
+            continue
+        try:
+            root = parse_xml(archive.read(record["path"]))
+            elements = list(root.iter())
+            tags = Counter(el.tag.rsplit("}", 1)[-1] for el in elements)
+            documents.append({"path": record["path"], "elements": len(elements), "tags": dict(sorted(tags.items()))})
+            for code, tag_names in {
+                "images": ("img", "image"), "svg": ("svg",), "tables": ("table",),
+                "links": ("a",), "preformatted-text": ("pre",), "scripts": ("script",),
+                "embedded-styles": ("style",), "media": ("audio", "video", "object", "iframe")
+            }.items():
+                count = sum(tags[name] for name in tag_names)
+                if count:
+                    feature(code, record["path"], count)
+            for code, predicate in {
+                "styled-elements": lambda el: "style" in el.attrib or "class" in el.attrib,
+                "source-note-semantics": lambda el: bool(set(el.get(f"{{{EPUB}}}type", "").split()) & {"noteref", "footnote", "endnote", "footnotes", "endnotes"}) or el.get("role") in {"doc-noteref", "doc-footnote", "doc-endnote"},
+                "directional-elements": lambda el: "dir" in el.attrib,
+            }.items():
+                count = sum(bool(predicate(el)) for el in elements)
+                if count:
+                    feature(code, record["path"], count)
+        except (Unsupported, ET.ParseError, UnicodeError, ValueError, KeyError, RuntimeError, RecursionError) as error:
+            errors.append({"path": record["path"], "code": getattr(error, "code", "invalid-xml"),
+                           "detail": "This resource could not be safely inspected; preserve it for local review."})
+    report["inspection"] = {"packageInventoried": True, "xmlDocuments": documents, "errors": errors,
+                            "safeXmlScanComplete": not errors,
+                            "scope": "Manifest, spine and safe XML element/attribute counts. CSS semantics, image meaning, rendered layout and proofreading are not inspected."}
+    report["features"] = features
+    expected = {r["path"] for r in report["resources"] if r.get("path")} | {"mimetype", "META-INF/container.xml", package_path}
+    report["unlistedResources"] = sorted(m.filename for m in archive.infolist() if not m.is_dir() and m.filename not in expected)
+
+
 def prepare(data):
     digest = hashlib.sha256(data).hexdigest()
     report = {"format": "epub-preparation-report", "schema": 1, "sourceSha256": digest,
-              "status": "needs-adapter", "candidate": False, "issues": [], "resources": [], "spine": [],
+              "status": "needs-adapter", "candidate": False, "issues": [], "resources": [], "spine": [], "features": [],
+              "inspection": {"packageInventoried": False, "safeXmlScanComplete": False, "xmlDocuments": [], "errors": []},
               "fidelity": {"proofread": False, "sourceBytesUnchanged": True,
                            "method": "UTF-8 XML logical text in spine order. XML normalizes CRLF. Structural blocks receive two newlines; container indentation is not literary text. Explicit br and pre whitespace are preserved; emphasis offsets use UTF-16.",
                            "reviewRequired": "Compare the candidate with the rendered EPUB: coverage, emphasis, verse geometry, source notes, language/glyphs and order. A successful preparation is not proofreading."}}
@@ -169,6 +265,7 @@ def prepare(data):
             require(package.tag == f"{{{OPF}}}package" and package.get("version", "").split(".")[0] in ("2", "3"), "package", "Expected an EPUB 2 or 3 package.")
             metadata, manifest, spine = (package.find(f"{{{OPF}}}{name}") for name in ("metadata", "manifest", "spine"))
             require(metadata is not None and manifest is not None and spine is not None, "package", "Missing metadata, manifest or spine.")
+            inspect_package(archive, package_path, metadata, manifest, spine, report)
             require(not any("rendition:" in (el.get("property", "") + (el.text or "")) or el.get("name") in ("fixed-layout", "original-resolution", "orientation-lock") for el in metadata), "rendition", "Fixed or specialized rendition metadata needs an adapter.")
             items, paths = {}, set()
             for item in manifest:
@@ -179,10 +276,9 @@ def prepare(data):
                 require(resource not in paths and resource in archive.namelist(), "manifest", "Missing or duplicated manifest resource.")
                 paths.add(resource)
                 properties = item.get("properties", "").split()
-                require(not (set(properties) - {"nav"}) and not item.get("fallback") and not item.get("media-overlay"), "manifest-feature", "Fallbacks, media overlays and specialized resources require a reviewed adapter.")
+                require(not (set(properties) - {"nav"}) and not item.get("fallback") and not item.get("media-overlay"), "manifest-feature", "Fallbacks, media overlays or manifest properties require a reviewed adapter. Properties: " + (", ".join(properties) or "none") + ". See the full private resource/feature inventory.")
                 record = {"id": identifier, "path": resource, "type": item.get("media-type", ""), "properties": properties}
                 items[identifier] = record
-                report["resources"].append(record)
             require(not spine.get("page-progression-direction") or spine.get("page-progression-direction") == "default", "directionality", "Explicit page progression needs device and layout review.")
             refs = list(spine)
             require(0 < len(refs) <= 2000 and all(r.tag == f"{{{OPF}}}itemref" for r in refs), "spine", "Unsupported spine.")
@@ -220,7 +316,10 @@ def prepare(data):
                 title = next((b["text"] for b in blocks if b["kind"] == "heading" and b["text"]), f"Section {index}")
                 require(len(title) <= 1000, "heading-limit", "Full heading exceeds the current navigation contract; do not shorten it silently.")
                 sections.append({"id": f"s{index}", "title": title, "blocks": blocks})
-                report["spine"].append({"path": record["path"], "sectionId": f"s{index}", "blocks": len(blocks), "utf16Characters": sum(utf16(b["text"]) for b in blocks)})
+                report["spine"][index-1].update(sectionId=f"s{index}", blocks=len(blocks), utf16Characters=sum(utf16(b["text"]) for b in blocks))
+            if report["inspection"]["errors"]:
+                first = report["inspection"]["errors"][0]
+                raise Unsupported(first["code"], first["detail"])
             values = lambda name: ["".join(el.itertext()) for el in metadata.findall(f"{{{DC}}}{name}")]
             titles, languages, creators = values("title"), values("language"), values("creator")
             require(len(titles) == 1 and titles[0] and len(languages) == 1, "metadata-choice", "Choose one supplied title and language explicitly before conversion.")

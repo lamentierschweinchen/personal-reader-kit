@@ -28,6 +28,8 @@ For context and search, reveal the actual selected/matched range inside its usab
 
 For transfer, use private reading bundles with exact editions and verify restoration in a fresh browser; retain separate draft/recovery exports. Before updating a personalized reader, follow [the upgrade procedure](docs/UPGRADING.md) and compare base/personal/target code without overwriting custom work. The bounded EPUB preparer is a provisional text-only tool: unsupported source content requires a reviewed adapter, never deletion to make a check pass. Human onboarding and editorial acceptance follow [the pilot](docs/PILOT.md); do not claim those sessions occurred from browser fixtures alone.
 
+Real-edition trials require [source-aware adapter decisions](docs/ADAPTERS.md): explicit compatibility profiles, self-contained media or an honest external-asset recovery requirement, apparatus-aware spoilers, exact publication supplements and actual-book journeys. Do not copy a bespoke book schema wholesale into upstream. Give each reader a material-led visual identity using [the design review](docs/DESIGN.md#give-each-reader-a-visual-identity), while preserving the faithful, quiet reading baseline.
+
 ## Finish and publish
 
 Run `npm test`, `npm run build`, browser tests when UI changes, and `npm run audit:public`. Audit the exact index, working files and all reachable history. The audit is a guardrail, not a copyright or secret-detection guarantee. Manually review the complete file inventory and sample provenance.

@@ -67,3 +67,23 @@ A later user-confirmed Carson lesson refined this further in 0.3.1: a permanentl
 ## Portability follow-through · 0.4.0
 
 The next iteration turns separate migration exports into a private, integrity-checked bundle with a concrete restore preview and one transaction for books/records. Original-fixture browser checks cover fresh-origin restore, interrupted writes, concurrent changes and edition collisions. It also adds a read-only upgrade comparison and a deliberately narrow EPUB preparer; unsupported literary structure produces a private report instead of a partial edition. These changes make the existing recovery/fidelity principles easier to follow. They do not establish physical-device, newcomer or editorial acceptance. [The pilot](PILOT.md) defines those remaining observations explicitly.
+
+## Four real-book builder trials · 16 October 2026
+
+Independent local builders worked with Pride and Prejudice, Alice's Adventures in Wonderland, Walden with Civil Disobedience, and the Schopenhauer/Hegel comparison. Their source files and project-specific tests remain outside the kit. These are agent integration trials, not human onboarding or learning studies. The findings below distinguish reusable defects from intentional limits.
+
+| Finding | Disposition in 0.4.1 |
+| --- | --- |
+| Import could open before the current section was saved | Fixed: save the main place before opening Import; original-fixture browser regression covers the transition. |
+| A deferred document scroll notification could dismiss recalled focus controls | Fixed: compare actual position since recall, retaining real/nested scroll dismissal. Original-fixture Chromium/WebKit probes reproduce the issue and verify the correction. |
+| Early EPUB refusal concealed the rest of the source's adaptation needs | Implemented: full safe resource/spine inventory and XML feature counts precede conversion refusal. Unsafe archives still stop early; no partial candidate or expanded format support. |
+| Different extensions all called themselves schema 1 | Implemented guard and documented migration: optional base text profile, named unsupported-profile error, strict field validation. Existing editions are not silently retagged; no common media profile is implemented. |
+| Illustrated initials, shaped verse, notes, table cells and source pages need faithful representations | Documented adapter obligations and rendered checks. The stock text renderer's boundary remains. Local trial fixes are not relabeled as upstream capabilities. |
+| Illustrated bundles may still depend on the old site's images | Explicit recovery requirement and fresh-origin test guidance. Embedded and external-asset designs are distinguished; the four formats are not interchangeable. |
+| Front matter and caption/index text can spoil later chapters | Apparatus-aware permission guidance. The base linear section boundary is unchanged; dedicated apparatus gating remains an adapter responsibility. |
+| A public example needs reviewed assets outside the original-sample build | Exact project inventory/history and decoded-media supplement guidance. The upstream build and scanner remain conservative and original-samples-only. |
+| Sample-specific browser journeys required rewriting | Existing settled-capture and range-geometry helpers are exported for reuse; actual-edition journey guidance names the required fixtures. No universal test driver is claimed. |
+| Matching text, word counts and test passes missed visual or editorial weakness | Material-led art direction and whole-flow comparison added to the design/agent guides. Human learning, proofreading, native touch and screen-reader review remain separate. |
+| Browser/runtime mismatch, asynchronous UI assertions and offline-emulation errors | Documented as environment/harness issues where evidence supports that classification. Actual outage controls and awaited state transitions remain required. |
+
+See [adapter decisions](ADAPTERS.md) for the concrete preparation, versioning, source-reference, draft, asset and publication rules. Distinct source-adapter implementations should be reconciled deliberately, not merged wholesale into this small reader.
