@@ -1,4 +1,4 @@
-# Kit status · 0.3.0
+# Kit status · 0.3.1
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
@@ -8,7 +8,7 @@ The public destination remains [lamentierschweinchen/personal-reader-kit](https:
 
 All 20 Node tests pass. The additional scoped check rejects Unicode arrow icons in authored UI files without inspecting or altering book data. They cover exact Unicode/whitespace, source anchors, conflict-preserving and repeatable backup merges, edition-aware connections, literal occurrences, build exclusions, shallow-history rejection, reviewed retired-file hashes, historical credentials, and incomplete Git inspection and non-commit tree snapshots. A failed inspection also replaces any stale successful audit receipt with a failure.
 
-The 0.3.0 release integrates the completed Carson/Canetti handoff on `codex/reader-kit`; publication and the exact revision are reported separately in the handoff.
+The 0.3.1 release integrates the completed Carson/Canetti handoff on `codex/reader-kit`; publication and the exact revision are reported separately in the handoff.
 
 The icon follow-up adds a shared SVG path, plain bibliographic links and durable guidance in AGENTS.md, the agent guide and the design notes. Source-book characters remain unchanged. The follow-up experience review also exposed two context-location gaps in the kit: saved passages scrolled to their block start and occurrence context dropped its match offsets. Both now retain and reveal the exact range.
 
@@ -19,7 +19,7 @@ The browser suite passes through Playwright’s Chromium API using installed Chr
 - Late saved selections and search matches in an original paragraph many screens tall are checked using range rectangles inside the dialog viewport at enlarged text, on phone, tablet and landscape. The actual sticky context header is excluded from the usable viewport. Multi-node/multi-paragraph selections also preserve emphasis and remain visible. Find controls and comparison selectors are checked in both dimensions; short-landscape persistent chrome is measured. Focus preference survives reload and retains title, continuation, DOM selection and exit. These are emulated geometry/behavior checks, not physical touch or comfort evidence. Captures wait for the requested book/section, fonts and finite transitions.
 - Exact characters, measured differences between source blank runs, emphasis and fixed-line behavior in main text and companion excerpts. An index returns both occurrences in one block. Chosen comparisons preserve both passage references.
 - Explicit new/extend/edit choices preserve an overlapping selection. Extension combines exact source ranges, retains the existing comment and remains a recoverable draft after a failed write. Failed note and book removals retain their records and show an error. Larger concurrent writes preserve separate changes in a 1,200-note, approximately 2.34 MB state, and its exported notes/positions match completely.
-- A substantial original context fixture uses the chosen 36px type size. Focus uses a 56px full-width strip with a touch-sized exit at phone portrait/landscape and tablet sizes. Long titles have section-numbered navigation previews and a full-title disclosure; source headings stay complete.
+- A substantial original context fixture uses the chosen 36px type size. Focus hides controls on entry/reload and recalls a 56px strip only on a deliberate gesture or keyboard action. Tests cover second-tap/window/nested-scroll dismissal, holds and drags, selection clearing, source/section links, note saving, keyboard reveal and Escape/focus return. Visible controls are touch-sized at phone portrait/landscape and tablet sizes. Long titles have section-numbered navigation previews and a full-title disclosure; source headings stay complete.
 - Annotation persistence, note/dialog/navigation draft guards, quota-failure retention, tab conflicts, repeated restore, local Unicode import, malformed backups and independent reading/spoiler state. A locked sample pair is not disclosed by exporting an unbound connection draft.
 - A healthy local book opens with only `library.json` blocked and workers disabled. Damaged local books are isolated and retained.
 - Damaged-state repair previews a validated backup, rolls back both writes on failure, preserves the original in quarantine and keeps books. Successful recovery then saves a note through the normal UI. Stale repair cannot replace healthy state.
@@ -27,7 +27,7 @@ The browser suite passes through Playwright’s Chromium API using installed Chr
 - A synthetic work of **6,483,888 characters and 15,000 blocks** saves and renders, survives a cache upgrade and reload, and retains its note. A failed precache leaves the last complete active version usable; the missing asset returns 404 as a negative control. The long-fixture checks use a bounded 90-second functional wait per load/render stage and log observed timings for slower CI hosts. Local desktop checks took roughly 0.3–1.5 seconds, while the Linux CI Chromium run took about 24 seconds for this extreme single-section fixture. These observations are not an acceptable-latency target or a controlled benchmark; preserve natural chapters and check the intended device. The check tests cache lifecycle with compatible code, not arbitrary future data-schema migrations or physical-phone performance.
 - Offline reload includes a local import, chapter navigation and a companion context/return trip in both engines. WebKit uses a stopped origin and a failing direct network request as its negative control. The baseline request/error monitors report no external requests or script errors.
 
-The public build contains exactly **11 app/original-sample outputs** with build fingerprint `d821c68a50cf16d6`. Personal files are outside both the build and Vercel input allowlists. Browser receipts and original-fixture captures stay in ignored `test-results/`. The exact staged-file/history publication receipt stays in ignored `.reader/publication-review.json`; it identifies its HEAD and local refs. The reviewed release inventory contains 41 files, including only original sample writing. Human inspection accompanies the heuristic scan.
+The public build contains exactly **11 app/original-sample outputs** with build fingerprint `73479bcf5496b236`. Personal files are outside both the build and Vercel input allowlists. Browser receipts and original-fixture captures stay in ignored `test-results/`. The exact staged-file/history publication receipt stays in ignored `.reader/publication-review.json`; it identifies its HEAD and local refs. The reviewed release inventory contains 41 files, including only original sample writing. Human inspection accompanies the heuristic scan.
 
 CI now runs Node/build/publication checks and a separate Chromium/WebKit browser job. Consult [GitHub Actions](https://github.com/lamentierschweinchen/personal-reader-kit/actions) for the exact published revision’s result; a local pass is not a claim that a later remote run has finished.
 
@@ -41,7 +41,7 @@ The workflow delivers ordinary reading first, keeps appearance independent of ex
 
 ## Remaining limits
 
-The earlier floating focus-exit overlap has been replaced by a full-width reserved strip. Physical comfort, assistive-technology behavior and platform safe areas still require device review.
+The earlier floating focus-exit overlap and subsequent persistent-strip distraction are resolved by hiding controls until deliberate recall. Physical comfort, assistive-technology behavior and platform safe areas still require device review.
 
 Physical iPhone/iPad selection handles, menus, safe areas, orientation, text zoom and storage retention still require actual devices. Browser emulation and DOM Range selection do not establish those behaviors. No first-time reader’s end-to-end GitHub/Vercel onboarding, live Vercel deployment, cross-device transfer or authenticated hosted-book model has been verified for this kit.
 

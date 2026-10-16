@@ -4,7 +4,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
 import {reviewChecks} from './review-browser.mjs';
-import {experienceChecks,handoffChecks,settledCapture} from './experience-browser.mjs';
+import {experienceChecks,handoffChecks,quietFocusChecks,settledCapture} from './experience-browser.mjs';
 const require=createRequire(import.meta.url);
 let playwright;
 try {playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');}catch{throw new Error('Install Playwright for optional browser tests: npm install --no-save --package-lock=false playwright@1.62.1');}
@@ -117,7 +117,7 @@ try {
         await settledCapture(page,{path:new URL(`${engine}-${label}-reading.png`,output).pathname,animations:'disabled'});
         if(label==='phone'||label==='ipad') {
           await page.locator('.chapter-links').scrollIntoViewIfNeeded();await settledCapture(page,{path:new URL(`${engine}-${label}-continuation.png`,output).pathname,animations:'disabled'});
-          await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));await checkUIIcons(page);assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),true);
+          await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));await checkUIIcons(page);assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),false);
           await settledCapture(page,{path:new URL(`${engine}-${label}-focus.png`,output).pathname,animations:'disabled'});await page.keyboard.press('Escape');
           await page.goto(base+'/#read/bell/crossing');await page.waitForSelector('#reading-text');await page.locator('.chapter-links').scrollIntoViewIfNeeded();await checkUIIcons(page);
           assert.equal(await page.locator('.chapter-links .ui-icon--left').count(),1);assert.equal(await page.locator('.chapter-links .ui-icon--right').count(),1);
@@ -175,12 +175,13 @@ try {
       const independentReview=await reviewChecks({browser,base,engine,output});
       const readingExperience=await experienceChecks({browser,base,engine,output});
       const reciprocalHandoff=await handoffChecks({browser,base,engine,output});
+      const quietFocus=await quietFocusChecks({browser,base,engine,output});
       if(engine==='chromium') {
         await context.setOffline(true);await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await offlineJourney(page,sample);assert.equal(await page.evaluate(async()=>{try{await fetch('/network-negative-control');return false;}catch{return true;}}),true);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,independentReview,readingExperience,reciprocalHandoff,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapter navigation and companion round trip; failed direct fetch negative control':'pending stopped-origin check',errors,external});
+      receipts.push({engine,independentReview,readingExperience,reciprocalHandoff,quietFocus,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapter navigation and companion round trip; failed direct fetch negative control':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);

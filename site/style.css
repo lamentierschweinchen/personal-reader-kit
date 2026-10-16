@@ -28,10 +28,12 @@
 /* Interface arrows share one path; source-book punctuation is never substituted. */
 .icon-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}.ui-icon{display:inline-block;width:.95em;height:.95em;vertical-align:-.125em;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.ui-icon--up-right{transform:rotate(-45deg)}.ui-icon--left{transform:rotate(180deg)}
 
-/* Reserve a quiet, full-width strip so the exit never sits over a partial line. */
-#focus-tools{position:sticky;top:0;z-index:5;min-height:56px;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:flex-end}
+/* Focus chrome is recalled deliberately; showing it does not reflow the book. */
+#focus-tools{position:fixed;top:0;left:0;right:0;z-index:5;min-height:56px;padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
 #focus-tools[hidden]{display:none}
-#focus-exit{font-size:12px;min-width:44px}
+#focus-tools button{font-size:12px;min-width:44px}
+.visually-hidden,.focus-reveal:not(:focus-visible){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.focus-reveal:focus-visible{position:fixed;top:max(12px,env(safe-area-inset-top));left:16px;z-index:6;min-width:44px;min-height:44px;background:var(--paper)}
 /* Context can be many screens tall; its title and exit stay available. */
 .dialog-header{position:sticky;top:-1px;z-index:2;background:var(--paper);padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
 .dialog-header h2{font-size:1.5rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}

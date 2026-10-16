@@ -25,7 +25,7 @@ With Node.js 22 or later installed, open a terminal in the kit folder:
 npm run dev
 ```
 
-Open **http://127.0.0.1:4173**. No package installation is needed for the application. You can read two original miniature works, select words to save a passage, add a comment, change the type, enter focus mode, and try three companion sketches. Your place and notes survive a reload. The application saves an offline copy once loaded successfully.
+Open **http://127.0.0.1:4173**. No package installation is needed for the application. You can read two original miniature works, select words to save a passage, add a comment, change the type, enter focus mode, and try three companion sketches. In focus mode, tap the reading surface to recall controls; scrolling hides them again. Keyboard users can reveal controls with C or the Show reading controls action, and leave with Escape. Your place and notes survive a reload. The application saves an offline copy once loaded successfully.
 
 Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, up to 8 MB. Files are stored locally in IndexedDB. Imports on a phone, tablet and desktop are separate; export your notes and **exact prepared editions** from Settings. A different site address also has a separate library; [verify a restore before moving](docs/DEPLOYMENT.md#choose-an-address-and-move-without-losing-your-library). See [file compatibility](docs/BOOK-FORMAT.md).
 

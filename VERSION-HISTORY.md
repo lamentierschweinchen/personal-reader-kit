@@ -25,3 +25,7 @@ The bounded follow-up also records range visibility, landscape reading space, bo
 ## Consolidated Carson and Canetti handoff · 16 October 2026
 
 Version 0.3.0 integrates the completed reciprocal reviews into the existing kit. It adds explicit overlapping-selection choices, source-range extension with conflict protection, shared large-type coverage, a reserved focus exit, compact persistent context controls and full-title navigation disclosures. Original-fixture checks exercise failure paths, larger concurrent records, complete exports and offline chapter/companion return journeys. The consolidated coverage table in `docs/REVIEW.md` distinguishes existing fixes, new verification, optional future capabilities and manual gates. No personal-reader repairs or deployment were performed.
+
+## Quiet controls after reader feedback · 16 October 2026
+
+Version 0.3.1 applies the user-confirmed lesson that even a permanently visible Exit focus button distracts. Focus controls now stay hidden until a deliberate tap/click or keyboard recall, then hide on another tap or scrolling. Selection, holds, drags, source links and section navigation are excluded; Escape and keyboard focus return remain available. Original-fixture checks cover the interaction distinctions without claiming physical iOS verification.

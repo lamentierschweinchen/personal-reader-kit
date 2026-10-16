@@ -7,6 +7,7 @@ const arrow = (direction='up-right') => `<svg class="ui-icon ui-icon--${directio
 const main = $('#main'), dialog = $('#dialog');
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
+let focusControls=false,focusPointer=null,focusTap=null;
 let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false;
 const sampleIds=new Set(['bell','rain']);
@@ -21,14 +22,14 @@ function applyPrefs() {
   const p = state.prefs;document.documentElement.dataset.theme = p.theme;
   document.documentElement.style.setProperty('--size',`${p.size}px`);document.documentElement.style.setProperty('--leading',p.leading);
   document.documentElement.style.setProperty('--measure',p.measure === 'wide' ? '44rem' : '34rem');
-  const focused=p.focus && route.view === 'read';document.body.classList.toggle('focus',focused);$('#focus-tools').hidden=!focused;$('#focus-exit').hidden=!focused;
+  const focused=p.focus && route.view === 'read';document.body.classList.toggle('focus',focused);if(!focused)focusControls=false;$('#focus-tools').hidden=!(focused&&focusControls);$('#focus-exit').hidden=!focused;$('#focus-reveal').hidden=!focused||focusControls;$('#focus-reveal').setAttribute('aria-expanded',String(focusControls));main.toggleAttribute('aria-describedby',focused);if(focused)main.setAttribute('aria-describedby','focus-help');
 }
 async function commit(change) {const next = await updateState(change);state = next;applyPrefs();return next;}
 function parseRoute() {
   try {const [view='shelf',book,section] = location.hash.slice(1).split('/').map(decodeURIComponent);return ['shelf','read','companion','passages'].includes(view) ? {view,book,section} : {view:'shelf'};}
   catch {return {view:'shelf'};}
 }
-function readingEdge() {return state.prefs.focus ? $('#focus-tools').getBoundingClientRect().bottom+12 : ($('.reader-tools')?.getBoundingClientRect().bottom || $('.masthead').getBoundingClientRect().height) + 20;}
+function readingEdge() {return state.prefs.focus ? 12 : ($('.reader-tools')?.getBoundingClientRect().bottom || $('.masthead').getBoundingClientRect().height) + 20;}
 function currentPosition() {
   if (route.view !== 'read' || !activeBook || !activeSection || !restored) return null;
   const nodes = [...main.querySelectorAll('.reading-surface [data-block]')], edge = readingEdge();
@@ -72,7 +73,7 @@ function reader() {
   const saved = state.positions[activeBook.id];
   activeSection = activeBook.sections.find(s => s.id === route.section) || activeBook.sections.find(s => s.id === saved?.sectionId && saved?.revision === activeBook.source.sha256) || activeBook.sections[0];
   const i = activeBook.sections.indexOf(activeSection), previous = activeBook.sections[i-1], next = activeBook.sections[i+1], unlocked = visibleThrough(state,activeBook) >= i;
-  return `<section class="reading"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">About this work</button></div><span class="progress-label">Section ${i+1} of ${activeBook.sections.length}</span><button data-action="focus">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header><article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span><span class="nav-title">${esc(previous.title)}</span></a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span><span class="nav-title">${esc(next.title)}</span></a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div><p class="reader-hint">Select words to keep a passage. Your place is saved on this device; exploring never moves it.</p></section>`;
+  return `<section class="reading"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">About this work</button></div><span class="progress-label">Section ${i+1} of ${activeBook.sections.length}</span><button data-action="focus" aria-describedby="focus-help">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header><article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span><span class="nav-title">${esc(previous.title)}</span></a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span><span class="nav-title">${esc(next.title)}</span></a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div><p class="reader-hint">Select words to keep a passage. Your place is saved on this device; exploring never moves it.</p></section>`;
 }
 function passages() {
   return `<section class="page"><header class="page-head"><p class="eyebrow">Your marginalia</p><h1>Words you<br>wanted to keep.</h1><p>Your quotations, your connections. Stored only on this device.</p>${returnLink()}</header>${state.notes.length ? `<ul class="passage-list">${[...state.notes].sort((a,b)=>b.updated-a.updated).map(n => {
@@ -119,7 +120,7 @@ function companion() {
   return `<section class="page${experiment==='walk'?'':' companion-compact'}"><header class="page-head companion-heading"><p class="eyebrow">An optional companion</p><h1>${experiment==='walk'?'A little further.':'Companion'}</h1><p>A fictional listening walk, an index across your books, and a place to compare passages.</p></header><div class="companion-top"><p class="small">Unread passages stay hidden. Set a boundary explicitly; opening an experiment never advances your reading place.</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="experiment-tabs" role="group" aria-label="Experience prototypes"><button data-action="experiment" data-experiment="walk" aria-pressed="${experiment==='walk'}">01 &nbsp; A listening walk</button><button data-action="experiment" data-experiment="echo" aria-pressed="${experiment==='echo'}">02 &nbsp; An echo index</button><button data-action="experiment" data-experiment="facing" aria-pressed="${experiment==='facing'}">03 &nbsp; Facing pages</button></div>${experiment==='walk' ? walk() : experiment==='echo' ? echoes() : facing()}<div class="prototype-choice"><p>These are sketches to try. Your agent should study your own books before proposing three directions for them.</p><button class="secondary" data-action="choose-prototype">${state.reflections['prototype-choice']===experiment ? '✓ Your preferred direction' : 'Keep this direction'}</button></div></section>`;
 }
 async function render({keepScroll=false}={}) {
-  const y = scrollY;fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
+  const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
@@ -235,7 +236,9 @@ async function act(target) {
       await savePosition();const pos=state.positions[b.id], section=b.sections.find(s=>s.id===pos?.sectionId&&pos?.revision===b.source.sha256)||b.sections[0];
       requestedPosition=pos;const hash=path(b.id,section.id);if(location.hash===hash){route=parseRoute();await render();}else location.hash=hash;break;
     }
-    case 'focus': {const pos=currentPosition();await commit(s=>{s.prefs.focus=!s.prefs.focus;return s;});await restorePosition(pos);break;}
+    case 'focus': {const pos=currentPosition();await commit(s=>{s.prefs.focus=!s.prefs.focus;return s;});hideFocusControls();await restorePosition(pos);if(state.prefs.focus)main.focus({preventScroll:true});else main.querySelector('[data-action="focus"]')?.focus({preventScroll:true});break;}
+    case 'focus-reveal':showFocusControls(true);break;
+    case 'focus-hide':hideFocusControls(true);break;
     case 'contents':openDialog('Inside this book.',`<ol class="contents-list">${activeBook.sections.map((s,i)=>`<li><a href="${path(activeBook.id,s.id)}" data-section-start ${s.id===activeSection.id?'aria-current="location"':''}><span class="small">Section ${i+1}</span><span class="nav-title">${esc(s.title)}</span></a>${s.title.length>100?`<details><summary>Full section title</summary><p>${esc(s.title)}</p></details>`:''}</li>`).join('')}</ol>`);break;
     case 'boundary':boundaries();break;
     case 'experiment':experiment=target.dataset.experiment;await render({keepScroll:true});break;
@@ -285,7 +288,32 @@ async function act(target) {
     }
   }
 }
+const inFocus=()=>state.prefs.focus&&route.view==='read'&&!dialog.open;
+const focusActionTarget=target=>target.closest('a,button,input,textarea,select,label,summary,[role="button"],[contenteditable],mark[data-note]');
+function hideFocusControls(returnFocus=false) {
+  const hadFocus=$('#focus-tools').contains(document.activeElement);focusControls=false;applyPrefs();
+  if(returnFocus||(hadFocus&&getSelection()?.isCollapsed))main.focus({preventScroll:true});
+}
+function showFocusControls(keyboard=false) {
+  if(!inFocus())return;focusControls=true;applyPrefs();if(keyboard)$('#focus-exit').focus({preventScroll:true});
+}
+// Only a short stationary pointer gesture on non-interactive reading content
+// recalls chrome. Record selection before the browser can clear it on pointerdown.
+document.addEventListener('pointerdown',event=>{
+  focusPointer=null;focusTap=null;
+  if(!inFocus()||!event.isPrimary||event.button!==0||!event.target.closest('.reading')||focusActionTarget(event.target))return;
+  focusPointer={id:event.pointerId,x:event.clientX,y:event.clientY,at:performance.now(),moved:false,hadSelection:!getSelection()?.isCollapsed};
+},true);
+document.addEventListener('pointermove',event=>{if(focusPointer?.id===event.pointerId&&Math.hypot(event.clientX-focusPointer.x,event.clientY-focusPointer.y)>10)focusPointer.moved=true;},{passive:true});
+document.addEventListener('pointercancel',()=>{focusPointer=null;focusTap=null;});
+document.addEventListener('scroll',()=>{if(focusPointer)focusPointer.moved=true;if(inFocus()&&focusControls)hideFocusControls();},{capture:true,passive:true});
+document.addEventListener('pointerup',event=>{if(focusPointer?.id===event.pointerId){focusTap={...focusPointer,ended:performance.now()};focusPointer=null;}});
 document.addEventListener('click',event=>{
+  const gesture=focusTap;focusTap=null;
+  if(inFocus()&&event.detail===1&&gesture&&!gesture.moved&&!gesture.hadSelection&&gesture.ended-gesture.at<350&&performance.now()-gesture.ended<500&&getSelection()?.isCollapsed&&event.target.closest('.reading')&&!focusActionTarget(event.target)) {
+    if(focusControls)hideFocusControls();else showFocusControls();return;
+  }
+
   if(event.target.closest('.skip-link')){event.preventDefault();main.focus();return;}
   const target=event.target.closest('[data-action]');
   if(target){event.preventDefault();act(target).catch(fail);return;}
@@ -348,11 +376,12 @@ document.addEventListener('change',async event=>{
 });
 document.addEventListener('selectionchange',()=>{
   if(route.view!=='read'||dialog.open||!activeBook)return;
+  if(!getSelection()?.isCollapsed){if(focusPointer)focusPointer.hadSelection=true;if(inFocus())hideFocusControls();}
   selection=readSelection($('#reading-text'),activeBook,activeSection);$('#selection-save').hidden=!selection;
 });
 $('#selection-save').addEventListener('pointerdown',e=>e.preventDefault());
 $('#selection-save').addEventListener('click',()=>{if(selection){const saved=selection;getSelection()?.removeAllRanges();beginSelection(saved);}});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!dialog.open&&state.prefs.focus&&route.view==='read')act($('#focus-exit')).catch(fail);});
+document.addEventListener('keydown',event=>{if(!inFocus())return;if(event.key==='Escape'){event.preventDefault();act($('#focus-exit')).catch(fail);}else if(event.key.toLowerCase()==='c'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!focusActionTarget(event.target)){event.preventDefault();showFocusControls(true);}});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
 window.addEventListener('hashchange',async event=>{
   if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}

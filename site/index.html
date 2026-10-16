@@ -24,7 +24,9 @@
     <button class="type-button" data-action="settings" aria-label="Reading settings">Aa</button>
   </header>
   <div id="storage-warning" class="warning" role="alert" hidden></div>
-  <div id="focus-tools" hidden><button id="focus-exit" data-action="focus" hidden>Exit focus <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button></div>
+  <p id="focus-help" class="visually-hidden">Focus mode: tap the reading surface or press C to recall controls. Escape exits. Selecting words still lets you keep passages.</p>
+  <button id="focus-reveal" class="focus-reveal" data-action="focus-reveal" aria-controls="focus-tools" aria-expanded="false" hidden>Show reading controls</button>
+  <div id="focus-tools" role="group" aria-label="Reading controls" hidden><button data-action="focus-hide">Hide controls</button><button id="focus-exit" data-action="focus" hidden>Exit focus <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button></div>
   <main id="main" tabindex="-1"><p class="loading">Opening your shelf…</p></main>
 
   <button id="selection-save" hidden>Keep this passage <span aria-hidden="true">＋</span></button>

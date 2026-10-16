@@ -49,7 +49,7 @@ export async function experienceChecks({browser,base,engine,output}) {
     assert.equal(landscape.mastheadPosition,'relative');assert.equal(landscape.toolbarPosition,'sticky');
     await settledCapture(page,{path:new URL(`${engine}-landscape-reading-space.png`,output).pathname,animations:'disabled'});
     await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));await page.reload();await page.locator(`#reading-text[data-book="${fixture.id}"]`).waitFor();await page.waitForFunction(()=>document.body.classList.contains('focus'));
-    assert.equal(await page.locator('.reader-heading h1').textContent(),fixture.title);assert.equal(await page.locator('.chapter-links').isVisible(),true);assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),true);
+    assert.equal(await page.locator('.reader-heading h1').textContent(),fixture.title);assert.equal(await page.locator('.chapter-links').isVisible(),true);assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),false);await page.keyboard.press('c');assert.equal(await page.getByRole('button',{name:'Exit focus',exact:true}).isVisible(),true);
     const selected=await page.evaluate(()=>{const block=document.querySelector('#reading-text [data-block]'),range=document.createRange();range.selectNodeContents(block);getSelection().removeAllRanges();getSelection().addRange(range);return getSelection().toString();});assert.equal(selected,fixture.text);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));
     return {sizes,landscape,focusReload:true,focusDOMSelection:true,settledCaptures:true};
   } finally {await context.close();}
@@ -97,10 +97,10 @@ export async function handoffChecks({browser,base,engine,output}) {
     await page.locator('#reading-text[data-position-ready="true"]').waitFor();await page.waitForFunction(()=>!document.querySelector('#status').textContent);
     const focus=[];
     for(const [width,height] of [[402,874],[874,402],[820,1180]]) {
-      await page.setViewportSize({width,height});await page.evaluate(()=>scrollTo(0,1000));
+      await page.setViewportSize({width,height});await page.evaluate(()=>scrollTo(0,1000));await page.waitForFunction(()=>document.querySelector('#focus-tools').hidden);await settledCapture(page,{path:new URL(`${engine}-focus-hidden-${width}.png`,output).pathname,animations:'disabled'});await page.keyboard.press('c');
       const geometry=await page.evaluate(()=>{const rail=document.querySelector('#focus-tools').getBoundingClientRect(),exit=document.querySelector('#focus-exit').getBoundingClientRect();return {top:rail.top,bottom:rail.bottom,left:rail.left,right:rail.right,width:innerWidth,height:innerHeight,exitTop:exit.top,exitBottom:exit.bottom,exitWidth:exit.width,exitHeight:exit.height};});
       assert.equal(geometry.top,0);assert.equal(geometry.left,0);assert.equal(geometry.right,geometry.width);assert.ok(geometry.exitTop>=geometry.top&&geometry.exitBottom<=geometry.bottom);assert.ok(geometry.bottom<height*.2&&geometry.exitWidth>=44&&geometry.exitHeight>=44);focus.push(geometry);
-      await settledCapture(page,{path:new URL(`${engine}-focus-rail-${width}.png`,output).pathname,animations:'disabled'});
+      await settledCapture(page,{path:new URL(`${engine}-focus-rail-${width}.png`,output).pathname,animations:'disabled'});await page.getByRole('button',{name:'Hide controls',exact:true}).click();
     }
     await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));await page.setViewportSize({width:402,height:874});
     await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action="note-context"][data-note="overlap"]').click();await rangeInViewport(page);assert.ok(await page.locator('#context-text mark em').count());assert.ok(await page.locator('#context-text mark strong').count());await close();await page.locator('[data-action="edit-note"][data-note="overlap"]').click();
@@ -116,5 +116,39 @@ export async function handoffChecks({browser,base,engine,output}) {
     state=await saved();assert.equal(state.notes.length,1200);assert.equal(state.notes[0].note,'First tab saved this change.');assert.equal(state.notes[1].note,'Second tab saved this change.');await second.close();
     await page.getByRole('button',{name:'Reading settings'}).click();const downloading=page.waitForEvent('download');await page.getByRole('button',{name:'Export passages & progress',exact:false}).click();const download=await downloading,stream=await download.createReadStream(),chunks=[];for await(const chunk of stream)chunks.push(chunk);const exported=JSON.parse(Buffer.concat(chunks).toString('utf8'));assert.deepEqual(exported.notes,state.notes);assert.deepEqual(exported.positions,state.positions);await close();
     return {explicitOverlapChoices:true,extendedExactMultiBlockRange:true,multiNodeContextVisible:true,extensionFailureRetainsDraft:true,failedNoteAndBookRemovalTruthful:true,longTitlePreserved:true,largeCompanionType:36,focusRail:focus,concurrentRecordCount:state.notes.length,payloadBytes:bytes,fullExportVerified:true};
+  } finally {await ctx.close();}
+}
+
+export async function quietFocusChecks({browser,base,engine,output}) {
+  const ctx=await browser.newContext({viewport:{width:402,height:874},hasTouch:true,isMobile:true,serviceWorkers:'block'}),page=await ctx.newPage();
+  const hidden=()=>page.waitForFunction(()=>document.querySelector('#focus-tools').hidden);
+  const recalled=()=>page.waitForFunction(()=>!document.querySelector('#focus-tools').hidden);
+  const tap=async()=>{const text=page.locator('#reading-text [data-block]').first();await text.scrollIntoViewIfNeeded();await text.click({position:{x:8,y:12}});};
+  try {
+    await page.goto(base+'/#read/bell/arrival');await page.locator('#reading-text[data-section="arrival"][data-position-ready="true"]').waitFor();await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus')&&document.querySelector('#reading-text')?.dataset.positionReady==='true');await hidden();
+    await page.reload();await page.locator('#reading-text[data-position-ready="true"]').waitFor();await hidden();assert.equal(await page.locator('body').evaluate(el=>el.classList.contains('focus')),true);
+    await tap();await recalled();await tap();await hidden(); // separate short clicks recall and dismiss
+    await tap();await recalled();await page.evaluate(()=>scrollBy(0,180));await hidden();
+    // A hold and a moving pointer are not a deliberate recall gesture.
+    const block=page.locator('#reading-text [data-block]').first();await block.scrollIntoViewIfNeeded();let box=await block.boundingBox();await page.mouse.move(box.x+8,box.y+12);await page.mouse.down();await page.waitForTimeout(450);await page.mouse.up();await hidden();
+    await page.mouse.move(box.x+8,box.y+12);await page.mouse.down();await page.mouse.move(box.x+65,box.y+30,{steps:5});await page.mouse.up();await hidden();
+    await page.evaluate(()=>{const block=document.querySelector('#reading-text [data-block]'),range=document.createRange();range.selectNodeContents(block);getSelection().removeAllRanges();getSelection().addRange(range);});await page.locator('#selection-save:not([hidden])').waitFor();await hidden();
+    await tap();await hidden(); // clearing an existing selection must not recall chrome
+    await page.evaluate(()=>{const block=document.querySelector('#reading-text [data-block]'),range=document.createRange();range.selectNodeContents(block);getSelection().removeAllRanges();getSelection().addRange(range);});await page.locator('#selection-save').click();await page.locator('#note-text').fill('An original quiet-mode note.');await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#dialog').open);await hidden();
+    assert.equal(await page.evaluate(async()=> (await (await import('/db.mjs')).loadState()).notes[0].note),'An original quiet-mode note.');
+    // A stand-in source-note link checks the event exclusion; the kit does not
+    // claim a source-footnote renderer. This adds no text to the source surface.
+    await page.evaluate(()=>{const a=document.createElement('a');a.id='source-note-fixture';a.href='#fixture-note';a.textContent='Original source-note link fixture';a.addEventListener('click',e=>{e.preventDefault();a.dataset.visited='true';});document.querySelector('.reader-heading').append(a);});
+    await page.locator('#source-note-fixture').click();await hidden();assert.equal(await page.locator('#source-note-fixture').getAttribute('data-visited'),'true');
+    await page.getByRole('link',{name:/Next/}).click();await page.locator('#reading-text[data-section="crossing"][data-position-ready="true"]').waitFor();await hidden();
+    const touchBlock=page.locator('#reading-text [data-block]').first();await touchBlock.scrollIntoViewIfNeeded();const touchBox=await touchBlock.boundingBox();await page.touchscreen.tap(touchBox.x+8,touchBox.y+12);await recalled();
+    // Ordinary source blocks are inline; make this original fixture a real
+    // fixed-line scroll container before checking the nested scroll event.
+    await touchBlock.evaluate(el=>{el.style.cssText='display:block;white-space:pre;overflow:auto;width:200px';el.scrollLeft=40;});assert.ok(await touchBlock.evaluate(el=>el.scrollLeft)>0);await hidden();await touchBlock.evaluate(el=>el.removeAttribute('style'));
+    await page.evaluate(()=>document.querySelector('#main').focus({preventScroll:true}));await page.keyboard.press('Shift+Tab');let keyboardPath='Shift+Tab';if(await page.evaluate(()=>document.activeElement.id)!=='focus-reveal'){await page.evaluate(()=>document.querySelector('#main').focus({preventScroll:true}));await page.keyboard.press('Alt+Shift+Tab');keyboardPath='Alt+Shift+Tab';}assert.equal(await page.evaluate(()=>document.activeElement.id),'focus-reveal');const target=await page.locator('#focus-reveal').boundingBox();assert.ok(target.width>=44&&target.height>=44);await page.keyboard.press('Enter');await recalled();assert.equal(await page.evaluate(()=>document.activeElement.id),'focus-exit');
+    await settledCapture(page,{path:new URL(`${engine}-quiet-recalled.png`,output).pathname,animations:'disabled'});await page.getByRole('button',{name:'Hide controls',exact:true}).click();await hidden();assert.equal(await page.evaluate(()=>document.activeElement.id),'main');
+    await page.waitForFunction(()=>!document.querySelector('#status').textContent);await settledCapture(page,{path:new URL(`${engine}-quiet-hidden.png`,output).pathname,animations:'disabled'});
+    await page.keyboard.press('c');await recalled();await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus')&&document.querySelector('#reading-text')?.dataset.positionReady==='true'&&document.activeElement===document.querySelector('#main [data-action="focus"]'));
+    return {hiddenOnEntryAndReload:true,deliberateClickToggle:true,emulatedTouchRecall:true,scrollHides:true,nestedScrollHides:true,holdAndDragExcluded:true,selectionClearExcluded:true,annotationInFocus:true,sourceLinkExcluded:true,sectionLinkExcluded:true,keyboardReveal:true,keyboardPath,escapeAndFocusReturn:true,physicalTouchVerified:false};
   } finally {await ctx.close();}
 }
