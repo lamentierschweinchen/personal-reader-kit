@@ -1,4 +1,5 @@
 import {newState, validateState, validateBook} from './core.mjs';
+import {validateBundle,snapshotToken,planBundleRestore} from './bundle.mjs';
 let connection;
 export function openDB() {
   if (!connection) connection = new Promise((resolve,reject) => {
@@ -89,5 +90,34 @@ export async function removeBook(id) {
   const db = await openDB();
   return new Promise((resolve,reject) => {
     const tx = db.transaction('books','readwrite');tx.objectStore('books').delete(id);tx.oncomplete = resolve;tx.onerror = tx.onabort = () => reject(tx.error);
+  });
+}
+
+// Read books and state from the same storage snapshot for export/restore review.
+export async function librarySnapshot() {
+  const db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(['books','state']),bookRequest=tx.objectStore('books').getAll(),stateRequest=tx.objectStore('state').get('reader');
+    tx.oncomplete=()=>{try{resolve({books:bookRequest.result.map(validateBook),state:stateRequest.result===undefined?newState():validateState(stateRequest.result)});}catch(error){reject(error);}};
+    tx.onerror=tx.onabort=()=>reject(tx.error||new Error('The library could not be read. Use original recovery export if any stored records are damaged.'));
+  });
+}
+
+export async function restoreBundle(input,expectedToken,publicBooks=[],options={}) {
+  const bundle=await validateBundle(input),db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(['books','state'],'readwrite'),bookStore=tx.objectStore('books'),stateStore=tx.objectStore('state');
+    const booksRequest=bookStore.getAll(),stateRequest=stateStore.get('reader');let done=0,result,failure;
+    tx.oncomplete=()=>resolve(result);
+    tx.onerror=tx.onabort=()=>reject(failure||tx.error||new Error('Bundle restore failed. No books or records were changed.'));
+    const ready=()=>{if(++done!==2)return;try {
+      const snapshot={books:booksRequest.result.map(validateBook),state:stateRequest.result===undefined?newState():validateState(stateRequest.result)};
+      if(snapshotToken(snapshot)!==expectedToken)throw new Error('Your library changed after this preview. Choose the bundle again to review the latest state. Nothing was restored.');
+      const plan=planBundleRestore(bundle,snapshot,publicBooks,options);
+      if(plan.conflicts.length)throw new Error('An existing book ID has different edition content. Keep both private files and ask your agent to reconcile the editions; nothing was restored.');
+      for(const book of plan.additions)bookStore.put(book);
+      plan.next.revision=snapshot.state.revision+1;stateStore.put(plan.next,'reader');result={state:plan.next,addedBooks:plan.additions.length};
+    }catch(error){failure=error;tx.abort();}};
+    booksRequest.onsuccess=ready;stateRequest.onsuccess=ready;
   });
 }

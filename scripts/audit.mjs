@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL('../',import.meta.url));
 export function inspectFile(name,bytes,allowed) {
   const problems=[];
   if(!allowed.includes(name))problems.push('not in the reviewed file inventory');
-  if(/(^|\/)(?:\.reader|\.env(?:\..*)?|\.vercel|node_modules|test-results|source|books|annotations|private)(\/|$)/i.test(name) || /\.(?:epub|pdf|mobi|azw3?|docx|pem|key|reader\.json|reader-backup\.json)$/i.test(name))problems.push('private/book path or disallowed format');
+  if(/(^|\/)(?:\.reader|\.env(?:\..*)?|\.vercel|node_modules|test-results|source|books|annotations|private)(\/|$)/i.test(name) || /\.(?:epub|pdf|mobi|azw3?|docx|pem|key|reader\.json|reader-backup\.json|reader-bundle\.json)$/i.test(name))problems.push('private/book path or disallowed format');
   return [...problems,...inspectContent(bytes)];
 }
 export function inspectContent(bytes) {

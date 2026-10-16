@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | UTF-8 `.txt` | Direct browser import or local CLI | Choose prose/poetry. Characters, newlines, tabs, leading/trailing spaces, BOM and blank-line separators are preserved. Hard wrapping is retained; no silent dehyphenation. |
 | Version 1 reader `.json` | Direct import after validation | Up to 8 MB file size. Exact edition hash, stable IDs, text blocks, emphasis offsets and source provenance. |
-| DRM-free EPUB | Agent-assisted conversion | Inspect OPF/spine, navigation, XHTML, CSS, notes, emphasis, reading order and text-bearing images. Extract locally with safe archive handling; reject traversal, symlinks, external resources and oversized/decompression-bomb archives. |
+| DRM-free EPUB | Bounded local preparer for a narrow unstyled subset; otherwise a reviewed adapter | Inspect OPF/spine, navigation, XHTML, CSS, notes, emphasis, reading order and text-bearing images. Extract locally with safe archive handling; reject traversal, symlinks, external resources and oversized/decompression-bomb archives. |
 | Text PDF | Agent-assisted conversion | Verify page order, columns, headers, hyphenation, Unicode, notes and poetry. Plain extracted text alone is not a fidelity check. |
 | Scanned PDF/images | Local OCR plus review, not built in | Compare OCR against source pages. Keep original scans local. Mark unresolved words; do not invent missing text. |
 | DOCX/HTML | Not directly importable | A reviewed local adapter can produce the book contract. Preserve meaningful structure and strip active content. |
@@ -19,6 +19,24 @@ npm run import:text -- /path/to/book.txt "Book title" verse
 ```
 
 Use `prose` for prose. The CLI writes a new file in ignored `.reader/private/`, uses a source hash as the ID, and refuses to overwrite an existing conversion. Import that file through **Bring a book**. It does not deploy or commit anything. Text layout choices never change the supplied characters.
+
+## Bounded local EPUB preparation
+
+With Python 3.10+ available alongside Node, run:
+
+```sh
+npm run import:epub -- /path/to/book.epub
+```
+
+This local tool makes no network requests and never extracts archive members to the filesystem. It inspects the container, manifest and spine before creating a private, provisional `edition.reader.json` and `receipt.json` in a new ignored `.reader/private/epub-…/` directory. Files are created with owner-only permissions and are never overwritten. Read the receipt and compare the rendered EPUB with the candidate before importing it. **Preparation is not proofreading or proof of complete literary fidelity.** Raw source bytes remain unchanged.
+
+The initial subset is UTF-8 EPUB 2/3, one rendition, explicit linear XHTML spine order, and unstyled text in paragraphs, headings, `pre`, `br`, `em`, `strong`, `sup`, `sub` and neutral containers/spans. It preserves decoded Unicode, explicit line breaks, `pre` whitespace/fixed verse and UTF-16 emphasis offsets. XML parsing normalizes source CRLF; structural paragraphs receive explicit two-newline separators. These are documented conversion decisions, not a byte-identical extraction of XHTML markup. Plain XHTML with wrapped/repeated whitespace requires review instead of a guess about meaningful spaces. Document-language changes also require an adapter.
+
+Stylesheets, inline styles/classes, images, lists, tables, active content, linked source notes, specialized metadata/layout, nonlinear or unexplained non-spine resources and language/direction changes are outside this subset. A declared navigation-only file is inventoried separately; compare its hierarchy with the prepared section sequence. Unknown structures stop candidate creation instead of being silently dropped. The command exits 2 with a private report and **no edition** when it needs an adapter; exit 1 means it could not complete inspection. Many commercial and public-domain EPUBs use CSS or illustrations and will need that more capable preparation.
+
+Archive checks reject encryption declarations (including obfuscation this adapter does not interpret), encrypted entries, unsafe or duplicate paths, symlinks, external manifest references, DTD/entity declarations and excessive sizes/compression. Limits are 64 MB compressed/expanded, 2,048 members, 8 MB per member, a 150:1 compression ratio, and the existing reader/import ceilings. A rejection is not proof of malicious content or DRM; it marks this adapter's boundary. Do not remove encryption or discard assets merely to get a green result.
+
+The private receipt identifies the source hash, resource/spine coverage, unsupported feature and required review. It contains no claim that a count or checksum substitutes for comparison with the actual source. Complete a faithful adapter in the same project if the book warrants it. Keep the exact final prepared edition with your private bundle; a later conversion can produce different anchors.
 
 ## Book contract
 
@@ -76,3 +94,11 @@ Restoring an unchanged backup repeatedly must not multiply preserved conflict co
 Connections in state schema 1 are an optional `connections` array for compatibility with older backups. Each entry has `id`, `note`, `updated`, and exactly two `passages`. Each side uses the annotation’s `bookId`, `sectionId`, `revision`, `quote` and `segments`; it is not a global reflection or a pair of mutable URLs. Conflict copies retain both source identities. Use the current reader to restore these backups; older application versions may not understand the added records. Legacy unbound reflections are kept without assigning invented passage references.
 
 Settings exports each exact prepared book contract for migration. Retain that file alongside raw sources and the records backup: the source-byte hash alone does not reproduce an adapter’s block IDs, marks or layout. A repair of unreadable state is a separate explicit operation from a normal backup merge. It archives the original object and installs a validated backup atomically, preserving the book store. Recovery archives are included in raw export; they are never silently deleted.
+
+## Private portable bundle
+
+Settings can pack selected exact editions and **all saved reading records** in a version 1 `personal-reader-bundle` JSON file (up to 64 MB and 200 editions). Unchecked books' saved quotations still travel with the records. The bundle records the kit version and a SHA-256 of canonical JSON for accidental corruption detection. This checksum is neither authentication nor encryption. The file includes private full texts/notes; keep it out of repositories and public uploads. Unsaved drafts and damaged records/recovery archives require their separate exports.
+
+Restore validates the file, previews added/existing editions and recoverable unresolved quotations, and refuses a colliding book ID with different prepared content. Confirmation commits new books and merged records in one IndexedDB transaction. A failure changes neither store. Concurrent state or edition changes invalidate the preview; reopen it against the current library. Existing reading places remain, missing places return, and saved appearance is opt-in. Spoiler permissions are never widened by an ordinary bundle restore. Conflicting notes/connections remain separate and repeat restores do not multiply them. A missing edition leaves recoverable quotations without guessed anchors.
+
+Unreadable state still uses the separate repair transaction. Retain a raw recovery export, then use a validated state backup (a bundle's validated `state` object can supply it through an authorized local repair). Ordinary restore never overwrites damaged state or silently deletes damaged books. A fresh-browser restore and later reload are required before retiring the source origin.

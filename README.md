@@ -27,7 +27,7 @@ npm run dev
 
 Open **http://127.0.0.1:4173**. No package installation is needed for the application. You can read two original miniature works, select words to save a passage, add a comment, change the type, enter focus mode, and try three companion sketches. In focus mode, tap the reading surface to recall controls; scrolling hides them again. Keyboard users can reveal controls with C or the Show reading controls action, and leave with Escape. Your place and notes survive a reload. The application saves an offline copy once loaded successfully.
 
-Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, up to 8 MB. Files are stored locally in IndexedDB. Imports on a phone, tablet and desktop are separate; export your notes and **exact prepared editions** from Settings. A different site address also has a separate library; [verify a restore before moving](docs/DEPLOYMENT.md#choose-an-address-and-move-without-losing-your-library). See [file compatibility](docs/BOOK-FORMAT.md).
+Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, up to 8 MB. Files are stored locally in IndexedDB. Imports on a phone, tablet and desktop are separate; export a **private reading bundle** from Settings. It carries selected exact editions and all saved records in one unencrypted file, with a restore preview and conflict checks. Separate record/edition exports remain available. A different site address also has a separate library; [verify a restore before moving](docs/DEPLOYMENT.md#choose-an-address-and-move-without-losing-your-library). See [file compatibility](docs/BOOK-FORMAT.md).
 
 ## Make your reader, with an agent
 
@@ -49,14 +49,16 @@ A walk, map, historical context, secondary literature, a visual experiment or a 
 - Phone and tablet layouts; focus mode; adjustable type size, spacing, measure and page color; keyboard-accessible controls.
 - Exact text rendering, emphasis ranges, hard line breaks, stanza gaps and indentation. Fixed-layout verse can scroll within its block.
 - Multi-block highlights and comments, explicit new/extend choices for overlapping selections, edition-aware anchors, saved reading places and separate spoiler boundaries.
-- Private browser imports, local persistence, repeatable records export/merge, exact-edition export, retained conflicting notes/connections, and an explicit repair transaction that archives damaged state and preserves local books.
+- Private browser imports, local persistence, portable private reading bundles, repeatable records export/merge, exact-edition export, retained conflicting notes/connections, and an explicit repair transaction that archives damaged state and preserves local books.
 - Three interactive companions: a fictional listening walk, literal occurrence search across permitted books, and comparisons between your own kept passages with edition-aware saved connections.
 - Offline application and original samples; imported books remain in browser storage. Storage eviction is still possible.
 - An explicit public build list, original-sample fingerprints, and a complete-local-history audit that rejects shallow views and records its exact ref scope.
 
-This is an early reusable kit, not a universal ebook converter. EPUB/PDF conversion is agent-assisted; DRM bypass, automatic OCR, image/facsimile blocks, interactive source footnotes, live routing, linguistic/semantic search, automatic sync and authenticated hosted libraries are not implemented. Complex works need a reviewed adapter, not a lossy shortcut. Physical iOS selection gestures still need on-device testing.
+This is an early reusable kit, not a universal ebook converter. EPUB/PDF conversion is agent-assisted. An optional [bounded EPUB preparer](docs/BOOK-FORMAT.md#bounded-local-epub-preparation) handles a narrow unstyled text-only subset and produces a provisional edition for proofreading; unsupported features stop preparation. DRM bypass, automatic OCR, image/facsimile blocks, interactive source footnotes, live routing, linguistic/semantic search, automatic sync and authenticated hosted libraries are not implemented. Complex works need a reviewed adapter, not a lossy shortcut. Physical iOS selection gestures still need on-device testing.
 
 ## For maintainers
+
+Personalized readers have a [read-only upgrade comparison and migration procedure](docs/UPGRADING.md). The [three-newcomer and editorial pilot](docs/PILOT.md) defines the human evidence still needed for broader dependability claims. The application needs only Node; the optional EPUB preparer and its Node test fixtures additionally require Python 3.10 or later. No Python packages are installed.
 
 ```sh
 npm test              # Source fidelity, anchors, recovery, spoiler and build-boundary tests

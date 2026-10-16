@@ -24,6 +24,8 @@ Focus/immersive reading hides controls until a deliberate tap/click recalls them
 
 For context and search, reveal the actual selected/matched range inside its usable scroll viewport; finding a highlight or a containing paragraph is insufficient. Check both touch-target dimensions, available reading height in landscape, full source headings versus navigation previews, and focus-mode orientation/continuation/selection/exit. Settle screenshots on the requested book/section, fonts and finite transitions. Offline claims need a successful reload without the origin, not merely an open book or note editing. Follow the concrete review criteria in [the agent guide](docs/AGENT-GUIDE.md#verify-the-reading-experience).
 
+For transfer, use private reading bundles with exact editions and verify restoration in a fresh browser; retain separate draft/recovery exports. Before updating a personalized reader, follow [the upgrade procedure](docs/UPGRADING.md) and compare base/personal/target code without overwriting custom work. The bounded EPUB preparer is a provisional text-only tool: unsupported source content requires a reviewed adapter, never deletion to make a check pass. Human onboarding and editorial acceptance follow [the pilot](docs/PILOT.md); do not claim those sessions occurred from browser fixtures alone.
+
 ## Finish and publish
 
 Run `npm test`, `npm run build`, browser tests when UI changes, and `npm run audit:public`. Audit the exact index, working files and all reachable history. The audit is a guardrail, not a copyright or secret-detection guarantee. Manually review the complete file inventory and sample provenance.

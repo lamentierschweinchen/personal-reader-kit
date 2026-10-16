@@ -2,10 +2,13 @@ import {readFile,writeFile,mkdir,rm,copyFile,lstat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
+import {KIT_VERSION} from '../site/bundle.mjs';
 import {validateBook,bookText} from '../site/core.mjs';
 const root = fileURLToPath(new URL('../',import.meta.url));
-export const assets = ['index.html','app.mjs','core.mjs','db.mjs','text.mjs','style.css','manifest.webmanifest','icon.svg','robots.txt'];
+export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','style.css','manifest.webmanifest','icon.svg','robots.txt'];
 export async function build() {
+  const packageVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
+  if(packageVersion!==KIT_VERSION)throw new Error('Package and portable-bundle application versions differ.');
   const manifest = JSON.parse(await readFile(path.join(root,'publication.json'),'utf8'));
   const sample = await readFile(path.join(root,'samples/library.json'));
   if (createHash('sha256').update(sample).digest('hex') !== manifest.originalSampleSha256) throw new Error('Original sample content changed. Review its provenance and exact bytes before updating the publication manifest.');

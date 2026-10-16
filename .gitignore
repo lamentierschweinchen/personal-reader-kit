@@ -15,5 +15,6 @@ test-results/
 *.docx
 *.reader.json
 *.reader-backup.json
+*.reader-bundle.json
 *.pem
 *.key

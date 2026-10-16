@@ -1,12 +1,12 @@
 # History boundary
 
-The Reading directory is one independent kit repository. Work began on `codex/reader-kit` with a local reviewed checkpoint. On 15 October 2026, after the 36-file / one-commit audit, the user explicitly selected **Publish as lamentierschweinchen/personal-reader-kit**.
+This directory is the independent public kit repository; any surrounding workspace and personal readers have separate histories. Work began on `codex/reader-kit` with a local reviewed checkpoint. On 15 October 2026, after the 36-file / one-commit audit, the user explicitly selected **Publish as lamentierschweinchen/personal-reader-kit**.
 
 The approved public destination is `https://github.com/lamentierschweinchen/personal-reader-kit`, remote `origin`, published branch `main`. It is a GitHub template repository. The initial implementation commit is `eb363c2e9b7c53be6b6b06959ef580d2b5b8a179`; its remote SHA, public visibility and template setting were verified after publication. Subsequent documentation records the now-established destination. Routine reviewed kit updates are authorized for this repository; no Vercel project was created or deployed as part of the kit publication.
 
 Existing personal readers were inspected read-only. Their site-specific hosting authorization does not transfer to this repository. No source history or book files from them are imported here.
 
-Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export annotations, exact prepared editions and raw originals separately. Browser storage can be evicted, and a second device does not automatically synchronize.
+Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
 ## Adversarial self-review · 15 October 2026
 
@@ -29,3 +29,7 @@ Version 0.3.0 integrates the completed reciprocal reviews into the existing kit.
 ## Quiet controls after reader feedback · 16 October 2026
 
 Version 0.3.1 applies the user-confirmed lesson that even a permanently visible Exit focus button distracts. Focus controls now stay hidden until a deliberate tap/click or keyboard recall, then hide on another tap or scrolling. Selection, holds, drags, source links and section navigation are excluded; Escape and keyboard focus return remain available. Original-fixture checks cover the interaction distinctions without claiming physical iOS verification.
+
+## Portability and maintenance · 16 October 2026
+
+Version 0.4.0 adds private reading bundles with selected exact editions, all saved records, integrity checking, a review step, explicit appearance choice and transactional restore. Edition collisions and concurrent changes stop restoration without overwriting work. The read-only upgrade comparator distinguishes upstream changes from personal customizations. A bounded local EPUB preparer creates provisional unstyled text-only editions and private receipts, rejecting unsupported structures rather than silently losing them. The newcomer/editorial pilot supplies concrete human acceptance tasks; it does not claim those sessions have occurred. Public presentation work remains separate.

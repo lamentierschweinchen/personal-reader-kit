@@ -1,4 +1,4 @@
-# Kit status · 0.3.1
+# Kit status · 0.4.0
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
@@ -6,9 +6,9 @@ The public destination remains [lamentierschweinchen/personal-reader-kit](https:
 
 ## Current verification · 16 October 2026
 
-All 20 Node tests pass. The additional scoped check rejects Unicode arrow icons in authored UI files without inspecting or altering book data. They cover exact Unicode/whitespace, source anchors, conflict-preserving and repeatable backup merges, edition-aware connections, literal occurrences, build exclusions, shallow-history rejection, reviewed retired-file hashes, historical credentials, and incomplete Git inspection and non-commit tree snapshots. A failed inspection also replaces any stale successful audit receipt with a failure.
+All 27 Node tests pass. New checks cover portable-bundle integrity, exact-edition conflicts and repeat restores; read-only three-way upgrades; and the bounded EPUB adapter’s fidelity and refusal paths. The additional scoped check rejects Unicode arrow icons in authored UI files without inspecting or altering book data. They cover exact Unicode/whitespace, source anchors, conflict-preserving and repeatable backup merges, edition-aware connections, literal occurrences, build exclusions, shallow-history rejection, reviewed retired-file hashes, historical credentials, and incomplete Git inspection and non-commit tree snapshots. A failed inspection also replaces any stale successful audit receipt with a failure.
 
-The 0.3.1 release integrates the completed Carson/Canetti handoff on `codex/reader-kit`; publication and the exact revision are reported separately in the handoff.
+The 0.4.0 release adds portability and maintenance tools to the completed Carson/Canetti handoff on `codex/reader-kit`; publication and the exact revision are reported separately in the handoff.
 
 The icon follow-up adds a shared SVG path, plain bibliographic links and durable guidance in AGENTS.md, the agent guide and the design notes. Source-book characters remain unchanged. The follow-up experience review also exposed two context-location gaps in the kit: saved passages scrolled to their block start and occurrence context dropped its match offsets. Both now retain and reveal the exact range.
 
@@ -27,9 +27,13 @@ The browser suite passes through Playwright’s Chromium API using installed Chr
 - A synthetic work of **6,483,888 characters and 15,000 blocks** saves and renders, survives a cache upgrade and reload, and retains its note. A failed precache leaves the last complete active version usable; the missing asset returns 404 as a negative control. The long-fixture checks use a bounded 90-second functional wait per load/render stage and log observed timings for slower CI hosts. Local desktop checks took roughly 0.3–1.5 seconds, while the Linux CI Chromium run took about 24 seconds for this extreme single-section fixture. These observations are not an acceptable-latency target or a controlled benchmark; preserve natural chapters and check the intended device. The check tests cache lifecycle with compatible code, not arbitrary future data-schema migrations or physical-phone performance.
 - Offline reload includes a local import, chapter navigation and a companion context/return trip in both engines. WebKit uses a stopped origin and a failing direct network request as its negative control. The baseline request/error monitors report no external requests or script errors.
 
-The public build contains exactly **11 app/original-sample outputs** with build fingerprint `73479bcf5496b236`. Personal files are outside both the build and Vercel input allowlists. Browser receipts and original-fixture captures stay in ignored `test-results/`. The exact staged-file/history publication receipt stays in ignored `.reader/publication-review.json`; it identifies its HEAD and local refs. The reviewed release inventory contains 41 files, including only original sample writing. Human inspection accompanies the heuristic scan.
+The public build contains exactly **12 app/original-sample outputs** with build fingerprint `d0e98c9f25d2a9f0`. Personal files are outside both the build and Vercel input allowlists. Browser receipts and original-fixture captures stay in ignored `test-results/`. The exact staged-file/history publication receipt stays in ignored `.reader/publication-review.json`; it identifies its HEAD and local refs. The reviewed release inventory contains 51 files, including only original sample writing. Human inspection accompanies the heuristic scan.
 
 CI now runs Node/build/publication checks and a separate Chromium/WebKit browser job. Consult [GitHub Actions](https://github.com/lamentierschweinchen/personal-reader-kit/actions) for the exact published revision’s result; a local pass is not a claim that a later remote run has finished.
+
+The bundle browser checks use a fresh browser at a different loopback hostname. They verify exact editions, saved notes/connections/places, no changes before confirmation, opt-in appearance and unchanged spoiler permissions. Injecting a failure after book writes rolls back both stores and keeps the preview available. Repeated restores add no duplicates; concurrent state or book edits invalidate stale previews; different prepared content under an existing ID blocks restoration. A changed checksum fails before writing. Phone/tablet preview and export captures were inspected in both engines; this is not physical-device transfer evidence.
+
+The EPUB tests use only generated original archives. They check spine order, Unicode/UTF-16 emphasis, explicit line breaks, fixed verse, unchanged source bytes and private output permissions. Seventeen unsupported/unsafe cases stop candidate creation, including source links, styles, tables, images, whitespace ambiguity, nonlinear spine content, outside references, entity declarations, encryption declarations, duplicate members, symlinks and excessive compression. This is a narrow adapter test, not acceptance of a real purchased ebook. Python 3.10+ is an additional local tooling prerequisite; the deployed app remains dependency-free.
 
 ## Product and editorial changes
 
@@ -49,8 +53,10 @@ The research case is a sourced editorial brief, not an on-site survey, a verifie
 
 The [consolidated coverage table](REVIEW.md#consolidated-handoff-16-october-2026) separates existing fixes, newly implemented behavior, documented guidance and deliberately optional capabilities. Explicit overlap choices, failed extension/removal, substantial companion typography and larger concurrent records are now tested. Native selection gestures, screen-reader use and real reader/editorial feedback remain unverified. There is no standalone bookmark/reset or sync service in this kit.
 
-EPUB/PDF conversion remains assisted. There is no DRM bypass, image/table renderer, interactive source-footnote engine, linguistic/semantic search, live routing, automatic sync or authenticated hosted-book backend. Preserve exact prepared editions, raw sources and private backups. Existing historical notes recover as quotations when their source is absent or changed; the app does not guess new anchors.
+EPUB/PDF conversion remains assisted. The optional EPUB preparer supports only the documented unstyled text-only subset and creates a provisional candidate requiring source comparison; many ordinary EPUBs need a broader adapter. There is no DRM bypass, image/table renderer, interactive source-footnote engine, linguistic/semantic search, live routing, automatic sync or authenticated hosted-book backend. Preserve exact prepared editions, raw sources and private backups. Existing historical notes recover as quotations when their source is absent or changed; the app does not guess new anchors.
 
 ## Earlier releases
 
 The first public release used commit `eb363c2` and passed 12 Node tests plus the initial browser suite. Version 0.1.1 (`aa60a42`) passed 16 Node tests and added draft guards, source-gap fidelity, repeatable conflict restore, isolated damaged books and tighter upload/history checks. These are historical receipts; the current evidence is above.
+
+The [upgrade procedure](UPGRADING.md) includes a read-only comparator for the base/personal/target public inventories, preserving customization and identifying conflicts without applying changes. The [pilot protocol](PILOT.md) defines three newcomer journeys and one substantive editorial test. Those human sessions, a physical-device bundle transfer and live kit deployment remain pending; they have not been replaced by automated evidence. No public demo/presentation bundle is included in this release.

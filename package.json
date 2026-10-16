@@ -1,9 +1,11 @@
 {
   "name": "personal-reader-kit",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
@@ -11,6 +13,8 @@
     "test:browser": "node tests/browser.mjs",
     "audit:public": "node scripts/audit.mjs",
     "import:text": "node scripts/import-text.mjs",
-    "check": "npm test && npm run build && npm run audit:public"
+    "check": "npm test && npm run build && npm run audit:public",
+    "import:epub": "node scripts/import-epub.mjs",
+    "upgrade:check": "node scripts/check-upgrade.mjs"
   }
 }

@@ -9,6 +9,7 @@
 !site/app.mjs
 !site/core.mjs
 !site/db.mjs
+!site/bundle.mjs
 !site/text.mjs
 !site/style.css
 !site/manifest.webmanifest
