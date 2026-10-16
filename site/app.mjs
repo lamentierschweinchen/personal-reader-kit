@@ -1,4 +1,4 @@
-import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,findOccurrences,LIMIT} from './core.mjs';
+import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT} from './core.mjs';
 import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,recoverState,recoveryArchives} from './db.mjs';
 import {renderText,readSelection,renderPassage} from './text.mjs';
 const $ = selector => document.querySelector(selector);
@@ -6,11 +6,11 @@ const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&
 const arrow = (direction='up-right') => `<svg class="ui-icon ui-icon--${direction}" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg>`;
 const main = $('#main'), dialog = $('#dialog');
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
-let selection, editing, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
+let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
 let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false;
 const sampleIds=new Set(['bell','rain']);
-const dirtyNote = () => dialog.open && editing && $('#note-text') && $('#note-text').value !== (editing.note || '');
+const dirtyNote = () => dialog.open && editing && $('#note-text') && (editingRangeChanged || $('#note-text').value !== (editing.note || ''));
 const dirtyReflection = () => reflectionDraft && reflectionDraft.text !== reflectionDraft.base;
 const bookById = id => books.find(b => b.id === id);
 const path = (book,section) => `#read/${encodeURIComponent(book)}/${encodeURIComponent(section)}`;
@@ -21,14 +21,14 @@ function applyPrefs() {
   const p = state.prefs;document.documentElement.dataset.theme = p.theme;
   document.documentElement.style.setProperty('--size',`${p.size}px`);document.documentElement.style.setProperty('--leading',p.leading);
   document.documentElement.style.setProperty('--measure',p.measure === 'wide' ? '44rem' : '34rem');
-  document.body.classList.toggle('focus',p.focus && route.view === 'read');$('#focus-exit').hidden = !(p.focus && route.view === 'read');
+  const focused=p.focus && route.view === 'read';document.body.classList.toggle('focus',focused);$('#focus-tools').hidden=!focused;$('#focus-exit').hidden=!focused;
 }
 async function commit(change) {const next = await updateState(change);state = next;applyPrefs();return next;}
 function parseRoute() {
   try {const [view='shelf',book,section] = location.hash.slice(1).split('/').map(decodeURIComponent);return ['shelf','read','companion','passages'].includes(view) ? {view,book,section} : {view:'shelf'};}
   catch {return {view:'shelf'};}
 }
-function readingEdge() {return state.prefs.focus ? 45 : ($('.reader-tools')?.getBoundingClientRect().bottom || $('.masthead').getBoundingClientRect().height) + 20;}
+function readingEdge() {return state.prefs.focus ? $('#focus-tools').getBoundingClientRect().bottom+12 : ($('.reader-tools')?.getBoundingClientRect().bottom || $('.masthead').getBoundingClientRect().height) + 20;}
 function currentPosition() {
   if (route.view !== 'read' || !activeBook || !activeSection || !restored) return null;
   const nodes = [...main.querySelectorAll('.reading-surface [data-block]')], edge = readingEdge();
@@ -45,6 +45,7 @@ async function savePosition() {
 }
 async function restorePosition(pos) {
   restored = false;
+  $('#reading-text')?.setAttribute('data-position-ready','false');
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
   const el = pos?.revision === activeBook?.source.sha256 && pos.sectionId === activeSection?.id && pos.blockId ? [...main.querySelectorAll('[data-block]')].find(x => x.dataset.block === pos.blockId) : null;
   if (el) {
@@ -54,6 +55,7 @@ async function restorePosition(pos) {
   }
   else scrollTo(0,0);
   restored = true;
+  $('#reading-text')?.setAttribute('data-position-ready','true');
 }
 function progressLabel(book) {
   const pos = state.positions[book.id];
@@ -70,7 +72,7 @@ function reader() {
   const saved = state.positions[activeBook.id];
   activeSection = activeBook.sections.find(s => s.id === route.section) || activeBook.sections.find(s => s.id === saved?.sectionId && saved?.revision === activeBook.source.sha256) || activeBook.sections[0];
   const i = activeBook.sections.indexOf(activeSection), previous = activeBook.sections[i-1], next = activeBook.sections[i+1], unlocked = visibleThrough(state,activeBook) >= i;
-  return `<section class="reading"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">About this work</button></div><span class="progress-label">${i+1} / ${activeBook.sections.length}</span><button data-action="focus">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header><article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span>${esc(previous.title)}</a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span>${esc(next.title)}</a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div><p class="reader-hint">Select words to keep a passage. Your place is saved on this device; exploring never moves it.</p></section>`;
+  return `<section class="reading"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">About this work</button></div><span class="progress-label">Section ${i+1} of ${activeBook.sections.length}</span><button data-action="focus">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header><article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span><span class="nav-title">${esc(previous.title)}</span></a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span><span class="nav-title">${esc(next.title)}</span></a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div><p class="reader-hint">Select words to keep a passage. Your place is saved on this device; exploring never moves it.</p></section>`;
 }
 function passages() {
   return `<section class="page"><header class="page-head"><p class="eyebrow">Your marginalia</p><h1>Words you<br>wanted to keep.</h1><p>Your quotations, your connections. Stored only on this device.</p>${returnLink()}</header>${state.notes.length ? `<ul class="passage-list">${[...state.notes].sort((a,b)=>b.updated-a.updated).map(n => {
@@ -126,6 +128,7 @@ async function render({keepScroll=false}={}) {
     const valid = state.notes.filter(n => n.sectionId === activeSection.id && anchorStatus(n,activeBook).valid);
     renderText($('#reading-text'),activeSection,valid);
     if (!keepScroll) {const pos = requestedPosition === null ? null : requestedPosition || state.positions[activeBook.id];requestedPosition = undefined;await restorePosition(pos);}
+    $('#reading-text').dataset.positionReady='true';
   }
   for(const node of main.querySelectorAll('[data-fragment]')){const f=fragments[Number(node.dataset.fragment)];renderPassage(node,f.passage,f.book,f.hit);}
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
@@ -134,13 +137,14 @@ function openDialog(title,html) {
   if (!dialog.open) dialogOrigin = {element:document.activeElement,scroll:scrollY};
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
+  dialog.scrollTop=0;
   $('#selection-save').hidden = true;
 }
 function finishDialog() {
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
   if(origin)scrollTo(0,origin.scroll);
-  editing=null;selection=null;
+  editing=null;selection=null;selectionChoice=null;editingRangeChanged=false;
 }
 function closeDialog(saved=false) {
   if (!saved && dirtyNote() && !confirm('Discard this unsaved note? Choose Cancel to keep editing or export the draft.')) return false;
@@ -152,7 +156,7 @@ function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').t
 function download(value,name) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
-  openDialog('Make room for reading.',`<p class="small">Simple presets, one familiar reading surface.</p><div class="settings-presets"><button data-action="preset" data-preset="paper">Paper</button><button data-action="preset" data-preset="dusk">Dusk</button><button data-action="preset" data-preset="large">Large print</button></div><form id="settings-form"><label for="size">Type size · <output id="size-value">${p.size}</output> px</label><input id="size" name="size" type="range" min="17" max="36" value="${p.size}"><label for="leading">Line spacing</label><input id="leading" name="leading" type="range" min="1.3" max="2.2" step="0.1" value="${p.leading}"><div class="form-row"><div><label for="theme">Page</label><select id="theme" name="theme">${['paper','dusk','ink'].map(t=>`<option value="${t}" ${p.theme===t?'selected':''}>${t[0].toUpperCase()+t.slice(1)}</option>`).join('')}</select></div><div><label for="measure">Line length</label><select id="measure" name="measure"><option value="book" ${p.measure==='book'?'selected':''}>Book</option><option value="wide" ${p.measure==='wide'?'selected':''}>Wide</option></select></div></div><div class="dialog-actions"><button class="primary" type="submit">Apply to my reader</button></div></form><div class="settings-group"><h3>Keep your marginalia.</h3><p>Export includes quotations and personal notes. Keep the file private. Book files are not included. For another device or site address, also export your exact editions below.</p><button class="text" data-action="export">Export passages & progress ${arrow()}</button><label for="restore-file">Restore a backup</label><input id="restore-file" type="file" accept=".json"><p>Restore adds missing passages and preserves conflicting edits as separate notes. It keeps this device’s progress, appearance and spoiler boundaries.</p></div><div class="settings-group"><h3>On this device.</h3><p id="offline-detail">${offlineReady ? 'The application and original samples have been checked in the offline cache.' : 'The offline application copy is not verified yet. Reconnect and check again.'} Imported books and notes use browser storage. Storage can be cleared or evicted; keep your originals and exported notes.</p><button class="text" data-action="persist">Ask browser to retain local storage</button><button class="text" data-action="check-offline">Check offline copy</button></div>`);
+  openDialog('Make room for reading.',`<p class="small">Type size and spacing apply to books, passage context, quotations, notes and companion readings. Navigation labels stay compact.</p><div class="settings-presets"><button data-action="preset" data-preset="paper">Paper</button><button data-action="preset" data-preset="dusk">Dusk</button><button data-action="preset" data-preset="large">Large print</button></div><form id="settings-form"><label for="size">Type size · <output id="size-value">${p.size}</output> px</label><input id="size" name="size" type="range" min="17" max="36" value="${p.size}"><label for="leading">Line spacing</label><input id="leading" name="leading" type="range" min="1.3" max="2.2" step="0.1" value="${p.leading}"><div class="form-row"><div><label for="theme">Page</label><select id="theme" name="theme">${['paper','dusk','ink'].map(t=>`<option value="${t}" ${p.theme===t?'selected':''}>${t[0].toUpperCase()+t.slice(1)}</option>`).join('')}</select></div><div><label for="measure">Line length</label><select id="measure" name="measure"><option value="book" ${p.measure==='book'?'selected':''}>Book</option><option value="wide" ${p.measure==='wide'?'selected':''}>Wide</option></select></div></div><div class="dialog-actions"><button class="primary" type="submit">Apply to my reader</button></div></form><div class="settings-group"><h3>Keep your marginalia.</h3><p>Export includes quotations and personal notes. Keep the file private. Book files are not included. For another device or site address, also export your exact editions below.</p><button class="text" data-action="export">Export passages & progress ${arrow()}</button><label for="restore-file">Restore a backup</label><input id="restore-file" type="file" accept=".json"><p>Restore adds missing passages and preserves conflicting edits as separate notes. It keeps this device’s progress, appearance and spoiler boundaries.</p></div><div class="settings-group"><h3>On this device.</h3><p id="offline-detail">${offlineReady ? 'The application and original samples have been checked in the offline cache.' : 'The offline application copy is not verified yet. Reconnect and check again.'} Imported books and notes use browser storage. Storage can be cleared or evicted; keep your originals and exported notes.</p><button class="text" data-action="persist">Ask browser to retain local storage</button><button class="text" data-action="check-offline">Check offline copy</button></div>`);
   const migration=document.createElement('section');migration.className='settings-group';
   migration.innerHTML=`<h3>Move to another device or address.</h3><p>Your library belongs to <strong>${esc(location.origin)}</strong> in this browser. A new domain, preview URL or browser starts with a separate library.</p><p>Export each exact prepared edition below and your passages backup above. At the new address, import the editions, restore the backup, and verify quotations and reading places before retiring this address. Re-converting an EPUB or PDF may produce different anchors. These downloads contain full books; keep them private.</p>${books.filter(b=>!sampleIds.has(b.id)).map(b=>`<button class="text" data-action="export-edition" data-book="${esc(b.id)}">Export exact edition: ${esc(b.title)}</button>`).join('')||'<p class="small">No personal editions on this device yet.</p>'}<p class="small">Future software served at this address can read its local books. Use a host and update process you trust.</p><button class="text" data-action="raw-export">Export original recovery data</button>${stateDamaged?'<button class="secondary" data-action="repair">Repair unreadable state</button>':''}`;
   dialog.querySelector('.dialog-inner').append(migration);
@@ -168,10 +172,16 @@ function recoveryDialog() {
 function importDialog() {
   openDialog('Bring a book.',`<p>Choose a UTF-8 text file or a prepared reader JSON file. It stays in this browser.</p><form id="import-form"><label for="book-file">Book file · up to 8 MB</label><input id="book-file" name="file" type="file" accept=".txt,.json" required><label for="book-title">Title for a text file</label><input id="book-title" name="title" maxlength="500" placeholder="Use the file name"><label for="book-form">Text layout</label><select id="book-form" name="kind"><option value="prose">Prose · keep supplied line breaks</option><option value="verse">Poetry · keep lines, stanzas and indentation</option></select><p class="preset-note">EPUB and PDF need your agent’s conversion first. Ask it to check DRM, source quality, emphasis, notes and poetry layout. Scans need local OCR and review; protected ebooks may not be importable.</p><div class="dialog-actions"><button class="primary" type="submit">Add on this device <span aria-hidden="true">＋</span></button></div></form>`);
 }
-function noteDialog(note) {
-  editing = structuredClone(note);
+function noteDialog(note,rangeChanged=false) {
+  editing = structuredClone(note);editingRangeChanged=rangeChanged;
   openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`<blockquote class="dialog-quote">${esc(note.quote)}</blockquote><form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
-  $('#note-form button[type=submit]').focus({preventScroll:true});
+  $('#dialog-title').tabIndex=-1;$('#dialog-title').focus({preventScroll:true});
+}
+function beginSelection(passage) {
+  const matches=state.notes.filter(n=>anchorStatus(n,activeBook).valid&&passagesOverlap(n,passage));
+  if(!matches.length){noteDialog(passage);return;}
+  selectionChoice={passage:structuredClone(passage),notes:structuredClone(matches)};
+  openDialog('Keep your selection.',`<p>Your selected words overlap ${matches.length===1?'a kept passage':'kept passages'}. Choose how to keep them.</p><blockquote class="dialog-quote">${esc(passage.quote)}</blockquote><button class="primary" data-action="selection-new">Keep as a new passage</button>${matches.map((n,i)=>`<section class="context-item"><p class="eyebrow">Existing passage ${i+1}</p><blockquote class="dialog-quote">${esc(n.quote)}</blockquote>${n.note?`<p class="passage-note">${esc(n.note)}</p>`:''}<div class="dialog-actions"><button class="text" data-action="selection-extend" data-choice="${i}">Extend this passage</button><button class="text" data-action="selection-edit" data-choice="${i}">Edit existing note</button></div></section>`).join('')}<p class="small">Extending keeps the existing note and all words in either range. Nothing changes until you save.</p>`);
 }
 async function context(bookId,sectionId,blockId,note) {
   const book=bookById(bookId),section=book?.sections.find(s=>s.id===sectionId);if(!section)throw new Error('This passage is no longer available.');
@@ -199,7 +209,7 @@ function boundaries() {
 }
 function background() {
   const b=activeBook, visible=b.context.filter(c=>c.through===null||allowed(b.id,c.through));
-  openDialog('About this work.',`<p class="eyebrow">${esc(b.title)}</p><p class="small">${esc(b.edition)}</p>${visible.map(c=>`<section class="context-item"><p class="eyebrow">${c.kind==='editorial'?'Editorial interpretation':c.kind==='source'?'Sourced background':'Sample provenance'}</p><h3>${esc(c.label)}</h3><p>${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}<div class="context-item"><p class="eyebrow">Edition record</p><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></div>`);
+  openDialog('About this work.',`<p class="eyebrow">${esc(b.title)}</p><p class="small">${esc(b.edition)}</p>${visible.map(c=>`<section class="context-item"><p class="eyebrow">${c.kind==='editorial'?'Editorial interpretation':c.kind==='source'?'Sourced background':'Sample provenance'}</p><h3>${esc(c.label)}</h3><p class="companion-reading">${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}<div class="context-item"><p class="eyebrow">Edition record</p><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></div>`);
 }
 async function offline() {
   try {
@@ -226,7 +236,7 @@ async function act(target) {
       requestedPosition=pos;const hash=path(b.id,section.id);if(location.hash===hash){route=parseRoute();await render();}else location.hash=hash;break;
     }
     case 'focus': {const pos=currentPosition();await commit(s=>{s.prefs.focus=!s.prefs.focus;return s;});await restorePosition(pos);break;}
-    case 'contents':openDialog('Inside this book.',`<ol class="contents-list">${activeBook.sections.map(s=>`<li><a href="${path(activeBook.id,s.id)}" data-section-start>${esc(s.title)}</a></li>`).join('')}</ol>`);break;
+    case 'contents':openDialog('Inside this book.',`<ol class="contents-list">${activeBook.sections.map((s,i)=>`<li><a href="${path(activeBook.id,s.id)}" data-section-start ${s.id===activeSection.id?'aria-current="location"':''}><span class="small">Section ${i+1}</span><span class="nav-title">${esc(s.title)}</span></a>${s.title.length>100?`<details><summary>Full section title</summary><p>${esc(s.title)}</p></details>`:''}</li>`).join('')}</ol>`);break;
     case 'boundary':boundaries();break;
     case 'experiment':experiment=target.dataset.experiment;await render({keepScroll:true});break;
     case 'stop':stop=Number(target.dataset.stop);await render({keepScroll:true});break;
@@ -246,6 +256,9 @@ async function act(target) {
     }
     case 'context': {if(!allowed(target.dataset.book,target.dataset.section))throw new Error('Allow this section in Companion first.');const passage=target.dataset.contextPassage===''?null:contextPassages[Number(target.dataset.contextPassage)];if(passage&&!anchorStatus(passage,bookById(passage.bookId)).valid)throw new Error('This source range has changed.');await context(target.dataset.book,target.dataset.section,target.dataset.block,passage?{...passage,id:'context-passage'}:null);break;}
     case 'note-context': {const note=state.notes.find(n=>n.id===target.dataset.note);if(note&&anchorStatus(note,bookById(note.bookId)).valid)await context(note.bookId,note.sectionId,note.segments[0].blockId,note);break;}
+    case 'selection-new': {if(selectionChoice)noteDialog(selectionChoice.passage);break;}
+    case 'selection-extend': {if(!selectionChoice)break;const old=selectionChoice.notes[Number(target.dataset.choice)];if(old)noteDialog({...old,...extendPassage(old,selectionChoice.passage,bookById(old.bookId))},true);break;}
+    case 'selection-edit': {const old=selectionChoice?.notes[Number(target.dataset.choice)];if(old)noteDialog(old);break;}
     case 'edit-note': {const n=state.notes.find(n=>n.id===target.dataset.note);if(n)noteDialog(n);break;}
     case 'delete-note': {
       if(!confirm('Remove this passage and its note from this device?'))return;const snapshot=editing;
@@ -338,7 +351,7 @@ document.addEventListener('selectionchange',()=>{
   selection=readSelection($('#reading-text'),activeBook,activeSection);$('#selection-save').hidden=!selection;
 });
 $('#selection-save').addEventListener('pointerdown',e=>e.preventDefault());
-$('#selection-save').addEventListener('click',()=>{if(selection){const saved=selection;getSelection()?.removeAllRanges();noteDialog(saved);}});
+$('#selection-save').addEventListener('click',()=>{if(selection){const saved=selection;getSelection()?.removeAllRanges();beginSelection(saved);}});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!dialog.open&&state.prefs.focus&&route.view==='read')act($('#focus-exit')).catch(fail);});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
 window.addEventListener('hashchange',async event=>{

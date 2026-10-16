@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {fromText,bookText,validateBook,validateState,newState,anchorStatus,selectionQuote,visibleThrough,mergeBackup} from '../site/core.mjs';
+import {fromText,bookText,validateBook,validateState,newState,anchorStatus,selectionQuote,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage} from '../site/core.mjs';
 const books=JSON.parse(await readFile(new URL('../samples/library.json',import.meta.url),'utf8'));
 const book=validateBook(books[0]);
 function note() {
@@ -41,6 +41,16 @@ test('multi-block quotations retain actual source separators',async()=>{
   const n={...note(),bookId:b.id,revision:b.source.sha256,sectionId:s.id,segments,quote:selectionQuote(s,segments)};
   assert.equal(n.quote,'First\n\n\n    Second');assert.equal(anchorStatus(n,b).valid,true);
   n.segments.reverse();assert.equal(anchorStatus(n,b).valid,false);
+});
+test('explicit extension preserves the union, source gaps and original note independence',async()=>{
+  const b=await fromText('Before these overlapping words finish.\n\n\nAnother original paragraph.'),s=b.sections[0];
+  const old={...passageAt(b,s,s.blocks[0],7,24),id:'kept',note:'Keep this comment.',updated:1};
+  const larger=passageAt(b,s,s.blocks[0],0,30),extended=extendPassage(old,larger,b);
+  assert.equal(extended.quote,s.blocks[0].text.slice(0,30));assert.equal(anchorStatus(extended,b).valid,true);assert.equal(old.note,'Keep this comment.');assert.equal(old.quote,'these overlapping');
+  const across={...passageAt(b,s,s.blocks[0],15),segments:[...passageAt(b,s,s.blocks[0],15).segments,...passageAt(b,s,s.blocks[1],0,7).segments]};across.quote=selectionQuote(s,across.segments);
+  const union=extendPassage(old,across,b);assert.equal(union.quote,s.blocks[0].text.slice(7)+'\n\n\nAnother');assert.equal(anchorStatus(union,b).valid,true);
+  assert.equal(passagesOverlap(old,{...larger,revision:'f'.repeat(64)}),false);assert.throws(()=>extendPassage(old,{...larger,revision:'f'.repeat(64)},b),/edition changed/);
+  assert.throws(()=>extendPassage(old,passageAt(b,s,s.blocks[1]),b),/overlapping/);
 });
 test('reading position does not unlock spoilers; changed editions reset visibility',()=>{
   const s=newState();s.positions[book.id]={sectionId:'return',blockId:null,ratio:0,revision:book.source.sha256};assert.equal(visibleThrough(s,book),-1);

@@ -122,6 +122,24 @@ export function passageAt(book, section, block, start=0, end=block.text.length) 
   require(Number.isInteger(start)&&Number.isInteger(end)&&start>=0&&end>start&&end<=block.text.length,'Invalid passage range.');
   return {bookId:book.id,sectionId:section.id,revision:book.source.sha256,quote:block.text.slice(start,end),segments:[{blockId:block.id,start,end,quote:block.text.slice(start,end),prefix:block.text.slice(Math.max(0,start-40),start),suffix:block.text.slice(end,end+40)}]};
 }
+export function passagesOverlap(a,b) {
+  return a.bookId===b.bookId && a.revision===b.revision && a.sectionId===b.sectionId && a.segments.some(x=>b.segments.some(y=>x.blockId===y.blockId&&x.start<y.end&&y.start<x.end));
+}
+// Extending is an explicit union of source ranges, never a substitution of the
+// previous selection. Reconstruct intervening text and separators from the edition.
+export function extendPassage(existing,selected,book) {
+  const status=anchorStatus(existing,book),other=anchorStatus(selected,book);
+  require(status.valid&&other.valid,'The edition changed. Keep the original quotations and review their anchors.');
+  require(passagesOverlap(existing,selected),'Only overlapping passages from the same edition can be extended.');
+  const blocks=status.section.blocks,points=[...existing.segments,...selected.segments].map(s=>({...s,index:blocks.findIndex(b=>b.id===s.blockId)}));
+  const from=Math.min(...points.map(p=>p.index)),to=Math.max(...points.map(p=>p.index)),segments=[];
+  for(let i=from;i<=to;i++) {
+    const b=blocks[i],start=i===from?Math.min(...points.filter(p=>p.index===i).map(p=>p.start)):0,end=i===to?Math.max(...points.filter(p=>p.index===i).map(p=>p.end)):b.text.length;
+    if(end>start)segments.push(passageAt(book,status.section,b,start,end).segments[0]);
+  }
+  require(segments.length<=500,'This selection spans too many source blocks. Keep shorter passages separately.');
+  return {bookId:book.id,sectionId:status.section.id,revision:book.source.sha256,segments,quote:selectionQuote(status.section,segments)};
+}
 export function excerptSection(passage,book) {
   const status=anchorStatus(passage,book);require(status.valid,status.reason);
   const first=passage.segments[0],last=passage.segments.at(-1),blocks=status.section.blocks;

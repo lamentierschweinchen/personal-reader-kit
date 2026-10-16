@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 
 export async function settledCapture(page,options) {
   const parts=new URL(page.url()).hash.slice(1).split('/').map(decodeURIComponent);
-  if(parts[0]==='read')await page.waitForFunction(([book,section])=>{const el=document.querySelector('#reading-text');return el?.dataset.book===book&&el.dataset.section===section;},parts.slice(1));
+  if(parts[0]==='read')await page.waitForFunction(([book,section])=>{const el=document.querySelector('#reading-text');return el?.dataset.book===book&&el.dataset.section===section&&el.dataset.positionReady==='true';},parts.slice(1));
   if(await page.locator('#dialog[open] #context-text').count())await page.locator('#context-text[data-location-ready="true"]').waitFor();
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
   return page.screenshot(options);
@@ -31,22 +31,20 @@ export async function experienceChecks({browser,base,engine,output}) {
       return {id:book.id,title:section.title,text};
     },needle);
     await page.reload();await page.waitForSelector('.shelf');
-    for(const [label,width,height,sticky] of [['phone',402,874,false],['ipad',820,1180,true],['landscape',874,402,true]]) {
+    for(const [label,width,height,sticky] of [['phone',402,874,true],['ipad',820,1180,true],['landscape',874,402,true]]) {
       await page.setViewportSize({width,height});
-      // A hypothetical sticky header exercises the viewport exclusion explicitly.
       await page.goto(base+'/#passages');await page.getByRole('button',{name:'Read in context',exact:true}).waitFor();
-      if(sticky)await page.addStyleTag({content:'.dialog-header{position:sticky;top:0;background:var(--paper)}'});
       await page.getByRole('button',{name:'Read in context',exact:true}).click();
       assert.equal((await rangeInViewport(page)).quote,needle);
       await settledCapture(page,{path:new URL(`${engine}-${label}-late-context.png`,output).pathname,animations:'disabled'});
       await page.getByRole('button',{name:'Close ×',exact:true}).click();
       await page.getByRole('link',{name:'Companion',exact:true}).click();await page.getByRole('button',{name:'02 An echo index',exact:false}).click();await page.locator('#echo-term').fill(needle);await page.getByRole('button',{name:'Find occurrences',exact:true}).click();
       const target=await page.getByRole('button',{name:'Find occurrences',exact:true}).boundingBox();assert.ok(target.width>=44&&target.height>=44,JSON.stringify(target));
-      await page.getByRole('button',{name:'Read around this occurrence',exact:true}).click();assert.equal((await rangeInViewport(page)).quote,needle);
+      const occurrence=page.getByRole('button',{name:'Read around this occurrence',exact:true});await occurrence.scrollIntoViewIfNeeded();const searchScroll=await page.evaluate(()=>scrollY);await occurrence.click();assert.equal((await rangeInViewport(page)).quote,needle);
       assert.equal(await page.locator('#context-text').textContent(),fixture.text);
-      await page.getByRole('button',{name:'Close ×',exact:true}).click();sizes.push({label,rangeWithinViewport:true,findWidth:target.width,findHeight:target.height,stickyHeader:sticky});
+      await page.getByRole('button',{name:'Close ×',exact:true}).click();assert.equal(await page.locator('#echo-term').inputValue(),needle);assert.ok(Math.abs(await page.evaluate(()=>scrollY)-searchScroll)<=1);sizes.push({label,rangeWithinViewport:true,findWidth:target.width,findHeight:target.height,stickyHeader:sticky});
     }
-    await page.goto(`${base}/#read/${fixture.id}/text`);await page.locator(`#reading-text[data-book="${fixture.id}"]`).waitFor();await page.evaluate(()=>scrollTo(0,1000));
+    await page.goto(`${base}/#read/${fixture.id}/text`);await page.locator(`#reading-text[data-book="${fixture.id}"][data-position-ready="true"]`).waitFor();await page.evaluate(()=>scrollTo(0,1000));
     const landscape=await page.evaluate(()=>{const header=document.querySelector('.masthead'),tools=document.querySelector('.reader-tools'),rect=tools.getBoundingClientRect();return {height:innerHeight,mastheadPosition:getComputedStyle(header).position,toolbarPosition:getComputedStyle(tools).position,persistentHeight:Math.max(0,Math.min(innerHeight,rect.bottom)-Math.max(0,rect.top))};});
     assert.equal(landscape.mastheadPosition,'relative');assert.equal(landscape.toolbarPosition,'sticky');
     await settledCapture(page,{path:new URL(`${engine}-landscape-reading-space.png`,output).pathname,animations:'disabled'});
@@ -55,4 +53,68 @@ export async function experienceChecks({browser,base,engine,output}) {
     const selected=await page.evaluate(()=>{const block=document.querySelector('#reading-text [data-block]'),range=document.createRange();range.selectNodeContents(block);getSelection().removeAllRanges();getSelection().addRange(range);return getSelection().toString();});assert.equal(selected,fixture.text);await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));
     return {sizes,landscape,focusReload:true,focusDOMSelection:true,settledCaptures:true};
   } finally {await context.close();}
+}
+
+// Original fixtures exercise the reciprocal-review lessons against the actual
+// IndexedDB representation and reader UI; no reference-reader content is used.
+export async function handoffChecks({browser,base,engine,output}) {
+  const ctx=await browser.newContext({viewport:{width:402,height:874},serviceWorkers:'block'}),page=await ctx.newPage();
+  const saved=()=>page.evaluate(async()=> (await import('/db.mjs')).loadState());
+  const close=()=>page.getByRole('button',{name:'Close ×',exact:true}).click();
+  async function selectRange(from,to) {
+    return page.evaluate(([from,to])=>{
+      const blocks=[...document.querySelectorAll('#reading-text [data-block]')],point=([index,offset])=>{const walker=document.createTreeWalker(blocks[index],NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){if(offset<=node.length)return [node,offset];offset-=node.length;}throw new Error('Missing original fixture offset');},range=document.createRange();
+      range.setStart(...point(from));range.setEnd(...point(to));getSelection().removeAllRanges();getSelection().addRange(range);return range.toString();
+    },[from,to]);
+  }
+  try {
+    await page.goto(base);await page.waitForSelector('.shelf');
+    const fixture=await page.evaluate(async()=>{
+      const core=await import('/core.mjs'),db=await import('/db.mjs'),text='An original paragraph with a smaller kept phrase and room around it.\n\n\nA second paragraph keeps its own emphasis and exact words.\n\n'+('More original reading follows. '.repeat(150)),book=await core.fromText(text,{title:'Original integration fixture'});
+      book.sections[0].title='A deliberately long original section heading, with a second thought, a return to the first thought, and a final clause that must remain complete wherever the source heading is read.';
+      book.sections[0].blocks[0].marks=[{kind:'em',start:12,end:35}];book.sections[0].blocks[1].marks=[{kind:'strong',start:0,end:18}];
+      book.context=[{kind:'editorial',label:'An original substantial reading',through:null,text:'This original test essay checks adjustable reading size rather than historical claims. '.repeat(80)}];
+      await db.saveBook(book);const p=core.passageAt(book,book.sections[0],book.sections[0].blocks[0],28,47);
+      await db.updateState(s=>{s.notes=[{...p,id:'overlap',note:'An existing thought to preserve.',updated:1}];s.boundaries[book.id]={index:0,revision:book.source.sha256};s.prefs.size=36;return s;});return {id:book.id,title:book.sections[0].title,text};
+    });
+    const url=`${base}/#read/${fixture.id}/text`;await page.goto(url);await page.reload();await page.locator(`#reading-text[data-book="${fixture.id}"]`).waitFor();
+    assert.equal(await page.locator('.reader-heading h1').textContent(),fixture.title);
+    await page.getByRole('button',{name:'Contents',exact:true}).click();await page.getByText('Full section title',{exact:true}).click();assert.equal(await page.locator('.contents-list details p').textContent(),fixture.title);await close();
+    await page.getByRole('button',{name:'About this work',exact:true}).click();assert.equal(await page.locator('.companion-reading').evaluate(el=>getComputedStyle(el).fontSize),'36px');
+    await page.locator('.companion-reading').evaluate(el=>el.scrollIntoView({block:'end'}));assert.equal(await page.getByRole('button',{name:'Close ×',exact:true}).isVisible(),true);
+    await settledCapture(page,{path:new URL(`${engine}-large-companion-reading.png`,output).pathname,animations:'disabled'});await close();
+    const selected=await selectRange([0,10],[1,18]);await page.locator('#selection-save').click();assert.equal(await page.locator('.dialog-quote').first().textContent(),selected);
+    await page.getByRole('button',{name:'Extend this passage',exact:true}).click();assert.equal(await page.locator('.dialog-quote').textContent(),selected);assert.equal(await page.locator('#note-text').inputValue(),'An existing thought to preserve.');
+    page.once('dialog',d=>d.dismiss());await close();assert.equal(await page.locator('#note-text').isVisible(),true); // range-only changes are a draft too
+    await page.evaluate(()=>{window.originalPut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(...args){if(this.name==='state')throw new DOMException('Synthetic extension write failure','QuotaExceededError');return window.originalPut.apply(this,args);};});
+    await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.getByText('Synthetic extension write failure',{exact:true}).waitFor();assert.notEqual((await saved()).notes[0].quote,selected);assert.equal(await page.locator('.dialog-quote').textContent(),selected);
+    await page.evaluate(()=>{IDBObjectStore.prototype.put=window.originalPut;});await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#dialog').open);
+    let state=await saved();assert.equal(state.notes.length,1);assert.equal(state.notes[0].quote,selected);assert.equal(state.notes[0].note,'An existing thought to preserve.');
+    // Keep a different, overlapping selection without narrowing to the old note.
+    const separate=await selectRange([0,5],[0,50]);await page.locator('#selection-save').click();await page.getByRole('button',{name:'Keep as a new passage',exact:true}).click();assert.equal(await page.locator('.dialog-quote').textContent(),separate);
+    await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#dialog').open);assert.equal((await saved()).notes.length,2);
+    await page.getByRole('button',{name:'Focus',exact:true}).click();await page.waitForFunction(()=>document.body.classList.contains('focus'));
+    await page.locator('#reading-text[data-position-ready="true"]').waitFor();await page.waitForFunction(()=>!document.querySelector('#status').textContent);
+    const focus=[];
+    for(const [width,height] of [[402,874],[874,402],[820,1180]]) {
+      await page.setViewportSize({width,height});await page.evaluate(()=>scrollTo(0,1000));
+      const geometry=await page.evaluate(()=>{const rail=document.querySelector('#focus-tools').getBoundingClientRect(),exit=document.querySelector('#focus-exit').getBoundingClientRect();return {top:rail.top,bottom:rail.bottom,left:rail.left,right:rail.right,width:innerWidth,height:innerHeight,exitTop:exit.top,exitBottom:exit.bottom,exitWidth:exit.width,exitHeight:exit.height};});
+      assert.equal(geometry.top,0);assert.equal(geometry.left,0);assert.equal(geometry.right,geometry.width);assert.ok(geometry.exitTop>=geometry.top&&geometry.exitBottom<=geometry.bottom);assert.ok(geometry.bottom<height*.2&&geometry.exitWidth>=44&&geometry.exitHeight>=44);focus.push(geometry);
+      await settledCapture(page,{path:new URL(`${engine}-focus-rail-${width}.png`,output).pathname,animations:'disabled'});
+    }
+    await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));await page.setViewportSize({width:402,height:874});
+    await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action="note-context"][data-note="overlap"]').click();await rangeInViewport(page);assert.ok(await page.locator('#context-text mark em').count());assert.ok(await page.locator('#context-text mark strong').count());await close();await page.locator('[data-action="edit-note"][data-note="overlap"]').click();
+    await page.evaluate(()=>{IDBObjectStore.prototype.put=function(...args){if(this.name==='state')throw new DOMException('Synthetic removal failure','QuotaExceededError');return window.originalPut.apply(this,args);};});page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'Remove passage',exact:true}).click();await page.getByText('Synthetic removal failure',{exact:true}).waitFor();assert.ok((await saved()).notes.some(n=>n.id==='overlap'));
+    await page.evaluate(()=>{IDBObjectStore.prototype.put=window.originalPut;});page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'Remove passage',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('#dialog').open);assert.equal((await saved()).notes.some(n=>n.id==='overlap'),false);
+    await page.getByRole('link',{name:'Books',exact:true}).click();await page.evaluate(()=>{window.originalDelete=IDBObjectStore.prototype.delete;IDBObjectStore.prototype.delete=function(...args){if(this.name==='books')throw new DOMException('Synthetic book removal failure','QuotaExceededError');return window.originalDelete.apply(this,args);};});
+    page.once('dialog',d=>d.accept());await page.locator(`[data-action="remove-book"][data-book="${fixture.id}"]`).click();await page.getByText('Synthetic book removal failure',{exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Original integration fixture',exact:true}).count(),1);assert.equal(await page.evaluate(async id=>(await (await import('/db.mjs')).loadBooks()).books.some(b=>b.id===id),fixture.id),true);
+    await page.evaluate(()=>{IDBObjectStore.prototype.delete=window.originalDelete;});
+    // A multi-megabyte state is stored in the same representation as real notes.
+    const bytes=await page.evaluate(async()=>{const db=await import('/db.mjs'),s=await db.updateState(s=>{const source=s.notes[0];s.notes=Array.from({length:1200},(_,i)=>({...source,id:`payload-${i}`,note:`Original record ${i}. `+'An original personal observation. '.repeat(45)}));return s;});return new TextEncoder().encode(JSON.stringify(s)).length;});
+    const second=await ctx.newPage();await second.goto(base);await second.waitForSelector('.shelf');
+    await Promise.all([page.evaluate(async()=> (await import('/db.mjs')).updateState(s=>{s.notes[0].note='First tab saved this change.';return s;})),second.evaluate(async()=> (await import('/db.mjs')).updateState(s=>{s.notes[1].note='Second tab saved this change.';return s;}))]);
+    state=await saved();assert.equal(state.notes.length,1200);assert.equal(state.notes[0].note,'First tab saved this change.');assert.equal(state.notes[1].note,'Second tab saved this change.');await second.close();
+    await page.getByRole('button',{name:'Reading settings'}).click();const downloading=page.waitForEvent('download');await page.getByRole('button',{name:'Export passages & progress',exact:false}).click();const download=await downloading,stream=await download.createReadStream(),chunks=[];for await(const chunk of stream)chunks.push(chunk);const exported=JSON.parse(Buffer.concat(chunks).toString('utf8'));assert.deepEqual(exported.notes,state.notes);assert.deepEqual(exported.positions,state.positions);await close();
+    return {explicitOverlapChoices:true,extendedExactMultiBlockRange:true,multiNodeContextVisible:true,extensionFailureRetainsDraft:true,failedNoteAndBookRemovalTruthful:true,longTitlePreserved:true,largeCompanionType:36,focusRail:focus,concurrentRecordCount:state.notes.length,payloadBytes:bytes,fullExportVerified:true};
+  } finally {await ctx.close();}
 }

@@ -4,7 +4,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
 import {reviewChecks} from './review-browser.mjs';
-import {experienceChecks,settledCapture} from './experience-browser.mjs';
+import {experienceChecks,handoffChecks,settledCapture} from './experience-browser.mjs';
 const require=createRequire(import.meta.url);
 let playwright;
 try {playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');}catch{throw new Error('Install Playwright for optional browser tests: npm install --no-save --package-lock=false playwright@1.62.1');}
@@ -19,6 +19,16 @@ async function checkOverflow(page,label,engine) {
   const report=await page.evaluate(()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,offenders:[...document.querySelectorAll('body *')].map(el=>({tag:el.tagName,class:el.className,left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right,width:el.getBoundingClientRect().width})).filter(x=>x.width>0&&(x.right>innerWidth+1||x.left< -1)).slice(0,16)}));
   if(report.documentWidth>report.viewport)await settledCapture(page,{path:new URL(`${engine}-${label}-overflow.png`,output).pathname,animations:'disabled',fullPage:true});
   assert.ok(report.documentWidth<=report.viewport,label+' overflow: '+JSON.stringify(report));
+}
+
+async function offlineJourney(page,sample) {
+  await page.goto(base+'/#read/bell/arrival');await page.locator('#reading-text[data-section="arrival"]').waitFor();
+  assert.equal(await page.locator('#reading-text').textContent(),sample.sections[0].blocks.map(b=>b.text+b.after).join(''));
+  await page.getByRole('link',{name:/Next/}).click();await page.locator('#reading-text[data-section="crossing"]').waitFor();
+  assert.equal(await page.locator('#reading-text').textContent(),sample.sections[1].blocks.map(b=>b.text+b.after).join(''));
+  await page.getByRole('link',{name:'Companion',exact:true}).click();await page.getByRole('button',{name:'01 A listening walk',exact:false}).click();
+  const before=(await state(page)).positions.bell;await page.locator('[data-action="stop"][data-stop="1"]').click();await page.getByRole('button',{name:'Open the passage',exact:false}).click();await page.locator('#context-text[data-location-ready="true"]').waitFor();assert.equal(await page.locator('#context-text').textContent(),sample.sections[1].blocks.map(b=>b.text+b.after).join(''));
+  await page.getByRole('button',{name:'Close ×',exact:true}).click();await page.getByRole('button',{name:'Return to your book',exact:false}).click();await page.locator('#reading-text[data-section="crossing"]').waitFor();assert.deepEqual((await state(page)).positions.bell,before);
 }
 
 async function checkUIIcons(page) {
@@ -43,7 +53,7 @@ try {
     const browser=await playwright[engine].launch({headless:true,...(executable?{executablePath:executable}:{})});
     try {
       const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true}),page=await context.newPage();
-      const errors=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('blob:'))external.push(r.url());});
+      const errors=[],external=[];page.on('pageerror',e=>{errors.push(e.message);console.error('Reader script error:',e.message);});page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('blob:'))external.push(r.url());});
       await page.goto(base);await page.getByRole('button',{name:'Open the book',exact:false}).first().click();await page.waitForSelector('#reading-text');
       await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
       const canonical=await page.locator('#reading-text').textContent();
@@ -78,7 +88,7 @@ try {
       await page.getByRole('button',{name:'03 Facing pages',exact:false}).click();await page.locator('#reflection').fill('An original connection.');await page.getByRole('button',{name:'Keep this connection',exact:false}).click();assert.equal((await state(page)).connections[0].note,'An original connection.');
       await page.getByRole('button',{name:'Return to your book',exact:false}).click();await page.waitForSelector('#reading-text');assert.deepEqual((await state(page)).positions.bell,before);
       // Concurrent tabs do not overwrite each other's note collection.
-      const second=await context.newPage();await second.goto(base+'/#read/bell/arrival');await second.waitForSelector('#reading-text');await select(second);await second.locator('#selection-save').click();await second.locator('#note-text').fill('A second tab’s thought.');await second.getByRole('button',{name:'Save on this device',exact:true}).click();await second.waitForFunction(()=>!document.querySelector('#dialog').open);await second.close();
+      const second=await context.newPage();await second.goto(base+'/#read/bell/arrival');await second.waitForSelector('#reading-text');await select(second);await second.locator('#selection-save').click();await second.getByRole('button',{name:'Keep as a new passage',exact:true}).click();await second.locator('#note-text').fill('A second tab’s thought.');await second.getByRole('button',{name:'Save on this device',exact:true}).click();await second.waitForFunction(()=>!document.querySelector('#dialog').open);await second.close();
       await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Dusk',exact:true}).click();assert.equal((await state(page)).notes.length,2);await page.getByRole('button',{name:'Close ×',exact:true}).click();
       // Local import: exact Unicode/whitespace, markup inert, no external requests.
       await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'Bring a book',exact:false}).click();
@@ -164,17 +174,18 @@ try {
       assert.deepEqual(await broken.evaluate(async()=> (await import('/db.mjs')).rawState()),{schema:999,original:'Preserve this fixture'});await brokenContext.close();
       const independentReview=await reviewChecks({browser,base,engine,output});
       const readingExperience=await experienceChecks({browser,base,engine,output});
+      const reciprocalHandoff=await handoffChecks({browser,base,engine,output});
       if(engine==='chromium') {
         await context.setOffline(true);await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
-        await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await context.setOffline(false);
+        await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await offlineJourney(page,sample);assert.equal(await page.evaluate(async()=>{try{await fetch('/network-negative-control');return false;}catch{return true;}}),true);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,independentReview,readingExperience,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload including local book':'pending stopped-origin check',errors,external});
+      receipts.push({engine,independentReview,readingExperience,reciprocalHandoff,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapter navigation and companion round trip; failed direct fetch negative control':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);
-        await assert.rejects(()=>page.request.get(base,{timeout:2000}));receipts.at(-1).offline='stopped-origin reload including local book; direct network negative control passed';
+        await assert.rejects(()=>page.request.get(base,{timeout:2000}));await offlineJourney(page,sample);receipts.at(-1).offline='stopped-origin reload, local book, chapters and companion round trip; direct network negative control passed';
       }
       console.log(JSON.stringify(receipts.at(-1)));
     } finally {await browser.close();}

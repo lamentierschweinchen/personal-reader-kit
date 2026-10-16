@@ -8,6 +8,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 **The default website hosts the reader and original samples. Your imported books and notes stay in your browser.** There is no book upload endpoint, analytics, remote font request, AI API key or account requirement inside the reader. A public repository should never become your personal library.
 
+**Public beta:** ready to try with your own agent and private backups. Browser verification covers the core flows; physical iPhone/iPad gestures and a new user’s end-to-end deployment still need direct testing. [Exact evidence and limits](docs/STATUS.md)
+
 ## Try it
 
 Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:
@@ -46,13 +48,13 @@ A walk, map, historical context, secondary literature, a visual experiment or a 
 
 - Phone and tablet layouts; focus mode; adjustable type size, spacing, measure and page color; keyboard-accessible controls.
 - Exact text rendering, emphasis ranges, hard line breaks, stanza gaps and indentation. Fixed-layout verse can scroll within its block.
-- Multi-block highlights and comments, edition-aware anchors, saved reading places and separate spoiler boundaries.
+- Multi-block highlights and comments, explicit new/extend choices for overlapping selections, edition-aware anchors, saved reading places and separate spoiler boundaries.
 - Private browser imports, local persistence, repeatable records export/merge, exact-edition export, retained conflicting notes/connections, and an explicit repair transaction that archives damaged state and preserves local books.
 - Three interactive companions: a fictional listening walk, literal occurrence search across permitted books, and comparisons between your own kept passages with edition-aware saved connections.
 - Offline application and original samples; imported books remain in browser storage. Storage eviction is still possible.
 - An explicit public build list, original-sample fingerprints, and a complete-local-history audit that rejects shallow views and records its exact ref scope.
 
-This is a small first release, not a universal ebook converter. EPUB/PDF conversion is agent-assisted; DRM bypass, automatic OCR, image/facsimile blocks, interactive source footnotes, live routing, linguistic/semantic search, automatic sync and authenticated hosted libraries are not implemented. Complex works need a reviewed adapter, not a lossy shortcut. Physical iOS selection gestures still need on-device testing.
+This is an early reusable kit, not a universal ebook converter. EPUB/PDF conversion is agent-assisted; DRM bypass, automatic OCR, image/facsimile blocks, interactive source footnotes, live routing, linguistic/semantic search, automatic sync and authenticated hosted libraries are not implemented. Complex works need a reviewed adapter, not a lossy shortcut. Physical iOS selection gestures still need on-device testing.
 
 ## For maintainers
 
