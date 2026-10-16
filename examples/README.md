@@ -11,6 +11,8 @@ These are complete, runnable examples of what an agent can build with the kit. E
 
 ## Try one
 
+The public entrance is **[read.lookatseel.com](https://read.lookatseel.com/)**. Canonical readers: [Austen](https://austen.lookatseel.com/), [Alice](https://alice.lookatseel.com/), [Walden](https://walden.lookatseel.com/), [Two lecture halls](https://two-halls.lookatseel.com/). [Release verification](../docs/STATUS.md) distinguishes local checks from confirmed live behavior.
+
 From the repository root, with Node.js 22 or later:
 
 ```sh
@@ -49,9 +51,9 @@ Maintain the published examples here. The source trial commits identify their st
 
 ## A showcase and five Vercel projects
 
-Use a small public showcase with four distinct entrances: title, author/edition, a sentence about the experience, **Read**, and **View source / make your own**. A short note can explain offline reading and browser-local annotations. Keep the existing presentation work as the place to design that page; this directory supplies its source and metadata.
+Use a small public showcase with four distinct entrances: title, author/edition, a sentence about the experience, **Read**, and **View source / make your own**. A short note can explain offline reading and browser-local annotations. The [showcase source](../showcase/README.md) borrows the personal-site theme at the user’s request. Separate presentation/video work is independent.
 
-Connect this same repository to four Vercel projects, selecting one `examples/<reader>` directory as each project’s **Root Directory**, with `npm run build` and output `dist`. A fifth project can host the showcase. [Vercel’s monorepo documentation](https://vercel.com/docs/monorepos) describes this arrangement. No account, project, domain or deployment is created by these files.
+Connect this same repository to four Vercel projects, selecting one `examples/<reader>` directory as each project’s **Root Directory**, with `npm run build` and output `dist`. A fifth project can host the showcase. [Vercel’s monorepo documentation](https://vercel.com/docs/monorepos) describes this arrangement. These configuration files do not themselves create accounts or projects. The release status records the approved hosting setup.
 
 Give each reader a separate canonical origin, such as `austen.your-domain`, `alice.your-domain`, `walden.your-domain` and `two-halls.your-domain`. A shared showcase can live at `shelf.your-domain`. Separate repository folders do **not** make `/alice/` and `/walden/` safe on one deployed origin: these readers use root asset URLs, the same database name and cache prefix. Follow [the hosting and migration guidance](../docs/DEPLOYMENT.md#hosting-several-customized-readers).
 

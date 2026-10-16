@@ -88,3 +88,28 @@ test('example provenance admits only exact reviewed bytes in current files and c
     await assert.rejects(()=>audit(directory),/Edition review/);
   }finally{await rm(directory,{recursive:true,force:true});}
 });
+
+test('showcase asset provenance is exact, historical and never conceals credentials',async()=>{
+  const directory=await mkdtemp(path.join(tmpdir(),'reader-showcase-history-'));
+  const git=(...args)=>execFileSync('git',['-C',directory,...args],{stdio:'pipe'}),digest=b=>createHash('sha256').update(b).digest('hex');
+  const asset='showcase/assets/original.webp',provenance='showcase/ASSETS.md';
+  try {
+    git('init','-b','test');git('config','user.name','Reader test');git('config','user.email','reader-test@example.invalid');
+    await mkdir(path.join(directory,'samples'));await mkdir(path.join(directory,'showcase/assets'),{recursive:true});
+    await writeFile(path.join(directory,'samples/library.json'),'[]\n');await writeFile(path.join(directory,'.gitignore'),'.reader/\n');
+    await writeFile(path.join(directory,provenance),'Original synthetic fixture; not an actual image.\n');
+    const bytes=Buffer.from([82,73,70,70,0,1]),entry={path:asset,sha256:digest(bytes),provenance,reason:'Original binary fixture.'};
+    const manifest={originalSampleSha256:digest('[]\n'),files:['.gitignore','publication.json','samples/library.json',asset,provenance],reviewedSiteAssets:[entry]};
+    await writeFile(path.join(directory,asset),bytes);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add','.');git('commit','-m','Original showcase fixture');
+    assert.equal((await audit(directory)).passed,true);
+    const changed=Buffer.from([82,73,70,70,0,2]);await writeFile(path.join(directory,asset),changed);git('add',asset);
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('(working)')&&f.includes('showcase asset')));
+    entry.sha256=digest(changed);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add','publication.json');git('commit','-m','Changed synthetic fixture');
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('(history')&&f.includes('showcase asset')));
+    const secret=Buffer.concat([changed,Buffer.from('ghp_'+'D'.repeat(36))]);entry.sha256=digest(secret);
+    await writeFile(path.join(directory,asset),secret);await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));git('add',asset,'publication.json');
+    assert.ok((await audit(directory)).failures.some(f=>f.includes('(working)')&&f.includes('credential')));
+    entry.path='private/original.webp';await writeFile(path.join(directory,'publication.json'),JSON.stringify(manifest));
+    await assert.rejects(()=>audit(directory),/Showcase asset review/);
+  }finally{await rm(directory,{recursive:true,force:true});}
+});

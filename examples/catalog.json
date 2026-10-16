@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Source examples; no hosted destination selected.",
+  "status": "Canonical addresses selected; production verification is recorded in docs/STATUS.md.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -21,7 +21,7 @@
       "browserCommands": [
         "test:book"
       ],
-      "url": null,
+      "url": "https://austen.lookatseel.com/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -930,7 +930,7 @@
         "test:browser",
         "test:share"
       ],
-      "url": null,
+      "url": "https://alice.lookatseel.com/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -1018,7 +1018,7 @@
       "browserCommands": [
         "test:walden-browser"
       ],
-      "url": null,
+      "url": "https://walden.lookatseel.com/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -1112,7 +1112,7 @@
         "test:browser",
         "test:share"
       ],
-      "url": null,
+      "url": "https://two-halls.lookatseel.com/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -1191,5 +1191,6 @@
         }
       ]
     }
-  ]
+  ],
+  "showcaseUrl": "https://read.lookatseel.com/"
 }

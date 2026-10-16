@@ -473,6 +473,20 @@
     "scripts/import-text.mjs",
     "scripts/prepare-epub.py",
     "scripts/serve.mjs",
+    "showcase/.vercelignore",
+    "showcase/ASSETS.md",
+    "showcase/README.md",
+    "showcase/assets/OFL.txt",
+    "showcase/assets/book.webp",
+    "showcase/assets/fraunces-italic.woff2",
+    "showcase/assets/fraunces-normal.woff2",
+    "showcase/build.mjs",
+    "showcase/check.mjs",
+    "showcase/favicon.svg",
+    "showcase/index.html",
+    "showcase/package.json",
+    "showcase/style.css",
+    "showcase/vercel.json",
     "site/app.mjs",
     "site/bundle.mjs",
     "site/core.mjs",
@@ -1602,6 +1616,26 @@
       "sha256": "ccd7ccd39c185b2a47ab68b943081bb69daedd40e2f5a5c3adbee91be9bb752b",
       "provenance": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
       "reason": "Exact prepared public-domain edition or source-image inventory from reviewed trial 6b160fad13729f07808248be3071a6e33afb3a80. Source terms and US territorial evidence retained."
+    }
+  ],
+  "reviewedSiteAssets": [
+    {
+      "path": "showcase/assets/book.webp",
+      "sha256": "608caa3bbe510cfee50d3775b25bfa8145816eea7381dea7a949c915648044f9",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Existing personal-site book graphic, explicitly requested for this branded showcase."
+    },
+    {
+      "path": "showcase/assets/fraunces-italic.woff2",
+      "sha256": "bceec2ef4d549efbc8df0194a8d5280b6a64c3e399244dffccd9ea1bd9ad6db7",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Fraunces Latin subset; SIL OFL 1.1 license accompanies the website."
+    },
+    {
+      "path": "showcase/assets/fraunces-normal.woff2",
+      "sha256": "7f9d191d999336d3b9790afa72e1358e50a13b06d4f289341e92a311967a80f9",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Fraunces Latin subset; SIL OFL 1.1 license accompanies the website."
     }
   ]
 }

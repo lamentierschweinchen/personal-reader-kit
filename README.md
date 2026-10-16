@@ -14,7 +14,7 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 ## Try it
 
-**Read a complete example:** [Pride and Prejudice](examples/pride-and-prejudice/README.md), [Alice](examples/alice-in-wonderland/README.md), [Walden & Civil Disobedience](examples/walden/README.md), or [Two lecture halls: Schopenhauer and Hegel](examples/schopenhauer-hegel/README.md). Each has its own visual identity, source adapter, credited edition and offline reading. [Run the examples and see the hosting plan](examples/README.md). They are source examples; live website addresses have not been selected.
+**Read a complete example:** [Pride and Prejudice](examples/pride-and-prejudice/README.md), [Alice](examples/alice-in-wonderland/README.md), [Walden & Civil Disobedience](examples/walden/README.md), or [Two lecture halls: Schopenhauer and Hegel](examples/schopenhauer-hegel/README.md). Each has its own visual identity, source adapter, credited edition and offline reading. [Run the examples and see the hosting plan](examples/README.md). The public entrance is [read.lookatseel.com](https://read.lookatseel.com/); [release status](docs/STATUS.md) records deployment verification.
 
 Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:
 
