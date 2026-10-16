@@ -59,6 +59,15 @@ These checks come from observed failures in the reference-reader reviews. Use or
 - **Settled evidence.** Await the actual requested book and section, font readiness, and finite entrance/focus transitions before captures or geometry assertions. Do not diagnose a previous book or a fading frame as the requested page. Pair screenshots with explicit state/identity assertions.
 - **Offline after reload.** Disconnect or stop the origin, reload, reopen an imported book and verify its exact text; use a failed direct network request as a negative control. An in-memory book, cached note editing or a passing storage test does not establish offline reading. Report missing offline support as a limitation, and name the browser, setup and reload path actually tested.
 
+Additional review criteria for future reader work:
+
+- Walks, reference links and exploratory visits must not replace the main reading place. Verify the saved position before and after the full excursion, including the return action; a separate-looking panel alone is not evidence of independence.
+- For bookmark/note save, removal and reset, show success only after persistence actually succeeds. Inject storage failure into each relevant operation; a passing save test does not establish deletion/reset behavior. Preserve malformed raw records before recovery, and never silently replace them with an empty state.
+- When a new selection extends around an existing highlight, keep the newly selected range. Offer an explicit choice to extend the old annotation or create a new one; do not silently substitute the smaller old selection. Test overlapping selection through the actual interaction, as well as source-anchor correctness.
+- Text-size controls should cover long companion essays as well as the book, or clearly explain their scope. Verify that scope on a substantial contextual reading; a short caption or source-text zoom test is insufficient.
+
+These are acceptance criteria, not assertions of defects in this kit. Record which interaction was exercised, which result was observed, and which checks remain future work.
+
 ## 4. A personal website
 
 Guide prerequisites as needed, rather than assuming GitHub, Node, a terminal or Vercel knowledge. Follow [DEPLOYMENT.md](DEPLOYMENT.md) through a verified URL. Default to the public reader shell with browser-local book imports. Ask about private hosted files only if the person needs them; it is a different architecture and audience.

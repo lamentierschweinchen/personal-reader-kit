@@ -45,6 +45,8 @@ Physical iPhone/iPad selection handles, menus, safe areas, orientation, text zoo
 
 The research case is a sourced editorial brief, not an on-site survey, a verified current itinerary, expert-reviewed scholarship or a demonstrated learning outcome. Those checks are explicit next work. The fictional listening walk remains labeled fiction. No automatic research or companion generation is implemented.
 
+The final reciprocal-review lessons are guidance/future QA only. Existing evidence supports independent exploration, failed note-save draft retention and preservation/repair of raw damaged state. Dedicated bookmark removal/reset failure injection, native selection extending an existing highlight and text-size coverage of long companion essays were not established in this pass. No new defect is claimed for those untested cases.
+
 EPUB/PDF conversion remains assisted. There is no DRM bypass, image/table renderer, interactive source-footnote engine, linguistic/semantic search, live routing, automatic sync or authenticated hosted-book backend. Preserve exact prepared editions, raw sources and private backups. Existing historical notes recover as quotations when their source is absent or changed; the app does not guess new anchors.
 
 ## Earlier releases
