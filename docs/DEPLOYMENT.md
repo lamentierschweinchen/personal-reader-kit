@@ -57,6 +57,12 @@ Do not equate a successful build with a usable site. After the approved deployme
 
 Return the usable URL, commit and deployment identifiers, verification receipt, privacy model, recovery instructions and remaining limits. Keep credentials and provider linkage out of Git. Do not call a URL live or a push synchronized without checking the result.
 
+## Hosting several customized readers
+
+Use separate origins for independently customized copies of this kit; a shared catalogue may link to them. The current application assumes the origin root: asset URLs, worker registration and the web-app start URL begin with `/`. Every unmodified copy opens the same `reading-kit-v1` IndexedDB database, and worker activation removes other `reading-kit-` caches. Different paths on one origin do not isolate those records or caches.
+
+Do not place independent builds under `/alice`, `/walden` or similar paths and assume isolation. A subpath deployment requires deliberate base-URL handling, worker scope, cache namespaces, database names and a tested migration for existing records. Alternatively build one intentional multi-book application with compatible edition profiles. Neither arrangement is provided by copying the current output folders. Verify simultaneous use and offline upgrades if that architecture is implemented. An iframe on a different origin retains that origin's storage rules and is not a substitute for testing its privacy and usability.
+
 ## Choose an address and move without losing your library
 
 Choose the canonical production origin before substantial importing. Localhost, preview URLs, a custom domain and a new domain are separate browser-storage identities. Switching addresses does not transfer or delete the old library.

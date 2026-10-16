@@ -42,6 +42,6 @@ Classify failures as a source limitation, application defect, adaptation defect,
 
 ## Keep publication exact
 
-The upstream build stays original-samples-only. An example needs its own permission decision, pinned editions/assets, exact build/upload inputs and complete-history review. Retain the conservative scanner. A project supplement may resolve only named, content-pinned assets across working files, index and every relevant historical version; all other findings remain fatal. Decode embedded assets explicitly. A successful audit is not rights clearance.
+The upstream build stays original-samples-only. An example needs its own permission decision, pinned editions/assets, exact build/upload inputs and complete-history review. Retain the conservative scanner. A project supplement may resolve only named, content-pinned assets across working files, index and every relevant historical version; all other findings remain fatal. Decode embedded assets explicitly. A successful audit is not rights clearance. Independent customized readers also need isolated deployment origins unless base paths, worker/cache namespaces and storage are deliberately adapted; see [multiple-reader hosting](DEPLOYMENT.md#hosting-several-customized-readers).
 
 Raw archives, private notes, source screenshots and intermediates stay ignored. A source EPUB link is a separate download, not generated export or note synchronization. Finish with implemented behavior, actual checks, project-specific decisions and remaining gaps.
