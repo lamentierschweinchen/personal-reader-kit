@@ -115,7 +115,20 @@ async function lifecycleChecks({browser,base}) {
     await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return (await caches.keys()).includes('reading-kit-qa-incomplete')&&!r.installing;});
     assert.equal((await page.request.get(base+'/missing-upgrade-fixture')).status(),404);
     assert.ok((await page.evaluate(()=>caches.keys())).includes('reading-kit-qa-lifecycle'));
-    const stillReady=await page.evaluate(async()=>{const r=await navigator.serviceWorker.getRegistration();return new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.ready);r.active.postMessage('CHECK_OFFLINE',[c.port2]);});});
+    const stillReady=await page.evaluate(async()=>{
+      const r=await navigator.serviceWorker.getRegistration();
+      if(!r?.active)throw new Error('The previous complete worker is no longer active.');
+      return new Promise((resolve,reject)=>{
+        const channel=new MessageChannel();
+        // Retain the receiving port until a reply or an actionable timeout.
+        // Without a rooted timer, Chromium can collect this pending test promise
+        // after rendering the long-form fixture, as observed in Linux CI.
+        const timer=setTimeout(()=>{channel.port1.close();reject(new Error('The active worker did not answer the cache-readiness probe within 10 seconds.'));},10000);
+        channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();resolve(e.data.ready);};
+        try{r.active.postMessage('CHECK_OFFLINE',[channel.port2]);}
+        catch(error){clearTimeout(timer);channel.port1.close();reject(error);}
+      });
+    });
     assert.equal(stillReady,true);
     await writeFile(workerFile,upgraded);const reloadStart=Date.now();await page.reload({waitUntil:'domcontentloaded',timeout:90000});await page.waitForSelector('#reading-text mark',{timeout:90000});
     const reloadMs=Date.now()-reloadStart;console.log(`Long fixture after cache upgrade: ${reloadMs} ms`);
