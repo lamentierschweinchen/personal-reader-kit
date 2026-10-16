@@ -12,6 +12,8 @@ This repository is a reusable, public-intended kit. The user's books are data, n
 
 ## Fidelity and product
 
+Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The kit's original-sample boundary remains in force; keep book-specific examples in their own projects.
+
 Keep exact source characters, emphasis, lineation, stanzas, meaningful spaces, notes and sequence. Preserve source defects and uncertainty; report them. Edition hashes and quoted evidence anchor annotations. Changed-source notes must remain recoverable and must not silently move.
 
 Reading stands alone. Exploration is optional and must not advance the main reading position or the spoiler boundary. Ask simple presets versus exploratory mode after inspecting the supplied files. An undecided exploratory journey requires three material-led hypotheses and working small prototypes before a preference decision. Reading is usable first. If the user has already chosen a direction or asks for a specific revision, honor that choice and test only unresolved interactions. Do not use three colorways as three concepts. Context, maps and cross-work comparisons are optional. Source factual claims; label editorial interpretation and inferred geography.

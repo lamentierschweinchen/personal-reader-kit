@@ -6,6 +6,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 **Giving files to an agent may send their contents to its model provider. Check that processing boundary before supplying books; it is separate from the finished reader’s local storage.**
 
+**Use only material you are entitled to use. Owning a copy does not give permission to publish it.** Public examples need edition-specific public-domain, license or permission evidence, including illustrations and translations. [Books and permissions](docs/RIGHTS.md)
+
 **The default website hosts the reader and original samples. Your imported books and notes stay in your browser.** There is no book upload endpoint, analytics, remote font request, AI API key or account requirement inside the reader. A public repository should never become your personal library.
 
 **Public beta:** ready to try with your own agent and private backups. Browser verification covers the core flows; physical iPhone/iPad gestures and a new user’s end-to-end deployment still need direct testing. [Exact evidence and limits](docs/STATUS.md)
@@ -55,6 +57,8 @@ A walk, map, historical context, secondary literature, a visual experiment or a 
 - An explicit public build list, original-sample fingerprints, and a complete-local-history audit that rejects shallow views and records its exact ref scope.
 
 This is an early reusable kit, not a universal ebook converter. EPUB/PDF conversion is agent-assisted. An optional [bounded EPUB preparer](docs/BOOK-FORMAT.md#bounded-local-epub-preparation) handles a narrow unstyled text-only subset and produces a provisional edition for proofreading; unsupported features stop preparation. DRM bypass, automatic OCR, image/facsimile blocks, interactive source footnotes, live routing, linguistic/semantic search, automatic sync and authenticated hosted libraries are not implemented. Complex works need a reviewed adapter, not a lossy shortcut. Physical iOS selection gestures still need on-device testing.
+
+**E-reader export is not implemented yet.** The current JSON edition/bundle exports are for this reader. A future EPUB export can carry the book and explicitly selected static commentary; interactive companions and automatic note synchronization need separate treatment. See [the proposed export boundary](docs/BOOK-FORMAT.md#e-reader-export-proposed).
 
 ## For maintainers
 

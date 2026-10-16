@@ -33,3 +33,7 @@ Version 0.3.1 applies the user-confirmed lesson that even a permanently visible 
 ## Portability and maintenance · 16 October 2026
 
 Version 0.4.0 adds private reading bundles with selected exact editions, all saved records, integrity checking, a review step, explicit appearance choice and transactional restore. Edition collisions and concurrent changes stop restoration without overwriting work. The read-only upgrade comparator distinguishes upstream changes from personal customizations. A bounded local EPUB preparer creates provisional unstyled text-only editions and private receipts, rejecting unsupported structures rather than silently losing them. The newcomer/editorial pilot supplies concrete human acceptance tasks; it does not claim those sessions have occurred. Public presentation work remains separate.
+
+## Rights and real-book trials · 16 October 2026
+
+The rights guide and import notice distinguish owning a copy, processing permission and public redistribution. Public examples require edition/contributor evidence and a reviewed asset inventory. Three independent local trials were started from v0.4.0 using Pride and Prejudice, Alice's Adventures in Wonderland and Walden with Civil Disobedience; they are not completed human-pilot or hosted-site evidence. Their sources stay outside this kit. The book-format guide scopes a proposed EPUB export and explicitly distinguishes it from the existing JSON backups and EPUB preparer; export is not yet implemented.

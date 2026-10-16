@@ -1,5 +1,7 @@
 # What is public and what stays with you
 
+Use only material you are entitled to process. Owning a copy does not grant permission to publish it; public examples need a separate edition-specific rights review. See [books and permissions](RIGHTS.md).
+
 The default site contains application code and two original sample works. Adding a book reads it with the browser File API and saves it to that browser's IndexedDB. Notes, reading places, preferences and spoiler boundaries are also in IndexedDB. No import or annotation request is made to a server. The application has no analytics, remote fonts, third-party scripts or map requests.
 
 This is local browser storage, not encrypted vault storage. Someone using your browser profile or compromised same-origin code may access it. The host serves the application and may keep ordinary access logs. Extensions and the device's security remain relevant. Do not imply the repository's private setting or the application's noindex header is access control.
