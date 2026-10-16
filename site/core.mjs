@@ -159,11 +159,16 @@ export function findOccurrences(books,state,term,limit=200) {
     let offset=0;
     while((offset=block.text.indexOf(term,offset))!==-1) {
       if(hits.length<limit) {
-        // Do not split a surrogate pair at an excerpt boundary.
+        // Prefer complete whitespace-delimited words within a bounded amount of
+        // extra context. This does not change literal matching or tokenize a language.
         let start=Math.max(0,offset-65),end=Math.min(block.text.length,offset+term.length+85);
+        const earliest=Math.max(0,start-32),latest=Math.min(block.text.length,end+32);
+        while(start>earliest&&!/\s/u.test(block.text[start-1]))start--;
+        while(end<latest&&!/\s/u.test(block.text[end]))end++;
+        // Preserve the existing code-point protection for long unspaced text.
         if(start>0&&/[\uDC00-\uDFFF]/.test(block.text[start]))start--;
         if(end<block.text.length&&/[\uDC00-\uDFFF]/.test(block.text[end]))end++;
-        hits.push({passage:passageAt(book,section,block,start,end),offset,matchStart:offset-start,matchEnd:offset-start+term.length});
+        hits.push({passage:passageAt(book,section,block,start,end),offset,matchStart:offset-start,matchEnd:offset-start+term.length,omittedStart:start>0,omittedEnd:end<block.text.length});
       }
       count++;offset+=term.length;
     }

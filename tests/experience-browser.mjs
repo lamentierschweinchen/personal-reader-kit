@@ -49,7 +49,13 @@ export async function builderTrialChecks({browser,base}) {
     await page.evaluate(()=>scrollBy(0,100));await page.waitForFunction(()=>document.querySelector('#focus-tools').hidden);
     const result={positionAtImport,positionAfterImport,retainedAfterNotification,actualMovementHides:true};
     assert.ok(positionAtImport?.sectionId==='crossing'&&positionAfterImport?.sectionId==='crossing'&&retainedAfterNotification,JSON.stringify(result));
-    return {importSavesCurrentSection:true,importPreservesPreviousBook:true,queuedScrollDoesNotHideRecall:true,actualMovementHides:true};
+    const excerpt=await page.evaluate(async()=>{
+      const core=await import('/core.mjs'),text=await import('/text.mjs'),book=await core.fromText('Original context before the match. '.repeat(8)+'needle'+' Original context after the match.'.repeat(8)),state=core.newState();
+      state.boundaries[book.id]={index:0,revision:book.source.sha256};const hit=core.findOccurrences([book],state,'needle').hits[0],node=document.createElement('blockquote');node.className='reading-surface fragment-surface';document.body.append(node);text.renderPassage(node,hit.passage,book,hit);
+      const result={exact:node.textContent===hit.passage.quote,mark:node.querySelector('mark').textContent,before:getComputedStyle(node,'::before').content,after:getComputedStyle(node,'::after').content,description:node.getAttribute('aria-description')};node.remove();return result;
+    });
+    assert.equal(excerpt.exact,true);assert.equal(excerpt.mark,'needle');assert.ok(excerpt.before.includes('…')&&excerpt.after.includes('…'));assert.match(excerpt.description,/Earlier text omitted.*Later text omitted/);
+    return {importSavesCurrentSection:true,importPreservesPreviousBook:true,queuedScrollDoesNotHideRecall:true,actualMovementHides:true,excerptOmissionsOutsideExactText:true};
   } finally {await ctx.close();}
 }
 

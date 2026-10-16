@@ -97,3 +97,16 @@ test('companion occurrences include every literal match and preserve clipped emp
   const conflicts=mergeBackup(merged,changed,()=> 'conflict');assert.equal(conflicts.connections.length,2);assert.equal(mergeBackup(conflicts,changed).connections.length,2);
   assert.equal(anchorStatus(conflicts.connections[0].passages[0],{...book,source:{...book.source,sha256:'f'.repeat(64)}}).valid,false);
 });
+
+test('search excerpts prefer whole ordinary words and disclose omission without changing source anchors',async()=>{
+  const {findOccurrences}=await import('../site/core.mjs');
+  const text='Original context words before the passage. '.repeat(5)+'needle'+' More original context words after the passage.'.repeat(5),book=await fromText(text),state=newState();
+  state.boundaries[book.id]={index:0,revision:book.source.sha256};
+  const hit=findOccurrences([book],state,'needle').hits[0],segment=hit.passage.segments[0];
+  assert.equal(hit.omittedStart,true);assert.equal(hit.omittedEnd,true);
+  assert.match(text[segment.start-1],/\s/);assert.match(text[segment.end],/\s/);
+  assert.equal(hit.passage.quote,text.slice(segment.start,segment.end));
+  assert.equal(hit.passage.quote.slice(hit.matchStart,hit.matchEnd),'needle');assert.equal(hit.offset,text.indexOf('needle'));
+  assert.equal(anchorStatus(hit.passage,book).valid,true);
+  const whole=findOccurrences([book],state,text).hits[0];assert.equal(whole.omittedStart,false);assert.equal(whole.omittedEnd,false);
+});

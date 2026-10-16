@@ -75,7 +75,8 @@ Independent local builders worked with Pride and Prejudice, Alice's Adventures i
 | Finding | Disposition in 0.4.1 |
 | --- | --- |
 | Import could open before the current section was saved | Fixed: save the main place before opening Import; original-fixture browser regression covers the transition. |
-| A deferred document scroll notification could dismiss recalled focus controls | Fixed: compare actual position since recall, retaining real/nested scroll dismissal. Original-fixture Chromium/WebKit probes reproduce the issue and verify the correction. |
+| A deferred document scroll notification could dismiss recalled focus controls | Fixed: compare actual position since recall, retaining real/nested scroll dismissal. A WebKit probe reproduced the deferred-scroll failure; original-fixture Chromium/WebKit checks verify the correction. |
+| Search excerpts could begin inside an ordinary word without marking the omission | Fixed: bounded expansion toward whitespace and editorial omission indicators outside source text. Original fixtures verify exact quotations, match offsets and rendered indicators. |
 | Early EPUB refusal concealed the rest of the source's adaptation needs | Implemented: full safe resource/spine inventory and XML feature counts precede conversion refusal. Unsafe archives still stop early; no partial candidate or expanded format support. |
 | Different extensions all called themselves schema 1 | Implemented guard and documented migration: optional base text profile, named unsupported-profile error, strict field validation. Existing editions are not silently retagged; no common media profile is implemented. |
 | Illustrated initials, shaped verse, notes, table cells and source pages need faithful representations | Documented adapter obligations and rendered checks. The stock text renderer's boundary remains. Local trial fixes are not relabeled as upstream capabilities. |

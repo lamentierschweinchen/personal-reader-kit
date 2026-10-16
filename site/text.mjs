@@ -1,5 +1,9 @@
 import {selectionQuote,excerptSection} from './core.mjs';
 export function renderPassage(container,passage,book,hit) {
+  container.toggleAttribute('data-omitted-start',!!hit?.omittedStart);
+  container.toggleAttribute('data-omitted-end',!!hit?.omittedEnd);
+  const omitted=[hit?.omittedStart&&'Earlier text omitted.',hit?.omittedEnd&&'Later text omitted.'].filter(Boolean).join(' ');
+  if(omitted)container.setAttribute('aria-description',omitted);else container.removeAttribute('aria-description');
   const section=excerptSection(passage,book);
   renderText(container,section);
   if(hit) {
