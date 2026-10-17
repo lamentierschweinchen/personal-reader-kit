@@ -134,7 +134,7 @@ function sourceWarning(section){
 function austenCompanion(){
   if(echo==='room')echo='pride';
   const b=bookById(AUSTEN),through=visibleThrough(state,b),chapters=b.sections.slice(0,through+1).filter(s=>s.id.startsWith('chapter-'));
-  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1><p>Find a word or phrase in chapters you choose.</p></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Chapters 1–${chapters.length} included`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}</section>`;
+  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1><p>Find a word or phrase in chapters you choose.</p></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Chapters 1–${chapters.length} included`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}${chapters.length?`<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}`:'<p class="empty index-empty">Choose the chapters you’ve read to start following a word.</p>'}</section>`;
 }
 function shelf() {
   if(bookById(AUSTEN))return austenShelf();
@@ -198,6 +198,7 @@ async function render({keepScroll=false}={}) {
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   document.body.classList.toggle('austen',!!bookById(AUSTEN));
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
+  $('#catalogue-return').hidden=route.view!=='shelf';
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
   applyPrefs();document.title = route.view==='read' && activeBook ? `${activeSection.title} · Reading` : (bookById(AUSTEN)?'Pride and Prejudice · Illustrated reader':'Reading · in good company');

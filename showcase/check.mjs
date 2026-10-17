@@ -17,6 +17,7 @@ async function layout(page,label){
  assert.ok(metrics.scroll<=metrics.width,label+' overflow');assert.equal(metrics.broken,0,label+' broken image');assert.equal(metrics.arrows,false);
  assert.ok(metrics.targets.every(x=>x.w>=44&&x.h>=44),label+' small target: '+JSON.stringify(metrics.targets.filter(x=>x.w<44||x.h<44)));
  assert.equal(await page.locator('h1').count(),1);
+ for(const selector of ['header a[href="/#samples"]','header a[href="/learn/"]','header [data-copy]'])assert.equal(await page.locator(selector).isVisible(),true,label+' navigation remains available');
 }
 // Inline links inside running text use the WCAG inline exception and are excluded above.
 async function copyCheck(page,field,button){
@@ -61,7 +62,7 @@ try{
    }
    const noScript=await browser.newContext({javaScriptEnabled:false,viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);assert.equal(await plain.locator('.sample').count(),4);assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
    await plain.locator('a[href="/start.txt"]').click();assert.equal((await plain.locator('body').textContent()).trim(),promptText);
-   await plain.goto(base+'/learn/');assert.equal(await plain.locator('#paste [data-copy]').isVisible(),false);assert.match(await plain.locator('#starter').inputValue(),/https:\/\/newreading.app\/start.txt/);assert.equal(await plain.locator('[data-route="codex"]').isVisible(),true);await noScript.close();
+   await plain.goto(base+'/learn/');assert.equal(await plain.locator('#paste [data-copy]').isVisible(),false);assert.match(await plain.locator('#starter').inputValue(),/https:\/\/newreading.app\/start.txt/);assert.equal(await plain.locator('[data-route]:visible').count(),3);assert.equal(await plain.locator('.learn-q').isVisible(),false);await noScript.close();
   }finally{await browser.close()}
  }
  await writeFile(new URL('receipt.json',output),JSON.stringify({checkedAt:new Date().toISOString(),passed:true,receipts,limits:'Automated Chromium/WebKit layout, interaction and navigation checks. Screenshots require visual review; not physical-device, screen-reader or human onboarding acceptance.'},null,2)+'\n');console.log(JSON.stringify({passed:true,viewports:receipts.length,engines:['chromium','webkit']}));

@@ -31,3 +31,7 @@ Created 2026-10-16 from reader-kit commit 6dc8fb146e7e7ec861f4d5b99d21be6f5b6965
 ## 16 October 2026 — curated public-kit snapshot
 
 The user authorized including the four reviewed examples in the established public kit. This directory is the selected current source snapshot, without the trial Git history, raw inputs or private artifacts. README/AGENTS/package audit commands reflect the enclosing repository; runtime assets and prepared edition bytes remain unchanged. Older entries and copied docs describe the independent trial at the time. No domain or deployment was changed.
+
+## 17 October 2026 — catalogue handoff and first-use clarity
+
+Added a quiet All readers link at the noticeboard entrance, hidden in reading and corridor views. It uses an ordinary catalogue link and keeps the existing saved reading-place behavior. Both prepared works, source images, paired readings and edition identities are unchanged.

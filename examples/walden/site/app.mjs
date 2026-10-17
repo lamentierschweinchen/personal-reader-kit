@@ -128,6 +128,7 @@ function companion() {
 async function render({keepScroll=false}={}) {
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
+  $('#catalogue-return').hidden=route.view!=='shelf';
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
   applyPrefs();document.title = route.view==='read' && activeBook ? `${activeSection.title} · Thoreau` : 'Walden & Civil Disobedience · Thoreau';

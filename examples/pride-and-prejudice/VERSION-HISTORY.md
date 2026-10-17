@@ -31,3 +31,7 @@ Keep the notice, full licence, credits, original front matter, conversion record
 ## 17 October 2026 — repeated illustration credits
 
 Omit the 22 repeated 1894 illustration copyright credits from normal reading of the exact bundled snapshot. Preserve the meaningful caption that shares one of those blocks, state the historical credit once in **Edition & source**, and offer the complete original chapter there. Source bytes, image files, quotation anchors, notes and exports remain unchanged. When a selection spans an omitted credit, its editor explicitly shows and explains the complete original quotation. An old reading place anchored to a hidden standalone credit resumes at the next visible block.
+
+## 17 October 2026 — catalogue handoff and first-use clarity
+
+Added a quiet All readers link at the edition entrance, hidden in reading and companion views. The empty word index now asks for a chapter boundary before showing search controls or counts; choosing chapters restores the existing index. Book text, source notices, reading places and edition identity are unchanged.

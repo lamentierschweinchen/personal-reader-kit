@@ -1,7 +1,7 @@
 import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT} from './core.mjs';
 import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,recoverState,recoveryArchives,librarySnapshot,restoreBundle} from './db.mjs';
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
-import {renderText,readSelection,renderPassage,imageSource} from './text.mjs';
+import {renderText as renderSourceText,readSelection,renderPassage as renderSourcePassage,imageSource} from './text.mjs';
 import {passageShareData,sharePassage,copyPassage} from './share.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
@@ -19,6 +19,18 @@ const aliceId='alice-rackham-28885';
 const aliceSourceRevision='7f697b6970ebe918109c824fc613ff8c8027b7cb96cc23c98686edebaf4969c5';
 const aliceEditionHash='49c5ff3991360abd76354da5080165929bc9ee6fe2b2333affb512ac0f9f60ea';
 let aliceEditorialEdition=null;
+// Correct only our description of the hash-verified bundled frontispiece.
+// The immutable edition and imported/customized copies retain their own metadata.
+function imageDescription(book,asset) {
+  return book===aliceEditorialEdition&&book?.id===aliceId&&book.source.sha256===aliceSourceRevision&&asset===book.assets.find(a=>a.id==='f0002-image-jpg')&&asset.alt==='Frontispiece: Alice stands facing the viewer, her hands held together in front of her.'
+    ? 'Frontispiece: Alice stands facing the viewer with her hands behind her back.' : asset.alt;
+}
+function renderText(container,section,notes=[],book=null) {
+  renderSourceText(container,section,notes,book,{imageDescription:asset=>imageDescription(book,asset)});
+}
+function renderPassage(container,passage,book,hit) {
+  renderSourcePassage(container,passage,book,hit,{imageDescription:asset=>imageDescription(book,asset)});
+}
 const verseControls=()=>`<div class="verse-controls" role="group" aria-label="Mouse’s tail typography"><span>Mouse’s tail</span><button data-action="verse-mode" data-mode="shape" aria-pressed="${!uniformVerse}">Source shape</button><button data-action="verse-mode" data-mode="uniform" aria-pressed="${uniformVerse}">Uniform type</button></div>`;
 const dirtyNote = () => dialog.open && editing && $('#note-text') && (editingRangeChanged || $('#note-text').value !== (editing.note || ''));
 const dirtyReflection = () => reflectionDraft && reflectionDraft.text !== reflectionDraft.base;
@@ -136,7 +148,7 @@ function companion() {
   const tailAllowed=b&&allowed(b.id,'chapter-03');
   const openingAllowed=b&&allowed(b.id,'chapter-01'),opening=b?.sections.find(s=>s.id==='chapter-01')?.blocks.find(x=>x.initial);
   const pictures=permitted.filter(x=>!['cover-jpg','title-png','spine-jpg','endpapers-jpg'].includes(x.asset.id));
-  const plate=x=>`<button class="plate-choice" data-action="enlarge-image" data-book="${b.id}" data-asset="${x.asset.id}" data-section="${x.section.id}" data-block="${x.block.id}"><span class="plate-paper"><img src="${imageSource(x.asset)}" alt="${esc(x.asset.alt)}" width="${x.asset.width}" height="${x.asset.height}"></span><span class="plate-caption">${x.asset.id==='f0002-image-jpg'?'Frontispiece':esc(x.section.title)} ${arrow()}</span></button>`;
+  const plate=x=>`<button class="plate-choice" data-action="enlarge-image" data-book="${b.id}" data-asset="${x.asset.id}" data-section="${x.section.id}" data-block="${x.block.id}"><span class="plate-paper"><img src="${imageSource(x.asset)}" alt="${esc(imageDescription(b,x.asset))}" width="${x.asset.width}" height="${x.asset.height}"></span><span class="plate-caption">${x.asset.id==='f0002-image-jpg'?'Frontispiece':esc(x.section.title)} ${arrow()}</span></button>`;
   return `<section class="page close-looking">
     <header class="page-head"><div><p class="eyebrow">Words & drawings</p><h1>Looking closer</h1></div>${returnLink()}</header>
     <div class="companion-top"><p class="small">The frontispiece and chapters you allow. Your reading place stays in the book.</p><button class="text" data-action="boundaries">Choose what I’ve read</button></div>
@@ -152,6 +164,7 @@ function companion() {
 async function render({keepScroll=false}={}) {
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
+  $('#catalogue-return').hidden=route.view!=='shelf';
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
   applyPrefs();document.title = route.view==='read' && activeBook ? `${activeSection.title} · Alice` : 'Alice · the illustrated reader';
@@ -306,7 +319,7 @@ async function act(target) {
       const b=bookById(target.dataset.book),a=b?.assets.find(a=>a.id===target.dataset.asset);if(!a)return;
       const s=b.sections.find(s=>s.id===target.dataset.section)||b.sections.find(s=>s.blocks.some(x=>x.figure?.asset===a.id)),block=s?.blocks.find(x=>x.figure?.asset===a.id);
       const inContext=s&&block&&(s===b.sections[0]||allowed(b.id,s.id)||(route.view==='read'&&activeBook===b&&activeSection===s));
-      openDialog('Illustration study',`<p class="eyebrow">Arthur Rackham · ${esc(s?.title||'Source illustration')}</p><label for="image-zoom">Enlarge image · <output id="image-zoom-value">100%</output></label><input id="image-zoom" type="range" min="100" max="300" step="25" value="100"><div class="image-viewport" tabindex="0" role="group" aria-label="Enlarged source illustration; scroll to inspect"><img id="enlarged-image" style="--image-ratio:${a.width/a.height};--image-zoom:1" src="${imageSource(a)}" alt="${esc(a.alt)}" width="${a.width}" height="${a.height}"></div>${inContext?`<button class="text image-context" data-action="context" data-book="${b.id}" data-section="${s.id}" data-block="${block.id}">Read around this illustration ${arrow()}</button>`:''}<p class="image-description">${esc(a.alt)}</p><p class="small">At 100%, the whole picture fits. Larger views scroll; enlargement cannot add detail. Close to return to the same reading place.</p>`);
+      openDialog('Illustration study',`<p class="eyebrow">Arthur Rackham · ${esc(s?.title||'Source illustration')}</p><label for="image-zoom">Enlarge image · <output id="image-zoom-value">100%</output></label><input id="image-zoom" type="range" min="100" max="300" step="25" value="100"><div class="image-viewport" tabindex="0" role="group" aria-label="Enlarged source illustration; scroll to inspect"><img id="enlarged-image" style="--image-ratio:${a.width/a.height};--image-zoom:1" src="${imageSource(a)}" alt="${esc(imageDescription(b,a))}" width="${a.width}" height="${a.height}"></div>${inContext?`<button class="text image-context" data-action="context" data-book="${b.id}" data-section="${s.id}" data-block="${block.id}">Read around this illustration ${arrow()}</button>`:''}<p class="image-description">${esc(imageDescription(b,a))}</p><p class="small">At 100%, the whole picture fits. Larger views scroll; enlargement cannot add detail. Close to return to the same reading place.</p>`);
       $('#image-zoom').addEventListener('input',e=>{$('#enlarged-image').style.setProperty('--image-zoom',Number(e.target.value)/100);$('#image-zoom-value').value=e.target.value+'%';});break;
     }
     case 'settings':await savePosition();settings();break;

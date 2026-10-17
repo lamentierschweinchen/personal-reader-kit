@@ -17,18 +17,18 @@ export async function designChecks({browser,base,engine,out}) {
   }
   try {
     for(const [name,width,height] of [['phone',390,844],['phone-landscape',844,390],['tablet',820,1180],['tablet-landscape',1180,820]]) {
-      await page.setViewportSize({width,height});await page.goto(base);await page.locator('.pond-survey img').waitFor();await page.locator('.pond-survey img').evaluate(img=>img.decode());await capture('home-'+name);
+      await page.setViewportSize({width,height});await page.goto(base);await page.locator('.pond-survey img').waitFor();await page.locator('.pond-survey img').evaluate(img=>img.decode());assert.equal(await page.getByRole('link',{name:'All readers',exact:true}).getAttribute('href'),'https://newreading.app/');await capture('home-'+name);
       const first=await page.locator('.opening-action .primary').boundingBox();assert.ok(first.y+first.height<height,JSON.stringify(first));
       assert.equal(await page.locator('h1').textContent(),'Walden');
       assert.equal(await page.locator('.book-row .book-title').first().textContent(),'On The Duty Of Civil Disobedience');
       assert.deepEqual(await page.locator('.pond-survey img').evaluate(e=>[e.naturalWidth,e.naturalHeight]),[731,412]);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-      await touchTargets('.masthead a,.masthead button,.field-shelf button,.field-shelf a,.site-footer button');
+      await touchTargets('.masthead a,.masthead button,.field-shelf button,.field-shelf a,.site-footer button,#catalogue-return');
       const labelSizes=await page.locator('.field-shelf .eyebrow,.field-shelf .small,.pond-survey figcaption').evaluateAll(es=>es.map(e=>parseFloat(getComputedStyle(e).fontSize)));assert.ok(labelSizes.every(size=>size>=11),JSON.stringify(labelSizes));
       await page.getByRole('button',{name:'Enlarge the original pond survey',exact:true}).click();
       assert.deepEqual(await page.locator('.image-view img').evaluate(e=>[e.naturalWidth,e.naturalHeight]),[731,412]);
       await touchTargets('.close-dialog');await close();assert.equal(new URL(page.url()).hash,'');
-      await page.locator('.book-row [data-action=resume]').last().click();await ready('civil-disobedience','chap20');
+      await page.locator('.book-row [data-action=resume]').last().click();await ready('civil-disobedience','chap20');assert.equal(await page.locator('#catalogue-return').isVisible(),false);
       assert.equal(await page.locator('.reader-heading h1').textContent(),'ON THE DUTY OF CIVIL DISOBEDIENCE');
       await page.getByRole('link',{name:'Works',exact:true}).click();
       await page.locator('.opening-action button').click();await page.locator('#reading-text[data-book=walden][data-position-ready=true]').waitFor();

@@ -25,3 +25,7 @@ Verified 34 Node tests, build, Chromium/WebKit complete actual-book and sharing/
 ## 16 October 2026 — curated public-kit snapshot
 
 The user authorized including the four reviewed examples in the established public kit. This directory is the selected current source snapshot, without the trial Git history, raw inputs or private artifacts. README/AGENTS/package audit commands reflect the enclosing repository; runtime assets and prepared edition bytes remain unchanged. Older entries and copied docs describe the independent trial at the time. No domain or deployment was changed.
+
+## 17 October 2026 — catalogue handoff and first-use clarity
+
+Added a quiet All readers link at the library entrance, hidden in reading and companion views. It uses an ordinary catalogue link and keeps the existing saved reading-place behavior. Both prepared works, source images, companions and edition identities are unchanged.

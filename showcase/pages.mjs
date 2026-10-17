@@ -44,22 +44,21 @@ const LEDGER = `    Boards.......................... $ 8.03½, mostly shanty boa
 const explore = [
   ['word', 'Follow a word', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
   ['accounts', 'Keep his accounts', 'he priced the nails.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>${esc(LEDGER)}</pre></div>`],
-  ['closer', 'Look closer', 'every line, full size', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><span class="lens" aria-hidden="true"></span></div></div>`],
-  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · a walk</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="A street map of the Marrakesh medina with a numbered walking route through six places from the book"></div>`],
+  ['closer', 'Look closer', 'every line, a little closer', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><a class="plate-open" href="/assets/alice-rabbit.png">View illustration ${arrow}</a></div></div>`],
+  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · map preview</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="Map preview: a suggested walk through six places in the Marrakesh medina from the book"></div>`],
 ];
 
-// Beginner routes. Codex and Antigravity follow Career OS (checked there
-// 13 August 2026); Claude Code follows the guide already published here.
+// Local-project routes checked against each provider’s official setup guide, 17 October 2026.
 const routes = {
-  codex: {name: 'Codex, in the ChatGPT desktop app', url: 'https://openai.com/codex/get-started/', label: 'Official Codex setup',
-    account: 'Uses your ChatGPT account. Codex is included across ChatGPT plans; limits vary by plan.',
-    steps: ['Install or update the ChatGPT desktop app for Mac or Windows.', 'Sign in, then choose Codex from the top-left menu. Not Chat or Work.', 'Add your <b>My reader</b> folder as the project, then open a new task.']},
+  codex: {name: 'Codex, in the ChatGPT desktop app', url: 'https://learn.chatgpt.com/docs/quickstart', label: 'Official Codex setup',
+    account: 'Uses your ChatGPT account. Availability and usage limits depend on your plan.',
+    steps: ['Install or update the ChatGPT desktop app, then sign in.', 'Select <b>Codex</b> and open your <b>My reader</b> folder as a project.', 'Start a local task in that project. Paste the instruction below.']},
   claude: {name: 'Claude Code, in the Claude desktop app', url: 'https://code.claude.com/docs/en/desktop-quickstart', label: 'Official Claude Code setup',
-    account: 'Requires a paid Claude plan. No paid plan? Use Codex.',
-    steps: ['Install the Claude desktop app and sign in.', 'Open <b>Code</b>, choose <b>Local</b>, then <b>Select folder</b>.', 'Pick your <b>My reader</b> folder.']},
-  antigravity: {name: 'Google Antigravity', url: 'https://antigravity.google/download', label: 'Official Antigravity download',
-    account: 'Uses your Google account. Not for Intel Macs; use Codex there.',
-    steps: ['Download Google Antigravity and sign in.', 'Create a Project in Local Mode on your <b>My reader</b> folder.', 'Keep command approval on.']},
+    account: 'Requires a paid Claude plan with Claude Code access.',
+    steps: ['Install the Claude desktop app, then sign in.', 'Open <b>Code</b> and choose <b>Local</b>.', 'Select your <b>My reader</b> folder. Paste the instruction below.']},
+  antigravity: {name: 'Google Antigravity', url: 'https://antigravity.google/docs/getting-started', label: 'Official Antigravity setup',
+    account: 'Uses your Google account. Usage limits depend on your plan.',
+    steps: ['Install the Antigravity app for your computer, then sign in.', 'Create a project using your <b>My reader</b> folder.', 'Start a task in <b>Local mode</b>. Paste the instruction below.']},
 };
 const samples = [
   ['austen', 'Pride and<br><i>Prejudice</i>', 'Jane Austen', 'Follow a word through the novel.'],
@@ -79,7 +78,7 @@ const head = ({title, desc, url, script}) => `<!doctype html>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
  <a class="brand" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a>
- <nav aria-label="Main"><a class="nav-link" href="/#samples">Samples</a><a class="nav-link" href="/learn/">How it works</a><button type="button" class="pill" data-copy="base" hidden>Copy prompt ${copyIcon}</button><a class="pill pill-dark" href="${GH}">GitHub ${arrow}</a></nav>
+ <nav aria-label="Main"><a class="nav-link" href="/#samples">Samples</a><a class="nav-link" href="/learn/" aria-label="How it works"><span class="nav-full">How it works</span><span class="nav-short" aria-hidden="true">Guide</span></a><button type="button" class="pill" data-copy="base" aria-label="Copy prompt" hidden><span class="nav-full">Copy prompt</span><span class="nav-short" aria-hidden="true">Copy</span> ${copyIcon}</button><a class="pill pill-dark" href="${GH}">GitHub ${arrow}</a></nav>
 </header>`;
 const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
 <div class="toast" role="status" aria-live="polite"></div>
@@ -108,6 +107,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 
 <section class="anybook reveal" aria-labelledby="any-title">
  <div class="marquee" aria-hidden="true"><div class="marquee-track" data-covers></div></div>
+ <button type="button" class="cover-motion" data-cover-motion hidden>Pause covers</button>
  <div class="anybook-text"><h2 id="any-title">Turn <span class="pen-under">any book</span> into your personal&nbsp;reader.</h2>
  <p class="hand any-note">An edition made just for you.</p></div>
 </section>
@@ -125,7 +125,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
    <div class="mode-text"><p class="kicker">Explore</p><h3>Whatever the book makes you curious about.</h3>
     <div class="tabs" role="tablist" aria-label="Examples of explorations">${explore.map(([id, t], i) => `<button type="button" role="tab" id="tab-${id}" aria-controls="panel-${id}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-explore="${id}" data-label="${t}">${t}</button>`).join('')}</div>
     <p class="hand note-explore" data-explore-note>${explore[0][2]}</p></div>
-   <div class="stage">${explore.map(([id, t, , panel], i) => `<div class="panel" id="panel-${id}" role="tabpanel" aria-labelledby="tab-${id}"${i ? ' hidden' : ''}>${panel}</div>`).join('')}</div>
+   <div class="stage">${explore.map(([id, t, , panel], i) => `<div class="panel" id="panel-${id}" role="tabpanel" aria-labelledby="tab-${id}" tabindex="0"${i ? ' hidden' : ''}>${panel}</div>`).join('')}</div>
   </article>
  </div>
 </section>
@@ -141,25 +141,26 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
   <label class="field field-book"><span>The book</span><input id="book" maxlength="200" placeholder="Walden"><em class="hand note-make" aria-hidden="true"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg>for Dad’s birthday?</em></label>
   <label class="field"><span>I’d like to…</span><textarea id="idea" rows="2" maxlength="1000" placeholder="make an edition for Dad, who still means to build the cabin"></textarea></label>
   <div class="ideas"><span>Or begin with</span><button type="button" data-idea="make a beautiful, quiet place to read it">a quiet place to read</button><button type="button" data-idea="follow a word that keeps catching my attention">a word that follows me</button><button type="button" data-idea="make a companion to the places in the book">the places in its pages</button><button type="button" data-idea="make an edition as a gift for someone I love">a gift for someone</button></div>
-  <div class="idea-actions"><button type="button" class="btn" data-copy="personal" hidden>Copy my starting point ${arrow}</button><p class="status" role="status"></p></div>
+  <div class="idea-actions"><button type="submit" class="btn" data-copy="personal" hidden>Copy my starting point ${arrow}</button><p class="status" role="status"></p></div>
  </form>
  <div class="side reveal">
   <ol class="steps">
    <li><b>1</b><div><h3>Paste it into a coding app.</h3><p>Codex, Claude Code or similar. It starts with a sample, then asks for your book.</p></div></li>
    <li><b>2</b><div><h3>Read, and ask for changes.</h3><p>A quiet reader, or one shaped around your curiosity.</p></div></li>
-   <li><b>3</b><div><h3>Take it with you.</h3><p>On your phone, offline.</p></div></li>
+   <li><b>3</b><div><h3>Take it with you.</h3><p>Save it on your phone, then check it offline.</p></div></li>
   </ol>
   <a class="newbie" href="/learn/"><span class="hand">Never used a coding app?</span><span class="newbie-line">The guide shows you which app to open and what to paste, step by step.</span><span class="newbie-go">Read the guide ${arrow}</span></a>
  </div>
  <div class="faq reveal">
-  <details><summary>What happens to the words? ${plus}</summary><p>They’re kept exactly, with their emphasis and structure. Everything new lives around them.</p></details>
+  <details><summary>What happens to the words? ${plus}</summary><p>The original wording, emphasis and structure come first. Any converted book needs checking against the source; new features live around it.</p></details>
   <details><summary>What do I need? ${plus}</summary><p>A computer, a coding app, and a book you own or one in the public domain. The kit is free and open source; your AI app may have plan costs or usage limits.</p></details>
-  <details><summary>What stays private? ${plus}</summary><p>Books you import and your notes stay in your browser. This site has no analytics or third-party scripts. Files you give an AI app may be processed by its provider.</p></details>
+  <details><summary>What stays private? ${plus}</summary><p>In the finished reader, imported books and notes stay in that browser. They don’t sync between devices. Files you give an AI app may be processed by its provider; books you choose to publish will be online. This site has no analytics or third-party scripts.</p></details>
   <details><summary>Can I make one for someone else? ${plus}</summary><p>Yes, with a public-domain book or one you have permission to share. Owning a book doesn’t give permission to publish its text.</p></details>
   <details id="prompt-box" open><summary>Just the prompt, please. ${plus}</summary><textarea id="starter" readonly spellcheck="false" aria-label="Starter prompt">${esc(prompt)}</textarea><div class="prompt-actions"><button type="button" class="link" data-copy="base" hidden>Copy prompt</button><a class="link" href="/start.txt">Full instruction</a><a class="link" href="${GH}">Get the repository ${arrow}</a></div></details>
  </div>
 </section>
 </main>
+<dialog class="illustration-dialog" aria-label="White Rabbit illustration"><form method="dialog"><button>Close</button></form><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"></dialog>
 ${foot}
 <script type="application/json" id="data">${JSON.stringify({threads, explore: explore.map(([id, , note]) => [id, note])})}</script>
 </body></html>`;
@@ -173,10 +174,10 @@ const learn = `${head({title: 'How it works · new reading', desc: 'Make your ow
 
 <section class="g-step" id="app"><b class="g-num">1</b><div class="g-body">
  <h2>Open the right app.</h2>
- <p>First, make an empty folder called <b>My reader</b>. That’s where the reader’s files will live. Then open it in a coding app: an AI app that can work with files on your computer and asks before running anything.</p>
- <fieldset class="learn-q"><legend>Which AI do you already use?</legend>${[['chatgpt', 'ChatGPT'], ['claude', 'Claude'], ['gemini', 'Gemini'], ['none', 'None yet']].map(([v, l]) => `<label><input type="radio" name="ai" value="${v}"${v === 'chatgpt' ? ' checked' : ''}><span>${l}</span></label>`).join('')}</fieldset>
- ${Object.entries(routes).map(([id, r]) => `<div class="route" data-route="${id}"${id === 'codex' ? '' : ' hidden'}><p class="route-name">${r.name}</p><ol>${r.steps.map(x => `<li>${x}</li>`).join('')}</ol><p class="route-account">${r.account}</p><a class="link" href="${r.url}">${r.label} ${arrow}</a></div>`).join('')}
- <p class="learn-stop"><b>Still in a browser chat? Stop there.</b> A chat window can’t create files. Use one of the apps above.</p>
+ <p>First, make an empty folder called <b>My reader</b>. That’s where the reader’s files will live. Then open it in a coding app: an AI app that can create, edit and run files in a folder on your computer.</p>
+ <fieldset class="learn-q" hidden><legend>Which AI do you already use?</legend>${[['chatgpt', 'ChatGPT'], ['claude', 'Claude'], ['gemini', 'Gemini'], ['none', 'None yet']].map(([v, l]) => `<label><input type="radio" name="ai" value="${v}"${v === 'chatgpt' ? ' checked' : ''}><span>${l}</span></label>`).join('')}</fieldset>
+ ${Object.entries(routes).map(([id, r]) => `<div class="route" data-route="${id}"><p class="route-name">${r.name}</p><ol>${r.steps.map(x => `<li>${x}</li>`).join('')}</ol><p class="route-account">${r.account}</p><a class="link" href="${r.url}">${r.label} ${arrow}</a></div>`).join('')}
+ <p class="learn-stop">For this guide, use a local project. The app needs access to your <b>My reader</b> folder so it can build and open the reader.</p>
 </div></section>
 
 <section class="g-step" id="paste"><b class="g-num">2</b><div class="g-body">
@@ -196,8 +197,8 @@ const learn = `${head({title: 'How it works · new reading', desc: 'Make your ow
 
 <section class="g-step" id="phone"><b class="g-num">4</b><div class="g-body">
  <h2>Take it with you.</h2>
- <p>Ask it to put the reader online at your own address; it can walk you through GitHub and Vercel when you need them. Open the site on your phone and add it to your home screen.</p>
- <p>To check it works offline: in the reader’s Settings, choose <b>Check offline copy</b> and wait for <b>Available offline</b>. Turn off Wi-Fi and mobile data, reopen it and save a note. Keep a reading bundle as your backup.</p>
+ <p>Ask it to put the reader online at your own address; it can walk you through GitHub and Vercel when you need them. Only include books you have permission to share; private books can be imported in the reader after publishing. Open the site on your phone and add it to your home screen.</p>
+ <p>Open the reader from its new home-screen icon while you’re online. Check that your book and notes are there. In Settings, choose <b>Check offline copy</b> and wait for <b>Available offline</b>. Then turn off Wi-Fi and mobile data, reopen it and save a note. Keep a private reading bundle as your backup.</p>
  <a class="link" href="${GH}/blob/main/docs/DEPLOYMENT.md">Publishing guide ${arrow}</a>
 </div></section>
 

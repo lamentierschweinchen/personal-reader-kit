@@ -14,6 +14,7 @@ const viewports=[['phone',402,874],['phone-landscape',874,402],['tablet',820,118
 const navigationTargets='.wordmark,.masthead nav a,.type-button';
 const exact=s=>s.blocks.map(b=>b.text+b.after).join('');
 const section=id=>book.sections.find(s=>s.id===id);
+const frontispiece=book.assets.find(a=>a.id==='f0002-image-jpg'),correctedFrontispiece='Frontispiece: Alice stands facing the viewer with her hands behind her back.';
 const state=p=>p.evaluate(async()=>await(await import('/db.mjs')).loadState());
 const close=p=>p.getByRole('button',{name:'Close ×',exact:true}).click();
 async function persistedPosition(page,bookId,blockId){
@@ -32,7 +33,7 @@ function sameReadingPlace(actual,expected,blockHeight){
   assert.deepEqual({...actual,ratio:0},{...expected,ratio:0});
   assert.ok(Math.abs(actual.ratio-expected.ratio)*blockHeight<1,'Reading offset changes by less than one CSS pixel');
 }
-async function ready(page,s){await page.locator(`#reading-text[data-section="${s}"][data-position-ready="true"]`).waitFor();}
+async function ready(page,s){await page.locator(`#reading-text[data-section="${s}"][data-position-ready="true"]`).waitFor();assert.equal(await page.locator('#catalogue-return').isVisible(),false);}
 async function dismissNotice(page){await page.waitForFunction(()=>document.body.dataset.editionReady==='true');if(await page.evaluate(()=>document.querySelector('#dialog').open&&document.querySelector('#dialog-title')?.textContent==='Source edition notice'))await close(page);}
 async function go(page,s){await page.goto(`${base}/#read/${id}/${s}`);await ready(page,s);await dismissNotice(page);}
 async function settle(page){await page.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
@@ -71,14 +72,14 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     context=await pw[engine].launchPersistentContext(profile,{...launch,viewport:{width:402,height:874},isMobile:true,hasTouch:true});
     const page=context.pages()[0]||await context.newPage();
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('data:')&&!r.url().startsWith('blob:'))requests.push(r.url());});
-    await page.goto(base);await page.locator('.edition-drawing img').waitFor();await dismissNotice(page);await capture(page,engine+'-home');await overflow(page,'home');
+    await page.goto(base);await page.locator('.edition-drawing img').waitFor();await dismissNotice(page);assert.equal(await page.getByRole('link',{name:'All readers',exact:true}).getAttribute('href'),'https://newreading.app/');await capture(page,engine+'-home');await overflow(page,'home');
     await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
     await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
     // The entrance and actual reading must remain composed in both orientations.
     // Source-inline correction links are excluded from this chrome target check.
     for(const [label,width,height] of viewports){
       await page.setViewportSize({width,height});await page.goto(base);await page.locator('.edition-drawing img').waitFor();await capture(page,engine+'-'+label+'-home');await overflow(page,label+' home');
-      await targets(page,navigationTargets+',.edition-entry button,.edition-entry a,.edition-bottom a,.edition-details summary',label+' home');assert.equal(await page.locator('.edition-intro .eyebrow,.edition-credit>span,.edition-drawing figcaption').evaluateAll(nodes=>nodes.every(e=>parseFloat(getComputedStyle(e).fontSize)>=11)),true,'Readable authored credits');
+      await targets(page,navigationTargets+',.edition-entry button,.edition-entry a,.edition-bottom a,.edition-details summary,#catalogue-return',label+' home');assert.equal(await page.locator('.edition-intro .eyebrow,.edition-credit>span,.edition-drawing figcaption').evaluateAll(nodes=>nodes.every(e=>parseFloat(getComputedStyle(e).fontSize)>=11)),true,'Readable authored credits');
       await go(page,'chapter-01');await page.evaluate(()=>scrollTo(0,0));await capture(page,engine+'-'+label+'-reading');await overflow(page,label+' reading');
       await targets(page,navigationTargets+',.reader-tools button,.chapter-links a',label+' reading');
       await page.evaluate(()=>scrollTo(0,650));await settle(page);ergonomics.push({view:label,mode:'reading',...await readingHeight(page,label)});
@@ -86,6 +87,8 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     for(const [label,width,height] of [viewports[0],viewports[2]]){
       await page.setViewportSize({width,height});await page.goto(base+'/#companion');await page.locator('.looking-exercises').waitFor();await capture(page,engine+'-'+label+'-companion');await overflow(page,label+' companion');
       assert.equal(await page.locator('.plate-choice').count(),1,'Only the frontispiece is initially permitted');
+      assert.equal(await page.locator('.plate-choice img').getAttribute('alt'),correctedFrontispiece);
+      await page.locator('.plate-choice').click();assert.equal(await page.locator('#enlarged-image').getAttribute('alt'),correctedFrontispiece);assert.equal(await page.locator('.image-description').textContent(),correctedFrontispiece);await close(page);
       await targets(page,navigationTargets+',.page-head button,.companion-top button,.experiment-tabs button,.plate-choice',label+' companion');assert.equal(await page.locator('.close-looking .eyebrow,.plate-caption').evaluateAll(nodes=>nodes.every(e=>parseFloat(getComputedStyle(e).fontSize)>=11)),true,'Readable editorial labels');
     }
     await page.setViewportSize({width:402,height:874});
@@ -94,6 +97,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     for(const s of book.sections){
       await go(page,s.id);assert.equal(await page.locator('#reading-text').textContent(),exact(s),s.id+' exact DOM text');
       await settle(page);
+      if(s.id==='front'){assert.equal(await page.locator('[data-asset="f0002-image-jpg"] img').getAttribute('alt'),correctedFrontispiece);assert.equal(await page.locator('[data-asset="f0002-image-jpg"]').getAttribute('aria-label'),'Enlarge illustration: '+correctedFrontispiece);}
       const imageCount=s.blocks.reduce((n,b)=>n+Number(!!b.figure)+Number(!!b.initial),0);
       assert.equal(await page.locator('#reading-text img').count(),imageCount);
       assert.equal(await page.locator('#reading-text img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),true);
@@ -189,7 +193,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     // Export through the UI and restore twice in a fresh browser context.
     await page.getByRole('button',{name:'Reading settings'}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:/Export passages & progress/}).click();const recordsDownload=await downloadPromise,recordsPath=new URL(engine+'-records.json',out).pathname;await recordsDownload.saveAs(recordsPath);
     await page.getByRole('button',{name:'Export a private reading bundle',exact:true}).click();const bundleDownloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Download private bundle'}).click();const bundleDownload=await bundleDownloadPromise,bundlePath=new URL(engine+'-bundle.json',out).pathname;await bundleDownload.saveAs(bundlePath);
-    const exported=JSON.parse(await readFile(bundlePath,'utf8'));assert.equal(exported.books.length,2);assert.equal(exported.books[0].assets.length,38);assert.equal(exported.state.notes.length,2);assert.deepEqual(exported.books.find(b=>b.id===id),book,'Rendered About correction must not change the exported exact edition');if(await page.locator('#dialog').evaluate(e=>e.open))await close(page);
+    const exported=JSON.parse(await readFile(bundlePath,'utf8'));assert.equal(exported.books.length,2);assert.equal(exported.books[0].assets.length,38);assert.equal(exported.state.notes.length,2);assert.deepEqual(exported.books.find(b=>b.id===id),book,'Presentation corrections must not change the exported exact edition');if(await page.locator('#dialog').evaluate(e=>e.open))await close(page);
     browser=await pw[engine].launch(launch);const fresh=await browser.newContext({viewport:{width:402,height:874}}),other=await fresh.newPage();await other.goto(base);await other.locator('.edition-drawing img').waitFor();await dismissNotice(other);
     for(let i=0;i<2;i++){await other.getByRole('button',{name:'Reading settings'}).click();await other.locator('#bundle-file').setInputFiles(bundlePath);await other.getByRole('button',{name:'Restore on this device',exact:true}).click();await other.waitForFunction(()=>!document.querySelector('#dialog').open);}
     assert.equal((await state(other)).notes.length,2);assert.deepEqual(await other.evaluate(async()=>{const {books}=await(await import('/db.mjs')).loadBooks();return books.find(b=>b.id==='qa-portable-alice');}),portable);assert.equal((await state(other)).boundaries[id],undefined);assert.deepEqual((await state(other)).positions[id],exported.state.positions[id]);
@@ -203,8 +207,8 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     // The release-specific About copy belongs only to the exact built-in bytes.
     // Matching ID/source fields alone must not rewrite a modified or imported book.
     const changedContext=await browser.newContext({serviceWorkers:'block'}),changedBook={...book,title:book.title+' (modified QA edition)'};
-    await changedContext.route(base+'/library.json',r=>r.fulfill({json:[changedBook]}));const changedPage=await changedContext.newPage();await changedPage.goto(`${base}/#read/${id}/chapter-01`);await ready(changedPage,'chapter-01');await dismissNotice(changedPage);await changedPage.getByRole('button',{name:'About this work'}).click();assert.ok((await changedPage.locator('#dialog').textContent()).includes(book.context[3].text));await close(changedPage);await changedContext.close();
-    const importedContext=await browser.newContext({serviceWorkers:'block'}),importedPage=await importedContext.newPage(),importedBook={...book,id:'qa-context-copy',title:'Imported context copy (QA)'};await importedPage.goto(base);await dismissNotice(importedPage);await importedPage.evaluate(async b=>{await(await import('/db.mjs')).saveBook(b);},importedBook);await importedPage.goto(`${base}/#read/${importedBook.id}/chapter-01`);await importedPage.reload();await ready(importedPage,'chapter-01');await importedPage.getByRole('button',{name:'About this work'}).click();assert.ok((await importedPage.locator('#dialog').textContent()).includes(book.context[3].text));await importedContext.close();
+    await changedContext.route(base+'/library.json',r=>r.fulfill({json:[changedBook]}));const changedPage=await changedContext.newPage();await changedPage.goto(`${base}/#read/${id}/chapter-01`);await ready(changedPage,'chapter-01');await dismissNotice(changedPage);await changedPage.getByRole('button',{name:'About this work'}).click();assert.ok((await changedPage.locator('#dialog').textContent()).includes(book.context[3].text));await close(changedPage);await changedPage.goto(`${base}/#read/${id}/front`);await ready(changedPage,'front');assert.equal(await changedPage.locator('[data-asset="f0002-image-jpg"] img').getAttribute('alt'),frontispiece.alt);await changedPage.goto(`${base}/#companion`);await changedPage.locator('.plate-choice img').waitFor();assert.equal(await changedPage.locator('.plate-choice img').getAttribute('alt'),frontispiece.alt);await changedContext.close();
+    const importedContext=await browser.newContext({serviceWorkers:'block'}),importedPage=await importedContext.newPage(),importedBook={...book,id:'qa-context-copy',title:'Imported context copy (QA)'};await importedPage.goto(base);await dismissNotice(importedPage);await importedPage.evaluate(async b=>{await(await import('/db.mjs')).saveBook(b);},importedBook);await importedPage.goto(`${base}/#read/${importedBook.id}/chapter-01`);await importedPage.reload();await ready(importedPage,'chapter-01');await importedPage.getByRole('button',{name:'About this work'}).click();assert.ok((await importedPage.locator('#dialog').textContent()).includes(book.context[3].text));await close(importedPage);await importedPage.goto(`${base}/#read/${importedBook.id}/front`);await ready(importedPage,'front');assert.equal(await importedPage.locator('[data-asset="f0002-image-jpg"] img').getAttribute('alt'),frontispiece.alt);await importedContext.close();
     await browser.close();browser=null;
     // Stop the origin and the browser. Reopen its persistent profile from disk,
     // then navigate with no server. Both raw and browser uncached requests must fail.

@@ -1,21 +1,20 @@
+import {readDraft, personalPrompt, setupCopy} from '/handoff.mjs';
+
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-$$('[data-copy]').forEach(el => el.hidden = false);
 
 // One recommendation for the AI you already use.
 const routeFor = {chatgpt: 'codex', claude: 'claude', gemini: 'antigravity', none: 'codex'};
-$$('input[name=ai]').forEach(r => r.addEventListener('change', () => {
-  const id = routeFor[r.value];
+function updateRoute() {
+  const id = routeFor[$('input[name=ai]:checked')?.value] || 'codex';
   $$('[data-route]').forEach(el => el.hidden = el.dataset.route !== id);
-}));
+}
+$$('input[name=ai]').forEach(r => r.addEventListener('change', updateRoute));
+updateRoute();
+$('.learn-q').hidden = false;
 
 // Copy the first instruction.
-const base = $('#starter').value, toast = $('.toast'), fallback = $('.fallback'); let timer;
-$$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(base);
-    toast.textContent = 'Copied. Paste it into your coding app.';
-    toast.classList.add('on'); clearTimeout(timer); timer = setTimeout(() => toast.classList.remove('on'), 3000);
-  } catch {
-    const t = fallback.querySelector('textarea'); t.value = base; fallback.showModal(); t.select();
-  }
-}));
+const starter = $('#starter'), base = starter.value;
+function updatePrompt() { starter.value = personalPrompt(base, readDraft() || {}); }
+updatePrompt();
+const handoff = setupCopy(() => starter.value);
+window.addEventListener('pageshow', () => {updateRoute(); updatePrompt(); handoff.clear();});

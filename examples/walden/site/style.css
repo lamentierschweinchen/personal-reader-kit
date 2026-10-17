@@ -180,3 +180,6 @@
 .fragment-surface[data-omitted-start]::before{content:'… '}.fragment-surface[data-omitted-end]::after{content:' …'}
 
 .passage-sharing{border-block:1px solid var(--line);padding:16px 0;margin:0 0 24px}.passage-sharing .dialog-actions{margin:0;gap:24px;flex-wrap:wrap}.passage-sharing .small{margin:0 0 8px}.passage-sharing textarea{white-space:pre-wrap;min-height:160px}.passage-sharing button{min-width:44px}
+
+/* A catalogue exit belongs to the edition entrance, outside the reading view. */
+.site-footer .catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px;white-space:nowrap}

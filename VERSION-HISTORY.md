@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Live-site UX review · 17 October 2026
+
+New reading preserves the book and idea between its homepage and setup guide in tab-only session storage. Every copy control includes that draft; Enter copies the starting point, suggestions preserve existing writing, and clipboard refusal leaves selectable text with reliable focus return. The mobile header keeps samples, guide, copy and repository access. Read features no longer imitate buttons, Explore tabs have complete keyboard navigation and visible focus, the illustration opens with a recoverable return, and moving covers can be paused. Setup links and provider instructions are current; publishing and installed-app offline steps describe their actual boundaries.
+
+All four sample entrances offer a quiet All readers link. Austen distinguishes an unopened spoiler scope from a failed word search. Alice corrects one authored image description only for the verified built-in edition; source data, older bundles and imported editions are unchanged. The personal introduction at read.lookatseel.com is unchanged.
+
 ## Phones and an illustrated page · 17 October 2026
 
 The covers now open onto recognisable phones: the inner page narrows and rounds as the cover turns, revealing a bezel, speaker and home bar. Alice’s selection toolbar and the three preview captions are removed. Below the opening, an unframed illustrated page pairs “Read it. Explore it.” with Rackham’s rabbit and the exact `chapter-01-b006` passage from the reviewed Alice edition. The existing image pixels are reused unchanged. Get started and the quiet footer remain the only following sections. A follow-up removes the four detached feature lines beneath the Alice passage; the existing Get started section supplies the next action.

@@ -16,7 +16,7 @@ async function launchServer(){server=spawn(process.execPath,['scripts/serve.mjs'
 async function stopServer(){if(server&&server.exitCode===null){server.kill();await once(server,'exit');}server=null;}
 async function settle(p){await p.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});await p.waitForTimeout(100);}
 async function shot(p,name){await settle(p);await p.waitForFunction(()=>!document.querySelector('#status')?.textContent,null,{timeout:6500});await p.screenshot({path:new URL(name+'.png',out).pathname,animations:'disabled'});}
-async function read(p,b,s){await p.goto(`${base}/#read/${b}/${s}`);await p.locator(`#reading-text[data-book="${b}"][data-section="${s}"][data-position-ready="true"]`).waitFor();await settle(p);}
+async function read(p,b,s){await p.goto(`${base}/#read/${b}/${s}`);await p.locator(`#reading-text[data-book="${b}"][data-section="${s}"][data-position-ready="true"]`).waitFor();assert.equal(await p.locator('#catalogue-return').isVisible(),false);await settle(p);}
 async function select(p,blockId,start,end,endBlockId=blockId){return p.evaluate(({blockId,start,end,endBlockId})=>{const range=document.createRange();function point(id,offset){const el=document.querySelector(`#reading-text [data-block="${id}"]`),w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode())){if(offset<=n.length)return[n,offset];offset-=n.length;}throw Error('Offset out of range');}range.setStart(...point(blockId,start));range.setEnd(...point(endBlockId,end));const sel=getSelection();sel.removeAllRanges();sel.addRange(range);const rect=range.getBoundingClientRect();scrollBy(0,rect.top-210);return range.toString();},{blockId,start,end,endBlockId});}
 async function close(p){await p.getByRole('button',{name:'Close ×',exact:true}).click();}
 async function overflow(p){const d=await p.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));assert.ok(d.scroll<=d.width,JSON.stringify(d));}
@@ -26,7 +26,7 @@ try{for(const engine of process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium
  try{
   const ctx=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true}),p=await ctx.newPage(),errors=[],external=[];
   p.on('pageerror',e=>errors.push(e.message));p.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('data:')&&!r.url().startsWith('blob:'))external.push(r.url());});
-  await p.goto(base);await p.locator('.book-row').nth(1).waitFor();await p.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
+  await p.goto(base);await p.locator('.book-row').nth(1).waitFor();assert.equal(await p.getByRole('link',{name:'All readers',exact:true}).getAttribute('href'),'https://newreading.app/');assert.equal(await p.locator('#catalogue-return').isVisible(),true);await p.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
   for(const [label,width,height] of [['phone',402,874],['phone-landscape',874,402],['tablet',820,1180],['tablet-landscape',1180,820],['narrow',320,740]]){await p.setViewportSize({width,height});await overflow(p);await shot(p,`${engine}-${label}-noticeboard`);}
   await p.setViewportSize({width:402,height:874});
   // Render every actual block with the live renderer, checking text, marks and links.

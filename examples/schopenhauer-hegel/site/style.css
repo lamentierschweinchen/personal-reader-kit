@@ -66,3 +66,6 @@
 @media(max-height:500px) and (max-width:1000px){.lecture-halls{display:block}.lecture-hall.hall-away{display:none}.lecture-hall+.lecture-hall{padding:0;border:0}.lecture-hall h2{font-size:1.6rem;min-height:0;margin-bottom:8px}.lecture-hall .small{margin-bottom:4px}.orientation{margin:4px 0 8px}.hall-scroll{height:65dvh;min-height:180px}}
 
 .passage-sharing{border-block:1px solid var(--line);padding:16px 0;margin:0 0 24px}.passage-sharing .dialog-actions{margin:0;gap:24px;flex-wrap:wrap}.passage-sharing .small{margin:0 0 8px}.passage-sharing textarea{white-space:pre-wrap;min-height:160px}.passage-sharing button{min-width:44px}
+
+/* A catalogue exit belongs to the edition entrance, outside the reading view. */
+.site-footer .catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px;white-space:nowrap}

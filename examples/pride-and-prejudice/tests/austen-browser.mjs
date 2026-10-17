@@ -15,7 +15,7 @@ async function stop(){const child=server;server=null;if(child&&child.exitCode===
 const state=p=>p.evaluate(async()=> (await import('/db.mjs')).loadState());
 async function settled(page){await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});}
 async function snap(page,name){if(await page.locator('#reading-text').count())await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled(page);await page.screenshot({path:new URL(name+'.png',output).pathname,animations:'disabled'});}
-async function open(page,id){await page.evaluate(id=>location.hash=`#read/austen-pride-1894/${id}`,id);await page.locator(`#reading-text[data-section="${id}"][data-position-ready="true"]`).waitFor();if(await page.locator('[data-action=reveal-source]').count())await page.locator('[data-action=reveal-source]').click();await settled(page);}
+async function open(page,id){await page.evaluate(id=>location.hash=`#read/austen-pride-1894/${id}`,id);await page.locator(`#reading-text[data-section="${id}"][data-position-ready="true"]`).waitFor();assert.equal(await page.locator('#catalogue-return').isVisible(),false);if(await page.locator('[data-action=reveal-source]').count())await page.locator('[data-action=reveal-source]').click();await settled(page);}
 async function close(page){if(await page.locator('dialog[open]').count())await page.getByRole('button',{name:'Close ×',exact:true}).click();}
 async function waitNote(page,n=1){await page.waitForFunction(async n=>(await (await import('/db.mjs')).loadState()).notes.length===n,n);}
 async function selection(page,blockId,start,end,second){return page.evaluate(({blockId,start,end,second})=>{
@@ -170,13 +170,14 @@ try{
    const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true}),page=await context.newPage();
    const errors=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('blob:'))external.push(r.url());});
    await page.goto(base);await page.locator('.edition-intro').waitFor();assert.equal(await page.locator('#first-source-notice').isVisible(),true);
+   assert.equal(await page.getByRole('link',{name:'All readers',exact:true}).getAttribute('href'),'https://newreading.app/');
    const home=[];
    for(const [name,width,height] of [...sizes,['small-phone',320,568]]){
     await page.setViewportSize({width,height});await settled(page);
     const frame=await page.evaluate(()=>{const image=document.querySelector('.title-page-figure img'),cta=document.querySelector('.edition-start button'),ir=image.getBoundingClientRect(),cr=cta.getBoundingClientRect();return{art:{top:ir.top,bottom:ir.bottom,width:ir.width,height:ir.height,loaded:image.naturalWidth>0},cta:{top:cr.top,bottom:cr.bottom},viewport:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth};});
     assert.ok(frame.art.loaded&&frame.art.width>0&&frame.art.top>=0&&frame.art.bottom<=height);
     assert.ok(frame.cta.top>=0&&frame.cta.bottom<=height,`${engine} ${name}: Begin outside viewport ${JSON.stringify(frame)}`);assert.equal(frame.overflow,false);
-    await targets(page,'.masthead a,.masthead button,.edition-start button,.edition-links a,.edition-links button');home.push({name,width,height,...frame});await snap(page,`${engine}-direction-home-${name}`);
+    await targets(page,'.masthead a,.masthead button,.edition-start button,.edition-links a,.edition-links button,#catalogue-return');home.push({name,width,height,...frame});await snap(page,`${engine}-direction-home-${name}`);
    }
    await page.setViewportSize({width:390,height:844});await snap(page,`${engine}-austen-home-phone`);
    await page.getByRole('button',{name:'Begin Chapter 1'}).click();await page.locator('#reading-text[data-section=chapter-1]').waitFor();assert.equal(await page.locator('#first-source-notice').count(),0);
@@ -245,6 +246,8 @@ try{
    await open(page,'chapter-5');await page.evaluate(()=>scrollTo(0,1100));await page.waitForTimeout(350);
    await page.getByRole('link',{name:'Words',exact:true}).click();
    assert.equal(await page.locator('.echo-list li').count(),0);
+   assert.match(await page.locator('.index-empty').textContent(),/Choose the chapters you’ve read/);assert.doesNotMatch(await page.locator('.austen-companion').textContent(),/No matches|0 found/);assert.equal(await page.locator('#echo-form').count(),0);
+   await snap(page,`${engine}-word-index-before-boundary`);
    await page.getByRole('button',{name:'Choose what I’ve read',exact:true}).click();await page.locator(`#boundary-${book.id}`).selectOption(String(book.sections.findIndex(s=>s.id==='chapter-5')));await page.getByRole('button',{name:'Set my boundaries'}).click();
    await page.getByRole('button',{name:'pride',exact:true}).click();assert.ok(await page.locator('.echo-list li').count()>0);
    const omission=await page.locator('.echo-list .fragment-surface').first().evaluate(el=>({before:getComputedStyle(el,'::before').content,after:getComputedStyle(el,'::after').content,afterDisplay:getComputedStyle(el,'::after').display,description:el.getAttribute('aria-description'),match:el.querySelector('mark').textContent,text:el.textContent}));

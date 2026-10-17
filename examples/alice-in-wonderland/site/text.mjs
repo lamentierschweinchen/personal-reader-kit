@@ -1,19 +1,19 @@
 import {selectionQuote,excerptSection} from './core.mjs';
-export function renderPassage(container,passage,book,hit) {
+export function renderPassage(container,passage,book,hit,options={}) {
   container.toggleAttribute('data-omitted-start',!!hit?.omittedStart);
   container.toggleAttribute('data-omitted-end',!!hit?.omittedEnd);
   const omitted=[hit?.omittedStart&&'Earlier text omitted.',hit?.omittedEnd&&'Later text omitted.'].filter(Boolean).join(' ');
   if(omitted)container.setAttribute('aria-description',omitted);else container.removeAttribute('aria-description');
   const section=excerptSection(passage,book);
-  renderText(container,section,[],book);
+  renderText(container,section,[],book,options);
   if(hit) {
     const block=section.blocks[0];
-    renderText(container,section,[{id:'occurrence',segments:[{blockId:block.id,start:hit.matchStart,end:hit.matchEnd}]}],book);
+    renderText(container,section,[{id:'occurrence',segments:[{blockId:block.id,start:hit.matchStart,end:hit.matchEnd}]}],book,options);
     container.querySelectorAll('mark').forEach(mark=>mark.removeAttribute('data-note'));
   }
 }
 export const imageSource = asset => `data:${asset.mime};base64,${asset.data}`;
-export function renderText(container, section, notes = [], book = null) {
+export function renderText(container, section, notes = [], book = null, options = {}) {
   container.replaceChildren();
   for (const block of section.blocks) {
     const node = document.createElement(block.kind === 'heading' ? 'h3' : 'div');
@@ -24,9 +24,10 @@ export function renderText(container, section, notes = [], book = null) {
     const assetFor=id=>book?.assets?.find(a=>a.id===id);
     const illustration=(asset,decorative=false)=>{
       if(!asset)throw new Error('The source illustration is missing from this exact edition.');
-      const img=document.createElement('img');img.src=imageSource(asset);img.width=asset.width;img.height=asset.height;img.alt=decorative?'':asset.alt;img.decoding='async';
+      const description=options.imageDescription?.(asset)??asset.alt;
+      const img=document.createElement('img');img.src=imageSource(asset);img.width=asset.width;img.height=asset.height;img.alt=decorative?'':description;img.decoding='async';
       if(decorative){img.setAttribute('aria-hidden','true');return img;}
-      const button=document.createElement('button');button.type='button';button.className='source-illustration';button.dataset.action='enlarge-image';button.dataset.asset=asset.id;button.dataset.book=book.id;button.setAttribute('aria-label',`Enlarge illustration: ${asset.alt}`);button.append(img);return button;
+      const button=document.createElement('button');button.type='button';button.className='source-illustration';button.dataset.action='enlarge-image';button.dataset.asset=asset.id;button.dataset.book=book.id;button.setAttribute('aria-label',`Enlarge illustration: ${description}`);button.append(img);return button;
     };
     if(block.figure)node.append(illustration(assetFor(block.figure.asset)));
     if(block.kind==='rule')node.setAttribute('role','separator');

@@ -29,6 +29,19 @@ for(const engine of ['chromium','webkit']){
    const manifest=await (await page.request.get(url+'manifest.webmanifest')).json();assert.equal(manifest.scope,'/'+slug+'/');assert.equal(manifest.start_url,'/'+slug+'/');assert.equal(manifest.id,'/'+slug+'/');
    await page.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});
    await page.screenshot({path:new URL(engine+'-'+slug+'.png',out).pathname});
+   const beforeExit=await page.evaluate(async slug=>(await import('/'+slug+'/db.mjs')).loadState(),slug);
+   assert.equal(await page.locator('#catalogue-return').isVisible(),false,'Catalogue link stays outside reading');
+   await page.locator('[data-nav="shelf"]').click();await page.locator('#catalogue-return').waitFor();
+   assert.equal(await page.locator('#catalogue-return').getAttribute('href'),'https://newreading.app/');
+   // Production is same-origin. Only map the production entrance to this test server.
+   await page.locator('#catalogue-return').evaluate((a,base)=>a.href=base+'/',base);
+   await page.locator('#catalogue-return').click();await page.locator('.hero').waitFor();
+   await page.goBack();await page.locator('#catalogue-return').waitFor();
+   const afterExit=await page.evaluate(async slug=>(await import('/'+slug+'/db.mjs')).loadState(),slug);
+   assert.deepEqual(afterExit.notes,beforeExit.notes,'Catalogue roundtrip preserves notes');
+   assert.deepEqual(afterExit.positions,beforeExit.positions,'Catalogue roundtrip preserves reading places');
+   await page.goto(url+'#read/'+book+'/'+first);await ready(page,book,first);
+
   }
   const cacheKeys=await pages[0].evaluate(()=>caches.keys());assert.equal(cacheKeys.length,4);for(const [slug]of entries)assert.equal(cacheKeys.filter(k=>k.startsWith('newreading-'+slug+'-')).length,1);
   const scopes=await pages[0].evaluate(async()=>(await navigator.serviceWorker.getRegistrations()).map(r=>new URL(r.scope).pathname).sort());assert.deepEqual(scopes,entries.map(e=>'/'+e[0]+'/').sort());
@@ -46,7 +59,7 @@ for(const engine of ['chromium','webkit']){
   }
   assert.deepEqual(errors,[]);assert.equal(requests.filter(u=>!u.startsWith(base)&&!u.startsWith('data:')&&!u.startsWith('blob:')).length,0);
   assert.equal(requests.filter(u=>['/app.mjs','/db.mjs','/library.json','/sw.js'].includes(new URL(u).pathname)).length,0);
-  result.browsers.push({engine,readers:4,independentCaches:4,independentScopes:4,independentNotes:true,exactFirstSections:true,stoppedOriginReloads:8,offlineChapterAndCompanion:true,offlineWritesPersist:true,manifestInstallPaths:true,externalRequests:0});await save();console.log(engine+': four readers share one origin without cache or storage collisions; stopped-origin reading and saves passed.');
+  result.browsers.push({engine,readers:4,independentCaches:4,independentScopes:4,independentNotes:true,catalogueRoundTrips:4,exactFirstSections:true,stoppedOriginReloads:8,offlineChapterAndCompanion:true,offlineWritesPersist:true,manifestInstallPaths:true,externalRequests:0});await save();console.log(engine+': four readers share one origin without cache or storage collisions; stopped-origin reading and saves passed.');
  }catch(error){result.failure=error.stack;await save();throw error}finally{if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}await browser?.close();}
 }
 result.passed=true;await save();

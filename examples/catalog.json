@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74441,
-          "sha256": "df84364433c22b1e2a576629a45ccd2a334c293075ab88cb6ae3c71c655c1953"
+          "bytes": 74612,
+          "sha256": "7c732673733b458785b02ff901818b9629e03387468ed02f8845bf45942cd36b"
         },
         {
           "path": "austen-colophon.png",
@@ -870,8 +870,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3176,
-          "sha256": "6288601feea43bdfcaeaed5db262d8fd6050be082e8b0ce5e6a0f3f8cb96c2a6"
+          "bytes": 3279,
+          "sha256": "c6212929a339dec37100adb6c9e7ca07f5f1b39443682ab803dd8cb3f7585df1"
         },
         {
           "path": "library.json",
@@ -895,13 +895,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 33872,
-          "sha256": "69bbb9dbce0d127e7ba44c707c9e9aaf4b5989c48bfd073c36b60f531211af9a"
+          "bytes": 34076,
+          "sha256": "3c89fc66f80ae94f0d2748d55e53f63ebd7be6e218d39a99f73908cf26cd173f"
         },
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "a58e89265568d7418c2e07faf9f39a7d3f4d7833339a8d7b4443e71e8441f8dd"
+          "sha256": "152e73a12ee90b5978e73a1ac89f2ba7e000ede7f89792aa84b32d6078def4af"
         },
         {
           "path": "text.mjs",
@@ -912,8 +912,10 @@
       "maintenanceChanges": [
         ".vercelignore",
         "README.md",
+        "VERSION-HISTORY.md",
         "site/app.mjs",
         "site/index.html",
+        "site/style.css",
         "tests/austen-browser.mjs",
         "tests/publication.test.mjs",
         "vercel.json"
@@ -943,8 +945,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 73672,
-          "sha256": "4becf13fb72931ce1556f755bce11ba2b5410ec669c7766e6ccffa34fd5c2c90"
+          "bytes": 74700,
+          "sha256": "95ce6061597b1450b9b04af3c79312484883ce78212f3e31567a3f49e181b98d"
         },
         {
           "path": "bundle.mjs",
@@ -968,8 +970,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 2934,
-          "sha256": "6bd5600f00d4cd420a71b3bde6118596a53e968c7c68f6e736c9788e235184ac"
+          "bytes": 3037,
+          "sha256": "feaa0f30a545fb311cc2d06e92555c30f0653e20e005864fcf2b35f005311433"
         },
         {
           "path": "library.json",
@@ -993,18 +995,18 @@
         },
         {
           "path": "style.css",
-          "bytes": 35612,
-          "sha256": "8b963bc6e5e9e9a73aa3f1b6b751429f4566bc7678f5fcee309abfce3940645b"
+          "bytes": 35816,
+          "sha256": "25c68ed753d6c0ed33cd00fb6185f61636934c8a2cc7b87a9658a611fd3f7087"
         },
         {
           "path": "sw.js",
           "bytes": 1131,
-          "sha256": "e588a12dbdababe3f9b18d03875c18a1b9147ac400dbeb6d047b9e98ba778773"
+          "sha256": "c80cf9d21b524818462f4cae2cd73b4de89c0abf48bee4e5d66b74a14cb518a1"
         },
         {
           "path": "text.mjs",
-          "bytes": 6812,
-          "sha256": "74b9ebcb8b4f91466dfe22f271312f7bc219aa1f8c35fff5a73a418a1ae6e3f0"
+          "bytes": 6927,
+          "sha256": "a3b36cbe4d967b4e55c412f4a2b98d8d5c257fa5ff8e3d8649d78951bb263f9a"
         }
       ],
       "maintenanceChanges": [
@@ -1012,6 +1014,9 @@
         "README.md",
         "VERSION-HISTORY.md",
         "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/text.mjs",
         "tests/alice-browser.mjs",
         "tests/publication.test.mjs",
         "vercel.json"
@@ -1040,8 +1045,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 65280,
-          "sha256": "d2e503f6202bd5fa78206d506bd3fe2057db6903b6dac497d912d7719e067192"
+          "bytes": 65334,
+          "sha256": "ee37160c9eeaf9c9347c794fb0f98347128a5629d0e7bf0f3c3b366e7cd6b8ad"
         },
         {
           "path": "bundle.mjs",
@@ -1070,8 +1075,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 2953,
-          "sha256": "17af9822a732b172a3bb2898c75c4257b8704374d42bbdba3973278e8ebaf08f"
+          "bytes": 3056,
+          "sha256": "45fb001d944831587e40b289880560f94d518a374a78bb2e30d9e02855042fd7"
         },
         {
           "path": "library.json",
@@ -1095,13 +1100,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 32979,
-          "sha256": "f1e91586e755e1198966bcc7d30b7b26d991466c0da5e49bf862f7d317a2cad8"
+          "bytes": 33183,
+          "sha256": "067da30b29e0b7aa42696c5569141af09cf5612f06b0d1ec0fae0eb21d753edb"
         },
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "77f57aff31f7c57195f1d357681cc39d2cf45befc645a5acac0b937dcee43496"
+          "sha256": "5f7ebb1923e28d2b6d7aa2909646eed1d837ad2f1c6c5a5e46909ba6ce4f969a"
         },
         {
           "path": "text.mjs",
@@ -1112,9 +1117,13 @@
       "maintenanceChanges": [
         ".vercelignore",
         "README.md",
+        "VERSION-HISTORY.md",
         "site/app.mjs",
         "site/companion.mjs",
+        "site/index.html",
+        "site/style.css",
         "tests/publication.test.mjs",
+        "tests/walden-design-browser.mjs",
         "vercel.json"
       ]
     },
@@ -1142,8 +1151,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 66058,
-          "sha256": "388322dd280ba660a94f4fccabbcc4503cd0ffd58df6c7f9baea6dc83fd59d65"
+          "bytes": 66112,
+          "sha256": "1d6d35f86ef984505172a8098d78814ac635796b9150af0ebcab400dd0368164"
         },
         {
           "path": "broadside.css",
@@ -1172,8 +1181,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3161,
-          "sha256": "2ca63278455406618d0d2e99d4f3f9be9d94dd65ef9870533ed5ab9948b13021"
+          "bytes": 3264,
+          "sha256": "7326bc5fe7419f6053788e1a3919b5d7e6e293dfda3796938ed6f07cf0df98f4"
         },
         {
           "path": "lectures.mjs",
@@ -1202,13 +1211,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 30648,
-          "sha256": "5a3f9e322d46e12c0485ff7b0a44fb5a80d6c896029fbcd991f504bfc134fa84"
+          "bytes": 30852,
+          "sha256": "a903e84c8df6917b61f50185bc90f943b82d90b6395ef2d9a9d4f76e5ef015b5"
         },
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "0b8972f86992f8dfb055f16050c0d372e06263eeab24e9241de3b1bb6dccc7bc"
+          "sha256": "89a4e890c93455e9b1ed0a3a07c2474f17799aa08c7deb325a891edc2bf269e5"
         },
         {
           "path": "text.mjs",
@@ -1219,10 +1228,13 @@
       "maintenanceChanges": [
         ".vercelignore",
         "README.md",
+        "VERSION-HISTORY.md",
         "site/app.mjs",
         "site/index.html",
         "site/lectures.mjs",
+        "site/style.css",
         "tests/publication.test.mjs",
+        "tests/trial-browser.mjs",
         "vercel.json"
       ]
     }
