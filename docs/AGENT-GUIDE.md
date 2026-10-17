@@ -2,7 +2,7 @@
 
 Use this as an operating guide, not a script to recite. Ask only for choices that matter. Complete reversible work while waiting for a needed answer. Keep the reader involved through tangible examples. Do not stop at a plan when you can build and verify the next useful step.
 
-For someone new to coding agents, use [Your first reader](https://read.lookatseel.com/learn/) as a short introduction. Help them open a folder-capable coding workspace, explain unfamiliar terms as they arise, and run the original sample before requesting a book. Have them read, save a note and reload; then continue below with their material. Provider setup links are guidance, not evidence that a newcomer has completed the workflow.
+For someone new to coding agents, use [How it works](https://newreading.app/learn/) as a short introduction. Help them open a folder-capable coding workspace, explain unfamiliar terms as they arise, and run the original sample before requesting a book. Have them read, save a note and reload; then continue below with their material. Provider setup links are guidance, not evidence that a newcomer has completed the workflow.
 
 ## 1. Meet the books
 

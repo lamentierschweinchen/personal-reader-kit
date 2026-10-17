@@ -1,10 +1,18 @@
 # Showcase assets
 
-The showcase at `read.lookatseel.com` follows the visual language of [Lukas Seel’s personal website](https://lookatseel.com/), at his explicit request on 16 October 2026. It borrows the warm paper palette, Fraunces typography and the existing book object. It does not copy personal-reader material or presentation captures.
+The catalogue first published at `read.lookatseel.com` followed the visual language of [Lukas Seel’s personal website](https://lookatseel.com/), at his explicit request on 16 October 2026. That first release borrowed the warm paper palette, Fraunces typography and the existing book object. It does not copy personal-reader material or presentation captures.
 
 - `assets/book.webp`: the existing [book graphic](https://lookatseel.com/_astro/book.CGxSQOGY_Zcbmoi.webp), downloaded unchanged from the public personal site. Lukas specifically authorized its use here. This branded artwork is not represented as public domain or licensed under the kit’s MIT code license; replace it in an independently branded fork unless you have permission to reuse it.
 - `assets/fraunces-normal.woff2` and `assets/fraunces-italic.woff2`: unchanged Latin variable font subsets served by that site ([normal](https://lookatseel.com/_astro/fraunces-latin-wght-normal.ukD16Tqj.woff2), [italic](https://lookatseel.com/_astro/fraunces-latin-wght-italic.Py8at3oI.woff2)). Copyright 2018 The Fraunces Project Authors. Licensed under SIL Open Font License 1.1; the complete [license](assets/OFL.txt), from [the upstream project](https://github.com/undercasetype/Fraunces/blob/master/OFL.txt), accompanies the files and the website build.
 - `favicon.svg`: original vector artwork for this showcase, under the kit’s MIT license.
+
+## New reading identity · 17 October 2026
+
+The user selected Open Shelf for `newreading.app`, then asked for a more distinctive typeface, an intriguing book-led entrance and a faster start. The new identity uses Bricolage Grotesque with the same four reviewed catalogue images. No literary text or edition image is altered.
+
+- `assets/bricolage-grotesque.woff2`: the unchanged variable webfont from [Bricolage Grotesque](https://github.com/ateliertriay/bricolage/tree/84745e5b96261ae5f8c6c856e262fe78d1d6efdd), pinned revision `84745e5b96261ae5f8c6c856e262fe78d1d6efdd`, path `fonts/webfonts/BricolageGrotesque[opsz,wdth,wght].woff2`. Its SHA-256 is `b51a8ebd169637e47cb7db430431ab3e122d2f09b03ee2a03ea06f4cb46f1a8e`. The complete upstream SIL Open Font License 1.1 accompanies the file as [OFL-Bricolage.txt](assets/OFL-Bricolage.txt). Downloaded without modification; no remote font request is made by the site.
+- The book favicon is original vector artwork in the new palette, under the kit’s MIT license.
+- The updated social-preview composition uses only these reviewed images and the local licensed Bricolage font. Earlier image hashes and provenance remain available for history review.
 
 ## Current catalogue artwork · 17 October 2026
 
@@ -48,4 +56,4 @@ These are previews of the specifically authorized public examples, not personal-
 
 These four screenshot files were retired after the independent design review; they are no longer build or upload inputs. Their exact hashes remain in both the historical-path review and the asset pins so earlier reachable Git history can still be inspected without rewriting it.
 
-`publication.json.reviewedSiteAssets` contains eight current binary assets, four retired screenshot pins and the earlier social-layout hash. No asset directory receives a blanket scanner exemption. These assets and the showcase are excluded from `starterFiles` and the stock reader build. All images and fonts are served locally; opening the catalogue makes no request to the personal site, sample readers or a font provider.
+`publication.json.reviewedSiteAssets` records each current and historical binary by exact path and content hash. No asset directory receives a blanket scanner exemption. These assets and the showcase are excluded from `starterFiles` and the stock reader build. All images and fonts are served locally; opening the catalogue makes no request to the personal site, sample readers or a font provider.

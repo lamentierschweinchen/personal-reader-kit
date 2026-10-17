@@ -1,7 +1,7 @@
 {
-  "name": "reader-kit-showcase",
+  "name": "newreading",
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
-  "scripts": {"build": "node build.mjs", "share-image": "node share-image.mjs"}
+  "scripts": {"build": "node build.mjs", "dev":"node serve.mjs", "check":"node check.mjs && node check-readers.mjs --skip-build && node check-inputs.mjs", "share-image": "node share-image.mjs"}
 }

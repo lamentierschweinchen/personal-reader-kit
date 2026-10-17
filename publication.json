@@ -477,10 +477,12 @@
     "showcase/.vercelignore",
     "showcase/ASSETS.md",
     "showcase/README.md",
+    "showcase/assets/OFL-Bricolage.txt",
     "showcase/assets/OFL.txt",
     "showcase/assets/alice-rabbit.png",
     "showcase/assets/austen-cover.jpg",
     "showcase/assets/book.webp",
+    "showcase/assets/bricolage-grotesque.woff2",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
     "showcase/assets/read-share.jpg",
@@ -488,11 +490,16 @@
     "showcase/assets/walden-survey.jpg",
     "showcase/build.mjs",
     "showcase/capture.mjs",
+    "showcase/check-inputs.mjs",
+    "showcase/check-readers.mjs",
     "showcase/check.mjs",
     "showcase/favicon.svg",
     "showcase/index.html",
+    "showcase/inputs.json",
     "showcase/learn/index.html",
     "showcase/package.json",
+    "showcase/readers.mjs",
+    "showcase/serve.mjs",
     "showcase/share-image.mjs",
     "showcase/start.mjs",
     "showcase/start.txt",
@@ -1712,6 +1719,18 @@
       "sha256": "251f8bb5cad45526cc3d17bb04d31bfe0129ef8a386dbc8cfc050d1299022996",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed social preview with a wider, frame-filling Two Halls composition. Same authorized catalogue artwork and local licensed font; the prior published layout hash is retained for history."
+    },
+    {
+      "path": "showcase/assets/bricolage-grotesque.woff2",
+      "sha256": "b51a8ebd169637e47cb7db430431ab3e122d2f09b03ee2a03ea06f4cb46f1a8e",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unmodified Bricolage Grotesque variable WOFF2 from the pinned official project; SIL OFL1.1 license included. Self-hosted catalogue font only."
+    },
+    {
+      "path": "showcase/assets/read-share.jpg",
+      "sha256": "777624025d545a41f48ca5c485fb402ec539bcda9d0e03c770df9d85ed8f9464",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed 1200x630 New reading social composition with the same approved four artworks and local Bricolage font. Earlier layouts remain pinned for reachable history."
     }
   ],
   "reviewedHistoricalFiles": [

@@ -30,6 +30,8 @@ jobs:
       - run: npm run test:browser
       - run: node showcase/check.mjs
         if: hashFiles('showcase/check.mjs') != ''
+      - run: node showcase/check-readers.mjs --skip-build
+        if: hashFiles('showcase/check-readers.mjs') != ''
   examples:
     runs-on: ubuntu-latest
     steps:
@@ -41,3 +43,5 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm run check:examples
+      - run: node showcase/check-inputs.mjs
+        if: hashFiles('showcase/check-inputs.mjs') != ''

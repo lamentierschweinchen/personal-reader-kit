@@ -43,7 +43,12 @@ async function checkDeploymentInputs(directory){
   const rules=await readFile(path.join(root,directory,'.vercelignore'),'utf8');
   const included=rules.split('\n').filter(x=>x.startsWith('!')&&!x.endsWith('/')).map(x=>x.slice(1));
   const prefix=directory+'/',local=included.filter(x=>!x.startsWith(prefix));
-  if(JSON.stringify(included.filter(x=>x.startsWith(prefix)).sort())!==JSON.stringify(local.map(x=>prefix+x).sort()))throw Error(directory+': standalone and Git deployment allowlists differ.');
+  if(directory==='showcase'){
+    const inputs=JSON.parse(await readFile(path.join(root,directory,'inputs.json'),'utf8'));
+    const expected=[...new Set([...inputs.files,...inputs.files.filter(f=>f.startsWith(prefix)).map(f=>f.slice(prefix.length))])].sort();
+    if(inputs.schema!==1||JSON.stringify([...included].sort())!==JSON.stringify(expected))throw Error('Showcase upload rules differ from the exact combined-site input inventory.');
+    for(const file of inputs.files)if(!publication.files.includes(file)||!(await lstat(path.join(root,file))).isFile())throw Error('Unreviewed showcase input: '+file);
+  }else if(JSON.stringify(included.filter(x=>x.startsWith(prefix)).sort())!==JSON.stringify(local.map(x=>prefix+x).sort()))throw Error(directory+': standalone and Git deployment allowlists differ.');
   const denied=['private/sentinel.txt','.reader/INTAKE.md','.env','site/unreviewed.txt',prefix+'.reader/private.txt',prefix+'.env',prefix+'site/unreviewed.txt',prefix+'assets/unreviewed.webp',prefix+'edition/unreviewed.json','examples/unrelated/edition/library.json'];
   const fixture=await mkdtemp(path.join(tmpdir(),'reader-deployment-inputs-'));
   try{

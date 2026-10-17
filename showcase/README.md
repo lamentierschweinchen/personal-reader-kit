@@ -1,28 +1,29 @@
-# read
+# New reading
 
-The public entrance to the four complete readers, at **https://read.lookatseel.com/**. It uses Lukas’s personal-site palette, typography and existing book graphic, with a lighter catalogue composition. [Asset provenance and licenses](ASSETS.md).
+The public catalogue and four complete readers share **https://newreading.app/**. The existing `read.lookatseel.com` address also serves this site. The selected Open Shelf direction uses self-hosted Bricolage Grotesque, four reviewed artworks, a short agent handoff and [How it works](learn/index.html). [Asset provenance and licenses](ASSETS.md).
 
-This is a separate static site, with fifteen explicit build outputs. Four artwork-led entrances link to the samples: a complete peacock binding, Rackham's rabbit, Thoreau's survey and a contemporary engraved-style illustration of Hegel and Schopenhauer. They are not interface screenshots. A short value proposition and agent handoff replace the previous long descriptions and FAQ. The only client JavaScript copies the visible short command after a click, with selectable text on clipboard failure. The command points to the full instructions in [`start.txt`](start.txt); those same instructions are also available in a native disclosure in static HTML. Both work without JavaScript and include the kit's copyediting step. There are no analytics, cookies, accounts or reading storage. Each linked reader has a separate origin for its library and service worker. The showcase itself is not an offline reading app.
+The catalogue has no account, analytics or reading storage. Each reader uses a separate database name, service-worker scope, cache prefix and install-manifest identity under `/austen/`, `/alice/`, `/walden/` or `/two-halls/`. Those namespaces prevent accidental collisions; they are not a security boundary against other code on the same origin. Install a reader from its own path. The landing page itself does not promise offline reading.
 
-The visual direction keeps warm paper and Fraunces, with larger art and restrained rules. Two columns on desktop/tablet become one generous column on phones. Each entry has one title and a visible Read/Enter action; hover/focus sharpens the link, copy feedback confirms the handoff, and reduced motion removes image movement. The full agent instructions use progressive disclosure while remaining in the static document and plain-text endpoint. A 1200 × 630 social preview shows the four editions with the site's name and offer; the owner's original book graphic remains available as a separately credited asset. Bookshop.org is an ordinary, non-affiliate link to support independent bookshops; no claim is made about importing its purchases.
-
-[Your first reader](learn/index.html) gives newcomers four concrete steps, official agent setup links, a copyable first instruction and brief help for unfamiliar terms. The home page and repository README link to it. Native disclosures and selectable instructions remain usable without JavaScript.
+`build.mjs` copies only its named catalogue inputs. `readers.mjs` runs the four existing builders, compares every generated file with `examples/catalog.json`, then adapts known runtime paths and storage names. Unexpected source/output changes stop the build. Complete edition JSON and image bytes stay unchanged. Each original example still builds independently. The default kit build and personal starter remain original-samples-only.
 
 ```sh
 cd showcase
 npm run build
+npm run dev
 # With the optional Playwright runtime installed:
-node check.mjs
-# Render a candidate link-preview image in ignored test-results/showcase/.
-# Inspect it, copy it to assets/read-share.jpg, then update its exact audit pin.
+npm run check
+# Render a candidate social image in ignored test-results, then inspect it.
 npm run share-image
-# Optional: capture already-public reader interfaces for QA, not catalogue art.
-# Output stays in ignored test-results/; it is not an automatic publication step.
-node capture.mjs
 ```
 
-Host this directory as its own Vercel project with `npm run build`, output `dist`, and `node --version` as the install command. Disable inclusion of source files outside the selected root directory. The exact upload rules support both standalone and repository-root Git builds. The root reader and the four `examples/` builds are independent. Do not deploy the surrounding local workspace. Keep all exact assets and `assets/OFL.txt` together.
+The checks cover the page at phone/tablet/desktop sizes, keyboard and no-JavaScript access, copy failure, all four readers together, and reload/chapter/companion/note editing with the server stopped. A separate check rebuilds from only `inputs.json` in a fresh temporary directory. These are developer checks, not native home-screen installation, physical iOS gestures, screen-reader acceptance or a human onboarding session.
 
-The four canonical readers are `austen.lookatseel.com`, `alice.lookatseel.com`, `walden.lookatseel.com` and `two-halls.lookatseel.com`. Preserve their addresses after launch: changing origins requires a verified data migration for existing readers. The personal site’s apex and `www` addresses are separate projects.
+## Hosting
 
-Local and live verification receipts belong in ignored `test-results/`; release evidence is recorded in `docs/STATUS.md` at the kit root. The source examples’ noindex settings are retained. This public catalogue permits indexing.
+The existing `lookatseel-read` Vercel project uses this `showcase` directory, `npm run build`, output `dist`, Node 24 and `node --version` as its install command. The combined deployment requires **Include source files outside the root directory** for the four reviewed sibling examples; check the current approval/deployment state in STATUS.md before changing that setting. `inputs.json` and `.vercelignore` enumerate exact required files; no private workspace, source archive, intake, notes or arbitrary example directory is admitted. Deploy the reviewed Git repository, never the surrounding Reading workspace. The stock kit's root upload list remains unchanged.
+
+Keep `vercel.json` with the output: it applies the reader CSP, worker revalidation, stable trailing-slash entrances and the examples' noindex default. The public catalogue permits indexing. Home-screen installation is per reader, not a wrapper around the catalogue.
+
+The user chose a clean launch for these previously unshared examples, so this release has no old-origin data migration. General migration guidance for personalized readers remains in [DEPLOYMENT.md](../docs/DEPLOYMENT.md). A database backup cannot install an app; the guide treats backup, installation and offline verification separately.
+
+Release evidence belongs in [STATUS.md](../docs/STATUS.md); private captures and machine receipts stay in ignored `test-results/`. Bookshop.org is an ordinary non-affiliate support link, not a claim that its purchases can be imported.

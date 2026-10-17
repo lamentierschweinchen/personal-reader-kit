@@ -3,89 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e6dac6">
-  <title>read · Build your personal reader</title>
-  <meta name="description" content="A free kit for your coding agent. Try four complete readers, then make your own. Mark, annotate, share and read offline.">
-  <link rel="canonical" href="https://read.lookatseel.com/">
-  <link rel="alternate" type="text/plain" href="/start.txt" title="Full instructions for your agent">
-  <meta property="og:title" content="read · Build your personal reader">
-  <meta property="og:description" content="Four books to try. A free kit to make your own reader.">
+  <meta name="theme-color" content="#f3f1e7">
+  <title>new reading · Your books. Your own app.</title>
+  <meta name="description" content="Make a personal reader for the books you love. Read, highlight, annotate and share. Try four readers, then make your own.">
+  <link rel="canonical" href="https://newreading.app/">
+  <link rel="alternate" type="text/plain" href="/start.txt" title="Instructions for your agent">
+  <meta property="og:title" content="new reading · Your books. Your own app.">
+  <meta property="og:description" content="Four readers to try. A free kit to make your own.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://read.lookatseel.com/">
-  <meta property="og:image" content="https://read.lookatseel.com/assets/read-share.jpg">
+  <meta property="og:url" content="https://newreading.app/">
+  <meta property="og:image" content="https://newreading.app/assets/read-share.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="read. Make a reader for your books. Four illustrated editions: Austen, Alice, Walden and Two lecture halls.">
+  <meta property="og:image:alt" content="Four illustrated readers: Austen, Alice, Walden and Two lecture halls.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="read · Build your personal reader">
-  <meta name="twitter:description" content="Four books to try. A free kit to make your own reader.">
-  <meta name="twitter:image" content="https://read.lookatseel.com/assets/read-share.jpg">
-  <meta name="twitter:image:alt" content="read. Make a reader for your books. Four illustrated editions: Austen, Alice, Walden and Two lecture halls.">
+  <meta name="twitter:title" content="new reading · Your books. Your own app.">
+  <meta name="twitter:description" content="Four readers to try. A free kit to make your own.">
+  <meta name="twitter:image" content="https://newreading.app/assets/read-share.jpg">
+  <meta name="twitter:image:alt" content="Four illustrated readers: Austen, Alice, Walden and Two lecture halls.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/assets/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/start.mjs"></script>
 </head>
 <body>
   <a class="skip" href="#books">Skip to the books</a>
   <header class="masthead wrap">
-    <a class="wordmark" href="/" aria-label="read home">read<span class="wordmark-period">.</span></a>
-    <a class="byline" href="https://lookatseel.com/">By Lukas Seel</a>
+    <a class="wordmark" href="/" aria-label="new reading home">new<span>reading</span><i aria-hidden="true">.</i></a>
+    <nav aria-label="Main"><a href="/learn/">How it works</a><a class="nav-start" href="#start">Start here <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
   </header>
   <main>
     <section class="intro wrap" aria-labelledby="title">
-      <div class="intro-copy"><h1 id="title">Make a reader<br> for your books.</h1><p>Mark, annotate, share. Read offline.</p></div>
-      <div class="intro-action"><p>A free kit for your coding agent.</p><a class="build-link" href="#start">Build your personal reader <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a class="newcomer-link" href="/learn/">New to agents? Start here.</a></div>
+      <div class="intro-copy"><h1 id="title">Your books.<br> <span>Your own app.</span></h1></div>
+      <div class="intro-action"><p>Read, highlight, annotate, share.<br> On your phone. Offline, too.</p><a class="build-link" href="#start">Start here <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><span class="small-note">A free kit. Made yours with AI.</span></div>
     </section>
     <section class="books wrap" id="books" aria-labelledby="books-title">
-      <div class="section-line"><h2 id="books-title">Four readers to try</h2></div>
+      <div class="section-line"><h2 id="books-title">Four readers to try</h2><button id="peek-books" type="button" aria-pressed="false" hidden><span>Peek inside</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
       <div class="book-list">
-        <a class="reader austen" href="https://austen.lookatseel.com/" aria-labelledby="austen-title" aria-describedby="austen-author">
-          <div class="plate"><img src="/assets/austen-cover.jpg" width="1500" height="2114" alt="Hugh Thomson’s gold peacock binding" fetchpriority="high"></div>
-          <div class="caption"><div><h3 id="austen-title">Pride and Prejudice</h3><p id="austen-author">Jane Austen</p></div><span class="open-reader" aria-hidden="true">Read <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
+        <a class="reader austen" href="/austen/" aria-labelledby="austen-title" aria-describedby="austen-author austen-kind">
+          <div class="plate"><img src="/assets/austen-cover.jpg" width="1500" height="2114" alt="Hugh Thomson’s gold peacock binding" fetchpriority="high"><div class="inside" id="austen-inside" aria-hidden="true"><span>Index of words</span><div class="index-preview"><strong>pride</strong><span>vanity</span><span>judgment</span><span>opinion</span></div><p class="peek-note">Follow a word through the novel.</p></div><span class="plate-number" aria-hidden="true">01</span></div>
+          <div class="caption"><div><h3 id="austen-title">Pride and Prejudice</h3><p id="austen-author">Jane Austen</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="austen-kind"><span aria-hidden="true"></span>Illustrations &amp; a word index</p>
         </a>
-        <a class="reader alice" href="https://alice.lookatseel.com/" aria-labelledby="alice-title" aria-describedby="alice-author">
-          <div class="plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s rabbit running towards its hole"></div>
-          <div class="caption"><div><h3 id="alice-title">Alice in Wonderland</h3><p id="alice-author">Lewis Carroll</p></div><span class="open-reader" aria-hidden="true">Read <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
+        <a class="reader alice" href="/alice/" aria-labelledby="alice-title" aria-describedby="alice-author alice-kind">
+          <div class="plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit running towards its hole"><div class="inside" id="alice-inside" aria-hidden="true"><span>Words &amp; drawings</span><div class="type-preview"><span>The shape</span><span>of a</span><span>tale.</span></div><p class="peek-note">Pictures, poems &amp; a closer look.</p></div><span class="plate-number" aria-hidden="true">02</span></div>
+          <div class="caption"><div><h3 id="alice-title">Alice in Wonderland</h3><p id="alice-author">Lewis Carroll</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="alice-kind"><span aria-hidden="true"></span>Read &amp; look closer</p>
         </a>
-        <a class="reader walden" href="https://walden.lookatseel.com/" aria-labelledby="walden-title" aria-describedby="walden-author">
-          <div class="plate"><img src="/assets/walden-survey.jpg" width="731" height="412" alt="Thoreau’s 1846 survey of Walden Pond"></div>
-          <div class="caption"><div><h3 id="walden-title">Walden</h3><p id="walden-author">Henry David Thoreau</p></div><span class="open-reader" aria-hidden="true">Read <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
+        <a class="reader walden" href="/walden/" aria-labelledby="walden-title" aria-describedby="walden-author walden-kind">
+          <div class="plate"><img src="/assets/walden-survey.jpg" width="731" height="412" alt="Thoreau’s 1846 survey of Walden Pond"><div class="inside" id="walden-inside" aria-hidden="true"><span>Keeping account</span><div class="account-preview"><span><i>01</i>Cost</span><span><i>02</i>Depth</span><span><i>03</i>Tax</span></div><p class="peek-note">Three readings beside the book.</p></div><span class="plate-number" aria-hidden="true">03</span></div>
+          <div class="caption"><div><h3 id="walden-title">Walden</h3><p id="walden-author">Henry David Thoreau</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="walden-kind"><span aria-hidden="true"></span>A survey &amp; three readings</p>
         </a>
-        <a class="reader halls" href="https://two-halls.lookatseel.com/" aria-labelledby="halls-title" aria-describedby="halls-author">
-          <div class="plate"><img src="/assets/two-halls-portraits.webp" width="1280" height="853" alt="An engraved-style illustration of Hegel and Schopenhauer facing each other over an open book" loading="lazy"></div>
-          <div class="caption"><div><h3 id="halls-title">Two lecture halls</h3><p id="halls-author">Hegel &amp; Schopenhauer</p></div><span class="open-reader" aria-hidden="true">Enter <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
+        <a class="reader halls" href="/two-halls/" aria-labelledby="halls-title" aria-describedby="halls-author halls-kind">
+          <div class="plate"><img src="/assets/two-halls-portraits.webp" width="1280" height="853" alt="An editorial illustration of Hegel and Schopenhauer facing each other over an open book"><div class="inside" id="halls-inside" aria-hidden="true"><span>A paired reading</span><p class="paired-question">Does winning bring us nearer truth?</p><div class="pair-preview"><span>Hegel</span><span>Schopenhauer</span></div><p class="peek-note">Two source editions. Three questions.</p></div><span class="plate-number" aria-hidden="true">04</span></div>
+          <div class="caption"><div><h3 id="halls-title">Two lecture halls</h3><p id="halls-author">Hegel &amp; Schopenhauer</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="halls-kind"><span aria-hidden="true"></span>Two philosophers, side by side</p>
         </a>
       </div>
       <details class="install-guide" id="home-screen">
         <summary>Add a reader to your home screen</summary>
         <div class="install-body">
-          <p>Open one of the readers above first.</p>
-          <dl>
-            <dt>iPhone &amp; iPad</dt><dd>In Safari, open Share and choose <strong>Add to Home Screen</strong>. Enable <strong>Open as Web App</strong> if shown, then tap Add.</dd>
-            <dt>Android</dt><dd>In Chrome’s menu, choose <strong>Install and create shortcut</strong>, then <strong>Install</strong>. Some versions call this <strong>Add to Home screen</strong> or <strong>Install app</strong>.</dd>
-            <dt>Computer</dt><dd>In Chrome’s menu, choose <strong>Cast, save, and share</strong>, then <strong>Install page as app</strong>. On a Mac with Safari, choose <strong>File</strong>, then <strong>Add to Dock</strong>.</dd>
-          </dl>
-          <p>Open the new icon while online. In the reader’s Settings, choose <strong>Check offline copy</strong>, then try reopening it with Wi-Fi and mobile data off. If your books or notes aren’t there, restore a reading bundle from the browser where you saved them.</p>
+          <p>Open a reader, then add it to your home screen.</p>
+          <dl><dt>iPhone &amp; iPad</dt><dd>In Safari, open Share and choose <strong>Add to Home Screen</strong>. Enable <strong>Open as Web App</strong> if shown.</dd><dt>Android</dt><dd>In Chrome’s menu, choose <strong>Install</strong> or <strong>Add to Home screen</strong>. The label varies by version.</dd><dt>Computer</dt><dd>Use Chrome’s <strong>Install page as app</strong>, or Safari’s <strong>File</strong>, then <strong>Add to Dock</strong>.</dd></dl>
+          <p>Open the new icon while online. In Settings, use <strong>Check offline copy</strong>. Then reopen it with Wi-Fi and mobile data off. Keep a reading bundle as a backup of your books and notes.</p>
           <a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/DEPLOYMENT.md#add-the-reader-to-your-home-screen">Installation and backup guide</a>
         </div>
       </details>
     </section>
-    <section class="start wrap" id="start" aria-labelledby="start-title">
-      <div class="start-intro"><p class="eyebrow">Make your own</p><h2 id="start-title">Start with<br> your agent.</h2><div class="options"><p><strong>Keep it simple.</strong> Highlights, notes, sharing, offline.</p><p><strong>Make it your own.</strong> History, walks, themes, paired books.</p></div></div>
-      <div class="handoff">
-        <label for="agent-prompt">Copy this into your coding agent</label>
-        <textarea id="agent-prompt" readonly spellcheck="false">Use https://read.lookatseel.com/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.</textarea>
-        <div class="handoff-actions"><button id="copy-prompt" type="button" hidden>Copy command <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit on GitHub</a></div>
-        <p id="copy-status" role="status" aria-live="polite"></p>
-        <details class="instructions"><summary>Full instructions</summary><p id="full-prompt">Help me build a personal reader with https://github.com/lamentierschweinchen/personal-reader-kit. Follow AGENTS.md and docs/AGENT-GUIDE.md in my own project. Help me choose a simple reader or a custom experience. Preserve the book’s text and formatting; use the reader-copyeditor skill for new prose. Guide me through setup, publishing, adding it to my home screen and checking offline reading.</p><a href="/start.txt">Plain text for agents</a></details>
+    <section class="start" id="start" aria-labelledby="start-title">
+      <div class="start-inner wrap">
+        <div class="start-intro"><p class="eyebrow">Make your own</p><h2 id="start-title">Bring a book.<br> Make a reader.</h2><p>A simple place to read, or something shaped around its places, history and ideas.</p><a class="how-link" href="/learn/">How it works <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
+        <div class="handoff">
+          <label for="agent-prompt">Copy this into Codex, Claude Code or your coding agent.</label>
+          <textarea id="agent-prompt" readonly spellcheck="false">Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.</textarea>
+          <div class="handoff-actions"><button id="copy-prompt" type="button" hidden><span>Copy instruction</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit</a></div>
+          <p id="copy-status" role="status" aria-live="polite"></p>
+          <a class="plain-instructions" href="/start.txt">Plain text for agents</a>
+        </div>
       </div>
     </section>
   </main>
-  <footer class="footer wrap">
-    <p>Please use books you’re entitled to use, and publish only what you’re allowed to share.</p>
-    <div class="footer-links"><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">Books &amp; permissions</a><a href="https://bookshop.org/">Support independent bookshops</a></div>
-  </footer>
+  <footer class="footer wrap"><a class="byline" href="https://lookatseel.com/">Made by Lukas Seel</a><p>Publish only books you’re allowed to share.</p><div class="footer-links"><a href="https://bookshop.org/">Support independent bookshops</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">About book rights</a></div></footer>
 </body>
 </html>

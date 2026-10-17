@@ -11,7 +11,7 @@ These are complete, runnable examples of what an agent can build with the kit. E
 
 ## Try one
 
-The public entrance is **[read.lookatseel.com](https://read.lookatseel.com/)**. Canonical readers: [Austen](https://austen.lookatseel.com/), [Alice](https://alice.lookatseel.com/), [Walden](https://walden.lookatseel.com/), [Two lecture halls](https://two-halls.lookatseel.com/). [Release verification](../docs/STATUS.md) distinguishes local checks from confirmed live behavior.
+The public entrance is **[newreading.app](https://newreading.app/)**. Canonical readers: [Austen](https://newreading.app/austen/), [Alice](https://newreading.app/alice/), [Walden](https://newreading.app/walden/), [Two lecture halls](https://newreading.app/two-halls/). [Release verification](../docs/STATUS.md) distinguishes local checks from confirmed live behavior.
 
 From the repository root, with Node.js 22 or later:
 
