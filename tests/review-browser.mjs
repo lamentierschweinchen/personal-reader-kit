@@ -115,25 +115,37 @@ async function lifecycleChecks({browser,base}) {
     await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return (await caches.keys()).includes('reading-kit-qa-incomplete')&&!r.installing;});
     assert.equal((await page.request.get(base+'/missing-upgrade-fixture')).status(),404);
     assert.ok((await page.evaluate(()=>caches.keys())).includes('reading-kit-qa-lifecycle'));
-    const stillReady=await page.evaluate(async()=>{
-      const r=await navigator.serviceWorker.getRegistration();
-      if(!r?.active)throw new Error('The previous complete worker is no longer active.');
-      return new Promise((resolve,reject)=>{
-        const channel=new MessageChannel();
-        // Retain the receiving port until a reply or an actionable timeout.
-        // Without a rooted timer, Chromium can collect this pending test promise
-        // after rendering the long-form fixture, as observed in Linux CI.
-        const timer=setTimeout(()=>{channel.port1.close();reject(new Error('The active worker did not answer the cache-readiness probe within 10 seconds.'));},10000);
-        channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();resolve(e.data.ready);};
-        try{r.active.postMessage('CHECK_OFFLINE',[channel.port2]);}
-        catch(error){clearTimeout(timer);channel.port1.close();reject(error);}
+    // Check the actual active worker from a small client in the same storage
+    // context, independently of the deliberately large reader DOM. The reader
+    // still has to reload all 15,000 blocks and retain its note below.
+    const probe=await context.newPage();let readiness;
+    try {
+      await probe.goto(`${base}/robots.txt`,{waitUntil:'domcontentloaded',timeout:10000});
+      assert.equal(await probe.evaluate(()=>document.contentType),'text/plain','The readiness client must not load the reader shell');
+      assert.equal(await probe.locator('script, #reading-text').count(),0);
+      assert.equal((await probe.locator('body').textContent()).trim(),(await readFile(new URL('../dist/robots.txt',import.meta.url),'utf8')).trim());
+      readiness=await probe.evaluate(async()=>{
+        const r=await navigator.serviceWorker.getRegistration();
+        if(!r?.active)throw new Error('The previous complete worker is no longer active.');
+        const states={active:r.active.state,installing:r.installing?.state??null,waiting:r.waiting?.state??null,controller:navigator.serviceWorker.controller?.state??null};
+        const started=performance.now();
+        return new Promise((resolve,reject)=>{
+          const channel=new MessageChannel();
+          // Keep the port rooted and retain the existing bounded worker reply.
+          const timer=setTimeout(()=>{channel.port1.close();reject(new Error('The active worker did not answer the lightweight cache-readiness probe within 10 seconds: '+JSON.stringify(states)));},10000);
+          channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();resolve({ready:e.data.ready,elapsedMs:Math.round(performance.now()-started),states});};
+          try{r.active.postMessage('CHECK_OFFLINE',[channel.port2]);}
+          catch(error){clearTimeout(timer);channel.port1.close();reject(error);}
+        });
       });
-    });
-    assert.equal(stillReady,true);
+      assert.equal(readiness.ready,true);
+      console.log('Active cache readiness: '+JSON.stringify(readiness));
+    }finally{await probe.close();}
+    assert.equal(await page.locator('#reading-text [data-block]').count(),15000,'The large reader remains open during the isolated readiness probe');
     await writeFile(workerFile,upgraded);const reloadStart=Date.now();await page.reload({waitUntil:'domcontentloaded',timeout:90000});await page.waitForSelector('#reading-text mark',{timeout:90000});
     const reloadMs=Date.now()-reloadStart;console.log(`Long fixture after cache upgrade: ${reloadMs} ms`);
     assert.equal(await page.locator('#reading-text [data-block]').count(),15000);
     assert.equal((await page.evaluate(async()=> (await import('/db.mjs')).loadState())).notes[0].note,'Retained through cache change.');
-    return {blocks:15000,characters:fixture.characters,initialMs,reloadMs,functionalTimeoutMs:90000,successfulCacheUpgrade:true,failedPrecacheKeepsActiveVersion:true,libraryAndNotesRetained:true};
+    return {blocks:15000,characters:fixture.characters,initialMs,reloadMs,cacheReadiness:readiness,functionalTimeoutMs:90000,successfulCacheUpgrade:true,failedPrecacheKeepsActiveVersion:true,libraryAndNotesRetained:true};
   }finally{await writeFile(workerFile,original);await context.close();}
 }
