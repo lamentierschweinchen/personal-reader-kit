@@ -8,14 +8,30 @@ The showcase at `read.lookatseel.com` follows the visual language of [Lukas Seel
 
 ## Current catalogue artwork · 17 October 2026
 
-The four catalogue entrances use three unchanged edition images and one original HTML/CSS composition. They are artwork-led links to the readers, not screenshots or claims about the applications' exact appearance. Images were visually inspected at phone, tablet and desktop sizes. The software and editions themselves are unchanged.
+The four catalogue entrances use three unchanged edition images and one newly generated editorial illustration. They are artwork-led links to the readers, not screenshots or claims about the applications' exact appearance. Images were visually inspected at phone, tablet and desktop sizes. The software and editions themselves are unchanged.
 
 - `assets/austen-cover.jpg`: exact bytes of [`austen-cover.jpg`](../examples/pride-and-prejudice/edition/austen-cover.jpg), the reviewed 1500 × 2114 gold-and-black peacock binding. Displayed complete on a dark field. [Source and contributor evidence](../examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md).
 - `assets/alice-rabbit.png`: the exact decoded `p0003-rabbithole-png` payload in the reviewed [Alice edition](../examples/alice-in-wonderland/edition/library.json), 600 × 825. The catalogue's CSS crop brings the rabbit forward; the file is unedited and the complete illustration remains in the reader. [Source and contributor evidence](../examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md).
 - `assets/walden-survey.jpg`: exact bytes of the 731 × 412 [`walden-pond-map.jpg`](../examples/walden/edition/walden-pond-map.jpg), displayed complete. [Source and contributor evidence](../examples/walden/docs/SOURCE-RIGHTS.md).
-- Two lecture halls: original typographic HTML/CSS composition, using the two names and the existing reader's blue/rust distinction. It is an editorial entrance, not a historical poster or reconstructed lecture record. Covered by the kit's code license.
+- `assets/two-halls-portraits.webp`: a contemporary AI-generated editorial illustration of Hegel and Schopenhauer, made with the built-in image-generation tool on 17 October 2026 for this catalogue. No source image, book passage or private reader material was supplied. The 1536 × 1024 generated PNG was resized and encoded as a 1280 × 853 WebP; no compositional retouching was applied. The print treatment and shared book are invented staging, not evidence of a meeting, historical engraving or lecture-room reconstruction. This project places no additional restriction on reuse of this generated asset and makes no claim of exclusive rights. It is separate from the historical artwork and protected literary editions.
+- `assets/read-share.jpg`: 1200 × 630 social preview rendered by [share-image.mjs](share-image.mjs) from the four catalogue assets and local Fraunces font. The typography is live HTML during rendering. This derivative layout retains the source-image notices above; the MIT code license does not relicense the historical art or font. Open Graph and large-image card metadata point directly to this locally hosted file. The older generic book preview remains credited but is no longer the social image.
 
-The image files retain their original bytes. CSS blending/cropping is confined to this catalogue presentation and does not modify source books. The linked edition rights, source terms and jurisdiction limits still apply; the kit's MIT code license does not relicense historical artwork. No private reader, promotional-video or user-library material is included.
+The three historical image files retain their original bytes. CSS blending/cropping is confined to this catalogue presentation and does not modify source books. The linked edition rights, source terms and jurisdiction limits still apply; the kit's MIT code license does not relicense historical artwork. No private reader, promotional-video or user-library material is included.
+
+<details>
+<summary>Two Halls generation prompt</summary>
+
+```text
+Use case: illustration-story
+Asset type: original editorial artwork for the "Two lecture halls" entrance on a literary reader catalogue. Wide landscape, approximately 3:2.
+Primary request: an arresting, beautifully composed portrait confrontation between Georg Wilhelm Friedrich Hegel and Arthur Schopenhauer. Make it feel like a carefully commissioned wood engraving printed with two spot inks on warm ivory paper, sophisticated and slightly witty.
+Subject: Hegel at left, Schopenhauer at right, facing one another in clear three-quarter profile. Recognizable historical likenesses: Hegel's long thoughtful face, high forehead, receding grey hair swept around the sides, clean-shaven and a high cravat; Schopenhauer's angular face, prominent brow and extraordinary outward white hair wings, clean-shaven and a dark coat. Each portrait is substantial, head and shoulders, beautifully delineated with exact directional hatching and strong silhouette. The two profiles create a generous pale central gap like a narrow aisle. One small open book, elegantly drawn, bridges the lower foreground. No invented buildings or factual diagram.
+Composition: bold large portraits fill the image yet have comfortable breathing room around hair; Hegel anchored to the left edge and Schopenhauer to the right, both faces fully visible. A unified physical print composition, not two rectangular panels. Avoid strict mirror symmetry; make Schopenhauer slightly closer. Calm flat ivory background, rich sharp dark ink, restrained muted Prussian-blue ink behind and through Hegel's coat and restrained burnt-sienna ink through Schopenhauer's coat. Very subtle physical ink texture, no dirty antiquing. Central negative space.
+Mood: intellectual rivalry, poised and dryly humorous, not grotesque caricature.
+Constraints: no text, names, letters, numbers, labels, UI, frames, badges, logos, watermark, modern objects, cartoon expressions, photorealistic gloss, gradients, decorative sparks. Strong legibility at a 360px-wide catalogue thumbnail. This is an original contemporary illustration, not a reproduction of a particular historical engraving.
+```
+
+</details>
 
 ## Retired screenshot previews · release 5a55295
 
@@ -30,4 +46,4 @@ These are previews of the specifically authorized public examples, not personal-
 
 These four screenshot files were retired after the independent design review; they are no longer build or upload inputs. Their exact hashes remain in both the historical-path review and the asset pins so earlier reachable Git history can still be inspected without rewriting it.
 
-`publication.json.reviewedSiteAssets` contains six current binary assets and four retired screenshot pins. No asset directory receives a blanket scanner exemption. These assets and the showcase are excluded from `starterFiles` and the stock reader build. All images and fonts are served locally; opening the catalogue makes no request to the personal site, sample readers or a font provider.
+`publication.json.reviewedSiteAssets` contains eight current binary assets and four retired screenshot pins. No asset directory receives a blanket scanner exemption. These assets and the showcase are excluded from `starterFiles` and the stock reader build. All images and fonts are served locally; opening the catalogue makes no request to the personal site, sample readers or a font provider.

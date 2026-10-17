@@ -483,6 +483,8 @@
     "showcase/assets/book.webp",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
+    "showcase/assets/read-share.jpg",
+    "showcase/assets/two-halls-portraits.webp",
     "showcase/assets/walden-survey.jpg",
     "showcase/build.mjs",
     "showcase/capture.mjs",
@@ -490,6 +492,7 @@
     "showcase/favicon.svg",
     "showcase/index.html",
     "showcase/package.json",
+    "showcase/share-image.mjs",
     "showcase/start.mjs",
     "showcase/start.txt",
     "showcase/style.css",
@@ -1690,6 +1693,18 @@
       "sha256": "c79c45dd901a67f9763118d7d6367582d5b82722795b458387e4e0709a6df174",
       "provenance": "showcase/ASSETS.md",
       "reason": "Unchanged reviewed edition image from examples/walden/edition/walden-pond-map.jpg. No personal-reader content."
+    },
+    {
+      "path": "showcase/assets/two-halls-portraits.webp",
+      "sha256": "7b9e4751d2e1afd9cfd3e035eff90caf02a52b2f438ba02c47d19e7a4c47d1db",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "New contemporary AI-generated editorial illustration. No supplied source image, private book text or historical-document claim; generation and encoding provenance in showcase/ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/read-share.jpg",
+      "sha256": "1bb8c69c0eb97c9a27fb89cb2c9c7c6adb9a8ecc4a9811ab56a6cef278c701ce",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "HTML-rendered social preview using only reviewed catalogue artwork and the licensed local font. Retains each source asset’s rights scope; no user library or notes."
     }
   ],
   "reviewedHistoricalFiles": [

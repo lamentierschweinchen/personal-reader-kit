@@ -37,7 +37,12 @@ try {
         const expected=['https://austen.lookatseel.com/','https://alice.lookatseel.com/','https://walden.lookatseel.com/','https://two-halls.lookatseel.com/'];
         assert.deepEqual(await page.locator('.reader').evaluateAll(a=>a.map(x=>x.href)),expected);
         assert.equal(await page.locator('.plate').count(),4);
-        assert.equal(new Set(await page.locator('.plate img').evaluateAll(a=>a.map(x=>x.src))).size,3);
+        assert.equal(new Set(await page.locator('.plate img').evaluateAll(a=>a.map(x=>x.src))).size,4);
+        assert.match(await page.locator('.halls img').getAttribute('alt'),/illustration of Hegel and Schopenhauer/);
+        const sharingImage=await page.locator('meta[property="og:image"]').getAttribute('content');
+        assert.equal(sharingImage,'https://read.lookatseel.com/assets/read-share.jpg');
+        assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'),'summary_large_image');
+        assert.deepEqual(await page.evaluate(async path=>{const img=new Image();img.src=path;await img.decode();return [img.naturalWidth,img.naturalHeight];},new URL(sharingImage).pathname),[1200,630]);
         assert.equal(await page.locator('#agent-prompt').inputValue(),commandText);
         assert.equal(await page.locator('#full-prompt').textContent(),promptText);
         const metrics=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,broken:[...document.images].filter(x=>!x.complete||x.naturalWidth===0).length,targets:[...document.querySelectorAll('a:not(.skip),button:not([hidden]),summary')].filter(x=>x.getBoundingClientRect().width>0).map(x=>({label:x.textContent.trim(),w:x.getBoundingClientRect().width,h:x.getBoundingClientRect().height})),previewTop:document.querySelector('.plate').getBoundingClientRect().top,promptFits:document.querySelector('#agent-prompt').scrollHeight<=document.querySelector('#agent-prompt').clientHeight+1,arrows:/[\u2190-\u21ff\u2794\u279c\u27a1]/u.test(document.body.textContent)}));

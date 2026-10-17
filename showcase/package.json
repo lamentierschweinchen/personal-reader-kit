@@ -3,5 +3,5 @@
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
-  "scripts": {"build": "node build.mjs"}
+  "scripts": {"build": "node build.mjs", "share-image": "node share-image.mjs"}
 }

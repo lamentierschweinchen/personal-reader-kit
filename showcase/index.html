@@ -12,7 +12,16 @@
   <meta property="og:description" content="Four books to try. A free kit to make your own reader.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://read.lookatseel.com/">
-  <meta property="og:image" content="https://read.lookatseel.com/assets/book.webp">
+  <meta property="og:image" content="https://read.lookatseel.com/assets/read-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="read. Make a reader for your books. Four illustrated editions: Austen, Alice, Walden and Two lecture halls.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="read · Build your personal reader">
+  <meta name="twitter:description" content="Four books to try. A free kit to make your own reader.">
+  <meta name="twitter:image" content="https://read.lookatseel.com/assets/read-share.jpg">
+  <meta name="twitter:image:alt" content="read. Make a reader for your books. Four illustrated editions: Austen, Alice, Walden and Two lecture halls.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/style.css">
@@ -45,8 +54,8 @@
           <div class="caption"><div><h3 id="walden-title">Walden</h3><p id="walden-author">Henry David Thoreau</p></div><span class="open-reader" aria-hidden="true">Read <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
         </a>
         <a class="reader halls" href="https://two-halls.lookatseel.com/" aria-labelledby="halls-title" aria-describedby="halls-author">
-          <div class="plate broadside" aria-hidden="true"><div class="hall hall-one"><span class="hall-number">I</span><span class="hall-name">Hegel</span></div><span class="versus">vs.</span><div class="hall hall-two"><span class="hall-number">II</span><span class="hall-name">Schopenhauer</span></div><span class="hall-footnote">Two lecture halls. One hour.</span></div>
-          <div class="caption"><div><h3 id="halls-title">Two lecture halls</h3><p id="halls-author">Schopenhauer &amp; Hegel</p></div><span class="open-reader" aria-hidden="true">Enter <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
+          <div class="plate"><img src="/assets/two-halls-portraits.webp" width="1280" height="853" alt="An engraved-style illustration of Hegel and Schopenhauer facing each other over an open book" loading="lazy"></div>
+          <div class="caption"><div><h3 id="halls-title">Two lecture halls</h3><p id="halls-author">Hegel &amp; Schopenhauer</p></div><span class="open-reader" aria-hidden="true">Enter <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>
         </a>
       </div>
     </section>
@@ -57,7 +66,7 @@
         <textarea id="agent-prompt" readonly spellcheck="false">Use https://read.lookatseel.com/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.</textarea>
         <div class="handoff-actions"><button id="copy-prompt" type="button" hidden>Copy command <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit on GitHub</a></div>
         <p id="copy-status" role="status" aria-live="polite"></p>
-        <details class="instructions"><summary>Full instructions &amp; privacy</summary><p id="full-prompt">Help me build a personal reading website using https://github.com/lamentierschweinchen/personal-reader-kit. Start by reading the repository’s AGENTS.md and docs/AGENT-GUIDE.md. Work in my own project. Explain file privacy before I share any books, then help me choose a simple reader or a custom experience. Preserve the source text and formatting. Keep my books and notes out of public code. Guide me through setup, offline checks and deployment, and confirm what will be public before publishing.</p><a href="/start.txt">Plain text for agents</a><p class="storage-note">Wait for “Available offline” before travelling. Notes stay in your browser; keep a backup.</p></details>
+        <details class="instructions"><summary>Full instructions &amp; privacy</summary><p id="full-prompt">Help me build a personal reading website using https://github.com/lamentierschweinchen/personal-reader-kit. Start by reading the repository’s AGENTS.md and docs/AGENT-GUIDE.md. Work in my own project. Explain file privacy before I share any books, then help me choose a simple reader or a custom experience. Preserve the source text and formatting. Keep my books and notes out of public code. Use the kit’s reader-copyeditor skill for authored prose. Guide me through setup, offline checks and deployment, and confirm what will be public before publishing.</p><a href="/start.txt">Plain text for agents</a><p class="storage-note">Wait for “Available offline” before travelling. Notes stay in your browser; keep a backup.</p></details>
       </div>
     </section>
   </main>

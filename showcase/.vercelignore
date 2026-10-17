@@ -16,6 +16,8 @@ assets/*
 !assets/austen-cover.jpg
 !assets/alice-rabbit.png
 !assets/walden-survey.jpg
+!assets/two-halls-portraits.webp
+!assets/read-share.jpg
 
 # Vercel Git deployments evaluate these paths from the repository root.
 !showcase/
@@ -35,3 +37,5 @@ assets/*
 !showcase/assets/austen-cover.jpg
 !showcase/assets/alice-rabbit.png
 !showcase/assets/walden-survey.jpg
+!showcase/assets/two-halls-portraits.webp
+!showcase/assets/read-share.jpg
