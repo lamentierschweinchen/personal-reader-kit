@@ -14,7 +14,9 @@ The release package passes 47 kit Node tests and 207 example tests. All 267 read
 
 Chromium and WebKit cover all three games at 320×568, 390×844, 844×390, 820×1180, 1180×820 and 1280×800. Complete Alice wins and natural losses pass in both engines; Homeward has full phone/desktop voyages and both loss conditions through trusted Chromium touch; Dracula has keyboard wins/losses in both engines and a complete Chromium touch escape. Cancellation, retry, pause and source views are checked. Combined-reader journeys preserve exact chapter text and independent notes/caches. Game roundtrips preserve notes, reading positions and spoiler boundaries. Chromium offline emulation and WebKit with the local origin stopped verify cached play and return to reading. WebKit’s simulated offline mode produced a browser-internal error, so it is not used as outage evidence.
 
-The checks use browser emulation, not physical iOS/Android devices. Held WebKit touch, native installation, auditory quality and screen-reader playthroughs remain unverified. The games are visual action games with keyboard controls; they do not claim equivalent nonvisual play. Public HTTPS verification is a separate release step.
+All 305 production HTTPS files match the reviewed release. Six reader header checks, nine private-path exclusions and the unchanged personal homepage pass. Fresh live Chromium/WebKit sessions pass the complete layout and reader-return matrix. Alice completes its full rounds in both engines; Homeward passes complete phone/desktop voyages and both losses; Dracula passes both engines’ keyboard journeys and a complete Chromium touch escape. No runtime changes were needed after publication. The catalogue’s no-JavaScript CI check now waits for fonts and requests reduced motion before clicking its fallback link.
+
+The checks use browser emulation, not physical iOS/Android devices. Held WebKit touch, native installation, auditory quality and screen-reader playthroughs remain unverified. The games are visual action games with keyboard controls; they do not claim equivalent nonvisual play.
 
 ## Live-site UX review · 17 October 2026
 
