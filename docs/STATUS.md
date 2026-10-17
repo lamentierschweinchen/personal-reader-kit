@@ -4,6 +4,12 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The user approved the public showcase at `read.lookatseel.com` and four separate reader subdomains; live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
 
+## Catalogue correction and home-screen guidance · 17 October 2026
+
+The Two Halls illustration now fills its frame on phone, tablet and desktop; the social preview gives both portraits a wider column. The preceding layout checks established successful image loading but missed the bands caused by `object-fit: contain`. The catalogue check now measures the image's painted extent against the frame. Current Chromium/WebKit checks pass all six sizes per engine, including keyboard and no-JavaScript access to the new home-screen guide. Phone, tablet, desktop, expanded-guide and social-image captures were visually inspected. An independent design agent accepted the page crop and requested the wider social composition, then accepted the revised candidate. The full prompt is shorter; permissions remain a one-line footer reminder with linked details. All 44 kit and 135 example Node tests pass, with all 219 example outputs unchanged.
+
+Installation instructions follow Apple and Google documentation and link to an explicit installed-app offline/backup check. No native home-screen installation was performed on a physical device; browser emulation cannot establish that result. Reader code, prepared editions, storage and canonical origins are unchanged. These local results do not establish deployment; live verification remains a separate release step.
+
 ## Sharing refresh · 17 October 2026
 
 The catalogue's Two Halls entrance now uses a contemporary AI-generated engraved-style illustration of Hegel and Schopenhauer, with provenance separate from the historical editions. A dedicated **1200 × 630** social preview presents the four artworks, the site name and its brief offer. Open Graph and large-image card metadata reference the same local file. The full agent handoff explicitly includes the new reader-copyeditor skill. An independent design agent inspected desktop, tablet, phone and social-image captures and accepted the direction; its caption-order correction was incorporated. This is design judgment, not human reader acceptance.

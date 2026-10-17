@@ -39,6 +39,8 @@ Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, u
 
 The real-book trials required adapters for illustrations, notes, tables and shaped verse. The stock kit still uses its narrow text contract. [Adapter decisions](docs/ADAPTERS.md) explain compatibility, asset recovery and how to test an adapted reader without overstating automatic import support.
 
+**Keep it on your home screen.** Open the reader in Safari on iPhone/iPad or Chrome on Android, then use **Add to Home Screen** or **Install**. Desktop browsers offer app installation too. Open the new icon while online, confirm your books and notes, then check its offline copy before travelling. [Device-by-device instructions and backup steps](docs/DEPLOYMENT.md#add-the-reader-to-your-home-screen)
+
 ## Make your reader, with an agent
 
 If you have the repository open in an agent that can work with local files, start with:

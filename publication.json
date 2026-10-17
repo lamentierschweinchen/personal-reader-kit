@@ -1705,6 +1705,12 @@
       "sha256": "1bb8c69c0eb97c9a27fb89cb2c9c7c6adb9a8ecc4a9811ab56a6cef278c701ce",
       "provenance": "showcase/ASSETS.md",
       "reason": "HTML-rendered social preview using only reviewed catalogue artwork and the licensed local font. Retains each source asset’s rights scope; no user library or notes."
+    },
+    {
+      "path": "showcase/assets/read-share.jpg",
+      "sha256": "251f8bb5cad45526cc3d17bb04d31bfe0129ef8a386dbc8cfc050d1299022996",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed social preview with a wider, frame-filling Two Halls composition. Same authorized catalogue artwork and local licensed font; the prior published layout hash is retained for history."
     }
   ],
   "reviewedHistoricalFiles": [

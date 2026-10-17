@@ -20,18 +20,18 @@ try{
   await page.setContent(`<!doctype html><html lang="en"><meta charset="utf-8"><style>
     @font-face{font-family:Fraunces;src:url('${font}') format('woff2');font-weight:100 900}
     *{box-sizing:border-box}body{margin:0;width:1200px;height:630px;padding:36px 44px;background:#e6dac6;color:#29241c;font-family:Arial,sans-serif}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
     .brand{font:76px/.9 Fraunces;letter-spacing:-5px}.brand span{color:#9c4f37}
     h1{font:400 43px/1.1 Fraunces;letter-spacing:-1.2px;margin:0;width:660px;text-align:right}
-    .books{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    figure{margin:0;min-width:0}.art{height:302px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .books{display:grid;grid-template-columns:repeat(3,1fr) 1.55fr;gap:20px}
+    figure{margin:0;min-width:0}.art{height:250px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     img{display:block;width:100%;height:100%;object-fit:contain}
     .austen{background:#292e29;padding:12px}.austen img{width:auto}
     .alice{background:#dfe9e9;position:relative}.alice img{mix-blend-mode:multiply;position:absolute;width:113%;height:auto;bottom:-39px;left:3px}
     .walden{background:#d6dbce;padding:14px}.walden img{mix-blend-mode:multiply}
-    .halls{background:#eee6d6}.halls img{mix-blend-mode:multiply}
+    .halls{background:#eee6d6}.halls img{object-fit:cover;object-position:50% 20%;mix-blend-mode:multiply}
     figcaption{font:400 23px/1.2 Fraunces;letter-spacing:-.3px;margin-top:14px}
-    footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #bbae98;margin-top:29px;padding-top:22px;font-size:20px}
+    footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #bbae98;margin-top:61px;padding-top:22px;font-size:20px}
     .address{font-size:18px;color:#655c4d}
   </style><body>
     <header><div class="brand">read<span>.</span></div><h1>Make a reader for your books.</h1></header>

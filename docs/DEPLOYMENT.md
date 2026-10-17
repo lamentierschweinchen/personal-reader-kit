@@ -44,6 +44,23 @@ In Vercel, sign in through the provider's UI and add a project from your chosen 
 
 The Git integration can deploy subsequent pushes automatically. Keep personal files out of every branch and deployment source, even if output files are allowlisted. Review the provider's [GitHub integration instructions](https://vercel.com/docs/git/vercel-for-github) when performing setup. For a CLI deployment, inspect the linked project and exact upload set; `.vercelignore` provides an allowlist, not authorization to deploy. Do not link or overwrite either reference reader's live project.
 
+## Add the reader to your home screen
+
+Open the reader's final HTTPS address first. Install the individual reader, not the catalogue that links to it. The stock reader and four public examples already include a web-app manifest and an offline worker; no app-store account is needed.
+
+| Device | Steps |
+| --- | --- |
+| iPhone or iPad | In Safari, open **Share** (sometimes inside the page menu), then **Add to Home Screen**. Enable **Open as Web App** if that option appears, then tap **Add**. If the action is missing, look in **Edit Actions**. |
+| Android phone or tablet | In Chrome's menu, choose **Install and create shortcut**, then **Install**, and follow the device's instructions. Older browser versions may label the action **Add to Home screen** or **Install app**. |
+| Computer with Chrome | Open the menu, then **Cast, save, and share**, then **Install page as app**. An install icon may also appear in the address bar. |
+| Mac with Safari | On macOS Sonoma 14 or later, choose **File**, then **Add to Dock** and **Add**. |
+
+Menu wording and installation options depend on the browser and operating system. These steps follow [Apple's iPhone guidance](https://support.apple.com/guide/iphone/turn-a-website-into-an-app-iph42ab2f3a7/ios), [Chrome's Android guidance](https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en), [Chrome's computer guidance](https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DDesktop&hl=en) and [Safari's Mac guidance](https://support.apple.com/en-us/104996), checked 17 October 2026. They are instructions to try on the actual device, not evidence that native installation has been tested on every platform.
+
+Open the new icon while still online. Confirm your book and notes are present; an installed web app can have separate browser storage. If needed, export a **private reading bundle** from the browser where you were reading, then restore it in the installed app. Keep that backup until the book, annotations and reading place survive a close and reopen.
+
+In the installed reader, open **Settings**, choose **Check offline copy** and wait for **Available offline**. With both Wi-Fi and mobile data off, close and reopen it, change chapters, save a test annotation and reopen again to confirm it remains. Adding an icon alone does not establish offline readiness. Included books and companions can work offline; external research and directions links still need a connection. Retain backups because installation does not prevent cleared or evicted storage.
+
 ## Verify and hand off
 
 Do not equate a successful build with a usable site. After the approved deployment, verify:
@@ -52,7 +69,7 @@ Do not equate a successful build with a usable site. After the approved deployme
 - The library response contains only the two original works. Requests for `.reader/`, source books and backups return no private content; a generic error/404 is expected.
 - Import a harmless original fixture from a phone/tablet. Confirm it is retained after reload and no upload request appears. Do not use a copyrighted book to probe deployment safety.
 - Select text, save/edit a note, leave and resume the same section, open an exploratory passage and return. Export a backup and verify a fresh-browser restore with original fixtures.
-- Confirm the offline indicator, then disconnect and reload the reader and local import. Storage limitations still apply.
+- Confirm the offline indicator, then disconnect and reload the reader and local import. If the user adds it to their home screen, repeat this from the new icon, including an annotation save and reopen. Storage limitations still apply.
 - Check the actual phone/iPad selection menus, keyboard, safe areas, zoom and orientation; emulation is only partial evidence.
 
 Return the usable URL, commit and deployment identifiers, verification receipt, privacy model, recovery instructions and remaining limits. Keep credentials and provider linkage out of Git. Do not call a URL live or a push synchronized without checking the result.

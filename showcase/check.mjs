@@ -39,6 +39,16 @@ try {
         assert.equal(await page.locator('.plate').count(),4);
         assert.equal(new Set(await page.locator('.plate img').evaluateAll(a=>a.map(x=>x.src))).size,4);
         assert.match(await page.locator('.halls img').getAttribute('alt'),/illustration of Hegel and Schopenhauer/);
+        // An img element can fill the plate while object-fit:contain leaves bands.
+        // Measure the painted object's extent using its intrinsic aspect ratio too.
+        const portraitFit=await page.locator('.halls img').evaluate(img=>{
+          const box=img.getBoundingClientRect(),plate=img.closest('.plate').getBoundingClientRect(),style=getComputedStyle(img);
+          const scale=(style.objectFit==='cover'?Math.max:Math.min)(box.width/img.naturalWidth,box.height/img.naturalHeight);
+          const width=img.naturalWidth*scale,height=img.naturalHeight*scale,[x,y]=style.objectPosition.split(' ').map(v=>parseFloat(v)/100);
+          const left=box.left+(box.width-width)*x,top=box.top+(box.height-height)*y;
+          return {fit:style.objectFit,position:style.objectPosition,covers:left<=plate.left+1&&top<=plate.top+1&&left+width>=plate.right-1&&top+height>=plate.bottom-1};
+        });
+        assert.ok(['cover','contain'].includes(portraitFit.fit)&&portraitFit.covers,'Two Halls artwork must fill its frame: '+JSON.stringify(portraitFit));
         const sharingImage=await page.locator('meta[property="og:image"]').getAttribute('content');
         assert.equal(sharingImage,'https://read.lookatseel.com/assets/read-share.jpg');
         assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'),'summary_large_image');
@@ -50,6 +60,17 @@ try {
         assert.ok(metrics.targets.every(x=>x.w>=44&&x.h>=44),'Small interaction target: '+JSON.stringify(metrics.targets));
         assert.ok(metrics.previewTop<410,'Previews should be near the beginning of the page');
         await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
+        const install=page.locator('.install-guide');
+        assert.equal(await install.getAttribute('open'),null);
+        await install.locator('summary').focus();await page.keyboard.press('Enter');
+        await install.locator('.install-body').waitFor({state:'visible'});
+        assert.match(await install.innerText(),/iPhone & iPad[\s\S]*Android[\s\S]*Computer/);
+        assert.match(await install.innerText(),/Check offline copy/);
+        assert.match(await install.getByRole('link').getAttribute('href'),/#add-the-reader-to-your-home-screen$/);
+        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Expanded installation guide overflows');
+        const guideTarget=await install.getByRole('link').boundingBox();assert.ok(guideTarget.width>=44&&guideTarget.height>=44);
+        if([402,768].includes(viewport.width))await install.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}-install.png`,output)),animations:'disabled'});
+        await install.locator('summary').click();assert.equal(await install.getAttribute('open'),null);
         await page.getByRole('link',{name:'Build your personal reader',exact:true}).click();assert.ok(page.url().endsWith('#start'));
         await page.getByRole('button',{name:'Copy command',exact:true}).click();await page.getByRole('status').filter({hasText:'Copied.'}).waitFor();
         assert.equal(await page.evaluate(()=>window.copiedPrompt),commandText);
@@ -58,12 +79,12 @@ try {
         assert.deepEqual(await page.locator('#agent-prompt').evaluate(e=>({focused:document.activeElement===e,start:e.selectionStart,end:e.selectionEnd})),{focused:true,start:0,end:commandText.length});
         await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined}));
         await page.getByRole('button',{name:'Copy again',exact:true}).click();assert.equal(await page.locator('#agent-prompt').inputValue(),commandText);
-        await page.getByText('Full instructions & privacy',{exact:true}).click();await page.locator('#full-prompt').waitFor({state:'visible'});
+        await page.getByText('Full instructions',{exact:true}).click();await page.locator('#full-prompt').waitFor({state:'visible'});
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert.equal(overflow,false,'Expanded instructions overflow');
         await page.getByRole('link',{name:'Plain text for agents',exact:true}).click();
         assert.equal((await page.locator('body').textContent()).trim(),promptText);
         assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);
-        receipts.push({engine,viewport,localAssets:true,previews:4,touchTargets:true,promptCopy:true,clipboardFallback:true,plainText:true,overflow:false});await context.close();
+        receipts.push({engine,viewport,localAssets:true,previews:4,portraitFit,installationGuide:true,touchTargets:true,promptCopy:true,clipboardFallback:true,plainText:true,overflow:false});await context.close();
       }
       const context=await browser.newContext(),page=await context.newPage();await page.goto(base);
       // macOS WebKit's default Tab policy skips links; Option-Tab includes them.
@@ -71,7 +92,9 @@ try {
       assert.equal(await page.locator(':focus').textContent(),'Skip to the books');await page.keyboard.press('Enter');assert.ok(page.url().endsWith('#books'));await context.close();
       const noScript=await browser.newContext({javaScriptEnabled:false,viewport:{width:402,height:874}}),plainPage=await noScript.newPage();await plainPage.goto(base);
       assert.equal(await plainPage.locator('#agent-prompt').inputValue(),commandText);assert.equal(await plainPage.locator('#copy-prompt').isVisible(),false);
-      assert.equal(await plainPage.locator('.reader').count(),4);await plainPage.getByText('Full instructions & privacy',{exact:true}).click();await plainPage.getByRole('link',{name:'Plain text for agents',exact:true}).click();assert.equal((await plainPage.locator('body').textContent()).trim(),promptText);await noScript.close();
+      assert.equal(await plainPage.locator('.reader').count(),4);
+      await plainPage.getByText('Add a reader to your home screen',{exact:true}).click();await plainPage.locator('.install-body').waitFor({state:'visible'});
+      await plainPage.getByText('Full instructions',{exact:true}).click();await plainPage.getByRole('link',{name:'Plain text for agents',exact:true}).click();assert.equal((await plainPage.locator('body').textContent()).trim(),promptText);await noScript.close();
     }finally{await browser.close();}
   }
   await writeFile(new URL('receipt.json',output),JSON.stringify({checkedAt:new Date().toISOString(),passed:true,receipts,limits:'Automated Chromium/WebKit layout, navigation and asset checks. Screenshots require visual review; emulation is not physical-device or screen-reader acceptance.'},null,2)+'\n');
