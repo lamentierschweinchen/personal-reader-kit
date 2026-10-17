@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Personal introduction, refined · 17 October 2026
+
+The personal entrance now has one short sequence: Canetti, Alice and Walden open into illustrated reader views; “Read it. Explore it.” states the offer; Get started leads to newreading.app. Alice is centered with the exact question about pictures and conversations selected. Walden shows all thirteen house-account entries and the $28.12½ total, with the original exclusions. Native HTML replaces flattened screenshot text; a larger lossless map retains attribution. All reader destinations are removed, including Canetti. Phone controls switch illustrations in place. The footer contains secondary links and the colophon.
+
+The latest New reading release is retained separately. This changes no reader implementation, edition, source text, annotations or storage. The three old preview JPEGs remain reviewed in history but leave the deployment inventory. The social preview now matches the new cover order.
+
 ## Personal cover opening and quieter Austen · 17 October 2026
 
 Replaces the personal catalogue at read.lookatseel.com with the accepted short cover-opening concept: Alice, Canetti’s walking map and Walden’s companion, then four possibilities and a direct agent prompt. Tan paper and Fraunces connect it to the owner’s main site. Copy prompt and repository access remain in the header. Credits and qualifications sit in one footer disclosure. Native scrolling opens the covers; static, reduced-motion and short-viewport fallbacks keep every destination and the prompt usable. The main New reading catalogue retains its own design.

@@ -496,6 +496,7 @@
     "showcase/assets/martian-mono-normal.woff2",
     "showcase/assets/personal-alice-reader.jpg",
     "showcase/assets/personal-canetti-map.jpg",
+    "showcase/assets/personal-canetti-map.png",
     "showcase/assets/personal-opening-share.jpg",
     "showcase/assets/personal-share.jpg",
     "showcase/assets/personal-walden-reader.jpg",
@@ -509,6 +510,7 @@
     "showcase/build.mjs",
     "showcase/capture.mjs",
     "showcase/check-inputs.mjs",
+    "showcase/check-personal.mjs",
     "showcase/check-readers.mjs",
     "showcase/check.mjs",
     "showcase/covers.mjs",
@@ -1841,6 +1843,18 @@
       "sha256": "2835eaebbfb75d6b3e3bd6ea08402fae1a1b18ce55701cb1a72df7048228059e",
       "provenance": "showcase/ASSETS.md",
       "reason": "Unchanged Piazzolla italic variable Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/personal-canetti-map.png",
+      "sha256": "97da4a4f877c4db221de785d09a227fa8b99340e1abec42ec6319c9bdb95ca6d",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Owner-selected 748 × 940 lossless map-only view from the other local design concept. No literary text, device location, notes or site destination. OSM attribution remains visible; original provenance and display-only scope in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/personal-opening-share.jpg",
+      "sha256": "952c3cc0fffff37014d50f57fab8967e4a5f2dc6a213206b3be0def0e4e6abe8",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
     }
   ],
   "reviewedHistoricalFiles": [

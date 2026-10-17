@@ -30,6 +30,8 @@ jobs:
       - run: npm run test:browser
       - run: node showcase/check.mjs
         if: hashFiles('showcase/check.mjs') != ''
+      - run: node showcase/check-personal.mjs --skip-build
+        if: hashFiles('showcase/check-personal.mjs') != ''
       - run: node showcase/check-readers.mjs --skip-build
         if: hashFiles('showcase/check-readers.mjs') != ''
   examples:

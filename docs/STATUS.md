@@ -4,6 +4,14 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications and literary text remain outside this repository. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Personal introduction, refined · 17 October 2026
+
+The personal entrance now has one short sequence: Canetti, Alice and Walden open into illustrated reader views; “Read it. Explore it.” states the offer; Get started leads to newreading.app. Alice is centered with the exact question about pictures and conversations selected. Walden shows all thirteen house-account entries and the $28.12½ total, with the original exclusions. Native HTML replaces flattened screenshot text; a larger lossless map retains attribution. All reader destinations are removed, including Canetti. Phone controls switch illustrations in place. The footer contains secondary links and the colophon.
+
+The latest New reading release is retained separately. This changes no reader implementation, edition, source text, annotations or storage. The three old preview JPEGs remain reviewed in history but leave the deployment inventory. The social preview now matches the new cover order.
+
+All 44 kit tests, the original-sample build and the fresh 289-input combined build pass. A dedicated personal-page regression passes ten Chromium/WebKit layouts, exact Alice excerpt and Walden sum checks, native scroll opening, phone switching without scroll movement, absence of reader links, main-site handoff, keyboard skip, bounded colophon, reduced motion and no JavaScript. The personal check is included in CI. Desktop, tablet, 320px/390px phone and landscape views were inspected; an independent editorial/design reviewer checked the source and settled captures. Physical-device and screen-reader acceptance remain unverified. Private receipts and screenshots stay ignored.
+
 ## Personal cover opening and quieter Austen · 17 October 2026
 
 The owner selected the short cover-opening prototype for read.lookatseel.com, adapted to lookatseel.com’s tan palette and Fraunces type. Alice, Canetti’s walking map and Walden’s companion are followed by four concise capabilities and Start here. Header shortcuts copy the canonical prompt or open GitHub. Credits and qualifications are disclosed in the footer. The main New reading catalogue remains separate.
