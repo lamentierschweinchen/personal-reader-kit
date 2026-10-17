@@ -513,3 +513,68 @@ h1 em,h2 em,.thread{font-family:var(--display);font-style:italic;font-weight:400
 .illustration-dialog form{position:sticky;top:0;z-index:1;display:flex;justify-content:flex-end;background:#fffbea}
 .illustration-dialog button{min-width:44px;min-height:44px;padding:0 12px;font:400 13px var(--mono);text-decoration:underline;text-underline-offset:4px}
 .illustration-dialog img{width:100%;height:auto;mix-blend-mode:multiply}
+
+/* ── Mobile first: the edition sits under the headline, and the switch says so ── */
+.hero{grid-template-rows:1fr auto auto 1fr;grid-template-areas:". dev" "text dev" "cta dev" ". dev"}
+.hero-text{grid-area:text;justify-content:flex-end;padding-bottom:0}
+.hero-device{grid-area:dev}
+.hero-cta{grid-area:cta;position:relative;padding:0 var(--gutter) clamp(40px,7vh,90px)}
+.hero-cta>*{animation:rise .8s var(--ease) both}.hero-cta>.vp{animation-delay:.12s}.hero-cta>.actions{animation-delay:.22s}
+.note-tap{display:none;position:absolute;left:0;top:0;align-items:center;gap:2px;margin:0;font-size:clamp(24px,2vw,30px);white-space:nowrap;color:var(--pencil);pointer-events:none;transition:opacity .4s}
+.js .note-tap{display:flex;opacity:0}
+.js .note-tap.on{opacity:1}
+.note-tap .hand-arrow{width:38px;height:26px;transform:rotate(18deg) translateY(6px)}
+.note-tap.below{flex-direction:row;align-items:flex-start}
+.note-tap.below .hand-arrow{transform:scaleY(-1) rotate(8deg) translateY(10px)}
+@media(max-width:820px){
+ html{scroll-padding-top:84px}
+ .top{align-items:center}
+ .top nav{display:flex;gap:4px}
+ .top .brand{margin-top:0;padding-top:16px}
+ .hero{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"text" "dev" "cta"}
+ .hero-text{padding:clamp(24px,5vw,44px) var(--gutter) 0}
+ .hero h1{font-size:clamp(40px,12.4vw,68px)}
+ .hero.tap-below .hero-device{padding-top:46px}
+ .hero-device{background:none;align-items:stretch;padding:16px var(--gutter) 40px}
+ .ph{--pw:auto;width:100%;max-width:440px;font-size:clamp(11.5px,3.6vw,16px);padding:5px;border-radius:24px;box-shadow:0 22px 40px -26px rgba(10,10,5,.55)}
+ .ph-screen{min-height:0;border-radius:19px;padding:1.2em 1.3em 1.15em}
+ .ph-screen::before{display:none}
+ .ed-top{font-size:.66em;letter-spacing:.12em}
+ .ed-word{font-size:3.2em;margin:.28em 0 .06em}
+ .ed-grid{grid-template-columns:repeat(16,1fr);gap:.24em;margin:.95em 0 1.05em}
+ .ed-quote p{font-size:1.1em}
+ .note-hero{position:absolute;top:auto;left:auto;right:calc(var(--gutter) + 6px);bottom:6px;margin:0;flex-direction:row;align-items:flex-start;gap:0;font-size:26px;transform:rotate(-3deg)}
+ .note-hero .hand-arrow{order:0;width:40px;height:28px;margin:-18px 0 0;transform:scaleY(-1) rotate(-6deg)}
+ .hero-cta{padding:0 var(--gutter) 44px}
+ .hero-cta .vp{margin-top:4px}
+ .hero-cta .actions{margin-top:20px;gap:6px 24px}
+ .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .mode-explore .tabs button{white-space:normal;line-height:1.2;padding:6px 10px;justify-content:center;text-align:center}
+}
+@media(max-width:560px){
+ .top .pill-dark{display:none}
+ .top .nav-full{display:none}
+ .top .nav-short{display:inline}
+ .top .nav-link{font-size:12px;padding:0 6px}
+ .top .pill{padding:0 12px}
+}
+@media(max-width:820px) and (min-width:561px){.hero-device{align-items:flex-start}}
+/* The note belongs to the phone: it points at the quote at every size. */
+.ph{position:relative}
+.note-hero{position:absolute;top:auto;left:auto;right:calc(100% + 10px);bottom:19%;margin:0;flex-direction:column;align-items:flex-end;gap:0;transform:rotate(-4deg);white-space:nowrap}
+.note-hero .hand-arrow{order:2;margin:2px -14px 0 0;transform:scaleY(-1) rotate(160deg)}
+@media(max-width:820px){
+ .note-hero{right:6px;bottom:auto;top:calc(100% - 4px);flex-direction:row;align-items:flex-start;font-size:26px;transform:rotate(-3deg)}
+ .note-hero .hand-arrow{order:0;width:40px;height:28px;margin:-14px 0 0;transform:scaleY(-1) rotate(-6deg)}
+ .top nav{gap:clamp(4px,1.6vw,14px)}
+}
+@media(max-width:820px){.note-hero{top:calc(100% + 4px)}.note-hero .hand-arrow{margin-top:-22px}}
+@media(max-width:560px){
+ .sample-row{scroll-padding-inline:var(--gutter)}
+ .sample{min-height:270px}
+ .mode-explore .tabs button{font-size:12px;letter-spacing:0;padding:4px 8px}
+ .xp-top{letter-spacing:.08em}
+}
+/* Step numerals match the homepage steps; Fell's old-style 1 reads as an I. */
+.g-num{font-family:var(--serif);font-variant-numeric:lining-nums}
+.steps b{font-variant-numeric:lining-nums}

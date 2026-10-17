@@ -27,13 +27,43 @@ function placeRing(animate) {
   Object.assign(ring.style, {left: (r.left - t.left - padX) + 'px', top: (r.top - t.top - padY) + 'px', width: (r.width + padX * 2) + 'px', height: (r.height + padY * 2) + 'px'});
   if (animate) {ring.classList.remove('drawing'); void ring.getBoundingClientRect(); ring.classList.add('drawing');}
 }
-$$('[data-pick]').forEach(b => b.addEventListener('click', () => {setThread(b.dataset.pick); placeRing(true);}));
+// "tap a word" points at the other edition until someone has tried it.
+const tap = $('[data-tap]'), phone = matchMedia('(max-width: 820px)');
+let tried = false;
+function placeTap() {
+  const money = heroText.querySelector('[data-pick=money]'), show = !tried && hero.dataset.thread === 'love';
+  hero.classList.remove('tap-below'); tap.classList.remove('below', 'on');
+  if (!show) return;
+  const r = money.getBoundingClientRect(), d = money.nextElementSibling.getBoundingClientRect(), t = heroText.getBoundingClientRect();
+  const pad = parseFloat(getComputedStyle(heroText).paddingRight), w = tap.offsetWidth;
+  if (t.right - pad - d.right - 6 >= w) Object.assign(tap.style, {left: (d.right - t.left + 4) + 'px', top: (r.top - t.top + (r.height - tap.offsetHeight) / 2) + 'px'});
+  else if (phone.matches) {
+    hero.classList.add('tap-below'); tap.classList.add('below');
+    Object.assign(tap.style, {left: Math.min(r.left - t.left + r.width * .45, t.width - pad - tap.offsetWidth) + 'px', top: (r.bottom - t.top + 2) + 'px'});
+  } else return;
+  tap.classList.add('on');
+}
+function choose(key, animate) {setThread(key); placeRing(animate); placeTap();}
+$$('[data-pick]').forEach(b => b.addEventListener('click', () => {tried = true; stopDemo(); choose(b.dataset.pick, true);}));
 setThread('love');
 // Measure after the headline's entrance animation settles.
-document.fonts.ready.then(() => setTimeout(() => placeRing(true), 950));
-heroText.addEventListener('animationend', () => placeRing(false));
-if (typeof ResizeObserver === 'function') new ResizeObserver(() => placeRing(false)).observe(heroText);
-else window.addEventListener('resize', () => placeRing(false));
+const settle = () => {placeRing(false); placeTap();};
+document.fonts.ready.then(() => setTimeout(() => {placeRing(true); placeTap();}, 950));
+heroText.addEventListener('animationend', settle);
+if (typeof ResizeObserver === 'function') new ResizeObserver(settle).observe(heroText);
+else window.addEventListener('resize', settle);
+
+// Show the switch once: money, then back to love. Any touch, key or scroll stops it.
+const device = $('.hero-device'), demo = [];
+function stopDemo() {demo.forEach(clearTimeout); demo.length = 0; device.setAttribute('aria-live', 'polite');}
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, stopDemo, {once: true, passive: true});
+  document.fonts.ready.then(() => demo.push(setTimeout(() => {
+    if (scrollY > 40) return;
+    device.setAttribute('aria-live', 'off'); choose('money', true);
+    demo.push(setTimeout(() => {choose('love', true); stopDemo();}, 2600));
+  }, 2600)));
+}
 
 // Any book: a slow band of distinct covers.
 const style = document.createElement('style'); style.textContent = COVER_CSS; document.head.appendChild(style);

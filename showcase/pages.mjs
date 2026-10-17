@@ -90,19 +90,23 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
  <div class="hero-text">
   <h1 id="hero-title">Once for <button type="button" class="thread" data-pick="love" aria-pressed="true">love</button><span class="dot">.</span><br>Again for <button type="button" class="thread" data-pick="money" aria-pressed="false">the&nbsp;money</button><span class="dot">.</span></h1>
   <svg class="ring" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M24 55C9 34 52 9 108 7c58-2 90 18 84 40-6 23-60 31-112 28C38 72 10 60 16 41c3-10 14-18 30-24"/></svg>
-  <p class="vp">Make <span class="ins"><svg class="ins-caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg>your own</span> edition of any&nbsp;book.</p>
-  <div class="actions"><a class="btn" href="#make">Start yours ${arrow}</a><a class="link" href="#samples">Try a finished one</a></div>
+  <p class="hand note-tap" data-tap aria-hidden="true"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span>tap a word</span></p>
  </div>
  <figure class="hero-device" aria-live="polite">
-  <p class="hand note-hero"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span data-note>he means it.</span></p>
   <div class="ph"><div class="ph-screen">
    <div class="ed-top"><span>Pride &amp; Prejudice</span><span class="ed-label" data-text="label">${threads.love.label}</span></div>
    <div class="ed-word" data-text="name">love</div>
    <div class="ed-count"><span data-text="count">93</span> times · 61 chapters</div>
    <div class="ed-grid" aria-hidden="true">${threads.love.counts.map((_, i) => `<i style="--i:${i}"></i>`).join('')}</div>
    <blockquote class="ed-quote"><p data-text="quote">${threads.love.quote}</p><cite data-text="who">${threads.love.who}</cite></blockquote>
-  </div></div>
+  </div>
+  <p class="hand note-hero"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span data-note>he means it.</span></p>
+  </div>
  </figure>
+ <div class="hero-cta">
+  <p class="vp">Make <span class="ins"><svg class="ins-caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg>your own</span> edition of any&nbsp;book.</p>
+  <div class="actions"><a class="btn" href="#make">Start yours ${arrow}</a><a class="link" href="#samples">Try a finished one</a></div>
+ </div>
 </section>
 
 <section class="anybook reveal" aria-labelledby="any-title">
