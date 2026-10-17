@@ -284,6 +284,10 @@
 !learn/
 !learn/index.html
 !package.json
+!personal/
+!personal/favicon.svg
+!personal/index.html
+!personal/style.css
 !readers.mjs
 !showcase/
 !showcase/assets/
@@ -305,6 +309,10 @@
 !showcase/learn/
 !showcase/learn/index.html
 !showcase/package.json
+!showcase/personal/
+!showcase/personal/favicon.svg
+!showcase/personal/index.html
+!showcase/personal/style.css
 !showcase/readers.mjs
 !showcase/start.mjs
 !showcase/start.txt

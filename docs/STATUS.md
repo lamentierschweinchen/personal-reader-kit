@@ -4,6 +4,14 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
 
+## Personal-site entrance · 17 October 2026
+
+The `read.lookatseel.com` homepage has a separate small landing page in `showcase/personal/`, restoring the original personal-site palette, Fraunces type and book graphic. Its main action opens `newreading.app`. A host-specific rewrite keeps it separate from the main catalogue and future design work. No DNS, reader runtime, edition, storage or main-catalogue asset changes are part of this revision.
+
+Local verification passes all 44 kit and 135 example Node tests, the original-sample build and the 269-file minimal deployment-input build. All 236 preceding combined output files remain byte-identical; three static landing-page files bring the output to 239. The public inventory adds only those three text files, for 532 total; the 60-file starter and 174 edition pins remain unchanged.
+
+The landing page passes 12 Chromium/WebKit layouts from small phone through tablet and desktop, with loaded local artwork/fonts, visible 44px links, no overflow, keyboard access and no-JavaScript use. Settled phone/tablet/landscape/desktop captures were visually reviewed. macOS WebKit uses Option-Tab for link navigation. These are browser-emulation checks, not physical-device or screen-reader acceptance. Actual host routing must also be verified after deployment because the local static server does not emulate Vercel's host conditions.
+
 ## New reading — launch · 17 October 2026
 
 The user selected the Open Shelf direction for `newreading.app` and asked for a clean launch with all four examples at paths. The catalogue now uses self-hosted Bricolage Grotesque, a first-screen Start here action, four artwork-led links and optional previews of the actual companions. The guide is called How it works and retains concrete setup, installation and offline checks without labeling the visitor a beginner. The footer carries one brief publication reminder.

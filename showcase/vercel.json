@@ -13,6 +13,9 @@
   ]},
   {"source":"/(austen|alice|walden|two-halls)/sw.js","headers":[{"key":"Cache-Control","value":"no-cache, no-store, must-revalidate"}]},
   {"source":"/(austen|alice|walden|two-halls)/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]}],
+  "rewrites":[
+    {"source":"/","has":[{"type":"host","value":"read.lookatseel.com"}],"destination":"/personal/index.html"}
+  ],
   "redirects":[
     {"source":"/austen","destination":"/austen/","permanent":true},
     {"source":"/alice","destination":"/alice/","permanent":true},

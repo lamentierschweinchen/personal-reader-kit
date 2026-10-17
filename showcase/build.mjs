@@ -4,7 +4,7 @@ import path from 'node:path';
 
 const root=fileURLToPath(new URL('./',import.meta.url));
 // Exact public inputs only. Never recursively copy a working directory.
-export const files=['index.html','learn/index.html','style.css','start.mjs','start.txt','favicon.svg','assets/book.webp','assets/bricolage-grotesque.woff2','assets/OFL-Bricolage.txt','assets/fraunces-normal.woff2','assets/fraunces-italic.woff2','assets/OFL.txt','assets/austen-cover.jpg','assets/alice-rabbit.png','assets/walden-survey.jpg','assets/two-halls-portraits.webp','assets/read-share.jpg'];
+export const files=['index.html','learn/index.html','style.css','start.mjs','start.txt','favicon.svg','personal/index.html','personal/style.css','personal/favicon.svg','assets/book.webp','assets/bricolage-grotesque.woff2','assets/OFL-Bricolage.txt','assets/fraunces-normal.woff2','assets/fraunces-italic.woff2','assets/OFL.txt','assets/austen-cover.jpg','assets/alice-rabbit.png','assets/walden-survey.jpg','assets/two-halls-portraits.webp','assets/read-share.jpg'];
 export async function buildShowcase({readers=true,output=path.join(root,'dist')}={}) {
   await rm(output,{recursive:true,force:true});
   for(const file of files){
