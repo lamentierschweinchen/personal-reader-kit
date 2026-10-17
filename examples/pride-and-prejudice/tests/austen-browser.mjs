@@ -31,12 +31,43 @@ async function targets(page,selector){
  // DOMRect subtraction can report 43.99988 for a CSS 44px target.
  assert.ok(dimensions.every(x=>x.width>=43.99&&x.height>=43.99),JSON.stringify(dimensions));return dimensions;
 }
+async function unavailableEditionChecks(browser,engine){
+ const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ try{
+  await page.goto(base);await page.locator('.edition-intro').waitFor();
+  await page.locator('.site-footer [data-action=import]').click();
+  const original=Array.from({length:40},(_,i)=>`Original local paragraph ${i+1}. A book already saved in this browser remains readable when the included edition cannot be downloaded. A reference visit must preserve its reading place.`).join('\n\n');
+  await page.locator('#book-file').setInputFiles({name:'original-local-fixture.txt',mimeType:'text/plain',buffer:Buffer.from(original)});await page.locator('#book-title').fill('Original local recovery fixture');
+  await page.getByRole('button',{name:'Add on this device',exact:false}).click();await page.waitForFunction(()=>!document.querySelector('dialog').open);
+  const local=await page.evaluate(async()=>(await (await import('/db.mjs')).loadBooks()).books.find(b=>b.title==='Original local recovery fixture'));
+  assert.ok(local);await page.goto(`${base}/#read/${local.id}/${local.sections[0].id}`);await page.locator('#reading-text[data-position-ready=true]').waitFor();
+  const exact=local.sections[0].blocks.map(b=>b.text+b.after).join('');assert.equal(await page.locator('#reading-text').textContent(),exact);
+  const quote=await selection(page,local.sections[0].blocks[2].id,0,50);await page.locator('#selection-save').click();await page.locator('#note-text').fill('A local note kept during the missing-edition check.');await page.getByRole('button',{name:'Save on this device',exact:true}).click();await waitNote(page);await page.waitForFunction(()=>!document.querySelector('dialog').open);await settled(page);
+  await page.evaluate(()=>scrollTo(0,1200));await page.getByRole('link',{name:'Words',exact:true}).click();await page.locator('.austen-companion').waitFor();
+  await page.getByRole('button',{name:'Choose what I’ve read',exact:true}).click();await page.locator(`#boundary-${book.id}`).selectOption(String(book.sections.findIndex(s=>s.id==='chapter-5')));await page.getByRole('button',{name:'Set my boundaries'}).click();await page.waitForFunction(()=>!document.querySelector('dialog').open);
+  assert.ok(await page.locator('.echo-list li').count());assert.equal(await page.locator('.experiment-tabs,.prototype-choice').count(),0);
+  const before=await state(page);assert.ok(before.positions[local.id]?.blockId);assert.equal(before.notes[0].quote,quote);
+  await context.route(base+'/library.json',r=>r.abort());await page.reload();await page.locator('.edition-unavailable').waitFor();await page.locator('#storage-warning:not([hidden])').waitFor();
+  assert.equal(await page.locator('.experiment-tabs,.walk-stage,.prototype-choice').count(),0);assert.match(await page.locator('#main').textContent(),/Word index unavailable/);
+  assert.deepEqual((await state(page)).positions,before.positions);assert.deepEqual((await state(page)).notes,before.notes);
+  await targets(page,'.edition-unavailable a,.edition-unavailable button');await snap(page,`${engine}-edition-unavailable-phone`);
+  await page.setViewportSize({width:820,height:1180});await snap(page,`${engine}-edition-unavailable-tablet`);await page.setViewportSize({width:390,height:844});
+  await page.getByRole('link',{name:'Back to books',exact:false}).click();assert.ok((await page.locator('.shelf-list').textContent()).includes(local.title));assert.doesNotMatch(await page.locator('#main').textContent(),/A book to carry|A place to pause|A little further|Try three ways|In good/);await snap(page,`${engine}-local-shelf-without-edition`);
+  await page.getByRole('link',{name:'Words',exact:true}).click();await page.getByRole('button',{name:'Return to your book',exact:false}).click();await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled(page);
+  assert.equal(await page.locator('#reading-text').getAttribute('data-book'),local.id);assert.equal(await page.locator('#reading-text').textContent(),exact);assert.deepEqual((await state(page)).positions[local.id],before.positions[local.id]);assert.ok(await page.evaluate(()=>scrollY>0));await snap(page,`${engine}-local-reading-without-edition`);
+  await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled(page);assert.equal(await page.locator('#reading-text').textContent(),exact);assert.deepEqual((await state(page)).notes,before.notes);
+  await context.unroute(base+'/library.json');await page.goto(base+'/#companion');await page.reload();await page.locator('.austen-companion').waitFor();assert.equal(await page.locator('.edition-unavailable').count(),0);assert.ok(await page.locator('.echo-list li').count());assert.deepEqual((await state(page)).notes,before.notes);await page.waitForFunction(()=>document.querySelector('#status').textContent==='');await snap(page,`${engine}-word-index-after-edition-recovery`);
+  assert.deepEqual(errors,[]);return {originalLocalImport:true,healthyWordIndex:true,failedLibraryHasNoStockCompanion:true,booksAndReturnActions:true,localTextNoteAndPlaceRetained:true,localReloadReadable:true,healthyIndexAfterRecovery:true,errors};
+ }finally{await context.close();}
+}
 try{
  for(const engine of process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit']){
   await start();
   const executablePath=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;
   const browser=await pw[engine].launch({headless:true,...(executablePath?{executablePath}:{})});
   try{
+   const unavailableEdition=await unavailableEditionChecks(browser,engine);console.log(`${engine}: missing edition retains local reading and hides stock prototypes`);
    const continuity=await sharingContinuityChecks({browser,base});
    const sharing=await shareChecks({browser,base,engine,output});console.log(`${engine}: original-fixture sharing checks passed`);
    const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true}),page=await context.newPage();
@@ -161,7 +192,7 @@ try{
    const offlineWrites={created:true,edited:true,reloaded:true,exactQuote:true,chapterNavigation:true,companionRoundTrip:true,placePreserved:true,section:beforeReload.sectionId,block:beforeReload.blockId,noteCount:offlineSaved.notes.length,networkControlStillFails:true,geometry:offlineGeometry};
 
    assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-   receipts.push({engine,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
+   receipts.push({engine,unavailableEdition,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
    console.log(JSON.stringify(receipts.at(-1)));await context.close();
   }finally{await browser.close();await stop();}
  }

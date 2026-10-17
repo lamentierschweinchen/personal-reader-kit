@@ -26,7 +26,7 @@ Each example supports reading, focus, exact passage notes, attributed sharing/co
 
 ## What is public
 
-The user selected these four reviewed editions for this public repository. Only committed source snapshots were packaged; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Runtime modules, edition files and appearance remain identical to the reviewed trials.
+The user selected these four reviewed editions for this public repository. Only committed source snapshots were packaged; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. The catalogue declarations establish **public domain in the USA**, not worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -45,7 +45,9 @@ npm run audit:public
 
 `check:examples` runs each example’s Node checks and build, then compares **every output byte** with its reviewed build inventory. The build gates validate the edition-specific external or decoded embedded images. The public audit pins all edition files, including binary and base64-bearing JSON, in working files, index and complete locally reachable history. Changed assets need a deliberate provenance review and updated exact hashes. No binary directory is broadly permitted.
 
-The existing actual-book Chromium/WebKit journeys are included. Follow each README for commands; browser tests need Playwright and run sequentially within a project. Initial packaging leaves runtime bytes unchanged, so those prior journeys remain relevant; packaging verification is not a new physical-device or live-hosting claim. Actual iOS selection/share delivery, screen-reader acceptance, full proofreading and a human newcomer pilot remain unperformed.
+The existing actual-book Chromium/WebKit journeys are included. Follow each README for commands; browser tests need Playwright and run sequentially within a project. Initial packaging left runtime bytes unchanged. Later maintenance runs the changed edition’s relevant journeys and updates the catalogue’s exact build inventory. Packaging verification alone is not a new physical-device or live-hosting claim. Actual iOS selection/share delivery, screen-reader acceptance, full proofreading and a human newcomer pilot remain unperformed.
+
+Before shipping authored UI or companion prose, follow the enclosing [reader-copyeditor skill](../skills/reader-copyeditor/SKILL.md). Review active routes and fallback states, protect source text and credits, and preserve each edition’s voice. Mechanical integrity checks do not establish good prose.
 
 Maintain the published examples here. The source trial commits identify their starting point; do not continually copy entire working directories from a personal project. If accepting a later trial change, review that diff, rerun its journeys, and update only the selected files and evidence. New personal projects use `publication.json.starterFiles`, which excludes this optional collection.
 

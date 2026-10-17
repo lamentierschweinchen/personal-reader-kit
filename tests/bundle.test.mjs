@@ -37,11 +37,14 @@ test('restore preserves current places, opt-in appearance, explicit spoiler perm
   const repeated=planBundleRestore(bundle,{books:current.books,state:merged.next});assert.equal(repeated.addedNotes,0);assert.equal(repeated.next.notes.length,2);
   assert.equal(anchorStatus(repeated.next.notes[1],source.books[0]).valid,true);
 });
-test('edition conflicts include layout changes and public IDs; snapshots detect independent book and state changes',async()=>{
+test('edition conflicts include layout, context and public IDs; snapshots detect independent book and state changes',async()=>{
   const source=await fixture(),bundle=await createBundle(source),changed=structuredClone(source.books[0]);changed.sections[0].blocks[0].layout='fixed';
   assert.equal(planBundleRestore(bundle,{books:[changed],state:newState()}).conflicts.length,1);
   assert.equal(planBundleRestore(bundle,{books:[],state:newState()},[changed]).conflicts.length,1);
   assert.equal(planBundleRestore(bundle,{books:[],state:newState()},source.books).existing.length,1);
+  const newContext=structuredClone(source.books[0]);newContext.context.push({label:'About',kind:'editorial',through:null,text:'Revised original editorial introduction.'});
+  assert.equal(anchorStatus(source.state.notes[0],newContext).valid,true);
+  assert.equal(planBundleRestore(bundle,{books:[],state:newState()},[newContext]).conflicts.length,1); // Valid text anchors do not establish full-bundle compatibility.
   assert.notEqual(snapshotToken(source),snapshotToken({...source,books:[changed]}));
   assert.notEqual(snapshotToken(source),snapshotToken({...source,state:{...source.state,revision:1}}));
 });

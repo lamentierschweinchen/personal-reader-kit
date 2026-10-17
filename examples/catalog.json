@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 69433,
-          "sha256": "8e9ceca09613b74024155afc194f201d29ec83a41c82577160d2e48893aa386f"
+          "bytes": 67964,
+          "sha256": "941a8cef5aa9848baf319d8e3d514fd0d72144519df057106e6e35fef3db0f82"
         },
         {
           "path": "austen-colophon.png",
@@ -870,8 +870,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 2964,
-          "sha256": "9ce346170e12137263fa7330866b241cfa36122c272fcbe2964d7df5cbf8400b"
+          "bytes": 2936,
+          "sha256": "2f2c909618704f759fdb3a9eaa3af37d5c2821c8f1edf3e364d47a5c32f82a33"
         },
         {
           "path": "library.json",
@@ -901,7 +901,7 @@
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "bc447330577cf31fb7b1452014c5937470b4bb1349bed5e935df2624240540e1"
+          "sha256": "e91dad86669cfa24e69f140944155442db70809ffffd5cfa0bea1848d7220c68"
         },
         {
           "path": "text.mjs",
@@ -911,6 +911,10 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "README.md",
+        "site/app.mjs",
+        "site/index.html",
+        "tests/austen-browser.mjs",
         "tests/publication.test.mjs"
       ]
     },
@@ -938,8 +942,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 72991,
-          "sha256": "52ebe6fa4c77492ef105dd0145be30796fe78901f9d793acb072c2ed34f2d7bd"
+          "bytes": 73672,
+          "sha256": "4becf13fb72931ce1556f755bce11ba2b5410ec669c7766e6ccffa34fd5c2c90"
         },
         {
           "path": "bundle.mjs",
@@ -994,7 +998,7 @@
         {
           "path": "sw.js",
           "bytes": 1131,
-          "sha256": "9e0da0fadcc6a11a0b6b0f76f2daf37d704f74b6a91ae1355a6329e6c15aa683"
+          "sha256": "4564c7750a84875b8c40bc9d835e65dd05ddc1d8a4816e2ff336ebfb4edbcb8c"
         },
         {
           "path": "text.mjs",
@@ -1004,6 +1008,10 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "site/app.mjs",
+        "tests/alice-browser.mjs",
         "tests/publication.test.mjs"
       ]
     },
@@ -1030,8 +1038,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 65341,
-          "sha256": "f3a639d732184a7e180f078812e747ce20636ae4e7e5abbf8decbf707b4aed87"
+          "bytes": 65280,
+          "sha256": "d2e503f6202bd5fa78206d506bd3fe2057db6903b6dac497d912d7719e067192"
         },
         {
           "path": "bundle.mjs",
@@ -1040,8 +1048,8 @@
         },
         {
           "path": "companion.mjs",
-          "bytes": 6924,
-          "sha256": "8b1ae39fcce5c3d77cf14681a15a9057fbebef7f497ab15781f514f9855e555c"
+          "bytes": 5173,
+          "sha256": "f72bff832c35f0a545e517897a8eaa40f394ab7afd0c871457321d22afed61d2"
         },
         {
           "path": "core.mjs",
@@ -1091,7 +1099,7 @@
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "239c5b3017ddea8ef75f4a70311cc4ce1b4f4752d0b0ad7461bb92a25995feab"
+          "sha256": "a221611ea1ae5e692c66c242513f038794dae9797c58f037a182afddcdc7c159"
         },
         {
           "path": "text.mjs",
@@ -1101,6 +1109,9 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "README.md",
+        "site/app.mjs",
+        "site/companion.mjs",
         "tests/publication.test.mjs"
       ]
     },
@@ -1128,8 +1139,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 64838,
-          "sha256": "5fd634176f34c921882b85f3c219bd0bb001c5a8dcdb3075f5084adaa679b975"
+          "bytes": 66058,
+          "sha256": "388322dd280ba660a94f4fccabbcc4503cd0ffd58df6c7f9baea6dc83fd59d65"
         },
         {
           "path": "broadside.css",
@@ -1158,13 +1169,13 @@
         },
         {
           "path": "index.html",
-          "bytes": 3131,
-          "sha256": "8ab4704db49fad5bebdf3ffb083ba7041445fb9a90fed6c474bf1902361009c6"
+          "bytes": 3161,
+          "sha256": "2ca63278455406618d0d2e99d4f3f9be9d94dd65ef9870533ed5ab9948b13021"
         },
         {
           "path": "lectures.mjs",
-          "bytes": 5423,
-          "sha256": "9248e463c252f20828ec926ce06bcbd322872b0e83d271942468cf45d8df30fe"
+          "bytes": 5029,
+          "sha256": "9d6ae3d83d2b538b35cf74c34eb5fb98598180feb48027e70f091f04d23ed27b"
         },
         {
           "path": "library.json",
@@ -1194,7 +1205,7 @@
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "1143ce098c95cd8a03f2d8f2cb84033c43171c3956b2f91a15402af70b9b297f"
+          "sha256": "85c6bf559e3328a29efe2d2ac80c0c183e6cb2d31252e5ea299234222b9e4353"
         },
         {
           "path": "text.mjs",
@@ -1204,6 +1215,10 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "README.md",
+        "site/app.mjs",
+        "site/index.html",
+        "site/lectures.mjs",
         "tests/publication.test.mjs"
       ]
     }

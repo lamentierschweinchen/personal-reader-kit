@@ -49,7 +49,7 @@ The agent follows four steps:
 
 1. **Meet the books.** Check formats, edition, languages, source quality and import rights. Prepare local reading files with exact wording, poetry structure and an honest conversion report.
 2. **Choose the kind of companion.** First make ordinary reading useful. Presets are available in either mode; optional exploration starts with questions about your interests, travel, attention and spoilers.
-3. **Try, then make.** For exploratory mode, the agent studies the material and proposes three genuinely different experiences, makes a small working prototype of each, asks what draws you in, and refines your choice. Reading remains available throughout. If you already chose a direction, tell the agent; it should refine that choice instead of restarting an unwanted selection exercise.
+3. **Try, then make.** For exploratory mode, the agent studies the material and proposes a straightforward companion, a scholarly approach and an experimental idea, with material-led alternatives where needed. It reviews a sample of the actual prose, makes a small working prototype of each, asks what draws you in, and refines your choice. Reading remains available throughout. If you already chose a direction, tell the agent; it should refine that choice instead of restarting an unwanted selection exercise.
 4. **Make it yours online.** The agent helps you get the repository through GitHub if needed, set up Vercel, choose the right privacy boundary, deploy, and verify the actual site on your devices. [Deployment guide](docs/DEPLOYMENT.md)
 
 A walk, map, historical context, secondary literature, a visual experiment or a conversation between works may fit. None is compulsory. The kit’s three sample sketches show different structures; they are not automatic templates to impose on every book.
@@ -71,6 +71,8 @@ This is an early reusable kit, not a universal ebook converter. EPUB/PDF convers
 
 ## For maintainers
 
+The portable [reader-copyeditor skill](skills/reader-copyeditor/SKILL.md) reviews authored prose without rewriting literary sources. It covers useful content, production commentary, claims, voice and the rendered experience. Its optional receipt check verifies coverage and file integrity, not writing quality.
+
 Personalized readers have a [read-only upgrade comparison and migration procedure](docs/UPGRADING.md). The [three-newcomer and editorial pilot](docs/PILOT.md) defines the human evidence still needed for broader dependability claims. The application needs only Node; the optional EPUB preparer and its Node test fixtures additionally require Python 3.10 or later. No Python packages are installed.
 
 ```sh
@@ -78,6 +80,7 @@ npm test              # Source fidelity, anchors, recovery, spoiler and build-bo
 npm run build        # Public shell + reviewed original samples only, into dist/
 npm run audit:public # Exact staged/working inventory and all reachable Git history
 npm run check:examples # Optional collection: each reader's tests and exact build bytes
+npm run editorial:check -- .reader/editorial/review.json # Review coverage and file integrity
 ```
 
 The public audit expects the final file set to be staged and a complete clone. Shallow/partial history, replacement refs, grafts and inspection errors cannot pass. The receipt identifies HEAD and all locally present refs; it cannot inspect unfetched remote refs or unreachable objects. For a safely retired or renamed public file, keep its reviewed old path, SHA-256 and reason in `publication.json.reviewedHistoricalFiles`. This list does not admit the file into the current build or weaken private-path checks. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, unreviewed binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. The four optional example editions have separate path/hash/provenance entries; their source-specific build gates also validate decoded images. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.

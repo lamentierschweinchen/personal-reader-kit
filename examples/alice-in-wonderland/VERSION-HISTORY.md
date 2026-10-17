@@ -25,3 +25,9 @@ Included the coordinator’s dialog continuity and delayed-edition fixes: captur
 ## 16 October 2026 — curated public-kit snapshot
 
 The user authorized including the four reviewed examples in the established public kit. This directory is the selected current source snapshot, without the trial Git history, raw inputs or private artifacts. README/AGENTS/package audit commands reflect the enclosing repository; runtime assets and prepared edition bytes remain unchanged. Older entries and copied docs describe the independent trial at the time. No domain or deployment was changed.
+
+## 17 October 2026 — editorial revision of the packaged reader
+
+Revised the active picture, tail, search and saved-passage copy while retaining Alice’s wordplay and visual identity. Removed repeated editorial disclaimers, clarified search and imported-edition messages, and made the boundary dialog explicit about front-matter spoilers and the always-visible frontispiece. Reading, storage, sharing and spoiler logic are unchanged.
+
+Corrected the obsolete local-trial publication statement only when About renders the exact verified built-in edition’s authored rights context. The edition object, all source bytes and both local integrity pins remain unchanged, preserving compatibility with earlier full-book bundles. The override checks the exact library hash, built-in object, edition ID, source revision and context field; changed or imported editions retain their own text. Private editorial decisions, source comparisons, concept briefs and browser evidence are retained in the enclosing kit’s ignored editorial workspace. Shared build pins and release integration belong to the kit coordinator.

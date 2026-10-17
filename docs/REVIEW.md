@@ -89,3 +89,32 @@ Independent local builders worked with Pride and Prejudice, Alice's Adventures i
 | Browser/runtime mismatch, asynchronous UI assertions and offline-emulation errors | Documented as environment/harness issues where evidence supports that classification. Actual outage controls and awaited state transitions remain required. |
 
 See [adapter decisions](ADAPTERS.md) for the concrete preparation, versioning, source-reference, draft, asset and publication rules. Distinct source-adapter implementations should be reconciled deliberately, not merged wholesale into this small reader.
+
+
+## Editorial workflow and four-edition review · 17 October 2026
+
+The user asked for stricter prose editing and then sent each of the four existing builders through the new [reader-copyeditor skill](../skills/reader-copyeditor/SKILL.md). This is a portable editorial step in the existing agent guide, not a new reader architecture. The guide now asks for straightforward, scholarly and experimental proposals, each with a textual basis, reader action, representative finished prose, research/rights and spoiler costs, and a reason to reject or simplify it. A chosen direction does not restart that exercise; a poorly fitting family needs an honest alternative.
+
+The workflow separates useful interface instructions, original commentary and protected literature. It requires declared voice signals, actual rendered scope, claim checking, sibling review and explicit cut/revise/relocate/retain decisions. It does not use an AI score, banned-punctuation rule, word-count quality threshold or mandatory quota of defects. Necessary source uncertainty, rights, privacy and failure messages stay visible where they matter.
+
+| Edition | Reviewed result | Preserved |
+| --- | --- | --- |
+| Austen | More accurate search/permission wording and empty states; a clear missing-edition path replaces unrelated sample experiments. | The spare word index, bibliographic title page and source exclusions. |
+| Alice | More specific looking and typography questions; fewer method announcements; explicit front-matter spoiler scope. | Wordplay, contributor distinctions, source notices and exact image/verse structure. |
+| Walden | Shorter account, survey and tax readings that retain their concrete evidence; corrected permission wording. | Historical details, source links, the limits of the comparison and the field-notebook design. |
+| Two Halls | Clearer read-through controls and shorter recurring labels; less framing around the existing comparisons. | The hall metaphor, historical qualifications, translators' distinctions and questions without a declared winner. |
+
+Each builder also produced three private proposal briefs with finished sample prose. The exercise yielded possible later additions, and reasons to use existing controls or omit a feature. It did not trigger new companion builds. Austen and Alice document the builder's own editorial review; Walden and Two Halls also received fresh agent readings. These are not human acceptance studies.
+
+The optional receipt helper checks declared coverage and source integrity. A blank receipt fails, reviewed file changes invalidate it, and refresh cannot accept changed protected source fields. Explicit JSON pointers support prepared files that mix protected literature with authored context; the full diff still needs review. It does not extract prose from JavaScript, establish route reachability, fact-check or certify editorial quality. Private receipts stay under `.reader/editorial/`.
+
+Findings already transferred from the edition reviews into the workflow:
+
+- **Check statements against behavior.** A selected chapter boundary is not inferred reading progress. “None yet” does not hide an always-visible introduction. Exportable browser records are not necessarily confined to one device.
+- **Inspect fallback routes.** A generic branch bypassed by a healthy edition may become visible when a download fails; do not dismiss it as dormant based on the happy path alone.
+- **Inspect mixed metadata.** Trial-era publication statements can survive inside About panels even when ordinary UI copy is good. Change separately authored fields only, preserving all literature, source identities, credits and assets.
+- **Test a finished paragraph before building.** The Alice briefs exposed unsupported speaker identities, an unreviewed illustration and a foreshadowing claim before implementation. Walden’s briefs showed that existing passage controls already supplied much of the proposed benefit. The guide now explicitly asks what a new feature adds beyond those controls. These are design findings, not measured learning outcomes.
+- **A source hash is not the whole compatibility contract.** Alice’s trial context edit left text anchors valid but made old full-book bundles conflict, because bundles compare complete editions. The release therefore keeps edition JSON unchanged and scopes current About wording to the presentation layer. Copy edits must test old exports; do not weaken collision checks to make them pass.
+- **Preserve useful differences.** Austen's restrained index is a positive control, not an invitation to manufacture more commentary. A staged philosophical comparison needs one clear historical qualification; that is different from repeated editorial self-narration.
+
+The stock pass removes the generic index maxim and process commentary, gives the listening sketch concrete sensory actions, and clarifies storage and boundary instructions. Four original-sample context strings are presented with revised wording; the complete stored/exported sample editions remain unchanged. The fictional walk is still a small demonstration, not evidence of a researched itinerary or measured reader learning. Execution evidence and remaining limits are recorded in [STATUS.md](STATUS.md).

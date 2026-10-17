@@ -12,18 +12,33 @@ export async function bundleChecks({browser,base,engine,output}) {
   };
   try {
     await page.goto(base);await page.getByRole('button',{name:'The distance of a bell',exact:true}).waitFor();
+    const publicBefore=await page.evaluate(async()=>await(await fetch('/library.json')).json());
+    const custom=await browser.newContext({serviceWorkers:'block'});
+    try{
+      const customized=structuredClone(publicBefore);customized[0].context[0].text='An explicitly customized sample introduction.';
+      await custom.route('**/library.json',route=>route.fulfill({json:customized}));
+      const view=await custom.newPage();await view.goto(base);await view.getByRole('button',{name:'The distance of a bell',exact:true}).click();await view.locator('#reading-text').waitFor();
+      await view.getByRole('button',{name:'About this work',exact:true}).click();assert.match(await view.locator('#dialog').innerText(),/An explicitly customized sample introduction\./);
+    }finally{await custom.close();}
     const fixture=await page.evaluate(async()=>{
       const core=await import('/core.mjs'),db=await import('/db.mjs'),book=await core.fromText('Original transfer words 🕯\n    a second line\n\n\nAnother stanza.',{title:'Original portable edition',kind:'verse'});
+      book.context=[{label:'About the work',kind:'author',through:null,text:'Personal context stays exactly as supplied.'}];
       book.sections[0].blocks[0].marks=[{kind:'em',start:0,end:8}];await db.saveBook(book);
       const p=core.passageAt(book,book.sections[0],book.sections[0].blocks[0]);
       await db.updateState(s=>{s.notes=[{...p,id:'portable-note',updated:1,note:'Original portable comment.'}];s.connections=[{id:'portable-connection',updated:1,note:'Original pair.',passages:[p,p]}];s.positions[book.id]={revision:book.source.sha256,sectionId:'text',blockId:'b1',ratio:0.3};s.lastBook=book.id;s.prefs.theme='dusk';s.boundaries[book.id]={revision:book.source.sha256,index:0};return s;});
       return book;
     });
     await page.reload();await page.getByRole('button',{name:fixture.title,exact:true}).waitFor();
+    await page.getByRole('button',{name:fixture.title,exact:true}).click();await page.locator('#reading-text').waitFor();
+    await page.getByRole('button',{name:'About this work',exact:true}).click();assert.match(await page.locator('#dialog').innerText(),/Personal context stays exactly as supplied\./);await page.getByRole('button',{name:'Close ×',exact:true}).click();
+    await page.goto(base+'/#read/bell/arrival');await page.locator('#reading-text[data-book="bell"]').waitFor();
+    await page.getByRole('button',{name:'About this work',exact:true}).click();assert.match(await page.locator('#dialog').innerText(),/An original travel miniature in four movements\./);await page.getByRole('button',{name:'Close ×',exact:true}).click();
     await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Export a private reading bundle',exact:true}).click();
     await settledCapture(page,{path:new URL(`${engine}-bundle-export-phone.png`,output).pathname});
     const pending=page.waitForEvent('download');await page.getByRole('button',{name:'Download private bundle',exact:true}).click();const file=await pending,path=new URL(`${engine}-transfer.reader-bundle.json`,output);await file.saveAs(path.pathname);
     const bundle=JSON.parse(await readFile(path,'utf8'));assert.deepEqual(bundle.books.find(b=>b.id===fixture.id),fixture);assert.equal(bundle.books.length,3);
+    // Revised display copy must not mutate the edition objects used by old bundles.
+    for(const book of publicBefore)assert.deepEqual(bundle.books.find(b=>b.id===book.id),book);
     await other.goto(base.replace('127.0.0.1','localhost'));await other.getByRole('button',{name:'The distance of a bell',exact:true}).waitFor();assert.equal((await load(other)).books.length,0);
     await choose(bundle);await other.getByRole('heading',{name:'Review your reading bundle.',exact:true}).waitFor();
     assert.equal((await load(other)).books.length,0);assert.equal((await load(other)).state.notes.length,0);
@@ -52,6 +67,6 @@ export async function bundleChecks({browser,base,engine,output}) {
     const corrupt=structuredClone(bundle);corrupt.books[0].title='Changed after export';await choose(corrupt);await other.waitForFunction(()=>document.querySelector('#dialog-error').textContent.includes('checksum'));assert.equal(await other.getByRole('button',{name:'Restore on this device',exact:true}).count(),0);
     await other.getByRole('button',{name:'Close ×',exact:true}).click();await other.route('**/library.json',route=>route.abort());await other.reload();await other.getByRole('button',{name:fixture.title,exact:true}).waitFor();
     await choose(bundle);await other.waitForFunction(()=>document.querySelector('#dialog-error').textContent.includes('sample is unavailable'));assert.equal((await load(other)).state.notes.length,1);
-    return {freshOrigin:true,exactEditions:true,recordsAndConnections:true,previewBeforeWrites:true,transactionRollback:true,repeatRestore:true,concurrentStateAndBookGuards:true,editionConflict:true,checksumRejection:true,unavailableSampleGuard:true,spoilerPermissionsUnchanged:true,appearanceOptIn:true};
+    return {freshOrigin:true,exactEditions:true,displayCopyPreservesEditions:true,personalContextUnchanged:true,customizedEditionContextUnchanged:true,recordsAndConnections:true,previewBeforeWrites:true,transactionRollback:true,repeatRestore:true,concurrentStateAndBookGuards:true,editionConflict:true,checksumRejection:true,unavailableSampleGuard:true,spoilerPermissionsUnchanged:true,appearanceOptIn:true};
   }finally{await source.close();await destination.close();}
 }
