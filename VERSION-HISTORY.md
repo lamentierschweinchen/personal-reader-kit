@@ -10,7 +10,7 @@ Ignored `.reader/` and `test-results/` can contain private intake, recovery data
 
 ## Phones and an illustrated page · 17 October 2026
 
-The covers now open onto recognisable phones: the inner page narrows and rounds as the cover turns, revealing a bezel, speaker and home bar. Alice’s selection toolbar and the three preview captions are removed. Below the opening, an unframed illustrated page pairs “Read it. Explore it.” with Rackham’s rabbit and the exact `chapter-01-b006` passage from the reviewed Alice edition. The existing image pixels are reused unchanged. Get started and the quiet footer remain the only following sections.
+The covers now open onto recognisable phones: the inner page narrows and rounds as the cover turns, revealing a bezel, speaker and home bar. Alice’s selection toolbar and the three preview captions are removed. Below the opening, an unframed illustrated page pairs “Read it. Explore it.” with Rackham’s rabbit and the exact `chapter-01-b006` passage from the reviewed Alice edition. The existing image pixels are reused unchanged. Get started and the quiet footer remain the only following sections. A follow-up removes the four detached feature lines beneath the Alice passage; the existing Get started section supplies the next action.
 
 ## Personal introduction, refined · 17 October 2026
 
