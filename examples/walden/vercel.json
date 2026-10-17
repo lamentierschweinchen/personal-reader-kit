@@ -42,6 +42,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "walden.lookatseel.com"
+        }
+      ],
+      "destination": "https://newreading.app/walden/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

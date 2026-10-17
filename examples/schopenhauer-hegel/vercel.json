@@ -42,6 +42,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "two-halls.lookatseel.com"
+        }
+      ],
+      "destination": "https://newreading.app/two-halls/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

@@ -24,6 +24,8 @@ The existing `lookatseel-read` Vercel project uses this `showcase` directory, `n
 
 Keep `vercel.json` with the output: it applies the reader CSP, worker revalidation, stable trailing-slash entrances and the examples' noindex default. The public catalogue permits indexing. Home-screen installation is per reader, not a wrapper around the catalogue.
 
+The four former book hosts use explicit homepage and wildcard-path redirects. Verify the actual root response, a deep asset request, query parameters and a chapter fragment after deployment: the first live migration check found that the wildcard rule redirected deeper paths while the homepage still served the old app. A successful build alone did not establish correct routing.
+
 The user chose a clean launch for these previously unshared examples, so this release has no old-origin data migration. General migration guidance for personalized readers remains in [DEPLOYMENT.md](../docs/DEPLOYMENT.md). A database backup cannot install an app; the guide treats backup, installation and offline verification separately.
 
 Release evidence belongs in [STATUS.md](../docs/STATUS.md); private captures and machine receipts stay in ignored `test-results/`. Bookshop.org is an ordinary non-affiliate support link, not a claim that its purchases can be imported.

@@ -42,6 +42,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "austen.lookatseel.com"
+        }
+      ],
+      "destination": "https://newreading.app/austen/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

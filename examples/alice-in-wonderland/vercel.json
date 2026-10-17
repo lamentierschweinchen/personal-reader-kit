@@ -42,6 +42,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "alice.lookatseel.com"
+        }
+      ],
+      "destination": "https://newreading.app/alice/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
