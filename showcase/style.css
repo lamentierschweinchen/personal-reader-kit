@@ -21,7 +21,7 @@ h2 em,h1 em{font-style:italic}
 /* Header */
 .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px var(--gutter);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
 .top nav{display:flex;align-items:center;gap:clamp(6px,1.6vw,26px)}
-.nav-link{font-size:15px;min-height:44px;display:inline-flex;align-items:center}
+.nav-link{font-size:15px;min-width:44px;min-height:44px;display:inline-flex;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border:1px solid var(--ink);border-radius:999px;font-size:14px;white-space:nowrap;transition:background-color .2s,color .2s}
 .pill:hover{background:var(--ink);color:var(--paper)}.pill-dark{background:var(--ink);color:var(--paper)}.pill-dark:hover{background:var(--red);border-color:var(--red)}
 .brand{position:relative;display:inline-flex;align-items:baseline;min-height:44px;padding-top:12px;font:500 30px/1 var(--serif);letter-spacing:-1px}
