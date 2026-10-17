@@ -26,7 +26,7 @@ The existing `lookatseel-read` Vercel project uses this `showcase` directory, `n
 
 Keep `vercel.json` with the output: it applies the reader CSP, worker revalidation, stable trailing-slash entrances and the examples' noindex default. The public catalogue permits indexing. Home-screen installation is per reader, not a wrapper around the catalogue.
 
-A host-specific homepage rewrite serves `personal/index.html` only at `read.lookatseel.com`. Both domains stay on the existing project; New reading's homepage and the four reader paths keep their own files. The loopback server previews static files without emulating Vercel's host routing, so verify both actual HTTPS homepages after publishing a routing change.
+A host-specific homepage route serves `personal/index.html` only at `read.lookatseel.com`. It must run **before the filesystem handler**: the first live check found that a high-level rewrite ran after the existing `index.html` and left the catalogue visible. The explicit `routes` array preserves the existing headers and slash redirects, then selects the personal entrance before normal file lookup. Both domains stay on the existing project; New reading's homepage and the four reader paths keep their own files. The loopback server previews static files without emulating Vercel's host routing, so verify both actual HTTPS homepages after publishing a routing change.
 
 The four former book hosts use explicit homepage and wildcard-path redirects. Verify the actual root response, a deep asset request, query parameters and a chapter fragment after deployment: the first live migration check found that the wildcard rule redirected deeper paths while the homepage still served the old app. A successful build alone did not establish correct routing.
 

@@ -6,7 +6,7 @@ The public destination remains [lamentierschweinchen/personal-reader-kit](https:
 
 ## Personal-site entrance · 17 October 2026
 
-The `read.lookatseel.com` homepage has a separate small landing page in `showcase/personal/`, restoring the original personal-site palette, Fraunces type and book graphic. Its main action opens `newreading.app`. A host-specific rewrite keeps it separate from the main catalogue and future design work. No DNS, reader runtime, edition, storage or main-catalogue asset changes are part of this revision.
+The `read.lookatseel.com` homepage has a separate small landing page in `showcase/personal/`, restoring the original personal-site palette, Fraunces type and book graphic. Its main action opens `newreading.app`. A host-specific route keeps it separate from the main catalogue and future design work. The first live check caught an ordering failure: a high-level rewrite left the existing catalogue homepage visible. The follow-up places the personal route before filesystem lookup, while retaining the existing security/cache/indexing headers and slash redirects. No DNS, reader runtime, edition, storage or main-catalogue asset changes are part of this revision.
 
 Local verification passes all 44 kit and 135 example Node tests, the original-sample build and the 269-file minimal deployment-input build. All 236 preceding combined output files remain byte-identical; three static landing-page files bring the output to 239. The public inventory adds only those three text files, for 532 total; the 60-file starter and 174 edition pins remain unchanged.
 

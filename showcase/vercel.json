@@ -4,22 +4,88 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "node --version",
-  "trailingSlash": true,
-  "headers": [{"source": "/(.*)", "headers": [
-    {"key":"X-Content-Type-Options","value":"nosniff"},
-    {"key":"Referrer-Policy","value":"no-referrer"},
-    {"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"},
-    {"key":"Permissions-Policy","value":"geolocation=(), camera=(), microphone=()"}
-  ]},
-  {"source":"/(austen|alice|walden|two-halls)/sw.js","headers":[{"key":"Cache-Control","value":"no-cache, no-store, must-revalidate"}]},
-  {"source":"/(austen|alice|walden|two-halls)/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"}]}],
-  "rewrites":[
-    {"source":"/","has":[{"type":"host","value":"read.lookatseel.com"}],"destination":"/personal/index.html"}
-  ],
-  "redirects":[
-    {"source":"/austen","destination":"/austen/","permanent":true},
-    {"source":"/alice","destination":"/alice/","permanent":true},
-    {"source":"/walden","destination":"/walden/","permanent":true},
-    {"source":"/two-halls","destination":"/two-halls/","permanent":true}
+  "routes": [
+    {
+      "src": "^/\\.well-known(?:/.*)?$"
+    },
+    {
+      "src": "^/((?:[^/]+/)*[^/\\.]+)$",
+      "headers": {
+        "Location": "/$1/"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/((?:[^/]+/)*[^/]+\\.\\w+)/$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/austen$",
+      "headers": {
+        "Location": "/austen/"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/alice$",
+      "headers": {
+        "Location": "/alice/"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/walden$",
+      "headers": {
+        "Location": "/walden/"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/two-halls$",
+      "headers": {
+        "Location": "/two-halls/"
+      },
+      "status": 308
+    },
+    {
+      "src": "^(?:/(.*))$",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
+        "Permissions-Policy": "geolocation=(), camera=(), microphone=()"
+      },
+      "continue": true
+    },
+    {
+      "src": "^(?:/(austen|alice|walden|two-halls))/sw\\.js$",
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate"
+      },
+      "continue": true
+    },
+    {
+      "src": "^(?:/(austen|alice|walden|two-halls))(?:/(.*))$",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow, noarchive"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/$",
+      "dest": "/personal/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "read.lookatseel.com"
+        }
+      ]
+    },
+    {
+      "handle": "filesystem"
+    }
   ]
 }
