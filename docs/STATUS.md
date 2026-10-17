@@ -4,7 +4,13 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
 
-## Personal-site entrance · 17 October 2026
+## Four-book personal catalogue · 17 October 2026
+
+The owner clarified that the intended `read.lookatseel.com` design was the last four-book catalogue before New reading (`2bebaf0`). The restored page now has that compact “read.” header, short introduction, original two-column artwork grid and Fraunces typography. Each book opens its canonical New reading path; the build button opens `newreading.app`. Setup remains on the main site. The earlier oversized wordmark-and-book entrance below was the wrong historical version and is superseded.
+
+All 44 kit and 135 example Node tests, the original-sample build and the fresh 270-input deployment build pass. The restored page passes 12 Chromium/WebKit layouts, keyboard and no-JavaScript access, four distinct loaded images, cover-fill geometry and 44px links; settled desktop, phone and tablet captures were inspected. All 236 original main-catalogue and reader outputs remain byte-identical. A separately pinned, unchanged copy of the old four-book social preview brings the combined output to 240 files and the public inventory to 533. The 174 edition pins and 60-file starter are unchanged. Live publication is verified separately; these layout checks are browser emulation, not physical-device acceptance.
+
+## Earlier personal-site entrance · 17 October 2026
 
 The `read.lookatseel.com` homepage has a separate small landing page in `showcase/personal/`, restoring the original personal-site palette, Fraunces type and book graphic. Its main action opens `newreading.app`. A host-specific route keeps it separate from the main catalogue and future design work. The first live check caught an ordering failure: a high-level rewrite left the existing catalogue homepage visible. The follow-up places the personal route before filesystem lookup, while retaining the existing security/cache/indexing headers and slash redirects. No DNS, reader runtime, edition, storage or main-catalogue asset changes are part of this revision.
 
