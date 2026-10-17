@@ -21,3 +21,9 @@ Expanded original-fixture browser checks and the actual Austen outage journey to
 ## 16 October 2026 — curated public-kit snapshot
 
 The user authorized including the four reviewed examples in the established public kit. This directory is the selected current source snapshot, without the trial Git history, raw inputs or private artifacts. README/AGENTS/package audit commands reflect the enclosing repository; runtime assets and prepared edition bytes remain unchanged. Older entries and copied docs describe the independent trial at the time. No domain or deployment was changed.
+
+## 17 October 2026 — one-time source notice
+
+Show the full source notice once per browser/profile for the included edition, in the page without a modal. Chapter entry is covered as well as the title page. Remember its presentation separately from books and notes; if storage fails, retain a visible explanation and suppress repetition until reload.
+
+Keep the notice, full licence, credits, original front matter, conversion record and reading guidance in **Edition & source**, with source documents opening in context without changing the main reading place. Remove the recurring chapter tip and context/index reassurance from the reading surface. All edition bytes, historical captions, images, anchors and bundle formats remain unchanged.

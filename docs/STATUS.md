@@ -2,7 +2,17 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications and literary text remain outside this repository. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+
+## Personal cover opening and quieter Austen · 17 October 2026
+
+The owner selected the short cover-opening prototype for read.lookatseel.com, adapted to lookatseel.com’s tan palette and Fraunces type. Alice, Canetti’s walking map and Walden’s companion are followed by four concise capabilities and Start here. Header shortcuts copy the canonical prompt or open GitHub. Credits and qualifications are disclosed in the footer. The main New reading catalogue remains separate.
+
+Manual browser review covers desktop, tablet, 390px and 320px phones, the actual scroll reveal, landscape/static fallback, no-JavaScript prompt access, keyboard skip, copy success feedback and clipboard-refusal recovery with the full 394-character prompt selected. An independent editorial/design reviewer inspected authored source and settled desktop/phone captures; the invisible intermediate scroll-link focus target was corrected. Native clipboard persistence beyond the browser success response, physical devices and screen-reader acceptance remain unverified.
+
+All 44 kit and 135 example Node tests pass, as do the original-sample build and a fresh combined build from exactly 275 named inputs. The combined output is 245 files. The 538-file publication inventory includes four exact new presentation-image pins and the personal page’s JavaScript; the 174 edition pins and 60-file starter inventory remain unchanged. Austen’s four changed build outputs are repinned. Main-catalogue files and the other three reader implementations remain unchanged.
+
+Austen’s dedicated Chromium/WebKit journeys cover first direct entry, chapter/reload/home/new-tab suppression, persistent Edition & source, passage-context return, focus deferral, denied/unavailable/non-persistent notice storage, full source fidelity, offline reading, annotations and bundle restoration. Required source notice wording and every edition asset remain intact. Source and usage explanations move to the quiet edition view. Detailed working receipts and captures remain ignored under `.reader/`.
 
 ## Four-book personal catalogue · 17 October 2026
 

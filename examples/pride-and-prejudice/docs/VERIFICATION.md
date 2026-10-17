@@ -90,3 +90,11 @@ Private evidence stays ignored under `.reader/reports/`: `share-node-tests.log`,
 - `webkit-austen-offline-note-reloaded.png` and `webkit-austen-offline-saved-notes.png`.
 
 Airplane-mode use requires the initial complete offline cache in the same browser/origin. Browser storage can still be cleared or evicted; keep backups. A recipient app may need connectivity to deliver a shared passage. Physical iOS/native share sheets, delivery to friends/notes apps, and physical airplane-mode operation are not certified here. Local-only repository; no remote, push or deployment.
+
+## One-time source notice — 17 October 2026
+
+The packaged reader presents its full source notice once per browser/profile for the unchanged included edition. The title page and direct chapter entry both support it without a modal. The persistent **Edition & source** view retains the exact notice wording, complete source documents, credits and conversion record; reading guidance now lives there too. None of the 166 protected edition paths changed, including the inventory and historical copyright captions. Private bundles and source identities are unchanged.
+
+The actual-reader browser journey checks first use, chapter changes, reload, a new tab, return to the title page, full-licence/source-document access, and an unchanged main block/offset after a source visit. Restored focus mode defers the notice until focus mode is exited. Read-denied storage, write-denied storage and a silently discarded write each produce an explanation beside the notice. After dismissal the explanation stays in the footer; chapter changes do not repeat the notice within that document, while reload may show it again. This preference records presentation, not assent to licence terms, and is not included in reading bundles.
+
+Private evidence for this revision lives in the kit’s ignored `.reader/editorial/pride-and-prejudice/quiet-notices/`. Its receipt separates application tests and visual review from publication integration. The coordinator must update the reviewed build hashes and stage the final combined changes before the example/publication audits can pass; this task does not stage, commit, push or deploy. Browser emulation is not physical-device or human newcomer acceptance.

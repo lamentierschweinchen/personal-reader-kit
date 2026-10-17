@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Personal cover opening and quieter Austen · 17 October 2026
+
+Replaces the personal catalogue at read.lookatseel.com with the accepted short cover-opening concept: Alice, Canetti’s walking map and Walden’s companion, then four possibilities and a direct agent prompt. Tan paper and Fraunces connect it to the owner’s main site. Copy prompt and repository access remain in the header. Credits and qualifications sit in one footer disclosure. Native scrolling opens the covers; static, reduced-motion and short-viewport fallbacks keep every destination and the prompt usable. The main New reading catalogue retains its own design.
+
+Austen now remembers displaying its source notice for the exact bundled edition. Repeat visits and chapter changes keep the reading surface quiet; Edition & source preserves notices, credits and usage details without moving the reading place. Storage failure is explained honestly, and focus mode defers the first notice. Complete edition bytes are unchanged. The quiet-copy principle is recorded in the common guide and working agreement.
+
 ## Beginner guide · 17 October 2026
 
 Adds a separate “Your first reader” page linked from the catalogue and README. Four steps take a newcomer from a folder-capable coding agent to a working sample, an actual save/reload check, their own book and a home-screen/offline handoff. Official provider setup links and short definitions sit beside the relevant actions. The selectable instruction, copy fallback and native help disclosures work without an account on the catalogue. No reader application or prepared edition changes.

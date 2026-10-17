@@ -485,7 +485,11 @@
     "showcase/assets/bricolage-grotesque.woff2",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
+    "showcase/assets/personal-alice-reader.jpg",
+    "showcase/assets/personal-canetti-map.jpg",
     "showcase/assets/personal-share.jpg",
+    "showcase/assets/personal-opening-share.jpg",
+    "showcase/assets/personal-walden-reader.jpg",
     "showcase/assets/read-share.jpg",
     "showcase/assets/two-halls-portraits.webp",
     "showcase/assets/walden-survey.jpg",
@@ -499,6 +503,7 @@
     "showcase/inputs.json",
     "showcase/learn/index.html",
     "showcase/package.json",
+    "showcase/personal/app.mjs",
     "showcase/personal/favicon.svg",
     "showcase/personal/index.html",
     "showcase/personal/style.css",
@@ -1741,6 +1746,30 @@
       "sha256": "251f8bb5cad45526cc3d17bb04d31bfe0129ef8a386dbc8cfc050d1299022996",
       "provenance": "showcase/ASSETS.md",
       "reason": "Exact previously reviewed four-book social preview from 2bebaf0, restored for the personal-domain catalogue. Uses the same credited images and licensed Fraunces fonts."
+    },
+    {
+      "path": "showcase/assets/personal-alice-reader.jpg",
+      "sha256": "599f789928de7796d9ef7e1cd918941075f1db61a92765df1edd4a7c8a5b1a8d",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/personal-canetti-map.jpg",
+      "sha256": "24eb15cfe8cfdf7dec43a9647d78b5045cab7ec70f376fef305bfbc924d77601",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Owner-authorized map-only capture of existing walking tour. OSM attribution retained; no literary prose, records or location. Exact scope and ODbL provenance in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/personal-walden-reader.jpg",
+      "sha256": "dd770f3b8f5b7340f50be99943e72f74d6e75f271c08257d2011b82c66a89ad1",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/personal-opening-share.jpg",
+      "sha256": "7bff9d555016305d871fad52e540169fef7c850884217bb54a584f49bba70bef",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
     }
   ],
   "reviewedHistoricalFiles": [

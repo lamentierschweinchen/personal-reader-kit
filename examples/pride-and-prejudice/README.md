@@ -26,6 +26,8 @@ Select text, then **Keep or share passage** to annotate, share or copy it with a
 
 Records belong to this browser/profile and origin. Export private reading bundles and verify restoration before moving domains or clearing storage. These customized edition formats are not interchangeable with the stock kit. Native share delivery, physical iOS selection, screen-reader acceptance, complete proofreading and human newcomer testing remain separate checks.
 
+The source notice appears once per browser/profile for the included edition, including a first visit through a chapter link. **Edition & source** keeps the full notice, licence, credits, original front matter and reading guidance available. Source visits preserve the main reading place. If the browser cannot remember showing the notice, a visible explanation says it may return after a reload; clearing storage or changing browsers can also show it again. The notice preference is separate from reading bundles and never changes the edition.
+
 ## Source and verification evidence
 
 - [Exact edition, credits, source links and rights scope](docs/SOURCE-RIGHTS.md)

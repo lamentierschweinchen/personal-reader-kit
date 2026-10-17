@@ -61,28 +61,74 @@ async function unavailableEditionChecks(browser,engine){
   assert.deepEqual(errors,[]);return {originalLocalImport:true,healthyWordIndex:true,failedLibraryHasNoStockCompanion:true,booksAndReturnActions:true,localTextNoteAndPlaceRetained:true,localReloadReadable:true,healthyIndexAfterRecovery:true,errors};
  }finally{await context.close();}
 }
+async function sourceNoticeChecks(browser,engine){
+ const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ try{
+  await page.goto(base+'/#read/'+book.id+'/chapter-13');await page.locator('#reading-text[data-position-ready=true]').waitFor();
+  const notice=page.locator('#first-source-notice');assert.equal(await notice.isVisible(),true);assert.equal(await page.locator('dialog[open]').count(),0);
+  const fullNotice=await notice.locator('.source-license-notice').textContent();assert.match(fullNotice,/If you are not located in the United States/);
+  await snap(page,`${engine}-source-notice-first-direct-phone`);await page.setViewportSize({width:820,height:1180});await snap(page,`${engine}-source-notice-first-direct-tablet`);await page.setViewportSize({width:390,height:844});
+  const entryHash=await page.evaluate(()=>location.hash);
+  await notice.getByRole('link',{name:'Project Gutenberg™ License included with this eBook'}).click();await page.locator('#context-text[data-location-ready=true]').waitFor();
+  assert.equal(await page.locator('#context-text').textContent(),book.sections.find(s=>s.id==='license').blocks.map(b=>b.text+b.after).join(''));
+  await close(page);assert.equal(await page.evaluate(()=>location.hash),entryHash);assert.equal(await notice.isVisible(),true);
+  await page.getByRole('button',{name:'Dismiss notice',exact:true}).click();assert.equal(await notice.count(),0);
+  await open(page,'chapter-14');assert.equal(await notice.count(),0);await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await notice.count(),0);
+  await page.goto(base+'/#shelf');await page.locator('.edition-intro').waitFor();assert.equal(await notice.count(),0);assert.equal(await page.locator('.source-license-notice').count(),0);await snap(page,`${engine}-source-notice-returning-home`);
+  const second=await context.newPage();await second.goto(base+'/#read/'+book.id+'/chapter-5');await second.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await second.locator('#first-source-notice').count(),0);await second.close();
+  await open(page,'chapter-13');await page.evaluate(()=>scrollTo(0,1300));await page.waitForTimeout(400);const before=await state(page),y=await page.evaluate(()=>scrollY);assert.ok(before.positions[book.id].blockId);
+  // Click the visible sticky control without Playwright's preparatory scroll.
+  const sourceControl=await page.locator('.reader-tools [data-action=background]').boundingBox();await page.mouse.click(sourceControl.x+sourceControl.width/2,sourceControl.y+sourceControl.height/2);await page.locator('.edition-details').waitFor();await targets(page,'.edition-source-links a,.edition-details summary,.dialog-header button');
+  assert.equal(await page.locator('.edition-details details[open]').count(),0);await snap(page,`${engine}-edition-source-phone`);
+  await page.setViewportSize({width:820,height:1180});await snap(page,`${engine}-edition-source-tablet`);await page.setViewportSize({width:390,height:844});
+  await page.getByText('Source notice & credits',{exact:true}).click();assert.equal(await page.locator('.edition-details .source-license-notice').textContent(),fullNotice);await snap(page,`${engine}-edition-source-notice-expanded`);
+  await page.getByRole('link',{name:'Original source notice',exact:true}).click();await page.locator('#context-text[data-location-ready=true]').waitFor();assert.equal(await page.locator('#context-text').textContent(),book.sections.find(s=>s.id==='edition-notice').blocks.map(b=>b.text+b.after).join(''));await close(page);
+  assert.equal(await page.evaluate(()=>location.hash),'#read/'+book.id+'/chapter-13');assert.deepEqual((await state(page)).positions[book.id],before.positions[book.id]);assert.ok(Math.abs(await page.evaluate(()=>scrollY)-y)<2);
+  assert.equal(await page.locator('.reader-hint').count(),0);await page.getByRole('link',{name:'Words',exact:true}).click();await page.locator('.austen-companion').waitFor();assert.equal(await page.locator('.austen-companion .sample-notice').count(),0);assert.equal(await page.locator('#edition-source').isVisible(),true);
+  await page.locator('#edition-source').click();await page.getByText('Using this reader',{exact:true}).click();assert.match(await page.locator('.edition-details').textContent(),/Opening a result leaves your reading place unchanged/);await close(page);
+  // A restored focus preference must not mark an invisible notice as presented.
+  await open(page,'chapter-13');await page.locator('.reader-tools [data-action=focus]').click();await page.waitForFunction(()=>document.body.classList.contains('focus'));await page.evaluate(()=>localStorage.clear());await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await page.locator('#first-source-notice').isVisible(),false);assert.equal(await page.evaluate(()=>localStorage.length),0);
+  await page.keyboard.press('Escape');await page.locator('#first-source-notice').waitFor({state:'visible'});assert.equal(await page.evaluate(()=>localStorage.length),1);await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await page.locator('#first-source-notice').count(),0);
+  assert.deepEqual(errors,[]);
+ }finally{await context.close();}
+ const storageFailures=[];
+ for(const mode of ['read-denied','write-denied','write-discarded']){
+  const failed=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),p=await failed.newPage();
+  try{
+   await p.addInitScript(mode=>{if(mode==='read-denied')Storage.prototype.getItem=()=>{throw new DOMException('Storage unavailable','SecurityError');};else if(mode==='write-denied')Storage.prototype.setItem=()=>{throw new DOMException('Storage full','QuotaExceededError');};else Storage.prototype.setItem=()=>{};},mode);
+   await p.goto(base+'/#read/'+book.id+'/chapter-1');await p.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await p.locator('#first-source-notice').isVisible(),true);assert.equal(await p.locator('#first-source-notice .source-notice-memory').isVisible(),true);
+   await p.getByRole('button',{name:'Dismiss notice',exact:true}).click();assert.equal(await p.locator('#source-notice-storage').isVisible(),true);await open(p,'chapter-2');assert.equal(await p.locator('#first-source-notice').count(),0);
+   await p.reload();await p.locator('#reading-text[data-position-ready=true]').waitFor();assert.equal(await p.locator('#first-source-notice').isVisible(),true);assert.equal(await p.locator('#first-source-notice .source-notice-memory').isVisible(),true);
+   if(mode==='write-denied'){await p.locator('#first-source-notice .source-notice-memory').scrollIntoViewIfNeeded();await snap(p,`${engine}-source-notice-storage-unavailable`);await p.getByRole('button',{name:'Dismiss notice',exact:true}).click();await p.locator('#source-notice-storage').scrollIntoViewIfNeeded();await snap(p,`${engine}-source-notice-storage-footer`);}
+   storageFailures.push({mode,oncePerDocument:true,reloadMayRepeat:true,visibleExplanation:true});
+  }finally{await failed.close();}
+ }
+ return {firstDirectEntry:true,fullNoticeRetained:true,fullLicenceInContext:true,noModalInterruption:true,noRepeatAfterChapterReloadHomeOrNewTab:true,quietSourceAccess:true,sourceVisitPreservesPlace:true,relocatedReadingGuidance:true,focusDefersFirstNotice:true,storageFailures,errors};
+}
 try{
  for(const engine of process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit']){
   await start();
   const executablePath=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;
   const browser=await pw[engine].launch({headless:true,...(executablePath?{executablePath}:{})});
   try{
+   const sourceNotices=await sourceNoticeChecks(browser,engine);console.log(`${engine}: one-time source notice and quiet source access passed`);
    const unavailableEdition=await unavailableEditionChecks(browser,engine);console.log(`${engine}: missing edition retains local reading and hides stock prototypes`);
    const continuity=await sharingContinuityChecks({browser,base});
    const sharing=await shareChecks({browser,base,engine,output});console.log(`${engine}: original-fixture sharing checks passed`);
    const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true}),page=await context.newPage();
    const errors=[],external=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('blob:'))external.push(r.url());});
-   await page.goto(base);await page.locator('.edition-intro').waitFor();
+   await page.goto(base);await page.locator('.edition-intro').waitFor();assert.equal(await page.locator('#first-source-notice').isVisible(),true);
    const home=[];
    for(const [name,width,height] of [...sizes,['small-phone',320,568]]){
     await page.setViewportSize({width,height});await settled(page);
     const frame=await page.evaluate(()=>{const image=document.querySelector('.title-page-figure img'),cta=document.querySelector('.edition-start button'),ir=image.getBoundingClientRect(),cr=cta.getBoundingClientRect();return{art:{top:ir.top,bottom:ir.bottom,width:ir.width,height:ir.height,loaded:image.naturalWidth>0},cta:{top:cr.top,bottom:cr.bottom},viewport:innerHeight,overflow:document.documentElement.scrollWidth>innerWidth};});
     assert.ok(frame.art.loaded&&frame.art.width>0&&frame.art.top>=0&&frame.art.bottom<=height);
     assert.ok(frame.cta.top>=0&&frame.cta.bottom<=height,`${engine} ${name}: Begin outside viewport ${JSON.stringify(frame)}`);assert.equal(frame.overflow,false);
-    await targets(page,'.masthead a,.masthead button,.edition-start button,.edition-links a');home.push({name,width,height,...frame});await snap(page,`${engine}-direction-home-${name}`);
+    await targets(page,'.masthead a,.masthead button,.edition-start button,.edition-links a,.edition-links button');home.push({name,width,height,...frame});await snap(page,`${engine}-direction-home-${name}`);
    }
    await page.setViewportSize({width:390,height:844});await snap(page,`${engine}-austen-home-phone`);
-   await page.getByRole('button',{name:'Begin Chapter 1'}).click();await page.locator('#reading-text[data-section=chapter-1]').waitFor();
+   await page.getByRole('button',{name:'Begin Chapter 1'}).click();await page.locator('#reading-text[data-section=chapter-1]').waitFor();assert.equal(await page.locator('#first-source-notice').count(),0);
    await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
    // Source sections are explicit opt-ins, independent from companion permissions.
    await page.evaluate(()=>location.hash='#read/austen-pride-1894/preface');await page.locator('.source-gate').waitFor();assert.equal(await page.locator('#reading-text .text-block').count(),0);await targets(page,'.source-gate button,.source-gate a');await snap(page,`${engine}-direction-source-gate`);
@@ -192,7 +238,7 @@ try{
    const offlineWrites={created:true,edited:true,reloaded:true,exactQuote:true,chapterNavigation:true,companionRoundTrip:true,placePreserved:true,section:beforeReload.sectionId,block:beforeReload.blockId,noteCount:offlineSaved.notes.length,networkControlStillFails:true,geometry:offlineGeometry};
 
    assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-   receipts.push({engine,unavailableEdition,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
+   receipts.push({engine,sourceNotices,unavailableEdition,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
    console.log(JSON.stringify(receipts.at(-1)));await context.close();
   }finally{await browser.close();await stop();}
  }

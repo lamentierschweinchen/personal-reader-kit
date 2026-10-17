@@ -14,6 +14,11 @@ let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0
 let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
 const AUSTEN='austen-pride-1894';
+const AUSTEN_SOURCE='932b4622c5bd15df8c1559ff8426991cb3f1632b8d3629f712c64bdd38129939';
+const SOURCE_NOTICE_KEY=`${AUSTEN}:source-notice:v1:${AUSTEN_SOURCE}`;
+let sourceNoticeSeen=false,sourceNoticeStorageFailed=false;
+try {sourceNoticeSeen=localStorage.getItem(SOURCE_NOTICE_KEY)==='shown';}catch {}
+const includedAusten=b=>b?.id===AUSTEN&&b.source.sha256===AUSTEN_SOURCE;
 const sampleIds=new Set(['bell','rain',AUSTEN]);
 const sourceWarnings=new Set(['front-matter','preface','illustrations']);
 const sourcePermissions=new Set();
@@ -29,6 +34,7 @@ function applyPrefs() {
   document.documentElement.style.setProperty('--size',`${p.size}px`);document.documentElement.style.setProperty('--leading',p.leading);
   document.documentElement.style.setProperty('--measure',p.measure === 'wide' ? '44rem' : '34rem');
   const focused=p.focus && route.view === 'read';document.body.classList.toggle('focus',focused);if(!focused)focusControls=false;$('#focus-tools').hidden=!(focused&&focusControls);$('#focus-exit').hidden=!focused;$('#focus-reveal').hidden=!focused||focusControls;$('#focus-reveal').setAttribute('aria-expanded',String(focusControls));main.toggleAttribute('aria-describedby',focused);if(focused)main.setAttribute('aria-describedby','focus-help');
+  rememberSourceNotice();
 }
 async function commit(change) {const next = await updateState(change);state = next;applyPrefs();return next;}
 function parseRoute() {
@@ -71,9 +77,27 @@ function progressLabel(book) {
   const index = book.sections.findIndex(s => s.id === pos.sectionId);
   return `Section ${Math.max(1,index+1)} of ${book.sections.length}`;
 }
+function sourceLicenseNotice() {
+  return `<p class="source-license-notice">This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it under the terms of the <a href="${path(AUSTEN,'license')}" data-action="edition-section" data-section="license">Project Gutenberg™ License included with this eBook</a> or online at <a href="https://www.gutenberg.org">www.gutenberg.org</a>. If you are not located in the United States, you will have to check the laws of the country where you are located before using this eBook.</p>`;
+}
+function firstSourceNotice() {
+  return !sourceNoticeSeen&&includedAusten(bookById(AUSTEN))?`<aside id="first-source-notice" class="first-source-notice" aria-label="Source notice"><p class="eyebrow">Source notice</p>${sourceLicenseNotice()}<button class="text" data-action="dismiss-source-notice">Dismiss notice</button><p class="source-notice-memory small" role="status" hidden></p></aside>`:'';
+}
+function rememberSourceNotice() {
+  const notice=$('#first-source-notice');
+  if(!sourceNoticeSeen&&notice?.getClientRects().length){
+    sourceNoticeSeen=true;
+    try {localStorage.setItem(SOURCE_NOTICE_KEY,'shown');if(localStorage.getItem(SOURCE_NOTICE_KEY)!=='shown')throw new Error('Notice preference was not saved');}
+    catch {sourceNoticeStorageFailed=true;}
+  }
+  $('#edition-source').hidden=!includedAusten(bookById(AUSTEN))||route.view==='shelf';
+  const message=notice?.querySelector('.source-notice-memory');
+  if(message){message.textContent=$('#source-notice-storage').textContent;message.hidden=!sourceNoticeStorageFailed;}
+  $('#source-notice-storage').hidden=!sourceNoticeStorageFailed||!!notice;
+}
 function austenShelf(){
   const b=bookById(AUSTEN),started=!!state.positions[AUSTEN];
-  return `<section class="shelf austen-shelf"><div class="edition-intro"><header class="title-page-heading"><p class="eyebrow">The illustrated edition · 1894</p><h1>Pride and<br>Prejudice</h1><p class="edition-author">Jane Austen</p></header><figure class="title-page-figure"><img src="/austen-peacock-1894.png" width="300" height="529" alt="Hugh Thomson’s peacock ornament, dated 1894"><figcaption>Illustrations by Hugh Thomson</figcaption></figure><div class="edition-start"><button class="primary" data-action="resume" data-book="${AUSTEN}">${started?'Continue reading':'Begin Chapter 1'} ${arrow()}</button><p class="small">${esc(progressLabel(b))}</p></div></div><nav class="edition-links" aria-label="About this edition"><a href="${path(AUSTEN,'front-matter')}" data-section-start>Original front matter</a><a href="${path(AUSTEN,'edition-notice')}" data-section-start>Edition & source credits</a><a href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener noreferrer">Source EPUB for your e-reader</a></nav><p class="source-license-notice">This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it under the terms of the <a href="${path(AUSTEN,'license')}">Project Gutenberg™ License included with this eBook</a> or online at <a href="https://www.gutenberg.org">www.gutenberg.org</a>. If you are not located in the United States, you will have to check the laws of the country where you are located before using this eBook.</p>${books.filter(b=>b.id!==AUSTEN).map(b=>`<article class="book-row"><div><h2>${esc(b.title)}</h2><p class="small">${esc(b.author)}</p></div><button class="text" data-action="resume" data-book="${esc(b.id)}">Continue reading ${arrow()}</button></article>`).join('')}</section>`;
+  return `<section class="shelf austen-shelf"><div class="edition-intro"><header class="title-page-heading"><p class="eyebrow">The illustrated edition · 1894</p><h1>Pride and<br>Prejudice</h1><p class="edition-author">Jane Austen</p></header><figure class="title-page-figure"><img src="/austen-peacock-1894.png" width="300" height="529" alt="Hugh Thomson’s peacock ornament, dated 1894"><figcaption>Illustrations by Hugh Thomson</figcaption></figure><div class="edition-start"><button class="primary" data-action="resume" data-book="${AUSTEN}">${started?'Continue reading':'Begin Chapter 1'} ${arrow()}</button><p class="small">${esc(progressLabel(b))}</p></div></div><nav class="edition-links" aria-label="About this edition"><button class="text" data-action="edition-details">Edition & source</button></nav>${firstSourceNotice()}${books.filter(b=>b.id!==AUSTEN).map(b=>`<article class="book-row"><div><h2>${esc(b.title)}</h2><p class="small">${esc(b.author)}</p></div><button class="text" data-action="resume" data-book="${esc(b.id)}">Continue reading ${arrow()}</button></article>`).join('')}</section>`;
 }
 function sourceWarning(section){
   return `<div class="source-gate"><p class="eyebrow">Original front matter</p><p>${section.id==='preface'?'Saintsbury’s preface discusses the whole novel, including its ending.':section.id==='illustrations'?'This index names scenes from the whole novel.':'The original front matter includes a frontispiece drawn from a later chapter.'}</p><button class="primary" data-action="reveal-source">Show this source section</button><p><a href="${path(AUSTEN,'chapter-1')}" data-section-start>Begin Chapter 1</a></p></div>`;
@@ -81,7 +105,7 @@ function sourceWarning(section){
 function austenCompanion(){
   if(echo==='room')echo='pride';
   const b=bookById(AUSTEN),through=visibleThrough(state,b),chapters=b.sections.slice(0,through+1).filter(s=>s.id.startsWith('chapter-'));
-  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1><p>Find a word or phrase in chapters you choose.</p></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Chapters 1–${chapters.length} included`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}<p class="sample-notice">The preface, illustration index, captions and source notices are excluded. Opening a result leaves your reading place unchanged.</p></section>`;
+  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1><p>Find a word or phrase in chapters you choose.</p></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Chapters 1–${chapters.length} included`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}</section>`;
 }
 function shelf() {
   if(bookById(AUSTEN))return austenShelf();
@@ -93,7 +117,7 @@ function reader() {
   const saved = state.positions[activeBook.id];
   activeSection = activeBook.sections.find(s => s.id === route.section) || activeBook.sections.find(s => s.id === saved?.sectionId && saved?.revision === activeBook.source.sha256) || activeBook.sections[0];
   const i = activeBook.sections.indexOf(activeSection), previous = activeBook.sections[i-1], next = activeBook.sections[i+1], unlocked = visibleThrough(state,activeBook) >= i;
-  return `<section class="reading${activeBook.id===AUSTEN?' austen-reading':''}"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">About this work</button></div><span class="progress-label">Section ${i+1} of ${activeBook.sections.length}</span><button data-action="focus" aria-describedby="focus-help">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header><article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span><span class="nav-title">${esc(previous.title)}</span></a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span><span class="nav-title">${esc(next.title)}</span></a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div><p class="reader-hint">Select words to keep or share a passage. Your reading place is saved in this browser.</p></section>`;
+  return `<section class="reading${activeBook.id===AUSTEN?' austen-reading':''}"><div class="reader-tools"><div class="tool-group"><button data-action="contents">Contents</button><button data-action="background">${includedAusten(activeBook)?'Edition & source':'About this work'}</button></div><span class="progress-label">Section ${i+1} of ${activeBook.sections.length}</span><button data-action="focus" aria-describedby="focus-help">Focus ${arrow()}</button></div><header class="reader-heading"><p class="eyebrow">${esc(activeBook.title)} · ${esc(activeBook.author)}</p><h1>${esc(activeSection.title)}</h1></header>${includedAusten(activeBook)?firstSourceNotice():''}<article id="reading-text" data-book="${esc(activeBook.id)}" data-section="${esc(activeSection.id)}" class="reading-surface" lang="${esc(activeBook.language)}" aria-label="Book text"></article><div class="chapter-end"><button class="boundary-button" data-action="boundary">${unlocked ? '✓ Read through here · update companion boundary' : 'I’ve read through here · allow this in Companion'}</button><nav class="chapter-links" aria-label="Sections">${previous ? `<a href="${path(activeBook.id,previous.id)}" data-section-start><span class="small">${arrow('left')} Previous</span><span class="nav-title">${esc(previous.title)}</span></a>` : '<span></span>'}${next ? `<a href="${path(activeBook.id,next.id)}" data-section-start><span class="small">Next ${arrow('right')}</span><span class="nav-title">${esc(next.title)}</span></a>` : `<a href="#shelf"><span class="small">End of this work</span>Return to your shelf ${arrow('right')}</a>`}</nav></div></section>`;
 }
 function passages() {
   return `<section class="page"><header class="page-head"><p class="eyebrow">Your marginalia</p><h1>Words you<br>wanted to keep.</h1><p>Passages, notes and connections saved in this browser.</p>${returnLink()}</header>${state.notes.length ? `<ul class="passage-list">${[...state.notes].sort((a,b)=>b.updated-a.updated).map(n => {
@@ -240,7 +264,7 @@ function beginSelection(passage) {
 }
 async function context(bookId,sectionId,blockId,note) {
   const book=bookById(bookId),section=book?.sections.find(s=>s.id===sectionId);if(!section)throw new Error('This passage is no longer available.');
-  openDialog(section.title,`<p class="eyebrow">${esc(book.title)} · passage context</p><p class="small">Your main reading place stays where you left it.</p><div class="context-reading"><article id="context-text" data-book="${esc(book.id)}" data-section="${esc(section.id)}" class="reading-surface" lang="${esc(book.language)}" aria-label="Passage context"></article></div>`);
+  openDialog(section.title,`<p class="eyebrow">${esc(book.title)} · passage context</p><div class="context-reading"><article id="context-text" data-book="${esc(book.id)}" data-section="${esc(section.id)}" class="reading-surface" lang="${esc(book.language)}" aria-label="Passage context"></article></div>`);
   const container=$('#context-text');renderText(container,section,note?[note]:[]);
   await document.fonts.ready;
   await Promise.allSettled(dialog.getAnimations({subtree:true}).filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));
@@ -263,8 +287,14 @@ function boundaries() {
   openDialog('Choose what you’ve read.',`<p class="small">This controls what Companion may show. It does not change where you resume reading. Choose “None yet” to hide everything again.</p><form id="boundaries-form">${books.map(b=>`<label for="boundary-${b.id}">${esc(b.title)}</label><select id="boundary-${b.id}" name="${b.id}"><option value="-1">None yet</option>${b.sections.map((s,i)=>`<option value="${i}" ${visibleThrough(state,b)===i?'selected':''}>Through ${esc(s.title)}</option>`).join('')}</select>`).join('')}<div class="dialog-actions"><button class="primary" type="submit">Set my boundaries</button></div></form>`);
 }
 function background() {
+  if(includedAusten(activeBook)){editionDetails();return;}
   const b=activeBook, visible=b.context.filter(c=>c.through===null||allowed(b.id,c.through));
   openDialog('About this work.',`<p class="eyebrow">${esc(b.title)}</p><p class="small">${esc(b.edition)}</p>${visible.map(c=>`<section class="context-item"><p class="eyebrow">${c.kind==='editorial'?'Editorial interpretation':c.kind==='source'?'Sourced background':'Sample provenance'}</p><h3>${esc(c.label)}</h3><p class="companion-reading">${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}<div class="context-item"><p class="eyebrow">Edition record</p><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></div>`);
+}
+function editionDetails() {
+  const b=bookById(AUSTEN);if(!includedAusten(b))return;
+  const sectionLink=(id,label)=>`<a href="${path(b.id,id)}" data-action="edition-section" data-section="${id}">${label}</a>`;
+  openDialog('Edition & source',`<div class="edition-details"><p class="eyebrow">${esc(b.title)} · ${esc(b.author)}</p><p class="small">${esc(b.edition)}</p><nav class="edition-source-links" aria-label="Source documents">${sectionLink('edition-notice','Original source notice')}${sectionLink('front-matter','Original front matter')}${sectionLink('license','Full Project Gutenberg licence')}<a href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener noreferrer">Source EPUB for your e-reader</a></nav><details><summary>Source notice & credits</summary>${sourceLicenseNotice()}${b.context.filter(c=>c.through===null||allowed(b.id,c.through)).map(c=>`<section class="context-item"><h3>${esc(c.label)}</h3><p class="companion-reading">${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}</details><details><summary>Using this reader</summary><p>Select words to keep or share a passage. Your reading place is saved in this browser.</p><p>The word index searches the chapters you choose. The preface, illustration index, captions and source notices are excluded. Opening a result leaves your reading place unchanged.</p></details><details><summary>Edition record</summary><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></details></div>`);
 }
 async function offline() {
   try {
@@ -280,6 +310,9 @@ async function act(target) {
   const action=target.dataset.action;
   switch(action) {
     case 'close':closeDialog();break;
+    case 'dismiss-source-notice':{const pos=currentPosition();$('#first-source-notice')?.remove();rememberSourceNotice();main.focus({preventScroll:true});if(pos)await restorePosition(pos);break;}
+    case 'edition-details':editionDetails();break;
+    case 'edition-section':{const b=bookById(AUSTEN),s=b?.sections.find(s=>s.id===target.dataset.section);if(!includedAusten(b)||!s)return;if(sourceWarnings.has(s.id)&&!sourcePermissions.has(s.id)){if(!confirm('This source section contains spoilers. Open it?'))return;sourcePermissions.add(s.id);}await context(b.id,s.id,s.blocks[0].id);break;}
     case 'reveal-source':sourcePermissions.add(activeSection.id);await render();break;
     case 'source-context':{const b=bookById(target.closest('[data-book]')?.dataset.book)||activeBook||bookById(AUSTEN),s=b.sections.find(s=>s.id===target.dataset.section);if(!s)return;if(sourceWarnings.has(s.id)&&!sourcePermissions.has(s.id)){if(!confirm('This source section contains spoilers. Open it?'))return;sourcePermissions.add(s.id);}const block=s.blocks.find(b=>b.id===target.dataset.block),at=Math.min(Number(target.dataset.offset),Math.max(0,block.text.length-1));await context(b.id,s.id,block.id,block.text?{...passageAt(b,s,block,at,Math.min(block.text.length,at+1)),id:'source-reference'}:null);break;}
     case 'settings':await savePosition();settings();break;
