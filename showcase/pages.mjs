@@ -45,7 +45,7 @@ const explore = [
   ['word', 'Follow a word', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
   ['accounts', 'Keep his accounts', 'he priced the nails.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>${esc(LEDGER)}</pre></div>`],
   ['closer', 'Look closer', 'every line, full size', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><span class="lens" aria-hidden="true"></span></div></div>`],
-  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · a walk</p><img src="/assets/personal-canetti-map.jpg" width="450" height="700" alt="A street map of the Marrakesh medina with a numbered walking route through six places from the book"></div>`],
+  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · a walk</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="A street map of the Marrakesh medina with a numbered walking route through six places from the book"></div>`],
 ];
 
 // Beginner routes. Codex and Antigravity follow Career OS (checked there
