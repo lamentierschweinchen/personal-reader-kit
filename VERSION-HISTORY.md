@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Visual catalogue and agent handoff · 17 October 2026
+
+At the user's request, the public catalogue replaces lengthy promotional descriptions with four real reader previews, a short value proposition, simple/custom possibilities and a visible copyable agent prompt. The video script informed the feature wording; no promotional or personal-reader assets were copied. The handoff also works as plain text and without JavaScript. Existing guide, privacy and publication boundaries remain in force. The brief footer links to rights guidance and Bookshop.org. Exact screenshot provenance, upload inputs, complete-history audit and Chromium/WebKit checks accompany the change. None of the four reading applications, editions or canonical origins changes.
+
 ## Adversarial self-review · 15 October 2026
 
 Version 0.1.1 repairs source-spacing and quotation fidelity around empty blocks, repeated-restore duplication, draft-loss navigation paths and stale connection saves. Damaged imported books are isolated and retained for raw recovery. Unsupported book structure fails explicitly. Publication protection now checks commit/tag metadata and exact Vercel upload inputs. Regression cases and current evidence are recorded in `docs/STATUS.md`. This is the kit builder's self-review; the independent Canetti review of `4eaeec6` subsequently arrived and is addressed below.

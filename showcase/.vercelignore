@@ -4,6 +4,8 @@
 !vercel.json
 !index.html
 !style.css
+!start.mjs
+!start.txt
 !favicon.svg
 !assets/
 assets/*
@@ -11,6 +13,10 @@ assets/*
 !assets/fraunces-normal.woff2
 !assets/fraunces-italic.woff2
 !assets/OFL.txt
+!assets/austen-preview.jpg
+!assets/alice-preview.jpg
+!assets/walden-preview.jpg
+!assets/two-halls-preview.jpg
 
 # Vercel Git deployments evaluate these paths from the repository root.
 !showcase/
@@ -19,9 +25,15 @@ assets/*
 !showcase/vercel.json
 !showcase/index.html
 !showcase/style.css
+!showcase/start.mjs
+!showcase/start.txt
 !showcase/favicon.svg
 !showcase/assets/
 !showcase/assets/book.webp
 !showcase/assets/fraunces-normal.woff2
 !showcase/assets/fraunces-italic.woff2
 !showcase/assets/OFL.txt
+!showcase/assets/austen-preview.jpg
+!showcase/assets/alice-preview.jpg
+!showcase/assets/walden-preview.jpg
+!showcase/assets/two-halls-preview.jpg

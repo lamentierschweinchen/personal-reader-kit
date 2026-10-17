@@ -4,75 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#d0bda2">
-  <title>read · Books in good company</title>
-  <meta name="description" content="Four books, four personal readers. Read, keep a passage, follow a thread — or make a reader for a book you love.">
+  <title>read · Build your personal reader</title>
+  <meta name="description" content="Mark, annotate, share and read offline. Try four complete readers, then build your own with a free kit and your coding agent.">
   <link rel="canonical" href="https://read.lookatseel.com/">
-  <meta property="og:title" content="read · Books in good company">
-  <meta property="og:description" content="Every book, its own reader. Open one of four complete examples, or make your own with the personal reader kit.">
+  <link rel="alternate" type="text/plain" href="/start.txt" title="Start with your agent">
+  <meta property="og:title" content="read · Build your personal reader">
+  <meta property="og:description" content="Four books to try. A free kit to make your own reader.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://read.lookatseel.com/">
   <meta property="og:image" content="https://read.lookatseel.com/assets/book.webp">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/start.mjs"></script>
 </head>
 <body>
   <a class="skip" href="#books">Skip to the books</a>
   <header class="masthead wrap">
-    <a class="signature" href="https://lookatseel.com/">Lukas Seel</a>
-    <nav aria-label="Main"><a href="#books">The books</a><a href="#your-book">Make your own</a></nav>
+    <a class="wordmark" href="/" aria-label="read home">read<img src="/assets/book.webp" width="480" height="513" alt=""></a>
+    <a class="byline" href="https://lookatseel.com/">By Lukas Seel</a>
   </header>
-  <main>
-    <section class="opening wrap" aria-labelledby="title">
-      <div class="opening-title"><h1 id="title">read</h1><img class="book-object" src="/assets/book.webp" width="480" height="513" alt="" fetchpriority="high"></div>
-      <div class="opening-copy"><p class="invitation">Every book,<br> <em>its own reader.</em></p><p>Four books to spend time with. Read, keep a passage, follow a thread. Or make a reader for a book you love.</p><a class="text-link" href="#books">Find a place to begin <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a></div>
-    </section>
-    <section class="books wrap" id="books" aria-labelledby="books-title">
-      <div class="section-label"><h2 id="books-title">Four ways in</h2><span>Complete books. Room to wander.</span></div>
+  <main class="wrap">
+    <header class="intro">
+      <div><h1>A reader for your books.</h1><p>Mark, annotate, share. Take it offline.</p></div>
+      <a class="build-link" href="#your-reader">Build your personal reader <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></a>
+    </header>
+    <section class="books" id="books" aria-labelledby="books-title">
+      <h2 class="eyebrow" id="books-title">Try the readers</h2>
       <div class="book-list">
-        <article class="reader austen">
-          <div class="reader-meta"><span>01</span><span>An illustrated novel</span></div>
-          <p class="author">Jane Austen</p>
-          <h3><a href="https://austen.lookatseel.com/">Pride <i>and</i><br>Prejudice</a></h3>
-          <p class="description">A drawing room in print. Hugh Thomson’s illustrations, a quiet page, and a word index for following the things people say.</p>
-          <div class="reader-links"><a class="read-link" href="https://austen.lookatseel.com/" aria-label="Read Pride and Prejudice">Read the book <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/tree/main/examples/pride-and-prejudice">Edition &amp; source</a></div>
-        </article>
-        <article class="reader alice">
-          <div class="reader-meta"><span>02</span><span>A crooked storybook</span></div>
-          <p class="author">Lewis Carroll</p>
-          <h3><a href="https://alice.lookatseel.com/">Alice’s Adventures<br><i>in Wonderland</i></a></h3>
-          <p class="description">Down the rabbit-hole with Arthur Rackham. Odd proportions, shaped verse and pictures that reward a closer look.</p>
-          <div class="reader-links"><a class="read-link" href="https://alice.lookatseel.com/" aria-label="Read Alice’s Adventures in Wonderland">Read the book <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/tree/main/examples/alice-in-wonderland">Edition &amp; source</a></div>
-        </article>
-        <article class="reader walden">
-          <div class="reader-meta"><span>03</span><span>A field notebook</span></div>
-          <p class="author">Henry David Thoreau</p>
-          <h3><a href="https://walden.lookatseel.com/">Walden<br><small>&amp; Civil Disobedience</small></a></h3>
-          <p class="description">A pond, a house, an account of living. Read beside Thoreau’s survey and consider what he counts, spends and keeps.</p>
-          <div class="reader-links"><a class="read-link" href="https://walden.lookatseel.com/" aria-label="Read Walden and Civil Disobedience">Read the books <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/tree/main/examples/walden">Edition &amp; source</a></div>
-        </article>
-        <article class="reader halls">
-          <div class="reader-meta"><span>04</span><span>An argument in two rooms</span></div>
-          <p class="author">Schopenhauer &amp; Hegel</p>
-          <h3><a href="https://two-halls.lookatseel.com/">Two lecture halls,<br><i>one hour.</i></a></h3>
-          <p class="description">Choose a door, then cross the corridor. A playful comparison inspired by a real rivalry, through later English editions.</p>
-          <div class="reader-links"><a class="read-link" href="https://two-halls.lookatseel.com/" aria-label="Enter Two lecture halls, one hour">Enter the halls <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/tree/main/examples/schopenhauer-hegel">Editions &amp; source</a></div>
-        </article>
+        <a class="reader" href="https://austen.lookatseel.com/">
+          <div class="preview"><img src="/assets/austen-preview.jpg" width="960" height="1200" alt="Austen’s illustrated title page with a peacock ornament" fetchpriority="high"><span class="preview-action" aria-hidden="true">Open reader</span></div>
+          <h3>Pride and Prejudice</h3><p>Jane Austen</p>
+        </a>
+        <a class="reader" href="https://alice.lookatseel.com/">
+          <div class="preview"><img src="/assets/alice-preview.jpg" width="960" height="1200" alt="Blue storybook lettering and Arthur Rackham’s rabbit-hole illustration"><span class="preview-action" aria-hidden="true">Open reader</span></div>
+          <h3>Alice in Wonderland</h3><p>Lewis Carroll</p>
+        </a>
+        <a class="reader" href="https://walden.lookatseel.com/">
+          <div class="preview"><img src="/assets/walden-preview.jpg" width="960" height="1200" alt="A field notebook opening with Thoreau’s survey of Walden Pond"><span class="preview-action" aria-hidden="true">Open reader</span></div>
+          <h3>Walden</h3><p>Henry David Thoreau</p>
+        </a>
+        <a class="reader" href="https://two-halls.lookatseel.com/">
+          <div class="preview"><img src="/assets/two-halls-preview.jpg" width="1200" height="1500" alt="A lecture broadside with separate entrances for Hegel and Schopenhauer"><span class="preview-action" aria-hidden="true">Open reader</span></div>
+          <h3>Schopenhauer vs. Hegel</h3><p>Two lecture halls, one hour</p>
+        </a>
       </div>
     </section>
-    <section class="your-book wrap" id="your-book" aria-labelledby="your-title">
-      <div><p class="eyebrow">The personal reader kit</p><h2 id="your-title">Your book<br> <em>next.</em></h2></div>
-      <div class="make-copy"><p class="large-copy">A favourite book deserves a place of its own.</p><p>Give your coding agent the free kit and a book file you’re entitled to use. It helps prepare a faithful edition, find the right look and build a personal reading site. Keep it simple, or make something that could only belong to that book.</p><p>Reading comes first. A walk, an index or a conversation between works is an invitation, never homework.</p><a class="make-link" href="https://github.com/lamentierschweinchen/personal-reader-kit#make-your-reader-with-an-agent">Make your reader <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><p class="aside">Open source · Bring your own agent · No reader account</p></div>
-    </section>
-    <section class="practical wrap" aria-labelledby="practical-title">
-      <h2 id="practical-title">A few things to know</h2>
-      <div class="questions">
-        <details><summary>Can I take a book offline?</summary><div><p>Yes. Open the reader in the browser you’ll use, wait for <strong>Available offline</strong>, then open Settings and choose <strong>Check offline copy</strong> before travelling. You can reload, change chapters, use the included companions and save or edit annotations in airplane mode.</p><p>External research, source downloads and sending messages still need a connection. Use the same address and browser. Cleared or evicted browser storage can remove books and notes, so keep a private backup from Settings.</p></div></details>
-        <details><summary>Where do my notes go?</summary><div><p>They stay in your browser. There’s no reader account or automatic sync. Select some words to keep a passage, add a note, or share an attributed quotation. Sharing leaves your private notes out.</p><p>Use a private reading bundle to back up or move records. Each reader has its own library; another browser, device or address starts separately. This landing page uses no analytics or cookies.</p></div></details>
-        <details><summary>Can I use any book?</summary><div><p>Use material you’re entitled to use. Owning a copy does not give permission to publish it, and some ebooks cannot be imported. The kit does not bypass DRM. Giving a file to an agent may send it to that agent’s model provider.</p><p>These four examples use reviewed editions identified as public domain in the USA; that is not worldwide clearance. Their source pages document translations, illustrations and notices. Keep personal books out of public repositories and unprotected websites.</p><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">Books and permissions</a></div></details>
+    <section class="make" id="your-reader" aria-labelledby="make-title">
+      <div class="make-heading"><h2 id="make-title">Build your personal reader</h2><p>A free, open-source kit. Bring your own coding agent.</p></div>
+      <div class="choices">
+        <div><h3>Keep it simple</h3><p>Highlights, notes, passage sharing, offline reading.</p></div>
+        <div><h3>Make it your own</h3><p>The story behind the book. A walk through its places. A theme explorer.</p></div>
+      </div>
+      <p class="storage-note">Download before travelling. Notes stay in your browser; keep a backup.</p>
+      <div class="start" id="start">
+        <div class="start-heading"><div><h3 id="start-title">Start here</h3><label for="agent-prompt">Paste this into your coding agent.</label></div><button id="copy-prompt" type="button" hidden>Copy prompt</button></div>
+        <textarea id="agent-prompt" aria-label="Prompt for your coding agent" readonly spellcheck="false">Help me build a personal reading website using https://github.com/lamentierschweinchen/personal-reader-kit. Start by reading the repository’s AGENTS.md and docs/AGENT-GUIDE.md. Work in my own project. Explain file privacy before I share any books, then help me choose a simple reader or a custom experience. Preserve the source text and formatting. Keep my books and notes out of public code. Guide me through setup, offline checks and deployment, and confirm what will be public before publishing.</textarea>
+        <div class="start-links"><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit on GitHub</a><a href="/start.txt">Plain text for agents</a><span id="copy-status" role="status" aria-live="polite"></span></div>
       </div>
     </section>
   </main>
-  <footer class="footer wrap"><a class="signature" href="https://lookatseel.com/">Lukas Seel</a><p>Books in good company.</p><a href="https://github.com/lamentierschweinchen/personal-reader-kit">The kit on GitHub</a></footer>
+  <footer class="footer wrap">
+    <p>Use books you own, public-domain texts or licensed material. Owning a copy isn’t permission to publish it.</p>
+    <div class="footer-links"><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">Rights &amp; privacy</a><a href="https://bookshop.org/">Support independent bookshops</a></div>
+  </footer>
 </body>
 </html>

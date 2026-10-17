@@ -4,7 +4,15 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The user approved the public showcase at `read.lookatseel.com` and four separate reader subdomains; live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
 
-## Current verification · 16 October 2026
+## Current verification · 17 October 2026
+
+The catalogue now leads with four real reader previews, short feature copy and a copyable agent prompt. Static HTML and `/start.txt` expose the same prompt without JavaScript; the existing agent guide remains authoritative. A brief rights notice and a non-affiliate Bookshop.org link replace the long FAQ. The four readers, their origins, editions and storage are unchanged.
+
+This pass passes **37 kit Node tests**, **135 example Node tests**, the exact **219-file example build comparison**, and the stock reader build with unchanged fingerprint `885f1fe4cb2a67fa`. Catalogue checks pass in Chromium and WebKit at six sizes each (320px and 402px phones, landscape phone, both tablet orientations and desktop): all previews load, primary links work, both touch dimensions meet 44px, no horizontal overflow or unexpected external requests occur, and the prompt copies exactly. Blocked/missing clipboard access retains a selected manual-copy path. The plain-text prompt matches the HTML, and the no-JavaScript handoff works. Representative settled phone/tablet/desktop and landscape captures were visually inspected. This is browser emulation, not physical iOS or assistive-technology acceptance.
+
+The exact release inventory is **516 files**, including **seven pinned showcase binaries**: the three existing branded/font assets and four authorized public-example screenshots. The catalogue builds **13 files**; its small module only handles explicit clipboard copying. JPEG provenance is tested against changed bytes, unreviewed history and credential detection. Upload rules remain exact in standalone and repository-root builds. No preview, source content or branded asset is added to the 57-file personal starter. Live publication of this revision is reported separately from these local checks.
+
+## Previous hosting verification · 16 October 2026
 
 The public-hosting pass passes **36 kit Node tests**, **135 example Node tests**, and the exact 219-file example build comparison. The stock reader remains at build fingerprint `885f1fe4cb2a67fa`; no example runtime or edition was changed. The seven-output [showcase](../showcase/README.md) uses the personal-site palette, Fraunces type and existing book graphic at the user’s request. Its Chromium/WebKit checks pass at five sizes per engine (phone/tablet portrait and landscape, desktop), with local assets, four distinct reader origins, 44px primary controls, disclosures, keyboard entry and no horizontal overflow. Settled captures were inspected; this is not physical-device or screen-reader acceptance.
 

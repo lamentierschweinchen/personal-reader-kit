@@ -477,14 +477,21 @@
     "showcase/ASSETS.md",
     "showcase/README.md",
     "showcase/assets/OFL.txt",
+    "showcase/assets/alice-preview.jpg",
+    "showcase/assets/austen-preview.jpg",
     "showcase/assets/book.webp",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
+    "showcase/assets/two-halls-preview.jpg",
+    "showcase/assets/walden-preview.jpg",
     "showcase/build.mjs",
+    "showcase/capture.mjs",
     "showcase/check.mjs",
     "showcase/favicon.svg",
     "showcase/index.html",
     "showcase/package.json",
+    "showcase/start.mjs",
+    "showcase/start.txt",
     "showcase/style.css",
     "showcase/vercel.json",
     "site/app.mjs",
@@ -1636,6 +1643,30 @@
       "sha256": "7f9d191d999336d3b9790afa72e1358e50a13b06d4f289341e92a311967a80f9",
       "provenance": "showcase/ASSETS.md",
       "reason": "Unchanged Fraunces Latin subset; SIL OFL 1.1 license accompanies the website."
+    },
+    {
+      "path": "showcase/assets/austen-preview.jpg",
+      "sha256": "40143510bd0863c24c4a377df6930902254b1576a964f51a596950217025c04a",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed clean-profile capture of the authorized public example entrance; no personal reading records."
+    },
+    {
+      "path": "showcase/assets/alice-preview.jpg",
+      "sha256": "d5ad1ac4c460e43dd2036709de3d572615f433b2cc290d93c7b3040607ad2e41",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed clean-profile capture of the authorized public example entrance; no personal reading records."
+    },
+    {
+      "path": "showcase/assets/walden-preview.jpg",
+      "sha256": "4921ab8f01d155287c97b44cdbf9803ffe90fa28d8a313eb6daf7cd2144fa6fc",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed clean-profile capture of the authorized public example entrance; no personal reading records."
+    },
+    {
+      "path": "showcase/assets/two-halls-preview.jpg",
+      "sha256": "c3f65ce9feb4e4b00a88ce829d5a5a5575283fd77b70d499805fafde4e60441a",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed clean-profile capture of the authorized public example entrance; no personal reading records."
     }
   ]
 }
