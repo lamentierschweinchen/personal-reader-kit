@@ -1,86 +1,108 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3f1e7">
-  <title>new reading · Your books. Your own app.</title>
-  <meta name="description" content="Make a personal reader for the books you love. Read, highlight, annotate and share. Try four readers, then make your own.">
-  <link rel="canonical" href="https://newreading.app/">
-  <link rel="alternate" type="text/plain" href="/start.txt" title="Instructions for your agent">
-  <meta property="og:title" content="new reading · Your books. Your own app.">
-  <meta property="og:description" content="Four readers to try. A free kit to make your own.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://newreading.app/">
-  <meta property="og:image" content="https://newreading.app/assets/read-share.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="Four illustrated readers: Austen, Alice, Walden and Two lecture halls.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="new reading · Your books. Your own app.">
-  <meta name="twitter:description" content="Four readers to try. A free kit to make your own.">
-  <meta name="twitter:image" content="https://newreading.app/assets/read-share.jpg">
-  <meta name="twitter:image:alt" content="Four illustrated readers: Austen, Alice, Walden and Two lecture halls.">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/assets/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/style.css">
-  <script type="module" src="/start.mjs"></script>
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e7">
+<title>new reading · Turn any book into your personal reader</title><meta name="description" content="Read it on your phone. Explore it your way. Try four finished readers, then make your own.">
+<meta property="og:title" content="new reading · Turn any book into your personal reader"><meta property="og:description" content="Read it on your phone. Explore it your way. Try four finished readers, then make your own."><meta property="og:type" content="website"><meta property="og:url" content="https://newreading.app/"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg"><link rel="canonical" href="https://newreading.app/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/im-fell-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/martian-mono-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css"><script type="module" src="/home.mjs"></script></head>
 <body>
-  <a class="skip" href="#books">Skip to the books</a>
-  <header class="masthead wrap">
-    <a class="wordmark" href="/" aria-label="new reading home">new<span>reading</span><i aria-hidden="true">.</i></a>
-    <nav aria-label="Main"><a href="/learn/">How it works</a><a class="nav-start" href="#start">Start here <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
-  </header>
-  <main>
-    <section class="intro wrap" aria-labelledby="title">
-      <div class="intro-copy"><h1 id="title">Your books.<br> <span>Your own app.</span></h1></div>
-      <div class="intro-action"><p>Read, highlight, annotate, share.<br> On your phone. Offline, too.</p><a class="build-link" href="#start">Start here <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><span class="small-note">A free kit. Made yours with AI.</span></div>
-    </section>
-    <section class="books wrap" id="books" aria-labelledby="books-title">
-      <div class="section-line"><h2 id="books-title">Four readers to try</h2><button id="peek-books" type="button" aria-pressed="false" hidden><span>Peek inside</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button></div>
-      <div class="book-list">
-        <a class="reader austen" href="/austen/" aria-labelledby="austen-title" aria-describedby="austen-author austen-kind">
-          <div class="plate"><img src="/assets/austen-cover.jpg" width="1500" height="2114" alt="Hugh Thomson’s gold peacock binding" fetchpriority="high"><div class="inside" id="austen-inside" aria-hidden="true"><span>Index of words</span><div class="index-preview"><strong>pride</strong><span>vanity</span><span>judgment</span><span>opinion</span></div><p class="peek-note">Follow a word through the novel.</p></div><span class="plate-number" aria-hidden="true">01</span></div>
-          <div class="caption"><div><h3 id="austen-title">Pride and Prejudice</h3><p id="austen-author">Jane Austen</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="austen-kind"><span aria-hidden="true"></span>Illustrations &amp; a word index</p>
-        </a>
-        <a class="reader alice" href="/alice/" aria-labelledby="alice-title" aria-describedby="alice-author alice-kind">
-          <div class="plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit running towards its hole"><div class="inside" id="alice-inside" aria-hidden="true"><span>Words &amp; drawings</span><div class="type-preview"><span>The shape</span><span>of a</span><span>tale.</span></div><p class="peek-note">Pictures, poems &amp; a closer look.</p></div><span class="plate-number" aria-hidden="true">02</span></div>
-          <div class="caption"><div><h3 id="alice-title">Alice in Wonderland</h3><p id="alice-author">Lewis Carroll</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="alice-kind"><span aria-hidden="true"></span>Read &amp; look closer</p>
-        </a>
-        <a class="reader walden" href="/walden/" aria-labelledby="walden-title" aria-describedby="walden-author walden-kind">
-          <div class="plate"><img src="/assets/walden-survey.jpg" width="731" height="412" alt="Thoreau’s 1846 survey of Walden Pond"><div class="inside" id="walden-inside" aria-hidden="true"><span>Keeping account</span><div class="account-preview"><span><i>01</i>Cost</span><span><i>02</i>Depth</span><span><i>03</i>Tax</span></div><p class="peek-note">Three readings beside the book.</p></div><span class="plate-number" aria-hidden="true">03</span></div>
-          <div class="caption"><div><h3 id="walden-title">Walden</h3><p id="walden-author">Henry David Thoreau</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="walden-kind"><span aria-hidden="true"></span>A survey &amp; three readings</p>
-        </a>
-        <a class="reader halls" href="/two-halls/" aria-labelledby="halls-title" aria-describedby="halls-author halls-kind">
-          <div class="plate"><img src="/assets/two-halls-portraits.webp" width="1280" height="853" alt="An editorial illustration of Hegel and Schopenhauer facing each other over an open book"><div class="inside" id="halls-inside" aria-hidden="true"><span>A paired reading</span><p class="paired-question">Does winning bring us nearer truth?</p><div class="pair-preview"><span>Hegel</span><span>Schopenhauer</span></div><p class="peek-note">Two source editions. Three questions.</p></div><span class="plate-number" aria-hidden="true">04</span></div>
-          <div class="caption"><div><h3 id="halls-title">Two lecture halls</h3><p id="halls-author">Hegel &amp; Schopenhauer</p></div><svg class="open-reader" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></div><p class="reader-kind" id="halls-kind"><span aria-hidden="true"></span>Two philosophers, side by side</p>
-        </a>
-      </div>
-      <details class="install-guide" id="home-screen">
-        <summary>Add a reader to your home screen</summary>
-        <div class="install-body">
-          <p>Open a reader, then add it to your home screen.</p>
-          <dl><dt>iPhone &amp; iPad</dt><dd>In Safari, open Share and choose <strong>Add to Home Screen</strong>. Enable <strong>Open as Web App</strong> if shown.</dd><dt>Android</dt><dd>In Chrome’s menu, choose <strong>Install</strong> or <strong>Add to Home screen</strong>. The label varies by version.</dd><dt>Computer</dt><dd>Use Chrome’s <strong>Install page as app</strong>, or Safari’s <strong>File</strong>, then <strong>Add to Dock</strong>.</dd></dl>
-          <p>Open the new icon while online. In Settings, use <strong>Check offline copy</strong>. Then reopen it with Wi-Fi and mobile data off. Keep a reading bundle as a backup of your books and notes.</p>
-          <a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/DEPLOYMENT.md#add-the-reader-to-your-home-screen">Installation and backup guide</a>
-        </div>
-      </details>
-    </section>
-    <section class="start" id="start" aria-labelledby="start-title">
-      <div class="start-inner wrap">
-        <div class="start-intro"><p class="eyebrow">Make your own</p><h2 id="start-title">Bring a book.<br> Make a reader.</h2><p>A simple place to read, or something shaped around its places, history and ideas.</p><a class="how-link" href="/learn/">How it works <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
-        <div class="handoff">
-          <label for="agent-prompt">Copy this into Codex, Claude Code or your coding agent.</label>
-          <textarea id="agent-prompt" readonly spellcheck="false">Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.</textarea>
-          <div class="handoff-actions"><button id="copy-prompt" type="button" hidden><span>Copy instruction</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit</a></div>
-          <p id="copy-status" role="status" aria-live="polite"></p>
-          <a class="plain-instructions" href="/start.txt">Plain text for agents</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer wrap"><a class="byline" href="https://lookatseel.com/">Made by Lukas Seel</a><p>Publish only books you’re allowed to share.</p><div class="footer-links"><a href="https://bookshop.org/">Support independent bookshops</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">About book rights</a></div></footer>
-</body>
-</html>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <a class="brand" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a>
+ <nav aria-label="Main"><a class="nav-link" href="/#samples">Samples</a><a class="nav-link" href="/learn/">How it works</a><button type="button" class="pill" data-copy="base" hidden>Copy prompt <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H5v14h10v-4M9 3h10v12H9z"/></svg></button><a class="pill pill-dark" href="https://github.com/lamentierschweinchen/personal-reader-kit">GitHub <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
+</header>
+<main id="main">
+
+<section class="hero" data-thread="love" aria-labelledby="hero-title">
+ <div class="hero-text">
+  <h1 id="hero-title">Once for <button type="button" class="thread" data-pick="love" aria-pressed="true">love</button><span class="dot">.</span><br>Again for <button type="button" class="thread" data-pick="money" aria-pressed="false">the&nbsp;money</button><span class="dot">.</span></h1>
+  <svg class="ring" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M24 55C9 34 52 9 108 7c58-2 90 18 84 40-6 23-60 31-112 28C38 72 10 60 16 41c3-10 14-18 30-24"/></svg>
+  <p class="vp">Make <span class="ins"><svg class="ins-caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg>your own</span> edition of any&nbsp;book.</p>
+  <div class="actions"><a class="btn" href="#make">Start yours <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a><a class="link" href="#samples">Try a finished one</a></div>
+ </div>
+ <figure class="hero-device" aria-live="polite">
+  <p class="hand note-hero"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span data-note>he means it.</span></p>
+  <div class="ph"><div class="ph-screen">
+   <div class="ed-top"><span>Pride &amp; Prejudice</span><span class="ed-label" data-text="label">The love edition</span></div>
+   <div class="ed-word" data-text="name">love</div>
+   <div class="ed-count"><span data-text="count">93</span> times · 61 chapters</div>
+   <div class="ed-grid" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i><i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i><i style="--i:28"></i><i style="--i:29"></i><i style="--i:30"></i><i style="--i:31"></i><i style="--i:32"></i><i style="--i:33"></i><i style="--i:34"></i><i style="--i:35"></i><i style="--i:36"></i><i style="--i:37"></i><i style="--i:38"></i><i style="--i:39"></i><i style="--i:40"></i><i style="--i:41"></i><i style="--i:42"></i><i style="--i:43"></i><i style="--i:44"></i><i style="--i:45"></i><i style="--i:46"></i><i style="--i:47"></i><i style="--i:48"></i><i style="--i:49"></i><i style="--i:50"></i><i style="--i:51"></i><i style="--i:52"></i><i style="--i:53"></i><i style="--i:54"></i><i style="--i:55"></i><i style="--i:56"></i><i style="--i:57"></i><i style="--i:58"></i><i style="--i:59"></i><i style="--i:60"></i></div>
+   <blockquote class="ed-quote"><p data-text="quote">You must allow me to tell you how ardently I admire and love you.</p><cite data-text="who">Mr. Darcy · Chapter 34</cite></blockquote>
+  </div></div>
+ </figure>
+</section>
+
+<section class="anybook reveal" aria-labelledby="any-title">
+ <div class="marquee" aria-hidden="true"><div class="marquee-track" data-covers></div></div>
+ <div class="anybook-text"><h2 id="any-title">Turn <span class="pen-under">any book</span> into your personal&nbsp;reader.</h2>
+ <p class="hand any-note">An edition made just for you.</p></div>
+</section>
+
+<section class="modes" aria-labelledby="modes-title">
+ <h2 id="modes-title" class="reveal">Read it. <em>Explore&nbsp;it.</em></h2>
+ <div class="mode-grid">
+  <article class="mode mode-read reveal">
+   <div class="mode-text"><p class="kicker">Read</p><h3>A quiet place for the book.</h3>
+    <ul class="chips"><li>Keep a passage</li><li>Write in the margin</li><li>Share a line</li><li>Read offline</li></ul>
+    <p class="fine">Your notes stay on your device. No account, no ads, no feed.</p></div>
+   <p class="hand note-read">keep this one<svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg></p><div class="shot"><img src="/assets/reader-keep.jpg" width="450" height="978" alt="The Pride and Prejudice reader keeping its first sentence, with a private note"></div>
+  </article>
+  <article class="mode mode-explore reveal" data-x="word">
+   <div class="mode-text"><p class="kicker">Explore</p><h3>Whatever the book makes you curious about.</h3>
+    <div class="tabs" role="tablist" aria-label="Examples of explorations"><button type="button" role="tab" id="tab-word" aria-controls="panel-word" aria-selected="true" tabindex="0" data-explore="word" data-label="Follow a word">Follow a word</button><button type="button" role="tab" id="tab-accounts" aria-controls="panel-accounts" aria-selected="false" tabindex="-1" data-explore="accounts" data-label="Keep his accounts">Keep his accounts</button><button type="button" role="tab" id="tab-closer" aria-controls="panel-closer" aria-selected="false" tabindex="-1" data-explore="closer" data-label="Look closer">Look closer</button><button type="button" role="tab" id="tab-places" aria-controls="panel-places" aria-selected="false" tabindex="-1" data-explore="places" data-label="Walk its places">Walk its places</button></div>
+    <p class="hand note-explore" data-explore-note>who else says “pride”?</p></div>
+   <div class="stage"><div class="panel" id="panel-word" role="tabpanel" aria-labelledby="tab-word"><div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid"><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1.00"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.63"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:1.00"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.63"></i><i style="--v:0.72"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0.54"></i><i style="--v:0.63"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0.54"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0.44"></i><i style="--v:0.44"></i><i style="--v:0"></i><i style="--v:0.44"></i></div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div></div><div class="panel" id="panel-accounts" role="tabpanel" aria-labelledby="tab-accounts" hidden><div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>    Boards.......................... $ 8.03½, mostly shanty boards.
+    Refuse shingles for roof sides,..  4.00
+    Laths,...........................  1.25
+    Two second-hand windows
+       with glass,...................  2.43
+    One thousand old brick,..........  4.00
+    Two casks of lime,...............  2.40  That was high.
+    Hair,............................  0.31  More than I needed.
+    Mantle-tree iron,................  0.15
+    Nails,...........................  3.90
+    Hinges and screws,...............  0.14
+    Latch,...........................  0.10
+    Chalk,...........................  0.01
+    Transportation,..................  1.40  I carried a good part
+                                       ————  on my back.
+        In all,..................... $28.12½</pre></div></div><div class="panel" id="panel-closer" role="tabpanel" aria-labelledby="tab-closer" hidden><div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><span class="lens" aria-hidden="true"></span></div></div></div><div class="panel" id="panel-places" role="tabpanel" aria-labelledby="tab-places" hidden><div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · a walk</p><img src="/assets/personal-canetti-map.jpg" width="450" height="700" alt="A street map of the Marrakesh medina with a numbered walking route through six places from the book"></div></div></div>
+  </article>
+ </div>
+</section>
+
+<section class="samples" id="samples" aria-labelledby="samples-title">
+ <div class="samples-head reveal"><h2 id="samples-title">Try a <span class="pen-circle">finished</span>&nbsp;one.</h2></div>
+ <div class="sample-row"><a class="sample sample-austen reveal" href="/austen/"><span class="s-title">Pride and<br><i>Prejudice</i></span><span class="s-line">Follow a word through the novel.</span><span class="s-by">Jane Austen <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a><a class="sample sample-alice reveal" href="/alice/"><span class="s-title">ALICE</span><span class="s-line">Rackham’s pictures, up close.</span><span class="s-by">Lewis Carroll <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a><a class="sample sample-walden reveal" href="/walden/"><span class="s-title">Walden</span><span class="s-line">Thoreau’s accounts, kept.</span><span class="s-by">Henry David Thoreau <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a><a class="sample sample-two-halls reveal" href="/two-halls/"><span class="s-title">Two lecture<br><i>halls</i></span><span class="s-line">Two philosophers, the same hour.</span><span class="s-by">Hegel &amp; Schopenhauer <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a></div>
+</section>
+
+<section class="make" id="make" aria-labelledby="make-title">
+ <div class="make-head reveal"><h2 id="make-title">Have a book <em>in&nbsp;mind?</em></h2><p>Name it, say what you’d like, and copy your starting point.</p></div>
+ <form class="idea reveal" autocomplete="off" data-enhanced hidden>
+  <label class="field field-book"><span>The book</span><input id="book" maxlength="200" placeholder="Walden"><em class="hand note-make" aria-hidden="true"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg>for Dad’s birthday?</em></label>
+  <label class="field"><span>I’d like to…</span><textarea id="idea" rows="2" maxlength="1000" placeholder="make an edition for Dad, who still means to build the cabin"></textarea></label>
+  <div class="ideas"><span>Or begin with</span><button type="button" data-idea="make a beautiful, quiet place to read it">a quiet place to read</button><button type="button" data-idea="follow a word that keeps catching my attention">a word that follows me</button><button type="button" data-idea="make a companion to the places in the book">the places in its pages</button><button type="button" data-idea="make an edition as a gift for someone I love">a gift for someone</button></div>
+  <div class="idea-actions"><button type="button" class="btn" data-copy="personal" hidden>Copy my starting point <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><p class="status" role="status"></p></div>
+ </form>
+ <div class="side reveal">
+  <ol class="steps">
+   <li><b>1</b><div><h3>Paste it into a coding app.</h3><p>Codex, Claude Code or similar. It starts with a sample, then asks for your book.</p></div></li>
+   <li><b>2</b><div><h3>Read, and ask for changes.</h3><p>A quiet reader, or one shaped around your curiosity.</p></div></li>
+   <li><b>3</b><div><h3>Take it with you.</h3><p>On your phone, offline.</p></div></li>
+  </ol>
+  <a class="newbie" href="/learn/"><span class="hand">Never used a coding app?</span><span class="newbie-line">The guide shows you which app to open and what to paste, step by step.</span><span class="newbie-go">Read the guide <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span></a>
+ </div>
+ <div class="faq reveal">
+  <details><summary>What happens to the words? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>They’re kept exactly, with their emphasis and structure. Everything new lives around them.</p></details>
+  <details><summary>What do I need? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>A computer, a coding app, and a book you own or one in the public domain. The kit is free and open source; your AI app may have plan costs or usage limits.</p></details>
+  <details><summary>What stays private? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>Books you import and your notes stay in your browser. This site has no analytics or third-party scripts. Files you give an AI app may be processed by its provider.</p></details>
+  <details><summary>Can I make one for someone else? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>Yes, with a public-domain book or one you have permission to share. Owning a book doesn’t give permission to publish its text.</p></details>
+  <details id="prompt-box" open><summary>Just the prompt, please. <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><textarea id="starter" readonly spellcheck="false" aria-label="Starter prompt">Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.</textarea><div class="prompt-actions"><button type="button" class="link" data-copy="base" hidden>Copy prompt</button><a class="link" href="/start.txt">Full instruction</a><a class="link" href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the repository <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></details>
+ </div>
+</section>
+</main>
+<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Free &amp; open source <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<dialog class="fallback" aria-labelledby="fb-title"><form method="dialog"><button aria-label="Close">Close</button></form><h2 id="fb-title">Copy by hand.</h2><p>Automatic copying wasn’t available. Select and copy the text below.</p><textarea readonly aria-label="Text to copy"></textarea></dialog>
+<script type="application/json" id="data">{"threads":{"love":{"note":"he means it.","name":"love","count":93,"label":"The love edition","counts":[1,1,1,0,0,5,1,0,4,0,1,0,1,0,0,0,0,0,1,1,4,4,1,4,8,6,1,0,0,0,1,3,1,3,2,2,0,0,0,1,1,1,1,4,0,1,5,0,0,1,1,1,1,3,1,0,0,1,7,4,2],"quote":"You must allow me to tell you how ardently I admire and love you.","who":"Mr. Darcy · Chapter 34"},"money":{"note":"she means it too.","name":"fortune","count":39,"label":"The money edition","counts":[3,0,0,3,2,0,2,0,0,0,0,0,0,0,0,4,0,0,1,0,0,2,0,2,1,4,1,1,0,0,0,1,1,0,1,2,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,2,0,0,1,0,1],"quote":"A single man of large fortune; four or five thousand a year.","who":"Mrs. Bennet · Chapter 1"}},"explore":[["word","who else says “pride”?"],["accounts","he priced the nails."],["closer","every line, full size"],["places","walk it someday."]]}</script>
+</body></html>

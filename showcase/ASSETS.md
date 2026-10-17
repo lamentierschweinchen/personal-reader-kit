@@ -67,3 +67,16 @@ These are previews of the specifically authorized public examples, not personal-
 These four screenshot files were retired after the independent design review; they are no longer build or upload inputs. Their exact hashes remain in both the historical-path review and the asset pins so earlier reachable Git history can still be inspected without rewriting it.
 
 `publication.json.reviewedSiteAssets` records each current and historical binary by exact path and content hash. No asset directory receives a blanket scanner exemption. These assets and the showcase are excluded from `starterFiles` and the stock reader build. All images and fonts are served locally; opening the catalogue makes no request to the personal site, sample readers or a font provider.
+
+## New reading redesign · 17 October 2026
+
+The owner selected a new identity for `newreading.app`: IM Fell English for the logo and headlines, Reenie Beanie for the reader's handwritten notes, Martian Mono for labels and Piazzolla for body text. Exploration panels reuse the reviewed Rabbit plate and the approved map-only Canetti screenshot above; the word grid and Walden account are live HTML from the verified editions (“pride” 47 times across chapters 1–61; Thoreau’s house account as printed in *Economy*). The 30 book covers are original HTML/CSS compositions with no publisher artwork.
+
+- `assets/im-fell-normal.woff2`, `assets/im-fell-italic.woff2`: unchanged Latin subsets of [IM Fell English](https://github.com/google/fonts/tree/main/ofl/imfellenglish) by Igino Marini, downloaded from Google Fonts. [SIL OFL 1.1](assets/OFL-IMFell.txt).
+- `assets/reenie-beanie.woff2`: unchanged Latin subset of [Reenie Beanie](https://github.com/google/fonts/tree/main/ofl/reeniebeanie) by James Grieshaber. [SIL OFL 1.1](assets/OFL-ReenieBeanie.txt).
+- `assets/martian-mono-normal.woff2`: unchanged Latin variable subset of [Martian Mono](https://github.com/evilmartians/mono). [SIL OFL 1.1](assets/OFL-MartianMono.txt).
+- `assets/piazzolla-normal.woff2`, `assets/piazzolla-italic.woff2`: unchanged Latin variable subsets of [Piazzolla](https://github.com/huertatipografica/piazzolla). [SIL OFL 1.1](assets/OFL-Piazzolla.txt).
+- `assets/reader-keep.jpg`: 450 × 978 screenshot of the public [Pride and Prejudice example](../examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md) opened at Chapter 1, keeping the novel’s first sentence. The note text is illustrative; no personal reading records appear.
+- `assets/favicon-32.png`, `assets/apple-touch-icon.png`: original artwork (an IM Fell “r” under a red caret), under the kit’s MIT license.
+
+No font is requested remotely; all files are served from this site.

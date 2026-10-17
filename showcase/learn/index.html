@@ -1,37 +1,58 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3f1e7">
-  <title>How it works · new reading</title>
-  <meta name="description" content="Bring a book and build your own reader app with an AI coding tool. A short guide from the first instruction to reading on your phone.">
-  <link rel="canonical" href="https://newreading.app/learn/">
-  <meta property="og:title" content="How it works · new reading">
-  <meta property="og:description" content="From a book to your own reader app.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://newreading.app/learn/">
-  <meta property="og:image" content="https://newreading.app/assets/read-share.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/assets/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/style.css">
-  <script type="module" src="/start.mjs"></script>
-</head>
-<body class="learn-page">
-  <a class="skip" href="#learn-title">Skip to the guide</a>
-  <header class="masthead wrap"><a class="wordmark" href="/" aria-label="new reading home">new<span>reading</span><i aria-hidden="true">.</i></a><nav aria-label="Main"><a href="/#books">Try the readers</a><a class="nav-start" href="#workspace">Start here <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav></header>
-  <main class="lesson wrap">
-    <section class="learn-hero" aria-labelledby="learn-title"><div><p class="eyebrow">From a book to your own app</p><h1 id="learn-title">How it works.</h1><p class="learn-lede">An AI coding tool builds the reader with you. Describe what you want, try it, and ask for changes.</p><p class="learn-requirements">Set it up on a computer. Read on your phone.</p></div><img src="/assets/book.webp" width="480" height="513" alt="" class="learn-book"></section>
-    <ol class="lesson-steps" role="list">
-      <li id="workspace"><div class="step-heading"><span class="step-number" aria-hidden="true">01</span><h2>Open a workspace.</h2></div><div class="step-body"><p>Use a coding tool that can edit files and run a project. <strong>Codex</strong> and <strong>Claude Code</strong> both work.</p><div class="lesson-links"><a href="https://developers.openai.com/codex/app/">Set up Codex</a><a href="https://code.claude.com/docs/en/desktop-quickstart">Set up Claude Code (paid plan)</a></div><p>Create an empty folder called <strong>My reader</strong> and open it in your tool. This is where the reader’s files will live.</p><details class="folder-help"><summary>Open your folder</summary><p><strong>Codex:</strong> create a local project, use <strong>Add folder</strong> to select <strong>My reader</strong>, then open a Codex chat.</p><p><strong>Claude Code:</strong> open <strong>Code</strong>, choose <strong>Local</strong>, then <strong>Select folder</strong> and select <strong>My reader</strong>.</p></details><p class="lesson-note">The kit is free. Your chosen AI tool may have plan costs or usage limits.</p></div></li>
-      <li id="first-reader"><div class="step-heading"><span class="step-number" aria-hidden="true">02</span><h2>Give it this instruction.</h2></div><div class="step-body"><div class="handoff"><label for="agent-prompt">Paste this into your coding tool</label><textarea id="agent-prompt" readonly spellcheck="false">Use https://newreading.app/start.txt to help me build my own reader. Get the kit, start with a sample and show me a working preview. Then help me add my book, make the reader my own and put it on my phone.</textarea><div class="handoff-actions"><button id="copy-prompt" type="button" hidden><span>Copy instruction</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Get the kit</a></div><p id="copy-status" role="status" aria-live="polite"></p></div><p>Ask it to open the result. Read a page, highlight a sentence, save a note and reload. Your note should still be there.</p></div></li>
-      <li><div class="step-heading"><span class="step-number" aria-hidden="true">03</span><h2>Make it yours.</h2></div><div class="step-body"><p>Add your book as plain text, or ask the tool to prepare an EPUB or PDF. Keep it simple, or make a companion around the book’s places, ideas or history.</p><blockquote>“Make the text larger on my phone. Keep the poem’s line breaks. Show me the result.”</blockquote><p>Try it as a reader. Ask for another version of anything that gets in the way.</p><p class="lesson-note">Book files given to an AI tool may be processed by its provider. Choose what you’re comfortable sharing.</p></div></li>
-      <li><div class="step-heading"><span class="step-number" aria-hidden="true">04</span><h2>Take it with you.</h2></div><div class="step-body"><p>Ask your tool to publish the reader at your own web address. It can guide GitHub and Vercel setup when you need them.</p><p>Open the site on your phone and add it to your home screen. Open that new icon while online. If your book or notes aren’t there, restore a reading bundle and check them in the app.</p><p>In the app’s Settings, choose <strong>Check offline copy</strong> and wait for <strong>Available offline</strong>. Then turn off Wi-Fi and mobile data, reopen the reader and save a note. Keep a reading bundle as your backup.</p><div class="lesson-links"><a href="/#home-screen">Home-screen instructions</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/DEPLOYMENT.md">Publishing guide</a></div></div></li>
-    </ol>
-    <section class="lesson-help" aria-labelledby="help-title"><h2 id="help-title">A few useful answers.</h2><details><summary>What are GitHub, Node and Vercel?</summary><p>GitHub can keep a versioned copy of your project. Node runs the reader while you build it. Vercel hosts the finished website. Let your tool guide the setup as each becomes useful; check any plan’s cost before choosing it.</p></details><details><summary>Will any ebook work?</summary><p>The reader imports plain text and prepared reader files. EPUBs and PDFs need preparation, and some layouts need extra work. DRM-protected ebooks cannot be imported by this kit. The included sample lets you try the process first.</p></details><details><summary>What if I get stuck?</summary><p>Tell the tool what you see: “I expected a preview, but I’m seeing an error. Find the cause and explain the next step.” If it only returns code, check that it can edit and run files in your project folder. Ask it to save a short progress note if you want to continue later.</p></details></section>
-    <p class="lesson-return"><a href="/#books">Back to the four readers <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></p>
-  </main>
-  <footer class="footer wrap"><a class="byline" href="https://lookatseel.com/">Made by Lukas Seel</a><p>Publish only books you’re allowed to share.</p><div class="footer-links"><a href="https://bookshop.org/">Support independent bookshops</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">About book rights</a></div></footer>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e7">
+<title>How it works · new reading</title><meta name="description" content="Make your own reader with an AI coding app: which app to open, what to paste, and how to take it with you.">
+<meta property="og:title" content="How it works · new reading"><meta property="og:description" content="Make your own reader with an AI coding app: which app to open, what to paste, and how to take it with you."><meta property="og:type" content="website"><meta property="og:url" content="https://newreading.app/learn/"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg"><link rel="canonical" href="https://newreading.app/learn/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/im-fell-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/martian-mono-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css"><script type="module" src="/learn.mjs"></script></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <a class="brand" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a>
+ <nav aria-label="Main"><a class="nav-link" href="/#samples">Samples</a><a class="nav-link" href="/learn/">How it works</a><button type="button" class="pill" data-copy="base" hidden>Copy prompt <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5H5v14h10v-4M9 3h10v12H9z"/></svg></button><a class="pill pill-dark" href="https://github.com/lamentierschweinchen/personal-reader-kit">GitHub <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></nav>
+</header>
+<main id="main" class="guide">
+<section class="g-hero"><p class="kicker">How it works</p><h1>From a book to <em>your own reader.</em></h1><p class="g-lead">An AI coding app builds it with you. You bring the book and the decisions. Set it up on a computer, then read on your phone.</p></section>
+
+<section class="g-step" id="app"><b class="g-num">1</b><div class="g-body">
+ <h2>Open the right app.</h2>
+ <p>First, make an empty folder called <b>My reader</b>. That’s where the reader’s files will live. Then open it in a coding app: an AI app that can work with files on your computer and asks before running anything.</p>
+ <fieldset class="learn-q"><legend>Which AI do you already use?</legend><label><input type="radio" name="ai" value="chatgpt" checked><span>ChatGPT</span></label><label><input type="radio" name="ai" value="claude"><span>Claude</span></label><label><input type="radio" name="ai" value="gemini"><span>Gemini</span></label><label><input type="radio" name="ai" value="none"><span>None yet</span></label></fieldset>
+ <div class="route" data-route="codex"><p class="route-name">Codex, in the ChatGPT desktop app</p><ol><li>Install or update the ChatGPT desktop app for Mac or Windows.</li><li>Sign in, then choose Codex from the top-left menu. Not Chat or Work.</li><li>Add your <b>My reader</b> folder as the project, then open a new task.</li></ol><p class="route-account">Uses your ChatGPT account. Codex is included across ChatGPT plans; limits vary by plan.</p><a class="link" href="https://openai.com/codex/get-started/">Official Codex setup <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div><div class="route" data-route="claude" hidden><p class="route-name">Claude Code, in the Claude desktop app</p><ol><li>Install the Claude desktop app and sign in.</li><li>Open <b>Code</b>, choose <b>Local</b>, then <b>Select folder</b>.</li><li>Pick your <b>My reader</b> folder.</li></ol><p class="route-account">Requires a paid Claude plan. No paid plan? Use Codex.</p><a class="link" href="https://code.claude.com/docs/en/desktop-quickstart">Official Claude Code setup <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div><div class="route" data-route="antigravity" hidden><p class="route-name">Google Antigravity</p><ol><li>Download Google Antigravity and sign in.</li><li>Create a Project in Local Mode on your <b>My reader</b> folder.</li><li>Keep command approval on.</li></ol><p class="route-account">Uses your Google account. Not for Intel Macs; use Codex there.</p><a class="link" href="https://antigravity.google/download">Official Antigravity download <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
+ <p class="learn-stop"><b>Still in a browser chat? Stop there.</b> A chat window can’t create files. Use one of the apps above.</p>
+</div></section>
+
+<section class="g-step" id="paste"><b class="g-num">2</b><div class="g-body">
+ <h2>Paste this, and watch it work.</h2>
+ <label class="g-label" for="starter">Your first instruction</label>
+ <textarea id="starter" readonly spellcheck="false">Use https://newreading.app/start.txt to help me build my own reader. Get the kit, start with a sample and show me a working preview. Then help me add my book, make the reader my own and put it on my phone.</textarea>
+ <div class="prompt-actions"><button type="button" class="btn" data-copy="base" hidden>Copy instruction <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><a class="link" href="/#make">Add your book and idea first</a></div>
+ <p>When it’s ready, ask it to open the preview. Read a page, highlight a sentence, save a note and reload. <span class="hand g-hand">your note should still be there.</span></p>
+</div></section>
+
+<section class="g-step" id="yours"><b class="g-num">3</b><div class="g-body">
+ <h2>Make it yours.</h2>
+ <p>Give it your book as a plain text file, or ask it to prepare an EPUB or PDF. Keep it simple, or ask for a companion around the book’s places, ideas or history. Then read, and ask for changes in your own words:</p>
+ <blockquote class="g-ask"><span class="hand">“Make the text larger on my phone. Keep the poem’s line breaks. Show me.”</span></blockquote>
+ <p class="g-fine">Book files you give an AI app may be processed by its provider. Share only what you’re comfortable sharing.</p>
+</div></section>
+
+<section class="g-step" id="phone"><b class="g-num">4</b><div class="g-body">
+ <h2>Take it with you.</h2>
+ <p>Ask it to put the reader online at your own address; it can walk you through GitHub and Vercel when you need them. Open the site on your phone and add it to your home screen.</p>
+ <p>To check it works offline: in the reader’s Settings, choose <b>Check offline copy</b> and wait for <b>Available offline</b>. Turn off Wi-Fi and mobile data, reopen it and save a note. Keep a reading bundle as your backup.</p>
+ <a class="link" href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/DEPLOYMENT.md">Publishing guide <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+</div></section>
+
+<section class="g-faq faq">
+ <details><summary>What do I need? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>A computer, a coding app, and a book you own or one in the public domain. The kit is free and open source; your AI app may have plan costs or usage limits.</p></details>
+ <details><summary>What are GitHub, Node and Vercel? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>GitHub keeps a versioned copy of your project. Node runs the reader while you build it. Vercel hosts the finished website. Your app can set each up when it becomes useful; check any plan’s cost first.</p></details>
+ <details><summary>Will any ebook work? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>Plain text works directly. EPUBs and PDFs need preparation, and some layouts take extra work. DRM-protected ebooks can’t be used. The sample lets you try everything first.</p></details>
+ <details><summary>What if I get stuck? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>Tell the app what you see: “I expected a preview, but I’m seeing an error. Find the cause and explain the next step.” If it only replies with code, check that it can edit and run files in your folder.</p></details>
+ <details><summary>Can I make one for someone else? <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg></summary><p>Yes, with a public-domain book or one you have permission to share. Owning a copy doesn’t give permission to publish its text. <a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">About book rights</a>.</p></details>
+</section>
+</main>
+<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit">Free &amp; open source <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<dialog class="fallback" aria-labelledby="fb-title"><form method="dialog"><button aria-label="Close">Close</button></form><h2 id="fb-title">Copy by hand.</h2><p>Automatic copying wasn’t available. Select and copy the text below.</p><textarea readonly aria-label="Text to copy"></textarea></dialog>
+</body></html>

@@ -478,19 +478,32 @@
     "showcase/ASSETS.md",
     "showcase/README.md",
     "showcase/assets/OFL-Bricolage.txt",
+    "showcase/assets/OFL-IMFell.txt",
+    "showcase/assets/OFL-MartianMono.txt",
+    "showcase/assets/OFL-Piazzolla.txt",
+    "showcase/assets/OFL-ReenieBeanie.txt",
     "showcase/assets/OFL.txt",
     "showcase/assets/alice-rabbit.png",
+    "showcase/assets/apple-touch-icon.png",
     "showcase/assets/austen-cover.jpg",
     "showcase/assets/book.webp",
     "showcase/assets/bricolage-grotesque.woff2",
+    "showcase/assets/favicon-32.png",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
+    "showcase/assets/im-fell-italic.woff2",
+    "showcase/assets/im-fell-normal.woff2",
+    "showcase/assets/martian-mono-normal.woff2",
     "showcase/assets/personal-alice-reader.jpg",
     "showcase/assets/personal-canetti-map.jpg",
-    "showcase/assets/personal-share.jpg",
     "showcase/assets/personal-opening-share.jpg",
+    "showcase/assets/personal-share.jpg",
     "showcase/assets/personal-walden-reader.jpg",
+    "showcase/assets/piazzolla-italic.woff2",
+    "showcase/assets/piazzolla-normal.woff2",
     "showcase/assets/read-share.jpg",
+    "showcase/assets/reader-keep.jpg",
+    "showcase/assets/reenie-beanie.woff2",
     "showcase/assets/two-halls-portraits.webp",
     "showcase/assets/walden-survey.jpg",
     "showcase/build.mjs",
@@ -498,11 +511,15 @@
     "showcase/check-inputs.mjs",
     "showcase/check-readers.mjs",
     "showcase/check.mjs",
+    "showcase/covers.mjs",
     "showcase/favicon.svg",
+    "showcase/home.mjs",
     "showcase/index.html",
     "showcase/inputs.json",
+    "showcase/learn.mjs",
     "showcase/learn/index.html",
     "showcase/package.json",
+    "showcase/pages.mjs",
     "showcase/personal/app.mjs",
     "showcase/personal/favicon.svg",
     "showcase/personal/index.html",
@@ -1770,6 +1787,60 @@
       "sha256": "7bff9d555016305d871fad52e540169fef7c850884217bb54a584f49bba70bef",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/reader-keep.jpg",
+      "sha256": "feaa05348e9922f92e52189311dd78060b6b231d203624d41df40a0753680a47",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "450 × 978 screenshot of the public Pride and Prejudice example keeping its first sentence with an illustrative private note; public-domain edition, no personal records."
+    },
+    {
+      "path": "showcase/assets/favicon-32.png",
+      "sha256": "703d398b7435455c5127daf614f0e89f404129dc493c2f92bad37acd174ef68f",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original New reading favicon: an IM Fell r under a red caret; MIT."
+    },
+    {
+      "path": "showcase/assets/apple-touch-icon.png",
+      "sha256": "0d730e2637b24c3f1c6840d3a3798e834f562b498106ee95fcbda9e2bf6eecce",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original New reading home-screen icon, the same artwork at 180 px; MIT."
+    },
+    {
+      "path": "showcase/assets/im-fell-normal.woff2",
+      "sha256": "248300df1647bec49155a5cada1d65f719ae633ef48564d1f19b135a8a5b7f5f",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged IM Fell English roman Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/im-fell-italic.woff2",
+      "sha256": "8fc678575e83868f82ce5aa6e023f056ea68d480e16dd108b3e14bc375c8fdea",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged IM Fell English italic Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/reenie-beanie.woff2",
+      "sha256": "aa3901be682af0f1faac8436a1f25438b0cc541b6ad2ece5668ae4c0ea70594a",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Reenie Beanie Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/martian-mono-normal.woff2",
+      "sha256": "debf9154726c626f203b2f9f1b1aa855123326ca5b7e88527f72dbf07659dbe5",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Martian Mono variable Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/piazzolla-normal.woff2",
+      "sha256": "1289d51fe50266c6a0fe641ae0591a032a2c0d25b3c3d1086d6202b85ab3f027",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Piazzolla roman variable Latin subset; SIL OFL 1.1 license accompanies it."
+    },
+    {
+      "path": "showcase/assets/piazzolla-italic.woff2",
+      "sha256": "2835eaebbfb75d6b3e3bd6ea08402fae1a1b18ce55701cb1a72df7048228059e",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged Piazzolla italic variable Latin subset; SIL OFL 1.1 license accompanies it."
     }
   ],
   "reviewedHistoricalFiles": [
