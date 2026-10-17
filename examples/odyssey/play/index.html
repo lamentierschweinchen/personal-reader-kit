@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#183c46">
+  <meta name="description" content="A short sea dash inspired by the Odyssey. Steer for Ithaca. Keep your crew away from the bag of winds.">
+  <title>Homeward · The Odyssey</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./game.mjs"></script>
+</head>
+<body>
+<main id="game" data-mode="ready" aria-label="Homeward, an Odyssey sea game">
+  <canvas id="sea" aria-hidden="true"></canvas>
+  <header class="topbar">
+    <a class="book-link" href="../" aria-label="Return to the Odyssey reader"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5 7 12l7 7M7 12h14"/></svg><span>Odyssey</span></a>
+    <div class="voyage" aria-label="Voyage to Ithaca"><span>Aeolia</span><span class="route"><i id="route-ship"></i></span><span>Ithaca</span></div>
+    <div class="tools">
+      <button id="sound" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l5 6M22 9l-5 6"/></svg></button>
+      <button id="pause" aria-label="Pause game" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+    </div>
+  </header>
+
+  <div id="heading" class="opening">
+    <p class="eyebrow">A sea dash from the Odyssey</p>
+    <h1>Homeward<span>.</span></h1>
+    <p class="premise">One ship. A restless crew.<br>A bag you must keep shut.</p>
+    <button id="start" class="primary">Set sail <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18m-7-7 7 7-7 7"/></svg></button>
+    <p class="round-length">72 seconds to Ithaca</p>
+  </div>
+
+  <div id="sea-label" aria-hidden="true">THE WEST WIND</div>
+  <div id="message" role="status" aria-live="polite"></div>
+  <div id="remaining" aria-label="Seconds until Ithaca" hidden></div>
+  <div id="crew" aria-label="Ship crew">
+    <button class="sailor" data-sailor="0" aria-label="Send port sailor back to rowing; key 1" disabled><svg viewBox="0 0 48 56" aria-hidden="true"><path class="arm" d="M13 36 4 43M35 36l9 7"/><path class="tunic" d="m16 29-6 20q14 8 28 0l-6-20z"/><circle class="head" cx="24" cy="22" r="10"/><path class="hair" d="M14 21q-2-15 11-12 13 1 9 14l-6-8-6 4z"/><path class="face" d="M20 23h1m6 0h1M22 28h4"/></svg><svg class="timer" viewBox="0 0 52 60" aria-hidden="true"><rect x="3" y="3" width="46" height="54" rx="23" pathLength="100"/></svg><span class="crew-prompt">Tap!</span><span class="key">1</span></button>
+    <button class="sailor" data-sailor="1" aria-label="Send starboard sailor back to rowing; key 2" disabled><svg viewBox="0 0 48 56" aria-hidden="true"><path class="arm" d="M13 36 4 43M35 36l9 7"/><path class="tunic" d="m16 29-6 20q14 8 28 0l-6-20z"/><circle class="head" cx="24" cy="22" r="10"/><path class="hair" d="M14 20q-1-13 10-12 13 0 11 13l-7-5-7 3zM15 26q9 15 18 0l-3 14H20z"/><path class="face" d="M20 23h1m6 0h1"/></svg><svg class="timer" viewBox="0 0 52 60" aria-hidden="true"><rect x="3" y="3" width="46" height="54" rx="23" pathLength="100"/></svg><span class="crew-prompt">Tap!</span><span class="key">2</span></button>
+    <button class="sailor" data-sailor="2" aria-label="Send stern sailor back to rowing; key 3" disabled><svg viewBox="0 0 48 56" aria-hidden="true"><path class="arm" d="M13 36 4 43M35 36l9 7"/><path class="tunic" d="m16 29-6 20q14 8 28 0l-6-20z"/><circle class="head" cx="24" cy="22" r="10"/><path class="hair" d="M14 21q-2-14 10-13 13 0 11 14l-6-6-13 2z"/><path class="face" d="M20 23h1m6 0h1M21 28q3 3 6 0"/></svg><svg class="timer" viewBox="0 0 52 60" aria-hidden="true"><rect x="3" y="3" width="46" height="54" rx="23" pathLength="100"/></svg><span class="crew-prompt">Tap!</span><span class="key">3</span></button>
+  </div>
+  <div id="bag-label" aria-hidden="true">The winds. <em>Keep tied.</em></div>
+
+  <div id="controls">
+    <button class="steer" id="left" aria-label="Hold to steer left"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M20 7 11 16l9 9M11 16h18"/></svg></button>
+    <div class="control-hint"><span>Hold to steer · Tap gold sailors</span><small>Keyboard: A / D or arrows · Space for crew</small></div>
+    <button class="steer" id="right" aria-label="Hold to steer right"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m12 7 9 9-9 9M21 16H3"/></svg></button>
+  </div>
+
+  <section id="curtain" class="curtain" hidden role="dialog" aria-modal="true" aria-labelledby="result-title">
+    <div class="sheet">
+      <p id="result-kicker" class="eyebrow"></p>
+      <h2 id="result-title"></h2>
+      <p id="result-copy"></p>
+      <button id="again" class="primary"></button>
+      <button id="restart" class="text-button" hidden>Start a new run</button>
+      <button id="story" class="text-button">The story behind the bag</button>
+      <a class="text-button return-book" href="../">Return to the Odyssey</a>
+    </div>
+  </section>
+  <button id="about" class="about-link">About this game</button>
+  <dialog id="source">
+    <form method="dialog"><button class="close" aria-label="Close about this game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form>
+    <p class="eyebrow">Homer · The Odyssey · Book X</p>
+    <h2>A gift from Aeolus</h2>
+    <p>Aeolus gives the captain a bag holding the winds. The crew suspect it holds treasure.</p>
+    <blockquote>“The West wind which was fair for us did he alone let blow as it chose;”</blockquote>
+    <p class="attribution">Translated by Samuel Butler (1900).</p>
+    <p>The obstacle course, three sailors and second chances are inventions for this game.</p>
+    <a class="story-link" href="../#reference/aeolus" target="_blank" rel="noopener">Read the Book X episode <span>(spoilers)</span></a>
+    <details><summary>Controls & credits</summary><p>Hold the arrow buttons, A / D, or the keyboard arrows to steer. Tap a gold sailor, press their number, or press Space to send the most impatient sailor back. Three rock hits wreck the hull; three escaped winds carry the ship away. P or Escape pauses. A new run takes 72 seconds.</p><p>Original game, vector drawings and synthesized sound. Colors and type follow the Odyssey reader. Episode reference: Homer, <cite>The Odyssey</cite>, Book X, Samuel Butler translation; Project Gutenberg ebook 1727. No scores or personal data are stored.</p><p>This is a visual action game. Keyboard controls are supported; it does not have an equivalent nonvisual mode.</p></details>
+  </dialog>
+  <p class="sr-only" id="accessible-status" role="status"></p>
+  <noscript><p class="no-script">This game needs JavaScript. <a href="../">Return to the Odyssey.</a></p></noscript>
+</main>
+<script type="module" src="reader-return.mjs"></script>
+</body>
+</html>

@@ -1,17 +1,19 @@
-# Four readers, four approaches
+# Six readers and three small games
 
-These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not four presets for the stock importer.
+These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not presets for the stock importer.
 
 | Reader | Character and optional companion | Source |
 | --- | --- | --- |
 | [Pride and Prejudice](pride-and-prejudice/README.md) | An illustrated title page, fine rules and a quiet word index | Austen, Saintsbury and Thomson; [Gutenberg 1342](https://www.gutenberg.org/ebooks/1342) |
-| [Alice’s Adventures in Wonderland](alice-in-wonderland/README.md) | An asymmetric Rackham storybook, shaped verse and close looking | Carroll, Dobson and Rackham; [Gutenberg 28885](https://www.gutenberg.org/ebooks/28885) |
+| [Alice’s Adventures in Wonderland](alice-in-wonderland/README.md) | An asymmetric Rackham storybook, shaped verse, close looking and Tea at Six | Carroll, Dobson and Rackham; [Gutenberg 28885](https://www.gutenberg.org/ebooks/28885) |
 | [Walden & Civil Disobedience](walden/README.md) | A field notebook, original pond survey and “Keeping account” | Thoreau; [Gutenberg 205](https://www.gutenberg.org/ebooks/205) |
 | [Two lecture halls, one hour](schopenhauer-hegel/README.md) | A university broadside and paired philosophical readings | Hegel/Haldane and Schopenhauer/Saunders; [51635](https://www.gutenberg.org/ebooks/51635), [10731](https://www.gutenberg.org/ebooks/10731) |
+| [The Odyssey](odyssey/README.md) | Sea-green type, complete Butler translation and Homeward | Homer/Butler/Jones; [1727](https://www.gutenberg.org/ebooks/1727) |
+| [Dracula](dracula/README.md) | Warm paper, journal forms and Castle escape | Stoker; [345](https://www.gutenberg.org/ebooks/345) |
 
 ## Try one
 
-The public entrance is **[newreading.app](https://newreading.app/)**. Canonical readers: [Austen](https://newreading.app/austen/), [Alice](https://newreading.app/alice/), [Walden](https://newreading.app/walden/), [Two lecture halls](https://newreading.app/two-halls/). [Release verification](../docs/STATUS.md) distinguishes local checks from confirmed live behavior.
+The public entrance is **[newreading.app](https://newreading.app/)**. Canonical readers: [Austen](https://newreading.app/austen/), [Alice](https://newreading.app/alice/), [Walden](https://newreading.app/walden/), [Two lecture halls](https://newreading.app/two-halls/), [The Odyssey](https://newreading.app/odyssey/), [Dracula](https://newreading.app/dracula/). [Release verification](../docs/STATUS.md) distinguishes local checks from confirmed live behavior.
 
 From the repository root, with Node.js 22 or later:
 
@@ -26,7 +28,7 @@ Each example supports reading, focus, exact passage notes, attributed sharing/co
 
 ## What is public
 
-The user selected these four reviewed editions for this public repository. Only committed source snapshots were packaged; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these six reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. The catalogue declarations establish **public domain in the USA**, not worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -51,11 +53,11 @@ Before shipping authored UI or companion prose, follow the enclosing [reader-cop
 
 Maintain the published examples here. The source trial commits identify their starting point; do not continually copy entire working directories from a personal project. If accepting a later trial change, review that diff, rerun its journeys, and update only the selected files and evidence. New personal projects use `publication.json.starterFiles`, which excludes this optional collection.
 
-## One catalogue, four reader paths
+## One catalogue, six reader paths
 
-[newreading.app](https://newreading.app/) is built by the [showcase](../showcase/README.md) with all four readers at `/austen/`, `/alice/`, `/walden/` and `/two-halls/`. It uses one Vercel project with `showcase` as the Root Directory. The existing `read.lookatseel.com` address remains available. The earlier book subdomains redirect network requests to the corresponding new paths.
+[newreading.app](https://newreading.app/) is built by the [showcase](../showcase/README.md) with all six readers at `/austen/`, `/alice/`, `/walden/`, `/two-halls/`, `/odyssey/` and `/dracula/`. It uses one Vercel project with `showcase` as the Root Directory. The existing `read.lookatseel.com` address remains available. The earlier book subdomains redirect network requests to the corresponding new paths.
 
-The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All four applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
+The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All six applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
 
 Each example can still be built independently with `npm run build` and output `dist`. Unmodified standalone builds need separate origins: their root URLs, database names and cache prefixes collide if their folders are simply copied under one address. The old-host redirect rules apply only to the four named `lookatseel.com` book hosts, so a new owner's deployment is unaffected. See [hosting and migration guidance](../docs/DEPLOYMENT.md#hosting-several-customized-readers).
 

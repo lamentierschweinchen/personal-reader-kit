@@ -1,0 +1,11 @@
+{
+  "profile": "odyssey/linked-notes@1",
+  "editionId": "odyssey-butler-1727",
+  "sourceUrl": "https://www.gutenberg.org/cache/epub/1727/pg1727-images.html",
+  "sourceSha256": "10967e051bacbc7f26b9dbedc82bdba14e0c65b90aabf6966c3e94be45c289b4",
+  "editionSha256": "3860778e09eb95c5e9d6c41314fcf82a8d09ce8c42ece90bc2c96f9547ff3b9e",
+  "editionPath": "edition/book.json",
+  "coverSha256": "c74dd2b86e5b019a7401677cd1ccef733659f7de334b43e9aac199ecda3d3a6d",
+  "localOnly": false,
+  "canonicalEditionSha256": "ac2d6f052f0505501285fa8b0d11aa2871889cd2ab14ec5d5f8c2694db50076b"
+}

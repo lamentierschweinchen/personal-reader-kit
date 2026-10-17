@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Three literary games · 17 October 2026
+
+Alice’s **Tea at Six** keeps its approved 75-second rules, input and pacing byte-for-byte, with new original ink drawings and the reader’s paper/blue palette. **Homeward** is a 72-second Odyssey voyage with rocks, steering and an impatient crew around Aeolus’s wind bag. **Castle escape** is Dracula’s short visual key-and-patrol game. Source views distinguish the books from invented game rules and remain optional.
+
+The catalogue now includes six complete readers and direct game links. Each game has a Play entrance in its reader, a return to the launching reading route, and a scoped offline copy. Game state stays in memory; annotations, reading positions and spoiler boundaries remain separate. The public Odyssey and Dracula copies admit only the reviewed complete editions and named application files. All 174 earlier edition pins remain unchanged; three exact edition files bring the total to 177. The personal entrance, Canetti and Proof are unchanged.
+
 ## Live-site UX review · 17 October 2026
 
 New reading preserves the book and idea between its homepage and setup guide in tab-only session storage. Every copy control includes that draft; Enter copies the starting point, suggestions preserve existing writing, and clipboard refusal leaves selectable text with reliable focus return. The mobile header keeps samples, guide, copy and repository access. Read features no longer imitate buttons, Explore tabs have complete keyboard navigation and visible focus, the illustration opens with a recoverable return, and moving covers can be paused. Setup links and provider instructions are current; publishing and installed-app offline steps describe their actual boundaries.

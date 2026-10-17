@@ -1,4 +1,4 @@
-// Mount the four exact reviewed builds. Never copy another library or workspace.
+// Mount the exact reviewed builds. Never copy another library or workspace.
 import {readFile,writeFile,mkdir,lstat,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {fileURLToPath,pathToFileURL} from 'node:url';
@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula'});
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
@@ -16,18 +16,20 @@ function replace(text,from,to,count=1){
 export async function buildReaders(output){
   const catalog=JSON.parse(await readFile(path.join(root,'examples/catalog.json'),'utf8'));
   assert.equal(catalog.schema,1);
-  assert.deepEqual(catalog.examples.map(e=>e.id).sort(),Object.keys(readerPaths).sort(),'Only the four reviewed examples may be mounted');
+  assert.deepEqual(catalog.examples.map(e=>e.id).sort(),Object.keys(readerPaths).sort(),'Only the explicitly reviewed examples may be mounted');
   const receipt=[];
   for(const entry of catalog.examples){
     assert.equal(entry.directory,'examples/'+entry.id);
     const slug=readerPaths[entry.id],base='/'+slug+'/',source=path.join(root,entry.directory),destination=path.join(output,slug);
     const built=await (await import(pathToFileURL(path.join(source,'scripts/build.mjs')))).build();
     assert.deepEqual([...built.files].sort(),entry.reviewedBuild.map(a=>a.path).sort(),'Reviewed output list changed: '+entry.id);
-    assert.deepEqual((await readdir(path.join(source,'dist'))).sort(),entry.reviewedBuild.map(a=>a.path).sort());
+    const list=async(dir,prefix='')=>(await Promise.all((await readdir(dir,{withFileTypes:true})).map(async e=>e.isDirectory()?list(path.join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]))).flat();
+    assert.deepEqual((await list(path.join(source,'dist'))).sort(),entry.reviewedBuild.map(a=>a.path).sort());
     await mkdir(destination,{recursive:true});
     const changed=[],unchanged=[];
     for(const asset of entry.reviewedBuild){
-      assert.match(asset.path,/^[a-zA-Z0-9_.-]+$/);
+      assert.match(asset.path,/^(?:play\/)?[a-zA-Z0-9_./-]+$/);
+      assert.ok(!asset.path.split('/').some(p=>!p||p==='.'||p==='..'));
       const input=path.join(source,'dist',asset.path);
       assert.ok((await lstat(input)).isFile());
       const original=await readFile(input);
@@ -42,7 +44,11 @@ export async function buildReaders(output){
         if(slug==='austen')text=replace(text,'src="/austen-peacock-1894.png"',`src="${base}austen-peacock-1894.png"`);
         bytes=Buffer.from(text);
       }
-      if(asset.path==='db.mjs')bytes=Buffer.from(replace(original.toString(),"indexedDB.open('reading-kit-v1',1)",`indexedDB.open('newreading-${slug}-v1',1)`));
+      if(asset.path==='db.mjs'){
+        const prior=slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':'reading-kit-v1';
+        bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
+      }
+      if(asset.path==='app.mjs'&&slug==='dracula')bytes=Buffer.from(replace(bytes.toString(),"fetch('/source-notices.json')",`fetch('${base}source-notices.json')`));
       if(asset.path==='text.mjs'&&slug==='austen'){
         let text=replace(original.toString(),'img.src=f.src','img.src=new URL(f.src.slice(1),import.meta.url).href');
         text=replace(text,'a.href=f.src','a.href=new URL(f.src.slice(1),import.meta.url).href');
@@ -53,6 +59,7 @@ export async function buildReaders(output){
         for(const icon of manifest.icons)icon.src=base+icon.src.replace(/^\//,'');
         bytes=Buffer.from(JSON.stringify(manifest)+'\n');
       }
+      await mkdir(path.dirname(path.join(destination,asset.path)),{recursive:true});
       await writeFile(path.join(destination,asset.path),bytes);
       (bytes.equals(original)?unchanged:changed).push(asset.path);
     }
@@ -64,7 +71,7 @@ export async function buildReaders(output){
 const FILES=${JSON.stringify(files.map(f=>base+f))};
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith(PREFIX)&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||fetch(e.request)));});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||fetch(e.request)));});
 self.addEventListener('message',e=>{if(e.data==='CHECK_OFFLINE')e.waitUntil(caches.open(CACHE).then(async c=>e.ports[0]?.postMessage({ready:(await Promise.all(FILES.map(f=>c.match(f)))).every(Boolean),version:${JSON.stringify(version)}})));});
 `);
     assert.ok(unchanged.includes('library.json'),'The complete edition must remain unchanged');

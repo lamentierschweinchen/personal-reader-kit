@@ -578,3 +578,17 @@ h1 em,h2 em,.thread{font-family:var(--display);font-style:italic;font-weight:400
 /* Step numerals match the homepage steps; Fell's old-style 1 reads as an I. */
 .g-num{font-family:var(--serif);font-variant-numeric:lining-nums}
 .steps b{font-variant-numeric:lining-nums}
+
+/* Readers and their optional games share one shelf. */
+.samples-intro{padding:0 var(--gutter);max-width:48em;margin:-.5rem 0 2rem;font-size:1.1rem;line-height:1.5}
+.sample-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sample-entry{min-width:0;display:flex;flex-direction:column;gap:10px}
+.sample-entry .sample{flex:1}
+.sample-play{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:8px 14px;text-decoration:underline;text-underline-offset:4px;gap:14px}
+.sample-play .arrow{width:22px;flex-shrink:0}
+.sample-odyssey{color:#18443f;background:#e8e9db}
+.sample-odyssey .s-title{font-family:Georgia,serif;letter-spacing:-.04em}
+.sample-dracula{color:#651f2b;background:#eee7d9}
+.sample-dracula .s-title{font-family:Georgia,serif;font-variant:small-caps;letter-spacing:.01em}
+@media(max-width:950px){.sample-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.sample-entry{flex:0 0 78%;scroll-snap-align:start}.sample-entry .sample{flex:auto;min-height:270px}.sample-play{font-size:15px}.samples-intro{font-size:16px}}

@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import {readFile,readdir,writeFile,mkdir,rm} from 'node:fs/promises';
 import {inspectFile} from '../scripts/audit.mjs';
 import {build,assets} from '../scripts/build.mjs';
+const gameFiles=JSON.parse(await readFile(new URL('../game.json',import.meta.url),'utf8')).files.map(f=>'play/'+f.path);
+async function list(url,prefix=''){const files=[];for(const e of await readdir(url,{withFileTypes:true})){if(e.isDirectory())files.push(...await list(new URL(e.name+'/',url),prefix+e.name+'/'));else files.push(prefix+e.name);}return files.sort();}
 test('publication scanner rejects unknown/private paths and recognizable credentials',()=>{
   assert.deepEqual(inspectFile('README.md',Buffer.from('Hello'),['README.md']),[]);
   assert.match(inspectFile('source/book.epub',Buffer.from('text'),[]).join(' '),/private/);
@@ -15,7 +17,7 @@ test('public build excludes private input and arbitrary site files',async()=>{
   await writeFile(privateFile,'PRIVATE TEST SENTINEL');await writeFile(extra,'PRIVATE TEST SENTINEL');
   try {
     const result=await build();assert.equal(result.personalBooksIncluded,false);
-    const output=(await readdir(new URL('../dist/',import.meta.url))).sort();assert.deepEqual(output,[...assets,'library.json','sw.js'].sort());
+    const output=await list(new URL('../dist/',import.meta.url));assert.deepEqual(output,[...assets,'library.json','sw.js',...gameFiles].sort());
     for(const name of output)assert.doesNotMatch(await readFile(new URL('../dist/'+name,import.meta.url),'utf8'),/PRIVATE TEST SENTINEL/);
   } finally {await rm(privateFile);await rm(extra);}
 });
@@ -26,5 +28,5 @@ test('Vercel upload exceptions name only the reviewed build inputs',async()=>{
   const included=allIncluded.filter(x=>!x.startsWith(prefix));
   assert.deepEqual(allIncluded.filter(x=>x.startsWith(prefix)).sort(),included.map(x=>prefix+x).sort());
   assert.equal(rules[0],'**');
-  assert.deepEqual(included.sort(),['package.json','vercel.json','publication.json','scripts/build.mjs','scripts/edition.mjs','edition/library.json','edition/assets.json','samples/library.json',...assets.map(x=>'site/'+x)].sort());
+  assert.deepEqual(included.sort(),['package.json','vercel.json','publication.json','scripts/build.mjs','scripts/edition.mjs','edition/library.json','edition/assets.json','samples/library.json','game.json','scripts/copy-game.mjs',...gameFiles,...assets.map(x=>'site/'+x)].sort());
 });

@@ -81,3 +81,9 @@
 
 /* A catalogue exit belongs to the edition entrance, outside the reading view. */
 .site-footer .catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px;white-space:nowrap}
+
+/* Optional game entrance stays outside the reading column. */
+.reader-game-entry{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin:2rem 0;padding:1.5rem 0;border-block:1px solid currentColor;grid-column:1/-1}.reader-game-entry h2{margin:.2rem 0 .5rem}.reader-game-entry p{max-width:35em}.reader-game-entry a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-width:44px;min-height:44px;flex-shrink:0}.catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px}.catalogue-return[hidden]{display:none}@media(max-width:540px){.reader-game-entry{align-items:flex-start;flex-direction:column}}
+
+/* Keep the Play navigation target comfortable on touch screens. */
+nav a[data-action="play-game"]{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}

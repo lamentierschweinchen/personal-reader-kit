@@ -1,3 +1,4 @@
+import {copyGame} from './copy-game.mjs';
 import {readFile,writeFile,mkdir,rm,copyFile,lstat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -25,7 +26,7 @@ export async function build() {
   }
   const edition=await inspectEdition(new URL('../',import.meta.url));
   await writeFile(path.join(out,'library.json'),edition.bytes);
-  const files = [...assets,'library.json'];
+  const files = [...assets,'library.json',...await copyGame(root,out)];
   const hash = createHash('sha256').update(await readFile(path.join(root,'vercel.json')));
   for (const name of files) hash.update(name).update(await readFile(path.join(out,name)));
   const version = hash.digest('hex').slice(0,16);
@@ -33,7 +34,7 @@ export async function build() {
 const FILES=${JSON.stringify(files.map(f=>'/'+f))};
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith('reading-kit-')&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&['/','/index.html'].includes(u.pathname)?'/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||fetch(e.request)));});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&['/','/index.html'].includes(u.pathname)?'/index.html':e.request.mode==='navigate'&&u.pathname==='/play/'?'/play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||fetch(e.request)));});
 self.addEventListener('message',e=>{if(e.data==='CHECK_OFFLINE')e.waitUntil(caches.open(CACHE).then(async c=>e.ports[0]?.postMessage({ready:(await Promise.all(FILES.map(f=>c.match(f)))).every(Boolean),version:'${version}'})));});
 `);
   const result = {version,files:[...files,'sw.js'],personalBooksIncluded:false,reviewedPublicDomainEdition:edition.book.id,imageAssets:edition.book.assets.length};console.log(JSON.stringify(result));return result;

@@ -61,14 +61,14 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls))/sw\\.js$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula))/sw\\.js$",
       "headers": {
         "Cache-Control": "no-cache, no-store, must-revalidate"
       },
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

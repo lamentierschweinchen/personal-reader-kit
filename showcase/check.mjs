@@ -38,7 +38,8 @@ try{
     page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url())});page.on('pageerror',e=>errors.push(e.message));
     await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedPrompt=text}}}));
     await page.goto(base);await page.locator('header [data-copy]:not([hidden])').waitFor();await settled(page);await layout(page,'Home');
-    assert.deepEqual(await page.locator('.sample').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/austen/','/alice/','/walden/','/two-halls/']);
+    assert.deepEqual(await page.locator('.sample').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/austen/','/alice/','/walden/','/two-halls/','/odyssey/','/dracula/']);
+    assert.deepEqual(await page.locator('.sample-play').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/alice/play/','/odyssey/play/','/dracula/play/']);
     const start=page.locator('.hero a[href="#make"]');const startBox=await start.boundingBox();assert.ok(startBox&&startBox.y+startBox.height<=viewport.height+(viewport.height<500?400:0),'Start yours is visible early');
     assert.equal(await page.locator('#starter').inputValue(),commandText);assert.equal(await page.locator('a[href="/start.txt"]').count(),1);
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://newreading.app/');
@@ -60,7 +61,7 @@ try{
     await page.locator('.sample').first().click();await page.locator('#offline-status').filter({hasText:'Available offline'}).waitFor({timeout:60000});assert.equal(new URL(page.url()).pathname,'/austen/');await page.goBack();await page.locator('.sample').first().waitFor();
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,loadedAssets:true,firstScreenStart:true,copyAndFallback:true,editionSwitch:true,explorePanels:true,guideRoutes:true,readerRoundTrip:true});await context.close();
    }
-   const noScript=await browser.newContext({javaScriptEnabled:false,viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);assert.equal(await plain.locator('.sample').count(),4);assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
+   const noScript=await browser.newContext({javaScriptEnabled:false,viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);assert.equal(await plain.locator('.sample').count(),6);assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
    await plain.locator('a[href="/start.txt"]').click();assert.equal((await plain.locator('body').textContent()).trim(),promptText);
    await plain.goto(base+'/learn/');assert.equal(await plain.locator('#paste [data-copy]').isVisible(),false);assert.match(await plain.locator('#starter').inputValue(),/https:\/\/newreading.app\/start.txt/);assert.equal(await plain.locator('[data-route]:visible').count(),3);assert.equal(await plain.locator('.learn-q').isVisible(),false);await noScript.close();
   }finally{await browser.close()}

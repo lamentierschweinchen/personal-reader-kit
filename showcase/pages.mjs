@@ -62,9 +62,11 @@ const routes = {
 };
 const samples = [
   ['austen', 'Pride and<br><i>Prejudice</i>', 'Jane Austen', 'Follow a word through the novel.'],
-  ['alice', 'ALICE', 'Lewis Carroll', 'Rackham’s pictures, up close.'],
+  ['alice', 'ALICE', 'Lewis Carroll', 'Rackham’s pictures, up close.', 'Tea at Six'],
   ['walden', 'Walden', 'Henry David Thoreau', 'Thoreau’s accounts, kept.'],
   ['two-halls', 'Two lecture<br><i>halls</i>', 'Hegel &amp; Schopenhauer', 'Two philosophers, the same hour.'],
+  ['odyssey', 'The<br><i>Odyssey</i>', 'Homer · Samuel Butler', 'A voyage home, a bag of winds.', 'Homeward'],
+  ['dracula', 'Dracula', 'Bram Stoker', 'Journals, letters, and a locked castle.', 'Castle escape'],
 ];
 
 const head = ({title, desc, url, script}) => `<!doctype html>
@@ -83,7 +85,7 @@ const head = ({title, desc, url, script}) => `<!doctype html>
 const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
 <div class="toast" role="status" aria-live="polite"></div>
 <dialog class="fallback" aria-labelledby="fb-title"><form method="dialog"><button aria-label="Close">Close</button></form><h2 id="fb-title">Copy by hand.</h2><p>Automatic copying wasn’t available. Select and copy the text below.</p><textarea readonly aria-label="Text to copy"></textarea></dialog>`;
-const html = `${head({title: 'new reading · Turn any book into your personal reader', desc: 'Read it on your phone. Explore it your way. Try four finished readers, then make your own.', url: 'https://newreading.app/', script: '/home.mjs'})}
+const html = `${head({title: 'new reading · Turn any book into your personal reader', desc: 'Try complete readers and short games, then make your own.', url: 'https://newreading.app/', script: '/home.mjs'})}
 <main id="main">
 
 <section class="hero" data-thread="love" aria-labelledby="hero-title">
@@ -136,7 +138,8 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 
 <section class="samples" id="samples" aria-labelledby="samples-title">
  <div class="samples-head reveal"><h2 id="samples-title">Try a <span class="pen-circle">finished</span>&nbsp;one.</h2></div>
- <div class="sample-row">${samples.map(([id, t, a, line]) => `<a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a>`).join('')}</div>
+ <p class="samples-intro">Read a complete book. Step into a short game. Return to your page.</p>
+ <div class="sample-row">${samples.map(([id, t, a, line, game]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a>${game ? `<a class="sample-play" href="/${id}/play/">Play ${game} ${arrow}</a>` : ''}</article>`).join('')}</div>
 </section>
 
 <section class="make" id="make" aria-labelledby="make-title">

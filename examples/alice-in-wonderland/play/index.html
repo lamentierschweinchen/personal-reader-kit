@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8fbfc"><meta name="robots" content="noindex,nofollow">
+  <title>Tea at Six — an Alice game</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 18h38v20Q27 63 8 38zM46 22h12v16H46' fill='%23194b70'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div class="wordmark"><span>ALICE’S ADVENTURES IN WONDERLAND</span><h1>Tea at Six<span class="title-dot">.</span></h1></div>
+    <nav aria-label="Game controls"><button id="sound" class="icon-button" aria-label="Turn sound on" title="Turn sound on"></button><button id="pause" class="icon-button" aria-label="Pause game" title="Pause (P)"></button><button id="restart" class="text-button">Restart</button></nav>
+  </header>
+  <section class="scoreboard" aria-label="Round status">
+    <div class="clock"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="17" r="11"/><path d="M16 9v8l5 3M12 2h8M16 2v4"/></svg><strong id="time">1:15</strong><span>to keep them happy</span></div>
+    <div class="score"><span>SCORE</span><strong id="score">0</strong></div>
+    <div class="chances" aria-label="Three chances remaining"><div id="chances"></div><span id="chances-label">3 chances</span></div>
+  </section>
+  <section id="table" class="table" aria-label="Tea table. Hold a cup to pour, release near its dotted line. Refill the kettle between pours." aria-describedby="instructions">
+    <div class="garden" aria-hidden="true"></div>
+    <div id="announcement" class="announcement"><span>It’s always tea-time here.</span></div>
+    <div id="guests"></div>
+    <div class="cup-controls" id="cups"></div>
+    <svg id="stream" class="stream" aria-hidden="true"><path/><circle r="5"/></svg>
+    <div id="flying-kettle" class="flying-kettle" aria-hidden="true"></div>
+    <button id="refill" class="refill" aria-label="Refill kettle. Keyboard R."><span class="kettle-art" aria-hidden="true"></span><span class="kettle-caption"><kbd>R</kbd> <b>Refill kettle</b><small id="kettle-state">2½ cups of tea</small></span></button>
+    <div class="first-move" id="first-move">Hold a cup to begin<svg viewBox="0 0 50 28" aria-hidden="true"><path d="M2 4q20 30 44 8m-15 0h15v13"/></svg></div>
+    <div id="feedback" class="feedback" aria-hidden="true"></div>
+    <section id="overlay" class="overlay" aria-labelledby="overlay-title" hidden>
+      <div class="overlay-inner"><span id="result-eyebrow" class="eyebrow"></span><h2 id="overlay-title"></h2><p id="result-description"></p><div id="result-stats"></div><button id="primary-action" class="primary"></button><p id="result-tip" class="result-tip"></p></div>
+    </section>
+  </section>
+  <footer>
+    <p id="instructions"><strong>Hold a cup to pour.</strong> Release at the dotted line. Tap the kettle to refill.</p>
+    <div class="footer-bottom"><p><span class="keyboard-hint">Hold <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> to pour · <kbd>R</kbd> refill · <kbd>P</kbd> pause</span><span class="touch-hint">75 seconds · 3 empty cups and the party’s over</span></p><div class="footer-links"><a class="text-button reader-return" href="../">Back to Alice</a><button id="about" class="text-button">About & controls</button></div></div>
+  </footer>
+</main>
+<dialog id="about-dialog" aria-labelledby="about-title"><button id="close-about" class="close-button" aria-label="Close about">Close</button><span class="eyebrow">A SMALL WONDERLAND DIVERSION</span><h2 id="about-title">Always six o’clock.</h2><p>Keep three guests in tea for 75 seconds. Hold a cup to pour, then let go near the dotted line for a bonus. Tea on the table costs 25 points. An empty cup earns a complaint after two seconds. Three complaints end the party.</p><p>Your kettle holds about two and a half cups. Refilling takes a moment, so leave everyone a little tea first. The guests drink faster as the round goes on. When they change places, release and choose a cup again.</p><p><strong>Keyboard:</strong> hold 1, 2 or 3 for the left, middle or right cup. Press R to refill, P or Escape to pause. Tab and Enter/Space also work on the cups and controls.</p><hr><p class="source-copy">Characters and setting from Lewis Carroll’s <cite>Alice’s Adventures in Wonderland</cite>, Chapter VII, “A Mad Tea-party.” The buttered watch, treacle well and seat changes come from that chapter. All game dialogue and drawings are newly authored adaptations, not quotations or Rackham illustrations.</p><p class="source-copy"><a href="https://www.gutenberg.org/ebooks/28885" target="_blank" rel="noopener noreferrer">Source edition: Carroll, with Arthur Rackham’s illustrations</a></p><p class="source-copy">No accounts, uploads or analytics. Scores last for this visit. Sound starts off.</p></dialog>
+<div id="live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<script type="module" src="game.mjs"></script>
+<script type="module" src="reader-return.mjs"></script>
+</body>
+</html>

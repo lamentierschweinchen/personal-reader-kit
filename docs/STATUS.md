@@ -2,7 +2,19 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications and literary text remain outside this repository. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with six reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The six specifically reviewed editions are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+
+## Three literary games · 17 October 2026
+
+Alice’s **Tea at Six** keeps its approved 75-second rules, input and pacing byte-for-byte, with new original ink drawings and the reader’s paper/blue palette. **Homeward** is a 72-second Odyssey voyage with rocks, steering and an impatient crew around Aeolus’s wind bag. **Castle escape** is Dracula’s short visual key-and-patrol game. Source views distinguish the books from invented game rules and remain optional.
+
+The catalogue now includes six complete readers and direct game links. Each game has a Play entrance in its reader, a return to the launching reading route, and a scoped offline copy. Game state stays in memory; annotations, reading positions and spoiler boundaries remain separate. The public Odyssey and Dracula copies admit only the reviewed complete editions and named application files. All 174 earlier edition pins remain unchanged; three exact edition files bring the total to 177. The personal entrance, Canetti and Proof are unchanged.
+
+The release package passes 47 kit Node tests and 207 example tests. All 267 reader outputs match their reviewed inventories; the combined catalogue build has 305 files from 350 explicitly named inputs. The public inventory contains 656 files and keeps the 60-file original-sample starter separate. Full working/index/reachable-history review found no private-path or credential violations.
+
+Chromium and WebKit cover all three games at 320×568, 390×844, 844×390, 820×1180, 1180×820 and 1280×800. Complete Alice wins and natural losses pass in both engines; Homeward has full phone/desktop voyages and both loss conditions through trusted Chromium touch; Dracula has keyboard wins/losses in both engines and a complete Chromium touch escape. Cancellation, retry, pause and source views are checked. Combined-reader journeys preserve exact chapter text and independent notes/caches. Game roundtrips preserve notes, reading positions and spoiler boundaries. Chromium offline emulation and WebKit with the local origin stopped verify cached play and return to reading. WebKit’s simulated offline mode produced a browser-internal error, so it is not used as outage evidence.
+
+The checks use browser emulation, not physical iOS/Android devices. Held WebKit touch, native installation, auditory quality and screen-reader playthroughs remain unverified. The games are visual action games with keyboard controls; they do not claim equivalent nonvisual play. Public HTTPS verification is a separate release step.
 
 ## Live-site UX review · 17 October 2026
 

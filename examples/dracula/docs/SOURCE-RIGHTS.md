@@ -1,0 +1,9 @@
+# Edition and publication record
+
+The complete English novel, front/back matter, source cover and publisher colophon come from [Project Gutenberg 345](https://www.gutenberg.org/ebooks/345), credited to Chuck Greif and the Online Distributed Proofreading Team. The source identifies Grosset & Dunlap and retains the 1897 US copyright notice. Bram Stoker died in 1912. The catalogue records public domain in the USA. The two images are the edition's plain historical book cover and publisher colophon, not new commissioned artwork. The literary text is out of copyright in the USA and ordinary life-plus-70 jurisdictions; this record does not claim clearance for every modern Dracula edition or every jurisdiction.
+
+The owner authorized public distribution of this reader and game at newreading.app on 17 October 2026. Exact prepared source bytes were preserved from the reviewed local reader; conversion receipts and original downloads remain private. The public edition inventory in ../../../publication.json pins each admitted file by SHA-256. Preparation coverage and character agreement are not full human proofreading.
+
+The complete Gutenberg notices and license remain recoverable in the reader and in portable edition bundles. Original-format downloads are available from the source catalogue at no cost. The adaptation is freely accessible, is not endorsed by Project Gutenberg, and retains the [Gutenberg redistribution terms](https://www.gutenberg.org/policy/license) and [permission guidance](https://www.gutenberg.org/policy/permission). Original game code/drawings are MIT; source text and historical imagery retain their own status.
+
+The code is intentionally independent of personal annotations, raw downloads, credentials, research reports and screenshots. Only named files enter the standalone and combined builds.

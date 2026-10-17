@@ -1,0 +1,37 @@
+{
+  "title": "Castle escape",
+  "slug": "dracula",
+  "provenance": "docs/GAME.md",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 7020,
+      "sha256": "2316bb49d3a8d18f4bffee23935166a3ebde5e2e0f348c64ab3d8da8fe5450e8"
+    },
+    {
+      "path": "style.css",
+      "bytes": 12092,
+      "sha256": "d6db61354b7961f2b8e9d8428d14d1a3317500a8c8e114a0945c5b90962bd99e"
+    },
+    {
+      "path": "app.mjs",
+      "bytes": 14822,
+      "sha256": "707baa338d245129fa7fd1f5e697669598a3832ae413eaa5c39e2bbac285e587"
+    },
+    {
+      "path": "engine.mjs",
+      "bytes": 5370,
+      "sha256": "a853cfbc4b18bb29b14de4a1f7dc931364c18d361d4738f3f59bb6f5f7b562c5"
+    },
+    {
+      "path": "icon.svg",
+      "bytes": 377,
+      "sha256": "6c6908a776f18b8f5b43324d4de28b6f6d4218d38972a1770d617570aaa084ea"
+    },
+    {
+      "path": "reader-return.mjs",
+      "bytes": 527,
+      "sha256": "8ef0e884f3b1ffca6f2aa694e311e02d3668fbb824fe1dc097f69b95ab70a07e"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3eee3">
+  <meta name="description" content="A small castle escape alongside Bram Stoker’s Dracula. Take the key, keep to the shadows, and reach the gate.">
+  <title>Castle escape · Dracula</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <svg class="definitions" aria-hidden="true" focusable="false"><defs>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="key-icon" viewBox="0 0 24 24"><circle cx="7" cy="8" r="4"/><path d="m10 11 10 10m-4-4 3-3m-6 0 3-3"/></symbol>
+    <symbol id="pause-icon" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="moon-icon" viewBox="0 0 24 24"><path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10Z"/></symbol>
+    <symbol id="eye-icon" viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  </defs></svg>
+  <header class="topbar">
+    <a class="back" href="../"><svg class="icon left" aria-hidden="true"><use href="#arrow"/></svg><span>Dracula</span></a>
+    <span class="small-label">Bram Stoker · 1897</span>
+    <button id="pause" class="quiet" disabled><svg class="icon" aria-hidden="true"><use href="#pause-icon"/></svg><span>Pause</span></button>
+  </header>
+  <main class="game-shell">
+    <div class="heading"><div><p class="eyebrow">A way out of the castle</p><h1>Castle escape</h1></div><p class="deck">One key. Two shadows.<br>A door to the night.</p></div>
+    <section class="arena" aria-label="Castle escape game">
+      <div class="game-status"><div class="objective"><svg class="icon" aria-hidden="true"><use href="#key-icon"/></svg><span id="objective">Take the key</span></div><span id="safety" class="safety"><svg class="icon" aria-hidden="true"><use href="#moon-icon"/></svg><span>In shadow</span></span></div>
+      <div class="board-wrap" id="board-wrap">
+        <svg id="castle" viewBox="0 0 600 600" role="img" aria-label="Castle floor. Harker begins in the bottom left alcove. The key is near the top, right of centre. The gate is at the bottom centre. Red fans show the two patrols’ sight. Dark alcoves provide cover."></svg>
+        <div class="screen" id="screen">
+          <div class="screen-inner" role="region" aria-labelledby="screen-title">
+            <p class="eyebrow" id="screen-kicker">Jonathan Harker’s escape</p>
+            <h2 id="screen-title">Take the key.<br>Reach the gate.</h2>
+            <p id="screen-copy">Dark alcoves hide you.<br>Stay out of the red sight.</p>
+            <button class="primary" id="screen-action">Begin escape <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+            <button class="text-button" id="restart" hidden>Start again</button>
+          </div>
+        </div>
+        <div id="pickup" class="pickup" aria-hidden="true" hidden><svg class="icon" aria-hidden="true"><use href="#key-icon"/></svg>Key in hand</div>
+        <div class="danger-track" aria-hidden="true"><span id="danger-fill"></span></div>
+      </div>
+    </section>
+    <section class="controls" aria-label="Movement controls">
+      <div class="control-note"><span class="control-title">Move Harker</span><p class="touch-note">Hold an arrow.<br>Release to wait.</p><p class="keyboard-note">Arrow keys or W A S D<br>Space to pause</p><p class="tiny">No time limit.</p></div>
+      <div class="dpad" aria-label="Hold a direction to move">
+        <button class="direction up" data-dir="up" aria-label="Move up"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button class="direction left" data-dir="left" aria-label="Move left"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <span class="dpad-centre" aria-hidden="true"><svg class="icon"><use href="#moon-icon"/></svg></span>
+        <button class="direction right" data-dir="right" aria-label="Move right"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button class="direction down" data-dir="down" aria-label="Move down"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </div>
+      <p class="desktop-help">Dark alcoves hide you. <span>Watch the turn, then cross.</span></p>
+    </section>
+  </main>
+  <footer><button class="text-button" id="about">From the novel</button><span id="footer-note">A short, invented escape</span><button class="text-button" id="help">How to play</button></footer>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  <dialog id="notes" aria-labelledby="notes-title">
+    <div class="dialog-head"><h2 id="notes-title">From the novel</h2><button class="quiet" id="close-notes">Close</button></div>
+    <div id="source-panel">
+      <p class="eyebrow">Jonathan Harker’s journal · Chapter III, 15 May</p>
+      <blockquote>“That key must be in the Count’s room; I must watch should his door be unlocked, so that I may get it and escape.”</blockquote>
+      <p>In <cite>Dracula</cite>, Harker searches the castle’s locked doors for a way out. This game invents a possible escape: its floor plan, key placement, patrolling shadows, and successful exit are fiction.</p>
+      <p class="source-credit">Bram Stoker, <cite>Dracula</cite> (1897). Quotation from Chapter III in the prepared <a href="https://www.gutenberg.org/ebooks/345" target="_blank" rel="noopener noreferrer">Project Gutenberg edition #345</a>. The game’s drawings and other words are original to this adaptation.</p>
+    </div>
+    <div id="help-panel" hidden>
+      <p>Hold the on-screen arrows, or use the arrow keys or W A S D. Two directions together move diagonally. Release to stop.</p>
+      <p>Take the key near the top of the room, then reach the gate at the bottom. You collect the key and open the gate by walking to them.</p>
+      <p>Move fully into a dark alcove to hide. <strong>In shadow</strong> confirms you are safe. Red fans show where each patrol can see. If the warning fills, you are caught; get back to cover to clear it.</p>
+      <p>Use Pause or Space to stop. Switching away or rotating a phone pauses the game too. Resume when you are ready.</p>
+      <label class="gentle"><input type="checkbox" id="gentle"> Gentler patrols <span>Slower shadows, more time to get out of sight.</span></label>
+      <p class="source-credit">This is a visual timing game. It has keyboard controls and spoken status changes, but no equivalent nonvisual play mode. Nothing is saved; a reload begins a fresh escape.</p>
+    </div>
+  </dialog>
+  <noscript><p class="no-script">This game needs JavaScript. <a href="../">Return to Dracula</a>.</p></noscript>
+  <script type="module" src="./app.mjs"></script>
+<script type="module" src="reader-return.mjs"></script>
+</body>
+</html>

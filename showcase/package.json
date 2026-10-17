@@ -2,6 +2,13 @@
   "name": "newreading",
   "private": true,
   "type": "module",
-  "engines": {"node": ">=22"},
-  "scripts": {"build": "node build.mjs", "dev":"node serve.mjs", "check":"node check.mjs && node check-handoff.mjs --skip-build && node check-readers.mjs --skip-build && node check-inputs.mjs", "share-image": "node share-image.mjs"}
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node serve.mjs",
+    "check": "node check.mjs && node check-handoff.mjs --skip-build && node check-readers.mjs --skip-build && node check-inputs.mjs && node check-games.mjs --skip-build && node check-gameplay.mjs --skip-build",
+    "share-image": "node share-image.mjs"
+  }
 }

@@ -1,0 +1,37 @@
+{
+  "title": "Tea at Six",
+  "slug": "alice",
+  "provenance": "docs/GAME.md",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 5211,
+      "sha256": "50e34ead12717ee1b11df9c67ffcaefb0f9c223bb403a72491df953b58796946"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 18333,
+      "sha256": "a3b07c948eb0874cef507f714096a798b25733e7ba7e1455be63323b62fbdf41"
+    },
+    {
+      "path": "art.mjs",
+      "bytes": 15671,
+      "sha256": "1de84cc2fb79b6e256cfe41abaafe28be044c319bc68af12c2321dbfdf4efcbc"
+    },
+    {
+      "path": "game.mjs",
+      "bytes": 16612,
+      "sha256": "5d321b70de652493b4a916be2464cde6f16dc28f0855b1e2867428b2a3667fc3"
+    },
+    {
+      "path": "engine.mjs",
+      "bytes": 3573,
+      "sha256": "c6febf8b3f61a82eda5756b0b20c1110db854c4e9d9d17662c095f67c9a1c8b1"
+    },
+    {
+      "path": "reader-return.mjs",
+      "bytes": 746,
+      "sha256": "611a3a72b80480acc1403514e70502f32582ce517a66c2e7774a5fca667de21b"
+    }
+  ]
+}

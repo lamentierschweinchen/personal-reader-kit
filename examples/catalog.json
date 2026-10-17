@@ -945,8 +945,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74700,
-          "sha256": "95ce6061597b1450b9b04af3c79312484883ce78212f3e31567a3f49e181b98d"
+          "bytes": 75196,
+          "sha256": "45e3db64ebcafb66e398118d5a90e72a8b8e39af3ea24e154a3336e527c428a6"
         },
         {
           "path": "bundle.mjs",
@@ -970,8 +970,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3037,
-          "sha256": "feaa0f30a545fb311cc2d06e92555c30f0653e20e005864fcf2b35f005311433"
+          "bytes": 3027,
+          "sha256": "fa31fd4ac6e355e272219f94c75aeb7f145a02ef1fef64c695f0bed64f241507"
         },
         {
           "path": "library.json",
@@ -982,6 +982,36 @@
           "path": "manifest.webmanifest",
           "bytes": 239,
           "sha256": "8d24b91a4e8ea39c801e0949cad56c0aa630971aa628f52398c320fba933f2be"
+        },
+        {
+          "path": "play/art.mjs",
+          "bytes": 15671,
+          "sha256": "1de84cc2fb79b6e256cfe41abaafe28be044c319bc68af12c2321dbfdf4efcbc"
+        },
+        {
+          "path": "play/engine.mjs",
+          "bytes": 3573,
+          "sha256": "c6febf8b3f61a82eda5756b0b20c1110db854c4e9d9d17662c095f67c9a1c8b1"
+        },
+        {
+          "path": "play/game.mjs",
+          "bytes": 16612,
+          "sha256": "5d321b70de652493b4a916be2464cde6f16dc28f0855b1e2867428b2a3667fc3"
+        },
+        {
+          "path": "play/index.html",
+          "bytes": 5211,
+          "sha256": "50e34ead12717ee1b11df9c67ffcaefb0f9c223bb403a72491df953b58796946"
+        },
+        {
+          "path": "play/reader-return.mjs",
+          "bytes": 746,
+          "sha256": "611a3a72b80480acc1403514e70502f32582ce517a66c2e7774a5fca667de21b"
+        },
+        {
+          "path": "play/styles.css",
+          "bytes": 18333,
+          "sha256": "a3b07c948eb0874cef507f714096a798b25733e7ba7e1455be63323b62fbdf41"
         },
         {
           "path": "robots.txt",
@@ -995,13 +1025,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 35816,
-          "sha256": "25c68ed753d6c0ed33cd00fb6185f61636934c8a2cc7b87a9658a611fd3f7087"
+          "bytes": 36684,
+          "sha256": "c1c25cd77f42c150e3bbafca95025d5c0450921c18d041b2b9ca5645c14f62e1"
         },
         {
           "path": "sw.js",
-          "bytes": 1131,
-          "sha256": "c80cf9d21b524818462f4cae2cd73b4de89c0abf48bee4e5d66b74a14cb518a1"
+          "bytes": 1317,
+          "sha256": "eda8cbb874fb418b7ca92d6c408399429d06af77de7a3c5c5d00be9b38f68607"
         },
         {
           "path": "text.mjs",
@@ -1019,8 +1049,15 @@
         "site/text.mjs",
         "tests/alice-browser.mjs",
         "tests/publication.test.mjs",
-        "vercel.json"
-      ]
+        "vercel.json",
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
+      ],
+      "game": {
+        "title": "Tea at Six",
+        "path": "https://newreading.app/alice/play/",
+        "inventory": "examples/alice-in-wonderland/game.json",
+        "provenance": "examples/alice-in-wonderland/docs/GAME.md"
+      }
     },
     {
       "id": "walden",
@@ -1236,6 +1273,274 @@
         "tests/publication.test.mjs",
         "tests/trial-browser.mjs",
         "vercel.json"
+      ]
+    },
+    {
+      "id": "odyssey",
+      "title": "The Odyssey",
+      "description": "Complete reading edition with a short optional arcade game.",
+      "directory": "examples/odyssey",
+      "sourceCommit": "4da9a0d38e236618a281cbed2c8bb4501bc77988",
+      "sourceFileCount": 37,
+      "packagingChanges": [
+        "README.md",
+        "AGENTS.md",
+        "package.json",
+        "scripts/build.mjs",
+        "edition/"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/odyssey/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 75908,
+          "sha256": "bfc72d4753e616793c3f8fce8ba1251d82300191765330206faec221cf3f1c4f"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4599,
+          "sha256": "a6fc0003d79696fe358ec0be82eef3f317239053c16374fa118c36ec7fc97b3f"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 20702,
+          "sha256": "5049573b65a560156b723f06dcbcfdf6901b0cfcda1ef8c4de08a3c65fd60e42"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7331,
+          "sha256": "e24be4accf42b98d6c6e20220b0837890a261885e8a22a9efe0d99c4aae74f29"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 294,
+          "sha256": "4cabb068bc6cd9cb731d62f99c0b27a5abb61200624d05ce409987fb69203839"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3035,
+          "sha256": "9ab040acc6105f8d28ea5e0d0b1abffbbfa2d5fb4705dc08d0adac61e41be110"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1229065,
+          "sha256": "bf383314c3daa4bd153af311c214fcbba0c6f772d6f381684c717a6c6619efa9"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 262,
+          "sha256": "e25f8fdd9f8e1743428b061b38b7525b7001155a02dd82d3933bb643819e2ae4"
+        },
+        {
+          "path": "play/game.mjs",
+          "bytes": 24993,
+          "sha256": "f2eabc4f5c743c27d79b18936e96a3fe7a93706b4fee712b060c9fad2efe4b30"
+        },
+        {
+          "path": "play/icon.svg",
+          "bytes": 308,
+          "sha256": "eaddef2816d543c28c2e502de72461216367e1861f1001c15afecb632a9a4ba9"
+        },
+        {
+          "path": "play/index.html",
+          "bytes": 6939,
+          "sha256": "9c4dc838321789d8ea916bbd9ba694bedc0fb61c92de83ec8b4badf9c957f248"
+        },
+        {
+          "path": "play/reader-return.mjs",
+          "bytes": 527,
+          "sha256": "619e91e734f606e74151528036206b0a1fe7d6d2ca9a76a4faa3e263329a8055"
+        },
+        {
+          "path": "play/style.css",
+          "bytes": 11628,
+          "sha256": "34fe5cae33149ab2462adc5166874ef29657663bf737b74810e055da5c92d313"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 30314,
+          "sha256": "60468c967b62c2429c8e22591a7f5f6001a2b109f2634ba9135e0fabf63c864f"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1304,
+          "sha256": "8003d8171de22072c58c1dc99b4f9d77170082b051e9c3af68b954fb525f082d"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4229,
+          "sha256": "60e945b1468b778578d372c7b99aab842bdd959329130a088d88502b08260f40"
+        }
+      ],
+      "game": {
+        "title": "Homeward",
+        "path": "https://newreading.app/odyssey/play/",
+        "inventory": "examples/odyssey/game.json",
+        "provenance": "examples/odyssey/docs/GAME.md"
+      },
+      "maintenanceChanges": [
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
+      ]
+    },
+    {
+      "id": "dracula",
+      "title": "Dracula",
+      "description": "Complete reading edition with a short optional arcade game.",
+      "directory": "examples/dracula",
+      "sourceCommit": "9225eb7f85f31df99d036b1a0cfe7c426928e1df",
+      "sourceFileCount": 44,
+      "packagingChanges": [
+        "README.md",
+        "AGENTS.md",
+        "package.json",
+        "scripts/build.mjs",
+        "edition/"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/dracula/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 69746,
+          "sha256": "3eb58e20ee79e12b07f6c03f7da7db0f7f3bd8107fad32d5c8d32083b1f471e5"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "case-ui.mjs",
+          "bytes": 10799,
+          "sha256": "8e167de05fe35f768489fe35c0bb0b6543be891e5f7c1fb96ba7a51a2e3da16f"
+        },
+        {
+          "path": "case.mjs",
+          "bytes": 8429,
+          "sha256": "4c171648df4b5841c3f426fdeda1d53da09b5c21200d98f162c109b7e2346ca7"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 19674,
+          "sha256": "180cc03dd7b01c0a82c3e017b7af7f852eef4732f10623e8090efaa0694d20fd"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7265,
+          "sha256": "8f33ba8ed4cf0d8a812067fdd5b5ed6e559efb4633bbfda04ed2c280579e763b"
+        },
+        {
+          "path": "dracula.css",
+          "bytes": 13539,
+          "sha256": "d6f272c8ab812e3b3ddfded939694d21a0353ed3901156608405d6fa0dae198a"
+        },
+        {
+          "path": "edition.mjs",
+          "bytes": 554,
+          "sha256": "9a6baa8823b078ff4c9c1fb65d08267212c6227e104e71d84aec2c34795241c5"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 252,
+          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2926,
+          "sha256": "f1a0f51d478dc239f27b3105a554631e2e244a493ac3ea15f2d9b867490d9b3e"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1561897,
+          "sha256": "bd6ad7e5338e3866b239553f0b9d93f32f0a56e227c319d72ebf8233005d003a"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 238,
+          "sha256": "c372d030c786b926cf784e524935b28a71823facc0d3f84afb79e3233c1ac2db"
+        },
+        {
+          "path": "play/app.mjs",
+          "bytes": 14822,
+          "sha256": "707baa338d245129fa7fd1f5e697669598a3832ae413eaa5c39e2bbac285e587"
+        },
+        {
+          "path": "play/engine.mjs",
+          "bytes": 5370,
+          "sha256": "a853cfbc4b18bb29b14de4a1f7dc931364c18d361d4738f3f59bb6f5f7b562c5"
+        },
+        {
+          "path": "play/icon.svg",
+          "bytes": 377,
+          "sha256": "6c6908a776f18b8f5b43324d4de28b6f6d4218d38972a1770d617570aaa084ea"
+        },
+        {
+          "path": "play/index.html",
+          "bytes": 7020,
+          "sha256": "2316bb49d3a8d18f4bffee23935166a3ebde5e2e0f348c64ab3d8da8fe5450e8"
+        },
+        {
+          "path": "play/reader-return.mjs",
+          "bytes": 527,
+          "sha256": "8ef0e884f3b1ffca6f2aa694e311e02d3668fbb824fe1dc097f69b95ab70a07e"
+        },
+        {
+          "path": "play/style.css",
+          "bytes": 12092,
+          "sha256": "d6db61354b7961f2b8e9d8428d14d1a3317500a8c8e114a0945c5b90962bd99e"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "source-notices.json",
+          "bytes": 19832,
+          "sha256": "1247adaf04d11cd048cda539a03913056fab5b63ee6c77220bcfe135ac03341e"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23665,
+          "sha256": "8938f0c68d1d4990e59dcd49e3f88bb68e30ecc9f7e7caf00a1ac19934e2fbfc"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1386,
+          "sha256": "ae3fc5902152541f8d360599356d765054fb11a18ca578440e4c6090912cc466"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4337,
+          "sha256": "08b6efa96f60a8c4e640d2ea362ab370ca2d2bed1f4c005717c5a5b39a5cf158"
+        }
+      ],
+      "game": {
+        "title": "Castle escape",
+        "path": "https://newreading.app/dracula/play/",
+        "inventory": "examples/dracula/game.json",
+        "provenance": "examples/dracula/docs/GAME.md"
+      },
+      "maintenanceChanges": [
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
       ]
     }
   ],

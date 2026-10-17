@@ -45,6 +45,10 @@ jobs:
         if: hashFiles('showcase/check-personal.mjs') != ''
       - run: node showcase/check-readers.mjs --skip-build
         if: hashFiles('showcase/check-readers.mjs') != ''
+      - run: node showcase/check-games.mjs --skip-build
+        if: hashFiles('showcase/check-games.mjs') != ''
+      - run: node showcase/check-gameplay.mjs --skip-build
+        if: hashFiles('showcase/check-gameplay.mjs') != ''
   examples:
     runs-on: ubuntu-latest
     steps:
