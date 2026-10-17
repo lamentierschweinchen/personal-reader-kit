@@ -14,7 +14,7 @@ export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteA
   const editionPath=/^examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)$/.test(name);
   const reviewed=editionPath&&reviewedEditions.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
   if(/^examples\/[^/]+\/editions?\//.test(name)&&!reviewed)problems.push('edition bytes lack an exact reviewed provenance entry');
-  const siteAssetPath=/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|woff2)$/.test(name);
+  const siteAssetPath=/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|png|woff2)$/.test(name);
   const reviewedSite=siteAssetPath&&reviewedSiteAssets.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
   if(siteAssetPath&&!reviewedSite)problems.push('showcase asset lacks an exact reviewed provenance entry');
   const content=inspectContent(bytes);
@@ -50,7 +50,7 @@ async function inspectRepository(directory) {
   const editions=manifest.reviewedEditionFiles || [];
   if(!Array.isArray(editions)||editions.some(f=>!f||!/^examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Edition review entries need an exact example asset path, SHA-256, tracked provenance and reason.');
   const siteAssets=manifest.reviewedSiteAssets || [];
-  if(!Array.isArray(siteAssets)||siteAssets.some(f=>!f||!/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|woff2)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Showcase asset review entries need an exact asset path, SHA-256, tracked provenance and reason.');
+  if(!Array.isArray(siteAssets)||siteAssets.some(f=>!f||!/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|png|woff2)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Showcase asset review entries need an exact asset path, SHA-256, tracked provenance and reason.');
   const tracked=git('ls-files','-z').split('\0').filter(Boolean), failures=[], inventory=[];
   const shallow=git('rev-parse','--is-shallow-repository').trim()==='true';
   if(shallow)failures.push('Incomplete history: this is a shallow repository. Fetch the complete intended ref history before auditing.');

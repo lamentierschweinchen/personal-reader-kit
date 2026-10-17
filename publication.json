@@ -477,13 +477,12 @@
     "showcase/ASSETS.md",
     "showcase/README.md",
     "showcase/assets/OFL.txt",
-    "showcase/assets/alice-preview.jpg",
-    "showcase/assets/austen-preview.jpg",
+    "showcase/assets/alice-rabbit.png",
+    "showcase/assets/austen-cover.jpg",
     "showcase/assets/book.webp",
     "showcase/assets/fraunces-italic.woff2",
     "showcase/assets/fraunces-normal.woff2",
-    "showcase/assets/two-halls-preview.jpg",
-    "showcase/assets/walden-preview.jpg",
+    "showcase/assets/walden-survey.jpg",
     "showcase/build.mjs",
     "showcase/capture.mjs",
     "showcase/check.mjs",
@@ -1667,6 +1666,46 @@
       "sha256": "c3f65ce9feb4e4b00a88ce829d5a5a5575283fd77b70d499805fafde4e60441a",
       "provenance": "showcase/ASSETS.md",
       "reason": "Visually reviewed clean-profile capture of the authorized public example entrance; no personal reading records."
+    },
+    {
+      "path": "showcase/assets/austen-cover.jpg",
+      "sha256": "d7ffa5b624f7bfa70dbc92c213ab9ab6fe8eb32cd3f69e41c0bde68c68e8b97b",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged reviewed edition image from examples/pride-and-prejudice/edition/austen-cover.jpg. No personal-reader content."
+    },
+    {
+      "path": "showcase/assets/alice-rabbit.png",
+      "sha256": "db51c04a8cffad5cf14cb689d097b3988eafe74d260cb42cc57f2777952376e2",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged reviewed edition image from embedded asset p0003-rabbithole-png in examples/alice-in-wonderland/edition/library.json. No personal-reader content."
+    },
+    {
+      "path": "showcase/assets/walden-survey.jpg",
+      "sha256": "c79c45dd901a67f9763118d7d6367582d5b82722795b458387e4e0709a6df174",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Unchanged reviewed edition image from examples/walden/edition/walden-pond-map.jpg. No personal-reader content."
+    }
+  ],
+  "reviewedHistoricalFiles": [
+    {
+      "path": "showcase/assets/austen-preview.jpg",
+      "sha256": "40143510bd0863c24c4a377df6930902254b1576a964f51a596950217025c04a",
+      "reason": "Retired reviewed public-example screenshot from 5a55295, replaced by edition artwork after independent design review. Existing provenance and binary pin are retained."
+    },
+    {
+      "path": "showcase/assets/alice-preview.jpg",
+      "sha256": "d5ad1ac4c460e43dd2036709de3d572615f433b2cc290d93c7b3040607ad2e41",
+      "reason": "Retired reviewed public-example screenshot from 5a55295, replaced by edition artwork after independent design review. Existing provenance and binary pin are retained."
+    },
+    {
+      "path": "showcase/assets/walden-preview.jpg",
+      "sha256": "4921ab8f01d155287c97b44cdbf9803ffe90fa28d8a313eb6daf7cd2144fa6fc",
+      "reason": "Retired reviewed public-example screenshot from 5a55295, replaced by edition artwork after independent design review. Existing provenance and binary pin are retained."
+    },
+    {
+      "path": "showcase/assets/two-halls-preview.jpg",
+      "sha256": "c3f65ce9feb4e4b00a88ce829d5a5a5575283fd77b70d499805fafde4e60441a",
+      "reason": "Retired reviewed public-example screenshot from 5a55295, replaced by edition artwork after independent design review. Existing provenance and binary pin are retained."
     }
   ]
 }

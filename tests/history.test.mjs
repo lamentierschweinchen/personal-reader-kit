@@ -89,7 +89,7 @@ test('example provenance admits only exact reviewed bytes in current files and c
   }finally{await rm(directory,{recursive:true,force:true});}
 });
 
-for(const format of ['webp','jpg'])test(`showcase ${format} provenance is exact, historical and never conceals credentials`,async()=>{
+for(const format of ['webp','jpg','png'])test(`showcase ${format} provenance is exact, historical and never conceals credentials`,async()=>{
   const directory=await mkdtemp(path.join(tmpdir(),'reader-showcase-history-'));
   const git=(...args)=>execFileSync('git',['-C',directory,...args],{stdio:'pipe'}),digest=b=>createHash('sha256').update(b).digest('hex');
   const asset=`showcase/assets/original.${format}`,provenance='showcase/ASSETS.md';

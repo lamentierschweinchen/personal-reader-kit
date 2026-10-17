@@ -32,6 +32,8 @@ Review home, ordinary reading, companion, saved passages, settings and recovery 
 
 When replacing a header, inspect inherited breakpoint overrides and the toolbar offsets they still affect. Measure every added source-layout control as part of persistent chrome; a verse or illustration option can belong in a quiet disclosure rather than a second sticky row. Retain access to the faithful layout choice. Move the pointer to a neutral margin for settled screenshots, then review hover/focus states separately so an incidental hover is not mistaken for a second active route.
 
+For a public catalogue, give each reader one clear visual entrance. A miniature interface screenshot can repeat titles and controls while making both illegible; use reviewed edition artwork or an honest original composition when that communicates the work better. Keep the action visible and judge the smallest phone view. Agent-friendly instructions can live in static HTML and plain text behind a concise copy command; they need not dominate the visual page. Review the actual composition independently of link, overflow and clipboard tests, then take a second visual pass after implementation.
+
 ## Interface icons
 
 Unicode arrows used as interface icons have appeared as colored emoji or inconsistent fallback glyphs on iPhone in both reference-reader experiences. Treat this as a recurring platform issue. Do not rely on a preferred font or a text-presentation selector to suppress emoji.

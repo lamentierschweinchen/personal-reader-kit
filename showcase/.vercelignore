@@ -13,10 +13,9 @@ assets/*
 !assets/fraunces-normal.woff2
 !assets/fraunces-italic.woff2
 !assets/OFL.txt
-!assets/austen-preview.jpg
-!assets/alice-preview.jpg
-!assets/walden-preview.jpg
-!assets/two-halls-preview.jpg
+!assets/austen-cover.jpg
+!assets/alice-rabbit.png
+!assets/walden-survey.jpg
 
 # Vercel Git deployments evaluate these paths from the repository root.
 !showcase/
@@ -33,7 +32,6 @@ assets/*
 !showcase/assets/fraunces-normal.woff2
 !showcase/assets/fraunces-italic.woff2
 !showcase/assets/OFL.txt
-!showcase/assets/austen-preview.jpg
-!showcase/assets/alice-preview.jpg
-!showcase/assets/walden-preview.jpg
-!showcase/assets/two-halls-preview.jpg
+!showcase/assets/austen-cover.jpg
+!showcase/assets/alice-rabbit.png
+!showcase/assets/walden-survey.jpg

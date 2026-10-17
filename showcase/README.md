@@ -2,17 +2,17 @@
 
 The public entrance to the four complete readers, at **https://read.lookatseel.com/**. It uses Lukas’s personal-site palette, typography and existing book graphic, with a lighter catalogue composition. [Asset provenance and licenses](ASSETS.md).
 
-This is a separate static site, with thirteen explicit build outputs. Four real reader previews lead to the samples; a short value proposition and agent handoff replace the previous long descriptions and FAQ. The only client JavaScript copies the visible prompt after a click, with selectable text on clipboard failure. The same prompt is in static HTML and [`start.txt`](start.txt), so agents and visitors without JavaScript can use it. There are no analytics, cookies, accounts or reading storage. Each linked reader has a separate origin for its library and service worker. The showcase itself is not an offline reading app.
+This is a separate static site, with twelve explicit build outputs. Four artwork-led entrances link to the samples: a complete peacock binding, Rackham's rabbit, Thoreau's survey and a typographic Two Halls composition. They are not interface screenshots. A short value proposition and agent handoff replace the previous long descriptions and FAQ. The only client JavaScript copies the visible short command after a click, with selectable text on clipboard failure. The command points to the full instructions in [`start.txt`](start.txt); those same instructions are also available in a native disclosure in static HTML. Both work without JavaScript. There are no analytics, cookies, accounts or reading storage. Each linked reader has a separate origin for its library and service worker. The showcase itself is not an offline reading app.
 
-The visual direction keeps the warm paper, Fraunces and small book graphic. Preview images carry the page; hover/focus identifies the link, copy feedback confirms the action, and reduced motion removes preview movement. All substantive copy is visible without interaction. Bookshop.org is an ordinary, non-affiliate link to support independent bookshops; no claim is made about importing its purchases.
+The visual direction keeps warm paper and Fraunces, with larger art and restrained rules. Two columns on desktop/tablet become one generous column on phones. Each entry has one title and a visible Read/Enter action; hover/focus sharpens the link, copy feedback confirms the handoff, and reduced motion removes image movement. The longer privacy instructions use progressive disclosure while remaining in the static document and plain-text endpoint. The original book graphic remains the social preview. Bookshop.org is an ordinary, non-affiliate link to support independent bookshops; no claim is made about importing its purchases.
 
 ```sh
 cd showcase
 npm run build
 # With the optional Playwright runtime installed:
 node check.mjs
-# Optional: recapture already-public previews into ignored test-results/.
-# Review the loaded designs and provenance before replacing/pinning any asset.
+# Optional: capture already-public reader interfaces for QA, not catalogue art.
+# Output stays in ignored test-results/; it is not an automatic publication step.
 node capture.mjs
 ```
 
