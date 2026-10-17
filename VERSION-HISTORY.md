@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Beginner guide · 17 October 2026
+
+Adds a separate “Your first reader” page linked from the catalogue and README. Four steps take a newcomer from a folder-capable coding agent to a working sample, an actual save/reload check, their own book and a home-screen/offline handoff. Official provider setup links and short definitions sit beside the relevant actions. The selectable instruction, copy fallback and native help disclosures work without an account on the catalogue. No reader application or prepared edition changes.
+
 ## Catalogue sharing refresh · 17 October 2026
 
 Replaces the typographic Two Halls entrance with a contemporary engraved-style portrait illustration, generated specifically for the catalogue. Hegel and Schopenhauer remain identifiable at phone size, and the visible caption follows their left-to-right order. A dedicated 1200 × 630 link-preview image uses the four reviewed catalogue artworks, the site name and its concise offer. The agent handoff explicitly includes the portable reader-copyeditor step. Asset provenance, exact public build/upload lists and image hashes cover both new images; the generator writes review candidates to ignored test-results. This changes the catalogue only. All reader editions, applications, local records and canonical origins remain unchanged.

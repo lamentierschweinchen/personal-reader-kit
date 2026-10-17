@@ -14,6 +14,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 ## Try it
 
+**New to coding agents?** [Start with this short guide](https://read.lookatseel.com/learn/): choose an agent, open a project folder and try the kit's sample before bringing your book. It explains the unfamiliar terms and gives you a first instruction to copy.
+
 **Read a complete example:** [Pride and Prejudice](https://austen.lookatseel.com/), [Alice](https://alice.lookatseel.com/), [Walden & Civil Disobedience](https://walden.lookatseel.com/), or [Two lecture halls: Schopenhauer and Hegel](https://two-halls.lookatseel.com/). Each has its own visual identity, source adapter, credited edition and offline reading. [Example source and hosting details](examples/README.md). The public entrance is [read.lookatseel.com](https://read.lookatseel.com/); [release status](docs/STATUS.md) records the live verification and its limits.
 
 Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:

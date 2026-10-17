@@ -13,7 +13,8 @@ const types={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/j
 const security=JSON.parse(await readFile(new URL('./vercel.json',import.meta.url),'utf8')).headers[0].headers;
 const server=createServer(async(req,res)=>{
   try {
-    const file=path.resolve(root,'.'+(req.url==='/'?'/index.html':new URL(req.url,'http://localhost').pathname));
+    const pathname=new URL(req.url,'http://localhost').pathname;
+    const file=path.resolve(root,'.'+pathname+(pathname.endsWith('/')?'index.html':''));
     if(!file.startsWith(root+path.sep)&&file!==path.join(root,'index.html'))throw Error('Outside build');
     const bytes=await readFile(file);res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream',...Object.fromEntries(security.map(h=>[h.key,h.value]))});res.end(bytes);
   }catch{res.writeHead(404);res.end('Not found');}
@@ -23,6 +24,7 @@ const base='http://127.0.0.1:'+server.address().port,receipts=[];
 const sizes=[{width:320,height:740},{width:402,height:874},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
 const promptText=(await readFile(new URL('./start.txt',import.meta.url),'utf8')).trim();
 const commandText='Use https://read.lookatseel.com/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.';
+const beginnerText='Use https://read.lookatseel.com/start.txt to help me build my first personal reader. I’m new to coding agents: explain unfamiliar terms, guide me one step at a time, and start with the kit’s sample before adding my book.';
 try {
   for(const engine of ['chromium','webkit']){
     const executablePath=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;
@@ -83,8 +85,29 @@ try {
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert.equal(overflow,false,'Expanded instructions overflow');
         await page.getByRole('link',{name:'Plain text for agents',exact:true}).click();
         assert.equal((await page.locator('body').textContent()).trim(),promptText);
+        await page.goBack();await page.getByRole('link',{name:'New to agents? Start here.',exact:true}).click();
+        assert.equal(new URL(page.url()).pathname,'/learn/');
+        await page.locator('#copy-prompt:not([hidden])').waitFor();
+        await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));});
+        assert.equal(await page.locator('h1').count(),1);assert.equal(await page.locator('.lesson-steps>li').count(),4);
+        assert.equal(await page.locator('#agent-prompt').inputValue(),beginnerText);
+        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Beginner guide overflows');
+        assert.equal(await page.locator('#agent-prompt').evaluate(e=>e.scrollHeight<=e.clientHeight+1),true,'Beginner instruction must fit without internal scrolling');
+        const lessonTargets=await page.locator('a:not(.skip),button:not([hidden]),summary').evaluateAll(es=>es.filter(e=>e.getBoundingClientRect().width>0).map(e=>({text:e.textContent.trim(),width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
+        assert.ok(lessonTargets.every(t=>t.width>=44&&t.height>=44),'Small beginner target: '+JSON.stringify(lessonTargets));
+        await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}-learn.png`,output)),fullPage:true,animations:'disabled'});
+        await page.getByRole('button',{name:'Copy instruction',exact:true}).click();await page.getByRole('status').filter({hasText:'Copied.'}).waitFor();
+        assert.equal(await page.evaluate(()=>window.copiedPrompt),beginnerText);
+        await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined}));
+        await page.getByRole('button',{name:'Copy again',exact:true}).click();await page.getByRole('status').filter({hasText:'Select and copy'}).waitFor();
+        assert.deepEqual(await page.locator('#agent-prompt').evaluate(e=>[e.selectionStart,e.selectionEnd]),[0,beginnerText.length]);
+        for(const summary of await page.locator('.lesson-help summary').all()){await summary.focus();await page.keyboard.press('Enter');}
+        assert.equal(await page.locator('.lesson-help details[open]').count(),3);
+        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Expanded beginner help overflows');
+        await page.getByRole('link',{name:'Home-screen instructions',exact:true}).click();assert.equal(new URL(page.url()).hash,'#home-screen');
+        await page.getByText('Add a reader to your home screen',{exact:true}).click();await page.locator('.install-body').waitFor({state:'visible'});
         assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);
-        receipts.push({engine,viewport,localAssets:true,previews:4,portraitFit,installationGuide:true,touchTargets:true,promptCopy:true,clipboardFallback:true,plainText:true,overflow:false});await context.close();
+        receipts.push({engine,viewport,localAssets:true,previews:4,portraitFit,installationGuide:true,beginnerGuide:true,beginnerCopyAndFallback:true,touchTargets:true,promptCopy:true,clipboardFallback:true,plainText:true,overflow:false});await context.close();
       }
       const context=await browser.newContext(),page=await context.newPage();await page.goto(base);
       // macOS WebKit's default Tab policy skips links; Option-Tab includes them.
@@ -94,7 +117,9 @@ try {
       assert.equal(await plainPage.locator('#agent-prompt').inputValue(),commandText);assert.equal(await plainPage.locator('#copy-prompt').isVisible(),false);
       assert.equal(await plainPage.locator('.reader').count(),4);
       await plainPage.getByText('Add a reader to your home screen',{exact:true}).click();await plainPage.locator('.install-body').waitFor({state:'visible'});
-      await plainPage.getByText('Full instructions',{exact:true}).click();await plainPage.getByRole('link',{name:'Plain text for agents',exact:true}).click();assert.equal((await plainPage.locator('body').textContent()).trim(),promptText);await noScript.close();
+      await plainPage.getByText('Full instructions',{exact:true}).click();await plainPage.getByRole('link',{name:'Plain text for agents',exact:true}).click();assert.equal((await plainPage.locator('body').textContent()).trim(),promptText);
+      await plainPage.goto(base+'/learn/');assert.equal(await plainPage.locator('#agent-prompt').inputValue(),beginnerText);assert.equal(await plainPage.locator('#copy-prompt').isVisible(),false);
+      await plainPage.getByText('Will any ebook work?',{exact:true}).click();assert.equal(await plainPage.locator('.lesson-help details[open]').count(),1);await noScript.close();
     }finally{await browser.close();}
   }
   await writeFile(new URL('receipt.json',output),JSON.stringify({checkedAt:new Date().toISOString(),passed:true,receipts,limits:'Automated Chromium/WebKit layout, navigation and asset checks. Screenshots require visual review; emulation is not physical-device or screen-reader acceptance.'},null,2)+'\n');

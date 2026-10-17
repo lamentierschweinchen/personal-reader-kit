@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e6dac6">
+  <title>Your first reader · read</title>
+  <meta name="description" content="New to coding agents? A short guide to choosing one, opening a project and making your first personal reader.">
+  <link rel="canonical" href="https://read.lookatseel.com/learn/">
+  <meta property="og:title" content="Your first reader · read">
+  <meta property="og:description" content="A short start for people who are new to coding agents.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://read.lookatseel.com/learn/">
+  <meta property="og:image" content="https://read.lookatseel.com/assets/read-share.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/start.mjs"></script>
+</head>
+<body class="learn-page">
+  <a class="skip" href="#learn-title">Skip to the guide</a>
+  <header class="masthead wrap">
+    <a class="wordmark" href="/" aria-label="read home">read<span class="wordmark-period">.</span></a>
+    <a class="byline" href="/#books">Browse the readers</a>
+  </header>
+  <main class="lesson wrap">
+    <section class="learn-hero" aria-labelledby="learn-title">
+      <div><p class="eyebrow">New to agents?</p><h1 id="learn-title">Your first reader.<br> Start here.</h1><p class="learn-lede">A coding agent can edit files and test a website for you. You describe what you want, try the result and ask for changes.</p><p class="learn-requirements">Use a computer for setup. You can read on your phone afterwards.</p></div>
+      <img src="/assets/book.webp" width="480" height="513" alt="" class="learn-book">
+    </section>
+    <ol class="lesson-steps" role="list">
+      <li>
+        <div class="step-heading"><span class="step-number" aria-hidden="true">01</span><h2>Choose an agent.</h2></div>
+        <div class="step-body">
+          <p>Starting from scratch? Try <strong>Codex</strong> in the ChatGPT desktop app. Claude’s <strong>Code</strong> tab is another option and requires a paid plan. Follow one of these official setup guides and sign in.</p>
+          <div class="lesson-links"><a href="https://developers.openai.com/codex/app/">Set up Codex</a><a href="https://code.claude.com/docs/en/desktop-quickstart">Set up Claude Code</a></div>
+          <p class="lesson-note">Already have an agent? Use it if it can open a project folder, edit files and run commands. The kit is free; your agent’s plan may have costs or usage limits.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-heading"><span class="step-number" aria-hidden="true">02</span><h2>Give it a folder.</h2></div>
+        <div class="step-body">
+          <p>Create a folder on your computer called <strong>My reader</strong>. Your website’s files will live there.</p>
+          <p>In Codex, create a local project and attach <strong>My reader</strong> using <strong>Add folder</strong>, then open a Codex chat. In Claude, open <strong>Code</strong>, choose <strong>Local</strong>, then <strong>Select folder</strong> and select <strong>My reader</strong>.</p>
+          <p>The instruction below asks the agent to get the kit. If it needs help downloading or installing something, ask it to explain the next step in plain language.</p>
+        </div>
+      </li>
+      <li id="first-reader">
+        <div class="step-heading"><span class="step-number" aria-hidden="true">03</span><h2>Try a first reader.</h2></div>
+        <div class="step-body">
+          <div class="handoff">
+            <label for="agent-prompt">Paste this into your agent</label>
+            <textarea id="agent-prompt" readonly spellcheck="false">Use https://read.lookatseel.com/start.txt to help me build my first personal reader. I’m new to coding agents: explain unfamiliar terms, guide me one step at a time, and start with the kit’s sample before adding my book.</textarea>
+            <div class="handoff-actions"><button id="copy-prompt" type="button" hidden>Copy instruction <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button><a href="https://github.com/lamentierschweinchen/personal-reader-kit">View the kit</a></div>
+            <p id="copy-status" role="status" aria-live="polite"></p>
+          </div>
+          <p>Ask it to open a working preview. Read a page, highlight a sentence, save a note and reload. Check that the note is still there.</p>
+          <p>Once that works, add a plain-text book, or ask the agent to prepare an EPUB or PDF.</p>
+          <p class="lesson-note">Files you give the agent may be sent to its provider. Share only what you’re allowed and comfortable to send.</p>
+          <p>Choose a simple reader or try a companion built around its places, ideas or history. Be specific about what you want to change:</p>
+          <blockquote>“Make the text larger on my phone. Keep the poem’s line breaks. Show me the result.”</blockquote>
+        </div>
+      </li>
+      <li>
+        <div class="step-heading"><span class="step-number" aria-hidden="true">04</span><h2>Take it with you.</h2></div>
+        <div class="step-body">
+          <p>Ask your agent to help publish the reader at your own web address. It can guide GitHub and Vercel setup when you reach that point.</p>
+          <p>Open the finished site on your phone and add it to your home screen. Ask your agent to help move your book and notes using a private reading bundle. Check they arrived. Wait for “Available offline,” then turn off Wi-Fi and mobile data, reopen the reader and save a note.</p>
+          <div class="lesson-links"><a href="/#home-screen">Home-screen instructions</a><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/DEPLOYMENT.md">Publishing guide</a></div>
+        </div>
+      </li>
+    </ol>
+    <section class="lesson-help" aria-labelledby="help-title">
+      <h2 id="help-title">A few things you might wonder.</h2>
+      <details><summary>What are GitHub, Node and Vercel?</summary><p>GitHub can keep a versioned copy of your project. Node runs the reader while you build it. Vercel hosts the finished website. Let your agent guide the setup as each becomes useful; check any plan’s cost before choosing it.</p></details>
+      <details><summary>Will any ebook work?</summary><p>The reader imports plain text and prepared reader files. EPUBs and PDFs need preparation, and some formats need extra work to preserve their layout. DRM-protected ebooks cannot be imported by this kit. Start with the included sample to learn the process.</p></details>
+      <details><summary>The agent is stuck—or only gives me code.</summary><p>Tell it what you see: “I expected a preview, but I’m seeing an error. Find the cause and explain the next step.” If it cannot edit and run files, return to the coding workspace in step one. You can also ask it to save a short progress note so you can resume later.</p></details>
+    </section>
+    <p class="lesson-return">Want to look around first? <a href="/#books">Read one of the four examples.</a></p>
+  </main>
+  <footer class="footer wrap">
+    <p>Please use books you’re entitled to use, and publish only what you’re allowed to share.</p>
+    <div class="footer-links"><a href="https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/RIGHTS.md">Books &amp; permissions</a><a href="https://bookshop.org/">Support independent bookshops</a></div>
+  </footer>
+</body>
+</html>

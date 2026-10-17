@@ -4,6 +4,12 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The user approved the public showcase at `read.lookatseel.com` and four separate reader subdomains; live verification is recorded below. Neither personal reference reader was changed, redeployed or copied into this repository.
 
+## Beginner guide · 17 October 2026
+
+The catalogue and README now offer a separate **[Your first reader](https://read.lookatseel.com/learn/)** route. Its four steps use official Codex/Claude setup guidance, a concrete local-folder instruction, an original-sample save/reload check, and phone transfer plus home-screen/offline verification. A copyeditor reviewed the draft; the folder, plan, file-format and phone-transfer corrections were incorporated. Desktop and phone captures were visually inspected.
+
+Local Chromium/WebKit checks pass all 12 viewports for both the catalogue and guide, including touch dimensions, overflow, copy and failed-clipboard selection, keyboard disclosures, route round trips and no-JavaScript access. All 44 kit and 135 example Node tests pass; the 219 existing example outputs are unchanged. There are 15 exact catalogue outputs. This is browser and document verification, not a completed human newcomer pilot or native installation on a physical device. The requested newreading.app redesign and path-based example launch are being prepared separately; this release keeps the current domains.
+
 ## Catalogue correction and home-screen guidance · 17 October 2026
 
 The Two Halls illustration now fills its frame on phone, tablet and desktop; the social preview gives both portraits a wider column. The preceding layout checks established successful image loading but missed the bands caused by `object-fit: contain`. The catalogue check now measures the image's painted extent against the frame. Current Chromium/WebKit checks pass all six sizes per engine, including keyboard and no-JavaScript access to the new home-screen guide. Phone, tablet, desktop, expanded-guide and social-image captures were visually inspected. An independent design agent accepted the page crop and requested the wider social composition, then accepted the revised candidate. The full prompt is shorter; permissions remain a one-line footer reminder with linked details. All 44 kit and 135 example Node tests pass, with all 219 example outputs unchanged.

@@ -3,6 +3,8 @@
 !build.mjs
 !vercel.json
 !index.html
+!learn/
+!learn/index.html
 !style.css
 !start.mjs
 !start.txt
@@ -25,6 +27,8 @@ assets/*
 !showcase/build.mjs
 !showcase/vercel.json
 !showcase/index.html
+!showcase/learn/
+!showcase/learn/index.html
 !showcase/style.css
 !showcase/start.mjs
 !showcase/start.txt

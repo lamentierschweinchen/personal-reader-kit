@@ -491,6 +491,7 @@
     "showcase/check.mjs",
     "showcase/favicon.svg",
     "showcase/index.html",
+    "showcase/learn/index.html",
     "showcase/package.json",
     "showcase/share-image.mjs",
     "showcase/start.mjs",
