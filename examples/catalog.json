@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 71419,
-          "sha256": "81136b3b7048a43a8e5ae7e6b8d2caf062d7034c6e379b4f97cdac710e6b210f"
+          "bytes": 74441,
+          "sha256": "df84364433c22b1e2a576629a45ccd2a334c293075ab88cb6ae3c71c655c1953"
         },
         {
           "path": "austen-colophon.png",
@@ -901,12 +901,12 @@
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "bd033931ba1c741112c2375bd58cb9e939e1a33fa015798219cd8a3e8ecdd9aa"
+          "sha256": "a58e89265568d7418c2e07faf9f39a7d3f4d7833339a8d7b4443e71e8441f8dd"
         },
         {
           "path": "text.mjs",
-          "bytes": 6108,
-          "sha256": "567ca00639315b115af06fcb1f3916429cf466d0400c4bcb741a8ee4e5d06d4e"
+          "bytes": 6879,
+          "sha256": "395062c7b610a7c2317da2cabd2d609375201131a8aa9fb5a0c07391eb44ceb7"
         }
       ],
       "maintenanceChanges": [

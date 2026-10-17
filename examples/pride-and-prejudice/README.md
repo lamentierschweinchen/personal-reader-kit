@@ -28,6 +28,8 @@ Records belong to this browser/profile and origin. Export private reading bundle
 
 The source notice appears once per browser/profile for the included edition, including a first visit through a chapter link. **Edition & source** keeps the full notice, licence, credits, original front matter and reading guidance available. Source visits preserve the main reading place. If the browser cannot remember showing the notice, a visible explanation says it may return after a reload; clearing storage or changing browsers can also show it again. The notice preference is separate from reading bundles and never changes the edition.
 
+The repeated 1894 illustration copyright lines are omitted from normal reading; their historical credit is stated once under **Edition & source**. **Original text of this chapter** and full-edition bundles retain every source character. A selection crossing an omitted credit keeps the exact original quotation: the note editor shows that credit and explains its inclusion before saving, copying or sharing. Existing notes remain anchored to the unchanged edition.
+
 ## Source and verification evidence
 
 - [Exact edition, credits, source links and rights scope](docs/SOURCE-RIGHTS.md)

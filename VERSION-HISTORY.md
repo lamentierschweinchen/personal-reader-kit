@@ -14,6 +14,8 @@ Replaces the personal catalogue at read.lookatseel.com with the accepted short c
 
 Austen now remembers displaying its source notice for the exact bundled edition. Repeat visits and chapter changes keep the reading surface quiet; Edition & source preserves notices, credits and usage details without moving the reading place. Storage failure is explained honestly, and focus mode defers the first notice. Complete edition bytes are unchanged. The quiet-copy principle is recorded in the common guide and working agreement.
 
+The follow-up also removes 22 repeated historical illustration-credit lines from the reading presentation, retaining one credit in Edition & source. A mixed illustration caption keeps its wording. Exact edition verification limits the change to the reviewed source; original chapter text, quotation offsets, older notes and full exports remain recoverable. The personal page’s footer disclosure now scrolls within a short viewport.
+
 ## Beginner guide · 17 October 2026
 
 Adds a separate “Your first reader” page linked from the catalogue and README. Four steps take a newcomer from a folder-capable coding agent to a working sample, an actual save/reload check, their own book and a home-screen/offline handoff. Official provider setup links and short definitions sit beside the relevant actions. The selectable instruction, copy fallback and native help disclosures work without an account on the catalogue. No reader application or prepared edition changes.

@@ -27,3 +27,7 @@ The user authorized including the four reviewed examples in the established publ
 Show the full source notice once per browser/profile for the included edition, in the page without a modal. Chapter entry is covered as well as the title page. Remember its presentation separately from books and notes; if storage fails, retain a visible explanation and suppress repetition until reload.
 
 Keep the notice, full licence, credits, original front matter, conversion record and reading guidance in **Edition & source**, with source documents opening in context without changing the main reading place. Remove the recurring chapter tip and context/index reassurance from the reading surface. All edition bytes, historical captions, images, anchors and bundle formats remain unchanged.
+
+## 17 October 2026 — repeated illustration credits
+
+Omit the 22 repeated 1894 illustration copyright credits from normal reading of the exact bundled snapshot. Preserve the meaningful caption that shares one of those blocks, state the historical credit once in **Edition & source**, and offer the complete original chapter there. Source bytes, image files, quotation anchors, notes and exports remain unchanged. When a selection spans an omitted credit, its editor explicitly shows and explains the complete original quotation. An old reading place anchored to a hidden standalone credit resumes at the next visible block.

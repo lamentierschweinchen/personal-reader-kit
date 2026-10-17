@@ -1,4 +1,4 @@
-import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT} from './core.mjs';
+import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT,sha256} from './core.mjs';
 import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,recoverState,recoveryArchives,librarySnapshot,restoreBundle} from './db.mjs';
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
 import {renderText,readSelection,renderPassage} from './text.mjs';
@@ -15,6 +15,15 @@ let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageE
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
 const AUSTEN='austen-pride-1894';
 const AUSTEN_SOURCE='932b4622c5bd15df8c1559ff8426991cb3f1632b8d3629f712c64bdd38129939';
+const AUSTEN_LIBRARY_SHA='a3f77b3c8ca231236d89891a4917e72c6e2250a18a1b4a134797ee80ae84a679';
+const ILLUSTRATION_CREDIT='[Copyright 1894 by George Allen.]';
+const CREDIT_BLOCKS={
+  'chapter-1':['b0261','b0290'],'chapter-3':['b0329','b0341'],'chapter-5':['b0380'],'chapter-6':['b0414'],
+  'chapter-10':['b0666'],'chapter-16':['b0793'],'chapter-18':['b0893'],'chapter-21':['b1017'],'chapter-22':['b1048'],
+  'chapter-25':['b1134'],'chapter-28':['b1218'],'chapter-30':['b1283'],'chapter-32':['b1350'],'chapter-36':['b1445'],
+  'chapter-37':['b1468'],'chapter-41':['b1591'],'chapter-44':['b1719'],'chapter-48':['b1876'],'chapter-49':['b1919'],'chapter-56':['b2243']
+};
+let creditPresentationBook=null;
 const SOURCE_NOTICE_KEY=`${AUSTEN}:source-notice:v1:${AUSTEN_SOURCE}`;
 let sourceNoticeSeen=false,sourceNoticeStorageFailed=false;
 try {sourceNoticeSeen=localStorage.getItem(SOURCE_NOTICE_KEY)==='shown';}catch {}
@@ -60,15 +69,35 @@ async function restorePosition(pos) {
   restored = false;
   $('#reading-text')?.setAttribute('data-position-ready','false');
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-  const el = pos?.revision === activeBook?.source.sha256 && pos.sectionId === activeSection?.id && pos.blockId ? [...main.querySelectorAll('[data-block]')].find(x => x.dataset.block === pos.blockId) : null;
+  const blocks=[...main.querySelectorAll('[data-block]')];
+  let el = pos?.revision === activeBook?.source.sha256 && pos.sectionId === activeSection?.id && pos.blockId ? blocks.find(x => x.dataset.block === pos.blockId) : null,ratio=pos?.ratio||0;
+  if(el?.closest('[data-source-omitted]')){
+    const index=blocks.indexOf(el),next=blocks.slice(index+1).find(x=>x.getBoundingClientRect().height>0);
+    el=next||blocks.slice(0,index).reverse().find(x=>x.getBoundingClientRect().height>0);ratio=next?0:1;
+  }
   if (el) {
-    const rect = el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY + rect.top + pos.ratio*rect.height - readingEdge()));
+    const rect = el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY + rect.top + ratio*rect.height - readingEdge()));
     // Sticky controls may settle at a different height after the first movement.
-    const settled=el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY + settled.top + pos.ratio*settled.height - readingEdge()));
+    const settled=el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY + settled.top + ratio*settled.height - readingEdge()));
   }
   else scrollTo(0,0);
   restored = true;
   $('#reading-text')?.setAttribute('data-position-ready','true');
+}
+function creditOmissions(book,section) {
+  if(book!==creditPresentationBook||!includedAusten(book)||!section)return [];
+  return section.blocks.flatMap(block=>{
+    if(!CREDIT_BLOCKS[section.id]?.includes(block.id)||!block.styles?.includes('caption'))return [];
+    const prefix=block.id==='b0414'?'“The entreaties of several”':'';
+    if(block.text!==(prefix?prefix+' ':'')+ILLUSTRATION_CREDIT)return [];
+    return [{blockId:block.id,start:prefix.length,end:block.text.length}];
+  });
+}
+function creditPassageNotice(passage) {
+  const book=bookById(passage.bookId),status=anchorStatus(passage,book);if(!status.valid)return '';
+  const blocks=status.section.blocks,first=passage.segments[0],last=passage.segments.at(-1),from=blocks.findIndex(b=>b.id===first.blockId),to=blocks.findIndex(b=>b.id===last.blockId);
+  const count=creditOmissions(book,status.section).filter(o=>{const i=blocks.findIndex(b=>b.id===o.blockId);return i>=from&&i<=to&&(i!==from||first.start<o.end)&&(i!==to||last.end>o.start);}).length;
+  return count?`<p class="small source-credit-warning">This quotation includes ${count===1?'an original illustration credit':'original illustration credits'} hidden in the reading view.</p>`:'';
 }
 function progressLabel(book) {
   if(book.id===AUSTEN){const s=book.sections.find(s=>s.id===state.positions[book.id]?.sectionId);return s?s.title:'61 chapters · illustrated edition';}
@@ -176,7 +205,7 @@ async function render({keepScroll=false}={}) {
     const guarded=activeBook.id===AUSTEN&&sourceWarnings.has(activeSection.id)&&!sourcePermissions.has(activeSection.id);
     if(guarded){$('#reading-text').innerHTML=sourceWarning(activeSection);$('#reading-text').dataset.positionReady='true';scrollTo(0,0);return;}
     const valid = state.notes.filter(n => n.sectionId === activeSection.id && anchorStatus(n,activeBook).valid);
-    renderText($('#reading-text'),activeSection,valid);
+    renderText($('#reading-text'),activeSection,valid,{omissions:creditOmissions(activeBook,activeSection)});
     if (!keepScroll) {const pos = requestedPosition === null ? null : requestedPosition || state.positions[activeBook.id];requestedPosition = undefined;await restorePosition(pos);}
     $('#reading-text').dataset.positionReady='true';
   }
@@ -235,7 +264,7 @@ function noteDialog(note,rangeChanged=false) {
   editing = structuredClone(note);editingRangeChanged=rangeChanged;
   const book=bookById(note.bookId),valid=anchorStatus(note,book).valid;
   const sharing=valid?`<section class="passage-sharing" aria-label="Share the quotation"><p class="small">${esc(book.author)} · ${esc(book.title)}<br>${esc(book.sections.find(s=>s.id===note.sectionId).title)}<br>${esc(book.edition)}</p><div class="dialog-actions"><button type="button" class="text" data-action="share-passage">Share passage</button><button type="button" class="text" data-action="copy-passage">Copy passage</button></div><p class="small" id="share-status" role="status">Quotation and source attribution only. Your note stays private.</p><div id="share-fallback" hidden><label for="share-text">Passage with attribution · select to copy</label><textarea id="share-text" readonly rows="7" spellcheck="false"></textarea></div></section>`:'<p class="small">Restore the exact edition to share this passage with attribution. Your saved quotation remains available.</p>';
-  openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`<blockquote class="dialog-quote">${esc(note.quote)}</blockquote>${sharing}<form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
+  openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`${creditPassageNotice(note)}<blockquote class="dialog-quote">${esc(note.quote)}</blockquote>${sharing}<form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
   $('#dialog-title').tabIndex=-1;$('#dialog-title').focus({preventScroll:true});
 }
 async function sendPassage(action) {
@@ -260,7 +289,7 @@ function beginSelection(passage) {
   const matches=state.notes.filter(n=>anchorStatus(n,activeBook).valid&&passagesOverlap(n,passage));
   if(!matches.length){noteDialog(passage);return;}
   selectionChoice={passage:structuredClone(passage),notes:structuredClone(matches)};
-  openDialog('Keep your selection.',`<p>Your selected words overlap ${matches.length===1?'a kept passage':'kept passages'}. Choose how to keep them.</p><blockquote class="dialog-quote">${esc(passage.quote)}</blockquote><button class="primary" data-action="selection-new">Keep as a new passage</button>${matches.map((n,i)=>`<section class="context-item"><p class="eyebrow">Existing passage ${i+1}</p><blockquote class="dialog-quote">${esc(n.quote)}</blockquote>${n.note?`<p class="passage-note">${esc(n.note)}</p>`:''}<div class="dialog-actions"><button class="text" data-action="selection-extend" data-choice="${i}">Extend this passage</button><button class="text" data-action="selection-edit" data-choice="${i}">Edit existing note</button></div></section>`).join('')}<p class="small">Extending keeps the existing note and all words in either range. Nothing changes until you save.</p>`);
+  openDialog('Keep your selection.',`<p>Your selected words overlap ${matches.length===1?'a kept passage':'kept passages'}. Choose how to keep them.</p>${creditPassageNotice(passage)}<blockquote class="dialog-quote">${esc(passage.quote)}</blockquote><button class="primary" data-action="selection-new">Keep as a new passage</button>${matches.map((n,i)=>`<section class="context-item"><p class="eyebrow">Existing passage ${i+1}</p><blockquote class="dialog-quote">${esc(n.quote)}</blockquote>${n.note?`<p class="passage-note">${esc(n.note)}</p>`:''}<div class="dialog-actions"><button class="text" data-action="selection-extend" data-choice="${i}">Extend this passage</button><button class="text" data-action="selection-edit" data-choice="${i}">Edit existing note</button></div></section>`).join('')}<p class="small">Extending keeps the existing note and all words in either range. Nothing changes until you save.</p>`);
 }
 async function context(bookId,sectionId,blockId,note) {
   const book=bookById(bookId),section=book?.sections.find(s=>s.id===sectionId);if(!section)throw new Error('This passage is no longer available.');
@@ -294,7 +323,7 @@ function background() {
 function editionDetails() {
   const b=bookById(AUSTEN);if(!includedAusten(b))return;
   const sectionLink=(id,label)=>`<a href="${path(b.id,id)}" data-action="edition-section" data-section="${id}">${label}</a>`;
-  openDialog('Edition & source',`<div class="edition-details"><p class="eyebrow">${esc(b.title)} · ${esc(b.author)}</p><p class="small">${esc(b.edition)}</p><nav class="edition-source-links" aria-label="Source documents">${sectionLink('edition-notice','Original source notice')}${sectionLink('front-matter','Original front matter')}${sectionLink('license','Full Project Gutenberg licence')}<a href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener noreferrer">Source EPUB for your e-reader</a></nav><details><summary>Source notice & credits</summary>${sourceLicenseNotice()}${b.context.filter(c=>c.through===null||allowed(b.id,c.through)).map(c=>`<section class="context-item"><h3>${esc(c.label)}</h3><p class="companion-reading">${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}</details><details><summary>Using this reader</summary><p>Select words to keep or share a passage. Your reading place is saved in this browser.</p><p>The word index searches the chapters you choose. The preface, illustration index, captions and source notices are excluded. Opening a result leaves your reading place unchanged.</p></details><details><summary>Edition record</summary><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></details></div>`);
+  openDialog('Edition & source',`<div class="edition-details"><p class="eyebrow">${esc(b.title)} · ${esc(b.author)}</p><p class="small">${esc(b.edition)}</p><nav class="edition-source-links" aria-label="Source documents">${bookById(AUSTEN)===creditPresentationBook&&route.view==='read'&&activeBook===b&&activeSection.id.startsWith('chapter-')?sectionLink(activeSection.id,'Original text of this chapter'):''}${sectionLink('edition-notice','Original source notice')}${sectionLink('front-matter','Original front matter')}${sectionLink('license','Full Project Gutenberg licence')}<a href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener noreferrer">Source EPUB for your e-reader</a></nav><details><summary>Source notice & credits</summary>${b===creditPresentationBook?`<p class="small historical-illustration-credit">Historical illustration credit: ${esc(ILLUSTRATION_CREDIT)}</p>`:''}${sourceLicenseNotice()}${b.context.filter(c=>c.through===null||allowed(b.id,c.through)).map(c=>`<section class="context-item"><h3>${esc(c.label)}</h3><p class="companion-reading">${esc(c.text)}</p>${c.url?`<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</section>`).join('')}</details><details><summary>Using this reader</summary><p>Select words to keep or share a passage. Your reading place is saved in this browser.</p><p>The word index searches the chapters you choose. The preface, illustration index, captions and source notices are excluded. Opening a result leaves your reading place unchanged.</p></details><details><summary>Edition record</summary><p class="small">${esc(b.source.description)}</p><p class="small">Edition fingerprint: ${b.source.sha256.slice(0,16)}…</p></details></div>`);
 }
 async function offline() {
   try {
@@ -518,8 +547,12 @@ try {const local=await loadBooks();books=local.books;if(local.rejected.length)sh
 route=parseRoute();await render();
 try {
   const response=await fetch('/library.json',{signal:AbortSignal.timeout(8000)});if(!response.ok)throw new Error('Unavailable');
-  const records=await response.json();if(!Array.isArray(records))throw new Error('Invalid sample library');
-  samples=records.map(validateBook);books=[...samples,...books.filter(b=>!sampleIds.has(b.id))];
+  const bytes=await response.arrayBuffer(),records=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));if(!Array.isArray(records))throw new Error('Invalid sample library');
+  samples=records.map(validateBook);
+  // Only this exact bundled snapshot may receive the reviewed presentation cuts.
+  // If hashing is unavailable or the source differs, retain its full presentation.
+  try {if(await sha256(bytes)===AUSTEN_LIBRARY_SHA)creditPresentationBook=samples.find(includedAusten)||null;}catch {}
+  books=[...samples,...books.filter(b=>!sampleIds.has(b.id))];
   // Do not disturb a reader, selection or open import dialog when a slow download finishes.
   if(!dialog.open&&route.view==='shelf'){route=parseRoute();await render({keepScroll:route.view!=='read'});}
   else if(!dialog.open&&route.view==='passages')await render({keepScroll:true});

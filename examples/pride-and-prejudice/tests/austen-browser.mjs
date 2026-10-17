@@ -106,12 +106,63 @@ async function sourceNoticeChecks(browser,engine){
  }
  return {firstDirectEntry:true,fullNoticeRetained:true,fullLicenceInContext:true,noModalInterruption:true,noRepeatAfterChapterReloadHomeOrNewTab:true,quietSourceAccess:true,sourceVisitPreservesPlace:true,relocatedReadingGuidance:true,focusDefersFirstNotice:true,storageFailures,errors};
 }
+async function illustrationCreditChecks(browser,engine){
+ const credit='[Copyright 1894 by George Allen.]',affected=book.sections.filter(s=>s.blocks.some(b=>b.text.includes(credit)));
+ const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedCreditQuotation=text;}}});});
+ try{
+  await page.goto(base+'/#read/'+book.id+'/chapter-1');await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled(page);await page.getByRole('button',{name:'Dismiss notice',exact:true}).click();
+  let omitted=0;
+  for(const section of affected){
+   await open(page,section.id);assert.equal(await page.locator('#reading-text').textContent(),section.blocks.map(b=>b.text+b.after).join(''));assert.equal((await page.locator('#reading-text').innerText()).includes(credit),false,section.id);
+   const credits=section.blocks.filter(b=>b.text.includes(credit));omitted+=credits.length;
+   for(const block of credits){const node=page.locator(`#reading-text [data-block="${block.id}"]`);if(block.text===credit)assert.equal(await node.isVisible(),false);else assert.equal(await node.innerText(),'“The entreaties of several”');}
+   const hiddenIds=await page.locator('#reading-text [data-source-omitted]').evaluateAll(nodes=>[...new Set(nodes.map(n=>(n.closest('[data-block]')||n.querySelector('[data-block]')).dataset.block))]);assert.deepEqual(hiddenIds,credits.map(b=>b.id));
+  }
+  assert.equal(omitted,22);
+  for(const sectionId of ['chapter-1','chapter-6'])for(const large of [false,true]){
+   await open(page,sectionId);await page.getByRole('button',{name:'Reading settings'}).click();await page.locator('#size').evaluate((el,size)=>{el.value=String(size);el.dispatchEvent(new Event('input',{bubbles:true}));},large?36:21);await page.getByRole('button',{name:'Apply to my reader'}).click();await settled(page);
+   const caption=page.locator(`#reading-text [data-block="${sectionId==='chapter-1'?'b0260':'b0414'}"]`);await caption.scrollIntoViewIfNeeded();assert.equal((await page.locator('#reading-text').innerText()).includes(credit),false);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await snap(page,`${engine}-credits-${sectionId}-${large?'large':'normal'}`);
+   await page.locator('.reader-tools [data-action=focus]').click();await page.waitForFunction(()=>document.body.classList.contains('focus')&&document.querySelector('#reading-text').dataset.positionReady==='true');await caption.scrollIntoViewIfNeeded();assert.equal((await page.locator('#reading-text').innerText()).includes(credit),false);await snap(page,`${engine}-credits-${sectionId}-${large?'large':'normal'}-focus`);await page.keyboard.press('Escape');
+  }
+  await page.getByRole('button',{name:'Reading settings'}).click();await page.locator('#size').evaluate(el=>{el.value='21';el.dispatchEvent(new Event('input',{bubbles:true}));});await page.getByRole('button',{name:'Apply to my reader'}).click();
+  await page.goto(base+'/#shelf');await page.locator('.edition-intro').waitFor();
+  // A pre-change note on a now-hidden credit and a place inside that block remain recoverable.
+  const legacy=await page.evaluate(async book=>{const {passageAt}=await import('/core.mjs'),s=book.sections.find(s=>s.id==='chapter-1'),b=s.blocks.find(b=>b.id==='b0261'),note={...passageAt(book,s,b),id:'legacy-credit',note:'An existing note on the historical credit.',updated:1};await (await import('/db.mjs')).updateState(state=>{state.notes=[note];state.positions[book.id]={sectionId:s.id,blockId:b.id,ratio:.5,revision:book.source.sha256};state.lastBook=book.id;return state;});return note;},book);
+  await page.reload();await page.locator('.edition-intro').waitFor();await open(page,'chapter-1');
+  const resume=await page.evaluate(()=>({top:document.querySelector('[data-block=b0262]').getBoundingClientRect().top,edge:document.querySelector('.reader-tools').getBoundingClientRect().bottom+20,y:scrollY}));assert.ok(resume.y>0&&Math.abs(resume.top-resume.edge)<2,JSON.stringify(resume));assert.deepEqual((await state(page)).notes,[legacy]);
+  await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action=note-context]').click();await page.locator('#context-text[data-location-ready=true]').waitFor();assert.equal(await page.locator('#context-text mark').allTextContents().then(parts=>parts.join('')),credit);await snap(page,`${engine}-credits-legacy-note-context`);await close(page);
+  await open(page,'chapter-1');await selection(page,'b0260',0,18,'b0262');const visibleSelection=await page.evaluate(()=>getSelection().toString());assert.equal(visibleSelection.includes(credit),false);
+  await page.locator('#selection-save').click();assert.equal(await page.locator('.source-credit-warning').isVisible(),true);await page.getByRole('button',{name:'Keep as a new passage',exact:true}).click();
+  const exact='“He came down to see the place”\n\n'+credit+'\n\nThis was invitatio';
+  assert.equal(await page.locator('.dialog-quote').textContent(),exact);assert.equal(await page.locator('.source-credit-warning').isVisible(),true);await page.getByRole('button',{name:'Copy passage',exact:true}).click();assert.ok((await page.evaluate(()=>window.copiedCreditQuotation)).startsWith(exact+'\n\n'));
+  await page.locator('#note-text').fill('A new range crossing a hidden historical credit.');await snap(page,`${engine}-credits-crossing-selection`);await page.getByRole('button',{name:'Save on this device',exact:true}).click();await waitNote(page,2);await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();
+  const saved=(await state(page)).notes.find(n=>n.id!=='legacy-credit');assert.equal(saved.quote,exact);assert.deepEqual(saved.segments.map(s=>s.blockId),['b0260','b0261','b0262']);
+  assert.equal(await page.evaluate(async({note,book})=>(await import('/core.mjs')).anchorStatus(note,book).valid,{note:saved,book}),true);
+  // The one mixed caption retains its words and offsets; crossing its suffix is explained.
+  await open(page,'chapter-6');const title='“The entreaties of several”';await selection(page,'b0414',0,title.length);await page.locator('#selection-save').click();assert.equal(await page.locator('.dialog-quote').textContent(),title);assert.equal(await page.locator('.source-credit-warning').count(),0);await close(page);
+  await selection(page,'b0414',0,40,'b0415');await page.locator('#selection-save').click();assert.equal(await page.locator('.source-credit-warning').isVisible(),true);const mixed=await page.locator('.dialog-quote').textContent();assert.ok(mixed.startsWith(title+' '+credit+'\n\n'));
+  const draftDownload=page.waitForEvent('download');await page.getByRole('button',{name:'Export draft',exact:true}).click();const draft=await draftDownload,draftPath=new URL(`${engine}-credits-draft.json`,output).pathname;await draft.saveAs(draftPath);assert.equal(JSON.parse(await readFile(draftPath,'utf8')).notes[0].quote,mixed);await close(page);
+  // Quiet source access preserves the current place and exposes every original character.
+  const sourceControl=await page.locator('.reader-tools [data-action=background]').boundingBox();await page.mouse.click(sourceControl.x+sourceControl.width/2,sourceControl.y+sourceControl.height/2);await page.locator('.edition-details').waitFor();const place=(await state(page)).positions[book.id];await page.getByText('Source notice & credits',{exact:true}).click();assert.equal(await page.locator('.historical-illustration-credit').count(),1);assert.ok((await page.locator('.historical-illustration-credit').innerText()).includes(credit));await snap(page,`${engine}-credits-edition-source`);
+  await page.getByRole('link',{name:'Original text of this chapter',exact:true}).click();await page.locator('#context-text[data-location-ready=true]').waitFor();assert.equal(await page.locator('#context-text').textContent(),book.sections.find(s=>s.id==='chapter-6').blocks.map(b=>b.text+b.after).join(''));assert.ok((await page.locator('#context-text').innerText()).includes(credit));await close(page);assert.deepEqual((await state(page)).positions[book.id],place);
+  // Full editions and old/new annotations export and restore without any source migration.
+  await page.getByRole('button',{name:'Reading settings'}).click();await page.getByRole('button',{name:'Export a private reading bundle'}).click();const downloading=page.waitForEvent('download');await page.getByRole('button',{name:'Download private bundle'}).click();const download=await downloading,bundlePath=new URL(`${engine}-credits.reader-bundle.json`,output).pathname;await download.saveAs(bundlePath);const bundle=JSON.parse(await readFile(bundlePath,'utf8'));assert.deepEqual(bundle.books,[book]);assert.deepEqual(bundle.state.notes,[legacy,saved]);
+  const restored=await browser.newContext({serviceWorkers:'block'}),other=await restored.newPage();try{await other.goto(base);await other.locator('.edition-intro').waitFor();await other.getByRole('button',{name:'Reading settings'}).click();await other.locator('#bundle-file').setInputFiles(bundlePath);await other.locator('[data-action=bundle-apply]:enabled').click();await waitNote(other,2);await other.reload();await other.locator('.edition-intro').waitFor();assert.deepEqual((await state(other)).notes,[legacy,saved]);}finally{await restored.close();}
+  assert.deepEqual(errors,[]);
+ }finally{await context.close();}
+ const changed=await browser.newContext({serviceWorkers:'block'}),other=await changed.newPage();try{const revised=structuredClone(book);revised.context[0].text+=' Original fixture alteration.';await changed.route(base+'/library.json',r=>r.fulfill({contentType:'application/json',body:JSON.stringify([revised])}));await other.goto(base+'/#read/'+book.id+'/chapter-1');await other.locator('#reading-text[data-position-ready=true]').waitFor();assert.ok((await other.locator('#reading-text').innerText()).includes(credit));assert.equal(await other.locator('#reading-text [data-source-omitted]').count(),0);}finally{await changed.close();}
+ return {omittedCredits:22,affectedChapters:affected.length,exactSourceDOM:true,mixedCaptionPreserved:true,normalFocusAndLargeType:true,visibleSelectionOmitsCredits:true,sourceQuotationExplainedAndExact:true,oldCreditNoteRecovered:true,oldCreditPlaceResumesAtNextBlock:true,copyAndDraftExact:true,fullBundleUnchangedAndRestored:true,originalChapterAccess:true,sourceVisitKeepsPlace:true,changedSnapshotNotFiltered:true,errors};
+}
 try{
  for(const engine of process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit']){
   await start();
   const executablePath=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;
   const browser=await pw[engine].launch({headless:true,...(executablePath?{executablePath}:{})});
   try{
+   const illustrationCredits=await illustrationCreditChecks(browser,engine);console.log(`${engine}: illustration credits, source ranges and old notes passed`);
+   if(process.env.QA_SCOPE==='illustration-credits'){receipts.push({engine,illustrationCredits});continue;}
    const sourceNotices=await sourceNoticeChecks(browser,engine);console.log(`${engine}: one-time source notice and quiet source access passed`);
    const unavailableEdition=await unavailableEditionChecks(browser,engine);console.log(`${engine}: missing edition retains local reading and hides stock prototypes`);
    const continuity=await sharingContinuityChecks({browser,base});
@@ -238,9 +289,9 @@ try{
    const offlineWrites={created:true,edited:true,reloaded:true,exactQuote:true,chapterNavigation:true,companionRoundTrip:true,placePreserved:true,section:beforeReload.sectionId,block:beforeReload.blockId,noteCount:offlineSaved.notes.length,networkControlStillFails:true,geometry:offlineGeometry};
 
    assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-   receipts.push({engine,sourceNotices,unavailableEdition,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
+   receipts.push({engine,illustrationCredits,sourceNotices,unavailableEdition,continuity,sharing,home,reading,targetsAtLeast44:true,queuedScrollKeepsRecalledControls:true,importSavesCurrentPlace:true,unsavedNoteEscapeGuard:true,nightLargeType:true,excerptOmissionsOutsideSourceText:true,exactOccurrenceContext:true,sectionsCompared:66,imagesVerified:164,sourceTextContent:true,chapterJump:true,sourceReferenceReturn:true,spoilerGates:true,wordCompanion:true,mainPlacePreserved:true,noteSaveReload:true,largeRange:range,viewports:sizes,focusRecallAndSelection:true,bundleFreshContextAndRepeat:true,coldOffline:cached,offlineWrites,errors,external,limits:'Emulated browsers, not physical iOS/e-ink, touch selection or human proofreading. Bundles retain illustration references; assets remain supplied by this site.'});
    console.log(JSON.stringify(receipts.at(-1)));await context.close();
   }finally{await browser.close();await stop();}
  }
- await writeFile(new URL('austen-browser-receipt.json',output),JSON.stringify(receipts,null,2)+'\n');
+ await writeFile(new URL(process.env.QA_SCOPE==='illustration-credits'?'austen-credit-receipt.json':'austen-browser-receipt.json',output),JSON.stringify(receipts,null,2)+'\n');
 }finally{await stop();}
