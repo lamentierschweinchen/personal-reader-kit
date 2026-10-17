@@ -11,6 +11,7 @@ const output=new URL('../test-results/personal/',import.meta.url);await mkdir(ou
 const edition=JSON.parse(await readFile(new URL('../examples/alice-in-wonderland/edition/library.json',import.meta.url),'utf8'))[0];
 const blocks=edition.sections.find(s=>s.id==='chapter-01').blocks;
 const paragraphs=['chapter-01-b003','chapter-01-b004'].map(id=>blocks.find(b=>b.id===id).text);
+const spreadPassage=blocks.find(b=>b.id==='chapter-01-b006').text;
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
 const sizes=[{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:768,height:1024},{width:1440,height:900}];
 async function settled(page){await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].filter(i=>i.loading!=='lazy'||i.complete).map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
@@ -31,6 +32,7 @@ try{
     assert.equal(await page.locator('.books a,.books button').count(),0,'The illustrations do not open any reader');
     assert.deepEqual(await page.locator('main a[href^="https:"]').evaluateAll(els=>els.map(e=>e.href)),['https://newreading.app/']);
     assert.deepEqual(await page.locator('.alice-text').allTextContents(),paragraphs,'Alice excerpt remains exact');
+    assert.equal(await page.locator('.sample-passage blockquote').textContent(),spreadPassage,'The illustrated-page excerpt remains exact');
     assert.equal(await page.locator('.alice-text mark').textContent(),'"and what is the use of a book," thought Alice, "without pictures or conversations?"');
     assert.equal(await page.locator('.walden-preview tr').count(),13);
     const prices=await page.locator('.walden-preview td:last-child').allTextContents();
@@ -41,6 +43,8 @@ try{
      assert.equal(await page.locator('.preview-choices').isVisible(),false,'Hidden preview controls cannot receive focus');
      await page.locator('.scroll-cue').click();await page.locator('.transformation.is-open').waitFor();await settled(page);
      assert.ok(await page.locator('.book-cover').first().evaluate(e=>parseFloat(getComputedStyle(e).opacity)<.2),'Scrolling opens the covers');
+     const device=await page.locator('.book-alice .reader-screen').evaluate(e=>{const b=e.getBoundingClientRect(),s=getComputedStyle(e);return{ratio:b.width/b.height,radius:parseFloat(s.borderTopLeftRadius),bezel:parseFloat(s.borderTopWidth)}});
+     assert.ok(device.ratio<.6&&device.radius>20&&device.bezel>4,'The opened book has a tall, rounded phone body with a visible bezel');
      if(viewport.width<700){
       const before=await page.evaluate(()=>scrollY);
       for(const name of ['walden','canetti','alice']){

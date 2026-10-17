@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Phones and an illustrated page · 17 October 2026
+
+The covers now open onto recognisable phones: the inner page narrows and rounds as the cover turns, revealing a bezel, speaker and home bar. Alice’s selection toolbar and the three preview captions are removed. Below the opening, an unframed illustrated page pairs “Read it. Explore it.” with Rackham’s rabbit and the exact `chapter-01-b006` passage from the reviewed Alice edition. The existing image pixels are reused unchanged. Get started and the quiet footer remain the only following sections.
+
 ## Personal introduction, refined · 17 October 2026
 
 The personal entrance now has one short sequence: Canetti, Alice and Walden open into illustrated reader views; “Read it. Explore it.” states the offer; Get started leads to newreading.app. Alice is centered with the exact question about pictures and conversations selected. Walden shows all thirteen house-account entries and the $28.12½ total, with the original exclusions. Native HTML replaces flattened screenshot text; a larger lossless map retains attribution. All reader destinations are removed, including Canetti. Phone controls switch illustrations in place. The footer contains secondary links and the colophon.

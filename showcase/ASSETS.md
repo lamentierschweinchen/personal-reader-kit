@@ -8,6 +8,8 @@ At the owner’s explicit request, `personal/` now uses the accepted short cover
 
 The current reveal uses native HTML for Alice and Walden, rather than screenshot text. Alice reproduces the exact first two paragraphs of `chapter-01` (`chapter-01-b003` and `chapter-01-b004`) in the reviewed Rackham edition; the final question in the first paragraph is highlighted. Walden newly typesets the thirteen house-account entries and $28.12½ total from “Economy”, with shortened row labels and the following paragraph’s exclusion of labour, timber, stones and sand. These are illustrative views, not functioning reader controls. No edition source changes.
 
+The illustrated “Read it. Explore it.” page reuses the same `assets/alice-rabbit.png` pixels and quotes `chapter-01-b006` exactly, with an inline highlight. It adds no new asset or edition permission. The phone frames and opening transition are CSS; no device artwork is imported.
+
 - `assets/personal-canetti-map.png`: 748 × 940 lossless map-only capture from the owner’s local reference concept, selected on 17 October 2026. It shows six numbered stops and suggested detours in today’s Marrakech, not a reconstruction of Canetti’s exact itinerary. No literary prose, notes, reading records or device location appears. Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), under ODbL; visible attribution is preserved, with a clickable attribution in the colophon. Display-only permission does not authorize a link to the private reader or any other Canetti material.
 
 The following three older 450 × 700 captures are retained for history review but are no longer included in the deployed page or build:

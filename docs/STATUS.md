@@ -4,6 +4,12 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with four reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications and literary text remain outside this repository. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Phones and an illustrated page · 17 October 2026
+
+The covers now open onto recognisable phones: the inner page narrows and rounds as the cover turns, revealing a bezel, speaker and home bar. Alice’s selection toolbar and the three preview captions are removed. Below the opening, an unframed illustrated page pairs “Read it. Explore it.” with Rackham’s rabbit and the exact `chapter-01-b006` passage from the reviewed Alice edition. The existing image pixels are reused unchanged. Get started and the quiet footer remain the only following sections.
+
+All 44 kit tests, the original-sample build, the 289-input combined build and ten Chromium/WebKit personal-page layouts pass. The focused check verifies phone proportions, the selected hero passage and the new exact source quotation. Settled desktop, tablet and phone views and the intermediate cover reveal were visually inspected; a fresh editorial/design reviewer retained the design. Reduced motion, no JavaScript, keyboard access, phone switching without scroll movement and the main-site handoff remain covered. Browser emulation does not establish physical-device or screen-reader acceptance. No edition, reader runtime, deployment asset or public inventory entry changes.
+
 ## Personal introduction, refined · 17 October 2026
 
 The personal entrance now has one short sequence: Canetti, Alice and Walden open into illustrated reader views; “Read it. Explore it.” states the offer; Get started leads to newreading.app. Alice is centered with the exact question about pictures and conversations selected. Walden shows all thirteen house-account entries and the $28.12½ total, with the original exclusions. Native HTML replaces flattened screenshot text; a larger lossless map retains attribution. All reader destinations are removed, including Canetti. Phone controls switch illustrations in place. The footer contains secondary links and the colophon.
