@@ -21,7 +21,7 @@
       "browserCommands": [
         "test:book"
       ],
-      "url": "https://austen.lookatseel.com/",
+      "url": "https://newreading.app/austen/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -901,7 +901,7 @@
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "e91dad86669cfa24e69f140944155442db70809ffffd5cfa0bea1848d7220c68"
+          "sha256": "9ac9e15a005f1d771ae1dfb2257f2141a48aa25739b52f6d64c5cba5f230e728"
         },
         {
           "path": "text.mjs",
@@ -915,7 +915,8 @@
         "site/app.mjs",
         "site/index.html",
         "tests/austen-browser.mjs",
-        "tests/publication.test.mjs"
+        "tests/publication.test.mjs",
+        "vercel.json"
       ]
     },
     {
@@ -938,7 +939,7 @@
         "test:browser",
         "test:share"
       ],
-      "url": "https://alice.lookatseel.com/",
+      "url": "https://newreading.app/alice/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -998,7 +999,7 @@
         {
           "path": "sw.js",
           "bytes": 1131,
-          "sha256": "4564c7750a84875b8c40bc9d835e65dd05ddc1d8a4816e2ff336ebfb4edbcb8c"
+          "sha256": "93d2e4473bd7080e8b5ee33d086d335cbb54d85478d7c5948874d1394940c8fa"
         },
         {
           "path": "text.mjs",
@@ -1012,7 +1013,8 @@
         "VERSION-HISTORY.md",
         "site/app.mjs",
         "tests/alice-browser.mjs",
-        "tests/publication.test.mjs"
+        "tests/publication.test.mjs",
+        "vercel.json"
       ]
     },
     {
@@ -1034,7 +1036,7 @@
       "browserCommands": [
         "test:walden-browser"
       ],
-      "url": "https://walden.lookatseel.com/",
+      "url": "https://newreading.app/walden/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -1099,7 +1101,7 @@
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "a221611ea1ae5e692c66c242513f038794dae9797c58f037a182afddcdc7c159"
+          "sha256": "4d7ca219e8bcda7dcbe598264dde51dedc4f1bdf08fdfe1003fb27d032186686"
         },
         {
           "path": "text.mjs",
@@ -1112,7 +1114,8 @@
         "README.md",
         "site/app.mjs",
         "site/companion.mjs",
-        "tests/publication.test.mjs"
+        "tests/publication.test.mjs",
+        "vercel.json"
       ]
     },
     {
@@ -1135,7 +1138,7 @@
         "test:browser",
         "test:share"
       ],
-      "url": "https://two-halls.lookatseel.com/",
+      "url": "https://newreading.app/two-halls/",
       "reviewedBuild": [
         {
           "path": "app.mjs",
@@ -1205,7 +1208,7 @@
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "85c6bf559e3328a29efe2d2ac80c0c183e6cb2d31252e5ea299234222b9e4353"
+          "sha256": "45ae80f322735d8865846c04ad647e03d29c1d166045daecae126e99bb429f1c"
         },
         {
           "path": "text.mjs",
@@ -1219,7 +1222,8 @@
         "site/app.mjs",
         "site/index.html",
         "site/lectures.mjs",
-        "tests/publication.test.mjs"
+        "tests/publication.test.mjs",
+        "vercel.json"
       ]
     }
   ],

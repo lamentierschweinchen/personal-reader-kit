@@ -20,7 +20,7 @@ The checks cover the page at phone/tablet/desktop sizes, keyboard and no-JavaScr
 
 ## Hosting
 
-The existing `lookatseel-read` Vercel project uses this `showcase` directory, `npm run build`, output `dist`, Node 24 and `node --version` as its install command. The combined deployment requires **Include source files outside the root directory** for the four reviewed sibling examples; check the current approval/deployment state in STATUS.md before changing that setting. `inputs.json` and `.vercelignore` enumerate exact required files; no private workspace, source archive, intake, notes or arbitrary example directory is admitted. Deploy the reviewed Git repository, never the surrounding Reading workspace. The stock kit's root upload list remains unchanged.
+The existing `lookatseel-read` Vercel project uses this `showcase` directory, `npm run build`, output `dist`, Node 24 and `node --version` as its install command. The combined deployment requires **Include source files outside the root directory** for the four reviewed sibling examples; the owner approved and enabled that setting for this project on 17 October 2026. Preview authentication remains enabled. `inputs.json` and `.vercelignore` enumerate exact required files; no private workspace, source archive, intake, notes or arbitrary example directory is admitted. Deploy the reviewed Git repository, never the surrounding Reading workspace. The stock kit's root upload list remains unchanged.
 
 Keep `vercel.json` with the output: it applies the reader CSP, worker revalidation, stable trailing-slash entrances and the examples' noindex default. The public catalogue permits indexing. Home-screen installation is per reader, not a wrapper around the catalogue.
 
