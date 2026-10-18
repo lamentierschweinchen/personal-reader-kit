@@ -30,6 +30,8 @@ Every sentence must help the reader act, notice something specific, understand s
 
 For commentary, ask: what will the reader know or see afterwards that the book or interface did not already make obvious? Require concrete details and a precise passage relationship. A source link, word count or estimated duration does not answer that question. Delete weak material rather than embellishing it to meet a length target.
 
+A question that merely asks the reader to repeat the preceding paragraph may add no value. A generic notebook is not a companion simply because its prompts mention the book. For teaching, inspect the actual worked example and a meaningful exception; distinguish the author's rules or motives from the editor's interpretation and exercises. Preserve the conditions under which advice is useful. A flag must explain what it matched and allow a reasoned decision to keep the words.
+
 ### 2. The reader's surface
 
 Remove self-narration: announcements of what the editor is about to do, explanations of restraint, praise for the product's sensitivity, and repeated permission to interpret or disagree. Usually start with the observation, evidence, question or action itself.
@@ -48,6 +50,8 @@ Read aloud for cadence and check neighboring paragraphs for repeated openings, c
 
 Inspect the edited surfaces on phone and tablet, with the actual requested section loaded. Check labels, hierarchy, links and large type as well as paragraphs. Distinguish authored text from its styling: CSS capitalization can change `innerText()` without changing `textContent()`, and neither proves comfortable reading. Wait for fonts and finite transitions before screenshots. Review sibling editions for repeated stock prose, while preserving useful consistent control labels.
 
+Follow the route to the material itself. Cut repeated titles and introductions that delay the actual example or action; keep method details secondary while retaining qualifications needed to understand a claim. A phone comparison must remain useful when its passages stack. Review the loaded application revision as well as the content, so a cached interface is not mistaken for the latest change.
+
 Use a fresh editorial reader when one is available or requested. Give that reviewer the scope, protected material and intended voice before giving them your findings. They should be able to retain strong prose and find nothing wrong. Do not require a quota of defects or silently equate a second pass by the writer with an independent review.
 
 ## Finish with evidence
@@ -57,6 +61,8 @@ For a consequential behavior claim, record the starting state, action and observ
 The optional `scripts/editorial-review.mjs` command checks receipt coverage, current file hashes and unchanged protected sources. It does **not** extract prose, establish route reachability, fact-check claims or certify quality. Use `--help` for its small snapshot/check workflow. An untouched receipt must not pass, and changing reviewed code requires another review.
 
 For release, resolve material findings, inspect the resulting rendered experience, run the relevant application checks and the public file/history audit. A documented exception needs a reason; unsupported factual claims or altered source text are release blockers. Report manual editorial judgment separately from automated checks, and do not claim human reader acceptance without it.
+
+The responsible agent must personally endorse the resulting experience within the reviewed scope, including its benefit and attention cost; a favourable delegated report alone is insufficient. If later review rejects an earlier endorsement, mark it superseded and state whether the feature is cut, simplified or retained. Preserve the valid technical evidence and the reader's records, but do not use either as a reason to retain a weak interaction. Existing receipt summaries and limits can record this decision; the receipt checker does not certify it. If the user delegated creative judgment, make and refine that decision before presenting a finished result rather than asking them to rescue unfinished options.
 
 ## Before proposing a companion
 

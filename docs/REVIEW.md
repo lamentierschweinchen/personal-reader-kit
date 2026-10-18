@@ -4,6 +4,22 @@ The Canetti builder independently reviewed `main@4eaeec6` on 15 October 2026, in
 
 The useful product description is a **reusable reader shell plus a supervised editorial workflow**. This update preserves that boundary. It does not claim automated scholarship, universal ebook conversion, physical mobile dependability or hosted private libraries.
 
+## Production and editorial review, 18 October 2026
+
+Recent reader trials required a separate editorial decision after functional checks had passed. The reusable findings below are generalized; private texts, notebooks, prototypes and captures remain outside the kit.
+
+| Observed issue | Reusable response | Scope |
+| --- | --- | --- |
+| Themed questions repeated the adjacent commentary; a notebook added little beyond marginalia. | Judge the complete interaction's benefit and attention cost. Withdraw an earlier endorsement when warranted; remove promotion while retaining earlier writing and recovery. A replacement companion is optional. | Agent guide, copyeditor and upgrade guidance. |
+| A teaching companion offered exercises without enough demonstration. | Teach through actual contrasting examples, preserve exceptions and distinguish the author's claims from editorial exercises. Explain bounded automated checks and permit deliberate disagreement. | Editorial guidance; no general writing assessor added. |
+| Large headings and repeated introductions pushed examples and feedback out of useful view despite passing layout checks. | Inspect how promptly the actual material and next action appear, including the cost of stacked comparisons on a phone. Keep original versions accessible and method details secondary. | Design and copyeditor guidance; no universal first-viewport requirement. |
+| First-input confirmation added friction, while re-review erased decisions on unchanged sentences. | Distinguish first use from replacement recovery. Preserve judgments only in unchanged, unambiguous contexts and test changed or duplicate contexts separately. | Conditional guidance for specialized tools; stock import and bundle safeguards remain. |
+| A newly built server and an existing offline tab could show different revisions. | Identify the loaded code and controlling worker; compare fresh-context evidence with the normal existing-profile update path, preserving records. | Verification discipline, not a newly diagnosed worker defect. |
+
+Artwork comparisons also need an exact depicted moment and contribution: related images can represent different scenes, editions or kinds of response. The design and rights guides now connect that editorial check to reproduction quality, spoiler handling and the existing asset receipt.
+
+The stock touch-selection correction is already published. No private companion schema, lesson text, phrase detector, prototype or source asset is being ported. The existing receipt format can record superseded approval; adding a machine-generated quality verdict would not solve the editorial failure. This update changes guidance, not reader runtime, saved data or edition files. Its release checks and limits are recorded in [STATUS.md](STATUS.md#production-and-editorial-guidance-18-october-2026).
+
 ## Findings and disposition
 
 | Finding | Response in 0.2.0 | Evidence / remaining limit |
