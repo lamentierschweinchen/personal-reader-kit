@@ -1,227 +1,193 @@
-const $ = selector => document.querySelector(selector);
-const game = $('#game'), canvas = $('#sea'), ctx = canvas.getContext('2d');
-const sailors = [...document.querySelectorAll('.sailor')];
-const DURATION = 72;
-const C = {sea:'#183c46',deep:'#102e36',foam:'#a8c6c3',paper:'#f3f0e6',ink:'#203437',gold:'#e8c67d',wood:'#b98858',deck:'#d8b781',danger:'#f39d78',rock:'#739190'};
-const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
-let reduced = motionQuery.matches;
-motionQuery.addEventListener('change', event => { reduced = event.matches; });
-let w=0, h=0, field=0, offset=0, sy=0, shipScale=1, dpr=1, previous=0, ambience=0;
-let mode='ready', soundOn=false, audioContext=null, resumeAfterStory=false, messageUntil=0;
-let state, courseIndex=0, crewIndex=0, nextCrew=6, lastCommand=-10;
-const keys = new Set(), pointers = new Map();
-const obstacles=[], ripples=[], particles=[];
-const crew = Array.from({length:3},()=>({active:false,age:0,duration:3.8,thanks:0}));
-const course = [
-  ['rock',.40], ['rock',.75], ['rocks',.18,.56], ['wave',.50,-1],
-  ['rocks',.44,.82], ['rock',.33], ['rocks',.18,.56], ['wave',.72,1],
-  ['rock',.62], ['rocks',.44,.82], ['rock',.50], ['wave',.28,-1],
-  ['rocks',.18,.56], ['rocks',.44,.82], ['rock',.40], ['wave',.55,1],
-  ['rocks',.18,.56]
+const $=selector=>document.querySelector(selector);
+const game=$('#game'),canvas=$('#sea'),ctx=canvas.getContext('2d');
+const sailors=[...document.querySelectorAll('.sailor')];
+const C={sea:'#183c46',deep:'#102e36',foam:'#a8c6c3',paper:'#f3f0e6',ink:'#203437',gold:'#e8c67d',wood:'#b98858',deck:'#d8b781',danger:'#f39d78',rock:'#739190'};
+const DAYS=[
+ {name:'Aeolus',title:'A borrowed wind',duration:36,book:'Book X',anchor:'book-10/book-10-004/book-10-005',
+  copy:'Aeolus ties the roaring winds inside an ox-hide bag and leaves the West Wind free to carry the ship. The crew have their own ideas about what the bag contains.',
+  tactic:'Follow the openings between the rocks. Tap a gold sailor before the ring runs out.',
+  gap:.54,first:6,spacing:4.1,centers:[.5,.71,.29,.65,.30,.69,.44],
+  crew:[[5.4,0],[13.1,1],[21.4,2],[29,0]],waves:[],gusts:[],bolts:[]},
+ {name:'Poseidon',title:'The sea rises',duration:38,book:'Book V',anchor:'book-05/book-05-025',
+  copy:'Poseidon takes up his trident and stirs the sea. Winds rush in from every quarter, and the sky disappears into cloud.',
+  tactic:'Swells sweep across the channels. Their arrows show the shove; leave room to steer back.',
+  gap:.48,first:5.8,spacing:4,centers:[.70,.29,.63,.33,.70,.30,.65,.38],
+  crew:[[5,1],[11.5,2],[18.1,0],[25.5,1],[31,2]],waves:[8,16,24,32],gusts:[],bolts:[]},
+ {name:'Athena',title:'A way through',duration:40,book:'Book V',anchor:'book-05/book-05-031/book-05-035',
+  copy:'Athena holds the winds still except for a breeze from the North. Later, beside a rocky shore, she helps the exhausted voyager keep his wits.',
+  tactic:'Follow the owl. Athena stills the swells while you call back the crew; two sailors may reach at once.',
+  gap:.43,first:5.8,spacing:4.2,centers:[.70,.30,.65,.35,.69,.30,.67,.34],
+  crew:[[4.8,0],[6.1,1],[13.5,2],[14.5,0],[23.2,1],[24.3,2],[32.2,0],[33.4,1]],waves:[7.2,15.7,25.4,34.4],gusts:[],bolts:[]},
+ {name:'Zeus',title:'Under the black cloud',duration:42,book:'Book XII',anchor:'book-12/book-12-037/book-12-038',
+  copy:'A black cloud hangs over the ship, and the water darkens beneath it. A squall comes from the West; Zeus’s thunder breaks overhead.',
+  tactic:'Read the gold gust arrows before they blow. Leave the lightning’s marked strip before it strikes.',
+  gap:.40,first:5.5,spacing:3.9,centers:[.29,.71,.30,.69,.32,.70,.29,.65,.34],
+  crew:[[4.4,0],[5.4,2],[11.7,1],[12.8,0],[19.2,2],[20.3,1],[26.3,0],[27.4,2],[33.4,1],[34.5,0]],waves:[7.7,15.6,27.2,35],gusts:[[8,1],[18,-1],[28,1],[35,-1]],bolts:[[11.9,.5],[23.6,.52],[34.8,.50]]}
 ];
+const numerals=['I','II','III','IV'],PROGRESS_KEY='newreading-homeward-days-v1';
+let saveWarning='';
+function loadProgress(){try{const raw=localStorage.getItem(PROGRESS_KEY);if(!raw)return{day:0,finished:false};const p=JSON.parse(raw);if(p.version!==1||!Number.isInteger(p.day)||p.day<0||p.day>3||typeof p.finished!=='boolean')throw Error();return{day:p.day,finished:p.finished};}catch{saveWarning='This browser could not read the saved voyage. You can begin again here.';return{day:0,finished:false};}}
+let progress=loadProgress(),dayIndex=progress.day;
+function saveProgress(){try{localStorage.setItem(PROGRESS_KEY,JSON.stringify({version:1,...progress}));saveWarning='';}catch{saveWarning='This browser could not keep your day. Leave this tab open to continue.';}showSaveWarning();}
+function showSaveWarning(){const e=$('#save-warning');e.textContent=saveWarning;e.hidden=!saveWarning;}
+const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');let reduced=motionQuery.matches;
+motionQuery.addEventListener('change',event=>{reduced=event.matches;});
+let w=0,h=0,field=0,offset=0,sy=0,shipScale=1,dpr=1,previous=0,ambience=0;
+let mode='ready',soundOn=false,audioContext=null,resumeAfterStory=false,messageUntil=0,state;
+let courseIndex=0,crewIndex=0,waveIndex=0,lastCommand=-10;
+const keys=new Set(),pointers=new Map(),obstacles=[],ripples=[],particles=[],gateMarkers=new Map();
+const crew=Array.from({length:3},()=>({active:false,age:0,duration:3.6,thanks:0}));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const readyX=()=>w<600?.56:.72;
-
+const day=()=>DAYS[dayIndex];
 function resetState(){
-  state={time:0,x:readyX(),velocity:0,hull:3,escapes:0,commands:0,hits:0,dodged:0,
-    invulnerable:0,gust:0,gustDirection:1,wave:0,waveDirection:0,shake:0};
-  courseIndex=0;crewIndex=0;nextCrew=6;lastCommand=-10;
-  obstacles.length=0;ripples.length=0;particles.length=0;
-  crew.forEach(c=>Object.assign(c,{active:false,age:0,duration:3.8,thanks:0}));
+ state={time:0,x:mode==='ready'?readyX():.5,velocity:0,hull:3,escapes:0,commands:0,hits:0,dodged:0,invulnerable:0,gust:0,gustDirection:1,wave:0,waveDirection:0,shake:0,weather:0,weatherDirection:0,boltHits:new Set()};
+ courseIndex=0;crewIndex=0;waveIndex=0;lastCommand=-10;obstacles.length=0;ripples.length=0;particles.length=0;
+ for(const e of gateMarkers.values())e.remove();gateMarkers.clear();
+ crew.forEach(c=>Object.assign(c,{active:false,age:0,duration:3.6,thanks:0}));
+ $('#forecast').hidden=true;$('#lightning').hidden=true;
 }
-
 function resize(){
-  const oldLandscape=w>h;
-  w=game.clientWidth;h=game.clientHeight;field=Math.min(w,760);offset=(w-field)/2;
-  const compact=h<540&&w>=600;
-  shipScale=compact?.79:(w<600?.94:1.12);
-  sy=compact?h*.59:h*.66;
-  dpr=Math.min(devicePixelRatio||1,2);
-  canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
-  ctx.setTransform(dpr,0,0,dpr,0,0);
-  if(state&&mode==='ready')state.x=readyX();
-  if(mode==='playing'&&oldLandscape!==(w>h))pause('A moment to get your bearings.');
-  positionCrew();
+ const oldLandscape=w>h;w=game.clientWidth;h=game.clientHeight;field=Math.min(w,560);offset=(w-field)/2;
+ shipScale=h<540&&w>=600?.76:w<360?.86:w<600?.94:1.12;
+ sy=h<540&&w>=600?h*.62:h*.66;
+ if(mode==='ready'&&w<600&&h<650){shipScale=.72;sy=h*.72;}
+ dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+ if(state&&mode==='ready')state.x=readyX();
+ if(mode==='playing'&&oldLandscape!==(w>h))pause('A moment to get your bearings.');
+ positionCrew();
 }
-
 function setMode(value){
-  mode=value;game.dataset.mode=value;
-  const modal=['paused','won','lost'].includes(value);
-  $('.topbar').inert=modal;$('#controls').inert=modal;
-  $('#pause').disabled=value!=='playing';
-  $('#remaining').hidden=value==='ready';
-  sailors.forEach(s=>s.disabled=value!=='playing');
-  $('#left').disabled=value!=='playing';$('#right').disabled=value!=='playing';
+ mode=value;game.dataset.mode=value;game.dataset.day=String(dayIndex+1);
+ const modal=['paused','won','lost','cleared','interlude'].includes(value);
+ $('.topbar').inert=modal;$('#controls').inert=modal;$('#heading').inert=value!=='ready';
+ $('#pause').disabled=value!=='playing';$('#remaining').hidden=value==='ready';
+ sailors.forEach(s=>s.disabled=value!=='playing');$('#left').disabled=value!=='playing';$('#right').disabled=value!=='playing';
+ if(value!=='playing'){$('#forecast').hidden=true;$('#lightning').hidden=true;}
 }
+function clearInput(){keys.clear();pointers.clear();$('#left').classList.remove('pressed');$('#right').classList.remove('pressed');if(state)state.velocity=0;}
+function announce(text,seconds=2.3){$('#message').textContent=text;messageUntil=state.time+seconds;}
 
-function clearInput(){
-  keys.clear();pointers.clear();
-  $('#left').classList.remove('pressed');$('#right').classList.remove('pressed');
-  if(state)state.velocity=0;
+function portrait(index){
+ const emblems=[
+  '<path d="M22 66q30-22 49-6t-12 14M21 90q21-14 38 0M210 64q-30-20-42 0t24 17M188 99q20-9 26 2"/>',
+  '<path d="M198 30v166M184 36v22q14 15 28 0V36M178 41l6-13 7 13M205 41l7-13 6 13"/>',
+  '<path d="m167 145 9-9 9 10 12-10 7 18-4 24-20 13-17-16z" fill="#9eaaa0"/><circle cx="176" cy="157" r="7"/><circle cx="192" cy="157" r="7"/><path d="m183 165 4 0-2 5M175 177l9 6 11-8"/>',
+  '<path d="m195 27-25 46h20l-20 43 49-59h-23l19-30z" fill="#e8c67d"/>'
+ ][index];
+ const crown=index===2?'<path d="M77 84q-1-54 45-54 43 0 43 53l-16-4-2-33-30-6-23 21-2 20z" fill="#6b8585"/><path d="M113 31q5-25 44-18l-7 23M90 75l56-9 15 15-47 1-9 39-11-9z" fill="#e8c67d"/>':index===1?'<path d="m80 63-5-22 18 13 5-23 17 16 12-21 12 24 20-14-2 30" fill="#e8c67d"/>':'<path d="M80 75q-13-44 33-43 46-9 48 44l-12-16-18 2-16-11-18 17z" fill="#708983"/>';
+ const beard=index===2?'<path d="M82 91q-10 15-2 44l-8 35M155 88q15 20 8 55l9 25" fill="none"/>':'<path d="m84 101 15 18 17-8 16 8 22-18-7 44-28 27-30-28z" fill="#708983"/><path d="m101 130 8 24m11-29 0 33m12-26-5 20"/>';
+ return `<svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#203437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="120" cy="108" r="89" stroke="#b2b9a9"/><circle cx="120" cy="108" r="95" stroke="#c8cebd" stroke-dasharray="1 7"/><path d="m54 213 8-37 41-26h35l40 26 10 37z" fill="#6b8585"/><path d="m100 148-9 30 29 30 25-32-7-28" fill="#c6b78e"/><path d="M81 76q-9 62 38 82 43-14 39-82-6-34-40-34-34 1-37 34z" fill="#d5c7a4"/>${crown}${beard}<path d="m88 88 17-4m25 0 16 4M97 94h3m36 0h3m-21-3-5 18 11 2M109 120q10 4 19-1M68 184l30 26m68-26-26 27"/>${emblems}<path d="M37 220h167" stroke="#235764"/></svg>`;
 }
-
-function announce(text, seconds=2.3){
-  $('#message').textContent=text;messageUntil=state.time+seconds;
+function showDay(index){
+ clearInput();dayIndex=index;$('#curtain').hidden=true;$('#interlude').hidden=false;$('#message').textContent='';
+ setMode('interlude');resetState();resize();
+ $('#deity-portrait').innerHTML=portrait(index);$('#day-kicker').textContent=`Day ${numerals[index]} of IV · ${day().name}`;
+ $('#day-title').textContent=day().title;$('#day-copy').textContent=day().copy;$('#day-tactic').textContent=day().tactic;
+ $('#day-source').href='../#reference/'+day().anchor;$('#day-source').innerHTML=`${day().book} passage <span>(spoilers)</span>`;
+ $('#day-start').textContent=`Sail day ${numerals[index]} · ${day().duration}s`;
+ $('.day-sheet').scrollTop=0;$('#day-start').focus({preventScroll:true});showSaveWarning();
 }
-
 function start(){
-  $('#source').close();$('#curtain').hidden=true;
-  clearInput();resetState();setMode('playing');
-  positionCrew();$('#accessible-status').textContent='';
-  announce('Dodge the rocks. Keep the bag tied.',3.4);
-  $('#pause').focus({preventScroll:true});
-  tone('start');
+ $('#source').close();$('#curtain').hidden=true;$('#interlude').hidden=true;clearInput();
+ setMode('playing');resetState();resize();state.x=.5;progress={day:dayIndex,finished:false};saveProgress();
+ positionCrew();$('#accessible-status').textContent='';announce(dayIndex===0?'Through the rocks. Hands off the bag.':dayIndex===3?'Watch the cloud. Watch the crew.':'Read the water ahead.',2.6);
+ $('#pause').focus({preventScroll:true});tone('start');
 }
-
+function replayAll(){progress={day:0,finished:false};saveProgress();showDay(0);}
 function pause(reason='The sea can wait.'){
-  if(mode!=='playing')return;
-  clearInput();setMode('paused');
-  $('#curtain').hidden=false;
-  $('#result-kicker').textContent='At anchor';$('#result-title').textContent='Take a breath.';
-  $('#result-copy').textContent=reason;
-  $('#again').textContent='Keep sailing';$('#restart').hidden=false;
-  $('#story').hidden=false;$('#again').focus({preventScroll:true});
+ clearInput();if(mode!=='playing')return;setMode('paused');$('#curtain').hidden=false;
+ $('#result-kicker').textContent=`Day ${numerals[dayIndex]} · At anchor`;$('#result-title').textContent='Take a breath.';$('#result-copy').textContent=reason;
+ $('#again').textContent='Keep sailing';$('#restart').hidden=false;$('#restart').textContent='Restart this day';$('#again').focus({preventScroll:true});
 }
-
-function resume(){
-  if(mode!=='paused')return;
-  clearInput();$('#curtain').hidden=true;setMode('playing');
-  $('#pause').focus({preventScroll:true});
+function resume(){if(mode!=='paused')return;clearInput();$('#curtain').hidden=true;setMode('playing');$('#pause').focus({preventScroll:true});}
+function finish(won,cause){
+ clearInput();setMode(won?(dayIndex===3?'won':'cleared'):'lost');$('#message').textContent='';$('#curtain').hidden=false;
+ $('#restart').hidden=!won||dayIndex===3;$('#restart').textContent='Sail this day again';
+ $('#result-kicker').textContent=`Day ${numerals[dayIndex]} · ${won?'Safe water':Math.floor(state.time)+' seconds at sea'}`;
+ $('#result-title').textContent=won?(dayIndex===3?'Home at last.':'A day nearer home.'):cause==='wind'?'Blown off course.':'Shipwrecked.';
+ $('#result-copy').textContent=won?(dayIndex===3?'Four seas crossed. The crew can finally leave the bag alone.':'The oars come to rest. The ship is repaired, and the next sea can wait.'):(cause==='wind'?'Three winds escaped. Try this day again; tap the gold sailors before their rings run out.':'The hull could take no more. Try this day again; line up with the next opening before it reaches the bow.');
+ if(won){progress={day:Math.min(3,dayIndex+1),finished:dayIndex===3};saveProgress();}
+ $('#again').textContent=won?(dayIndex===3?'Sail the final day again':`Meet day ${numerals[dayIndex+1]}`):'Retry this day';
+ $('#accessible-status').textContent=$('#result-title').textContent+' '+$('#result-copy').textContent;$('#again').focus({preventScroll:true});tone(won?'win':'loss');
 }
-
-function finish(won, cause){
-  clearInput();setMode(won?'won':'lost');
-  $('#message').textContent='';$('#curtain').hidden=false;
-  $('#restart').hidden=true;$('#story').hidden=false;
-  $('#result-kicker').textContent=won?'Ithaca · Landfall':`${Math.floor(state.time)} seconds at sea`;
-  $('#result-title').textContent=won?'Home at last.':cause==='wind'?'Blown off course.':'Shipwrecked.';
-  $('#result-copy').textContent=won
-    ? (state.hits===0&&state.escapes===0?'An unbroken hull. A tightly tied bag. Even the crew looks impressed.':`${state.commands} sailors sent back to the oars. ${state.hits?`${state.hits} rock ${state.hits===1?'hit':'hits'}. A battered ship is still a ship that made it home.`:'A few loose winds. All three sailors home.'}`)
-    : cause==='wind'?'The crew let the winds escape three times. Tap a gold sailor before the ring runs out.':'Three rocks were one too many. The wide side of each channel gives you room to watch the crew.';
-  $('#again').textContent=won?'Sail again':'Try again';
-  $('#accessible-status').textContent=$('#result-title').textContent+' '+$('#result-copy').textContent;
-  $('#again').focus({preventScroll:true});tone(won?'win':'loss');
-}
-
 function command(index){
-  if(mode!=='playing'||state.time-lastCommand<.18)return;
-  const c=crew[index];
-  if(!c.active)return;
-  lastCommand=state.time;c.active=false;c.thanks=1.05;state.commands++;
-  sailors[index].querySelector('.crew-prompt').textContent='Aye!';
-  const point=crewPoint(index);
-  ripples.push({x:point.x,y:point.y,age:0,color:C.gold,r:20});
-  tone('crew');
+ if(mode!=='playing'||state.time-lastCommand<.34)return;const c=crew[index];if(!c.active)return;
+ lastCommand=state.time;c.active=false;c.thanks=.85;state.commands++;sailors[index].querySelector('.crew-prompt').textContent='Aye!';
+ const p=crewPoint(index);ripples.push({x:p.x,y:p.y,age:0,color:C.gold,r:20});tone('crew');
 }
-
-function commandUrgent(){
-  let index=-1,most=-1;
-  crew.forEach((c,i)=>{if(c.active&&c.age/c.duration>most){most=c.age/c.duration;index=i;}});
-  if(index>=0)command(index);
+function commandUrgent(){let index=-1,most=-1;crew.forEach((c,i)=>{if(c.active&&c.age/c.duration>most){most=c.age/c.duration;index=i;}});if(index>=0)command(index);}
+function trouble(index){
+ Object.assign(crew[index],{active:true,age:0,duration:dayIndex===0?3.8:3.6,thanks:0});sailors[index].querySelector('.crew-prompt').textContent='Tap!';
+ if(crewIndex===1&&dayIndex===0)announce('Hands off! Tap the gold sailor.',3);
+ $('#accessible-status').textContent=`Sailor ${index+1} is reaching for the bag. Press ${index+1} or Space.`;tone('warning');
 }
-
-function trouble(){
-  // This short, fixed course teaches a recognizable rhythm; the sailor rotates.
-  const order=[0,1,2,1,0,2,0,2,1,2,1,0,1,2,0];
-  const index=order[crewIndex++%order.length];
-  Object.assign(crew[index],{active:true,age:0,duration:state.time<18?3.8:state.time<46?3.3:2.9,thanks:0});
-  sailors[index].querySelector('.crew-prompt').textContent='Tap!';
-  if(crewIndex===1)announce('Hands off the bag! Tap the gold sailor.',3.8);
-  $('#accessible-status').textContent=`Sailor ${index+1} is reaching for the bag. Press ${index+1} or Space.`;
-  tone('warning');
-}
-
 function escapeWind(){
-  state.escapes++;state.gust=4.5;state.gustDirection=state.x>.5?-1:1;state.shake=.5;
-  ripples.push({x:offset+state.x*field,y:sy-22*shipScale,age:0,color:C.paper,r:36});
-  tone('gust');
-  if(state.escapes>=3){finish(false,'wind');return;}
-  announce(state.escapes===1?'Wind loose! Steer against the gust.':'One last knot. Watch those hands!',3.1);
+ state.escapes++;state.gust=3.5;state.gustDirection=state.x>.5?-1:1;state.shake=.35;
+ ripples.push({x:offset+state.x*field,y:sy-22*shipScale,age:0,color:C.paper,r:36});tone('gust');
+ if(state.escapes>=3){finish(false,'wind');return;}announce(state.escapes===1?'Wind loose! Hold your course.':'One last knot. Watch those hands!',2.5);
 }
-
 function spawnRow(){
-  const row=course[courseIndex++], type=row[0];
-  for(const x of type==='rocks'?row.slice(1):[row[1]]){
-    obstacles.push({type:type==='wave'?'wave':'rock',x,travel:0,hit:false,passed:false,
-      direction:type==='wave'?row[2]:0,variant:courseIndex%3});
-  }
+ const i=courseIndex++,o={type:'gate',x:day().centers[i],at:day().first+i*day().spacing,gap:day().gap,hit:false,passed:false,variant:i%3};obstacles.push(o);
+ const marker=document.createElement('span');marker.className='channel-marker';marker.setAttribute('role','img');marker.setAttribute('aria-label','Opening between the rocks');marker.innerHTML=dayIndex===2?'<svg viewBox="0 0 28 28" aria-hidden="true"><path d="m3 7 4-5 7 5 7-5 4 5-1 14-10 5L4 21z"/><circle cx="9" cy="12" r="3"/><circle cx="19" cy="12" r="3"/><path d="m12 18 2 3 2-3"/></svg>':'<svg viewBox="0 0 20 28" aria-hidden="true"><path d="m10 2 7 10-7 10-7-10zM10 22v4"/></svg>';
+ $('#channels').append(marker);gateMarkers.set(o,marker);
 }
-
-function geometry(obstacle){
-  const y=-65+obstacle.travel*(sy+65);
-  return {x:offset+obstacle.x*field,y,r:obstacle.type==='rock'?field*.062:field*.12};
+function geometry(o){
+ const speed=(sy-65)/4;
+ return{x:offset+o.x*field+(o.type==='wave'?Math.sin((state.time-o.at)*1.6)*field*.13:0),y:sy+(state.time-o.at)*speed,r:o.type==='wave'?field*.12:field*.062};
 }
-
-function hitRock(o){
-  o.hit=true;
-  if(state.invulnerable>0)return;
-  state.hull--;state.hits++;state.invulnerable=1.7;state.shake=.35;
-  const point=geometry(o);
-  for(let i=0;i<10;i++)particles.push({x:point.x,y:point.y,vx:Math.cos(i*2.4)*50,vy:Math.sin(i*2.4)*50,age:0});
-  ripples.push({x:point.x,y:point.y,age:0,color:C.paper,r:point.r});
-  tone('hit');
-  if(state.hull<=0){finish(false,'rock');return;}
-  announce(state.hull===2?'A scrape! Two hits left.':'Hull cracking. One hit left.',2.8);
+function damage(o,cause='rock'){
+ o.hit=true;if(state.invulnerable>0)return;state.hull--;state.hits++;state.invulnerable=1.3;state.shake=.35;
+ const p=o.type?geometry(o):{x:offset+state.x*field,y:sy,r:24};
+ for(let i=0;i<8;i++)particles.push({x:p.x,y:p.y,vx:Math.cos(i*2.4)*50,vy:Math.sin(i*2.4)*50,age:0});
+ ripples.push({x:p.x,y:p.y,age:0,color:C.paper,r:p.r});tone('hit');
+ if(state.hull<=0){finish(false,cause);return;}announce(`${cause==='lightning'?'Lightning struck!':'A scrape!'} ${state.hull===2?'Two hits left.':'One hit left.'}`,2.1);
 }
-
+function weather(){
+ state.weather=0;let forecast='',forecastDirection=0;
+ if(dayIndex===2&&crew.some(c=>c.active))forecast='Athena holds the swells';
+ for(const [at,direction] of day().gusts){const until=at-state.time;if(until>0&&until<2.8){forecast=`Gust ${direction>0?'from the left':'from the right'} in ${Math.ceil(until)}`;forecastDirection=direction;}
+  if(until<=0&&until>-3.2){state.weather=dayIndex===3?.12:.065;state.weatherDirection=direction;forecastDirection=direction;forecast=direction>0?'Wind pushing right · steer left':'Wind pushing left · steer right';}}
+ $('#forecast-copy').textContent=forecast;$('#forecast').dataset.direction=String(forecastDirection);$('#forecast').hidden=!forecast;
+ const bolt=day().bolts.find(([at])=>state.time>at-2.6&&state.time<at+.4),el=$('#lightning');
+ el.hidden=!bolt;
+ if(bolt){const [at,x]=bolt,until=at-state.time;el.style.left=(offset+x*field)+'px';el.style.width=(field*.19)+'px';el.classList.toggle('striking',until<=0);el.style.setProperty('--charge',String(clamp(1-until/2.6,0,1)));el.textContent=until>0?'Lightning':'Strike';
+  if(until<=0&&!state.boltHits.has(at)){state.boltHits.add(at);if(Math.abs(state.x-x)<.095+24*shipScale/field)damage({hit:false},'lightning');}}
+}
 function update(dt){
-  state.time=Math.min(DURATION,state.time+dt);
-  const left=keys.has('ArrowLeft')||keys.has('a')||[...pointers.values()].includes(-1);
-  const right=keys.has('ArrowRight')||keys.has('d')||[...pointers.values()].includes(1);
-  const direction=Number(right)-Number(left);
-  $('#left').classList.toggle('pressed',!!left);$('#right').classList.toggle('pressed',!!right);
-  state.velocity+=(direction*.40-state.velocity)*Math.min(1,dt*13);
-  const gust=state.gust>0?state.gustDirection*.075*(.65+.35*Math.sin(state.time*4)):0;
-  const wave=state.wave>0?state.waveDirection*.085:0;
-  state.x=clamp(state.x+(state.velocity+gust+wave)*dt,.13,.87);
-  state.invulnerable=Math.max(0,state.invulnerable-dt);state.shake=Math.max(0,state.shake-dt);
-  state.gust=Math.max(0,state.gust-dt);state.wave=Math.max(0,state.wave-dt);
-  if(state.time>=1.2+courseIndex*3.6&&courseIndex<course.length)spawnRow();
-  if(state.time>=nextCrew&&state.time<66){trouble();nextCrew+=state.time<28?6.1:5.2;}
-  for(const c of crew){
-    c.thanks=Math.max(0,c.thanks-dt);
-    if(c.active){c.age+=dt;if(c.age>=c.duration){c.active=false;escapeWind();if(mode!=='playing')return;}}
-  }
-  for(const o of obstacles){
-    o.travel+=dt/(state.time<24?6.3:5.6);
-    const p=geometry(o), dx=Math.abs(p.x-(offset+state.x*field)),dy=Math.abs(p.y-sy);
-    // The submerged hull is deliberately smaller than oars and the raised prow.
-    const rx=o.type==='rock'?p.r*.78+31*shipScale:p.r+26*shipScale;
-    const ry=o.type==='rock'?p.r*.65+68*shipScale:25+48*shipScale;
-    if(!o.hit&&dx*dx/(rx*rx)+dy*dy/(ry*ry)<1){
-      if(o.type==='rock'){hitRock(o);if(mode!=='playing')return;}
-      else{o.hit=true;state.wave=1.2;state.waveDirection=o.direction;tone('wave');announce('Cross-current. Hold your course.',1.5);}
-    }
-    if(!o.passed&&p.y>sy+120){o.passed=true;if(!o.hit&&o.type==='rock')state.dodged++;}
-  }
-  while(obstacles.length&&geometry(obstacles[0]).y>h+130)obstacles.shift();
-  if(state.time>messageUntil)$('#message').textContent='';
-  if(state.time>=DURATION)finish(true);
+ state.time=Math.min(day().duration,state.time+dt);
+ const left=keys.has('ArrowLeft')||keys.has('a')||[...pointers.values()].includes(-1),right=keys.has('ArrowRight')||keys.has('d')||[...pointers.values()].includes(1),direction=Number(right)-Number(left);
+ $('#left').classList.toggle('pressed',!!left);$('#right').classList.toggle('pressed',!!right);
+ state.velocity+=(direction*.44-state.velocity)*Math.min(1,dt*14);
+ weather();if(mode!=='playing')return;
+ const gust=state.gust>0?state.gustDirection*.09:0,wave=state.wave>0&&!(dayIndex===2&&crew.some(c=>c.active))?state.waveDirection*.13:0;
+ const edge=Math.max(.12,(28+39*shipScale-offset)/field);
+ state.x=clamp(state.x+(state.velocity+gust+wave+state.weather*state.weatherDirection)*dt,edge,1-edge);
+ for(const key of ['invulnerable','shake','gust','wave'])state[key]=Math.max(0,state[key]-dt);
+ if(courseIndex<day().centers.length&&state.time>=day().first+courseIndex*day().spacing-5.5)spawnRow();
+ if(waveIndex<day().waves.length&&state.time>=day().waves[waveIndex]-5){const at=day().waves[waveIndex++];obstacles.push({type:'wave',x:day().centers[Math.min(day().centers.length-1,Math.round((at-day().first)/day().spacing))],at,direction:waveIndex%2?1:-1,hit:false});}
+ while(crewIndex<day().crew.length&&state.time>=day().crew[crewIndex][0])trouble(day().crew[crewIndex++][1]);
+ for(const c of crew){c.thanks=Math.max(0,c.thanks-dt);if(c.active){c.age+=dt;if(c.age>=c.duration){c.active=false;escapeWind();if(mode!=='playing')return;}}}
+ for(const o of obstacles){
+  const p=geometry(o),dx=Math.abs(p.x-(offset+state.x*field)),dy=Math.abs(p.y-sy);
+  if(o.type==='gate'){
+   const halfSpan=Math.min(48*shipScale+22,(sy-65)*.28);
+   if(!o.hit&&dy<halfSpan&&dx+45*shipScale>o.gap*field/2){damage(o);if(mode!=='playing')return;}
+   if(!o.passed&&p.y>sy+halfSpan){o.passed=true;if(!o.hit)state.dodged++;}
+  }else if(!o.hit&&dx<p.r+26*shipScale&&dy<22+32*shipScale){o.hit=true;state.wave=1.35;state.waveDirection=o.direction;tone('wave');}
+ }
+ for(let i=obstacles.length-1;i>=0;i--)if(geometry(obstacles[i]).y>h+110){gateMarkers.get(obstacles[i])?.remove();gateMarkers.delete(obstacles[i]);obstacles.splice(i,1);}
+ if(state.time>messageUntil)$('#message').textContent='';
+ if(state.time>=day().duration)finish(true);
 }
-
-function crewPoint(index){
-  const positions=[[-39,12],[39,12],[0,66]];
-  let [x,y]=positions[index];
-  const reach=!reduced&&crew[index].active?crew[index].age/crew[index].duration:0;
-  x*=1-reach*.12;y-=reach*8;
-  return {x:offset+state.x*field+x*shipScale,y:sy+y*shipScale};
-}
-
+function crewPoint(index){const positions=[[-39,12],[39,12],[0,66]];let[x,y]=positions[index];const reach=!reduced&&crew[index].active?crew[index].age/crew[index].duration:0;x*=1-reach*.12;y-=reach*8;return{x:offset+state.x*field+x*shipScale,y:sy+y*shipScale};}
 function positionCrew(){
-  if(!state)return;
-  sailors.forEach((el,i)=>{
-    const point=crewPoint(i),c=crew[i];
-    el.style.left=point.x+'px';el.style.top=point.y+'px';
-    el.classList.toggle('trouble',c.active);el.classList.toggle('urgent',c.active&&c.age/c.duration>.68);
-    el.classList.toggle('thanked',c.thanks>0);
-    el.querySelector('.arm').setAttribute('d',c.active?(i===0?'M13 36 4 43M35 36 38 6':i===1?'M13 36 10 6M35 36l9 7':'M13 36 10 5M35 36 38 5'):'M13 36 4 43M35 36l9 7');
-    el.style.setProperty('--spent',c.active?String(c.age/c.duration*100):'0');
-    el.setAttribute('aria-label',`${c.active?'Restless':'Rowing'} sailor ${i+1}. ${c.active?'Send back to rowing. ':''}Key ${i+1}.`);
-  });
-  $('#bag-label').style.left=(offset+state.x*field+102*shipScale)+'px';
-  $('#bag-label').style.top=(sy-37*shipScale)+'px';
-  $('#route-ship').style.left=(state.time/DURATION*100)+'%';
-  $('#remaining').textContent=mode==='won'?'ITHACA':`${Math.ceil(DURATION-state.time)}s TO ITHACA`;
+ if(!state)return;
+ sailors.forEach((el,i)=>{const p=crewPoint(i),c=crew[i];el.style.left=p.x+'px';el.style.top=p.y+'px';el.classList.toggle('trouble',c.active);el.classList.toggle('urgent',c.active&&c.age/c.duration>.68);el.classList.toggle('thanked',c.thanks>0);
+ el.querySelector('.arm').setAttribute('d',c.active?(i===0?'M13 36 4 43M35 36 38 6':i===1?'M13 36 10 6M35 36l9 7':'M13 36 10 5M35 36 38 5'):'M13 36 4 43M35 36l9 7');el.style.setProperty('--spent',c.active?String(c.age/c.duration*100):'0');el.setAttribute('aria-label',`${c.active?'Restless':'Rowing'} sailor ${i+1}. ${c.active?'Send back to rowing. ':''}Key ${i+1}.`);});
+ $('#bag-label').style.left=(offset+state.x*field+102*shipScale)+'px';$('#bag-label').style.top=(sy-37*shipScale)+'px';
+ $('#route-ship').style.left=((dayIndex+state.time/day().duration)/4*100)+'%';$('#remaining').textContent=`DAY ${numerals[dayIndex]} · ${Math.ceil(day().duration-state.time)}s`;
+ for(const[o,el]of gateMarkers){const p=geometry(o);el.style.left=p.x+'px';el.style.top=p.y+'px';el.hidden=p.y<70||p.y>h-75||o.passed;}
 }
 
 function path(points,fill,stroke,width=1){
@@ -231,9 +197,30 @@ function path(points,fill,stroke,width=1){
 
 function line(points,color,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
 
+function gate(p,o){
+  const left=p.x-o.gap*field/2,right=p.x+o.gap*field/2;
+  for(const [a,b,side] of [[offset-20,left,-1],[right,offset+field+20,1]]){
+    ctx.save();ctx.translate(0,p.y);
+    ctx.fillStyle='#0b293088';ctx.fillRect(a,5,b-a,31);
+    const points=[[a,-18],[a+(b-a)*.22,-33],[a+(b-a)*.46,-25],[a+(b-a)*.72,-37],[b,-20],[b,23],[a+(b-a)*.70,34],[a+(b-a)*.39,24],[a,31]];
+    path(points,o.hit?'#526d70':'#76918d',C.deep,2);
+    path([[a,-18],[a+(b-a)*.22,-33],[a+(b-a)*.46,-25],[b,-20],[b-12,1],[a+(b-a)*.56,-4],[a+8,5]],'#a1b5aa');
+    path([[a+5,5],[a+(b-a)*.56,-4],[b-12,1],[b,23],[a+(b-a)*.70,34],[a+(b-a)*.39,24],[a,31]],'#506e72');
+    const edge=side<0?b:a;
+    line([[edge+side*6,-19],[edge-side*7,-3],[edge-side*8,20]],'#d4dfcf',1.5);
+    line([[a,42],[a+(b-a)*.35,36],[a+(b-a)*.7,46],[b,37]],'#a8c6c377',1);
+    for(let i=1;i<4;i++){const x=a+(b-a)*i/4;line([[x,-14],[x+6,-1],[x-5,8]],'#d4ddc966',1);}
+    ctx.restore();
+  }
+  if(dayIndex===2&&!o.passed){
+    ctx.save();ctx.strokeStyle='#e8c67d66';ctx.lineWidth=1.2;ctx.setLineDash([3,9]);
+    ctx.beginPath();ctx.moveTo(p.x,p.y+20);ctx.quadraticCurveTo(p.x,(p.y+sy)/2,offset+state.x*field,sy-110*shipScale);ctx.stroke();ctx.restore();
+  }
+}
+
 function sea(){
   ctx.fillStyle=C.sea;ctx.fillRect(0,0,w,h);
-  const grad=ctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,'#245663');grad.addColorStop(.48,'#1b424b');grad.addColorStop(1,C.deep);
+  const grad=ctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,['#245663','#26495c','#294e50','#26394b'][dayIndex]);grad.addColorStop(.48,'#1b424b');grad.addColorStop(1,C.deep);
   ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
   const drift=reduced?0:ambience*9;
   ctx.globalAlpha=.24;
@@ -256,7 +243,7 @@ function sea(){
 }
 
 function island(){
-  const progress=mode==='ready'?0:clamp((state.time-58)/14,0,1);
+  const progress=mode==='ready'||dayIndex<3?0:clamp((state.time-(day().duration-8))/8,0,1);
   if(progress<=0)return;
   const center=offset+field*.5,top=56,scale=reduced?1:progress;
   ctx.save();ctx.translate(center,top);ctx.scale(scale,scale);
@@ -288,13 +275,14 @@ function rock(p,variant,hit=false){
 
 function wave(p,direction,hit){
   ctx.save();ctx.translate(p.x,p.y);ctx.globalAlpha=hit?.32:.85;
+  const amplitude=dayIndex===2&&crew.some(c=>c.active)?3:14;
   ctx.strokeStyle=C.foam;ctx.lineWidth=2;
   for(let row=0;row<3;row++){
     ctx.beginPath();ctx.moveTo(-p.r,row*9);
     for(let j=0;j<4;j++){
       const x=-p.r+j*p.r*.5;
-      ctx.quadraticCurveTo(x+p.r*.12,row*9-14,x+p.r*.25,row*9);
-      ctx.quadraticCurveTo(x+p.r*.37,row*9+14,x+p.r*.5,row*9);
+      ctx.quadraticCurveTo(x+p.r*.12,row*9-amplitude,x+p.r*.25,row*9);
+      ctx.quadraticCurveTo(x+p.r*.37,row*9+amplitude,x+p.r*.5,row*9);
     }ctx.stroke();
   }
   line([[-direction*15,-18],[direction*15,-18],[direction*8,-25]],C.paper,1.5);
@@ -351,10 +339,10 @@ function ship(){
 }
 
 function wind(){
-  if(state.gust<=0)return;
+  if(state.gust<=0&&!state.weather)return;
   ctx.save();ctx.globalAlpha=.6;ctx.strokeStyle=C.paper;ctx.lineWidth=1.3;
   for(let i=0;i<6;i++){
-    const y=130+i*(h-200)/6,x=reduced?w*.5:((ambience*180*state.gustDirection+i*130)% (w+200)+w+200)%(w+200)-100;
+    const y=130+i*(h-200)/6,x=reduced?w*.5:((ambience*180*(state.gust>0?state.gustDirection:state.weatherDirection)+i*130)% (w+200)+w+200)%(w+200)-100;
     ctx.beginPath();ctx.moveTo(x-70,y);ctx.bezierCurveTo(x-20,y-20,x+50,y+20,x+65,y-5);ctx.bezierCurveTo(x+80,y-30,x+43,y-35,x+40,y-13);ctx.stroke();
   }ctx.restore();
 }
@@ -367,7 +355,7 @@ function render(dt){
     rock({x:offset+field*.84,y:h*.27,r:field*.07},1);
     rock({x:offset+field*.12,y:h*.65,r:field*.04},2);
   }
-  for(const o of obstacles){const p=geometry(o);if(p.y>-130&&p.y<h+130)o.type==='rock'?rock(p,o.variant,o.hit):wave(p,o.direction,o.hit);}
+  for(const o of obstacles){const p=geometry(o);if(p.y>-130&&p.y<h+130)o.type==='gate'?gate(p,o):wave(p,o.direction,o.hit);}
   ship();wind();
   for(let i=ripples.length-1;i>=0;i--){
     const p=ripples[i];if(mode==='playing')p.age+=dt;
@@ -435,10 +423,11 @@ sailors.forEach((el,i)=>{
 });
 window.addEventListener('keydown',event=>{
   if($('#source').open)return;
-  if(!$('#curtain').hidden&&event.key==='Tab'){
-    const items=[...$('#curtain').querySelectorAll('button:not([hidden]),a')],first=items[0],last=items.at(-1);
-    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
-    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  if((!$('#curtain').hidden||!$('#interlude').hidden)&&event.key==='Tab'){
+    const modal=$('#interlude').hidden?$('#curtain'):$('#interlude');
+    const items=[...modal.querySelectorAll('button:not([hidden]),a')].filter(el=>el.getClientRects().length);
+    const current=items.indexOf(document.activeElement),next=current<0?(event.shiftKey?items.length-1:0):(current+(event.shiftKey?-1:1)+items.length)%items.length;
+    event.preventDefault();items[next]?.focus();
     return;
   }
   const key=event.key.length===1?event.key.toLowerCase():event.key;
@@ -454,9 +443,12 @@ window.addEventListener('pagehide',()=>pause('Paused while you were away.'));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause('Paused while you were away.');});
 document.addEventListener('freeze',()=>pause('Paused while you were away.'));
 window.addEventListener('resize',resize);
-$('#start').addEventListener('click',start);
+$('#start').addEventListener('click',()=>showDay(progress.day));
+$('#day-start').addEventListener('click',start);
+$('#replay-all').addEventListener('click',replayAll);
+$('#replay-opening').addEventListener('click',replayAll);
 $('#pause').addEventListener('click',()=>pause());
-$('#again').addEventListener('click',()=>mode==='paused'?resume():start());
+$('#again').addEventListener('click',()=>mode==='paused'?resume():mode==='cleared'?showDay(progress.day):start());
 $('#restart').addEventListener('click',start);
 function openStory(){resumeAfterStory=mode==='playing';if(resumeAfterStory)pause();$('#source').showModal();}
 $('#about').addEventListener('click',openStory);$('#story').addEventListener('click',openStory);
@@ -467,4 +459,6 @@ $('#sound').addEventListener('click',()=>{
   $('#sound').innerHTML=soundOn?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 8q5 4 0 8M19 5q8 7 0 14"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l5 6M22 9l-5 6"/></svg>';
   tone('crew');
 });
-resetState();resize();setMode('ready');requestAnimationFrame(tick);
+resetState();resize();setMode('ready');showSaveWarning();
+if(progress.day>0||progress.finished){$('#start').textContent=progress.finished?'Sail the final day again':`Continue · day ${numerals[progress.day]}`;$('#replay-opening').hidden=false;}
+requestAnimationFrame(tick);

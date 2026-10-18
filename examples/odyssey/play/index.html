@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#183c46">
-  <meta name="description" content="A short sea dash inspired by the Odyssey. Steer for Ithaca. Keep your crew away from the bag of winds.">
+  <meta name="description" content="Four short sea crossings inspired by the Odyssey. Steer for Ithaca through winds, swells and a restless crew.">
   <title>Homeward · The Odyssey</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
@@ -25,14 +25,18 @@
   <div id="heading" class="opening">
     <p class="eyebrow">A sea dash from the Odyssey</p>
     <h1>Homeward<span>.</span></h1>
-    <p class="premise">One ship. A restless crew.<br>A bag you must keep shut.</p>
-    <button id="start" class="primary">Set sail <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18m-7-7 7 7-7 7"/></svg></button>
-    <p class="round-length">72 seconds to Ithaca</p>
+    <p class="premise">Four days. A restless crew.<br>And the gods of an unruly sea.</p>
+    <button id="start" class="primary">Begin the voyage <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18m-7-7 7 7-7 7"/></svg></button>
+    <p class="round-length">Four short crossings · Rest between days</p>
+    <button id="replay-opening" class="text-button" hidden>Replay from day one</button>
   </div>
 
   <div id="sea-label" aria-hidden="true">THE WEST WIND</div>
   <div id="message" role="status" aria-live="polite"></div>
-  <div id="remaining" aria-label="Seconds until Ithaca" hidden></div>
+  <div id="remaining" aria-label="Current day and seconds remaining" hidden></div>
+  <div id="channels" aria-label="Openings between the rocks"></div>
+  <div id="forecast" role="status" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18m-7-7 7 7-7 7"/></svg><span id="forecast-copy"></span></div>
+  <div id="lightning" aria-hidden="true" hidden></div>
   <div id="crew" aria-label="Ship crew">
     <button class="sailor" data-sailor="0" aria-label="Send port sailor back to rowing; key 1" disabled><svg viewBox="0 0 48 56" aria-hidden="true"><path class="arm" d="M13 36 4 43M35 36l9 7"/><path class="tunic" d="m16 29-6 20q14 8 28 0l-6-20z"/><circle class="head" cx="24" cy="22" r="10"/><path class="hair" d="M14 21q-2-15 11-12 13 1 9 14l-6-8-6 4z"/><path class="face" d="M20 23h1m6 0h1M22 28h4"/></svg><svg class="timer" viewBox="0 0 52 60" aria-hidden="true"><rect x="3" y="3" width="46" height="54" rx="23" pathLength="100"/></svg><span class="crew-prompt">Tap!</span><span class="key">1</span></button>
     <button class="sailor" data-sailor="1" aria-label="Send starboard sailor back to rowing; key 2" disabled><svg viewBox="0 0 48 56" aria-hidden="true"><path class="arm" d="M13 36 4 43M35 36l9 7"/><path class="tunic" d="m16 29-6 20q14 8 28 0l-6-20z"/><circle class="head" cx="24" cy="22" r="10"/><path class="hair" d="M14 20q-1-13 10-12 13 0 11 13l-7-5-7 3zM15 26q9 15 18 0l-3 14H20z"/><path class="face" d="M20 23h1m6 0h1"/></svg><svg class="timer" viewBox="0 0 52 60" aria-hidden="true"><rect x="3" y="3" width="46" height="54" rx="23" pathLength="100"/></svg><span class="crew-prompt">Tap!</span><span class="key">2</span></button>
@@ -52,22 +56,38 @@
       <h2 id="result-title"></h2>
       <p id="result-copy"></p>
       <button id="again" class="primary"></button>
-      <button id="restart" class="text-button" hidden>Start a new run</button>
-      <button id="story" class="text-button">The story behind the bag</button>
+      <button id="restart" class="text-button" hidden>Restart this day</button>
+      <button id="replay-all" class="text-button">Replay from day one</button>
+      <button id="story" class="text-button">The four days</button>
       <a class="text-button return-book" href="../">Return to the Odyssey</a>
     </div>
   </section>
+  <section id="interlude" class="curtain interlude" hidden role="dialog" aria-modal="true" aria-labelledby="day-title">
+    <div class="day-sheet">
+      <div id="deity-portrait" aria-hidden="true"></div>
+      <div class="day-reading">
+        <p id="day-kicker" class="eyebrow"></p>
+        <h2 id="day-title"></h2>
+        <p id="day-copy"></p>
+        <p id="day-tactic"></p>
+        <a id="day-source" class="story-link" href="../#reference/aeolus" target="_blank" rel="noopener">The passage <span>(spoilers)</span></a>
+        <div class="day-actions"><button id="day-start" class="primary">Set sail</button><a class="text-button return-book" href="../">Return to the Odyssey</a></div>
+      </div>
+    </div>
+  </section>
+  <p id="save-warning" role="status" hidden></p>
   <button id="about" class="about-link">About this game</button>
   <dialog id="source">
     <form method="dialog"><button class="close" aria-label="Close about this game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form>
-    <p class="eyebrow">Homer · The Odyssey · Book X</p>
-    <h2>A gift from Aeolus</h2>
-    <p>Aeolus gives the captain a bag holding the winds. The crew suspect it holds treasure.</p>
+    <p class="eyebrow">Homer · The Odyssey</p>
+    <h2>Four days of sea</h2>
+    <p>These four game days bring together episodes from Books V, X and XII. They rearrange and condense the poem; they are not Homer’s consecutive days from Aeolus to Ithaca.</p>
+    <p>In Book X, Aeolus gives the captain a bag holding the winds. The crew suspect it holds treasure.</p>
     <blockquote>“The West wind which was fair for us did he alone let blow as it chose;”</blockquote>
-    <p class="attribution">Translated by Samuel Butler (1900).</p>
-    <p>The obstacle course, three sailors and second chances are inventions for this game.</p>
+    <p class="attribution">Book X. Translated by Samuel Butler (1900).</p>
+    <p>The channels, owl markers, three sailors, warning flashes and second chances are inventions for this game. Butler calls Poseidon “Neptune”, Athena “Minerva” and Zeus “Jove”.</p>
     <a class="story-link" href="../#reference/aeolus" target="_blank" rel="noopener">Read the Book X episode <span>(spoilers)</span></a>
-    <details><summary>Controls & credits</summary><p>Hold the arrow buttons, A / D, or the keyboard arrows to steer. Tap a gold sailor, press their number, or press Space to send the most impatient sailor back. Three rock hits wreck the hull; three escaped winds carry the ship away. P or Escape pauses. A new run takes 72 seconds.</p><p>Original game, vector drawings and synthesized sound. Colors and type follow the Odyssey reader. Episode reference: Homer, <cite>The Odyssey</cite>, Book X, Samuel Butler translation; Project Gutenberg ebook 1727. No scores or personal data are stored.</p><p>This is a visual action game. Keyboard controls are supported; it does not have an equivalent nonvisual mode.</p></details>
+    <details><summary>Controls & credits</summary><p>Hold the arrow buttons, A / D, or the keyboard arrows to steer. Tap a gold sailor, press their number, or press Space to send the most impatient sailor back. Three hull hits or three escaped winds end the day. P or Escape pauses. Retry starts the same day with a repaired ship. Each crossing lasts 36–42 seconds; introductions wait for you.</p><p>Your current day is kept in this browser, separately from reading records. Replay from day one starts the voyage over. Original game, deity portraits, vector drawings and synthesized sound. Colors and type follow the Odyssey reader. Homer, <cite>The Odyssey</cite>, Samuel Butler translation; Project Gutenberg ebook 1727.</p><p>This is a visual action game. Keyboard controls are supported; it does not have an equivalent nonvisual mode.</p></details>
   </dialog>
   <p class="sr-only" id="accessible-status" role="status"></p>
   <noscript><p class="no-script">This game needs JavaScript. <a href="../">Return to the Odyssey.</a></p></noscript>

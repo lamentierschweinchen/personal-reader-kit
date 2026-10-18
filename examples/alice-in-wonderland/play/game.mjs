@@ -1,212 +1,119 @@
-import {RULES,GUESTS,newGame,pour,stopPour,refill,pause,resume,tick} from './engine.mjs';
-import {characters,cupArt,kettleArt,garden} from './art.mjs';
-
-const $=s=>document.querySelector(s);
-let state=newGame(), last=performance.now(), best=0, endShown=false, pointerId=null, heldKey=null;
-let soundOn=false,audio=null,lastDrop=0,lastStatus=-1,aboutWasPlaying=false;
+import {RULES,GUESTS,COURSES,newGame,start,pour,stopPour,refill,serve,pause,resume,tick,canAct} from './engine.mjs';
+import {characters,cupArt,kettleArt,garden,toastArt,cleanArt} from './art.mjs';
+const $=s=>document.querySelector(s),progressKey='newreading-tea-courses-v1';
+let storageWarning='',last=performance.now(),pointerId=null,heldKey=null,soundOn=false,audio=null,lastDrop=0,lastStatus='',aboutWasPlaying=false;
+function load(){try{const p=JSON.parse(sessionStorage.getItem(progressKey)||'null');if(!p||p.version!==1||!Number.isInteger(p.course)||p.course<0||p.course>2||!Array.isArray(p.scores)||!p.scores.every(n=>Number.isInteger(n)&&n>=0&&n<100000))return newGame();if(p.scores.length!==(p.complete?3:p.course))return newGame();const s=newGame(p.course,p.scores);if(p.complete){s.phase='won';s.scores=p.scores;s.score=p.scores[2];s.time=COURSES[2].duration;}return s;}catch{return newGame();}}
+let state=load(),shown='',noticeText='',noticeUntil=0;
 const table=$('#table'),overlay=$('#overlay');
-const icons={
- pause:'<path d="M8 5v14M16 5v14" stroke-width="3"/>',
- play:'<path d="M7 4l13 8-13 8z"/>',
- mute:'<path d="M11 5L6 9H3v6h3l5 4zM16 9l6 6m0-6-6 6"/>',
- sound:'<path d="M11 5L6 9H3v6h3l5 4zM15 8q5 4 0 8M18 4q8 8 0 16"/>'
-};
+const icons={pause:'<path d="M8 5v14M16 5v14" stroke-width="3"/>',play:'<path d="M7 4l13 8-13 8z"/>',mute:'<path d="M11 5L6 9H3v6h3l5 4zM16 9l6 6m0-6-6 6"/>',sound:'<path d="M11 5L6 9H3v6h3l5 4zM15 8q5 4 0 8M18 4q8 8 0 16"/>'};
 const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true">${icons[name]}</svg>`;
 $('#sound').innerHTML=icon('mute');$('#pause').innerHTML=icon('pause');
 $('.garden').innerHTML=garden;$('.garden svg').setAttribute('preserveAspectRatio','none');
-$('#guests').innerHTML=GUESTS.map((g,i)=>`<div class="guest" data-id="${g.id}" data-index="${i}">${characters[g.id]}<div class="speech"></div></div>`).join('');
+$('#guests').innerHTML=GUESTS.map((g,i)=>`<div class="guest" data-id="${g.id}" data-index="${i}">${characters[g.id]}<div class="speech" hidden></div></div>`).join('');
 $('#cups').innerHTML=GUESTS.map((g,i)=>`<button class="cup" data-id="${i}" aria-label="Pour for ${g.name}. Hold to fill.">${cupArt(i)}<span class="cup-warning" aria-hidden="true">Tea, please!</span><span class="cup-name"><kbd aria-hidden="true">${i+1}</kbd> ${g.name}</span></button>`).join('');
-$('.kettle-art').innerHTML=kettleArt.replaceAll('kettle-clip','home-kettle-clip');
-$('#flying-kettle').innerHTML=kettleArt.replaceAll('kettle-clip','flying-kettle-clip');
-const cups=[...document.querySelectorAll('.cup')],guests=[...document.querySelectorAll('.guest')];
-guests.forEach(guest=>{const drawing=guest.querySelector('svg');drawing.setAttribute('viewBox','30 0 200 330');drawing.setAttribute('preserveAspectRatio','xMidYMax meet');});
-const bubbles=GUESTS.map(()=>({until:0,text:''}));
-const talks=[
- [4,0,'No butter in the watch today.'],[7.5,1,'But it was excellent butter.'],
- [13,2,'I was listening in my sleep.'],[18,0,'Any news from the writing-desk?'],
- [28,1,'The raven has declined to say.'],[34,2,'I dreamt of a treacle well.'],
- [38,0,'Can it refill the kettle?'],[48,1,'What an inconveniently empty cup.'],
- [54,2,'Wake me when it’s yesterday.'],[63,0,'Time is taking this personally.']
+$('#orders').innerHTML=GUESTS.map((g,i)=>`<button class="order" data-id="${i}" hidden><span class="order-art" aria-hidden="true"></span><span class="order-copy"><b></b><small></small></span></button>`).join('');
+$('.kettle-art').innerHTML=kettleArt.replaceAll('kettle-clip','home-kettle-clip');$('#flying-kettle').innerHTML=kettleArt.replaceAll('kettle-clip','flying-kettle-clip');
+const cups=[...document.querySelectorAll('.cup')],guests=[...document.querySelectorAll('.guest')],orders=[...document.querySelectorAll('.order')];
+guests.forEach(g=>{g.querySelector('svg').setAttribute('viewBox','30 0 200 330');g.querySelector('svg').setAttribute('preserveAspectRatio','xMidYMax meet');});
+$('#chances').innerHTML='<svg class="chance" viewBox="0 0 30 28" aria-hidden="true"><path d="M4 6h17v11q-8 10-17 0zM22 8h5v8h-6"/><path d="M2 25h22" fill="none"/></svg>'.repeat(3);
+const exchanges=[
+ {speaker:'Hatter',line:'What must never be empty, though we spend all afternoon emptying it?',reply:'March Hare',answer:'Our cups. Mine is already making a start.',rule:'Hold a cup to pour. Let go at the dotted line. Refill the kettle before it runs dry.'},
+ {speaker:'March Hare',line:'What makes good bread better, but makes a watch worse?',reply:'Hatter',answer:'Butter. Kindly keep it on the bread this time.',rule:'Tap bread-and-butter requests before their countdown ends. Serving takes a moment; a chewing guest drinks more slowly.'},
+ {speaker:'Hatter',line:'When is an empty cup better than a full one?',reply:'Dormouse',answer:'When the full one is dirty. But only for a moment.',rule:'After a seat change, tap Clean cup before pouring. It discards the tea inside. Bread-and-butter requests still count.'},
 ];
-let talkIndex=0,noticeUntil=4,noticeText='It’s always tea-time here.',noticeUrgent=false;
-const tinyCup='<svg class="chance" viewBox="0 0 30 28" aria-hidden="true"><path d="M4 6h17v11q-8 10-17 0zM22 8h5v8h-6"/><path d="M2 25h22" fill="none"/></svg>';
-$('#chances').innerHTML=tinyCup.repeat(3);
 function say(text){$('#live').textContent=text;}
-function notice(text,seconds=2.5,urgent=false){noticeText=text;noticeUntil=state.time+seconds;noticeUrgent=urgent;}
-function speech(id,text,seconds=3.2){bubbles[id]={text,until:state.time+seconds};}
-function tone(freq=440,length=.1,volume=.035){
-  if(!soundOn)return;
-  try{
-    audio??=new(window.AudioContext||window.webkitAudioContext)();
-    if(audio.state==='suspended')audio.resume();
-    const oscillator=audio.createOscillator(),gain=audio.createGain();
-    oscillator.type='sine';oscillator.frequency.setValueAtTime(freq,audio.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(freq*.72,audio.currentTime+length);
-    gain.gain.setValueAtTime(volume,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);
-    oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+length);
-  }catch{soundOn=false;$('#sound').innerHTML=icon('mute');$('#sound').setAttribute('aria-label','Sound unavailable');}
-}
+function notice(text,seconds=2){noticeText=text;noticeUntil=state.time+seconds;}
+function save(course=state.course,scores=state.scores.slice(0,course),complete=false){try{sessionStorage.setItem(progressKey,JSON.stringify({version:1,course,scores,complete}));storageWarning='';}catch{storageWarning='Course progress can’t be saved in this tab. Keep this page open to keep your place.';}}
+function tone(freq=440,length=.1,volume=.035){if(!soundOn)return;try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const oscillator=audio.createOscillator(),gain=audio.createGain();oscillator.type='sine';oscillator.frequency.setValueAtTime(freq,audio.currentTime);oscillator.frequency.exponentialRampToValueAtTime(freq*.72,audio.currentTime+length);gain.gain.setValueAtTime(volume,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+length);}catch{soundOn=false;$('#sound').innerHTML=icon('mute');$('#sound').setAttribute('aria-label','Sound unavailable');}}
 function positions(){return matchMedia('(max-width:700px)').matches?[18,50,82]:[24,50,76];}
-function floating(id,text,bad=false){
-  const node=document.createElement('span');node.className='float'+(bad?' bad':'');node.textContent=text;
-  node.style.left=positions()[state.cups[id].seat]+'%';node.style.top='59%';$('#feedback').append(node);
-  setTimeout(()=>node.remove(),1400);
+function floating(id,text,bad=false){const n=document.createElement('span');n.className='float'+(bad?' bad':'');n.textContent=text;n.style.left=positions()[state.cups[id].seat]+'%';n.style.top='57%';$('#feedback').append(n);setTimeout(()=>n.remove(),1400);}
+function clearInputs(reward=false){if(pointerId!==null&&table.hasPointerCapture(pointerId))table.releasePointerCapture(pointerId);pointerId=null;heldKey=null;stopPour(state,reward);}
+function beginPour(id){if(state.phase!=='playing')return false;if(state.cups[id].dirty){notice('Tap Clean cup first.');return false;}if(state.kettle===0){notice('Empty kettle. Tap Refill.');return false;}const ok=pour(state,id);if(ok)tone(350+id*70,.055,.02);render();return ok;}
+function doRefill(){clearInputs(true);if(refill(state)){notice('Refilling…',RULES.refillSeconds);tone(250,.2);}render();}
+function doServe(id){clearInputs(true);if(serve(state,id))tone(420,.1);render();}
+function togglePause(){if(state.phase==='playing'){clearInputs();pause(state);}else if(state.phase==='paused')resume(state);render();}
+function retry(){clearInputs();state=newGame(state.course,state.scores);shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();queueMicrotask(()=>say(`Course ${state.course+1}. Start when you’re ready.`));render();}
+function replay(){clearInputs();state=newGame();shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();say('A new tea party. Start course one when you’re ready.');render();}
+function primary(){if(state.phase==='paused')resume(state);else if(state.phase==='intro')start(state);else if(state.phase==='interlude'){state=newGame(state.course+1,state.scores);start(state);}else if(state.phase==='lost'){retry();start(state);}else if(state.phase==='won'){replay();start(state);}shown='';render();}
+function showOverlay(){
+ const key=state.phase+':'+state.course;if(key===shown)return;shown=key;
+ const phase=state.phase;overlay.hidden=phase==='playing';if(overlay.hidden)return;
+ const next=phase==='interlude'?state.course+1:state.course,ex=exchanges[next],course=COURSES[next];
+ $('#retry-course').textContent=phase==='interlude'?`Replay course ${state.course+1}`:'Retry this course';
+ $('#course-dialogue').replaceChildren();$('#result-stats').replaceChildren();$('#result-tip').textContent='';$('#retry-course').hidden=!['interlude','lost','won','paused'].includes(phase);$('#replay-all').hidden=state.course===0&&phase!=='won';
+ if(phase==='intro'||phase==='interlude'){
+  $('#result-eyebrow').textContent=`Course ${next+1} of 3 · take your time`;
+  $('#overlay-title').textContent=course.title;
+  for(const [name,line] of [[ex.speaker,ex.line],[ex.reply,ex.answer]]){const p=document.createElement('p'),b=document.createElement('b');b.textContent=name;p.append(b,document.createTextNode(line));$('#course-dialogue').append(p);}
+  $('#result-description').textContent=ex.rule;$('#primary-action').textContent=`Start course ${next+1} · ${course.duration}s`;
+  $('#result-tip').textContent=phase==='interlude'?`Course ${state.course+1} cleared · ${Math.floor(state.score).toLocaleString()} points. All clocks are stopped.`:'Three complaints lose this course. All clocks wait for you.';
+ }else if(phase==='paused'){
+  $('#result-eyebrow').textContent=`Course ${state.course+1} of 3 · paused`;$('#overlay-title').textContent='Tea can wait.';$('#result-description').textContent='Cups, requests and clocks are all waiting.';$('#primary-action').textContent='Keep pouring';
+ }else{
+  const won=phase==='won';$('#result-eyebrow').textContent=won?'Three courses. Still six o’clock.':`Course ${state.course+1} · three complaints`;
+  $('#overlay-title').textContent=won?'Splendidly served.':'This course is over.';
+  $('#result-description').textContent=won?'Three courses served, and not a minute closer to supper. The guests take all the credit.':state.course?'Try this course again. Your earlier courses are safe.':'The guests are ready to give you another chance.';
+  const total=won?state.scores.reduce((a,b)=>a+b,0):Math.floor(state.score);$('#result-stats').innerHTML=`<strong class="result-score">${total.toLocaleString()}</strong>${won?'total points':`course points · ${state.perfects} lovely pours`}`;
+  $('#primary-action').textContent=won?'Play all three again':'Retry this course';$('#retry-course').hidden=!won;$('#replay-all').hidden=won||state.course===0;
+  $('#result-tip').textContent=won?'Try for fewer complaints and less tea on the table.':state.course===2?'Let a dirty cup run low before replacing it. Keep the other cups ready.':state.course===1?'Fill the other cups before serving bread or refilling the kettle.':'Fill the thirstiest cup first. Leave everyone tea before refilling.';
+ }
+ $('#progress-note').textContent=storageWarning;
+ overlay.scrollTop=0;
+ if(!$('#about-dialog').open)$('#primary-action').focus({preventScroll:true});
 }
-function clearInputs(){pointerId=null;heldKey=null;stopPour(state);}
-function beginPour(id){
-  if(state.phase==='playing' && state.kettle===0){notice('The kettle’s empty. Refill!',2,true);tone(160);return false;}
-  if(state.refill>0){notice('Brewing… nearly there.',1);return false;}
-  const ok=pour(state,id);if(ok){tone(350+id*70,.055,.02);render();}return ok;
-}
-function doRefill(){clearInputs();if(refill(state)){notice('A moment to refill…',1.8);tone(250,.2);render();}}
-function togglePause(){
-  if(state.phase==='playing'){clearInputs();pause(state);showPause();}
-  else if(state.phase==='paused'){resume(state);overlay.hidden=true;$('#pause').focus();}
-  render();
-}
-function showPause(){
-  $('#result-eyebrow').textContent='EVEN TIME NEEDS A MOMENT';$('#overlay-title').textContent='Tea can wait.';
-  $('#result-description').textContent='Your cups are exactly as you left them.';$('#result-stats').textContent='';
-  $('#result-tip').textContent='Hold a cup to pour · R to refill · P to pause';
-  $('#primary-action').textContent='Keep pouring';overlay.hidden=false;$('#primary-action').focus();
-}
-function reset(){
-  clearInputs();state=newGame();talkIndex=0;endShown=false;lastStatus=-1;noticeUntil=4;noticeText='It’s always tea-time here.';noticeUrgent=false;
-  bubbles.forEach((b,i)=>bubbles[i]={text:'',until:0});$('#feedback').replaceChildren();overlay.hidden=true;
-  $('#first-move').hidden=false;last=performance.now();render();cups[0].focus({preventScroll:true});
-}
-function finish(){
-  if(endShown)return;endShown=true;clearInputs();best=Math.max(best,Math.floor(state.score));
-  const won=state.phase==='won';
-  $('#result-eyebrow').textContent=won?'75 SECONDS. STILL SIX O’CLOCK.':'THREE EMPTY CUPS. AN UPROAR.';
-  $('#overlay-title').textContent=won?'Splendidly served.':'Tea-party over.';
-  $('#result-description').textContent=won?'You kept the party going. The guests take all the credit.':`You lasted ${Math.floor(state.time)} seconds. They’re terribly particular about tea.`;
-  $('#result-stats').innerHTML=`<strong class="result-score">${Math.floor(state.score).toLocaleString()}</strong>points · ${state.perfects} lovely pours · ${state.spills} spills<br>Best this visit: ${best.toLocaleString()}`;
-  $('#primary-action').textContent='Another cup? Play again';
-  $('#result-tip').textContent=state.spills>2?'Release at the dotted line. A little room saves a lot of tea.':state.misses>0?'Top everyone up before you refill the kettle.': 'A lovely pour lands near the line. Can you beat your score?';
-  overlay.hidden=false;$('#primary-action').focus();say(`${won?'Round complete':'Party over'}. ${Math.floor(state.score)} points. Play again available.`);
-  tone(won?740:180,.4,.045);
-}
-function processEvents(){
-  for(const e of state.events.splice(0)) {
-    lastStatus=-1;
-    if(e.type==='start'){$('#first-move').hidden=true;notice('Release at the dotted line.',3);say('Party started. Keep all three cups filled for 75 seconds.');}
-    if(e.type==='perfect'){floating(e.id,`Lovely! +${e.points}`);tone(580+Math.min(state.combo,5)*90,.13);}
-    if(e.type==='spill'){floating(e.id,'Spill −25',true);speech(e.id,['The table isn’t thirsty.','That’s quite enough!','My saucer is swimming.'][e.id],2);tone(135,.15);say('Spill. 25 points lost.');}
-    if(e.type==='miss'){floating(e.id,'Empty!',true);speech(e.id,['Outrageously empty!','More tea, less air!','That woke me up.'][e.id]);notice(`${3-state.misses} chance${state.misses===2?'':'s'} left. Keep the tea coming!`,2.5,true);tone(130,.3,.05);say(`${GUESTS[e.id].name}'s cup ran dry. ${3-state.misses} chances remain.`);}
-    if(e.type==='emptyKettle'){notice('Empty kettle! Tap it to refill.',2.8,true);say('Kettle empty. Press R or tap the kettle to refill.');}
-    if(e.type==='refilled'){notice('Fresh tea. Back to it!',1.6);tone(620,.15);say('Kettle refilled.');}
-    if(e.type==='swap'){clearInputs();notice('Change places! Choose a cup again.',2.5);say('Guests changed places. Release and choose a cup again.');tone(420,.2);}
-    if(e.type==='end')finish();
-  }
-}
+function processEvents(){for(const e of state.events.splice(0)){lastStatus='';
+ if(e.type==='start'){notice(`Course ${state.course+1}. Keep the tea coming.`,2);say(`Course ${state.course+1} started. ${COURSES[state.course].duration} seconds.`);}
+ if(e.type==='perfect'){floating(e.id,`Lovely! +${e.points}`);tone(650,.1);}
+ if(e.type==='spill'){floating(e.id,'Spill −25',true);say('Spill. 25 points lost.');}
+ if(e.type==='miss'){floating(e.id,e.reason==='toast'?'Bread, please!':'Empty!',true);notice(`${3-state.misses} chance${state.misses===2?'':'s'} left.`,2.5);say(`${GUESTS[e.id].name}: ${e.reason==='toast'?'bread order missed':'empty cup'}. ${3-state.misses} chances left.`);tone(130,.3);}
+ if(e.type==='emptyKettle'){notice('Empty kettle! Tap Refill.',2.8);say('Kettle empty. Refill with R or the kettle button.');}
+ if(e.type==='refilled'){notice('Fresh tea!',1.1);tone(620,.1);}
+ if(e.type==='swap'){clearInputs();notice(state.course===2?'Change places. Watch for a dirty cup.':'Change places!',2.3);say('Guests changed places. Release and choose a cup again.');}
+ if(e.type==='order'){say(`${GUESTS[e.id].name} wants bread and butter. Tap the request.`);}
+ if(e.type==='dirty'){say(`${GUESTS[e.id].name} needs a clean cup before more tea.`);}
+ if(e.type==='served'){floating(e.id,e.kind==='clean'?'Clean cup!':'Munch! +60');tone(730,.12);}
+ if(e.type==='end'){clearInputs();if(state.phase==='interlude')save(state.course+1,state.scores);else if(state.phase==='won')save(2,state.scores,true);say(state.phase==='lost'?'Course lost. Retry this course.':state.phase==='won'?'All three courses complete.':`Course ${state.course+1} complete. Take your time with the next request.`);}
+}}
 function render(){
-  processEvents();
-  const timeLeft=Math.max(0,Math.ceil(RULES.duration-state.time));
-  $('#time').textContent=`${Math.floor(timeLeft/60)}:${String(timeLeft%60).padStart(2,'0')}`;
-  $('#score').textContent=Math.floor(state.score).toLocaleString();
-  $('#chances-label').textContent=`${3-state.misses} chance${state.misses===2?'':'s'}`;
-  $('.chances').setAttribute('aria-label',`${3-state.misses} chances remaining`);
-  [...$('#chances').children].forEach((c,i)=>c.classList.toggle('used',i<state.misses));
-  const active=['ready','playing'].includes(state.phase),moving=state.time<state.swapUntil;
-  const xs=positions();
-  state.cups.forEach((c,i)=>{
-    const cup=cups[i],guest=guests[i],y=133-c.tea*.82;
-    cup.style.left=guest.style.left=xs[c.seat]+'%';
-    cup.querySelector('.tea-fill').setAttribute('y',y);cup.querySelector('.tea-fill').setAttribute('height',137-y);
-    cup.querySelector('.tea-surface').setAttribute('cy',y);
-    cup.querySelector('.tea-surface').style.opacity=c.tea<1?'0':'1';
-    cup.classList.toggle('low',c.tea<23);cup.classList.toggle('empty',c.tea<=0);
-    cup.classList.toggle('pouring',state.target===i);cup.classList.toggle('spilling',state.target===i&&c.tea>99);
-    cup.querySelector('.cup-warning').textContent=c.tea<=0?'EMPTY!':'Tea, please!';
-    cup.querySelector('kbd').textContent=c.seat+1;cup.disabled=!active||moving;
-    guest.classList.toggle('thirsty',c.tea<23);guest.classList.toggle('angry',c.empty>0);guest.classList.toggle('happy',c.reaction>0);
-    const bubble=guest.querySelector('.speech');bubble.textContent=bubbles[i].text;
-    const visible=bubbles[i].until>state.time && !moving && noticeUntil<=state.time && !['won','lost'].includes(state.phase);
-    bubble.classList.toggle('visible',visible);bubble.hidden=!visible;
-  });
-  const percent=Math.round(state.kettle/RULES.capacity*100),brewing=state.refill>0;
-  $('.refill').classList.toggle('needed',state.kettle<60);$('.refill').classList.toggle('brewing',brewing);$('.refill').classList.toggle('away',state.target!==null);
-  $('#refill').disabled=state.phase!=='playing'||brewing;
-  $('#refill b').textContent=brewing?'Refilling…':state.kettle===0?'Kettle empty!':'Refill kettle';
-  $('#kettle-state').textContent=brewing?`${state.refill.toFixed(1)} seconds`:state.kettle===0?'Tap here · R':`${percent}% left · takes 1.8s`;
-  document.querySelectorAll('.kettle-tea').forEach(node=>node.setAttribute('y',brewing?145-(1-state.refill/RULES.refillSeconds)*67:145-percent*.67));
-  $('#pause').disabled=['ready','won','lost'].includes(state.phase);$('#pause').innerHTML=icon(state.phase==='paused'?'play':'pause');
-  $('#pause').setAttribute('aria-label',state.phase==='paused'?'Resume game':'Pause game');
-  $('#announcement span').textContent=noticeUntil>state.time?noticeText:(state.time>60?'One last round. Faster, please!':state.time>38?'They’re getting rather thirsty.':'75 seconds. Three empty cups and you’re out.');
-  $('#announcement').classList.toggle('urgent',noticeUntil>state.time&&noticeUrgent);
-  $('#announcement').style.visibility=guests.some(g=>!g.querySelector('.speech').hidden)?'hidden':'visible';
-  const flowing=state.target!==null&&state.phase==='playing'&&!brewing&&!moving&&state.kettle>0;
-  $('#flying-kettle').style.display=$('#stream').style.display=flowing?'block':'none';
-  if(flowing){
-    const rect=cups[state.target].getBoundingClientRect(),bounds=table.getBoundingClientRect();
-    const targetX=rect.x-bounds.x+rect.width*.46,targetY=rect.y-bounds.y+(rect.height-29)*.27;
-    const streamStartX=targetX+10,streamStartY=targetY-53;
-    $('#flying-kettle').style.left=streamStartX+'px';$('#flying-kettle').style.top=streamStartY+'px';
-    $('#stream path').setAttribute('d',`M${streamStartX} ${streamStartY}Q${targetX-5} ${targetY-30} ${targetX} ${targetY+15}`);
-    $('#stream circle').setAttribute('cx',targetX);$('#stream circle').setAttribute('cy',targetY+15);
-    if(state.time-lastDrop>.16){lastDrop=state.time;tone(500+Math.random()*300,.045,.012);}
-  }
-  if(Math.floor(state.time)!==lastStatus){
-    lastStatus=Math.floor(state.time);
-    state.cups.forEach((c,i)=>cups[i].setAttribute('aria-label',`${c.name}, ${Math.round(c.tea)} percent full. Hold ${c.seat+1} or hold this button to pour.`));
-    $('#refill').setAttribute('aria-label',`Refill kettle, ${percent} percent remaining. Takes 1.8 seconds. Keyboard R.`);
-    // Expose urgent changes without announcing the live fill percentage every frame.
-    const low=state.cups.filter(c=>c.tea<18 && c.tea>0).map(c=>c.name);
-    if(low.length && !state.events.length && lastStatus%4===0)say(`${low.join(' and ')} need tea.`);
-  }
-  // Read-only diagnostic snapshot for local verification; no controls or time cheats.
-  table.dataset.phase=state.phase;table.dataset.time=state.time.toFixed(2);table.dataset.score=Math.floor(state.score);
+ processEvents();const course=COURSES[state.course],left=Math.max(0,Math.ceil(course.duration-state.time)),active=canAct(state),moving=state.time<state.swapUntil;
+ $('#time').textContent=`0:${String(left).padStart(2,'0')}`;$('#course-label').textContent=`Course ${state.course+1} of 3`;
+ $('#score').textContent=(state.scores.slice(0,state.course).reduce((a,b)=>a+b,0)+Math.floor(state.score)).toLocaleString();$('#chances-label').textContent=`${3-state.misses} chance${state.misses===2?'':'s'}`;$('.chances').setAttribute('aria-label',`${3-state.misses} chances remaining`);[...$('#chances').children].forEach((c,i)=>c.classList.toggle('used',i<state.misses));
+ const xs=positions();state.cups.forEach((c,i)=>{
+  const cup=cups[i],guest=guests[i],order=orders[i],y=133-c.tea*.82;
+  cup.style.left=guest.style.left=order.style.left=xs[c.seat]+'%';cup.querySelector('.tea-fill').setAttribute('y',y);cup.querySelector('.tea-fill').setAttribute('height',137-y);cup.querySelector('.tea-surface').setAttribute('cy',y);cup.querySelector('.tea-surface').style.opacity=c.tea<1?'0':'1';
+  cup.classList.toggle('low',c.tea<23);cup.classList.toggle('empty',c.tea<=0);cup.classList.toggle('dirty',c.dirty);cup.classList.toggle('pouring',state.target===i);cup.classList.toggle('spilling',state.target===i&&c.tea>99);cup.querySelector('.cup-warning').textContent=c.dirty?'Dirty cup':c.tea<=0?'EMPTY!':'Tea, please!';cup.querySelector('kbd').textContent=c.seat+1;cup.disabled=!active;
+  guest.classList.toggle('thirsty',c.tea<23);guest.classList.toggle('angry',c.empty>0);guest.classList.toggle('happy',c.reaction>0);guest.classList.toggle('chewing',c.chewing>0);
+  const working=state.service?.id===i,kind=working?state.service.kind:c.dirty?'clean':c.order?'toast':'';order.hidden=!kind||!['playing','paused'].includes(state.phase);order.disabled=!active;order.dataset.kind=kind;order.dataset.left=c.order?c.order.left.toFixed(2):'';
+  if(order.dataset.art!==kind){order.querySelector('.order-art').innerHTML=kind==='clean'?cleanArt:toastArt;order.dataset.art=kind;}
+  order.querySelector('b').textContent=working?'Serving…':kind==='clean'?'Clean cup':'Bread & butter';
+  order.querySelector('small').textContent=working?`${state.service.left.toFixed(1)}s`:kind==='clean'?`${['Q','W','E'][c.seat]} · discards tea`:`${Math.ceil(c.order?.left||0)}s · ${['Q','W','E'][c.seat]}`;
+  order.classList.toggle('urgent',!c.dirty&&c.order?.left<2.5);order.setAttribute('aria-label',`${kind==='clean'?'Replace dirty cup':'Serve bread and butter'} for ${c.name}. ${kind==='clean'?'Remaining tea will be discarded.':`${Math.ceil(c.order?.left||0)} seconds left.`} Key ${['Q','W','E'][c.seat]}.`);
+ });
+ const percent=Math.round(state.kettle/RULES.capacity*100),brewing=state.refill>0;
+ $('#refill').classList.toggle('needed',state.kettle<60);$('#refill').classList.toggle('brewing',brewing);$('#refill').classList.toggle('away',state.target!==null);$('#refill').disabled=!active;$('#refill b').textContent=brewing?'Refilling…':state.service?'Serving…':state.kettle===0?'Kettle empty!':'Refill kettle';$('#kettle-state').textContent=brewing?`${state.refill.toFixed(1)} seconds`:state.kettle===0?'Tap here · R':`${percent}% left · 1.8s`;
+ document.querySelectorAll('.kettle-tea').forEach(n=>n.setAttribute('y',brewing?145-(1-state.refill/RULES.refillSeconds)*67:145-percent*.67));
+ $('#pause').disabled=!['playing','paused'].includes(state.phase);$('#pause').innerHTML=icon(state.phase==='paused'?'play':'pause');$('#pause').setAttribute('aria-label',state.phase==='paused'?'Resume game':'Pause game');
+ $('#announcement span').textContent=noticeUntil>state.time?noticeText:state.service?state.service.kind==='clean'?'A fresh cup…':'Bread and butter…':state.course===0?'Three chances. Keep them in tea.':state.course===1?'Tea, bread, and impeccable timing.':'Clean cups. Buttered bread. More tea.';
+ const flow=state.target!==null&&active&&state.kettle>0;$('#flying-kettle').style.display=$('#stream').style.display=flow?'block':'none';
+ if(flow){const r=cups[state.target].getBoundingClientRect(),b=table.getBoundingClientRect(),x=r.x-b.x+r.width*.46,y=r.y-b.y+(r.height-29)*.27;$('#flying-kettle').style.left=x+10+'px';$('#flying-kettle').style.top=y-53+'px';$('#stream path').setAttribute('d',`M${x+10} ${y-53}Q${x-5} ${y-30} ${x} ${y+15}`);$('#stream circle').setAttribute('cx',x);$('#stream circle').setAttribute('cy',y+15);if(state.time-lastDrop>.16){lastDrop=state.time;tone(600,.045,.012);}}
+ const status=state.phase+Math.floor(state.time);if(status!==lastStatus){lastStatus=status;state.cups.forEach((c,i)=>cups[i].setAttribute('aria-label',`${c.name}, ${Math.round(c.tea)} percent full.${c.dirty?' Dirty cup: replace before pouring.':` Hold ${c.seat+1} to pour.`}`));$('#refill').setAttribute('aria-label',`Refill kettle, ${percent} percent remaining. Takes 1.8 seconds. Keyboard R.`);}
+ table.dataset.phase=state.phase;table.dataset.course=state.course+1;table.dataset.time=state.time.toFixed(2);table.dataset.score=Math.floor(state.score);table.dataset.completed=state.phase==='interlude'||state.phase==='won'?state.course+1:state.course;table.dataset.service=state.service?.kind||'';
+ $('#instructions').innerHTML=state.course===0?'<strong>Hold a cup to pour.</strong> Release at the line.':'<strong>Hold cups to pour.</strong> Tap their requests.';
+ showOverlay();
 }
-function frame(now){
-  const dt=Math.min(.1,(now-last)/1000);last=now;
-  tick(state,dt);
-  if(state.phase==='playing'){
-    const warningAt=RULES.swaps[state.swapIndex];
-    if(warningAt&&warningAt-state.time>0&&warningAt-state.time<1.6&&noticeText!=='Clean cups! Moving in a moment…')notice('Clean cups! Moving in a moment…',1.7);
-    if(talks[talkIndex]&&state.time>=talks[talkIndex][0]){
-      const [,id,line]=talks[talkIndex++];if(state.cups[id].tea>20)speech(id,line,3.5);
-    }
-  }
-  render();requestAnimationFrame(frame);
-}
-table.addEventListener('pointerdown',e=>{
-  const button=e.target.closest('.cup');if(!button||button.disabled||pointerId!==null||e.button!==0)return;
-  e.preventDefault();pointerId=e.pointerId;heldKey=null;button.focus({preventScroll:true});
-  table.setPointerCapture(e.pointerId);beginPour(Number(button.dataset.id));
-});
-table.addEventListener('pointermove',e=>{
-  if(pointerId!==e.pointerId)return;
-  const button=document.elementFromPoint(e.clientX,e.clientY)?.closest('.cup');
-  if(button&&!button.disabled){const id=Number(button.dataset.id);if(id!==state.target)beginPour(id);}
-  else stopPour(state);
-});
-function releasePointer(e){if(pointerId===e.pointerId){stopPour(state);pointerId=null;render();}}
-table.addEventListener('pointerup',releasePointer);table.addEventListener('pointercancel',releasePointer);table.addEventListener('lostpointercapture',releasePointer);
-// Keyboard activation holds the same continuous pour as a mouse or finger.
-cups.forEach((cup,id)=>{
-  cup.addEventListener('keydown',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(id);}}});
-  cup.addEventListener('keyup',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();stopPour(state);heldKey=null;render();}});
-  cup.addEventListener('blur',()=>{if(heldKey===' '||heldKey==='Enter'){stopPour(state);heldKey=null;}});
-});
-document.addEventListener('keydown',e=>{
-  if($('#about-dialog').open)return;
-  if(['1','2','3'].includes(e.key)){
-    e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(state.cups.findIndex(c=>c.seat===Number(e.key)-1));}
-  }else if(e.key.toLowerCase()==='r'&&!e.repeat){e.preventDefault();doRefill();}
-  else if(['p','escape'].includes(e.key.toLowerCase())&&!e.repeat){e.preventDefault();togglePause();}
-});
+function frame(now){tick(state,Math.min(.1,(now-last)/1000));last=now;render();requestAnimationFrame(frame);}
+// Only actual cup holds pour. No click-to-run automation or hidden simulation controls.
+table.addEventListener('pointerdown',e=>{const b=e.target.closest('.cup');if(!b||b.disabled||pointerId!==null||e.button!==0)return;e.preventDefault();heldKey=null;b.focus({preventScroll:true});if(beginPour(Number(b.dataset.id))){pointerId=e.pointerId;table.setPointerCapture(e.pointerId);}});
+table.addEventListener('pointermove',e=>{if(e.pointerId!==pointerId)return;const b=document.elementFromPoint(e.clientX,e.clientY)?.closest('.cup');if(b&&!b.disabled){if(Number(b.dataset.id)!==state.target)beginPour(Number(b.dataset.id));}else stopPour(state);});
+function release(e){if(e.pointerId===pointerId){pointerId=null;stopPour(state);render();}}
+for(const name of ['pointerup','pointercancel','lostpointercapture'])table.addEventListener(name,release);
+cups.forEach((b,i)=>{b.addEventListener('keydown',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(i);}}});b.addEventListener('keyup',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();stopPour(state);heldKey=null;render();}});b.addEventListener('blur',()=>{if([' ','Enter'].includes(heldKey)){stopPour(state);heldKey=null;}});});
+orders.forEach((b,i)=>b.addEventListener('click',()=>doServe(i)));
+document.addEventListener('keydown',e=>{if($('#about-dialog').open||e.ctrlKey||e.metaKey||e.altKey)return;const key=e.key.toLowerCase();if(['1','2','3'].includes(key)){e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(state.cups.findIndex(c=>c.seat===Number(key)-1));}}else if(['q','w','e'].includes(key)&&!e.repeat){e.preventDefault();doServe(state.cups.findIndex(c=>c.seat===['q','w','e'].indexOf(key)));}else if(key==='r'&&!e.repeat){e.preventDefault();doRefill();}else if(['p','escape'].includes(key)&&!e.repeat){e.preventDefault();togglePause();}});
 document.addEventListener('keyup',e=>{if(e.key===heldKey){stopPour(state);heldKey=null;render();}});
-$('#refill').addEventListener('click',doRefill);$('#pause').addEventListener('click',togglePause);$('#restart').addEventListener('click',reset);
-$('#primary-action').addEventListener('click',()=>state.phase==='paused'?togglePause():reset());
-$('#sound').addEventListener('click',()=>{soundOn=!soundOn;$('#sound').innerHTML=icon(soundOn?'sound':'mute');$('#sound').setAttribute('aria-label',soundOn?'Turn sound off':'Turn sound on');$('#sound').title=soundOn?'Turn sound off':'Turn sound on';tone(620,.12);});
-$('#about').addEventListener('click',()=>{
-  aboutWasPlaying=state.phase==='playing';if(aboutWasPlaying){clearInputs();pause(state);}
-  $('#about-dialog').showModal();render();
-});
-$('#close-about').addEventListener('click',()=>$('#about-dialog').close());
-$('#about-dialog').addEventListener('close',()=>{if(aboutWasPlaying&&state.phase==='paused'){showPause();}else $('#about').focus();aboutWasPlaying=false;});
-function autoPause(){if(state.phase==='playing'){clearInputs();pause(state);showPause();render();}}
-window.addEventListener('blur',autoPause);document.addEventListener('visibilitychange',()=>{if(document.hidden)autoPause();});
-window.addEventListener('resize',()=>{clearInputs();render();});
+$('#refill').addEventListener('click',doRefill);$('#pause').addEventListener('click',togglePause);$('#restart').addEventListener('click',retry);$('#retry-course').addEventListener('click',retry);$('#replay-all').addEventListener('click',replay);$('#primary-action').addEventListener('click',primary);
+$('#sound').addEventListener('click',()=>{soundOn=!soundOn;$('#sound').innerHTML=icon(soundOn?'sound':'mute');$('#sound').setAttribute('aria-label',soundOn?'Turn sound off':'Turn sound on');tone(620,.12);});
+$('#about').addEventListener('click',()=>{aboutWasPlaying=state.phase==='playing';if(aboutWasPlaying){clearInputs();pause(state);}$('#about-dialog').showModal();render();});$('#close-about').addEventListener('click',()=>$('#about-dialog').close());$('#about-dialog').addEventListener('close',()=>{shown='';render();if(!aboutWasPlaying&&state.phase==='playing')$('#about').focus();aboutWasPlaying=false;});
+function autoPause(){clearInputs();if(state.phase==='playing')pause(state);render();}
+window.addEventListener('blur',autoPause);window.addEventListener('pagehide',autoPause);document.addEventListener('visibilitychange',()=>{if(document.hidden)autoPause();});window.addEventListener('resize',autoPause);window.addEventListener('orientationchange',autoPause);
 render();requestAnimationFrame(frame);

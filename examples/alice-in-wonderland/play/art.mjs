@@ -152,3 +152,6 @@ export const garden=svg(`<defs>${hatch('bark-hatch',-12,5)}<pattern id="linen" w
   </g>
   <g fill="none" stroke="#686f65" stroke-width=".5" opacity=".6"><path d="M104 387l-5-12m11 12-3-17m9 16 3-12M1035 397l5-15m1 15 10-12M197 372q8-18 16-1m-17-4q11-10 19-1"/></g>
   `,'0 0 1200 700');
+
+export const toastArt=svg(`<g stroke="#384850" stroke-width="1.4" stroke-linejoin="round"><ellipse cx="45" cy="51" rx="40" ry="11" fill="#fbfefe"/><ellipse cx="45" cy="51" rx="35" ry="7" fill="none" stroke="#194b70" stroke-width=".7"/><path d="M17 42l12-29q13-10 39 3l8 27-27 14z" fill="#c99d5c"/><path d="M23 39l11-21q14-5 29 3l7 20-23 10z" fill="#eee0af"/><path d="M34 31l16-8 11 7-15 9z" fill="#f4ce6d"/><path d="M28 40l5-3m21 7 5-3m2-17 3 3" fill="none" stroke-width=".8"/></g>`,'0 0 90 65');
+export const cleanArt=svg(`<g fill="none" stroke="#194b70" stroke-width="1.4"><ellipse cx="44" cy="53" rx="34" ry="8" fill="#fbfefe"/><path d="M22 19h43l-4 25q-17 17-35 0z" fill="#fbfefe"/><path d="M66 23q18-3 15 9-3 9-17 8"/><path d="M13 11v12M7 17h12M71 3v14M64 10h14"/><ellipse cx="44" cy="19" rx="22" ry="4"/></g>`,'0 0 90 65');

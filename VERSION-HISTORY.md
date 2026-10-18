@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Game progression · 18 October 2026
+
+Tea at Six now has three short courses. Untimed character exchanges introduce bread-and-butter orders and clean-cup requests; serving and replacing cups compete with pouring. The illustrated table and direct controls remain. Homeward has four sea days, with illustrated introductions, narrower channels, moving swells, overlapping crew trouble and forecast lightning. Athena helps steady the sea. The days condense episodes from Books V, X and XII, with exact reference visits that preserve the main reading place.
+
+Castle escape now crosses a guest wing, chapel and gatehouse, with keys, a winch and increasingly intricate patrol crossings. Revised masonry, doors, objects and characters follow the reader’s paper and oxblood palette. All three games pause for reading and let a failed stage be retried without repeating cleared stages. Game checkpoints remain separate from reader notes, positions and spoiler boundaries. Literary editions and the earlier native-touch passage correction are unchanged.
+
 ## Launch touch correction · 18 October 2026
 
 Keeping a selection now uses the browser’s native touch click, with a short-lived exact source snapshot. The previous unconditional pointerdown cancellation suppressed WebKit’s click, leaving a visible Keep action that worked with a mouse but failed on a real touch tap. Cancelled, moved and held gestures are discarded; mouse and keyboard activation remain. The stock reader and all six public examples receive the same correction, with an original-text touch regression in CI. Source editions and game code are unchanged.

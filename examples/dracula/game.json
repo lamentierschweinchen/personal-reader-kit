@@ -5,23 +5,23 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7020,
-      "sha256": "2316bb49d3a8d18f4bffee23935166a3ebde5e2e0f348c64ab3d8da8fe5450e8"
+      "bytes": 7581,
+      "sha256": "c013583db0c2a62054b7b16b224de8bf8b7088d0f73617761e1ba39b048003e4"
     },
     {
       "path": "style.css",
-      "bytes": 12092,
-      "sha256": "d6db61354b7961f2b8e9d8428d14d1a3317500a8c8e114a0945c5b90962bd99e"
+      "bytes": 12563,
+      "sha256": "5fbc4ebb712d1711d5a522c931b83bc4304bd145ee54809b52b6e35651c620f6"
     },
     {
       "path": "app.mjs",
-      "bytes": 14822,
-      "sha256": "707baa338d245129fa7fd1f5e697669598a3832ae413eaa5c39e2bbac285e587"
+      "bytes": 19485,
+      "sha256": "858acb54782d3688ebf920e602d859834463d9c6dbee5da1f4ecb44b1810887f"
     },
     {
       "path": "engine.mjs",
-      "bytes": 5370,
-      "sha256": "a853cfbc4b18bb29b14de4a1f7dc931364c18d361d4738f3f59bb6f5f7b562c5"
+      "bytes": 10569,
+      "sha256": "5abddb082813f1198b715c3c0ea66afed9d28e88ccbd199dd1d00bf772fd89be"
     },
     {
       "path": "icon.svg",

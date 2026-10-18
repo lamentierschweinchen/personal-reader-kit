@@ -1,125 +1,104 @@
-import {createGame,start,pause,resume,update,guardAt,fanPoints,COVERS,PILLARS,PATROLS,KEY,EXIT,RADIUS} from './engine.mjs';
-
+import {STAGES,RADIUS,createGame,roomFor,start,pause,resume,retry,nextRoom,update,guardAt,fanPoints,objective} from './engine.mjs';
 const $=s=>document.querySelector(s);
-const castle=$('#castle'), screen=$('#screen'), title=$('#screen-title'), copy=$('#screen-copy'), action=$('#screen-action');
-const pauseButton=$('#pause'), restartButton=$('#restart'), notes=$('#notes'), announcement=$('#announcement');
-const directions=[...document.querySelectorAll('.direction')];
-let game=createGame(), keys=new Set(), pointers=new Map(), previous=0, lastPhase='', lastSafety='', lastKey=false, buttonKey=null;
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const castle=$('#castle'),screen=$('#screen'),title=$('#screen-title'),copy=$('#screen-copy'),action=$('#screen-action');
+const pauseButton=$('#pause'),restartButton=$('#restart'),replayButton=$('#replay-all'),notes=$('#notes'),announcement=$('#announcement');
+const directions=[...document.querySelectorAll('.direction')],reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const SAVE_KEY='newreading-dracula-castle-v2';
+let malformedSave=false,storageMessage='';
+function loadProgress(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return {completed:0,gentle:false};const d=JSON.parse(raw);if(d.version!==2||!Number.isInteger(d.completed)||d.completed<0||d.completed>STAGES.length||typeof d.gentle!=='boolean')throw Error('format');return d;}catch(e){malformedSave=true;storageMessage='The saved escape could not be read. This run will leave it untouched. Replay all rooms starts a new save.';return {completed:0,gentle:false};}}
+const saved=loadProgress();
+let game=createGame({stage:Math.min(saved.completed,STAGES.length-1),completed:saved.completed,gentle:saved.gentle});
+if(saved.completed===STAGES.length){game.phase='escaped';game.inventory.push(...roomFor(game).requires);game.opened=roomFor(game).doors.map(d=>d.id);}
+let keys=new Set(),pointers=new Map(),previous=0,lastPhase='',lastSafety='',lastEvent=-1,buttonKey=null,drawnStage=-1;
 const keyMap={ArrowUp:'up',KeyW:'up',ArrowDown:'down',KeyS:'down',ArrowLeft:'left',KeyA:'left',ArrowRight:'right',KeyD:'right'};
+const numerals=['I','II','III'];
 const rect=(r,extra='')=>`<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" ${extra}/>`;
-const keyDrawing='<circle cx="-6" cy="-5" r="6" fill="none"/><path d="m-2 0 13 13m-4-4 4-4m-8 0 4-4" fill="none"/>';
-
+const art={
+  key:'<circle cx="-6" cy="-5" r="6" fill="none"/><path d="m-2 0 13 13m-4-4 4-4m-8 0 4-4" fill="none"/>',
+  bolt:'<rect x="-15" y="-8" width="30" height="16" fill="#b8b0a1"/><path d="M-17 0h34M7 0v-10" fill="none"/>',
+  handle:'<path d="M-13 9h11V-9h15" fill="none"/><circle cx="-13" cy="9" r="3"/><circle cx="13" cy="-9" r="3"/>',
+  winch:'<circle r="13" fill="none"/><circle r="3"/><path d="M0-13V13M-13 0h26M-9-9 9 9M-9 9 9-9M-18 19h36M-8 13v6M8 13v6" fill="none"/>'
+};
+function storageStatus(){for(const el of document.querySelectorAll('.save-status')){el.hidden=!storageMessage;el.textContent=storageMessage;}}
+function saveProgress(){if(malformedSave){storageStatus();return;}try{localStorage.setItem(SAVE_KEY,JSON.stringify({version:2,completed:game.completed,gentle:game.gentle}));storageMessage='';}catch{storageMessage='Cleared rooms could not be saved. You can keep playing in this tab; reloading may lose this progress.';}storageStatus();}
+function wallArt(w){return `<g>${rect({...w,x:w.x+5,y:w.y+7},'fill="#292925" opacity=".16"')}${rect(w,'fill="url(#masonry)" stroke="#655e54" stroke-width="1.8"')}<path d="M${w.x+3} ${w.y+w.h-3}V${w.y+3}H${w.x+w.w-3}" fill="none" stroke="#f3eee3" stroke-width="2"/><path d="M${w.x+4} ${w.y+w.h-3}H${w.x+w.w-3}V${w.y+4}" fill="none" stroke="#8d8474" stroke-width="2"/></g>`;}
+function doorArt(d){const vertical=d.h>d.w,cx=d.x+d.w/2,cy=d.y+d.h/2;return `<g id="door-${d.id}" class="door" data-open="false">${rect(d,'fill="#d7cbb5" stroke="#655e54" stroke-width="2"')}<g class="door-leaves">${rect({...d,x:d.x+4,y:d.y+4,w:d.w-8,h:d.h-8},'fill="#743b32"')}${Array.from({length:7},(_,i)=>vertical?`<path d="M${d.x+3} ${d.y+8+i*(d.h-16)/6}h${d.w-6}"/>`:`<path d="M${d.x+8+i*(d.w-16)/6} ${d.y+3}v${d.h-6}"/>`).join('')}</g><g class="door-lock" transform="translate(${cx} ${cy})"><rect x="-6" y="-5" width="12" height="11" rx="2" fill="#e5d2a3" stroke="#292925" stroke-width="1"/><path d="M-4-5v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#292925"/><circle r="1.5" fill="#292925"/></g></g>`;}
 function buildRoom(){
-  const tiles=[];
-  for(let y=56;y<551;y+=38){
-    tiles.push(`<path d="M49 ${y}H551"/>`);
-    for(let x=49+((y-56)/38%2)*38;x<551;x+=76)tiles.push(`<path d="M${x} ${y}v38"/>`);
-  }
-  const stones=[];
-  for(let n=60;n<560;n+=38){stones.push(`<path d="M${n} 25v24M${n} 551v24M25 ${n}h24M551 ${n}h24"/>`);}
-  castle.innerHTML=`<defs>
-    <pattern id="hatching" width="8" height="8" patternUnits="userSpaceOnUse"><path d="m-2 2 4-4M0 8 8 0m-2 10 4-4" fill="none" stroke="#f3eee3" stroke-opacity=".13" stroke-width=".8"/></pattern>
-    <pattern id="stone-cut" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 6 6 0" stroke="#655e54" stroke-opacity=".17" stroke-width=".8"/></pattern>
-    <clipPath id="floor-clip"><rect x="49" y="49" width="502" height="502"/></clipPath>
-    <mask id="shadow-mask"><rect x="0" y="0" width="600" height="600" fill="white"/>${COVERS.map(c=>rect({x:c.x+RADIUS,y:c.y+RADIUS,w:c.w-2*RADIUS,h:c.h-2*RADIUS},'fill="black"')).join('')}</mask>
-  </defs>
-  <path d="M24 24h552v552H24Z" fill="#c8c0b0" stroke="#655e54" stroke-width="1.5"/>
-  <g fill="none" stroke="#655e54" stroke-opacity=".5" stroke-width="1">${stones.join('')}</g>
-  <rect x="39" y="39" width="522" height="522" fill="none" stroke="#655e54" stroke-width="1"/>
-  <rect x="49" y="49" width="502" height="502" fill="#e9e2d5" stroke="#655e54" stroke-width="2"/>
-  <g clip-path="url(#floor-clip)" fill="none" stroke="#b8b0a1" stroke-opacity=".38" stroke-width=".65">${tiles.join('')}</g>
-  <g aria-hidden="true">${COVERS.map(c=>`<g data-cover="${c.id}">${rect(c,'fill="#44463f" stroke="#292925" stroke-width="1.2"')}${rect(c,'fill="url(#hatching)"')}<path d="M${c.x+8} ${c.y+c.h-8}V${c.y+29}Q${c.x+c.w/2} ${c.y-3} ${c.x+c.w-8} ${c.y+29}V${c.y+c.h-8}" fill="none" stroke="#f3eee3" stroke-opacity=".35" stroke-width="1"/><text x="${c.x+c.w/2}" y="${c.y+c.h-12}" class="cover-label">SHADOW</text></g>`).join('')}</g>
-  <path class="route" d="M130 313h340M132 163h335"/>
-  <g id="fans" clip-path="url(#floor-clip)" mask="url(#shadow-mask)">${PATROLS.map((_,i)=>`<polygon id="fan-${i}" class="sight"/>`).join('')}</g>
-  <g>${PILLARS.map(p=>`<g>${rect({...p,x:p.x+5,y:p.y+6},'fill="#292925" opacity=".13"')}${rect(p,'fill="#c8c0b0" stroke="#655e54" stroke-width="1.8"')}${rect(p,'fill="url(#stone-cut)"')}${rect({...p,x:p.x+7,y:p.y+6,w:p.w-14,h:p.h-12},'fill="none" stroke="#8d8679" stroke-width=".8"')}<path d="M${p.x+p.w/2} ${p.y}v${p.h}" stroke="#8d8679" stroke-width=".7"/></g>`).join('')}</g>
-  <text x="300" y="288" class="map-label">THE LONG GALLERY</text>
-  <text x="300" y="466" class="map-label">GREAT HALL</text>
-  <g id="gate" transform="translate(${EXIT.x} 555)">
-    <path d="M-34 22v-31q34-37 68 0v31" fill="#292925" stroke="#292925" stroke-width="5"/>
-    <g class="gate-leaf"><path d="M-29 18v-24Q-17-22 0-25v43Z" fill="#743b32" stroke="#f3eee3" stroke-width=".7"/><path d="M-23 12v-16m10 16v-29" stroke="#292925" stroke-width="1.5"/></g>
-    <g class="gate-leaf"><path d="M29 18v-24Q17-22 0-25v43Z" fill="#743b32" stroke="#f3eee3" stroke-width=".7"/><path d="M23 12v-16M13 12v-29" stroke="#292925" stroke-width="1.5"/></g>
-  </g>
-  <text id="gate-label" x="300" y="509" class="target-label">LOCKED GATE</text>
-  <g id="key" transform="translate(${KEY.x} ${KEY.y})"><circle class="key-halo" r="24"/><g stroke="#743b32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${keyDrawing}</g><text x="0" y="41" class="target-label">KEY</text></g>
-  <g id="patrols">${PATROLS.map((_,i)=>`<g id="patrol-${i}"><ellipse cx="0" cy="4" rx="16" ry="19" fill="#292925" opacity=".14"/><g class="cloak"><path d="M0-18C-14-14-13 1-18 20Q0 12 18 20C13 1 14-14 0-18Z" fill="#292925" stroke="#f3eee3" stroke-width="1.2"/><path d="m-7-6 7-5 7 5-7 8Z" fill="#743b32"/><path d="M-5-7h2M3-7h2" stroke="#f3eee3" stroke-width="1.6"/><path d="M0 3v11" stroke="#655e54" stroke-width="1"/></g></g>`).join('')}</g>
-  <g id="harker"><circle class="player-ring" r="20"/><circle id="warning-ring" class="danger-ring" r="23" stroke-dasharray="0 145"/><g id="harker-body"><path class="player-body" d="M-8-2-11 13Q0 18 11 13L8-2Z"/><path d="M-2 0v12" stroke="#b8b0a1" stroke-width="1.4"/><circle cx="0" cy="-9" r="7" fill="#f3eee3" stroke="#292925" stroke-width="1.5"/><path d="M-5-12Q0-17 6-10" fill="none" stroke="#292925" stroke-width="2"/><path d="M9 1 15-2" stroke="#f3eee3" stroke-width="3"/><rect x="12" y="-4" width="6" height="9" rx="1" fill="#e5d2a3" stroke="#292925" stroke-width="1.2"/></g><g id="carried-key" transform="translate(22 -15) scale(.55)" stroke="#f3eee3" stroke-width="3" stroke-linecap="round" hidden>${keyDrawing}</g></g>`;
-  castle.setAttribute('tabindex','0');
+ const room=roomFor(game),tiles=[];drawnStage=game.stage;
+ const occupied=c=>[...room.items,room.exit].some(p=>p.x>=c.x&&p.x<=c.x+c.w&&p.y>=c.y&&p.y<=c.y+c.h);
+ for(let y=55;y<551;y+=35){tiles.push(`<path d="M49 ${y}H551"/>`);for(let x=49+((y-55)/35%2)*35;x<551;x+=70)tiles.push(`<path d="M${x} ${y}v35"/>`);}
+ const stones=[];for(let n=55;n<560;n+=35)stones.push(`<path d="M${n} 24v25M${n} 551v25M24 ${n}h25M551 ${n}h25"/>`);
+ castle.innerHTML=`<defs>
+ <pattern id="masonry" width="48" height="24" patternUnits="userSpaceOnUse"><rect width="48" height="24" fill="#bcb3a2"/><path d="M0 0h48M0 12h48M24 0v12M0 12v12M48 12v12" fill="none" stroke="#817968" stroke-opacity=".55" stroke-width=".8"/></pattern>
+ <pattern id="hatching" width="8" height="8" patternUnits="userSpaceOnUse"><path d="m-2 2 4-4M0 8 8 0m-2 10 4-4" fill="none" stroke="#f3eee3" stroke-opacity=".13" stroke-width=".8"/></pattern>
+ <radialGradient id="candlelight"><stop stop-color="#e5d2a3" stop-opacity=".55"/><stop offset="1" stop-color="#e5d2a3" stop-opacity="0"/></radialGradient>
+ <clipPath id="floor-clip"><rect x="49" y="49" width="502" height="502"/></clipPath>
+ <mask id="shadow-mask"><rect width="600" height="600" fill="white"/>${room.covers.map(c=>rect({x:c.x+RADIUS,y:c.y+RADIUS,w:c.w-2*RADIUS,h:c.h-2*RADIUS},'fill="black"')).join('')}</mask>
+ </defs>
+ <rect x="24" y="24" width="552" height="552" fill="#c4bcac" stroke="#655e54" stroke-width="1.5"/>
+ <g fill="none" stroke="#7f7668" stroke-opacity=".6" stroke-width="1">${stones.join('')}</g>
+ <rect x="38" y="38" width="524" height="524" fill="none" stroke="#807866" stroke-width="1.2"/>
+ <rect x="49" y="49" width="502" height="502" fill="${game.stage===1?'#e4dfd2':'#e9e2d5'}" stroke="#655e54" stroke-width="2"/>
+ <path d="M51 549V51H549" fill="none" stroke="#f3eee3" stroke-width="3"/>
+ <g clip-path="url(#floor-clip)" fill="none" stroke="#b8b0a1" stroke-opacity=".45" stroke-width=".65">${tiles.join('')}</g>
+ <g aria-hidden="true">${room.covers.map(c=>`<g data-cover="${c.id}">${rect(c,'fill="#3c413d" stroke="#292925" stroke-width="1.2"')}${rect(c,'fill="url(#hatching)"')}<path d="M${c.x+7} ${c.y+c.h-7}V${c.y+22}Q${c.x+c.w/2} ${c.y-2} ${c.x+c.w-7} ${c.y+22}V${c.y+c.h-7}" fill="none" stroke="#f3eee3" stroke-opacity=".3" stroke-width="1"/>${occupied(c)?'':`<text x="${c.x+c.w/2}" y="${c.y+c.h-9}" class="cover-label">SHADOW</text>`}</g>`).join('')}</g>
+ <g clip-path="url(#floor-clip)">${room.candles.map(([x,y])=>`<circle cx="${x}" cy="${y}" r="44" fill="url(#candlelight)"/>`).join('')}</g>
+ <g>${room.patrols.map(p=>`<path class="route" d="${p.points.map((v,i)=>(i?'L':'M')+v.join(' ')).join(' ')}Z"/>`).join('')}</g>
+ <g id="fans" clip-path="url(#floor-clip)" mask="url(#shadow-mask)">${room.patrols.map((_,i)=>`<polygon id="fan-${i}" class="sight"/>`).join('')}</g>
+ <g>${room.walls.map(wallArt).join('')}</g>
+ <g fill="none" stroke="#292925" stroke-width="2">${room.doors.map(doorArt).join('')}</g>
+ <g>${room.labels.map(l=>`<text x="${l.x}" y="${l.y}" class="map-label">${l.text}</text>`).join('')}</g>
+ <g id="exit" transform="translate(${room.exit.x} ${room.exit.y})"><path d="M-26 24v-34q26-30 52 0v34" fill="#9b9281" stroke="#655e54" stroke-width="3"/><path d="M-20 21v-28q20-23 40 0v28" fill="#292925"/>${game.stage<2?Array.from({length:5},(_,i)=>`<path d="M-19 ${i*6-8}h38" stroke="#f3eee3" stroke-opacity="${.25+i*.15}" stroke-width="3"/>`).join(''):'<path d="M-18 20 0 2 18 20" fill="none" stroke="#f3eee3" stroke-width="2"/>'}<text y="39" class="target-label">${room.exit.label}</text></g>
+ <g>${room.items.map(item=>`<g id="object-${item.id}" class="object" transform="translate(${item.x} ${item.y})" data-collected="false"><circle class="object-halo" r="22"/><g stroke="#743b32" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" fill="#e5d2a3">${art[item.kind]}</g><text y="34" class="target-label">${item.label}</text></g>`).join('')}</g>
+ <g>${room.candles.map(([x,y])=>`<g transform="translate(${x} ${y})"><ellipse cy="6" rx="6" ry="3" fill="#292925"/><path d="M0 6V-2" stroke="#f3eee3" stroke-width="3"/><path class="candle-flame" d="M0-12Q-7-3 0-1Q6-4 0-12Z"/></g>`).join('')}</g>
+ <g id="patrols">${room.patrols.map((_,i)=>`<g id="patrol-${i}"><ellipse cy="5" rx="17" ry="20" fill="#292925" opacity=".18"/><g class="cloak"><path d="M-7-10Q-17-7-18 7L-19 24Q-8 17 0 24Q8 17 19 24L18 7Q17-7 7-10Z" fill="#282a28" stroke="#ece5d7" stroke-width="1.2"/><path d="M-10-6 0 0 10-6" fill="#743b32"/><ellipse cy="-12" rx="8" ry="9" fill="#d9d2c2" stroke="#292925" stroke-width="2"/><path d="M-7-15Q0-24 7-15L3-20H-3Z" fill="#292925"/><path d="M-4-12h2M2-12h2" stroke="#743b32" stroke-width="2"/><path d="m-2-7 2 2 2-2" fill="none" stroke="#655e54" stroke-width="1"/><path d="M-9 6-6 18M8 4 9 18" stroke="#655e54" stroke-width="1"/></g></g>`).join('')}</g>
+ <g id="harker"><circle class="player-ring" r="22"/><circle id="warning-ring" class="danger-ring" r="25" stroke-dasharray="0 158"/><g id="harker-body"><ellipse cy="13" rx="13" ry="9" fill="#292925" opacity=".22"/><path d="M-8-2-13 15Q0 20 13 15L8-2Z" fill="#dfd4bc" stroke="#292925" stroke-width="2"/><path d="M0-2v17M-7 18v4M7 18v4" stroke="#292925" stroke-width="2"/><circle cy="-10" r="7" fill="#f3eee3" stroke="#292925" stroke-width="1.6"/><path d="M-6-12Q0-19 7-11" fill="none" stroke="#292925" stroke-width="3"/><path d="M10 3 18-2" stroke="#e9e2d5" stroke-width="4"/><rect x="14" y="-5" width="8" height="11" rx="1" fill="#e5d2a3" stroke="#292925" stroke-width="1.5"/><path d="M17-5v-3h3v3M18-2v5" fill="none" stroke="#743b32" stroke-width="1"/></g></g>`;
+ castle.setAttribute('tabindex','0');castle.setAttribute('aria-label',`${room.title}. ${room.intro} Red fans show the patrols’ sight. Dark alcoves hide you. Solid masonry blocks movement.`);
+ $('#room-label').textContent=`${numerals[game.stage]} / III · ${room.title}`;
 }
-buildRoom();
-const harker=$('#harker'),body=$('#harker-body'), ring=$('#warning-ring'),key=$('#key');
-const guards=PATROLS.map((_,i)=>({figure:$(`#patrol-${i}`),cloak:$(`#patrol-${i} .cloak`),fan:$(`#fan-${i}`)}));
-
 function say(text){announcement.textContent=text;}
 function clearInput(){keys.clear();pointers.clear();buttonKey=null;for(const b of directions)b.setAttribute('aria-pressed','false');}
 function input(){const all=new Set([...keys,...pointers.values()]);return {x:Number(all.has('right'))-Number(all.has('left')),y:Number(all.has('down'))-Number(all.has('up'))};}
 function syncButtons(){const all=new Set([...keys,...pointers.values()]);for(const b of directions)b.setAttribute('aria-pressed',String(all.has(b.dataset.dir)));}
-function begin(){clearInput();start(game);lastPhase='';render();castle.focus({preventScroll:true});say('Find the key near the top. Dark alcoves hide you.');}
-function reset(){const gentle=game.gentle;game=createGame(gentle);lastKey=false;lastSafety='';lastPhase='';begin();}
+function begin(){clearInput();start(game);lastPhase='';render();castle.focus({preventScroll:true});say(roomFor(game).intro);}
+function replaceGame(next){clearInput();game=next;lastPhase='';lastSafety='';lastEvent=-1;drawnStage=-1;buildRoom();begin();}
+function reset(){replaceGame(retry(game));}
+function replayAll(){malformedSave=false;game=createGame({gentle:game.gentle});saveProgress();replaceGame(game);}
 function stop(reason='Your place is safe. Resume when you’re ready.'){
-  clearInput();if(game.phase!=='playing')return;
-  pause(game);render();copy.textContent=reason;action.focus({preventScroll:true});say('Paused. '+reason);
+ clearInput();if(game.phase!=='playing')return;pause(game);render();copy.textContent=reason;action.focus({preventScroll:true});say('Paused. '+reason);
 }
 function continueGame(){clearInput();resume(game);render();castle.focus({preventScroll:true});say('Resumed.');}
 function showScreen(){
-  const p=game.phase;
-  screen.hidden=p==='playing';pauseButton.disabled=p==='ready'||p==='caught'||p==='escaped';
-  pauseButton.querySelector('span').textContent=p==='paused'?'Resume':'Pause';
-  restartButton.hidden=p!=='paused';
-  if(p==='ready')return;
-  if(p==='playing')return;
-  clearInput();
-  if(p==='paused'){$('#screen-kicker').textContent='A moment in the shadows';title.textContent='The castle waits.';copy.textContent='Your place is safe. Resume when you’re ready.';action.innerHTML='Resume escape <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg>';}
-  if(p==='caught'){$('#screen-kicker').textContent='Caught in the open';title.textContent='A shadow saw you.';copy.textContent='Wait in an alcove. Cross after a patrol turns away.';action.innerHTML='Try again <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg>';say('Caught. Try again. Wait in an alcove, then cross after a patrol turns away.');action.focus({preventScroll:true});}
-  if(p==='escaped'){$('#screen-kicker').textContent='Out of the castle';title.textContent='Into the night.';copy.textContent=`The key turns. The gate opens. You escaped in ${Math.ceil(game.time)} seconds.`;action.innerHTML='Play again <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg>';say('You escaped. The key turns and the gate opens.');action.focus({preventScroll:true});}
+ const p=game.phase,room=roomFor(game);screen.hidden=p==='playing';pauseButton.disabled=!['playing','paused'].includes(p);pauseButton.querySelector('span').textContent=p==='paused'?'Resume':'Pause';
+ for(const b of directions)b.disabled=!['ready','playing'].includes(p);
+ restartButton.hidden=p!=='paused';replayButton.hidden=!['ready','paused','interlude','caught'].includes(p)||(game.completed===0&&!malformedSave);
+ if(p==='playing')return;clearInput();$('#screen-kicker').textContent=`Room ${numerals[game.stage]} of III`;
+ if(p==='ready'){title.textContent=room.title;copy.textContent=room.intro;action.textContent=game.completed?'Continue escape':'Enter the castle';}
+ if(p==='paused'){title.textContent='The castle waits.';copy.textContent='Your place is safe. Resume when you’re ready.';action.textContent='Resume escape';}
+ if(p==='caught'){title.textContent='A shadow found you.';copy.textContent=`Try ${room.short.toLowerCase()} again. Cleared rooms are kept.`;action.textContent='Retry this room';say('Caught. Retry this room. Cleared rooms are kept.');}
+ if(p==='interlude'){title.textContent=room.short+' cleared.';copy.textContent=room.cleared;action.textContent='Enter '+(game.stage===0?'the chapel':'the gatehouse');saveProgress();say(title.textContent+' '+room.cleared);}
+ if(p==='escaped'){$('#screen-kicker').textContent='All three rooms cleared';title.textContent='Beyond the walls.';copy.textContent=STAGES[2].cleared;action.textContent='Replay all rooms';saveProgress();say('You escaped the castle. All three rooms cleared.');}
+ screen.scrollTop=0;if(p!=='ready')action.focus({preventScroll:true});
 }
 function render(){
-  castle.dataset.phase=game.phase;castle.dataset.playing=String(game.phase==='playing');castle.dataset.unlocked=String(game.hasKey);
-  castle.dataset.time=game.time.toFixed(3);castle.dataset.gentle=String(game.gentle);
-  castle.dataset.patrolTime=game.patrolTime.toFixed(3);
-  if(game.phase!==lastPhase){lastPhase=game.phase;showScreen();}
-  const p=game.player;
-  harker.setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)})`);
-  harker.dataset.cover=game.cover||'';
-  body.setAttribute('transform',`rotate(${(p.angle*180/Math.PI+90).toFixed(2)})`);
-  harker.querySelector('.player-ring').setAttribute('stroke-dasharray',game.cover?'3 3':'none');
-  ring.setAttribute('stroke-dasharray',`${(game.warning*144.5).toFixed(2)} 145`);
-  $('#danger-fill').style.width=(game.warning*100).toFixed(2)+'%';
-  for(let i=0;i<guards.length;i++){
-    const pose=guardAt(game.patrolTime,i),g=guards[i];
-    g.figure.setAttribute('transform',`translate(${pose.x.toFixed(2)} ${pose.y})`);
-    g.cloak.setAttribute('transform',`rotate(${(pose.angle*180/Math.PI+90).toFixed(2)})`);
-    g.fan.setAttribute('points',fanPoints(pose));
-  }
-  const safety=game.phase==='caught'?'caught':game.phase==='escaped'?'escaped':game.exposed?'warning':game.cover?'cover':'open';
-  if(safety!==lastSafety){
-    lastSafety=safety;$('#safety').dataset.state=safety;
-    $('#safety span').textContent=safety==='caught'?'Caught':safety==='escaped'?'Escaped':safety==='warning'?'Seen! Find cover':safety==='cover'?'In shadow':'In the open';
-    $('#safety use').setAttribute('href',safety==='warning'||safety==='caught'?'#eye-icon':'#moon-icon');
-    if(game.phase==='playing')say(safety==='warning'?'Seen. Get out of sight.':safety==='cover'?'In shadow. You are safe.':'In the open.');
-  }
-  if(game.hasKey!==lastKey){
-    lastKey=game.hasKey;key.style.display=game.hasKey?'none':'';
-    $('#carried-key').toggleAttribute('hidden',!game.hasKey);
-    $('#objective').textContent=game.hasKey?'Reach the gate':'Take the key';
-    $('#gate-label').textContent=game.hasKey?'EXIT':'LOCKED GATE';
-    if(game.hasKey)say('Key in hand. Reach the gate at the bottom.');
-  }
-  // A restart clears the drawn key even if the previous frame ended with one.
-  key.style.display=game.hasKey?'none':'';$('#carried-key').toggleAttribute('hidden',!game.hasKey);
-  $('#objective').textContent=game.hasKey?'Reach the gate':'Take the key';$('#gate-label').textContent=game.hasKey?'EXIT':'LOCKED GATE';
-  $('#pickup').hidden=!(game.hasKey&&game.time-game.keyAt<1.8&&game.phase==='playing');
+ if(drawnStage!==game.stage)buildRoom();
+ castle.dataset.phase=game.phase;castle.dataset.stage=String(game.stage+1);castle.dataset.completed=String(game.completed);castle.dataset.playing=String(game.phase==='playing');castle.dataset.gentle=String(game.gentle);castle.dataset.time=game.time.toFixed(3);castle.dataset.patrolTime=game.patrolTime.toFixed(3);castle.dataset.inventory=game.inventory.join(',');castle.dataset.opened=game.opened.join(',');castle.dataset.warning=game.warning.toFixed(3);
+ if(game.phase!==lastPhase){lastPhase=game.phase;showScreen();}
+ const p=game.player,harker=$('#harker');harker.setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)})`);harker.dataset.cover=game.cover||'';$('#harker-body').setAttribute('transform',`rotate(${(p.angle*180/Math.PI+90).toFixed(2)})`);harker.querySelector('.player-ring').setAttribute('stroke-dasharray',game.cover?'3 3':'none');$('#warning-ring').setAttribute('stroke-dasharray',`${(game.warning*157).toFixed(2)} 158`);$('#danger-fill').style.width=(game.warning*100).toFixed(2)+'%';
+ const room=roomFor(game);room.patrols.forEach((_,i)=>{const s=guardAt(game,i);$(`#patrol-${i}`).setAttribute('transform',`translate(${s.x.toFixed(2)} ${s.y.toFixed(2)})`);$(`#patrol-${i} .cloak`).setAttribute('transform',`rotate(${(s.angle*180/Math.PI+90).toFixed(2)})`);$(`#fan-${i}`).setAttribute('points',fanPoints(game,s));});
+ for(const item of room.items)$(`#object-${item.id}`).dataset.collected=String(game.inventory.includes(item.id));
+ for(const door of room.doors)$(`#door-${door.id}`).dataset.open=String(game.opened.includes(door.id));
+ for(const step of document.querySelectorAll('[data-step]')){const n=Number(step.dataset.step);step.dataset.done=String(game.completed>n);if(n===game.stage)step.setAttribute('aria-current','step');else step.removeAttribute('aria-current');}
+ const safety=['caught','escaped','interlude'].includes(game.phase)?game.phase:game.exposed?'warning':game.cover?'cover':'open';
+ if(safety!==lastSafety){lastSafety=safety;$('#safety').dataset.state=safety;$('#safety span').textContent=({caught:'Caught',escaped:'Escaped',interlude:'Room cleared',warning:'Seen! Find cover',cover:'In shadow',open:'In the open'})[safety];$('#safety use').setAttribute('href',safety==='warning'||safety==='caught'?'#eye-icon':'#moon-icon');if(game.phase==='playing')say(safety==='warning'?'Seen. Get out of sight.':safety==='cover'?'In shadow.':'In the open.');}
+ $('#objective').textContent=objective(game);
+ if(game.event!==lastEvent){lastEvent=game.event;if(game.message&&game.phase==='playing')say(game.message);$('#pickup').textContent=game.message;}
+ $('#pickup').hidden=!(game.message&&game.time-game.messageAt<1.5&&game.phase==='playing');
 }
-function frame(now){
-  const dt=previous?(now-previous)/1000:0;previous=now;
-  if(game.phase==='playing'){update(game,input(),dt);render();}
-  requestAnimationFrame(frame);
-}
-render();requestAnimationFrame(frame);
-
-action.addEventListener('click',()=>game.phase==='paused'?continueGame():game.phase==='ready'?begin():reset());
-restartButton.addEventListener('click',reset);
-pauseButton.addEventListener('click',()=>game.phase==='paused'?continueGame():stop());
+function frame(now){const dt=previous?(now-previous)/1000:0;previous=now;if(game.phase==='playing'){update(game,input(),dt);render();}requestAnimationFrame(frame);}
+$('#gentle').checked=game.gentle;storageStatus();buildRoom();render();requestAnimationFrame(frame);
+action.addEventListener('click',()=>{if(game.phase==='paused')continueGame();else if(game.phase==='ready')begin();else if(game.phase==='caught')reset();else if(game.phase==='interlude')replaceGame(nextRoom(game));else if(game.phase==='escaped')replayAll();});
+restartButton.addEventListener('click',reset);replayButton.addEventListener('click',replayAll);pauseButton.addEventListener('click',()=>game.phase==='paused'?continueGame():stop());
 for(const b of directions){
   b.setAttribute('aria-pressed','false');
   b.addEventListener('pointerdown',e=>{
@@ -146,7 +125,7 @@ window.addEventListener('blur',()=>stop('The page lost focus. Resume when you’
 window.addEventListener('pagehide',()=>stop());
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop('You stepped away. Resume when you’re ready.');});
 let portrait=innerHeight>=innerWidth;
-window.addEventListener('resize',()=>{const next=innerHeight>=innerWidth;if(next!==portrait){portrait=next;stop('The room has turned. Resume when you’re ready.');}else if(pointers.size)clearInput();});
+window.addEventListener('resize',()=>{const next=innerHeight>=innerWidth;if(next!==portrait){portrait=next;stop('The room has turned. Resume when you’re ready.');}else stop('The view changed. Resume when you’re ready.');});
 window.addEventListener('orientationchange',()=>stop('The room has turned. Resume when you’re ready.'));
 
 let noteTrigger=null;
@@ -160,6 +139,6 @@ $('#about').addEventListener('click',e=>openNotes('source',e.currentTarget));
 $('#help').addEventListener('click',e=>openNotes('help',e.currentTarget));
 $('#close-notes').addEventListener('click',()=>notes.close());
 notes.addEventListener('close',()=>{clearInput();noteTrigger?.focus({preventScroll:true});});
-$('#gentle').addEventListener('change',e=>{game.gentle=e.target.checked;render();say(game.gentle?'Gentler patrols on.':'Normal patrols on.');});
+$('#gentle').addEventListener('change',e=>{game.gentle=e.target.checked;saveProgress();render();say(game.gentle?'Gentler patrols on.':'Normal patrols on.');});
 // Nonessential CSS motion follows the system setting live; timing remains readable.
 reduced.addEventListener('change',()=>render());

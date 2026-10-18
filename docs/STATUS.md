@@ -4,6 +4,24 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with six reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The six specifically reviewed editions are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Game progression · 18 October 2026
+
+**Tea at Six** now has three courses of 32, 36 and 40 seconds. Each begins with an untimed character exchange. Bread-and-butter orders compete with pouring in course two; course three adds dirty cups that must be replaced after a seat change. Serving food briefly slows a guest's drinking, while replacing a cup discards its tea. The original pouring/refill controls and ink drawings remain.
+
+**Homeward** now has four crossings of 36, 38, 40 and 42 seconds. Aeolus, Poseidon, Athena and Zeus introduce progressively tighter rock channels, moving swells, overlapping crew warnings, forecast gusts and marked lightning. Athena's owl markers and calming water help with the harder crossing. Each day has a self-paced introduction and an optional exact passage reference. The source view distinguishes the rearranged episodes from four consecutive days in Homer.
+
+**Castle escape** now connects the guest wing, shuttered chapel and gatehouse. Keys open different locks; the chapel supplies a handle for the final winch. Distinct masonry, patrol routes and interacting sight lines require deliberate crossings. New arched doors, candles, a lantern-bearing Harker and cloaked patrols clarify the rooms. The source view distinguishes the invented castle and escape from the novel.
+
+All three retain a current-stage retry and explicit full replay. Alice keeps cleared courses in the current tab; Homeward and Castle escape save game-only checkpoints in the browser. Reading dialogue, results and source views stops the game clocks. Reader records and return routes remain separate. The reader entrances describe the new progression; the six editions, personal entrance and native-touch passage-saving fix remain unchanged.
+
+Local verification passes 47 kit and 214 example Node tests, all 267 exact example outputs, the original-sample build and the isolated 350-input combined build. The release still contains 305 deployed outputs and 657 public files, with all 177 edition pins and the 60-file starter unchanged. Game manifests pin the final runtime bytes.
+
+Both browser engines complete all three Alice courses and Dracula rooms, including deliberate losses, current-stage retries, checkpoints and replay. Chromium completes these through trusted touch holds; WebKit uses mouse or keyboard holds with trusted taps. Homeward completes all four days at 320×568, 390×844, 844×390, 820×1180 and 1280×800 in both engines; later-day no-steering and no-crew policies lose and retry successfully. Cancellation, rotation, pause/source freeze and storage failures are covered. The short-phone Alice overlay was corrected after visual review and both affected interludes were reached again through ordinary play in both engines.
+
+The shared integration check passes 36 layouts and six reader roundtrips. Chromium offline emulation and WebKit with the local origin stopped verify cached play and reading. Six separate upgrade journeys replace the cached first-release game with the exact new files while preserving notes, reading positions and spoiler boundaries. All four Odyssey source references display their exact pinned passages without changing the main reading place. Phone/tablet reader entrances remain connected to the games.
+
+These are browser and agent review results. Physical iOS/Android devices, native installation, sound quality, nonvisual play and human acceptance of the difficulty remain unverified. Detailed receipts and quotation-bearing editorial work stay ignored. Live byte checks and the final public revision are recorded after deployment in the local workspace hosting receipt.
+
 ## Launch touch correction · 18 October 2026
 
 The stock reader and all six public readers now keep selections through native touch activation. The previous pointerdown cancellation suppressed WebKit’s click even though mouse activation passed. A bounded, edition-checked snapshot preserves the exact passage when a tap collapses the browser selection. Cancelled, moved and held gestures are rejected; an old cleanup timer cannot discard a newer selection. Source editions and all three games are unchanged.

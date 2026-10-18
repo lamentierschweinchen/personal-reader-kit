@@ -10,12 +10,23 @@ const localPort=server?.address().port;
 const base=(process.env.TEST_BASE||'http://127.0.0.1:'+localPort).replace(/\/$/,'');
 const out=new URL('../test-results/showcase/games/',import.meta.url);await mkdir(out,{recursive:true});
 const entries=[
- {slug:'alice',book:'alice-rackham-28885',chapter:'chapter-01',start:'.cup[data-id="0"]',state:'#table',resume:'#primary-action',about:'#about',dialog:'#about-dialog',close:'#close-about'},
+ {slug:'alice',book:'alice-rackham-28885',chapter:'chapter-01',start:'#primary-action',state:'#table',resume:'#primary-action',about:'#about',dialog:'#about-dialog',close:'#close-about'},
  {slug:'odyssey',book:'odyssey-butler-1727',chapter:'book-01',start:'#start',state:'#game',resume:'#again',about:'#story',dialog:'#source',close:'#source button'},
  {slug:'dracula',book:'dracula',chapter:'chap01',start:'#screen-action',state:'#castle',resume:'#screen-action',about:'#about',dialog:'#notes',close:'#close-notes'}
 ];
 const sizes=[[320,568],[390,844],[844,390],[820,1180],[1180,820],[1280,800]],receipts=[],problems=[];
 const phase=(p,e)=>p.locator(e.state).evaluate(n=>n.dataset.phase||n.dataset.mode);
+async function begin(page,e){
+ await page.locator(e.start).tap();
+ if(e.slug==='odyssey'){
+  await page.locator('#day-start').waitFor();
+  const intro=await page.locator(e.state).evaluate(n=>({...n.dataset}));
+  await page.waitForTimeout(350);
+  assert.deepEqual(await page.locator(e.state).evaluate(n=>({...n.dataset})),intro,'The sea waits during the day introduction');
+  await page.locator('#day-start').tap();
+ }
+ await page.waitForTimeout(180);assert.equal(await phase(page,e),'playing');
+}
 async function dimensions(page,label){
  const r=await page.evaluate(()=>({width:innerWidth,height:innerHeight,scroll:document.documentElement.scrollWidth,targets:[...document.querySelectorAll('button,a')].filter(n=>n.getClientRects().length&&!n.closest('dialog')&&!n.closest('noscript')&&getComputedStyle(n).visibility!=='hidden').map(n=>{const r=n.getBoundingClientRect();return{text:(n.textContent||n.getAttribute('aria-label')).trim().slice(0,40),x:r.x,y:r.y,w:r.width,h:r.height};})}));
  assert.ok(r.scroll<=r.width+1,label+' horizontal overflow');
@@ -53,7 +64,7 @@ try{
     try{
      await page.goto(base+'/'+e.slug+'/play/');await page.locator(e.start).waitFor();await page.evaluate(()=>document.fonts.ready);
      await dimensions(page,engine+' '+e.slug+' '+width+' ready');
-     await page.locator(e.start).tap();await page.waitForTimeout(180);assert.equal(await phase(page,e),'playing');
+     await begin(page,e);
      await page.locator('#pause').tap();assert.equal(await phase(page,e),'paused');
      const held=await page.locator(e.state).evaluate(n=>({time:n.dataset.time,phase:n.dataset.phase,mode:n.dataset.mode}));await page.waitForTimeout(220);
      assert.deepEqual(await page.locator(e.state).evaluate(n=>({time:n.dataset.time,phase:n.dataset.phase,mode:n.dataset.mode})),held);
@@ -83,7 +94,7 @@ try{
      const before=await state(page,e.slug),y=await page.evaluate(()=>scrollY);
      await launchFromReading(page);await page.locator(e.start).waitFor();
      const back=page.locator('a[href="../'+route+'"]:visible');assert.ok(await back.count());
-     await page.locator(e.start).tap();await page.waitForTimeout(150);await page.locator('#pause').tap();
+     await begin(page,e);await page.locator('#pause').tap();
      await back.last().tap();await ready(page);
      const after=await state(page,e.slug);assert.deepEqual(after.notes,before.notes);assert.deepEqual(after.boundaries,before.boundaries);assert.deepEqual(after.positions,before.positions);
      assert.equal(new URL(page.url()).hash,route);const returnedY=await page.evaluate(()=>scrollY);assert.ok(Math.abs(returnedY-y)<60,e.slug+' reading scroll restored '+JSON.stringify({beforeY:y,returnedY,before:before.positions,after:after.positions}));
@@ -95,7 +106,7 @@ try{
       if(offlineMode==='stopped-origin'){server.closeAllConnections();await new Promise(r=>server.close(r));server=null;}
       else await context.setOffline(true);
       await launchFromReading(page);await page.locator(e.start).waitFor();await page.reload();await page.locator(e.start).waitFor();
-      await page.locator(e.start).tap();assert.equal(await phase(page,e),'playing');await page.locator('#pause').tap();
+      await begin(page,e);await page.locator('#pause').tap();
       assert.equal(await page.evaluate(async()=>{try{await fetch('/uncached-game-control-'+Date.now(),{signal:AbortSignal.timeout(4000)});return false;}catch{return true;}}),true);
       await page.locator('a[href="../'+route+'"]:visible').last().tap();await ready(page);await page.reload();await ready(page);
       assert.deepEqual((await state(page,e.slug)).notes,before.notes);

@@ -5,28 +5,28 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 5211,
-      "sha256": "50e34ead12717ee1b11df9c67ffcaefb0f9c223bb403a72491df953b58796946"
+      "bytes": 5720,
+      "sha256": "519ee454f71d24d1316025c77d671503a5ac7df9e3ba05881a8a711093f8a2d9"
     },
     {
       "path": "styles.css",
-      "bytes": 18333,
-      "sha256": "a3b07c948eb0874cef507f714096a798b25733e7ba7e1455be63323b62fbdf41"
+      "bytes": 27060,
+      "sha256": "bc2104efa576ff7373440c2f540b858b949154341c42445653169dadabfd962e"
     },
     {
       "path": "art.mjs",
-      "bytes": 15671,
-      "sha256": "1de84cc2fb79b6e256cfe41abaafe28be044c319bc68af12c2321dbfdf4efcbc"
+      "bytes": 16502,
+      "sha256": "efb25544e8ce2f8b86cf0f111d926bac8968172841085c31813d90b9dbc09363"
     },
     {
       "path": "game.mjs",
-      "bytes": 16612,
-      "sha256": "5d321b70de652493b4a916be2464cde6f16dc28f0855b1e2867428b2a3667fc3"
+      "bytes": 20298,
+      "sha256": "b5fd6099f5949c4ec96efd90ddf5098f3f9f54afdf882b2265a16ce47dd3fba1"
     },
     {
       "path": "engine.mjs",
-      "bytes": 3573,
-      "sha256": "c6febf8b3f61a82eda5756b0b20c1110db854c4e9d9d17662c095f67c9a1c8b1"
+      "bytes": 5451,
+      "sha256": "0836c6e3b812d5770785b1f77e5b4902647df22d0bc05d1e133216677d8fc180"
     },
     {
       "path": "reader-return.mjs",

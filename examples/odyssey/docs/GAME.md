@@ -1,9 +1,34 @@
 # Homeward
 
-A 72-second voyage inspired by Aeolus’s gift in Book X: steer around rocks while keeping the crew away from the wind bag. The obstacle course, repeated warnings, three ties and recovery after gusts are game inventions. The optional story view distinguishes them from the episode and labels its Book X link as a spoiler.
+Four short sea crossings lead toward Ithaca. Each day has an original deity portrait, a self-paced introduction and an explicit sail button. A cleared day waits for the player; a lost day can be retried immediately with a repaired ship. Replay from day one is always a separate choice.
 
-The ship, sea, rocks, island, wake, wind bag, sailors and icons are original canvas/SVG drawings. The palette and system serif/sans stacks follow the Odyssey reader. No source-cover pixels, remote assets, fonts or image services are used. Optional sound is newly authored with Web Audio; it starts off. Original code/drawings use this example’s MIT license.
+| Day | Active time | What changes |
+| --- | --- | --- |
+| Aeolus | 36 seconds | Broad rock channels and a first restless crew member |
+| Poseidon | 38 seconds | Moving swells that push the ship sideways |
+| Athena | 40 seconds | Narrower channels and overlapping crew warnings; owl markers show the route, and Athena stills wave pushes while a sailor is reaching |
+| Zeus | 42 seconds | Forecast crosswinds, narrower channels, moving swells, paired crew warnings and marked lightning strips |
 
-The single quotation is an exact substring of the pinned Butler edition, Book X, book-10-004, attributed to Homer, Samuel Butler’s translation (1900), [Project Gutenberg 1727](https://www.gutenberg.org/ebooks/1727). The gift, ox-hide bag, silver binding, fair West wind and suspicious sailors come from the episode. Complete edition notices remain in the reader.
+The active voyage totals 156 seconds. No timer runs in an introduction, result, source view or pause. Three hull hits or three escaped winds end the current day. P or Escape pauses; steering and crew commands also work with the keyboard. Rotation, loss of visibility and page departure clear held controls and pause play. A stalled animation frame also pauses instead of skipping into a hazard.
 
-The game.json inventory pins each runtime file. There are no accounts, analytics or persisted game records. Integration adds a return to the launching reader route and the reader’s scoped offline worker; no notes or reading records are changed. Browser checks cover complete real-time voyages, both losses, retry, simultaneous steering/crew input, release/cancel, rotation, source/pause views and reduced motion. Browser emulation does not establish physical-device or nonvisual acceptance.
+The ship, sea, rocks, island, wake, wind bag, sailors, deity portraits and icons are original canvas/SVG drawings. The palette and system serif/sans stacks follow the Odyssey reader. No source-cover pixels, remote assets, fonts or image services are used. Optional sound is newly authored with Web Audio and starts off. Original code/drawings use this example’s MIT license.
+
+## Literary sources
+
+The introductions paraphrase the pinned Samuel Butler edition. Aeolus’s ox-hide bag, silver binding, fair West wind and suspicious sailors come from Book X, especially `book-10-004`. Poseidon’s trident and storm come from `book-05-025`. Athena’s restraint of the winds and help beside the rocks come from `book-05-031` and `book-05-034`–`book-05-035`. Zeus’s cloud, West squall and lightning come from `book-12-037`–`book-12-038`. Butler names these gods Neptune, Minerva and Jove.
+
+The game rearranges and condenses Books V, X and XII; these are not four consecutive days in Homer. The rock channels, three repeatable crew roles, owl markers, timed warnings, dodgeable lightning and second chances are game inventions. The quiet source view makes this distinction. Optional passage links are marked as spoilers and open the reader’s reference view in another tab, preserving the game and reading place.
+
+The single quotation is an exact substring of `book-10-004`, attributed to Homer, Samuel Butler’s translation (1900), [Project Gutenberg 1727](https://www.gutenberg.org/ebooks/1727). Complete edition notices remain in the reader.
+
+## Storage and integration
+
+`game.json` pins the five runtime files. The existing return-route integration and scoped offline worker remain unchanged. The game does not import the reader database or change books, notes, highlights or reading positions.
+
+The game alone writes `localStorage['newreading-homeward-days-v1']`: a version number, current day index and completion flag. A cleared day saves the next day; retry saves the day being played. Reload offers the saved day’s introduction. Replay from day one resets only this game key. An unreadable save offers day one with an explanation; a failed write warns the player to keep the tab open. There are no accounts or analytics.
+
+## Browser checks
+
+`showcase/check-odyssey-game.mjs` uses ordinary trusted input and the visible channel markers. It covers full real-time progression, overlapping crew warnings, rock and wind losses, current-day retries, saved progress, replay, input release/cancel, simultaneous steering and crew taps in Chromium, rotation, pause/source views, focus containment, reader-storage isolation, reduced motion and storage failures. It never changes the game clock or injects a winning state. Five layout profiles cover 320×568 through 1280×800; Chromium and WebKit can be selected with `BROWSER` and the corresponding browser executable path.
+
+Real navigation checks `pagehide`; separate synthetic blur and visibility events check their handlers. Headless lifecycle commands are recorded without claiming that they reproduce a physical phone switching apps. Browser emulation does not establish physical-device acceptance. This remains a visual action game with keyboard support, without an equivalent nonvisual mode.

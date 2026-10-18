@@ -5,18 +5,18 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 6939,
-      "sha256": "9c4dc838321789d8ea916bbd9ba694bedc0fb61c92de83ec8b4badf9c957f248"
+      "bytes": 8641,
+      "sha256": "291a43a671119167527c0485102216af3fb549fb41e657248b2a6220809e679f"
     },
     {
       "path": "style.css",
-      "bytes": 11628,
-      "sha256": "34fe5cae33149ab2462adc5166874ef29657663bf737b74810e055da5c92d313"
+      "bytes": 17225,
+      "sha256": "6dbe2a6f79d480fa602421e92134fc13e4410657e871aaf053709455a586a3a5"
     },
     {
       "path": "game.mjs",
-      "bytes": 24993,
-      "sha256": "f2eabc4f5c743c27d79b18936e96a3fe7a93706b4fee712b060c9fad2efe4b30"
+      "bytes": 34790,
+      "sha256": "7e30b6ef290d0eff976396daa4a060eff5e8261a8a72525eaa048ff17e5b4e85"
     },
     {
       "path": "icon.svg",

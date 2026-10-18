@@ -945,8 +945,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 77588,
-          "sha256": "ac7af5fd4b030aa394cbc06d317fd4664a72a955a284b1cf9cace53fb2df2ea0"
+          "bytes": 77610,
+          "sha256": "e764a0fad863127aeeeea8d6dca61ea52744ad890edd3e9016d4a010fbbbafb9"
         },
         {
           "path": "bundle.mjs",
@@ -985,23 +985,23 @@
         },
         {
           "path": "play/art.mjs",
-          "bytes": 15671,
-          "sha256": "1de84cc2fb79b6e256cfe41abaafe28be044c319bc68af12c2321dbfdf4efcbc"
+          "bytes": 16502,
+          "sha256": "efb25544e8ce2f8b86cf0f111d926bac8968172841085c31813d90b9dbc09363"
         },
         {
           "path": "play/engine.mjs",
-          "bytes": 3573,
-          "sha256": "c6febf8b3f61a82eda5756b0b20c1110db854c4e9d9d17662c095f67c9a1c8b1"
+          "bytes": 5451,
+          "sha256": "0836c6e3b812d5770785b1f77e5b4902647df22d0bc05d1e133216677d8fc180"
         },
         {
           "path": "play/game.mjs",
-          "bytes": 16612,
-          "sha256": "5d321b70de652493b4a916be2464cde6f16dc28f0855b1e2867428b2a3667fc3"
+          "bytes": 20298,
+          "sha256": "b5fd6099f5949c4ec96efd90ddf5098f3f9f54afdf882b2265a16ce47dd3fba1"
         },
         {
           "path": "play/index.html",
-          "bytes": 5211,
-          "sha256": "50e34ead12717ee1b11df9c67ffcaefb0f9c223bb403a72491df953b58796946"
+          "bytes": 5720,
+          "sha256": "519ee454f71d24d1316025c77d671503a5ac7df9e3ba05881a8a711093f8a2d9"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1010,8 +1010,8 @@
         },
         {
           "path": "play/styles.css",
-          "bytes": 18333,
-          "sha256": "a3b07c948eb0874cef507f714096a798b25733e7ba7e1455be63323b62fbdf41"
+          "bytes": 27060,
+          "sha256": "bc2104efa576ff7373440c2f540b858b949154341c42445653169dadabfd962e"
         },
         {
           "path": "robots.txt",
@@ -1031,7 +1031,7 @@
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "c90949fbde1c4d8378ee9ffbf1ad13f1dae4ebd85f4d9f5854e0a8aed195c674"
+          "sha256": "91b3ae13c16a210c5420631814ded47951edf87e6044c4214686ccfbfd6e1ffc"
         },
         {
           "path": "text.mjs",
@@ -1295,8 +1295,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 78300,
-          "sha256": "602cbad65c7c8268f567464cbf41b94571b95c72aefc56473fc5093e71d53ffe"
+          "bytes": 78396,
+          "sha256": "63fe001fb99768cca51b1cffd9b44bb2437b024654d6ba1bb545861fb8aa3e9d"
         },
         {
           "path": "bundle.mjs",
@@ -1335,8 +1335,8 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 24993,
-          "sha256": "f2eabc4f5c743c27d79b18936e96a3fe7a93706b4fee712b060c9fad2efe4b30"
+          "bytes": 34790,
+          "sha256": "7e30b6ef290d0eff976396daa4a060eff5e8261a8a72525eaa048ff17e5b4e85"
         },
         {
           "path": "play/icon.svg",
@@ -1345,8 +1345,8 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 6939,
-          "sha256": "9c4dc838321789d8ea916bbd9ba694bedc0fb61c92de83ec8b4badf9c957f248"
+          "bytes": 8641,
+          "sha256": "291a43a671119167527c0485102216af3fb549fb41e657248b2a6220809e679f"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1355,8 +1355,8 @@
         },
         {
           "path": "play/style.css",
-          "bytes": 11628,
-          "sha256": "34fe5cae33149ab2462adc5166874ef29657663bf737b74810e055da5c92d313"
+          "bytes": 17225,
+          "sha256": "6dbe2a6f79d480fa602421e92134fc13e4410657e871aaf053709455a586a3a5"
         },
         {
           "path": "robots.txt",
@@ -1376,7 +1376,7 @@
         {
           "path": "sw.js",
           "bytes": 1304,
-          "sha256": "c504435985ba01b5bdd412576e13d01b74accb2baece4ab7a300b55049d2266d"
+          "sha256": "bc70af285166b305260657d0806a398f7e4744b9be262c5f2262d865e3e5531d"
         },
         {
           "path": "text.mjs",
@@ -1414,8 +1414,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 72138,
-          "sha256": "8ac4e0bb791c49b5bd3b62d1f759f19791bcff8b1c7b22138a5347b9f2538448"
+          "bytes": 72156,
+          "sha256": "f30709793fbf4ccbfc4562165508f8de7189709b6a708af9bff3e19021cc9a48"
         },
         {
           "path": "bundle.mjs",
@@ -1474,13 +1474,13 @@
         },
         {
           "path": "play/app.mjs",
-          "bytes": 14822,
-          "sha256": "707baa338d245129fa7fd1f5e697669598a3832ae413eaa5c39e2bbac285e587"
+          "bytes": 19485,
+          "sha256": "858acb54782d3688ebf920e602d859834463d9c6dbee5da1f4ecb44b1810887f"
         },
         {
           "path": "play/engine.mjs",
-          "bytes": 5370,
-          "sha256": "a853cfbc4b18bb29b14de4a1f7dc931364c18d361d4738f3f59bb6f5f7b562c5"
+          "bytes": 10569,
+          "sha256": "5abddb082813f1198b715c3c0ea66afed9d28e88ccbd199dd1d00bf772fd89be"
         },
         {
           "path": "play/icon.svg",
@@ -1489,8 +1489,8 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 7020,
-          "sha256": "2316bb49d3a8d18f4bffee23935166a3ebde5e2e0f348c64ab3d8da8fe5450e8"
+          "bytes": 7581,
+          "sha256": "c013583db0c2a62054b7b16b224de8bf8b7088d0f73617761e1ba39b048003e4"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1499,8 +1499,8 @@
         },
         {
           "path": "play/style.css",
-          "bytes": 12092,
-          "sha256": "d6db61354b7961f2b8e9d8428d14d1a3317500a8c8e114a0945c5b90962bd99e"
+          "bytes": 12563,
+          "sha256": "5fbc4ebb712d1711d5a522c931b83bc4304bd145ee54809b52b6e35651c620f6"
         },
         {
           "path": "robots.txt",
@@ -1525,7 +1525,7 @@
         {
           "path": "sw.js",
           "bytes": 1386,
-          "sha256": "9c558154954c68266cd3e56f2ad6d749b619f780a333cc6bcfde0444f8a0d50d"
+          "sha256": "5b414b6b320624ce2b21b91a5ea34c7e1bfeb719744d0ad7541adcd0d17c1a3d"
         },
         {
           "path": "text.mjs",
