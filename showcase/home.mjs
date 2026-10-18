@@ -1,7 +1,7 @@
 document.documentElement.classList.add('js');
 // Without JavaScript the instruction stays open and readable.
 document.getElementById('prompt-box').open = false;
-import {covers, moreCovers, COVER_CSS} from '/covers.mjs';
+import {covers, moreCovers, COVER_CSS, fitCovers} from '/covers.mjs';
 import {readDraft, saveDraft, personalPrompt, setupCopy, fitHeader} from '/handoff.mjs';
 fitHeader();
 
@@ -72,15 +72,20 @@ const style = document.createElement('style'); style.textContent = COVER_CSS; do
 const all = [...covers, ...moreCovers];
 const track = $('[data-covers]');
 track.innerHTML = [...all, ...all].map(c => `<div class="cv">${c}</div>`).join('');
-const coverMotion = $('[data-cover-motion]'), motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+fitCovers(track); document.fonts.ready.then(() => fitCovers(track));
+// The band is its own pause control: tap, click, Enter or Space holds it still.
+const marquee = $('[data-marquee]'), motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 let coversPaused = false;
 function updateCoverMotion() {
-  coverMotion.hidden = motionPreference.matches;
-  coverMotion.textContent = coversPaused ? 'Resume covers' : 'Pause covers';
-  coverMotion.removeAttribute('aria-pressed');
-  track.style.animationPlayState = motionPreference.matches || coversPaused ? 'paused' : 'running';
+  const still = motionPreference.matches;
+  if (still) for (const a of ['role', 'tabindex', 'aria-label', 'aria-pressed']) marquee.removeAttribute(a);
+  else Object.entries({role: 'button', tabindex: '0', 'aria-label': 'Pause the moving covers', 'aria-pressed': String(coversPaused)}).forEach(([k, v]) => marquee.setAttribute(k, v));
+  marquee.classList.toggle('held', coversPaused);
+  track.style.animationPlayState = still || coversPaused ? 'paused' : 'running';
 }
-coverMotion.addEventListener('click', () => {coversPaused = !coversPaused; updateCoverMotion();});
+const toggleCovers = () => {if (motionPreference.matches) return; coversPaused = !coversPaused; updateCoverMotion();};
+marquee.addEventListener('click', toggleCovers);
+marquee.addEventListener('keydown', e => {if (e.key === 'Enter' || e.key === ' ') {e.preventDefault(); toggleCovers();}});
 if (motionPreference.addEventListener) motionPreference.addEventListener('change', updateCoverMotion);
 else motionPreference.addListener(updateCoverMotion);
 updateCoverMotion();

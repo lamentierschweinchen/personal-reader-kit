@@ -43,9 +43,10 @@ const LEDGER = `    Boards.......................... $ 8.03½, mostly shanty boa
         In all,..................... $28.12½`;
 const explore = [
   ['word', 'Follow a word', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
-  ['accounts', 'Keep his accounts', 'he priced the nails.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>${esc(LEDGER)}</pre></div>`],
+  ['accounts', 'Keep its accounts', 'every nail, priced.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>${esc(LEDGER)}</pre></div>`],
   ['closer', 'Look closer', 'every line, a little closer', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><a class="plate-open" href="/assets/alice-rabbit.png">View illustration ${arrow}</a></div></div>`],
   ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · map preview</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="Map preview: a suggested walk through six places in the Marrakesh medina from the book"></div>`],
+  ['play', 'Play its story', 'then back to your page.', `<div class="xp xp-play"><p class="xp-top">The Odyssey · a short game</p><a class="xp-shot" href="/odyssey/play/"><img src="/assets/play-homeward.jpg" width="780" height="1180" alt="Homeward, a short sea game from the Odyssey: the crew’s boat and the bag of winds"><span class="xp-go">Play Homeward ${arrow}</span></a><p class="xp-more">Or pour <a href="/alice/play/">Tea at Six</a> with the Hatter, or find a way out of <a href="/dracula/play/">Dracula’s castle</a>.</p></div>`],
 ];
 
 // Local-project routes checked against each provider’s official setup guide, 17 October 2026.
@@ -85,7 +86,7 @@ const head = ({title, desc, url, script}) => `<!doctype html>
 const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
 <div class="toast" role="status" aria-live="polite"></div>
 <dialog class="fallback" aria-labelledby="fb-title"><form method="dialog"><button aria-label="Close">Close</button></form><h2 id="fb-title">Copy by hand.</h2><p>Automatic copying wasn’t available. Select and copy the text below.</p><textarea readonly aria-label="Text to copy"></textarea></dialog>`;
-const html = `${head({title: 'new reading · Turn any book into your personal reader', desc: 'Try complete readers and short games, then make your own.', url: 'https://newreading.app/', script: '/home.mjs'})}
+const html = `${head({title: 'new reading · Turn any book into your personal reader', desc: 'Read complete books in their own editions, then make yours.', url: 'https://newreading.app/', script: '/home.mjs'})}
 <main id="main">
 
 <section class="hero" data-thread="love" aria-labelledby="hero-title">
@@ -107,13 +108,12 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
  </figure>
  <div class="hero-cta">
   <p class="vp">Make <span class="ins"><svg class="ins-caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg>your own</span> edition of any&nbsp;book.</p>
-  <div class="actions"><a class="btn" href="#make">Start yours ${arrow}</a><a class="link" href="#samples">Try a finished one</a></div>
+  <div class="actions"><a class="btn" href="#make">Start yours ${arrow}</a><a class="link" href="#samples">Read one now</a></div>
  </div>
 </section>
 
 <section class="anybook reveal" aria-labelledby="any-title">
- <div class="marquee" aria-hidden="true"><div class="marquee-track" data-covers></div></div>
- <button type="button" class="cover-motion" data-cover-motion hidden>Pause covers</button>
+ <div class="marquee" data-marquee><div class="marquee-track" data-covers aria-hidden="true"></div></div>
  <div class="anybook-text"><h2 id="any-title">Turn <span class="pen-under">any book</span> into your personal&nbsp;reader.</h2>
  <p class="hand any-note">An edition made just for you.</p></div>
 </section>
@@ -125,7 +125,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
    <div class="mode-text"><p class="kicker">Read</p><h3>A quiet place for the book.</h3>
     <ul class="chips"><li>Keep a passage</li><li>Write in the margin</li><li>Share a line</li><li>Read offline</li></ul>
     <p class="fine">Your notes stay on your device. No account, no ads, no feed.</p></div>
-   <p class="hand note-read">keep this one<svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg></p><div class="shot"><img src="/assets/reader-keep.jpg" width="450" height="978" alt="The Pride and Prejudice reader keeping its first sentence, with a private note"></div>
+   <div class="shot"><img src="/assets/reader-keep.jpg" width="450" height="978" alt="The Pride and Prejudice reader keeping its first sentence, with a private note"><p class="hand note-read" aria-hidden="true">keep this one</p></div>
   </article>
   <article class="mode mode-explore reveal" data-x="word">
    <div class="mode-text"><p class="kicker">Explore</p><h3>Whatever the book makes you curious about.</h3>
@@ -137,9 +137,9 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 </section>
 
 <section class="samples" id="samples" aria-labelledby="samples-title">
- <div class="samples-head reveal"><h2 id="samples-title">Try a <span class="pen-circle">finished</span>&nbsp;one.</h2></div>
- <p class="samples-intro">Read a complete book. Step into a short game. Return to your page.</p>
- <div class="sample-row">${samples.map(([id, t, a, line, game]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a>${game ? `<a class="sample-play" href="/${id}/play/">Play ${game} ${arrow}</a>` : ''}</article>`).join('')}</div>
+ <div class="samples-head reveal"><h2 id="samples-title">Read one <span class="pen-circle">now</span>.</h2></div>
+ <p class="samples-intro">Six complete books, each its own edition.</p>
+ <div class="sample-row">${samples.map(([id, t, a, line]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a></article>`).join('')}</div>
 </section>
 
 <section class="make" id="make" aria-labelledby="make-title">

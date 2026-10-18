@@ -593,6 +593,7 @@
     "showcase/assets/personal-walden-reader.jpg",
     "showcase/assets/piazzolla-italic.woff2",
     "showcase/assets/piazzolla-normal.woff2",
+    "showcase/assets/play-homeward.jpg",
     "showcase/assets/read-share.jpg",
     "showcase/assets/reader-keep.jpg",
     "showcase/assets/reenie-beanie.woff2",
@@ -1907,6 +1908,12 @@
       "sha256": "7bff9d555016305d871fad52e540169fef7c850884217bb54a584f49bba70bef",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/play-homeward.jpg",
+      "sha256": "597072f4ff583231a4782f58a65770f8be4e1464125d1667fa4390e7fab8417c",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "780 × 1180 screenshot of the opening screen of Homeward, the kit's original Odyssey game: original canvas/SVG drawings and game copy, no book text or personal records."
     },
     {
       "path": "showcase/assets/reader-keep.jpg",

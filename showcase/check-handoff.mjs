@@ -27,7 +27,7 @@ try {
       const page = await context.newPage(), errors = [];
       page.on('pageerror', error => errors.push(error.message));
       await copyStub(page); await page.goto(base); await enhanced(page);
-      assert.equal(await page.locator('[data-cover-motion]').isVisible(), false);
+      assert.equal(await page.locator('[data-marquee]').getAttribute('role'), null);
       assert.equal(await page.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationName), 'none');
       const book = 'Walden — gift edition', originalIdea = 'Keep the original line breaks.';
       await page.locator('#book').fill(book); await page.locator('#idea').fill(originalIdea);
@@ -184,25 +184,24 @@ try {
       await observerPage.addInitScript(() => {window.IntersectionObserver = undefined; window.ResizeObserver = undefined;});
       await observerPage.goto(base); await enhanced(observerPage);
       assert.equal(await observerPage.locator('.reveal:not(.in)').count(), 0);
-      const motion = observerPage.locator('[data-cover-motion]');
-      assert.equal(await motion.isVisible(), true);
+      const motion = observerPage.locator('[data-marquee]'), playState = () => observerPage.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationPlayState);
+      assert.equal(await motion.getAttribute('role'), 'button');
       await motion.focus(); await observerPage.keyboard.press('Space');
-      await focusIs(observerPage, '[data-cover-motion]');
-      assert.equal(await motion.textContent(), 'Resume covers');
-      assert.equal(await motion.getAttribute('aria-pressed'), null);
-      assert.equal(await observerPage.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationPlayState), 'paused');
+      await focusIs(observerPage, '[data-marquee]');
+      assert.equal(await motion.getAttribute('aria-pressed'), 'true');
+      assert.equal(await playState(), 'paused');
       await observerPage.keyboard.press('Enter');
-      assert.equal(await motion.textContent(), 'Pause covers');
-      assert.equal(await observerPage.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationPlayState), 'running');
+      assert.equal(await motion.getAttribute('aria-pressed'), 'false');
+      assert.equal(await playState(), 'running');
       await observerPage.keyboard.press('Space');
-      await observerPage.emulateMedia({reducedMotion: 'reduce'}); await motion.waitFor({state: 'hidden'});
+      await observerPage.emulateMedia({reducedMotion: 'reduce'}); await observerPage.waitForFunction(() => !document.querySelector('[data-marquee]').hasAttribute('role'));
       assert.equal(await observerPage.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationName), 'none');
-      await observerPage.emulateMedia({reducedMotion: 'no-preference'}); await motion.waitFor({state: 'visible'});
-      assert.equal(await motion.textContent(), 'Resume covers');
-      assert.equal(await observerPage.locator('[data-covers]').evaluate(el => getComputedStyle(el).animationPlayState), 'paused');
+      await observerPage.emulateMedia({reducedMotion: 'no-preference'}); await observerPage.waitForFunction(() => document.querySelector('[data-marquee]').getAttribute('role') === 'button');
+      assert.equal(await motion.getAttribute('aria-pressed'), 'true');
+      assert.equal(await playState(), 'paused');
       await observerPage.evaluate(() => {window.tabKeys = []; window.addEventListener('keydown', e => {if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) window.tabKeys.push([e.key, e.defaultPrevented]);});});
       await observerPage.locator('[data-explore="word"]').focus();
-      for (const [key, id] of [['End', 'places'], ['Home', 'word'], ['ArrowLeft', 'places'], ['ArrowRight', 'word'], ['ArrowRight', 'accounts']]) {
+      for (const [key, id] of [['End', 'play'], ['Home', 'word'], ['ArrowLeft', 'play'], ['ArrowRight', 'word'], ['ArrowRight', 'accounts']]) {
         await observerPage.keyboard.press(key);
         assert.equal(await observerPage.locator(`[data-explore="${id}"]`).getAttribute('aria-selected'), 'true');
         assert.equal(await observerPage.locator(`#panel-${id}`).isVisible(), true);

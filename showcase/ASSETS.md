@@ -85,6 +85,7 @@ The owner selected a new identity for `newreading.app`: IM Fell English for the 
 - `assets/martian-mono-normal.woff2`: unchanged Latin variable subset of [Martian Mono](https://github.com/evilmartians/mono). [SIL OFL 1.1](assets/OFL-MartianMono.txt).
 - `assets/piazzolla-normal.woff2`, `assets/piazzolla-italic.woff2`: unchanged Latin variable subsets of [Piazzolla](https://github.com/huertatipografica/piazzolla). [SIL OFL 1.1](assets/OFL-Piazzolla.txt).
 - `assets/reader-keep.jpg`: 450 × 978 screenshot of the public [Pride and Prejudice example](../examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md) opened at Chapter 1, keeping the novel’s first sentence. The note text is illustrative; no personal reading records appear.
+- `assets/play-homeward.jpg`: 780 × 1180 screenshot of the opening screen of [Homeward](../examples/odyssey/docs/GAME.md), the Odyssey example’s original game. Its ship, sea, crew, rocks and lettering are the game’s own canvas/SVG drawings and copy under the example’s MIT license; no book text or personal records appear.
 - `assets/favicon-32.png`, `assets/apple-touch-icon.png`: original artwork (an IM Fell “r” under a red caret), under the kit’s MIT license.
 
 No font is requested remotely; all files are served from this site.

@@ -39,7 +39,8 @@ try{
     await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedPrompt=text}}}));
     await page.goto(base);await page.locator('header [data-copy]:not([hidden])').waitFor();await settled(page);await layout(page,'Home');
     assert.deepEqual(await page.locator('.sample').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/austen/','/alice/','/walden/','/two-halls/','/odyssey/','/dracula/']);
-    assert.deepEqual(await page.locator('.sample-play').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/alice/play/','/odyssey/play/','/dracula/play/']);
+    assert.equal(await page.locator('.samples a[href*="/play/"]').count(),0);
+    assert.deepEqual(await page.locator('#panel-play a').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/odyssey/play/','/alice/play/','/dracula/play/']);
     const start=page.locator('.hero a[href="#make"]');const startBox=await start.boundingBox();assert.ok(startBox&&startBox.y+startBox.height<=viewport.height+(viewport.height<500?400:0),'Start yours is visible early');
     assert.equal(await page.locator('#starter').inputValue(),commandText);assert.equal(await page.locator('a[href="/start.txt"]').count(),1);
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://newreading.app/');
@@ -47,7 +48,8 @@ try{
     assert.deepEqual(await page.evaluate(async()=>{const img=new Image();img.src='/assets/read-share.jpg';await img.decode();return[img.naturalWidth,img.naturalHeight]}),[1200,630]);
     // The hero switches editions; the explorations each show a different panel.
     await page.locator('.hero [data-pick="money"]').click();assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money');assert.equal(await page.locator('[data-text="name"]').textContent(),'fortune');
-    for(const id of ['word','accounts','closer','places']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);}
+    const stageHeights=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));}
+    assert.equal(new Set(stageHeights).size,1,'Explore keeps one height: '+stageHeights);
     await page.locator('[data-explore="word"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="accounts"]').getAttribute('aria-selected'),'true');
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
     await page.locator('#prompt-box summary').click();await copyCheck(page,'#starter','#prompt-box [data-copy]');
