@@ -35,3 +35,9 @@ Omit the 22 repeated 1894 illustration copyright credits from normal reading of 
 ## 17 October 2026 — catalogue handoff and first-use clarity
 
 Added a quiet All readers link at the edition entrance, hidden in reading and companion views. The empty word index now asks for a chapter boundary before showing search controls or counts; choosing chapters restores the existing index. Book text, source notices, reading places and edition identity are unchanged.
+
+## 18 October 2026 — complete, chapter-selectable word index
+
+Keep the illustrated title page and reading composition. Refine the word index so its default whole-word search includes capitalized uses, including Mary’s Chapter 5 definitions, without counting related longer forms as the same word. Exact-capitalization and substring matching remain available in the match options. Fix the accidental replacement of a reader’s “room” query with the starting word.
+
+Chapter counts and a chapter selector remain inside the explicit spoiler boundary; twenty-result pages make later occurrences reachable. Remove redundant introductory copy and keep the source excerpts prominent. All exact edition assets, source ranges, bundle identities, saved places and annotations remain unchanged. Verification includes actual-book Chromium/WebKit journeys, source-context return, restrictive boundaries and original matching options; browser emulation does not establish physical-device or human acceptance.

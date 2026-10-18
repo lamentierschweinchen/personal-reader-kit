@@ -88,6 +88,38 @@ export async function designChecks({browser,base,engine,out}) {
     await capture('companion-tablet');await touchTargets('.companion-page button,.bibliography a');
     await page.locator('.source-passages').first().scrollIntoViewIfNeeded();await capture('companion-source-links-tablet');
     await page.setViewportSize({width:390,height:844});await page.evaluate(()=>scrollTo(0,0));await capture('companion-phone');
+    // The redesigned account reads from the exact edition and never changes
+    // reading position or permission as the reader compares its scopes.
+    const accountPlace=(await state()).positions.walden,permissions=(await state()).boundaries;
+    const edition=await page.evaluate(async()=>await(await fetch('/library.json')).json());
+    const {accountSheets}=await import('../site/companion.mjs');
+    for(const sheet of accountSheets){
+      await page.locator('#account-sheet').selectOption(sheet.id);
+      assert.equal(await page.evaluate(()=>document.activeElement.id),'account-sheet');
+      assert.equal(await page.locator('.account-total').textContent(),sheet.total);
+      assert.deepEqual(await page.locator('.account-evidence blockquote').allTextContents(),sheet.evidence.map(r=>r.needle));
+      await page.locator('.account-original summary').click();
+      const ledger=edition[0].sections.find(s=>s.id==='chap02').blocks.find(b=>b.id===sheet.ledger);
+      assert.equal(await page.locator('.account-original [data-block]').textContent(),ledger.text);
+      await page.locator('.account-evidence button').last().click();await page.locator('#context-text[data-location-ready=true]').waitFor();
+      assert.equal(await page.locator('#context-text mark').allTextContents().then(x=>x.join('')),sheet.evidence.at(-1).needle);
+      await page.keyboard.press('Escape');assert.equal(await page.locator('.account-original').getAttribute('open'),'');
+      assert.deepEqual((await state()).positions.walden,accountPlace);assert.deepEqual((await state()).boundaries,permissions);
+    }
+    await page.locator('#account-sheet').selectOption('house');
+    for(const [name,width,height] of [['desktop',1280,900],['small-phone',320,740],['phone',390,844],['tablet',820,1180],['short-landscape',740,320]]){
+      await page.setViewportSize({width,height});await page.evaluate(()=>scrollTo(0,0));await capture('accounts-'+name);
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      await touchTargets('.account-desk button,.account-desk select,.account-desk summary');
+      await page.locator('.account-evidence').first().scrollIntoViewIfNeeded();await capture('account-evidence-'+name);
+    }
+    await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Reading settings',exact:true}).click();await page.locator('#size').fill('36');await page.getByRole('button',{name:'Apply to my reader',exact:true}).click();
+    await page.locator('.account-evidence').first().scrollIntoViewIfNeeded();await capture('account-evidence-large');
+    assert.equal(await page.locator('.account-evidence blockquote').first().evaluate(e=>getComputedStyle(e).fontSize),'36px');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    await page.getByRole('button',{name:'Enlarge the original survey for this reading',exact:true}).click();assert.deepEqual(await page.locator('#image-view img').evaluate(e=>[e.naturalWidth,e.naturalHeight]),[731,412]);await capture('companion-survey-detail');await page.keyboard.press('Escape');
+    await page.locator('[data-action=boundaries]').first().click();await page.locator('#boundary-walden').selectOption('-1');await page.getByRole('button',{name:'Set my boundaries',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.account-desk,.account-survey').length===0);assert.equal(await page.locator('.account-desk,.account-survey').count(),0);
+    receipt.accountDesk={exactQuotations:true,exactLedgers:true,allThreeScopes:true,sourceRoundTrips:true,selectorFocus:true,positionPreserved:true,permissionsPreserved:true,revocationHidesEvidence:true,largeText:true};
     receipt.nightLarge=true;receipt.companionSources=true;
     await writeFile(new URL(`${engine}-design-receipt.json`,out),JSON.stringify(receipt,null,2)+'\n');
     return receipt;

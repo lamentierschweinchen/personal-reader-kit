@@ -11,9 +11,11 @@ const main = $('#main'), dialog = $('#dialog');
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
 let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0,y:0};
-let experiment = 'walk', stop = 0, echo = 'room', offlineReady = false, storageError = false;
+let experiment = 'walk', stop = 0, echo = 'pride', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
 const AUSTEN='austen-pride-1894';
+let wordCase=false,wordWhole=true,wordChapter='',wordPage=0;
+const WORD_PAGE_SIZE=20;
 const AUSTEN_SOURCE='932b4622c5bd15df8c1559ff8426991cb3f1632b8d3629f712c64bdd38129939';
 const AUSTEN_LIBRARY_SHA='a3f77b3c8ca231236d89891a4917e72c6e2250a18a1b4a134797ee80ae84a679';
 const ILLUSTRATION_CREDIT='[Copyright 1894 by George Allen.]';
@@ -132,9 +134,8 @@ function sourceWarning(section){
   return `<div class="source-gate"><p class="eyebrow">Original front matter</p><p>${section.id==='preface'?'Saintsbury’s preface discusses the whole novel, including its ending.':section.id==='illustrations'?'This index names scenes from the whole novel.':'The original front matter includes a frontispiece drawn from a later chapter.'}</p><button class="primary" data-action="reveal-source">Show this source section</button><p><a href="${path(AUSTEN,'chapter-1')}" data-section-start>Begin Chapter 1</a></p></div>`;
 }
 function austenCompanion(){
-  if(echo==='room')echo='pride';
   const b=bookById(AUSTEN),through=visibleThrough(state,b),chapters=b.sections.slice(0,through+1).filter(s=>s.id.startsWith('chapter-'));
-  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1><p>Find a word or phrase in chapters you choose.</p></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Chapters 1–${chapters.length} included`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}${chapters.length?`<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}`:'<p class="empty index-empty">Choose the chapters you’ve read to start following a word.</p>'}</section>`;
+  return `<section class="page austen-companion"><header class="page-head companion-heading"><p class="eyebrow">Pride and Prejudice</p><h1>Index of words</h1></header><div class="companion-top"><p class="small index-boundary">${chapters.length?`Through Chapter ${chapters.length}`:'No chapters selected'}</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}${chapters.length?`<div class="echo-words" role="group" aria-label="Words to consider">${['pride','vanity','judgment','opinion'].map(word=>`<button data-action="echo" data-word="${word}" aria-pressed="${word===echo}">${word}</button>`).join('')}</div>${echoes()}`:'<p class="empty index-empty">Choose the chapters you’ve read to start following a word.</p>'}</section>`;
 }
 function shelf() {
   if(bookById(AUSTEN))return austenShelf();
@@ -172,10 +173,29 @@ function fragment(passage,hit) {
   return `<blockquote class="reading-surface fragment-surface" data-fragment="${index}" lang="${esc(book.language)}"></blockquote>`;
 }
 function echoes() {
+  if(bookById(AUSTEN))return austenWords();
   const eligible=(bookById(AUSTEN)?books.filter(b=>b.id===AUSTEN):books).map(b=>b.id===AUSTEN?{...b,sections:b.sections.map(s=>s.id.startsWith('chapter-')?{...s,blocks:s.blocks.filter(b=>!b.styles?.includes('caption'))}:{...s,blocks:[]})}:b);
   const {hits,count}=findOccurrences(eligible,state,echo);
   return `<div class="experiment">${bookById(AUSTEN)?'':'<p class="eyebrow">02 / A word changes rooms</p><h2>An echo index.</h2>'}<form id="echo-form" class="echo-search"><label for="echo-term">${bookById(AUSTEN)?'Word or phrase':'Text to follow through your permitted sections'}</label><div><input id="echo-term" name="term" value="${esc(echo)}" maxlength="100" required><button type="submit" class="secondary">Find occurrences</button></div></form><p class="small">${bookById(AUSTEN)?'Exact spelling and capitalization; matches may occur within longer words.':'Case-sensitive, literal text; no stemming or language-specific word boundaries. Each non-overlapping occurrence has its own location.'} ${count} found${count>hits.length?`; showing the first ${hits.length}. Narrow the text to see others`:''}.</p>${hits.length?`<ol class="echo-list">${hits.map((h,i)=>{const p=h.passage,b=bookById(p.bookId),section=b.sections.find(s=>s.id===p.sectionId);return `<li><div>${b.id===AUSTEN?`<span class="eyebrow">${esc(section.title)}</span><span class="small">Occurrence ${i+1}</span>`:`<span class="eyebrow">${esc(b.title)}</span><span class="small">${esc(section.title)} · occurrence ${i+1}</span>`}</div><div>${fragment(p,h)}${passageButton(b.id,section.id,p.segments[0].blockId,'Read around this occurrence',passageAt(b,section,section.blocks.find(x=>x.id===p.segments[0].blockId),h.offset,h.offset+echo.length))}</div></li>`;}).join('')}</ol>`:'<p class="empty">No matches. Try different text or change the selected sections.</p>'}${bookById(AUSTEN)?'':'<p class="sample-notice">An index locates words. A reader still decides whether their relation matters.</p>'}</div>`;
 }
+function austenWords() {
+  const book=bookById(AUSTEN),chapters=book.sections.filter(s=>s.id.startsWith('chapter-')&&allowed(book.id,s.id));
+  if(!chapters.some(s=>s.id===wordChapter))wordChapter='';
+  const eligible={...book,sections:book.sections.map(s=>s.id.startsWith('chapter-')?{...s,blocks:s.blocks.filter(b=>!b.styles?.includes('caption'))}:{...s,blocks:[]})};
+  const options={caseSensitive:wordCase,wholeWords:wordWhole,sectionId:wordChapter};
+  let result=findOccurrences([eligible],state,echo,WORD_PAGE_SIZE,{...options,skip:wordPage*WORD_PAGE_SIZE});
+  const pages=Math.max(1,Math.ceil(result.count/WORD_PAGE_SIZE));
+  if(wordPage>=pages){wordPage=pages-1;result=findOccurrences([eligible],state,echo,WORD_PAGE_SIZE,{...options,skip:wordPage*WORD_PAGE_SIZE});}
+  const {hits,count,sectionCounts}=result,total=Object.values(sectionCounts).reduce((a,b)=>a+b,0),start=wordPage*WORD_PAGE_SIZE;
+  const pagination=where=>pages>1?`<nav class="word-pages" aria-label="${where} occurrence pages"><button class="text" data-action="word-page" data-page="${wordPage-1}" ${wordPage===0?'disabled':''}>${arrow('left')} Previous</button><span class="small">${start+1}–${start+hits.length} of ${count}</span><button class="text" data-action="word-page" data-page="${wordPage+1}" ${wordPage===pages-1?'disabled':''}>Next ${arrow('right')}</button></nav>`:'';
+  return `<div class="experiment"><form id="echo-form" class="echo-search"><label for="echo-term">Word or phrase</label><div><input id="echo-term" name="term" value="${esc(echo)}" maxlength="100" required spellcheck="false" aria-describedby="word-count"><button type="submit" class="secondary">Find occurrences</button></div><details class="word-options"><summary>${wordWhole?'Whole words':'Within words'} · ${wordCase?'match capitalization':'any capitalization'}</summary><label><input id="word-whole" type="checkbox" ${wordWhole?'checked':''}> Whole words only</label><label><input id="word-case" type="checkbox" ${wordCase?'checked':''}> Match capitalization</label><p class="small">Exact spelling; no related forms. Apply with Find occurrences.</p></details></form><div class="word-results"><label class="visually-hidden" for="word-chapter">Show occurrences in</label><div class="word-chapter-control"><select id="word-chapter" aria-describedby="word-count"><option value="">All included chapters · ${total}</option>${chapters.filter(s=>sectionCounts[book.id+'/'+s.id]).map(s=>`<option value="${s.id}" ${wordChapter===s.id?'selected':''}>${esc(s.title)} · ${sectionCounts[book.id+'/'+s.id]}</option>`).join('')}</select>${arrow('right')}</div><p id="word-count" class="small${pages>1?' visually-hidden':''}" tabindex="-1">${count?`${count} found${count>WORD_PAGE_SIZE?` · showing ${start+1}–${start+hits.length}`:''}`:'No occurrences found'}</p>${pagination('Top')}</div>${hits.length?`<ol class="echo-list" start="${start+1}">${hits.map((h,i)=>{const p=h.passage,section=book.sections.find(s=>s.id===p.sectionId);return `<li><div><span class="eyebrow">${esc(section.title)}</span><span class="small">Occurrence ${start+i+1}</span></div><div>${fragment(p,h)}${passageButton(book.id,section.id,p.segments[0].blockId,'Read around this occurrence',passageAt(book,section,section.blocks.find(x=>x.id===p.segments[0].blockId),h.offset,h.offset+h.matchEnd-h.matchStart))}</div></li>`;}).join('')}</ol>${pagination('Bottom')}`:'<p class="empty">Try another spelling or change the match options.</p>'}</div>`;
+}
+async function refreshWords(focus='#word-count') {
+  await render({keepScroll:true});
+  const target=$(focus);target?.focus({preventScroll:true});
+  const anchor=$('.word-results');if(anchor){const top=Math.max(0,$('.masthead').getBoundingClientRect().bottom);scrollBy(0,anchor.getBoundingClientRect().top-top-12);}
+}
+
 function defaultPair() {
   return [{book:'bell',section:'crossing',block:'bell-8'},{book:'rain',section:'table',block:'rain-4'}].map(p=>{const b=bookById(p.book),s=b?.sections.find(s=>s.id===p.section),block=s?.blocks.find(b=>b.id===p.block);return block?passageAt(b,s,block):null;});
 }
@@ -362,7 +382,8 @@ async function act(target) {
     case 'boundary':boundaries();break;
     case 'experiment':experiment=target.dataset.experiment;await render({keepScroll:true});break;
     case 'stop':stop=Number(target.dataset.stop);await render({keepScroll:true});break;
-    case 'echo':echo=target.dataset.word;await render({keepScroll:true});break;
+    case 'echo':echo=target.dataset.word;wordPage=0;wordChapter='';await render({keepScroll:true});$(`[data-action=echo][data-word="${echo}"]`)?.focus({preventScroll:true});break;
+    case 'word-page':wordPage=Math.max(0,Number(target.dataset.page));await refreshWords();break;
     case 'choose-prototype':await commit(s=>{s.reflections['prototype-choice']=experiment;return s;});await render({keepScroll:true});say('Preference kept. Tell your agent what drew you to this direction.');break;
     case 'save-reflection': {
       if(!facingPair.every(p=>p&&allowed(p.bookId,p.sectionId)&&anchorStatus(p,bookById(p.bookId)).valid))throw new Error('Choose two permitted, available passages first. Your draft remains here.');
@@ -486,7 +507,7 @@ document.addEventListener('submit',async event=>{
       const snapshot=await librarySnapshot(),available=bundleBooks(snapshot.books),selected=[...form.querySelectorAll('[name=edition]:checked')].map(input=>input.value);
       const bundle=await createBundle({...snapshot,books:available},selected);
       download(bundle,'private-reading.reader-bundle.json',true);closeDialog(true);say('Private bundle downloaded. It contains saved records and your selected full editions.');
-    } else if(form.id==='echo-form') {echo=$('#echo-term').value;await render({keepScroll:true});$('#echo-term').focus();
+    } else if(form.id==='echo-form') {echo=$('#echo-term').value;if(bookById(AUSTEN)){wordCase=$('#word-case').checked;wordWhole=$('#word-whole').checked;wordPage=0;wordChapter='';await render({keepScroll:true});$('#echo-term').focus({preventScroll:true});}else{await render({keepScroll:true});$('#echo-term').focus();}
     } else if(form.id==='note-form') {
       const snapshot=editing,note={...snapshot,id:snapshot.id||crypto.randomUUID(),note:$('#note-text').value,updated:Date.now()};
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
@@ -502,6 +523,7 @@ document.addEventListener('submit',async event=>{
 });
 document.addEventListener('change',async event=>{
   try {
+    if(event.target.id==='word-chapter'){wordChapter=event.target.value;wordPage=0;await refreshWords('#word-chapter');return;}
     if(event.target.hasAttribute('data-facing')) {
       if(dirtyReflection()&&!confirm('Discard this connection draft to change passages? Cancel to keep or export it.')){await render({keepScroll:true});return;}
       const choice=facingChoices()[Number(event.target.value)];if(event.target.value===''||!choice)return;

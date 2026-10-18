@@ -24,3 +24,48 @@ export function sessionPassage(side,books){
  return {bookId:book.id,revision:book.source.sha256,sectionId:section.id,segments,quote:selectionQuote(section,segments)};
 }
 export const historicalSource='https://plato.stanford.edu/entries/schopenhauer/';
+
+// Optional landmarks within the complete paired readings. Each phrase must be
+// unique in its named source block. The complete readings and paired reflections
+// remain whole; a marked phrase can also be kept as an individual passage.
+export const readingCues={
+ disagreement:[
+  {label:'Fruit and clocks',targets:[
+   {block:'h0088',text:'likened to an invalid recommended by the doctor to eat fruit, and who has cherries, plums or grapes, before him, but who pedantically refuses to take anything because no part of what is offered him is fruit'},
+   {block:'s0027',text:'ought to think in common, but who, as soon as they cease to agree like two clocks keeping exactly the same time, create a disputation, or intellectual contest.'}
+  ]},
+  {label:'What difference means',targets:[
+   {block:'h0089',text:'such diversity is, and has been, absolutely necessary to the existence of a science of Philosophy and that it is essential to it.'},
+   {block:'s0028',text:"he does not begin by revising his own process of thinking, so as to discover any mistake which he may have made, but he assumes that the mistake has occurred in B.'s."}
+  ]}
+ ],
+ winning:[
+  {label:'Reasons on either side',targets:[
+   {block:'h0670',text:'everything can be proved by argument, and arguments for and against can be found for everything; as particular, however, they throw no light upon the universal, the Notion.'},
+   {block:'s0029',text:'my adversary may refute the proof, and thus appear to have refuted the assertion, for which there may, nevertheless, be other proofs.'}
+  ]},
+  {label:'Where the will enters',targets:[
+   {block:'h0672',text:'This is either the good, the universal, or the individuality, the arbitrary will of the subject; and both may be united, as is shown later on in Socrates.'},
+   {block:'s0033',text:'the weakness of our intellect and the perversity of our will lend each other mutual support; and that, generally, a disputant fights not for truth, but for his proposition'}
+  ]}
+ ],
+ judgment:[
+  {label:'Where evidence begins',targets:[
+   {block:'h0258',text:'If we wish to study the history of Philosophy in earnest, we must go to such springs as these.'},
+   {block:'s0158',text:'the universality of an opinion is no proof, nay, it is not even a probability, that the opinion is right.'}
+  ]},
+  {label:'When others read for us',targets:[
+   {block:'h0258',text:'There are other periods, too, where it is desirable that others should have read the works of the philosophers and that we should receive abstracts therefrom.'},
+   {block:'s0162',text:'It is no more established than an historical fact reported by a hundred chroniclers who can be proved to have plagiarised it from one another; the opinion in the end being traceable to a single individual.'}
+  ]}
+ ]
+};
+export function cuePassages(session,index,books){
+ const cue=readingCues[session.id]?.[index];if(!cue)throw Error('Unknown reading cue.');
+ return session.sides.map((side,i)=>{
+  const book=books.find(b=>b.id===side.book),section=book?.sections.find(s=>s.id===side.section),target=cue.targets[i],block=section?.blocks.find(b=>b.id===target.block);
+  const whole=sessionPassage(side,books),start=block?.text.indexOf(target.text)??-1;
+  if(start<0||block.text.indexOf(target.text,start+1)!==-1||!whole?.segments.some(s=>s.blockId===block.id&&s.start<=start&&s.end>=start+target.text.length))throw Error('A reading cue does not match its complete source passage.');
+  return passageAt(book,section,block,start,start+target.text.length);
+ });
+}

@@ -26,3 +26,15 @@ test('an actual long-paragraph anchor and both illustrations survive the portabl
  state.notes=[{...p,id:'real-source-note',note:'Original QA note',updated:1}];
  const bundle=await createBundle({books:library,state});const checked=await validateBundle(bundle);assert.equal(anchorStatus(checked.state.notes[0],checked.books[0]).valid,true);assert.deepEqual(checked.books,library.map(validateBook));
 });
+
+test('account qualifications locate exact source ranges and original totals',async()=>{
+ const {accountSheets,readings}=await import('../site/companion.mjs');
+ const section=library[0].sections.find(s=>s.id==='chap02');
+ const totalBlocks={house:'chap02-b77',food:'chap02-b91',outgoes:'chap02-b95'};
+ for(const sheet of accountSheets){
+  assert.equal(section.blocks.find(b=>b.id===sheet.ledger)?.sourceStyle,'account');
+  assert.ok(section.blocks.find(b=>b.id===totalBlocks[sheet.id]).text.replace(/\s/g,'').includes(sheet.total));
+  for(const ref of sheet.evidence){const block=section.blocks.find(b=>b.id===ref.block);assert.ok(block.text.includes(ref.needle));assert.equal(block.text.indexOf(ref.needle),block.text.lastIndexOf(ref.needle));}
+ }
+ for(const reading of readings){const b=library.find(b=>b.id===reading.book),s=b.sections.find(s=>s.id===reading.section);for(const ref of reading.refs)assert.ok(s.blocks.find(b=>ref.image?b.image:b.text.includes(ref.needle)));}
+});

@@ -6,6 +6,8 @@ Complete supplied English editions from Gutenberg 51635 and 10731: Hegel’s His
 
 This is a runnable example in [personal-reader-kit](../../README.md), adapted from reviewed trial commit `6b160fad13729f07808248be3071a6e33afb3a80`. Its reading interface, prepared editions and build assets are unchanged by packaging. The original trial history, private preparation and browser captures are not included. [Catalogue and hosting boundary](../README.md).
 
+Each paired reading now offers two optional landmarks within the complete source passages. Choose **Follow the argument** to mark and visit the corresponding phrases in both halls; keep an individual marked passage or save the complete pair with a reflection. Source and orientation details remain available beside each reading. Independent text positions survive hall changes, rotation and type-size changes.
+
 ## Run and verify
 
 From this directory, with Node.js 22 or later:

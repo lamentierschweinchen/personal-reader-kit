@@ -35,3 +35,13 @@ Corrected the obsolete local-trial publication statement only when About renders
 ## 17 October 2026 — catalogue handoff and first-use clarity
 
 Added a quiet All readers link at the edition entrance, hidden in reading and companion views. Corrected the frontispiece’s authored accessibility description to match Alice’s hands behind her back. The correction is presentation-only and requires the exact hash-verified bundled edition, its original object, asset and description; changed and imported editions retain their own metadata. The complete edition, image payloads, source identity and full-edition exports remain unchanged.
+
+## 18 October 2026 — focused close-looking and artwork inspection
+
+Kept the Rackham storybook entrance and faithful reading surface. Revised the portrait and tale/tail studies around specific visual and conversational details, and added a boundary-gated comparison of the Cat in the Chapter VI tree and the isolated Chapter VIII head. The complete permitted illustration collection now follows the studies in chapter order behind one disclosure. Phone prose uses the full reading width, with a compact companion header and a restored Looking closer navigation link alongside Play.
+
+Artwork opens in a fitted full view, with zoom, description, exact source context and a reliable Escape/Close return, including WebKit pointer focus. The preview server now serves only the exact built-file inventory, including the existing nested game route; its earlier flat-file rule prevented service-worker installation. Private/traversal paths remain excluded. No game, edition, asset payload, metadata, annotation contract or bundle format changed. Verification receipts and screenshots remain in the enclosing kit’s ignored four-reader review workspace.
+
+The source first-use notice is now remembered in this browser for the complete unchanged edition, including metadata and assets. A changed edition gets a separate acknowledgement. Failed preference storage retains a per-tab fallback and explains possible repetition beside the notice. Full source terms remain recoverable.
+
+A later parent visual pass found the small Cat head reproduction was enlarged beyond its intrinsic resolution by the initial fit calculation. Fit now caps both source dimensions and centers the picture on its mat, retaining deliberate zoom and scroll access. Source image bytes are unchanged.

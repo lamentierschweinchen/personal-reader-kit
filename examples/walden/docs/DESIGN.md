@@ -13,3 +13,11 @@ Keeping account reads as one sourced essay. Its costs, measurements and tax sect
 Use the shared SVG arrow in authored UI with `currentColor`, `aria-hidden="true"` and `focusable="false"`. The app icon is an original vector W. Preserve every source punctuation mark. Touch controls retain at least 44×44 CSS pixels, visible keyboard focus, reduced-motion behavior and the recoverable focus-mode exit. Source text links retain the book’s own inline layout.
 
 This follows the applicable layout/interaction guidance from the installed frontend-design-guidelines skill, adapted to this existing plain-JavaScript shell. The explicit refinement direction superseded its optional brand-question workflow. No outside-project telemetry or configuration was written. Private settled captures and geometry receipts live in `.reader/reports/refinement/`; the browser suite records phone/tablet portrait and landscape evidence rather than claiming physical-device verification.
+
+## 18 October 2026 · Figures with their limits
+
+Keeping account now begins with an inspectable source figure instead of biographical setup. A single account selector changes between the house, eight months of food and the mixed-period combined outgoes. The amount and its scope share a ruled row; exact source qualifications follow, with links to their full paragraphs. On phones these become one reading column. Source excerpts and commentary follow the chosen type size. Original fixed ledgers remain unchanged in a disclosure and retain local horizontal scrolling.
+
+The house view deliberately keeps the friction between the accounting sentence and the earlier help at the raising. It does not invent a price for labor or convert historic dollars. The original survey appears within its permitted reading, with the original-size detail view and full source context. Its image is the existing 731 × 412 edition asset, not an enlarged reconstruction or present-day map. The biographical introduction moves to About these readings & sources. Comparison writing and its existing storage remain available.
+
+Ordinary chapter headings now contain only work orientation and source heading. About this work retains source information, EPUB access and the full licence. This reduces repeated controls without changing any edition object or portable-book equality.

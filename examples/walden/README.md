@@ -18,7 +18,7 @@ TEST_PORT=4393 npm run test:walden-browser
 npm run audit:public
 ```
 
-Choose an unused port and keep it stable for reading. Browser checks require Playwright plus Chromium/WebKit; `PLAYWRIGHT_MODULE`, `CHROME_PATH` and `WEBKIT_PATH` can select an existing runtime. Run suites sequentially because they rebuild the same output. The audit command reviews the entire kit from its root; it needs a full clone and final staged bytes. `npm run check:examples` at the root checks every example and its exact built output. No application dependency installation or account is required.
+Choose an unused port and keep it stable for reading. Browser checks require Playwright plus Chromium/WebKit; `PLAYWRIGHT_MODULE`, `CHROME_PATH` and `WEBKIT_PATH` can select an existing runtime. Run suites sequentially because they rebuild the same output. The actual-book suite needs the retained source HTML: `WALDEN_SOURCE_HTML` can select its private location, and `QA_OUTPUT` can select an ignored capture directory. The audit command reviews the entire kit from its root; it needs a full clone and final staged bytes. `npm run check:examples` at the root checks every example and its exact built output. No application dependency installation or account is required.
 
 ## Reading, sharing and recovery
 
@@ -38,3 +38,5 @@ The source catalogues declare public domain in the USA; this is not a worldwide 
 Public source packaging is authorized for the established kit repository. The public reader is [newreading.app/walden/](https://newreading.app/walden/), built through the [combined showcase](../../showcase/README.md). That builder adapts runtime URLs and storage/cache/install identities while preserving the complete edition bytes. The earlier `walden.lookatseel.com` host redirects network requests to this path.
 
 This directory also builds independently with `npm run build` and output `dist`. Use a separate origin for an unmodified standalone deployment; copying these outputs under a shared origin does not adapt their root asset URLs or storage/cache names. Preserve the chosen address once people have reading records. See the [example catalogue](../README.md) for hosting and verification scope.
+
+Keeping account includes an inspectable house, food and combined-outgoes comparison: exact source qualifications sit beside each figure, with the original ledger and complete passage one action away. Its survey reading follows the measured depth, White Pond prediction and later character analogy. Both companions respect the chosen reading boundary. Source edition links and full terms are under **About this work**.

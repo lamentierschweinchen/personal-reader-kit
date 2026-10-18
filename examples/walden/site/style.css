@@ -183,3 +183,32 @@
 
 /* A catalogue exit belongs to the edition entrance, outside the reading view. */
 .site-footer .catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px;white-space:nowrap}
+/* The account's scope sits beside its figure; source words remain quotations. */
+.account-reading{max-width:52rem;margin:24px auto 0}
+.account-part:first-child{border-top:0;margin-top:0;padding-top:0}
+.account-part>p:not(.eyebrow),.account-part>.source-passages,.account-part>.bibliography,.account-background{max-width:var(--measure)}
+.account-reading h2{max-width:none;margin:8px 0 22px;font-size:1.45em}
+.account-choice{display:flex;align-items:center;gap:20px;margin:18px 0;font:13px/1.5 var(--sans)}
+.account-choice select{appearance:none;height:46px;min-width:150px;max-width:100%;min-height:44px;padding:10px 36px 10px 12px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.account-figure{display:grid;grid-template-columns:minmax(200px,.9fr) minmax(0,1.1fr);align-items:center;gap:32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:24px 0;margin-bottom:26px}
+.account-figure p{margin:0}.account-figure p:last-child{font-size:.9em;max-width:29ch}
+.account-figure .account-total{font:400 clamp(2.8rem,5vw,4.5rem)/1.1 var(--sans);letter-spacing:-.06em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.account-evidence-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 32px}
+.account-evidence{min-width:0;border-bottom:1px solid var(--line);padding-bottom:18px}
+.account-evidence .eyebrow{margin-bottom:10px}.account-evidence blockquote{margin:0 0 8px;font-size:1em;line-height:var(--leading)}
+.account-evidence button{font:13px/1.6 var(--sans);text-align:left}
+.account-note{max-width:var(--measure);margin:22px 0}
+.account-original{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:24px 0}
+.account-original summary,.account-background summary{padding:14px 0;min-height:44px;cursor:pointer;font:14px/1.6 var(--sans)}
+.account-original blockquote{margin:12px 0;font-size:1em}
+.account-background{border-top:1px solid var(--line);margin-top:42px;padding-top:10px}
+.account-background>p{margin-top:20px}
+@media(max-width:600px){.account-reading{margin-left:0}.account-choice{justify-content:space-between;gap:10px}.account-choice label{max-width:10ch}.account-figure{grid-template-columns:1fr;gap:16px;padding:20px 0}.account-figure p:last-child{max-width:none}.account-evidence-list{grid-template-columns:1fr;gap:18px}.account-reading h2{font-size:1.3em}}
+.companion-heading{padding-bottom:10px;margin-bottom:12px}
+.companion-heading h1{margin:10px 0 18px}
+.companion-heading .eyebrow{margin-bottom:8px}
+.account-survey{margin:24px 0 28px;max-width:731px}
+.account-survey figcaption{font:11px/1.6 var(--mono);color:var(--muted);border-bottom:1px solid var(--line);padding:12px 0}
+@media(max-width:540px){.companion-top .small{display:none}.companion-top .secondary{padding:8px 12px}.companion-heading{padding-bottom:0}.companion-page{padding-top:20px}}
+
+.account-choice select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-size:5px 5px;background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-repeat:no-repeat}

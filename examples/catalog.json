@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 77004,
-          "sha256": "acdd34b949823d7f8c0cf972d89ee92869e28839ea2709f0bb35da98c32e45fc"
+          "bytes": 81359,
+          "sha256": "09c32187847e3072ad6bfd2da962a294cea0751fae4a12feae8de493785dbe75"
         },
         {
           "path": "austen-colophon.png",
@@ -855,8 +855,8 @@
         },
         {
           "path": "core.mjs",
-          "bytes": 20216,
-          "sha256": "23ba36a319aebec58eeacba125180f0414c3d529ebd9d78b43f75fbeec6d7d93"
+          "bytes": 20743,
+          "sha256": "c7ce3c99771f9ad01c06d635aafc90352c8d6f86ae436d6322f633b89045dad8"
         },
         {
           "path": "db.mjs",
@@ -895,13 +895,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 34076,
-          "sha256": "3c89fc66f80ae94f0d2748d55e53f63ebd7be6e218d39a99f73908cf26cd173f"
+          "bytes": 36442,
+          "sha256": "4f00784a7690d4bbb910f0b52bd5cab7bf55516e6bb9ca0eb4f4d0c34812ae80"
         },
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "b75743d7e0b84fb362f63f710e422d084d27718b39ad996ba1f841144b98b5c0"
+          "sha256": "ae865060fb1b1c68bcebd39c383669c420c3a703ee3a3794d3838a955c42517d"
         },
         {
           "path": "text.mjs",
@@ -945,8 +945,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 77610,
-          "sha256": "e764a0fad863127aeeeea8d6dca61ea52744ad890edd3e9016d4a010fbbbafb9"
+          "bytes": 81041,
+          "sha256": "64676456c0abab2eaca12308ccd9669e4ad8b3c1420ee4ee8a62effbb77783e5"
         },
         {
           "path": "bundle.mjs",
@@ -970,8 +970,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3027,
-          "sha256": "fa31fd4ac6e355e272219f94c75aeb7f145a02ef1fef64c695f0bed64f241507"
+          "bytes": 3094,
+          "sha256": "4ed3ee80add210a50b1f64e1c2b67b2d01e3d3d365efdb1938ca4fc706344f34"
         },
         {
           "path": "library.json",
@@ -1025,13 +1025,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 36684,
-          "sha256": "c1c25cd77f42c150e3bbafca95025d5c0450921c18d041b2b9ca5645c14f62e1"
+          "bytes": 42644,
+          "sha256": "5c160b11dae874bfd1a63ca8880bb7dd4f66711eeb84ac47804412590bd4b312"
         },
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "6520d4e0476c528557d363521fb6f57bba5b32d975a9a2bcc49f5e7d231d4221"
+          "sha256": "43c96befb34aaaf6c6b6ebfabfe17da63a449fc05ed726674fe596bd2dc1aff4"
         },
         {
           "path": "text.mjs",
@@ -1083,8 +1083,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 67726,
-          "sha256": "f6ac011dfb9b49946eb99a58dbc82f4cba7608934cb67f026f75640a70a30b5e"
+          "bytes": 70306,
+          "sha256": "eeaa271efba9ac528fd3f925efaa8a0d01d3fc7b861f734c1a0039e8ec5f450e"
         },
         {
           "path": "bundle.mjs",
@@ -1093,8 +1093,8 @@
         },
         {
           "path": "companion.mjs",
-          "bytes": 5173,
-          "sha256": "f72bff832c35f0a545e517897a8eaa40f394ab7afd0c871457321d22afed61d2"
+          "bytes": 7162,
+          "sha256": "fbdde05c7cc5389d903752483a09a202968ea561580da1c50b3db2d2c1690c7e"
         },
         {
           "path": "core.mjs",
@@ -1138,13 +1138,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 33183,
-          "sha256": "067da30b29e0b7aa42696c5569141af09cf5612f06b0d1ec0fae0eb21d753edb"
+          "bytes": 36315,
+          "sha256": "7b78029b1b6b66aea1aced5acdece2b49ad672edf53eda170a8980314324e071"
         },
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "d95235e2dc9ea4db2f7e5ae0f23c9841f1f52bc6ebb7b1180d70677a57e669d9"
+          "sha256": "000ed7ff642d5f13dc765e12ad2cd0236164cde0eb6c8a97428dab39234115ea"
         },
         {
           "path": "text.mjs",
@@ -1189,13 +1189,13 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 68504,
-          "sha256": "b469aaf4607323f9088f061a8973cd42910e7412eb38fdb1190c1439e195b7b6"
+          "bytes": 74687,
+          "sha256": "bf1ec3f26b3615ae225bfbb963ac9cfd214160d1cbb54895813ee33d58d16eea"
         },
         {
           "path": "broadside.css",
-          "bytes": 13839,
-          "sha256": "258f629e16c9144eb5f5c8f5bb110804c87b9603b26a411acb8efd2f16e31e23"
+          "bytes": 15909,
+          "sha256": "5caf6dc28bf786d07efb668c9acfacbf1693a600e5063ff3a33ee97d2a6a97a7"
         },
         {
           "path": "bundle.mjs",
@@ -1224,8 +1224,8 @@
         },
         {
           "path": "lectures.mjs",
-          "bytes": 5029,
-          "sha256": "9d6ae3d83d2b538b35cf74c34eb5fb98598180feb48027e70f091f04d23ed27b"
+          "bytes": 8559,
+          "sha256": "56652130ddc544eb884057a81ccdbc6f3a9d4f1b93264e90a6e568d47ac24dac"
         },
         {
           "path": "library.json",
@@ -1255,12 +1255,12 @@
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "5d5fbf4a46e43712bfdf4926744f28ffc5999ff825ac476d3a50905296cc91e2"
+          "sha256": "1b8a0aedd305b512626046a6edcbac17f983e40a3f8707535876d43a49aaf817"
         },
         {
           "path": "text.mjs",
-          "bytes": 5320,
-          "sha256": "b78f4b7947057801e34571b2bb9be565e3a55efeca31bc3f8f7798a1e961cd14"
+          "bytes": 5518,
+          "sha256": "5bf4a935acad15d79e81b028a93466a243c1c71db53781342eaa2375090ca05d"
         }
       ],
       "maintenanceChanges": [

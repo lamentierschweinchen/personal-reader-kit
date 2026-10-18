@@ -1,4 +1,4 @@
-import {validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT} from './core.mjs';
+import {sha256,validateBook,validateState,newState,fromText,anchorStatus,visibleThrough,mergeBackup,passageAt,passagesOverlap,extendPassage,findOccurrences,LIMIT} from './core.mjs';
 import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,recoverState,recoveryArchives,librarySnapshot,restoreBundle} from './db.mjs';
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
 import {renderText as renderSourceText,readSelection,renderPassage as renderSourcePassage,imageSource} from './text.mjs';
@@ -14,7 +14,7 @@ let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0
 let experiment = 'look', stop = 0, echo = 'curious', offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], contextPassages=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
 const sampleIds=new Set(['alice-rackham-28885']);
-let uniformVerse=false;
+let uniformVerse=false,artworkResize=null;
 const aliceId='alice-rackham-28885';
 const aliceSourceRevision='7f697b6970ebe918109c824fc613ff8c8027b7cb96cc23c98686edebaf4969c5';
 const aliceEditionHash='49c5ff3991360abd76354da5080165929bc9ee6fe2b2333affb512ac0f9f60ea';
@@ -39,7 +39,8 @@ const path = (book,section) => `#read/${encodeURIComponent(book)}/${encodeURICom
 const returnLink = () => state.lastBook && bookById(state.lastBook) ? `<button class="text" data-action="resume" data-book="${esc(state.lastBook)}">Return to your book ${arrow()}</button>` : '';
 function say(message) {clearTimeout(statusTimer);$('#status').textContent = message;statusTimer = setTimeout(() => {$('#status').textContent = '';},5000);}
 function showWarning(message,storage=true) {if(storage)storageError=true;$('#storage-warning').hidden=false;$('#storage-warning').textContent=[$('#storage-warning').textContent,message].filter(Boolean).join(' ');}
-function syncChrome(){const tools=$('.reader-tools');if(tools?.offsetHeight)document.documentElement.style.setProperty('--verse-top',(parseFloat(getComputedStyle(tools).top)||0)+tools.offsetHeight+'px');if(dialog.open)dialog.style.setProperty('--context-top',dialog.querySelector('.dialog-header').offsetHeight+'px');}
+function fitArtwork(){const viewport=$('.image-viewport'),image=$('#enlarged-image');if(!viewport||!image||!dialog.open)return;const ratio=Number(image.getAttribute('width'))/Number(image.getAttribute('height')),zoom=Number($('#image-zoom')?.value||100)/100;image.style.width=Math.min(viewport.clientWidth,viewport.clientHeight*ratio,Number(image.getAttribute('width')))*zoom+'px';}
+function syncChrome(){const tools=$('.reader-tools');if(tools?.offsetHeight)document.documentElement.style.setProperty('--verse-top',(parseFloat(getComputedStyle(tools).top)||0)+tools.offsetHeight+'px');if(dialog.open)dialog.style.setProperty('--context-top',dialog.querySelector('.dialog-header').offsetHeight+'px');fitArtwork();}
 window.addEventListener('resize',syncChrome);
 function applyPrefs() {
   const p = state.prefs;document.documentElement.dataset.theme = p.theme;
@@ -148,19 +149,22 @@ function companion() {
   const tailAllowed=b&&allowed(b.id,'chapter-03');
   const openingAllowed=b&&allowed(b.id,'chapter-01'),opening=b?.sections.find(s=>s.id==='chapter-01')?.blocks.find(x=>x.initial);
   const pictures=permitted.filter(x=>!['cover-jpg','title-png','spine-jpg','endpapers-jpg'].includes(x.asset.id));
-  const plate=x=>`<button class="plate-choice" data-action="enlarge-image" data-book="${b.id}" data-asset="${x.asset.id}" data-section="${x.section.id}" data-block="${x.block.id}"><span class="plate-paper"><img src="${imageSource(x.asset)}" alt="${esc(imageDescription(b,x.asset))}" width="${x.asset.width}" height="${x.asset.height}"></span><span class="plate-caption">${x.asset.id==='f0002-image-jpg'?'Frontispiece':esc(x.section.title)} ${arrow()}</span></button>`;
+  const catAllowed=b&&allowed(b.id,'chapter-08'),catPictures=catAllowed?['p0075-image-png','p0106-image-png'].map(id=>pictures.find(x=>x.asset.id===id)).filter(Boolean):[];
+  const plate=(x,label='')=>`<button class="plate-choice" data-action="enlarge-image" data-book="${b.id}" data-asset="${x.asset.id}" data-section="${x.section.id}" data-block="${x.block.id}"><span class="plate-paper"><img src="${imageSource(x.asset)}" alt="${esc(imageDescription(b,x.asset))}" width="${x.asset.width}" height="${x.asset.height}"></span><span class="plate-caption">${esc(label||(x.asset.id==='f0002-image-jpg'?'Frontispiece':x.section.title))} ${arrow()}</span></button>`;
+  const gallery=pictures.slice(1).filter(x=>!catPictures.includes(x));
+  const gallerySections=b?.sections.filter(s=>gallery.some(x=>x.section===s))||[];
   return `<section class="page close-looking">
     <header class="page-head"><div><p class="eyebrow">Words & drawings</p><h1>Looking closer</h1></div>${returnLink()}</header>
-    <div class="companion-top"><p class="small">The frontispiece and chapters you allow. Your reading place stays in the book.</p><button class="text" data-action="boundaries">Choose what I’ve read</button></div>
+    <div class="companion-top"><p class="small">The frontispiece and chapters you allow.</p><button class="text" data-action="boundaries">Choose what I’ve read</button></div>
     <div class="experiment-tabs" role="group" aria-label="Companion views"><button data-action="experiment" data-experiment="look" aria-pressed="${experiment==='look'}">Word & image</button><button data-action="experiment" data-experiment="echo" aria-pressed="${experiment==='echo'}">Find a phrase</button></div>
     ${experiment==='echo'?echoes():`<div class="looking-exercises">
-      <section class="picture-study"><div class="study-opening">${pictures[0]?plate(pictures[0]):''}<div class="study-copy"><p class="eyebrow">Illustration study</p><h2>${openingAllowed?'Meet Alice twice.':'Meet Alice.'}</h2>${openingAllowed?`<p class="companion-reading">Rackham’s Alice stands with her hands behind her back. In Carroll’s opening paragraph she sits beside her sister, bored by a book without pictures or conversations. Does the portrait suggest the same impatience?</p><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-01" data-block="${opening.id}">Read Alice’s first paragraph ${arrow()}</button>`:'<p class="companion-reading">Rackham’s Alice stands with her hands behind her back. Look at her gaze and the angle of her feet. Does she seem at ease, or ready to move?</p><p class="small">Allow Chapter I to compare this portrait with the opening paragraph.</p>'}<p class="small">Open a picture to enlarge it or read around its place in the book.</p></div></div>
-        ${pictures.length>1?`<div class="plate-list">${pictures.slice(1).map(plate).join('')}</div>`:''}
-      </section>
-      <section class="type-study"><div><p class="eyebrow">Typography study · Chapter III</p><h2>The shape <br>of a tale.</h2></div><div>${tailAllowed?`<p class="companion-reading">The Mouse tells a “tale”; Alice pictures a “tail.” Read the poem along its bends, then try Uniform type. Does the shrinking type change where you pause?</p><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-03" data-block="${tail.id}">Open the tail in context ${arrow()}</button><p class="small study-note">Both views keep the same words and line breaks. Uniform type removes the shrinking and indentation.</p>`:'<p class="companion-reading">Allow Chapter III to open the Mouse’s tale.</p>'}</div></section>
-    </div>`}
+      <section class="picture-study"><div class="study-opening">${pictures[0]?plate(pictures[0]):''}<div class="study-copy"><p class="eyebrow">Illustration study</p><h2>${openingAllowed?'Meet Alice twice.':'Meet Alice.'}</h2>${openingAllowed?`<p class="companion-reading">Rackham gives Alice a level gaze, hands behind her back and feet turned apart. Carroll begins with her sitting beside her sister, bored by a book without pictures or conversations. Compare the portrait’s stillness with a voice already arguing about books.</p><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-01" data-block="${opening.id}">Read Alice’s first paragraph ${arrow()}</button>`:'<p class="companion-reading">Look at Alice’s level gaze, the hands behind her back, and the feet turned apart. The loose lines of her dress give way to crossed straps on her shoes.</p><p class="small">Allow Chapter I to compare the portrait with Carroll’s opening.</p>'}</div></div></section>
+      <section class="type-study"><div><p class="eyebrow">Typography study · Chapter III</p><h2>The shape <br>of a tale.</h2></div><div>${tailAllowed?`<p class="companion-reading">Alice counts the bends of a tail while the Mouse tells its tale. When the Mouse protests “I had not!”, she hears “A knot!” The page gives her misunderstanding a shape.</p><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-03" data-block="${tail.id}">Open the tail in context ${arrow()}</button><p class="small study-note">Try Source shape, then Uniform type. The words and line breaks stay the same; the shrinking and bends disappear.</p>`:'<p class="companion-reading">Allow Chapter III to open the Mouse’s tale.</p>'}</div></section>
+      ${catPictures.length===2?`<section class="cat-study"><div class="study-heading"><p class="eyebrow">Illustration study · Chapters VI & VIII</p><h2>A body to cut it off from.</h2></div><div class="cat-pair">${plate(catPictures[0],'Chapter VI · In the tree')}${plate(catPictures[1],'Chapter VIII · On the croquet-ground')}</div><div class="cat-reading"><p class="companion-reading">In the tree, the Cat’s stripes disappear into a tangle of branches. On the croquet-ground, Rackham leaves its head in a loop of loose lines. Carroll’s vanishing trick has become the executioner’s problem: how do you cut off a head without a body?</p><div class="study-links"><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-06" data-block="chapter-06-b055">The Cat in the tree ${arrow()}</button><button class="text" data-action="context" data-book="${b.id}" data-section="chapter-08" data-block="chapter-08-b073">The executioner’s argument ${arrow()}</button></div></div></section>`:''}
+    </div>${gallery.length?`<details class="illustration-gallery"><summary>More of Rackham’s drawings <span class="small">${gallery.length} pictures in the chapters you’ve allowed</span></summary>${gallerySections.map(s=>`<section class="gallery-chapter"><h2>${esc(s.title)}</h2><div class="plate-list">${gallery.filter(x=>x.section===s).map((x,i)=>plate(x,`Picture ${i+1} · Open full view`)).join('')}</div></section>`).join('')}</details>`:''}`}
   </section>`;
 }
+
 async function render({keepScroll=false}={}) {
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
@@ -177,15 +181,19 @@ async function render({keepScroll=false}={}) {
   for(const node of main.querySelectorAll('[data-fragment]')){const f=fragments[Number(node.dataset.fragment)];renderPassage(node,f.passage,f.book,f.hit);}
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
-function openDialog(title,html) {
+function openDialog(title,html,view='') {
+  artworkResize?.disconnect();artworkResize=null;
+  dialog.dataset.view=view;
   if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
   dialog.style.setProperty('--context-top',dialog.querySelector('.dialog-header').offsetHeight+'px');
   $('#selection-save').hidden = true;
+  if(view==='artwork'){artworkResize=new ResizeObserver(fitArtwork);artworkResize.observe($('.image-viewport'));fitArtwork();}
 }
 function finishDialog() {
+  artworkResize?.disconnect();artworkResize=null;
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
   if(origin)scrollTo(0,origin.scroll);
@@ -320,8 +328,11 @@ async function act(target) {
       const b=bookById(target.dataset.book),a=b?.assets.find(a=>a.id===target.dataset.asset);if(!a)return;
       const s=b.sections.find(s=>s.id===target.dataset.section)||b.sections.find(s=>s.blocks.some(x=>x.figure?.asset===a.id)),block=s?.blocks.find(x=>x.figure?.asset===a.id);
       const inContext=s&&block&&(s===b.sections[0]||allowed(b.id,s.id)||(route.view==='read'&&activeBook===b&&activeSection===s));
-      openDialog('Illustration study',`<p class="eyebrow">Arthur Rackham · ${esc(s?.title||'Source illustration')}</p><label for="image-zoom">Enlarge image · <output id="image-zoom-value">100%</output></label><input id="image-zoom" type="range" min="100" max="300" step="25" value="100"><div class="image-viewport" tabindex="0" role="group" aria-label="Enlarged source illustration; scroll to inspect"><img id="enlarged-image" style="--image-ratio:${a.width/a.height};--image-zoom:1" src="${imageSource(a)}" alt="${esc(imageDescription(b,a))}" width="${a.width}" height="${a.height}"></div>${inContext?`<button class="text image-context" data-action="context" data-book="${b.id}" data-section="${s.id}" data-block="${block.id}">Read around this illustration ${arrow()}</button>`:''}<p class="image-description">${esc(imageDescription(b,a))}</p><p class="small">At 100%, the whole picture fits. Larger views scroll; enlargement cannot add detail. Close to return to the same reading place.</p>`);
-      $('#image-zoom').addEventListener('input',e=>{$('#enlarged-image').style.setProperty('--image-zoom',Number(e.target.value)/100);$('#image-zoom-value').value=e.target.value+'%';});break;
+      const imageOrigin=!dialog.open?target:null;
+      openDialog('Illustration study',`<div class="artwork-controls"><p class="eyebrow">Arthur Rackham · ${esc(s?.title||'Source illustration')}</p><div class="artwork-zoom"><label for="image-zoom">Enlarge <output id="image-zoom-value">100%</output></label><input id="image-zoom" type="range" min="100" max="300" step="25" value="100"></div></div><div class="image-viewport" tabindex="0" role="group" aria-label="Enlarged source illustration; scroll to inspect"><img id="enlarged-image" src="${imageSource(a)}" alt="${esc(imageDescription(b,a))}" width="${a.width}" height="${a.height}"></div><footer class="artwork-footer">${inContext?`<button class="text image-context" data-action="context" data-book="${b.id}" data-section="${s.id}" data-block="${block.id}">Read around this illustration ${arrow()}</button>`:''}<details><summary>Picture description</summary><p class="image-description">${esc(imageDescription(b,a))}</p></details><p class="small">100% fits the whole picture. Enlarge to scroll. Close or Escape returns you to your place.</p></footer>`,'artwork');
+      if(imageOrigin&&dialogOrigin)dialogOrigin.element=imageOrigin;
+      fitArtwork();
+      $('#image-zoom').addEventListener('input',e=>{$('#image-zoom-value').value=e.target.value+'%';fitArtwork();});break;
     }
     case 'settings':await savePosition();settings();break;
     case 'import':await savePosition();importDialog();break;
@@ -579,11 +590,17 @@ try {
 // publication approval; it never changes reading records or companion permission.
 const included=bookById(aliceId);
 if(included){
-  let seen=false;try{seen=sessionStorage.getItem('alice-source-notice')==='seen';}catch{}
+  let noticeKey=null,seen=false;
+  try {noticeKey=`${aliceId}:source-notice:v1:${await sha256(new TextEncoder().encode(canonical(included)))}`;seen=localStorage.getItem(noticeKey)==='shown';}catch{}
+  if(!seen&&noticeKey)try{seen=sessionStorage.getItem(noticeKey)==='shown';}catch{}
+  // An earlier version already showed this exact bundled edition in this tab.
+  if(!seen&&included===aliceEditorialEdition)try{seen=sessionStorage.getItem('alice-source-notice')==='seen';if(seen&&noticeKey)localStorage.setItem(noticeKey,'shown');}catch{}
   if(!seen&&!dialog.open){
     const notice=included.sections.find(s=>s.id==='source-notice').blocks.find(b=>b.text.startsWith('This eBook is for the use')&&b.text.includes('Gutenberg™'));
     openDialog('Source edition notice',`<p class="source-notice-copy">${esc(notice.text)}</p><p><button class="text" data-action="licence">Read the full Project Gutenberg licence</button></p><p class="small">Independent reading adaptation of no. 28885, retaining all source images and credits. The catalogue states public domain in the USA; this project has not established worldwide clearance.</p><p class="small"><a href="https://www.gutenberg.org/cache/epub/28885/pg28885-h.zip" target="_blank" rel="noopener noreferrer">Obtain the original HTML edition</a> · <a href="https://www.gutenberg.org/ebooks/28885.epub3.images" target="_blank" rel="noopener noreferrer">Source-edition EPUB</a></p>`);
-    try{sessionStorage.setItem('alice-source-notice','seen');}catch{}
+    let remembered=false;
+    if(noticeKey){try{localStorage.setItem(noticeKey,'shown');remembered=localStorage.getItem(noticeKey)==='shown';}catch{}try{sessionStorage.setItem(noticeKey,'shown');}catch{}}
+    if(!remembered){const message=document.createElement('p');message.id='source-notice-memory';message.className='small';message.setAttribute('role','status');message.textContent='This browser could not remember that the notice was shown. It may appear on another visit. The full licence remains in the edition.';dialog.querySelector('.dialog-inner').append(message);}
   }
 }
 document.body.dataset.editionReady='true';

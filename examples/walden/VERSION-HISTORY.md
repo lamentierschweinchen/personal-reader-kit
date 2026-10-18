@@ -29,3 +29,11 @@ The user authorized including the four reviewed examples in the established publ
 ## 17 October 2026 — catalogue handoff and first-use clarity
 
 Added a quiet All readers link at the library entrance, hidden in reading and companion views. It uses an ordinary catalogue link and keeps the existing saved reading-place behavior. Both prepared works, source images, companions and edition identities are unchanged.
+
+## 18 October 2026 — the scope of an account
+
+Rebuilt the first Keeping account reading around three original figures: the house, food and combined outgoes. Each shows its accounting period and exclusions beside exact source quotations, with an expandable original ledger and references into the complete chapter. The house view includes both the stated exclusion of work and the earlier acknowledgment of help raising the frame. Switching accounts changes no reading place, permissions or saved records.
+
+The survey reading now puts the unchanged original plan beside the distinction between Thoreau’s measured depth, his tested prediction at White Pond and his subsequent analogy about character. Removed generic concluding questions and moved introductory biography into a secondary disclosure. Repeated chapter-heading source links moved into About this work; the complete terms and source EPUB remain reachable.
+
+Exact edition, artwork, metadata and bundle/storage contracts are unchanged. The local review and verification receipts remain ignored; this entry does not itself assert a deployment or physical-device acceptance.

@@ -30,6 +30,8 @@ Every sentence must help the reader act, notice something specific, understand s
 
 For commentary, ask: what will the reader know or see afterwards that the book or interface did not already make obvious? Require concrete details and a precise passage relationship. A source link, word count or estimated duration does not answer that question. Delete weak material rather than embellishing it to meet a length target.
 
+Inspect the surrounding qualifications before elevating a number or phrase. State what a total includes, excludes and covers in time; preserve a nearby concession or counterexample. A comparison needs a specific difference the reader can inspect. An index needs honest matching and coverage; a gallery needs a reason to look closely, not an instruction to admire.
+
 A question that merely asks the reader to repeat the preceding paragraph may add no value. A generic notebook is not a companion simply because its prompts mention the book. For teaching, inspect the actual worked example and a meaningful exception; distinguish the author's rules or motives from the editor's interpretation and exercises. Preserve the conditions under which advice is useful. A flag must explain what it matched and allow a reasoned decision to keep the words.
 
 ### 2. The reader's surface

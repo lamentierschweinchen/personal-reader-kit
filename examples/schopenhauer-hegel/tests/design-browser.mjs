@@ -19,7 +19,7 @@ async function preset(p,name){await p.getByRole('button',{name:'Reading settings
 async function read(p,section='c10'){await p.goto(base+'/#read/hegel/'+section);await p.locator(`#reading-text[data-section="${section}"][data-position-ready=true]`).waitFor();await settle(p);}
 async function measures(p){return p.evaluate(()=>{
  const rect=e=>{const r=e.getBoundingClientRect();return {width:r.width,height:r.height,top:r.top,bottom:r.bottom};};
- const selectors='.masthead a,.masthead button,.hall-enter,.book-title,.question-row,.hall-switch button,.hall-actions button,.reader-tools button,.chapter-links a,.close-dialog,#focus-tools button,.session-heading>.text-link,.orientation summary';
+ const selectors='.masthead a,.masthead button,.hall-enter,.book-title,.question-row,.hall-switch button,.hall-actions button,.reader-tools button,.chapter-links a,.close-dialog,#focus-tools button,.session-heading>.text-link,.orientation summary,#reading-cue';
  const controls=[...document.querySelectorAll(selectors)].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>({label:e.getAttribute('aria-label')||e.textContent.trim().slice(0,55),...rect(e)}));
  const small=controls.filter(r=>r.width<43.5||r.height<43.5);
  const fixed=[...document.querySelectorAll('.masthead,.reader-tools,#focus-tools')].filter(e=>e.getClientRects().length&&['fixed','sticky'].includes(getComputedStyle(e).position)).map(rect);
@@ -28,6 +28,47 @@ async function measures(p){return p.evaluate(()=>{
  return {width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth,controls:controls.length,small,chromeHeight:fixed.reduce((a,r)=>a+r.height,0),chromeOverlap:fixed.length>1?fixed[0].bottom-fixed[1].top:0,contrast};
 });}
 async function check(p){const m=await measures(p);assert.ok(m.scrollWidth<=m.width,JSON.stringify(m));assert.deepEqual(m.small,[]);assert.ok(m.contrast>=7);assert.ok(m.chromeOverlap<=1,'Reading controls overlap navigation: '+JSON.stringify(m));assert.equal(await p.locator('.masthead nav [aria-current=page]').count(),1);return m;}
+
+async function hallReflow(browser,engine){
+ const ctx=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),p=await ctx.newPage(),errors=[];
+ p.on('pageerror',e=>errors.push(e.message));
+ try{
+  await p.goto(base+'/#companion/disagreement');await p.getByRole('button',{name:'Take a seat with Hegel',exact:false}).click();
+  await p.locator('#reading-cue').selectOption('1');await p.setViewportSize({width:1280,height:900});await settle(p);
+  const cuePositions=await p.locator('.hall-scroll').evaluateAll(panes=>panes.map(pane=>{const r=pane.getBoundingClientRect(),mark=pane.querySelector('mark.reading-cue').getBoundingClientRect();return {visible:!!pane.getClientRects().length,top:mark.top-r.top,height:r.height};}));
+  assert.equal(cuePositions.length,2);for(const position of cuePositions)assert.ok(position.visible&&position.top>=0&&position.top<position.height,'Both halls must reveal the cue after widening: '+JSON.stringify(cuePositions));
+  await p.setViewportSize({width:390,height:844});await settle(p);await p.locator('.hall-switch button[data-hall=schopenhauer][aria-pressed]').click();
+  await p.locator('#reading-cue').selectOption('-1');await p.locator('.cross-action').click();
+  assert.equal(await p.locator('.lecture-hall[data-hall=hegel] .hall-scroll').evaluate(e=>e.scrollTop),0,'From the beginning must also reset the hidden hall');
+  assert.equal(await p.locator('mark.reading-cue').count(),0);
+
+  await p.goto(base+'/#companion/winning');await p.getByRole('button',{name:'Take a seat with Hegel',exact:false}).click();await p.locator('#reading-cue').selectOption('0');
+  const draft='An unfinished reflection across changes of hall and type.';
+  await p.locator('#reflection').fill(draft);await p.locator('.hall-switch button[data-hall=hegel][aria-pressed]').click();
+  const pane=p.locator('.lecture-hall[data-hall=hegel] .hall-scroll');await pane.evaluate(e=>e.scrollTop+=700);await settle(p);
+  // Capture a source character after the reader has moved beyond the cue.
+  // Successive reflows must retain this character, not choose each new line's start.
+  const anchor=await pane.evaluate(e=>{
+   const edge=e.getBoundingClientRect().top+18,block=[...e.querySelectorAll('[data-block]')].find(b=>b.textContent.length&&b.getBoundingClientRect().bottom>edge);
+   const at=offset=>{const walker=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let node;while((node=walker.nextNode())){if(offset<node.length){const range=document.createRange();range.setStart(node,offset);range.setEnd(node,offset+1);return range;}offset-=node.length;}};
+   let offset=0;while(offset<block.textContent.length-1&&at(offset).getBoundingClientRect().bottom<=edge)offset++;
+   return {block:block.dataset.block,offset,top:at(offset).getBoundingClientRect().top-e.getBoundingClientRect().top};
+  });
+  const changes=[];
+  async function assertPlace(change){
+   await settle(p);
+   const top=await pane.evaluate((e,a)=>{const block=[...e.querySelectorAll('[data-block]')].find(b=>b.dataset.block===a.block),walker=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let node,offset=a.offset;while((node=walker.nextNode())){if(offset<node.length){const range=document.createRange();range.setStart(node,offset);range.setEnd(node,offset+1);return range.getBoundingClientRect().top-e.getBoundingClientRect().top;}offset-=node.length;}},anchor);
+   assert.ok(Math.abs(top-anchor.top)<3,`${change} lost the manually chosen character: ${JSON.stringify({anchor,top})}`);assert.equal(await p.locator('#reflection').inputValue(),draft);changes.push({change,top});
+  }
+  await p.setViewportSize({width:1280,height:900});await assertPlace('phone to desktop');
+  await p.setViewportSize({width:390,height:844});await settle(p);await p.locator('.cross-action').click();await p.setViewportSize({width:740,height:320});await settle(p);await p.locator('.cross-action').click();await assertPlace('hidden hall after rotation');
+  assert.equal(await pane.evaluate(e=>e===document.activeElement),true,'Cross must focus the receiving hall');
+  await p.setViewportSize({width:390,height:844});await assertPlace('back to phone');
+  await p.getByRole('button',{name:'Reading settings',exact:true}).click();await p.locator('#size').fill('36');await p.getByRole('button',{name:'Apply to my reader',exact:true}).click();await assertPlace('large type after manual reading');
+  await pane.scrollIntoViewIfNeeded();await shot(p,`${engine}-manual-hall-reflow`);assert.deepEqual(errors,[]);
+  return {cueShownInBothHalls:true,hiddenHallReset:true,anchor,changes,unfinishedReflectionPreserved:true,scriptErrors:errors};
+ }finally{await ctx.close();}
+}
 
 try{
  await start();
@@ -63,7 +104,8 @@ try{
    await preset(p,'Paper');await read(p);const next=p.getByRole('link',{name:/Next/}),newSection=decodeURIComponent((await next.getAttribute('href')).split('/').at(-1));await next.click();await p.locator(`#reading-text[data-book=hegel][data-section="${newSection}"][data-position-ready=true]`).waitFor();await p.locator('.site-footer [data-action=import]').evaluate(e=>e.click());await p.locator('#import-form').waitFor();const atImport=await p.evaluate(async()=>(await(await import('/db.mjs')).loadState()).positions.hegel);assert.equal(atImport.sectionId,newSection);
    await p.locator('#book-file').setInputFiles({name:'original-design-check.txt',mimeType:'text/plain',buffer:Buffer.from('An original test paragraph for import continuity.')});await p.getByRole('button',{name:'Add on this device',exact:false}).click();await p.locator('.personal-shelf').waitFor();assert.deepEqual(await p.evaluate(async()=>(await(await import('/db.mjs')).loadState()).positions.hegel),atImport);
    await p.emulateMedia({reducedMotion:'reduce'});await settle(p);assert.equal(await p.locator('.noticeboard').evaluate(e=>getComputedStyle(e).animationName),'none');assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
-   records.push({engine,version:browser.version(),matrix,importPreservesPlace:true,queuedScrollRecall:true,actualScrollHides:true,failedSaveRetainsDraft:true,unexpectedRequests:external,scriptErrors:errors,physicalDeviceTested:false});console.log(engine+' art-direction checks passed');await ctx.close();
+   const reflow=await hallReflow(browser,engine);
+   records.push({engine,version:browser.version(),matrix,reflow,importPreservesPlace:true,queuedScrollRecall:true,actualScrollHides:true,failedSaveRetainsDraft:true,unexpectedRequests:external,scriptErrors:errors,physicalDeviceTested:false});console.log(engine+' art-direction checks passed');await ctx.close();
   }finally{await browser.close();}
  }
  await save(true);

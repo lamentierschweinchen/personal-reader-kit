@@ -5,7 +5,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const root=new URL('../',import.meta.url),out=new URL('../.reader/reports/',import.meta.url);
+const root=new URL('../',import.meta.url),out=new URL(process.env.QA_OUT||'../.reader/reports/',import.meta.url);
 const book=JSON.parse(await readFile(new URL('edition/library.json',root),'utf8'))[0],id=book.id;
 const port=Number(process.env.TEST_PORT||4292),base=`http://127.0.0.1:${port}`;
 await mkdir(out,{recursive:true});
@@ -73,9 +73,16 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     const page=context.pages()[0]||await context.newPage();
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('data:')&&!r.url().startsWith('blob:'))requests.push(r.url());});
     await page.goto(base);await page.locator('.edition-drawing img').waitFor();await dismissNotice(page);assert.equal(await page.getByRole('link',{name:'All readers',exact:true}).getAttribute('href'),'https://newreading.app/');await capture(page,engine+'-home');await overflow(page,'home');
+    assert.equal((await page.request.get(base+'/play/')).status(),200,'Local game route is part of the exact build');
+    assert.equal((await page.request.get(base+'/play/engine.mjs')).status(),200,'Nested reviewed game assets are served for offline install');
+    assert.equal((await page.request.get(base+'/.reader/private/intake.md')).status(),404);
+    assert.equal((await page.request.get(base+'/edition/library.json')).status(),404);
+    for(const target of ['/play/%2e%2e/edition/library.json','/play/%2e%2e/site/app.mjs','/play/%2f..%2f.reader%2fprivate%2fintake.md'])assert.equal((await page.request.get(base+target)).status(),404,'Encoded traversal stays outside exact output: '+target);
     await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
     await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
-    // The entrance and actual reading must remain composed in both orientations.
+    const noticeKey=await page.evaluate(()=>Object.keys(localStorage).find(k=>k.startsWith('alice-rackham-28885:source-notice:v1:')));assert.ok(noticeKey,'The notice is remembered for the complete exact edition');
+    const sameEditionTab=await context.newPage();await sameEditionTab.goto(base);await sameEditionTab.waitForFunction(()=>document.body.dataset.editionReady==='true');assert.equal(await sameEditionTab.locator('#dialog').evaluate(e=>e.open),false,'An unchanged edition does not repeat its notice in another tab');await sameEditionTab.close();
+        // The entrance and actual reading must remain composed in both orientations.
     // Source-inline correction links are excluded from this chrome target check.
     for(const [label,width,height] of viewports){
       await page.setViewportSize({width,height});await page.goto(base);await page.locator('.edition-drawing img').waitFor();await capture(page,engine+'-'+label+'-home');await overflow(page,label+' home');
@@ -150,7 +157,11 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     const tailText=await page.locator('#context-text .tail-poem').textContent();await page.getByRole('button',{name:'Uniform type',exact:true}).click();assert.equal(await page.locator('#context-text .tail-poem').textContent(),tailText);await capture(page,engine+'-tail-uniform-large');await close(page);
     assert.deepEqual((await state(page)).positions[id],before);
     await page.locator('.plate-choice').first().click();await page.locator('#image-zoom').focus();await page.keyboard.press('End');
-    assert.equal(await page.locator('#image-zoom-value').textContent(),'300%');await capture(page,engine+'-illustration-zoom');await close(page);assert.deepEqual((await state(page)).positions[id],before);
+    assert.equal(await page.locator('#image-zoom-value').textContent(),'300%');assert.equal(await page.locator('#dialog').getAttribute('data-view'),'artwork');await capture(page,engine+'-illustration-zoom');await close(page);assert.deepEqual((await state(page)).positions[id],before);
+    assert.equal(await page.locator('.cat-study').count(),0,'Cat comparison stays hidden before Chapter VIII');
+    assert.equal(await page.locator('.illustration-gallery').evaluate(e=>e.open),false,'General gallery stays behind a deliberate disclosure');
+    assert.equal(await page.locator('.type-study').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.illustration-gallery'))&Node.DOCUMENT_POSITION_FOLLOWING)),true,'Focused tail study precedes the gallery');
+    await page.locator('.illustration-gallery>summary').click();
     await page.locator('.plate-choice[data-section="chapter-01"]').first().click();await page.getByRole('button',{name:/Read around this illustration/}).click();await page.locator('#context-text[data-section="chapter-01"][data-location-ready="true"]').waitFor();assert.equal(await page.locator('#context-text').textContent(),exact(section('chapter-01')));await close(page);assert.deepEqual((await state(page)).positions[id],before);
     await page.evaluate(()=>scrollTo(0,0));await capture(page,engine+'-phone-companion-large');await overflow(page,'large companion');assert.equal(await page.locator('.masthead [aria-current="page"]').getAttribute('data-nav'),'companion');
     await page.getByRole('button',{name:'Find a phrase',exact:true}).click();await page.locator('#echo-term').fill('curious');await page.getByRole('button',{name:'Find occurrences'}).click();assert.ok(await page.locator('.echo-list li').count()>0);
@@ -160,6 +171,18 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     const sourceHit=await page.evaluate(async quote=>{const {findOccurrences,anchorStatus}=await import('/core.mjs'),{loadState}=await import('/db.mjs'),books=await(await fetch('/library.json')).json();const hit=findOccurrences(books,await loadState(),'curious').hits.find(h=>h.passage.quote===quote);return hit&&anchorStatus(hit.passage,books[0]).valid;},excerptReceipt.text);assert.equal(sourceHit,true,'Editorial omissions leave source quotation and anchor exact');
     await excerpt.evaluate(e=>scrollTo(0,scrollY+e.getBoundingClientRect().top-document.querySelector('.masthead').getBoundingClientRect().height-20));await capture(page,engine+'-search-omission-large');
     await excerpt.locator('..').getByRole('button',{name:/Read around this occurrence/}).click();await page.locator('#context-text[data-location-ready="true"]').waitFor();assert.equal(await page.locator('#context-text mark').allTextContents().then(parts=>parts.join('')),'curious');assert.equal(await page.locator('#context-text[data-omitted-start],#context-text[data-omitted-end]').count(),0);await close(page);assert.deepEqual((await state(page)).positions[id],before);
+    // The two Cat drawings belong to different scenes. Their source visits and
+    // full-view inspection remain optional and keep the main reading place.
+    await page.getByRole('button',{name:'Word & image',exact:true}).click();
+    await page.getByRole('button',{name:'Choose what I’ve read'}).click();await page.locator(`#boundary-${id}`).selectOption(String(book.sections.findIndex(s=>s.id==='chapter-08')));await page.getByRole('button',{name:'Set my boundaries'}).click();
+    await page.locator('.cat-study').waitFor();
+    assert.equal(await page.locator('.cat-pair .plate-choice').count(),2);
+    assert.deepEqual(await page.locator('.cat-pair .plate-choice').evaluateAll(nodes=>nodes.map(e=>e.dataset.section)),['chapter-06','chapter-08']);
+    await page.getByRole('button',{name:/The executioner’s argument/}).click();await page.locator('#context-text[data-section="chapter-08"][data-location-ready="true"]').waitFor();assert.equal(await page.locator('#dialog').getAttribute('data-view'),'');assert.equal(await page.locator('#context-text').textContent(),exact(section('chapter-08')));await close(page);
+    assert.deepEqual((await state(page)).positions[id],before);
+    await page.locator('.cat-pair .plate-choice').last().click();
+    await page.waitForFunction(()=>{const e=document.querySelector('#enlarged-image'),v=document.querySelector('.image-viewport');return e&&e.getBoundingClientRect().height>0&&Math.abs(e.width/e.height-380/179)<.01&&e.width<=Math.min(v.clientWidth,380)+1&&e.height<=Math.min(v.clientHeight,179)+1;});
+    const pictureOrigin=await page.evaluate(()=>scrollY);await page.keyboard.press('Escape');assert.equal(await page.locator('#dialog').evaluate(e=>e.open),false);assert.equal(await page.locator('.cat-pair .plate-choice').last().evaluate(e=>e===document.activeElement),true);assert.equal(await page.evaluate(()=>scrollY),pictureOrigin);assert.deepEqual((await state(page)).positions[id],before);
     // Portrait and landscape on both simulated phone/tablet families. Each
     // capture is settled and includes actual source material at 36px type.
     for(const [label,width,height]of viewports){

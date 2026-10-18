@@ -2,7 +2,7 @@ import {readFile,lstat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {validateBook,anchorStatus} from '../site/core.mjs';
-import {sessions,sessionPassage} from '../site/lectures.mjs';
+import {sessions,sessionPassage,readingCues,cuePassages} from '../site/lectures.mjs';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 export const editionInputs=['editions/inventory.json','editions/hegel.json','editions/schopenhauer.json'];
 export async function verifiedEditions(root){
@@ -24,5 +24,6 @@ export async function verifiedEditions(root){
  }
  if(new Set(embedded).size!==5||embedded.length!==5||inventory.assets.filter(a=>a.path.startsWith('embedded:')).length!==5)throw Error('Source image inventory is not exact.');
  for(const session of sessions)for(const side of session.sides){const p=sessionPassage(side,books);if(!p||!anchorStatus(p,books.find(b=>b.id===side.book)).valid)throw Error('A paired reading does not match its source.');}
+ for(const session of sessions)for(const [index] of readingCues[session.id].entries())cuePassages(session,index,books);
  return books;
 }

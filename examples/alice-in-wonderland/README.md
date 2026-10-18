@@ -1,6 +1,6 @@
 # Alice’s Adventures in Wonderland
 
-Rackham’s drawings, an asymmetric storybook entrance and a close-looking companion.
+Rackham’s drawings, an asymmetric storybook entrance and a close-looking companion. Portrait, tale/tail and Cat studies connect specific visual choices with exact passages; the complete permitted picture collection follows in chapter order.
 
 The complete twelve-chapter Carroll/Rackham edition with Dobson’s proem, 19 sections and 38 embedded images from Gutenberg 28885. Source tail-verse and uniform-type views preserve the words and anchors.
 

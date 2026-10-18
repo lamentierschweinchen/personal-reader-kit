@@ -110,3 +110,17 @@ test('search excerpts prefer whole ordinary words and disclose omission without 
   assert.equal(anchorStatus(hit.passage,book).valid,true);
   const whole=findOccurrences([book],state,text).hits[0];assert.equal(whole.omittedStart,false);assert.equal(whole.omittedEnd,false);
 });
+
+test('word matching keeps original offsets, options, chapter counts and later pages',async()=>{
+  const {findOccurrences}=await import('../site/core.mjs');
+  const book=await fromText('Pride pride prided. “pride” pride’s. İ pride.\n\nRoom room bedroom.',{title:'Word boundaries'});
+  const state=newState();state.boundaries[book.id]={index:0,revision:book.source.sha256};
+  const result=findOccurrences([book],state,'pride',2,{caseSensitive:false,wholeWords:true,skip:2});
+  assert.equal(result.count,5);assert.equal(result.sectionCounts[book.id+'/'+book.sections[0].id],5);
+  assert.deepEqual(result.hits.map(h=>h.passage.quote.slice(h.matchStart,h.matchEnd)),['pride','pride']);
+  for(const h of result.hits)assert.equal(book.sections[0].blocks.find(b=>b.id===h.passage.segments[0].blockId).text.slice(h.offset,h.offset+h.matchEnd-h.matchStart),'pride');
+  assert.equal(findOccurrences([book],state,'pride').count,5);
+  assert.equal(findOccurrences([book],state,'room',20,{caseSensitive:false,wholeWords:true}).count,2);
+  assert.equal(findOccurrences([book],state,'“pride”',20,{caseSensitive:false,wholeWords:true}).count,1);
+  assert.equal(findOccurrences([book],newState(),'pride',20,{caseSensitive:false,wholeWords:true}).count,0);
+});

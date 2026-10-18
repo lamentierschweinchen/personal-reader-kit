@@ -1,5 +1,11 @@
 # Project history
 
+## 2026-10-18 — Follow the argument
+
+Reduced repeated framing around the three existing paired readings and moved complete citation/orientation detail into an accessible disclosure. Added two optional, exact-source landmarks per question. Both original passages remain complete; Keep marked passage saves the indicated phrase, while paired reflections retain both full readings. Build validation rejects missing, duplicate or out-of-range cue anchors.
+
+Each hall now retains a transient source-character position through repeated rotation, hidden-pane changes, type size and rerendering. A newly visible hall receives its pending landmark; From the beginning resets both halls. Independent editorial and Chromium/WebKit reviews found and resolved hidden-pane and reflow defects. Full actual-edition, design, old-to-new draft/bundle and stopped-origin checks preserve the two prepared editions and existing reading records. The existing public destination is unchanged.
+
 ## 2026-10-16 — Share a passage; verify offline annotation writes
 
 Added the kit’s bounded quotation-sharing module to the existing passage editor: native sharing, explicit copying and selectable fallback text with exact source attribution. Personal notes and device URLs stay out of the payload; cancellation does not copy automatically. Source mismatches refuse attribution. The existing broadside and prepared edition bytes remain unchanged.

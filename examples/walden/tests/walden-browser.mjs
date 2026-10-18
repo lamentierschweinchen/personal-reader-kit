@@ -6,10 +6,10 @@ import {settledCapture} from './experience-browser.mjs';
 import {designChecks} from './walden-design-browser.mjs';
 import {sharingChecks,sharingContinuityChecks} from './sharing-browser.mjs';
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const port=Number(process.env.TEST_PORT||4393),base=`http://127.0.0.1:${port}`,out=new URL('../.reader/reports/sharing/',import.meta.url);
+const port=Number(process.env.TEST_PORT||4393),base=`http://127.0.0.1:${port}`,out=process.env.QA_OUTPUT?new URL('file://'+process.env.QA_OUTPUT.replace(/\/$/,'')+'/'):new URL('../.reader/reports/sharing/',import.meta.url);
 await mkdir(out,{recursive:true});
 const library=JSON.parse(await readFile(new URL('../edition/library.json',import.meta.url),'utf8'));
-const source=await readFile(new URL('../.reader/private/source/pg205-images.html',import.meta.url),'utf8');
+const source=await readFile(process.env.WALDEN_SOURCE_HTML||new URL('../.reader/private/source/pg205-images.html',import.meta.url),'utf8');
 const state=page=>page.evaluate(async()=>(await import('/db.mjs')).loadState());
 let server;
 async function start(){server=spawn(process.execPath,['scripts/serve.mjs'],{cwd:new URL('../',import.meta.url),env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});let errors='';server.stderr.on('data',x=>errors+=x);await new Promise((resolve,reject)=>{server.stdout.on('data',x=>{if(x.toString().includes('local only'))resolve();});server.on('exit',()=>reject(Error(errors)));});}

@@ -3,7 +3,7 @@ import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,re
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
 import {renderText,readSelection,renderPassage} from './text.mjs';
 import {passageShareData,sharePassage,copyPassage} from './share.mjs';
-import {sessions,sessionPassage,historicalSource} from './lectures.mjs';
+import {sessions,sessionPassage,historicalSource,readingCues,cuePassages} from './lectures.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const amount=(number,label)=>`${number} ${label}${number===1?'':'s'}`;
@@ -14,7 +14,7 @@ let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin
 let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0,y:0};
 let offlineReady = false, storageError = false;
 let reflectionDraft = null, reflectionBase = '', facingPair=null, facingId=null, fragments=[], recoveryCandidate=null, stateDamaged=false, bundleCandidate=null;
-const openSessions=new Set(),permittedSections=new Set(),hallPositions=new Map();
+const openSessions=new Set(),permittedSections=new Set(),hallPositions=new Map(),hallPlaces=new Map(),readingCueState=new Map(),pendingCuePositions=new Set();
 let seated='hegel',sourceTrail=[],sourceContext=null;
 const dirtyNote = () => dialog.open && editing && $('#note-text') && (editingRangeChanged || $('#note-text').value !== (editing.note || ''));
 const dirtyReflection = () => reflectionDraft && reflectionDraft.text !== reflectionDraft.base;
@@ -23,11 +23,13 @@ const path = (book,section) => `#read/${encodeURIComponent(book)}/${encodeURICom
 const returnLink = () => state.lastBook && bookById(state.lastBook) ? `<button class="text" data-action="resume" data-book="${esc(state.lastBook)}">Return to your book ${arrow()}</button>` : '';
 function say(message) {clearTimeout(statusTimer);$('#status').textContent = message;statusTimer = setTimeout(() => {$('#status').textContent = '';},5000);}
 function showWarning(message,storage=true) {if(storage)storageError=true;$('#storage-warning').hidden=false;$('#storage-warning').textContent=[$('#storage-warning').textContent,message].filter(Boolean).join(' ');}
-function applyPrefs() {
+function applyPrefs(preserveHalls=true) {
+  if(preserveHalls)for(const pane of main.querySelectorAll('.hall-scroll'))rememberHallPlace(pane);
   const p = state.prefs;document.documentElement.dataset.theme = p.theme;
   document.documentElement.style.setProperty('--size',`${p.size}px`);document.documentElement.style.setProperty('--leading',p.leading);
   document.documentElement.style.setProperty('--measure',p.measure === 'wide' ? '44rem' : '34rem');
   const focused=p.focus && route.view === 'read';document.body.classList.toggle('focus',focused);if(!focused)focusControls=false;$('#focus-tools').hidden=!(focused&&focusControls);$('#focus-exit').hidden=!focused;$('#focus-reveal').hidden=!focused||focusControls;$('#focus-reveal').setAttribute('aria-expanded',String(focusControls));main.toggleAttribute('aria-describedby',focused);if(focused)main.setAttribute('aria-describedby','focus-help');
+  if(preserveHalls)for(const pane of main.querySelectorAll('.hall-scroll'))restoreHallPlace(pane);
 }
 async function commit(change) {const next = await updateState(change);state = next;applyPrefs();return next;}
 function parseRoute() {
@@ -100,23 +102,83 @@ function fragment(passage,hit) {
   return `<blockquote class="reading-surface fragment-surface" data-fragment="${index}" data-book="${esc(book.id)}" lang="${esc(book.language)}"></blockquote>`;
 }
 const pairKey=pair=>JSON.stringify(pair);
+// Each hall has its own transient text position. Pixel offsets alone cannot
+// survive a narrower column, rotation or a change of reading type size.
+function hallLayout(pane){const css=getComputedStyle(pane.querySelector('.fragment-surface')||pane);return [pane.clientWidth,pane.clientHeight,css.fontSize,css.lineHeight].join('/');}
+function characterRange(block,offset){
+  const walker=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){if(offset<node.length){const range=document.createRange();range.setStart(node,offset);range.setEnd(node,offset+1);return range;}offset-=node.length;}
+  return null;
+}
+function rememberHallPlace(pane,force=false){
+  if(!pane.getClientRects().length)return;
+  const key=pane.dataset.positionKey,layout=hallLayout(pane),previous=hallPlaces.get(key);
+  // A layout-induced scroll notification must not replace the pre-reflow anchor.
+  if(!force&&previous&&previous.layout!==layout)return;
+  if(!force&&previous&&Math.abs(previous.scroll-pane.scrollTop)<1)return;
+  hallPositions.set(key,pane.scrollTop);
+  if(pane.scrollTop<1){hallPlaces.set(key,{start:true,layout,scroll:0});return;}
+  const top=pane.getBoundingClientRect().top,edge=top+18;
+  const block=[...pane.querySelectorAll('[data-block]')].find(b=>b.textContent.length&&b.getBoundingClientRect().bottom>edge);
+  if(!block)return;
+  let low=0,high=block.textContent.length-1;
+  while(low<high){const middle=Math.floor((low+high)/2),rect=characterRange(block,middle).getBoundingClientRect();if(rect.bottom<=edge)low=middle+1;else high=middle;}
+  const range=characterRange(block,low);
+  hallPlaces.set(key,{block: block.dataset.block,offset:low,top:range.getBoundingClientRect().top-top,layout,scroll:pane.scrollTop});
+}
+function restoreHallPlace(pane){
+  if(!pane.getClientRects().length)return;
+  const key=pane.dataset.positionKey;
+  if(pendingCuePositions.has(key)&&revealCue(pane)){pendingCuePositions.delete(key);rememberHallPlace(pane,true);return;}
+  const place=hallPlaces.get(key);if(!place)return;
+  if(place.start)pane.scrollTop=0;
+  else{
+    const block=[...pane.querySelectorAll('[data-block]')].find(b=>b.dataset.block===place.block),range=block&&characterRange(block,place.offset);
+    if(range){pane.scrollTop+=range.getBoundingClientRect().top-pane.getBoundingClientRect().top-place.top;place.top=range.getBoundingClientRect().top-pane.getBoundingClientRect().top;}
+  }
+  // Keep the same character through successive reflows; choosing the first
+  // character of each newly wrapped line would gradually move backwards.
+  place.layout=hallLayout(pane);place.scroll=pane.scrollTop;hallPositions.set(key,pane.scrollTop);
+}
+const cueHit=passage=>({blockId:passage.segments[0].blockId,matchStart:passage.segments[0].start,matchEnd:passage.segments[0].end,kind:'reading-cue'});
+function revealCue(pane){
+  const mark=pane.querySelector('mark.reading-cue');if(!mark||!pane.getClientRects().length)return false;
+  pane.scrollTop=Math.max(0,pane.scrollTop+mark.getBoundingClientRect().top-pane.getBoundingClientRect().top-18);return true;
+}
+function setReadingCue(value){
+  const session=sessions.find(s=>s.id===route.book),index=Number(value);
+  if(!session||!openSessions.has(session.id)||!Number.isInteger(index)||index< -1||index>=readingCues[session.id].length)return;
+  const cues=index<0?[]:cuePassages(session,index,books);readingCueState.set(session.id,index);
+  for(const [i,side] of session.sides.entries()){
+    const pane=main.querySelector(`.lecture-hall[data-hall="${side.book}"] .hall-scroll`);if(!pane)continue;
+    renderPassage(pane.querySelector('.fragment-surface'),facingPair[i],bookById(side.book),cues[i]?cueHit(cues[i]):undefined);
+    const key=session.id+'/'+side.book;pendingCuePositions.delete(key);hallPlaces.delete(key);
+    if(index<0){pane.scrollTop=0;hallPlaces.set(key,{start:true,layout:hallLayout(pane),scroll:0});}else if(!revealCue(pane))pendingCuePositions.add(key);
+    hallPositions.set(key,pane.scrollTop);
+    rememberHallPlace(pane,true);
+    main.querySelector(`.lecture-hall[data-hall="${side.book}"] [data-action="keep-session"]`).textContent=index<0?"Keep this passage":"Keep marked passage";
+  }
+  $('#cue-status').textContent=index<0?'Both readings are at the beginning.':`Marked in both readings: ${readingCues[session.id][index].label}. The complete passages remain available.`;
+}
+
 function companion() {
   const session=sessions.find(s=>s.id===route.book);
   if(!session)return `<section class="page corridor-index"><header class="page-head"><p class="eyebrow">Across the corridor</p><h1>Choose your question.</h1></header>${questionList()}${returnLink()}</section>`;
   facingPair=session.sides.map(side=>sessionPassage(side,books));
   const ready=facingPair.every(Boolean),opened=openSessions.has(session.id)&&ready;
+  const cueIndex=readingCueState.get(session.id)??-1,cues=opened&&cueIndex>=0?cuePassages(session,cueIndex,books):[];
   const existing=state.connections.find(c=>pairKey(c.passages)===pairKey(facingPair));
   if(!reflectionDraft){reflectionBase=existing?.note||'';facingId=existing?.id||null;}
-  return `<section class="page lecture-session"><header class="session-heading"><a class="text-link small" href="#companion">All three questions</a><p class="eyebrow">${session.number} / A paired reading</p><h1>${session.title}</h1><p>${session.teaser}</p></header>${!opened?`<div class="take-seat"><p>Open these selected passages and their surrounding sections, including material you may not have read yet. Both books keep their own reading place.</p><div class="seat-choices">${session.sides.map(side=>`<button class="secondary" data-action="take-seat" data-session="${session.id}" data-hall="${side.book}" ${ready?'':'disabled'}>Take a seat with ${side.book==='hegel'?'Hegel':'Schopenhauer'} ${arrow()}</button>`).join('')}</div><p class="small">An editorial pairing of later publications. Read either side first.</p></div>`:`<div class="hall-switch" role="group" aria-label="Choose your lecture hall">${session.sides.map(side=>`<button data-action="cross" data-hall="${side.book}" aria-pressed="${seated===side.book}">${side.book==='hegel'?'Hegel':'Schopenhauer'}</button>`).join('')}<button class="text cross-action" aria-label="Cross the corridor" data-action="cross" data-hall="${seated==='hegel'?'schopenhauer':'hegel'}">Cross ${arrow('right')}</button></div><div class="lecture-halls">${session.sides.map((side,i)=>`<section class="lecture-hall ${seated!==side.book?'hall-away':''}" data-hall="${side.book}"><header><p class="eyebrow">${side.book==='hegel'?'Hall I · G. W. F. Hegel':'Hall II · Arthur Schopenhauer'}</p><h2>${side.label}</h2><p class="small">${esc(side.location)}</p><p class="small edition-line">${side.book==='hegel'?'Haldane translation · 1892 / 1955 reprint':'Saunders translation · preface 1896'}</p><details class="orientation"><summary>Before you read</summary><p class="companion-reading">${side.orientation}</p></details></header><div class="hall-scroll" tabindex="0" role="region" aria-label="${side.book==='hegel'?'Hegel':'Schopenhauer'} passage" data-position-key="${session.id}/${side.book}">${fragment(facingPair[i])}</div><div class="hall-actions"><button class="text" data-action="session-context" data-side="${i}">Read around this passage ${arrow()}</button><button class="text" data-action="keep-session" data-side="${i}">Keep this passage</button></div></section>`).join('')}</div><section class="corridor-note"><p class="eyebrow">In the corridor</p><p class="companion-reading">${session.corridor}</p></section><div class="reflection"><label for="reflection">Your reflection</label><p class="small">${session.prompt}</p><textarea id="reflection" maxlength="50000" aria-describedby="reflection-status" placeholder="Your private reflection…">${esc(reflectionDraft?.text??reflectionBase)}</textarea><p id="reflection-status" class="small" role="status">${dirtyReflection()?'Unsaved draft · kept in this tab.':'Save both exact passages with an optional private reflection.'}</p><button class="primary" data-action="save-reflection">Keep both with my reflection ${arrow()}</button><button class="text" data-action="export-reflection">Export draft</button></div>`}<div class="session-return">${returnLink()}<a class="text-link" href="#shelf">Read either full book</a></div></section>`;
+  return `<section class="page lecture-session"><header class="session-heading"><a class="text-link small" href="#companion">All three questions</a><h1>${session.title}</h1>${!opened?`<p>${session.teaser}</p>`:''}</header>${!opened?`<div class="take-seat"><p>Open these selected passages and their surrounding sections, including material you may not have read yet. Both books keep their own reading place.</p><div class="seat-choices">${session.sides.map(side=>`<button class="secondary" data-action="take-seat" data-session="${session.id}" data-hall="${side.book}" ${ready?'':'disabled'}>Take a seat with ${side.book==='hegel'?'Hegel':'Schopenhauer'} ${arrow()}</button>`).join('')}</div><p class="small">An editorial pairing of later publications. Read either side first.</p></div>`:`<div class="hall-switch" role="group" aria-label="Choose your lecture hall">${session.sides.map(side=>`<button data-action="cross" data-hall="${side.book}" aria-pressed="${seated===side.book}">${side.book==='hegel'?'Hegel':'Schopenhauer'}</button>`).join('')}<button class="text cross-action" aria-label="Cross the corridor" data-action="cross" data-hall="${seated==='hegel'?'schopenhauer':'hegel'}">Cross ${arrow('right')}</button></div><div class="argument-guide"><label for="reading-cue">Follow the argument</label><div class="cue-select"><select id="reading-cue"><option value="-1">From the beginning</option>${readingCues[session.id].map((cue,i)=>`<option value="${i}" ${cueIndex===i?'selected':''}>${esc(cue.label)}</option>`).join('')}</select>${arrow('down')}</div><p id="cue-status" class="visually-hidden" role="status"></p></div><div class="lecture-halls">${session.sides.map((side,i)=>`<section class="lecture-hall ${seated!==side.book?'hall-away':''}" data-hall="${side.book}"><header><p class="eyebrow">${side.book==='hegel'?'Hall I · G. W. F. Hegel':'Hall II · Arthur Schopenhauer'}</p><h2>${side.label}</h2><details class="orientation"><summary>Source &amp; orientation</summary><p class="small">${esc(side.location)}</p><p class="small edition-line">${side.book==='hegel'?'Haldane translation · 1892 / 1955 reprint':'Saunders translation · preface 1896'}</p><p class="companion-reading">${side.orientation}</p></details></header><div class="hall-scroll" tabindex="0" role="region" aria-label="${side.book==='hegel'?'Hegel':'Schopenhauer'} passage" data-position-key="${session.id}/${side.book}">${fragment(facingPair[i],cues[i]?cueHit(cues[i]):undefined)}</div><div class="hall-actions"><button class="text" data-action="session-context" data-side="${i}">Read around this passage ${arrow()}</button><button class="text" data-action="keep-session" data-side="${i}">${cues[i]?'Keep marked passage':'Keep this passage'}</button></div></section>`).join('')}</div><section class="corridor-note"><p class="eyebrow">In the corridor</p><p class="companion-reading">${session.corridor}</p></section><div class="reflection"><label for="reflection">Your reflection</label><p class="small">${session.prompt}</p><textarea id="reflection" maxlength="50000" aria-describedby="reflection-status" placeholder="Your private reflection…">${esc(reflectionDraft?.text??reflectionBase)}</textarea><p id="reflection-status" class="small" role="status">${dirtyReflection()?'Unsaved draft · kept in this tab.':'Save both exact passages with an optional private reflection.'}</p><button class="primary" data-action="save-reflection">Keep both with my reflection ${arrow()}</button><button class="text" data-action="export-reflection">Export draft</button></div>`}<div class="session-return">${returnLink()}<a class="text-link" href="#shelf">Read either full book</a></div></section>`;
 }
 async function render({keepScroll=false}={}) {
-  for(const pane of main.querySelectorAll('.hall-scroll'))hallPositions.set(pane.dataset.positionKey,pane.scrollTop);
+  for(const pane of main.querySelectorAll('.hall-scroll'))rememberHallPlace(pane);
   const y = scrollY;hideFocusControls();fragments=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
   $('#catalogue-return').hidden=route.view!=='shelf';
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
-  applyPrefs();document.title = route.view==='read' && activeBook ? `${activeSection.title} · Reading` : 'Two lecture halls · Schopenhauer & Hegel';
+  applyPrefs(false);document.title = route.view==='read' && activeBook ? `${activeSection.title} · Reading` : 'Two lecture halls · Schopenhauer & Hegel';
   if (route.view === 'read') {
     const valid = state.notes.filter(n => n.sectionId === activeSection.id && anchorStatus(n,activeBook).valid);
     renderText($('#reading-text'),activeSection,valid);
@@ -124,7 +186,7 @@ async function render({keepScroll=false}={}) {
     $('#reading-text').dataset.positionReady='true';
   }
   for(const node of main.querySelectorAll('[data-fragment]')){const f=fragments[Number(node.dataset.fragment)];renderPassage(node,f.passage,f.book,f.hit);}
-  for(const pane of main.querySelectorAll('.hall-scroll'))pane.scrollTop=hallPositions.get(pane.dataset.positionKey)||0;
+  for(const pane of main.querySelectorAll('.hall-scroll')){pane.scrollTop=hallPositions.get(pane.dataset.positionKey)||0;restoreHallPlace(pane);rememberHallPlace(pane);}
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
 function openDialog(title,html) {
@@ -272,14 +334,17 @@ async function act(target) {
       openSessions.add(session.id);session.sides.forEach(side=>permittedSections.add(side.book+'/'+side.section));seated=target.dataset.hall;await render({keepScroll:true});main.querySelector('.hall-switch')?.scrollIntoView({block:'start'});break;
     }
     case 'cross': {
+      for(const pane of main.querySelectorAll('.hall-scroll'))rememberHallPlace(pane);
       seated=target.dataset.hall;
       for(const pane of main.querySelectorAll('.lecture-hall'))pane.classList.toggle('hall-away',pane.dataset.hall!==seated);
       for(const button of main.querySelectorAll('.hall-switch [aria-pressed]'))button.setAttribute('aria-pressed',String(button.dataset.hall===seated));
       const cross=main.querySelector('.cross-action');if(cross)cross.dataset.hall=seated==='hegel'?'schopenhauer':'hegel';
-      main.querySelector(`.lecture-hall[data-hall="${seated}"] .hall-scroll`)?.focus({preventScroll:true});break;
+      const pane=main.querySelector(`.lecture-hall[data-hall="${seated}"] .hall-scroll`),key=route.book+'/'+seated;
+      if(pane&&pendingCuePositions.has(key)&&revealCue(pane)){pendingCuePositions.delete(key);rememberHallPlace(pane,true);}else if(pane)restoreHallPlace(pane);
+      pane?.focus({preventScroll:true});break;
     }
-    case 'session-context': {const p=facingPair[Number(target.dataset.side)];if(p&&allowed(p.bookId,p.sectionId))await context(p.bookId,p.sectionId,p.segments[0].blockId,{...p,id:'session-context'});break;}
-    case 'keep-session': {const p=facingPair[Number(target.dataset.side)];if(p&&allowed(p.bookId,p.sectionId))noteDialog(p);break;}
+    case 'session-context': {const session=sessions.find(s=>s.id===route.book),index=readingCueState.get(route.book)??-1,p=(index>=0?cuePassages(session,index,books):facingPair)[Number(target.dataset.side)];if(p&&allowed(p.bookId,p.sectionId))await context(p.bookId,p.sectionId,p.segments[0].blockId,{...p,id:'session-context'});break;}
+    case 'keep-session': {const session=sessions.find(s=>s.id===route.book),index=readingCueState.get(route.book)??-1,p=(index>=0?cuePassages(session,index,books):facingPair)[Number(target.dataset.side)];if(p&&allowed(p.bookId,p.sectionId))noteDialog(p);break;}
     case 'connection-context': {const c=state.connections.find(c=>c.id===target.dataset.connection),p=c?.passages[Number(target.dataset.side)];if(p&&anchorStatus(p,bookById(p.bookId)).valid)await context(p.bookId,p.sectionId,p.segments[0].blockId,{...p,id:'connection-context'});break;}
     case 'source-link': {
       const bookId=target.closest('[data-book]')?.dataset.book;if(!bookId)return;
@@ -382,6 +447,7 @@ document.addEventListener('pointerdown',event=>{
 document.addEventListener('pointermove',event=>{if(focusPointer?.id===event.pointerId&&Math.hypot(event.clientX-focusPointer.x,event.clientY-focusPointer.y)>10)focusPointer.moved=true;},{passive:true});
 document.addEventListener('pointercancel',()=>{focusPointer=null;focusTap=null;});
 document.addEventListener('scroll',event=>{
+  if(event.target?.matches?.('.hall-scroll'))rememberHallPlace(event.target);
   const nested=event.target!==document&&event.target!==window;
   if(focusPointer&&(nested||Math.abs(scrollX-focusPointer.scrollX)>1||Math.abs(scrollY-focusPointer.scrollY)>1))focusPointer.moved=true;
   // A delayed notification from restoring a place is not new scrolling.
@@ -406,6 +472,7 @@ document.addEventListener('click',event=>{
   const mark=event.target.closest('mark[data-note]');
   if(mark && getSelection()?.isCollapsed){const note=state.notes.find(n=>n.id===mark.dataset.note);if(note)noteDialog(note);}
 });
+document.addEventListener('change',event=>{if(event.target.id==='reading-cue'){try{setReadingCue(event.target.value);}catch(error){fail(error);}}});
 document.addEventListener('input',event=>{
   if(event.target.id==='size')$('#size-value').textContent=event.target.value;
   if(event.target.id==='reflection') {
@@ -507,6 +574,7 @@ selectionButton.addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{if(!inFocus())return;if(event.key==='Escape'){event.preventDefault();act($('#focus-exit')).catch(fail);}else if(event.key.toLowerCase()==='c'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!focusActionTarget(event.target)){event.preventDefault();showFocusControls(true);}});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
+window.addEventListener('resize',()=>{for(const pane of main.querySelectorAll('.hall-scroll'))restoreHallPlace(pane);});
 window.addEventListener('hashchange',async event=>{
   if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
   const nextRoute=parseRoute();

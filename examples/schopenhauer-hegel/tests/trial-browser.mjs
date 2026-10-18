@@ -3,7 +3,7 @@ import {spawn} from 'node:child_process';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {once} from 'node:events';
 import assert from 'node:assert/strict';
-import {sessions,sessionPassage} from '../site/lectures.mjs';
+import {sessions,sessionPassage,readingCues,cuePassages} from '../site/lectures.mjs';
 import {excerptSection} from '../site/core.mjs';
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const port=Number(process.env.TEST_PORT||4294),base=`http://127.0.0.1:${port}`,root=new URL('../',import.meta.url),out=new URL('../.reader/reports/browser/',import.meta.url);
@@ -56,11 +56,32 @@ try{for(const engine of process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium
    console.log(engine+' session '+session.id);
    await p.goto(`${base}/#companion/${session.id}`);await p.locator('.take-seat').waitFor();assert.equal(await p.locator('.lecture-halls').count(),0);await p.getByRole('button',{name:'Take a seat with Hegel',exact:false}).click();await p.locator('.lecture-halls').waitFor();
    for(const side of session.sides){const expected=sessionPassage(side,books);assert.equal(await p.locator(`.lecture-hall[data-hall="${side.book}"] .fragment-surface`).textContent(),expected.quote);}
+   // Landmarks mark the original paragraphs without replacing their arguments.
+   // A hidden hall must arrive at its mark when crossed into, then keep its own scroll.
+   for(const [index] of readingCues[session.id].entries()){
+    await p.locator('#reading-cue').selectOption(String(index));const cues=cuePassages(session,index,books);
+    for(const [i,side] of session.sides.entries()){
+     await p.locator(`.hall-switch [aria-pressed][data-hall="${side.book}"]`).click();const hall=p.locator(`.lecture-hall[data-hall="${side.book}"]`);
+     assert.equal(await hall.locator('.hall-scroll').evaluate(el=>document.activeElement===el),true);
+     assert.equal(await hall.locator('.fragment-surface').textContent(),sessionPassage(side,books).quote);
+     assert.equal((await hall.locator('mark.reading-cue').allTextContents()).join(''),cues[i].quote);
+     const geometry=await hall.locator('.hall-scroll').evaluate(el=>({pane:el.getBoundingClientRect().top,mark:el.querySelector('mark').getBoundingClientRect().top,height:el.clientHeight,scroll:el.scrollTop}));
+     assert.ok(geometry.mark>=geometry.pane-1&&geometry.mark<geometry.pane+geometry.height,JSON.stringify(geometry));
+     await hall.getByRole('button',{name:'Read around this passage',exact:false}).click();
+     assert.equal((await p.locator('#context-text mark').allTextContents()).join(''),cues[i].quote);await close(p);
+     assert.ok(Math.abs(await hall.locator('.hall-scroll').evaluate(el=>el.scrollTop)-geometry.scroll)<2);
+     await hall.getByRole('button',{name:'Keep marked passage',exact:true}).click();
+     assert.equal(await p.locator('#dialog .dialog-quote').textContent(),cues[i].quote);await close(p);
+    }
+   }
+   await p.locator('#reading-cue').selectOption('-1');await p.locator('.hall-switch [aria-pressed][data-hall="hegel"]').click();
+   assert.equal(await p.locator('.reading-cue').count(),0);
    const first=p.locator('.lecture-hall[data-hall=hegel] .hall-scroll');await first.evaluate(el=>{el.scrollTop=250});await p.getByRole('button',{name:'Cross the corridor',exact:false}).click();await p.locator('.lecture-hall[data-hall=schopenhauer] .hall-scroll').evaluate(el=>{el.scrollTop=180});await p.getByRole('button',{name:'Cross the corridor',exact:false}).click();assert.ok(await first.evaluate(el=>el.scrollTop)>0);await overflow(p);await shot(p,`${engine}-phone-${session.id}`);
    if(session.id==='disagreement'){
     await p.locator('.lecture-hall[data-hall=hegel] .source-link').first().click();await p.locator('#context-text[data-section="section-60"]').waitFor();assert.match(await p.locator('#context-text').textContent(),/\[4\] Cf\. Hegels Werke/);await close(p);
    }
    await p.locator('#reflection').fill('Both passages make a different demand on my judgment.');
+   await p.locator('#reading-cue').selectOption('1');assert.equal(await p.locator('#reflection').inputValue(),'Both passages make a different demand on my judgment.');
    if(session.id==='disagreement'){
     let prompts=0;const cancel=d=>{prompts++;return d.dismiss();};p.on('dialog',cancel);
     await p.getByRole('link',{name:'Books',exact:true}).click();await p.getByRole('link',{name:'Corridor',exact:true}).click();await p.getByRole('link',{name:/What do we want from disagreement/}).click();await p.locator('#reflection').waitFor();assert.equal(await p.locator('#reflection').inputValue(),'Both passages make a different demand on my judgment.');assert.equal(prompts,0);

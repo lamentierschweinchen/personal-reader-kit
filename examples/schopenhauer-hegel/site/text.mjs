@@ -3,9 +3,10 @@ export function renderPassage(container,passage,book,hit) {
   const section=excerptSection(passage,book);
   renderText(container,section);
   if(hit) {
-    const block=section.blocks[0];
+    const block=hit.blockId?section.blocks.find(b=>b.id===hit.blockId):section.blocks[0];
+    if(!block)throw Error('The marked passage is not part of this reading.');
     renderText(container,section,[{id:'occurrence',segments:[{blockId:block.id,start:hit.matchStart,end:hit.matchEnd}]}]);
-    container.querySelectorAll('mark').forEach(mark=>mark.removeAttribute('data-note'));
+    container.querySelectorAll('mark').forEach(mark=>{mark.removeAttribute('data-note');if(hit.kind==='reading-cue')mark.classList.add('reading-cue');});
   }
 }
 export function renderText(container, section, notes = []) {

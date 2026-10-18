@@ -4,6 +4,21 @@ The Canetti builder independently reviewed `main@4eaeec6` on 15 October 2026, in
 
 The useful product description is a **reusable reader shell plus a supervised editorial workflow**. This update preserves that boundary. It does not claim automated scholarship, universal ebook conversion, physical mobile dependability or hosted private libraries.
 
+## First four readers revisited, 18 October 2026
+
+The original four public readers were revisited against the stronger editorial standard. Each retained its own visual identity and complete prepared editions. Source-adjacent evidence, actual reader actions and independent review determined the changes.
+
+| Reader | Revised experience | Reason to retain it |
+| --- | --- | --- |
+| Austen | Whole-word matching without case sensitivity by default, explicit alternatives, chapter counts/filtering and complete result paging. | The index reaches capitalized occurrences and later results while keeping exact quotation offsets; it avoids manufacturing an interpretation. |
+| Alice | Portrait, tale/tail and Cat studies precede a chaptered gallery; phone prose has full width; artwork has a fitted, bounded view and deliberate zoom. | The images and exact chapter passages reveal specific differences worth examining. Edition-notice memory and exploration navigation no longer repeatedly interrupt or obscure them. |
+| Walden | Three account views put totals beside their scope, exclusions and the narrator's qualifications; the survey reading follows a prediction into a measured trial and distinguishes the later analogy. | The reader can inspect what the figures and method establish, including their limits, instead of receiving generic questions. |
+| Two lecture halls | Six optional exact landmarks sit inside the complete paired readings; citations and orientation are quieter; each hall keeps its own text position through reflow. | The landmarks make turns in the arguments findable while preserving the differing scales, qualifications and complete saved pair. |
+
+Independent reviewers read the supporting passages and used each revised experience. They reproduced hidden-pane cue/reset failures and accumulated reading-position drift during repeated reflow; those findings were repaired and promoted into browser regressions. Parent review also rejected unnecessary default enlargement of small source artwork. Functional evidence, editorial endorsement and human literary acceptance remain distinct.
+
+Validated lessons are integrated into the existing agent, design, copyeditor and upgrade instructions. No second workflow or general writing-assessment engine was added. The stock sample index retains its documented literal-match and result-cap scope; the richer index belongs to the Austen example. Source editions, apparatus, old bundles, notes, complete paired reflections, permission boundaries and games remain intact. Private quotation-bearing receipts and screenshots stay ignored. [Release checks and limits](STATUS.md#four-reader-refinement-18-october-2026).
+
 ## Production and editorial review, 18 October 2026
 
 Recent reader trials required a separate editorial decision after functional checks had passed. The reusable findings below are generalized; private texts, notebooks, prototypes and captures remain outside the kit.

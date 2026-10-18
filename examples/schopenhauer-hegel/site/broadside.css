@@ -238,3 +238,31 @@ button.primary, .primary {background: var(--ink); border-color: var(--ink); colo
   .lecture-hall + .lecture-hall {border: 0; padding: 0}
   .lecture-hall h2 {font-size: 24px; min-height: 0}
 }
+
+/* Get to the arguments; keep their edition detail one disclosure away. */
+.lecture-session {padding-top: 18px}
+.lecture-session .session-heading {max-width: none; margin-bottom: 16px}
+.lecture-session .session-heading h1 {max-width: 31ch; margin: 8px 0 16px; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12}
+.lecture-session .session-heading > p:last-child {margin-bottom: 18px}
+.argument-guide {display: flex; align-items: center; gap: 16px; padding: 9px 0 0; max-width: 570px}
+.argument-guide > label {font: 12px/1.4 var(--sans); flex: 0 0 auto; margin: 0}
+.cue-select {position: relative; min-width: 0; flex: 1}
+.cue-select select {appearance: none; -webkit-appearance: none; width: 100%; min-width: 0; height: 46px; min-height: 46px; padding: 10px 30px 10px 12px; margin: 0; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); font: 13px/1.3 var(--sans)}
+.cue-select .ui-icon {position: absolute; right: 11px; top: 15px; width: 15px; height: 15px; transform: rotate(90deg); pointer-events: none}
+.lecture-session .lecture-halls {margin-top: 16px}
+.lecture-session .lecture-hall > header > .eyebrow {margin-bottom: 8px}
+.lecture-session .lecture-hall h2 {font-size: 24px; min-height: 0; margin-bottom: 3px}
+.lecture-session .orientation {margin: 0 0 9px}
+.lecture-session .orientation summary {font-size: 12px}
+.lecture-session .orientation .small {font: 12px/1.5 var(--sans); margin: 8px 0}
+.lecture-session .orientation .companion-reading {margin: 12px 0 18px}
+.hall-scroll mark.reading-cue {background: var(--mark); color: inherit; box-decoration-break: clone; -webkit-box-decoration-break: clone}
+@media(max-width: 700px) {
+ .lecture-session {padding-top: 12px}
+ .lecture-session .session-heading h1 {font-size: 28px; margin-top: 7px; margin-bottom: 14px}
+ .lecture-session .session-heading {margin-bottom: 12px}
+ .argument-guide {gap: 9px}
+ .argument-guide > label {max-width: 79px; font-size: 11px}
+ .cue-select select {font-size: 12px; padding-left: 9px}
+ .lecture-session .lecture-halls {margin-top: 16px}
+}

@@ -170,28 +170,33 @@ export function excerptSection(passage,book) {
     return clipped;
   })};
 }
-export function findOccurrences(books,state,term,limit=200) {
-  const hits=[];let count=0;
-  if(!term)return {hits,count};
+export function findOccurrences(books,state,term,limit=200,{caseSensitive=true,wholeWords=false,skip=0,sectionId=null}={}) {
+  const hits=[],sectionCounts={};let count=0;
+  if(!term)return {hits,count,sectionCounts};
+  // Match against the original string: lowercasing can change UTF-16 offsets.
+  const escaped=term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const pattern=new RegExp(escaped,caseSensitive?'gu':'giu');
+  const word=character=>!!character&&/[\p{L}\p{M}\p{N}_]/u.test(character);
   for(const book of books)for(const [index,section] of book.sections.entries())if(index<=visibleThrough(state,book))for(const block of section.blocks) {
-    let offset=0;
-    while((offset=block.text.indexOf(term,offset))!==-1) {
-      if(hits.length<limit) {
-        // Prefer complete whitespace-delimited words within bounded extra context.
-        // Literal matching and source offsets remain unchanged.
-        let start=Math.max(0,offset-65),end=Math.min(block.text.length,offset+term.length+85);
+    pattern.lastIndex=0;let match;
+    while((match=pattern.exec(block.text))) {
+      const offset=match.index,length=match[0].length;
+      if(wholeWords&&(word(block.text.slice(Math.max(0,offset-2),offset).match(/.$/u)?.[0])||word(String.fromCodePoint(block.text.codePointAt(offset+length)||0))))continue;
+      const key=book.id+'/'+section.id;sectionCounts[key]=(sectionCounts[key]||0)+1;
+      if(sectionId&&section.id!==sectionId)continue;
+      if(count>=skip&&hits.length<limit) {
+        let start=Math.max(0,offset-65),end=Math.min(block.text.length,offset+length+85);
         const earliest=Math.max(0,start-32),latest=Math.min(block.text.length,end+32);
         while(start>earliest&&!/\s/u.test(block.text[start-1]))start--;
         while(end<latest&&!/\s/u.test(block.text[end]))end++;
-        // Keep code-point protection for long unspaced text.
         if(start>0&&/[\uDC00-\uDFFF]/.test(block.text[start]))start--;
         if(end<block.text.length&&/[\uDC00-\uDFFF]/.test(block.text[end]))end++;
-        hits.push({passage:passageAt(book,section,block,start,end),offset,matchStart:offset-start,matchEnd:offset-start+term.length,omittedStart:start>0,omittedEnd:end<block.text.length});
+        hits.push({passage:passageAt(book,section,block,start,end),offset,matchStart:offset-start,matchEnd:offset-start+length,omittedStart:start>0,omittedEnd:end<block.text.length});
       }
-      count++;offset+=term.length;
+      count++;
     }
   }
-  return {hits,count};
+  return {hits,count,sectionCounts};
 }
 export function mergeBackup(current, incoming, uuid = () => crypto.randomUUID()) {
   const out = validateState(current), other = validateState(incoming);
