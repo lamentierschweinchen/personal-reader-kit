@@ -1,14 +1,20 @@
 import {createRequire} from 'node:module';
 import assert from 'node:assert/strict';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {STAGES,VIEW,cameraFor,createGame,start,update,retry,nextRoom,collides,solids,coverAt} from '../examples/dracula/play/engine.mjs';
 const require=createRequire(import.meta.url),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.TEST_URL||'http://127.0.0.1:4314/dracula/play/';
 const out=new URL('../test-results/showcase/dracula-game/',import.meta.url);await mkdir(out,{recursive:true});
-const SAVE_KEY='newreading-dracula-castle-v2',receipts=[];
+import {SAVE_KEY,LEGACY_KEY} from '../examples/dracula/play/progress.mjs';
+import {STORY} from '../examples/dracula/play/story.mjs';
+import {newState,validateState} from '../examples/dracula/site/core.mjs';
+const receipts=[],book=JSON.parse(await readFile(new URL('../examples/dracula/edition/library.json',import.meta.url)))[0];
+const readerState=validateState({...newState(),lastBook:'dracula',positions:{dracula:{sectionId:'chap03',blockId:'chap03-b030',ratio:.37,revision:book.source.sha256}},boundaries:{dracula:{index:2,revision:book.source.sha256}},reflections:{private:'Reader preservation test'}});
 const routes=[
  [[[495,500],[495,342]],[[300,342]],[[300,240],[107,240],[107,100]],[[107,240],[495,240],[495,95]]],
  [[[300,615],[300,480]],[[300,350]],[[335,244]],[[190,244],[190,208],[107,208]],[[107,100]],[[107,208]],[[190,208],[190,244],[335,244]],[[465,244],[465,275]],[[465,475],[550,475]],[[795,475],[795,610]],[[795,375]],[[795,95]]],
+ [[[300,680]],[[500,680]],[[740,680]],[[950,680]],[[950,460]],[[800,460]],[[455,460]],[[455,330]],[[300,330]],[[105,330]],[[105,100]],[[500,100]],[[950,100]]],
+ [[[350,740]],[[350,500]],[[350,270]],[[100,270]],[[100,100]],[[100,270]],[[350,270],[430,260]],[[550,260]],[[800,260]],[[1015,260]],[[1015,500]],[[1015,740]],[[1015,500]],[[1015,260]],[[1015,100]]],
  [[[250,795],[250,510]],[[415,535]],[[600,550]],[[815,535]],[[900,510]],[[900,380],[1100,380]],[[1100,100]],[[600,100]],[[105,100]],[[105,380]],[[260,380],[260,510]],[[415,535]],[[600,550]],[[600,831]]]
 ];
 // Predict departure windows in Node, then execute the route using real keys/touches.
@@ -62,8 +68,8 @@ async function winRoom(page,touch,label){
   for(const [x,y] of points){await move(page,'x',x,touch);await move(page,'y',y,touch);}
   const a=await read(page);await cameraCheck(page);if(legs.length===0||legs.length===Math.floor(routes[stage-1].length/2))await shot(page,`${label}-room-${stage}-camera-${legs.length}`);legs.push({wait:+wait.toFixed(1),end:[a.x,a.y],time:a.time});
  }
- const a=await read(page);assert.equal(a.phase,stage===3?'escaped':'interlude');assert.equal(a.completed,stage);
- assert.ok(STAGES[stage-1].requires.every(k=>a.inventory.includes(k)));assert.equal(a.opened.length,STAGES[stage-1].doors.length);if(stage>1)assert.ok(legs.some(l=>l.end[0]>STAGES[stage-2].width),'Actual play must reach the newly added eastern floor');
+ const a=await read(page);assert.equal(a.phase,stage===STAGES.length?'escaped':'interlude');assert.equal(a.completed,stage);
+ assert.ok(STAGES[stage-1].requires.every(k=>a.inventory.includes(k)));assert.equal(a.opened.length,STAGES[stage-1].doors.length);if(stage>1)assert.ok(legs.some(l=>l.end[0]>STAGES[stage-1].width-160),'Actual play must reach the far eastern floor');
  await unchanged(page,true);await shot(page,`${label}-room-${stage}-cleared`);
  if(touch){const size=page.viewportSize();await page.setViewportSize({width:320,height:568});await dimensions(page);await checkOverlay(page);await shot(page,`${label}-room-${stage}-small-interlude`);await page.setViewportSize(size);await unchanged(page,true);}
  receipts.push({case:'room-completion',label,stage,time:a.time,method:touch?'trusted touch holds':'trusted keyboard holds',legs});
@@ -97,7 +103,7 @@ async function makeTouch(page,context){
 async function dimensions(page){
  const d=await page.evaluate(()=>({width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight,scrollY,board:document.querySelector('#castle').getBoundingClientRect().toJSON(),footer:document.querySelector('footer').getBoundingClientRect().toJSON()}));
  assert.ok(d.scrollWidth<=d.width,JSON.stringify(d));assert.ok(d.scrollHeight<=d.height+2,JSON.stringify(d));assert.ok(d.footer.bottom<=d.height+2,JSON.stringify(d));
- for(const button of await page.locator('button:visible,a.back').all()){const r=await button.boundingBox();assert.ok(r.width>=44&&r.height>=44,`${await button.textContent()}: ${JSON.stringify(r)}`);}
+ for(const button of await page.locator('button:visible,a.back,a.chapter-source:visible').all()){const r=await button.boundingBox();assert.ok(r.width>=44&&r.height>=44,`${await button.textContent()}: ${JSON.stringify(r)}`);}
  return d;
 }
 async function checkOverlay(page){
@@ -109,26 +115,57 @@ async function checkOverlay(page){
  }
 }
 async function failure(page,stage,touch){
- const targets=stage===1?[[200,500],[200,420]]:stage===2?[[285,615],[285,550]]:[[250,795],[250,600]];
+ const targets=[[[200,500],[200,420]],[[285,615],[285,550]],[[300,680],[300,590]],[[270,740],[270,620]],[[250,795],[250,600]]][stage-1];
  for(const [x,y] of targets){await move(page,'x',x,touch,{allowCaught:true});await move(page,'y',y,touch,{allowCaught:true});}
  await page.waitForFunction(()=>document.querySelector('#castle').dataset.phase==='caught',null,{timeout:24000});
  await unchanged(page,true);const s=await read(page);assert.equal(s.stage,stage);assert.equal(s.completed,stage-1);await checkOverlay(page);
  await page.locator('#screen-action')[touch?'tap':'click']();const a=await read(page);assert.equal(a.phase,'playing');assert.equal(a.stage,stage);assert.equal(a.completed,stage-1);assert.deepEqual(a.inventory,STAGES[stage-1].carry);
 }
 function invariants(){
- assert.equal(STAGES.length,3);
- for(let stage=0;stage<3;stage++){
+ assert.equal(STAGES.length,5);
+ for(let stage=0;stage<STAGES.length;stage++){
   const g=createGame({stage,completed:stage});assert.ok(coverAt(stage,g.player.x,g.player.y));assert.equal(collides(g,g.player.x,g.player.y),false);
   for(const door of STAGES[stage].doors)assert.ok(solids(g).includes(door));
   // Taking the exit without completing the room cannot advance the checkpoint.
   start(g);g.player={...STAGES[stage].exit,angle:0};update(g,{},1/90);assert.equal(g.phase,'playing');assert.equal(g.completed,stage);
   g.inventory.push('temporary');g.opened=['temporary'];const fresh=retry(g);assert.equal(fresh.completed,stage);assert.equal(fresh.stage,stage);assert.deepEqual(fresh.inventory,STAGES[stage].carry);assert.deepEqual(fresh.opened,[]);
-  if(stage<2){g.completed=stage+1;const n=nextRoom(g);assert.equal(n.stage,stage+1);assert.equal(n.completed,stage+1);}
+  if(stage<STAGES.length-1){g.completed=stage+1;const n=nextRoom(g);assert.equal(n.stage,stage+1);assert.equal(n.completed,stage+1);}
  }
  // The chapel cannot be crossed without the crowbar; the winch cannot precede the last key.
  const chapel=createGame({stage:1,completed:1});start(chapel);chapel.player={x:368,y:273,angle:0};for(let i=0;i<150;i++)update(chapel,{x:1,y:0},1/90);assert.ok(chapel.player.x<392);assert.deepEqual(chapel.opened,[]);
- const gate=createGame({stage:2,completed:2});start(gate);gate.player={x:107,y:100,angle:0};update(gate,{},1/90);assert.ok(!gate.inventory.includes('winch'));
+ const gate=createGame({stage:4,completed:4});start(gate);gate.player={x:107,y:100,angle:0};update(gate,{},1/90);assert.ok(!gate.inventory.includes('winch'));
  console.log('Model: guarded exits, gate collisions, item dependency, retry and next-room invariants passed');
+}
+async function readerRecord(page,write=false){
+ return page.evaluate(({state,write})=>new Promise((resolve,reject)=>{
+  const request=indexedDB.open('dracula-reader-v1',1);
+  request.onupgradeneeded=()=>{request.result.createObjectStore('books',{keyPath:'id'});request.result.createObjectStore('state');};
+  request.onerror=()=>reject(request.error);
+  request.onsuccess=()=>{const db=request.result,tx=db.transaction('state',write?'readwrite':'readonly'),store=tx.objectStore('state');
+   if(write)store.put(state,'reader');let result;const get=store.get('reader');get.onsuccess=()=>{result=get.result;};tx.oncomplete=()=>{db.close();resolve(result);};tx.onerror=()=>reject(tx.error);
+  };
+ }),{state:readerState,write});
+}
+async function checkReference(page,story,trigger,touch=false,{back=false}={}){
+ const before=await read(page),reader=await readerRecord(page),method=touch?'tap':'click';
+ await page.locator(trigger)[method]();await page.waitForURL('**/'+story.href);await page.locator('#notes').waitFor({state:'visible'});await page.locator('#source-passage [data-block="'+story.block+'"]').waitFor();await page.locator('#source-loading').waitFor({state:'hidden'});
+ const expected=story.context.map(id=>book.sections.find(s=>s.id===story.section).blocks.find(b=>b.id===id).text);
+ assert.deepEqual(await page.locator('#source-passage p').allTextContents(),expected);assert.match(await page.locator('#source-citation').textContent(),new RegExp(story.date));
+ assert.equal(await page.locator('#source-excerpt').textContent(),story.quote);
+ const detail=await page.locator('#source-detail').textContent();if(STORY.indexOf(story)<2)assert.equal(detail,'');if(story===STORY[2])assert.match(detail,/no further outlet/);if(story===STORY[4])assert.match(detail,/castle wall/);
+ const paused=await read(page);assert.equal(paused.phase,before.phase==='playing'?'paused':before.phase);await unchanged(page,true);
+ if(back)await page.goBack();else await page.locator('#close-notes')[method]();
+ await page.locator('#notes').waitFor({state:'hidden'});const after=await read(page);assert.equal(after.x,before.x);assert.equal(after.y,before.y);assert.equal(after.phase,paused.phase);assert.deepEqual(await readerRecord(page),reader);
+ assert.ok(!new URL(page.url()).hash);receipts.push({case:'source-reference',stage:STORY.indexOf(story)+1,route:story.href,return:back?'browser Back':'Close',phase:before.phase,reader:'IndexedDB reading position, chapter limit and reflection unchanged',exactParagraphs:story.context});
+}
+async function enterOpening(page,touch,label){
+ const state=await read(page),story=STORY[state.stage-1];assert.equal(state.phase,'ready');assert.equal(state.time,0);await page.locator('#chapter-start').waitFor();
+ assert.equal(await page.locator('#chapter-quote').textContent(),story.quote);await dimensions(page);await unchanged(page,true);
+ await page.keyboard.press('ArrowUp');await unchanged(page,true);assert.equal((await read(page)).phase,'ready','Movement must never skip the opening');
+ const method=touch?'tap':'click';await page.locator('#map')[method]();assert.match(await page.locator('#plan-state').textContent(),/not started/);await page.locator('#close-notes')[method]();assert.equal((await read(page)).phase,'ready');
+ await checkReference(page,story,'#chapter-source',touch);await shot(page,`${label}-room-${state.stage}-opening`);
+ const r=await page.locator('#chapter-start').boundingBox(),height=page.viewportSize().height;assert.ok(r.y>=0&&r.y+r.height<height-35,'Start must remain visible');
+ await page.locator('#chapter-start')[method]();assert.equal((await read(page)).phase,'playing');
 }
 invariants();
 for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'])){
@@ -138,33 +175,34 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
  try{
   context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));context.on('request',r=>requests.push(r.url()));
-  await page.goto(base);await page.locator('#screen-action').waitFor();await dimensions(page);await shot(page,engine+'-desktop-ready');
-  await page.evaluate(()=>localStorage.setItem('reader-preservation-sentinel','untouched'));
-  await page.locator('#screen-action').click();await page.locator('#castle').focus();
+  await page.goto(base);await readerRecord(page,true);await page.evaluate(()=>localStorage.setItem('reader-preservation-sentinel','untouched'));
+  await enterOpening(page,false,engine+'-desktop');
   await page.keyboard.down('ArrowUp');await page.waitForTimeout(150);await page.keyboard.up('ArrowUp');await unchanged(page);
   await page.keyboard.press('Space');assert.equal((await read(page)).phase,'paused');await unchanged(page,true);
   await page.locator('#help').click();await page.locator('#gentle').check();await page.locator('#close-notes').click();assert.equal((await read(page)).phase,'paused');
   await page.locator('#help').click();await page.locator('#gentle').uncheck();await page.keyboard.press('Escape');assert.equal(await page.locator('#notes').getAttribute('open'),null);
-  await page.locator('#restart').click();await failure(page,1);await winRoom(page,null,engine+'-desktop');
-  assert.equal(JSON.parse(await page.evaluate(k=>localStorage.getItem(k),SAVE_KEY)).completed,1);
-  await page.reload();assert.equal((await read(page)).stage,2);assert.equal((await read(page)).phase,'ready');await page.locator('#screen-action').click();
-  await failure(page,2);await winRoom(page,null,engine+'-desktop');
-  await page.reload();assert.equal((await read(page)).stage,3);assert.equal((await read(page)).phase,'ready');await page.locator('#screen-action').click();
-  await failure(page,3);await winRoom(page,null,engine+'-desktop');
-  assert.equal(JSON.parse(await page.evaluate(k=>localStorage.getItem(k),SAVE_KEY)).completed,3);
+  await page.locator('#restart').click();
+  for(let stage=1;stage<=STAGES.length;stage++){
+   await failure(page,stage);await winRoom(page,null,engine+'-desktop');
+   assert.equal(JSON.parse(await page.evaluate(k=>localStorage.getItem(k),SAVE_KEY)).completed,stage);
+   if(stage<STAGES.length){
+    if(stage%2)await page.reload();else await page.locator('#screen-action').click();
+    assert.equal((await read(page)).stage,stage+1);await enterOpening(page,false,engine+'-desktop');
+   }
+  }
   await page.reload();assert.equal((await read(page)).phase,'escaped');await page.locator('#screen-action').click();assert.equal((await read(page)).stage,1);assert.equal((await read(page)).completed,0);
-  await page.locator('#about').click();assert.equal((await read(page)).phase,'paused');assert.equal((await page.locator('blockquote').textContent()).trim(),'“That key must be in the Count’s room; I must watch should his door be unlocked, so that I may get it and escape.”');await page.locator('#close-notes').click();
-  assert.equal(await page.evaluate(()=>localStorage.getItem('reader-preservation-sentinel')),'untouched');assert.equal(await page.evaluate(()=>localStorage.length),2);
-  // Lifecycle events exercise handlers; this does not claim a physical app-switch test.
+  await enterOpening(page,false,engine+'-replay');await checkReference(page,STORY[0],'#about',false,{back:true});assert.equal((await read(page)).phase,'paused');
+  assert.deepEqual(await readerRecord(page),readerState);assert.equal(await page.evaluate(()=>localStorage.getItem('reader-preservation-sentinel')),'untouched');assert.equal(await page.evaluate(()=>localStorage.length),2);
+  // Lifecycle dispatch exercises handlers; it is not a physical app-switch test.
   await page.locator('#screen-action').click();await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pagehide')));await page.keyboard.up('ArrowRight');assert.equal((await read(page)).phase,'paused');await unchanged(page,true);
   await page.locator('#screen-action').click();await page.keyboard.down('ArrowRight');await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});await page.keyboard.up('ArrowRight');assert.equal((await read(page)).phase,'paused');await unchanged(page,true);
   await context.close();context=null;
   assert.deepEqual(errors,[]);assert.ok(requests.every(u=>u.startsWith(new URL(base).origin+'/')));
-  receipts.push({engine,case:'desktop-progress',result:'passed',failure:'All three rooms, real movement into patrol lane',checkpoint:'Room 2 and 3 reload, final reload, replay all',source:'Exact excerpt',readerStorage:'Unrelated sentinel unchanged',lifecycle:'pagehide and visibility handlers, synthetic events'});
-  console.log(engine+': keyboard progression, three failures/retries, checkpoint reloads, replay, source and storage passed');
+  receipts.push({engine,case:'desktop-progress',result:'passed',failure:'All five rooms, actual movement into patrol lane; Retry starts play without repeating prose',checkpoint:'Alternating reloads and explicit next-room controls; final reload and replay',source:'Five exact excerpts and full paragraph reference visits',readerStorage:'IndexedDB state and unrelated localStorage unchanged',lifecycle:'pagehide and visibility handlers, synthetic events'});
+  console.log(engine+': five keyboard rooms, five failures/retries, openings, references and checkpoints passed');
 
   context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});
-  const phone=await context.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(base);await dimensions(phone);await shot(phone,engine+'-phone-ready');await phone.locator('#screen-action').tap();
+  const phone=await context.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(base);await readerRecord(phone,true);await enterOpening(phone,true,engine+'-phone');
   if(engine==='chromium'){
    const touch=await makeTouch(phone,context);
    await touch.down('up');await phone.waitForTimeout(180);await touch.up();assert.ok((await read(phone)).y<490);await unchanged(phone);
@@ -172,36 +210,51 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
    await touch.down('left',1);await touch.down('up',2);await phone.waitForTimeout(110);await touch.up(1);const a=await read(phone);await phone.waitForTimeout(110);const b=await read(phone);assert.ok(b.y<a.y);assert.equal(b.x,a.x);await touch.up();await unchanged(phone);
    await touch.down('down');await touch.outside();await phone.waitForTimeout(100);await touch.up();await unchanged(phone);assert.equal(await phone.evaluate(()=>scrollY),0);
    await touch.down('right');await phone.setViewportSize({width:392,height:844});await touch.up();assert.equal((await read(phone)).phase,'paused');await unchanged(phone,true);await phone.setViewportSize({width:390,height:844});await phone.locator('#restart').tap();
-   for(let stage=1;stage<=3;stage++){
-    await shot(phone,`${engine}-phone-room-${stage}-play`);
-    if(stage===3)await failure(phone,3,touch);
-    await winRoom(phone,touch,engine+'-phone');if(stage<3)await phone.locator('#screen-action').tap();
+   for(let stage=1;stage<=STAGES.length;stage++){
+    await shot(phone,`${engine}-phone-room-${stage}-play`);if(stage===3||stage===5)await failure(phone,stage,touch);
+    await winRoom(phone,touch,engine+'-phone');if(stage<STAGES.length){await phone.locator('#screen-action').tap();await enterOpening(phone,true,engine+'-phone');}
    }
-   await phone.locator('#screen-action').tap();await touch.down('up');await phone.setViewportSize({width:844,height:390});await touch.up();assert.equal((await read(phone)).phase,'paused');await unchanged(phone,true);await dimensions(phone);await shot(phone,engine+'-landscape-paused');
+   await phone.locator('#screen-action').tap();await enterOpening(phone,true,engine+'-phone-replay');await touch.down('up');await phone.setViewportSize({width:844,height:390});await touch.up();assert.equal((await read(phone)).phase,'paused');await unchanged(phone,true);await dimensions(phone);await shot(phone,engine+'-landscape-paused');
    await phone.locator('#screen-action').tap();await touch.down('up');await phone.waitForTimeout(100);await touch.cancel();await unchanged(phone);
   }else{
    const before=await read(phone);await phone.locator('[data-dir="up"]').tap();await unchanged(phone);assert.ok((await read(phone)).y<=before.y);
-   await phone.setViewportSize({width:844,height:390});await phone.waitForFunction(()=>document.querySelector('#castle').dataset.phase==='paused');assert.equal((await read(phone)).phase,'paused');await dimensions(phone);await shot(phone,engine+'-landscape-paused');await phone.locator('#screen-action').tap();
+   await phone.setViewportSize({width:844,height:390});await phone.waitForFunction(()=>document.querySelector('#castle').dataset.phase==='paused');await dimensions(phone);await shot(phone,engine+'-landscape-paused');await phone.locator('#screen-action').tap();
   }
-  await shot(phone,engine+'-landscape-play');
-  await phone.setViewportSize({width:320,height:568});await dimensions(phone);await checkOverlay(phone);await shot(phone,engine+'-small-phone-paused');
+  await shot(phone,engine+'-landscape-play');await phone.setViewportSize({width:320,height:568});await dimensions(phone);await checkOverlay(phone);await shot(phone,engine+'-small-phone-paused');
   await phone.locator('#help').tap();await shot(phone,engine+'-small-phone-help');await phone.locator('#close-notes').tap();
   await phone.setViewportSize({width:820,height:1180});await dimensions(phone);await phone.locator('#screen-action').tap();await shot(phone,engine+'-tablet-play');await phone.locator('#pause').tap();
-  assert.deepEqual(errors,[]);receipts.push({engine,case:'touch-layouts',result:'passed',sizes:['320×568','390×844','844×390','820×1180','1280×800'],targets:'All visible essential buttons at least 44×44',touch:engine==='chromium'?'All rooms completed with trusted holds; final-room loss/retry, multi-touch release/cancel, capture outside':'Trusted taps/release; WebKit public API has no touch-hold operation',rotation:'paused and cleared input',overlays:'Scrollable when content exceeds height',reducedMotion:true});
+  assert.deepEqual(await readerRecord(phone),readerState);assert.deepEqual(errors,[]);receipts.push({engine,case:'touch-layouts',result:'passed',sizes:['320×568','390×844','844×390','820×1180','1280×800'],targets:'All visible essential buttons at least 44×44',touch:engine==='chromium'?'Five rooms completed with trusted holds; chapel and gatehouse loss/retry, multi-touch release/cancel, capture outside':'Trusted taps/release; WebKit public API has no touch-hold operation',rotation:'paused and cleared input',overlays:'Scrollable when content exceeds height',reducedMotion:true});
   await context.close();context=null;
   console.log(engine+': phone/tablet layouts, controls and rotation passed');
 
-  context=await browser.newContext();let storage=await context.newPage();
-  await storage.goto(base);await storage.evaluate(k=>{localStorage.setItem(k,'{broken');localStorage.setItem('reader-preservation-sentinel','untouched');},SAVE_KEY);await storage.reload();
-  assert.match(await storage.locator('#save-status').textContent(),/could not be read/);await storage.locator('#screen-action').click();await storage.locator('#help').click();await storage.locator('#gentle').check();await storage.locator('#close-notes').click();assert.equal(await storage.evaluate(k=>localStorage.getItem(k),SAVE_KEY),'{broken');
-  assert.ok(await storage.locator('#replay-all').isVisible());await storage.locator('#replay-all').click();
-  assert.deepEqual(JSON.parse(await storage.evaluate(k=>localStorage.getItem(k),SAVE_KEY)),{version:2,completed:0,gentle:true});assert.equal(await storage.evaluate(()=>localStorage.getItem('reader-preservation-sentinel')),'untouched');
+  // Checkpoint fixtures below test migration/layout, never serve as game-completion proof.
+  context=await browser.newContext({viewport:{width:320,height:568},hasTouch:true,isMobile:true});let storage=await context.newPage();await storage.goto(base);
+  for(let completed=0;completed<5;completed++){
+   await storage.evaluate(({k,completed})=>localStorage.setItem(k,JSON.stringify({version:3,completed,gentle:false})),{k:SAVE_KEY,completed});await storage.reload();await dimensions(storage);await shot(storage,`${engine}-opening-${completed+1}-320`);
+   const r=await storage.locator('#chapter-start').boundingBox();assert.ok(r.y+r.height<535);await unchanged(storage,true);
+  }
+  for(const completed of [0,1,2,3]){
+   const legacy=JSON.stringify({version:2,completed,gentle:true});await storage.evaluate(({k,old,legacy})=>{localStorage.removeItem(k);localStorage.setItem(old,legacy);},{k:SAVE_KEY,old:LEGACY_KEY,legacy});await storage.reload();
+   const state=await read(storage);assert.equal(state.completed,Math.min(completed,2));assert.equal(state.stage,Math.min(completed,2)+1);assert.equal(state.phase,'ready');assert.equal(state.gentle,true);assert.equal(await storage.evaluate(k=>localStorage.getItem(k),LEGACY_KEY),legacy);
+   assert.equal(JSON.parse(await storage.evaluate(k=>localStorage.getItem(k),SAVE_KEY)).version,3);await shot(storage,`${engine}-legacy-${completed}-320`);
+  }
+  await storage.evaluate(({k,old})=>{localStorage.removeItem(k);localStorage.setItem(old,'{legacy broken');},{k:SAVE_KEY,old:LEGACY_KEY});await storage.reload();assert.match(await storage.locator('#chapter-save-status').textContent(),/left untouched/);
+  await storage.locator('#help').tap();await storage.locator('#gentle').check();await storage.locator('#close-notes').tap();assert.equal(await storage.evaluate(k=>localStorage.getItem(k),LEGACY_KEY),'{legacy broken');
+  await storage.evaluate(k=>localStorage.setItem(k,'{broken'),SAVE_KEY);await storage.reload();assert.match(await storage.locator('#chapter-save-status').textContent(),/could not be read/);
+  await storage.locator('#chapter-start').tap();await storage.locator('#help').tap();await storage.locator('#gentle').check();await storage.locator('#close-notes').tap();assert.equal(await storage.evaluate(k=>localStorage.getItem(k),SAVE_KEY),'{broken');
+  await storage.locator('#replay-all').tap();assert.deepEqual(JSON.parse(await storage.evaluate(k=>localStorage.getItem(k),SAVE_KEY)),{version:3,completed:0,gentle:true});assert.equal(await storage.evaluate(k=>localStorage.getItem(k),LEGACY_KEY),'{legacy broken');assert.equal(await storage.evaluate(k=>localStorage.getItem(k+'-recovery'),SAVE_KEY),'{broken');
+  receipts.push({engine,case:'checkpoint-migration',result:'passed',legacy:'v2 completed 0/1/2/3 maps to v3 0/1/2/2, legacy raw value unchanged',malformed:'Malformed legacy preserved while new campaign writes separate key; malformed current preserved until explicit Replay'});
   await context.close();context=null;
-  context=await browser.newContext();storage=await context.newPage();
-  await storage.addInitScript(()=>{Storage.prototype.setItem=function(){throw new DOMException('Blocked in test','QuotaExceededError');};});
-  await storage.goto(base);await storage.locator('#help').click();await storage.locator('#gentle').check();assert.ok(await storage.locator('#notes-save-status').isVisible());await storage.locator('#close-notes').click();assert.match(await storage.locator('#save-status').textContent(),/could not be saved/);await storage.setViewportSize({width:320,height:568});await dimensions(storage);await checkOverlay(storage);await shot(storage,engine+'-storage-warning-320');await storage.locator('#screen-action').click();await storage.keyboard.down('ArrowRight');await storage.waitForTimeout(150);await storage.keyboard.up('ArrowRight');assert.ok((await read(storage)).x>105);
-  receipts.push({engine,case:'storage-failures',result:'passed',malformed:'Preserved verbatim while new run remains playable',writeFailure:'Visible warning; memory play works'});await context.close();context=null;
+
+  context=await browser.newContext();storage=await context.newPage();await storage.addInitScript(()=>{Storage.prototype.setItem=function(){throw new DOMException('Blocked in test','QuotaExceededError');};});
+  await storage.goto(base);await storage.locator('#help').click();await storage.locator('#gentle').check();assert.ok(await storage.locator('#notes-save-status').isVisible());await storage.locator('#close-notes').click();assert.match(await storage.locator('#chapter-save-status').textContent(),/could not be saved/);await storage.setViewportSize({width:320,height:568});await dimensions(storage);await shot(storage,engine+'-storage-warning-320');await storage.locator('#chapter-start').click();await storage.keyboard.down('ArrowRight');await storage.waitForTimeout(150);await storage.keyboard.up('ArrowRight');assert.ok((await read(storage)).x>105);
+  receipts.push({engine,case:'write-failure',result:'passed',warning:'Visible warning; memory play works'});await context.close();context=null;
+
+  context=await browser.newContext();storage=await context.newPage();await storage.route('**/library.json',r=>r.abort());await storage.goto(base);await readerRecord(storage,true);
+  await storage.locator('#chapter-source').click();await storage.locator('#source-retry').waitFor();assert.match(await storage.locator('#source-loading').textContent(),/could not be opened/);assert.equal(await storage.locator('#source-passage').textContent(),STORY[0].quote);await unchanged(storage,true);
+  await storage.unroute('**/library.json');await storage.locator('#source-retry').click();await storage.locator('#source-loading').waitFor({state:'hidden'});await storage.locator('#close-notes').click();assert.equal((await read(storage)).phase,'ready');assert.deepEqual(await readerRecord(storage),readerState);
+  receipts.push({engine,case:'source-fetch-recovery',result:'passed',fallback:'Exact short excerpt retained; retry loads full pinned paragraph; reader state unchanged'});await context.close();context=null;
  }finally{if(context)await context.close();await browser.close();}
 }
-await writeFile(new URL('browser-receipt.json',out),JSON.stringify({date:new Date().toISOString(),base,receipts,limits:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check']},null,2)+'\n');
-console.log('All Dracula progression checks passed.');
+await writeFile(new URL(process.env.QA_ENGINE?'browser-receipt-'+process.env.QA_ENGINE+'.json':'browser-receipt.json',out),JSON.stringify({date:new Date().toISOString(),base,receipts,limits:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check']},null,2)+'\n');
+console.log('All five-room Dracula checks passed.');

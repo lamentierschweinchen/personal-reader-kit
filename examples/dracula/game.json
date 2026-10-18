@@ -5,23 +5,38 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 8361,
-      "sha256": "e96892aff27c753ecb0a3ffe166a9f055843b6e064337c291561d670ac379f0c"
+      "bytes": 10157,
+      "sha256": "e5e9f3edce7bb4874798240910f9705e1a7c11c96f9172615d40ece8c0a7bdb2"
     },
     {
       "path": "style.css",
-      "bytes": 13068,
-      "sha256": "65d486a44e82c571e1ec22a4c948dd59f2d23c7c0bac4deec0f76165614b6ca8"
+      "bytes": 16492,
+      "sha256": "7eb399cb7cca55a35cce26b6e14a756733d0fd6c510f7221ece1925d70cb3946"
     },
     {
       "path": "app.mjs",
-      "bytes": 22616,
-      "sha256": "0bc0f6d798415d6a3642f0613c3fa84d5e81f885647244970d4f9bb806962676"
+      "bytes": 27230,
+      "sha256": "bf8a2bc2aca28e9425f0d52fc78eed1a3eebebcea908411c42bcb50f43ebbe4e"
     },
     {
       "path": "engine.mjs",
-      "bytes": 11650,
-      "sha256": "04ee814c5845f93e56e11d6d9762979d94bd4fbeeb859c217a9d724c257d127e"
+      "bytes": 15390,
+      "sha256": "fd839e32796996d8742570e8563373b2d44c4b1c3ce7a2a7651f2c4a4c24e0de"
+    },
+    {
+      "path": "art.mjs",
+      "bytes": 8038,
+      "sha256": "5407e43a98eeab1e5aacaec9e8ee81ba9994b75f2d9d5c7f54e74debe7a6a396"
+    },
+    {
+      "path": "story.mjs",
+      "bytes": 2147,
+      "sha256": "d44655b5551ec2963a4bef7980d4aa1792ae097324b762890d65a86a6aed7839"
+    },
+    {
+      "path": "progress.mjs",
+      "bytes": 2223,
+      "sha256": "803b76a6730a4e7a8db8fd1b8b12deda93305259dbe341ba57cbc47921589aff"
     },
     {
       "path": "icon.svg",

@@ -1,4 +1,8 @@
 import {test} from 'node:test';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {STORY,EDITION_SHA256} from '../play/story.mjs';
+import {decodeProgress,loadProgress,preserveDamagedSave,SAVE_KEY} from '../play/progress.mjs';
 import assert from 'node:assert/strict';
 import {STAGES,VIEW,RADIUS,boundsFor,cameraFor,createGame,roomFor,start,pause,resume,retry,nextRoom,update,guardAt,visible,coverAt,collides,segmentRect,fanPoints} from '../play/engine.mjs';
 
@@ -93,18 +97,18 @@ test('the guest wing needs the brass key, opened arch and stair bolt',()=>{
   assert.equal(g.phase,'interlude');assert.equal(g.completed,1);
 });
 
-test('the chapel carries the brass key, but requires a crowbar to lift the bars and a handle to carry onward',()=>{
+test('the library carries the brass key, but requires a crowbar to lift the bars and a handle to carry onward',()=>{
   const g=live(1);assert.deepEqual(g.inventory,['brass']);approachDoor(g);assert.deepEqual(g.opened,[]);
   collect(g,'crowbar');approachDoor(g);assert.deepEqual(g.opened,['cross-door']);exit(g);assert.equal(g.phase,'playing');
   collect(g,'handle');exit(g);assert.equal(g.phase,'interlude');assert.equal(g.completed,2);
 });
 
 test('the gate key releases the winch; both winch and key are needed at the final gate',()=>{
-  const g=live(2);assert.ok(g.inventory.includes('handle'));
+  const g=live(4);assert.ok(g.inventory.includes('handle'));
   collect(g,'winch');assert.ok(!g.inventory.includes('winch'));approachDoor(g);assert.deepEqual(g.opened,[]);
   collect(g,'gate-key');approachDoor(g);assert.deepEqual(g.opened,[]);
   collect(g,'winch');assert.ok(g.inventory.includes('winch'));approachDoor(g);assert.deepEqual(g.opened,['last-gate']);
-  exit(g);assert.equal(g.phase,'escaped');assert.equal(g.completed,3);
+  exit(g);assert.equal(g.phase,'escaped');assert.equal(g.completed,5);
 });
 
 test('retry discards only current-room objects; continuation carries the completed checkpoint',()=>{
@@ -122,13 +126,13 @@ test('changing patrol pace while paused preserves position and resumes at the ge
 });
 
 
-test('each room grows in width, depth and walkable floor, with objects beyond the earlier extent',()=>{
-  assert.deepEqual(STAGES.map(({width,height})=>[width,height]),[[600,600],[900,720],[1200,900]]);
+test('each room grows in width, depth and walkable floor, with useful objects on its far sides',()=>{
+  assert.deepEqual(STAGES.map(({width,height})=>[width,height]),[[600,600],[900,720],[1050,780],[1120,840],[1200,900]]);
   let area=0;
   for(let i=0;i<STAGES.length;i++){
     const room=STAGES[i],walkable=(room.width-98)*(room.height-98)-room.walls.reduce((sum,w)=>sum+w.w*w.h,0);
     assert.ok(walkable>area);area=walkable;
-    if(i){assert.ok(room.items.some(p=>p.x>STAGES[i-1].width));assert.ok([...room.items,room.exit].some(p=>p.y>STAGES[i-1].height));}
+    if(i){assert.ok(room.items.some(p=>p.x>room.width-160));assert.ok([...room.items,room.exit].some(p=>p.y>room.height-160));}
   }
 });
 
@@ -143,4 +147,56 @@ test('camera follows across the expanded floor without reducing its view scale o
     }
     if(stage){place(g,bounds.right-RADIUS,bounds.bottom-RADIUS);assert.equal(cameraFor(g).x,room.width-VIEW);assert.equal(cameraFor(g).y,room.height-VIEW);}
   }
+});
+
+
+test('new chapel and courtyard require their useful objects and preserve the onward tools',()=>{
+ for(const stage of [2,3]){
+  const g=live(stage);exit(g);assert.equal(g.phase,'playing');
+  for(const item of roomFor(g).items)collect(g,item.id);
+  approachDoor(g);exit(g);assert.equal(g.phase,'interlude');assert.equal(g.completed,stage+1);
+  const n=nextRoom(g);assert.ok(n.inventory.includes(stage===2?'rope':'spindle'));
+ }
+ const g=live(4);g.inventory=g.inventory.filter(id=>id!=='spindle');collect(g,'gate-key');collect(g,'winch');assert.ok(!g.inventory.includes('winch'));
+ g.inventory.push('spindle');collect(g,'winch');assert.ok(g.inventory.includes('winch'));
+});
+
+test('five journal excerpts are contiguous, exact and attributed to the pinned source paragraphs',async()=>{
+ const bytes=await readFile(new URL('../edition/library.json',import.meta.url));
+ assert.equal(createHash('sha256').update(bytes).digest('hex'),EDITION_SHA256);
+ const book=JSON.parse(bytes)[0];assert.equal(STORY.length,STAGES.length);
+ for(const story of STORY){
+  const section=book.sections.find(s=>s.id===story.section),block=section.blocks.find(b=>b.id===story.block);
+  assert.equal(block.text.slice(story.start,story.end),story.quote);assert.ok(story.quote.split(/\s+/).length<=40);
+  assert.ok(story.context.includes(story.block));assert.equal(story.href,'#reference/'+story.section+'/'+story.block);
+  for(const id of story.context){const b=section.blocks.find(b=>b.id===id);assert.ok(b);assert.deepEqual(b.marks,[]);assert.equal(b.kind,'prose');}
+ }
+});
+
+test('legacy checkpoints credit only the unchanged first two rooms and never complete five',()=>{
+ for(const completed of [0,1,2,3]){
+  const old=JSON.stringify({version:2,completed,gentle:true});const result=decodeProgress(null,old);
+  assert.equal(result.save.completed,Math.min(completed,2));assert.equal(result.save.version,3);assert.equal(result.save.gentle,true);assert.equal(result.blocked,false);assert.equal(result.migrated,true);
+ }
+});
+
+test('current checkpoints win over legacy, while malformed current data stays quarantined',()=>{
+ const prior=JSON.stringify({version:2,completed:3,gentle:true});
+ for(const completed of [0,1,2,3,4,5]){
+  const current={version:3,completed,gentle:false};const result=decodeProgress(JSON.stringify(current),prior);
+  assert.deepEqual(result.save,current);assert.equal(result.migrated,false);assert.equal(result.blocked,false);
+ }
+ for(const bad of ['','{broken','null','[]',JSON.stringify({version:3,completed:6,gentle:false}),JSON.stringify({version:2,completed:3,gentle:false})]){
+  const result=decodeProgress(bad,prior);assert.equal(result.blocked,true);assert.equal(result.save.completed,0);
+ }
+ const legacyBad=decodeProgress(null,'{broken');assert.equal(legacyBad.blocked,false);assert.equal(legacyBad.save.completed,0);assert.match(legacyBad.message,/left untouched/);
+ const blocked=loadProgress({getItem(){throw Error('blocked');}});assert.equal(blocked.save.completed,0);assert.match(blocked.message,/storage is unavailable/);
+});
+
+
+test('explicit replay preserves malformed current raw data without replacing an older recovery',()=>{
+ const map=new Map([[SAVE_KEY,'{broken'],[SAVE_KEY+'-recovery','older damage']]);
+ const storage={getItem:k=>map.has(k)?map.get(k):null,setItem:(k,v)=>map.set(k,v)};
+ const key=preserveDamagedSave(storage);assert.equal(key,SAVE_KEY+'-recovery-1');assert.equal(map.get(key),'{broken');assert.equal(map.get(SAVE_KEY),'{broken');assert.equal(map.get(SAVE_KEY+'-recovery'),'older damage');
+ assert.throws(()=>preserveDamagedSave({...storage,setItem(){throw Error('quota');}}));assert.equal(map.get(SAVE_KEY),'{broken');
 });

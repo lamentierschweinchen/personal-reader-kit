@@ -3,24 +3,24 @@ const game=$('#game'),canvas=$('#sea'),ctx=canvas.getContext('2d');
 const sailors=[...document.querySelectorAll('.sailor')];
 const C={sea:'#183c46',deep:'#102e36',foam:'#a8c6c3',paper:'#f3f0e6',ink:'#203437',gold:'#e8c67d',wood:'#b98858',deck:'#d8b781',danger:'#f39d78',rock:'#739190'};
 const DAYS=[
- {name:'Aeolus',title:'A borrowed wind',duration:36,book:'Book X',anchor:'book-10/book-10-004/book-10-005',
+ {name:'Aeolus',title:'A borrowed wind',duration:36,book:'Book X',anchor:'book-10/book-10-004/book-10-006',
   copy:'Aeolus ties the roaring winds inside an ox-hide bag and leaves the West Wind free to carry the ship. The crew have their own ideas about what the bag contains.',
-  tactic:'Follow the openings between the rocks. Tap a gold sailor before the ring runs out.',
+  tactic:'Steer through the gaps between cliffs. Tap gold sailors to stop them untying the wind bag. Each miss loses a knot; the third blows you off course.',
   gap:.54,first:6,spacing:4.1,centers:[.5,.71,.29,.65,.30,.69,.44],
   crew:[[5.4,0],[13.1,1],[21.4,2],[29,0]],waves:[],gusts:[],bolts:[]},
  {name:'Poseidon',title:'The sea rises',duration:38,book:'Book V',anchor:'book-05/book-05-025',
   copy:'Poseidon takes up his trident and stirs the sea. Winds rush in from every quarter, and the sky disappears into cloud.',
-  tactic:'Swells sweep across the channels. Their arrows show the shove; leave room to steer back.',
+  tactic:'Swells sweep across the channels. Their arrows show the shove; leave room to steer back. Keep stopping gold sailors to save the bag’s knots.',
   gap:.48,first:5.8,spacing:4,centers:[.70,.29,.63,.33,.70,.30,.65,.38],
   crew:[[5,1],[11.5,2],[18.1,0],[25.5,1],[31,2]],waves:[8,16,24,32],gusts:[],bolts:[]},
  {name:'Athena',title:'A way through',duration:40,book:'Book V',anchor:'book-05/book-05-031/book-05-035',
   copy:'Athena holds the winds still except for a breeze from the North. Later, beside a rocky shore, she helps the exhausted voyager keep his wits.',
-  tactic:'Follow the owl. Athena stills the swells while you call back the crew; two sailors may reach at once.',
+  tactic:'Athena stills the swells while you stop the crew untying the bag. Two sailors may reach at once; each needs a tap.',
   gap:.43,first:5.8,spacing:4.2,centers:[.70,.30,.65,.35,.69,.30,.67,.34],
   crew:[[4.8,0],[6.1,1],[13.5,2],[14.5,0],[23.2,1],[24.3,2],[32.2,0],[33.4,1]],waves:[7.2,15.7,25.4,34.4],gusts:[],bolts:[]},
  {name:'Zeus',title:'Under the black cloud',duration:42,book:'Book XII',anchor:'book-12/book-12-037/book-12-038',
   copy:'A black cloud hangs over the ship, and the water darkens beneath it. A squall comes from the West; Zeus’s thunder breaks overhead.',
-  tactic:'Read the gold gust arrows before they blow. Leave the lightning’s marked strip before it strikes.',
+  tactic:'Read the gust arrows. Leave the lightning’s marked strip before it strikes. Keep stopping gold sailors to save the bag’s knots.',
   gap:.40,first:5.5,spacing:3.9,centers:[.29,.71,.30,.69,.32,.70,.29,.65,.34],
   crew:[[4.4,0],[5.4,2],[11.7,1],[12.8,0],[19.2,2],[20.3,1],[26.3,0],[27.4,2],[33.4,1],[34.5,0]],waves:[7.7,15.6,27.2,35],gusts:[[8,1],[18,-1],[28,1],[35,-1]],bolts:[[11.9,.5],[23.6,.52],[34.8,.50]]}
 ];
@@ -34,18 +34,19 @@ const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');let reduced=mot
 motionQuery.addEventListener('change',event=>{reduced=event.matches;});
 let w=0,h=0,field=0,offset=0,sy=0,shipScale=1,dpr=1,previous=0,ambience=0;
 let mode='ready',soundOn=false,audioContext=null,resumeAfterStory=false,messageUntil=0,state;
-let courseIndex=0,crewIndex=0,waveIndex=0,lastCommand=-10;
+let courseIndex=0,crewIndex=0,waveIndex=0;
 const keys=new Set(),pointers=new Map(),obstacles=[],ripples=[],particles=[],gateMarkers=new Map();
-const crew=Array.from({length:3},()=>({active:false,age:0,duration:3.6,thanks:0}));
+const crew=Array.from({length:3},()=>({active:false,age:0,duration:3.6,thanks:0,missed:0}));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const readyX=()=>w<600?.56:.72;
 const day=()=>DAYS[dayIndex];
 function resetState(){
- state={time:0,x:mode==='ready'?readyX():.5,velocity:0,hull:3,escapes:0,commands:0,hits:0,dodged:0,invulnerable:0,gust:0,gustDirection:1,wave:0,waveDirection:0,shake:0,weather:0,weatherDirection:0,boltHits:new Set()};
- courseIndex=0;crewIndex=0;waveIndex=0;lastCommand=-10;obstacles.length=0;ripples.length=0;particles.length=0;
+ state={time:0,x:mode==='ready'?readyX():.5,velocity:0,hull:3,escapes:0,commands:0,hits:0,dodged:0,invulnerable:0,gust:0,gustDirection:1,wave:0,waveDirection:0,shake:0,weather:0,weatherDirection:0,boltHits:new Set(),hullNotice:0,bagNotice:0,bagSafe:0};
+ courseIndex=0;crewIndex=0;waveIndex=0;obstacles.length=0;ripples.length=0;particles.length=0;
  for(const e of gateMarkers.values())e.remove();gateMarkers.clear();
- crew.forEach(c=>Object.assign(c,{active:false,age:0,duration:3.6,thanks:0}));
+ crew.forEach(c=>Object.assign(c,{active:false,age:0,duration:3.6,thanks:0,missed:0}));
  $('#forecast').hidden=true;$('#lightning').hidden=true;
+ updateStatus();
 }
 function resize(){
  const oldLandscape=w>h;w=game.clientWidth;h=game.clientHeight;field=Math.min(w,560);offset=(w-field)/2;
@@ -61,12 +62,21 @@ function setMode(value){
  mode=value;game.dataset.mode=value;game.dataset.day=String(dayIndex+1);
  const modal=['paused','won','lost','cleared','interlude'].includes(value);
  $('.topbar').inert=modal;$('#controls').inert=modal;$('#heading').inert=value!=='ready';
- $('#pause').disabled=value!=='playing';$('#remaining').hidden=value==='ready';
+ $('#pause').disabled=value!=='playing';$('#ship-status').hidden=value==='ready'||value==='interlude';
  sailors.forEach(s=>s.disabled=value!=='playing');$('#left').disabled=value!=='playing';$('#right').disabled=value!=='playing';
  if(value!=='playing'){$('#forecast').hidden=true;$('#lightning').hidden=true;}
 }
 function clearInput(){keys.clear();pointers.clear();$('#left').classList.remove('pressed');$('#right').classList.remove('pressed');if(state)state.velocity=0;}
 function announce(text,seconds=2.3){$('#message').textContent=text;messageUntil=state.time+seconds;}
+function lastWarning(){return state.hull===1&&state.escapes===2?'Last hit. Last knot. Keep both safe.':state.escapes===2?'Last knot: one missed sailor ends the day.':state.hull===1?'One more hull hit ends this day.':'';}
+function updateStatus(){
+ const knots=3-state.escapes;
+ $('#hull-count').textContent=String(state.hull);$('#knots-count').textContent=String(knots);
+ $('#hull-caption').textContent=state.hull===0?'shipwrecked':state.hull===1?'last hit':'hits left';
+ $('#knots-caption').textContent=knots===0?'bag open':knots===1?'last knot':'knots left';
+ $('#hull-status').dataset.critical=String(state.hull<=1);$('#knot-status').dataset.critical=String(knots<=1);
+ $('#hull-status').setAttribute('aria-label',`${state.hull} hull hits remaining`);$('#knot-status').setAttribute('aria-label',`${knots} wind-bag knots remaining`);
+}
 
 function portrait(index){
  const emblems=[
@@ -91,45 +101,47 @@ function showDay(index){
 function start(){
  $('#source').close();$('#curtain').hidden=true;$('#interlude').hidden=true;clearInput();
  setMode('playing');resetState();resize();state.x=.5;progress={day:dayIndex,finished:false};saveProgress();
- positionCrew();$('#accessible-status').textContent='';announce(dayIndex===0?'Through the rocks. Hands off the bag.':dayIndex===3?'Watch the cloud. Watch the crew.':'Read the water ahead.',2.6);
+ positionCrew();$('#accessible-status').textContent='';announce(dayIndex===0?'Steer through open water. Keep the bag tied.':dayIndex===3?'Watch the storm. Keep the bag tied.':'Steer through the gaps. Save the knots.',3);
  $('#pause').focus({preventScroll:true});tone('start');
 }
 function replayAll(){progress={day:0,finished:false};saveProgress();showDay(0);}
 function pause(reason='The sea can wait.'){
  clearInput();if(mode!=='playing')return;setMode('paused');$('#curtain').hidden=false;
- $('#result-kicker').textContent=`Day ${numerals[dayIndex]} · At anchor`;$('#result-title').textContent='Take a breath.';$('#result-copy').textContent=reason;
+ $('#result-kicker').textContent=`Day ${numerals[dayIndex]} · At anchor`;$('#result-title').textContent='Take a breath.';$('#result-copy').textContent=`${reason} Hull: ${state.hull} ${state.hull===1?'hit':'hits'} left. Wind bag: ${3-state.escapes} ${state.escapes===2?'knot':'knots'} left.`;
  $('#again').textContent='Keep sailing';$('#restart').hidden=false;$('#restart').textContent='Restart this day';$('#again').focus({preventScroll:true});
 }
 function resume(){if(mode!=='paused')return;clearInput();$('#curtain').hidden=true;setMode('playing');$('#pause').focus({preventScroll:true});}
 function finish(won,cause){
+ const hullAdvice=cause==='lightning'?'leave the marked strip before it strikes.':'leave room for the whole ship. Let the stern clear the cliffs before turning.';
  clearInput();setMode(won?(dayIndex===3?'won':'cleared'):'lost');$('#message').textContent='';$('#curtain').hidden=false;
  $('#restart').hidden=!won||dayIndex===3;$('#restart').textContent='Sail this day again';
  $('#result-kicker').textContent=`Day ${numerals[dayIndex]} · ${won?'Safe water':Math.floor(state.time)+' seconds at sea'}`;
  $('#result-title').textContent=won?(dayIndex===3?'Home at last.':'A day nearer home.'):cause==='wind'?'Blown off course.':'Shipwrecked.';
- $('#result-copy').textContent=won?(dayIndex===3?'Four seas crossed. The crew can finally leave the bag alone.':'The oars come to rest. The ship is repaired, and the next sea can wait.'):(cause==='wind'?'Three winds escaped. Try this day again; tap the gold sailors before their rings run out.':'The hull could take no more. Try this day again; line up with the next opening before it reaches the bow.');
+ $('#result-copy').textContent=won?(dayIndex===3?'Four seas crossed. The crew can finally leave the bag alone.':'The oars come to rest. The ship is repaired, and the next sea can wait.'):(cause==='wind'?'No knots left. The crew opened the wind bag, and its winds carried you away. Retry this day; stop each gold sailor before their countdown ends.':`No hull hits left. The ship broke apart. Retry this day; ${hullAdvice}`);
  if(won){progress={day:Math.min(3,dayIndex+1),finished:dayIndex===3};saveProgress();}
  $('#again').textContent=won?(dayIndex===3?'Sail the final day again':`Meet day ${numerals[dayIndex+1]}`):'Retry this day';
  $('#accessible-status').textContent=$('#result-title').textContent+' '+$('#result-copy').textContent;$('#again').focus({preventScroll:true});tone(won?'win':'loss');
 }
 function command(index){
- if(mode!=='playing'||state.time-lastCommand<.34)return;const c=crew[index];if(!c.active)return;
- lastCommand=state.time;c.active=false;c.thanks=.85;state.commands++;sailors[index].querySelector('.crew-prompt').textContent='Aye!';
+ if(mode!=='playing')return;const c=crew[index];if(!c.active)return;
+ c.active=false;c.thanks=1.2;c.missed=0;state.commands++;state.bagSafe=1.2;
+ $('#accessible-status').textContent=`Knot kept safe. ${3-state.escapes} knots remain.`;
  const p=crewPoint(index);ripples.push({x:p.x,y:p.y,age:0,color:C.gold,r:20});tone('crew');
 }
 function commandUrgent(){let index=-1,most=-1;crew.forEach((c,i)=>{if(c.active&&c.age/c.duration>most){most=c.age/c.duration;index=i;}});if(index>=0)command(index);}
 function trouble(index){
- Object.assign(crew[index],{active:true,age:0,duration:dayIndex===0?3.8:3.6,thanks:0});sailors[index].querySelector('.crew-prompt').textContent='Tap!';
- if(crewIndex===1&&dayIndex===0)announce('Hands off! Tap the gold sailor.',3);
- $('#accessible-status').textContent=`Sailor ${index+1} is reaching for the bag. Press ${index+1} or Space.`;tone('warning');
+ Object.assign(crew[index],{active:true,age:0,duration:dayIndex===0?3.8:3.6,thanks:0,missed:0});
+ if(crewIndex===1&&dayIndex===0)announce('Untying the bag! Tap the gold sailor.',3);
+ $('#accessible-status').textContent=`Sailor ${index+1} is untying the wind bag. Press ${index+1} or Space to stop them.`;tone('warning');
 }
 function escapeWind(){
- state.escapes++;state.gust=3.5;state.gustDirection=state.x>.5?-1:1;state.shake=.35;
+ state.escapes++;state.gust=3.5;state.gustDirection=state.x>.5?-1:1;state.shake=.35;state.bagNotice=2.8;state.bagSafe=0;updateStatus();
  ripples.push({x:offset+state.x*field,y:sy-22*shipScale,age:0,color:C.paper,r:36});tone('gust');
- if(state.escapes>=3){finish(false,'wind');return;}announce(state.escapes===1?'Wind loose! Hold your course.':'One last knot. Watch those hands!',2.5);
+ if(state.escapes>=3){finish(false,'wind');return;}announce(state.escapes===1?'Knot lost. Wind loose! 2 knots left.':'Last knot! One more missed sailor ends the day.',3.2);
 }
 function spawnRow(){
  const i=courseIndex++,o={type:'gate',x:day().centers[i],at:day().first+i*day().spacing,gap:day().gap,hit:false,passed:false,variant:i%3};obstacles.push(o);
- const marker=document.createElement('span');marker.className='channel-marker';marker.setAttribute('role','img');marker.setAttribute('aria-label','Opening between the rocks');marker.innerHTML=dayIndex===2?'<svg viewBox="0 0 28 28" aria-hidden="true"><path d="m3 7 4-5 7 5 7-5 4 5-1 14-10 5L4 21z"/><circle cx="9" cy="12" r="3"/><circle cx="19" cy="12" r="3"/><path d="m12 18 2 3 2-3"/></svg>':'<svg viewBox="0 0 20 28" aria-hidden="true"><path d="m10 2 7 10-7 10-7-10zM10 22v4"/></svg>';
+ const marker=document.createElement('span');marker.className='channel-guide';marker.setAttribute('role','img');marker.setAttribute('aria-label','Open water: steer through this passage');marker.innerHTML='<span>PASSAGE</span>';
  $('#channels').append(marker);gateMarkers.set(o,marker);
 }
 function geometry(o){
@@ -137,18 +149,18 @@ function geometry(o){
  return{x:offset+o.x*field+(o.type==='wave'?Math.sin((state.time-o.at)*1.6)*field*.13:0),y:sy+(state.time-o.at)*speed,r:o.type==='wave'?field*.12:field*.062};
 }
 function damage(o,cause='rock'){
- o.hit=true;if(state.invulnerable>0)return;state.hull--;state.hits++;state.invulnerable=1.3;state.shake=.35;
+ o.hit=true;if(state.invulnerable>0)return;state.hull--;state.hits++;state.invulnerable=1.3;state.shake=.35;state.hullNotice=2;updateStatus();
  const p=o.type?geometry(o):{x:offset+state.x*field,y:sy,r:24};
  for(let i=0;i<8;i++)particles.push({x:p.x,y:p.y,vx:Math.cos(i*2.4)*50,vy:Math.sin(i*2.4)*50,age:0});
  ripples.push({x:p.x,y:p.y,age:0,color:C.paper,r:p.r});tone('hit');
- if(state.hull<=0){finish(false,cause);return;}announce(`${cause==='lightning'?'Lightning struck!':'A scrape!'} ${state.hull===2?'Two hits left.':'One hit left.'}`,2.1);
+ if(state.hull<=0){finish(false,cause);return;}announce(`${cause==='lightning'?'Lightning hit the hull.':'Hull hit a cliff.'} ${state.hull===2?'2 hits left.':'Last hit left!'}`,3);
 }
 function weather(){
  state.weather=0;let forecast='',forecastDirection=0;
  if(dayIndex===2&&crew.some(c=>c.active))forecast='Athena holds the swells';
  for(const [at,direction] of day().gusts){const until=at-state.time;if(until>0&&until<2.8){forecast=`Gust ${direction>0?'from the left':'from the right'} in ${Math.ceil(until)}`;forecastDirection=direction;}
   if(until<=0&&until>-3.2){state.weather=dayIndex===3?.12:.065;state.weatherDirection=direction;forecastDirection=direction;forecast=direction>0?'Wind pushing right · steer left':'Wind pushing left · steer right';}}
- $('#forecast-copy').textContent=forecast;$('#forecast').dataset.direction=String(forecastDirection);$('#forecast').hidden=!forecast;
+ if($('#forecast-copy').textContent!==forecast)$('#forecast-copy').textContent=forecast;$('#forecast').dataset.direction=String(forecastDirection);$('#forecast').hidden=!forecast;
  const bolt=day().bolts.find(([at])=>state.time>at-2.6&&state.time<at+.4),el=$('#lightning');
  el.hidden=!bolt;
  if(bolt){const [at,x]=bolt,until=at-state.time;el.style.left=(offset+x*field)+'px';el.style.width=(field*.19)+'px';el.classList.toggle('striking',until<=0);el.style.setProperty('--charge',String(clamp(1-until/2.6,0,1)));el.textContent=until>0?'Lightning':'Strike';
@@ -163,11 +175,11 @@ function update(dt){
  const gust=state.gust>0?state.gustDirection*.09:0,wave=state.wave>0&&!(dayIndex===2&&crew.some(c=>c.active))?state.waveDirection*.13:0;
  const edge=Math.max(.12,(28+39*shipScale-offset)/field);
  state.x=clamp(state.x+(state.velocity+gust+wave+state.weather*state.weatherDirection)*dt,edge,1-edge);
- for(const key of ['invulnerable','shake','gust','wave'])state[key]=Math.max(0,state[key]-dt);
+ for(const key of ['invulnerable','shake','gust','wave','hullNotice','bagNotice','bagSafe'])state[key]=Math.max(0,state[key]-dt);
  if(courseIndex<day().centers.length&&state.time>=day().first+courseIndex*day().spacing-5.5)spawnRow();
  if(waveIndex<day().waves.length&&state.time>=day().waves[waveIndex]-5){const at=day().waves[waveIndex++];obstacles.push({type:'wave',x:day().centers[Math.min(day().centers.length-1,Math.round((at-day().first)/day().spacing))],at,direction:waveIndex%2?1:-1,hit:false});}
  while(crewIndex<day().crew.length&&state.time>=day().crew[crewIndex][0])trouble(day().crew[crewIndex++][1]);
- for(const c of crew){c.thanks=Math.max(0,c.thanks-dt);if(c.active){c.age+=dt;if(c.age>=c.duration){c.active=false;escapeWind();if(mode!=='playing')return;}}}
+ for(const c of crew){c.thanks=Math.max(0,c.thanks-dt);c.missed=Math.max(0,c.missed-dt);if(c.active){c.age+=dt;if(c.age>=c.duration){c.active=false;c.missed=2.8;escapeWind();if(mode!=='playing')return;}}}
  for(const o of obstacles){
   const p=geometry(o),dx=Math.abs(p.x-(offset+state.x*field)),dy=Math.abs(p.y-sy);
   if(o.type==='gate'){
@@ -177,17 +189,20 @@ function update(dt){
   }else if(!o.hit&&dx<p.r+26*shipScale&&dy<22+32*shipScale){o.hit=true;state.wave=1.35;state.waveDirection=o.direction;tone('wave');}
  }
  for(let i=obstacles.length-1;i>=0;i--)if(geometry(obstacles[i]).y>h+110){gateMarkers.get(obstacles[i])?.remove();gateMarkers.delete(obstacles[i]);obstacles.splice(i,1);}
- if(state.time>messageUntil)$('#message').textContent='';
+ if(state.time>messageUntil&&$('#message').textContent!==lastWarning())$('#message').textContent=lastWarning();
  if(state.time>=day().duration)finish(true);
 }
 function crewPoint(index){const positions=[[-39,12],[39,12],[0,66]];let[x,y]=positions[index];const reach=!reduced&&crew[index].active?crew[index].age/crew[index].duration:0;x*=1-reach*.12;y-=reach*8;return{x:offset+state.x*field+x*shipScale,y:sy+y*shipScale};}
 function positionCrew(){
  if(!state)return;
- sailors.forEach((el,i)=>{const p=crewPoint(i),c=crew[i];el.style.left=p.x+'px';el.style.top=p.y+'px';el.classList.toggle('trouble',c.active);el.classList.toggle('urgent',c.active&&c.age/c.duration>.68);el.classList.toggle('thanked',c.thanks>0);
- el.querySelector('.arm').setAttribute('d',c.active?(i===0?'M13 36 4 43M35 36 38 6':i===1?'M13 36 10 6M35 36l9 7':'M13 36 10 5M35 36 38 5'):'M13 36 4 43M35 36l9 7');el.style.setProperty('--spent',c.active?String(c.age/c.duration*100):'0');el.setAttribute('aria-label',`${c.active?'Restless':'Rowing'} sailor ${i+1}. ${c.active?'Send back to rowing. ':''}Key ${i+1}.`);});
+ sailors.forEach((el,i)=>{const p=crewPoint(i),c=crew[i];el.style.left=p.x+'px';el.style.top=p.y+'px';el.classList.toggle('trouble',c.active);el.classList.toggle('urgent',c.active&&c.age/c.duration>.68);el.classList.toggle('thanked',c.thanks>0);el.classList.toggle('missed',c.missed>0);
+ const prompt=c.active?`Untying ${Math.ceil(c.duration-c.age)}s`:c.thanks>0?'Knot safe':c.missed>0?'Knot lost':'';if(el.querySelector('.crew-prompt').textContent!==prompt)el.querySelector('.crew-prompt').textContent=prompt;
+ el.querySelector('.arm').setAttribute('d',c.active?(i===0?'M13 36 4 43M35 36 38 6':i===1?'M13 36 10 6M35 36l9 7':'M13 36 10 5M35 36 38 5'):'M13 36 4 43M35 36l9 7');el.style.setProperty('--spent',c.active?String(c.age/c.duration*100):'0');el.setAttribute('aria-label',`${c.active?'Untying the wind bag':'Rowing'} sailor ${i+1}. ${c.active?'Stop them to save a knot. ':''}Key ${i+1}.`);});
  $('#bag-label').style.left=(offset+state.x*field+102*shipScale)+'px';$('#bag-label').style.top=(sy-37*shipScale)+'px';
  $('#route-ship').style.left=((dayIndex+state.time/day().duration)/4*100)+'%';$('#remaining').textContent=`DAY ${numerals[dayIndex]} · ${Math.ceil(day().duration-state.time)}s`;
- for(const[o,el]of gateMarkers){const p=geometry(o);el.style.left=p.x+'px';el.style.top=p.y+'px';el.hidden=p.y<70||p.y>h-75||o.passed;}
+ $('#hull-status').classList.toggle('changed',state.hullNotice>0);$('#knot-status').classList.toggle('changed',state.bagNotice>0);$('#knot-status').classList.toggle('saved',state.bagSafe>0);
+ const feedback=$('#bag-feedback');feedback.hidden=mode!=='playing'||!(state.bagNotice>0||state.bagSafe>0);feedback.dataset.kind=state.bagNotice>0?'lost':'safe';feedback.textContent=state.bagNotice>0?`Wind loose · ${3-state.escapes} ${state.escapes===2?'knot':'knots'} left`:'Wind held';feedback.style.left=(offset+state.x*field)+'px';feedback.style.top=(sy-76*shipScale)+'px';
+ for(const[o,el]of gateMarkers){const p=geometry(o);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.width=(o.gap*field)+'px';el.classList.toggle('near',p.y>sy-110*shipScale);el.hidden=p.y<110||p.y>h-75||o.passed;}
 }
 
 function path(points,fill,stroke,width=1){
@@ -324,8 +339,8 @@ function ship(){
   path([[-10,-20],[-6,-10],[-18,1],[-19,17],[-9,24],[9,24],[19,17],[18,1],[6,-10],[10,-20],[0,-17]],'#805735',C.ink,2);
   path([[-6,-8],[-11,1],[-12,17],[-5,20],[1,14],[-2,-7]],'#b18c56');
   for(let i=0;i<3-state.escapes;i++)line([[-8,-9+i*3],[8,-9+i*3]],'#e1e6de',1.8);
-  if(crew.some(c=>c.active)){
-    ctx.strokeStyle=C.gold;ctx.lineWidth=1.6;ctx.beginPath();ctx.ellipse(0,5,25,29,0,0,Math.PI*2);ctx.stroke();
+  if(crew.some(c=>c.active)||state.bagNotice>0||state.bagSafe>0){
+    ctx.strokeStyle=state.bagNotice>0?C.danger:C.gold;ctx.lineWidth=1.6;ctx.beginPath();ctx.ellipse(0,5,25,29,0,0,Math.PI*2);ctx.stroke();
   }
   ctx.restore();
   // Hull cracks are persistent damage, never a detached health dashboard.

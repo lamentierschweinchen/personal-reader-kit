@@ -10,7 +10,7 @@ const out=new URL('../test-results/showcase/game-updates/',import.meta.url);awai
 const entries=[
  {slug:'alice',state:'#table',start:'#primary-action',resume:'#primary-action'},
  {slug:'odyssey',state:'#game',start:'#start',resume:'#again'},
- {slug:'dracula',state:'#castle',start:'#screen-action',resume:'#screen-action'}
+ {slug:'dracula',state:'#castle',start:'#chapter-start',resume:'#screen-action'}
 ];
 const types={html:'text/html',mjs:'text/javascript',js:'text/javascript',json:'application/json',svg:'image/svg+xml',css:'text/css',woff2:'font/woff2'};
 const receipts=[];

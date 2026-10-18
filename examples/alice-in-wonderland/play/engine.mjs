@@ -5,11 +5,12 @@ export const COURSES=Object.freeze([
  {title:'Butter belongs on bread',duration:36,factor:1.05,swaps:[19],orders:[[5,1],[13,0],[22,2],[30,1]],dirty:[]},
  {title:'A clean start',duration:40,factor:1.12,swaps:[10,22,31],orders:[[4,1],[14,2],[24,0],[33,0]],dirty:[0,2,1]},
 ]);
+export const READINGS=Object.freeze([{at:18,kind:'places'},{at:5,kind:'bread'},{at:10,kind:'clean'}]);
 export function newGame(course=0,scores=[]){
  const index=Number.isInteger(course)&&course>=0&&course<COURSES.length?course:0;
  return{phase:'intro',course:index,scores:scores.slice(0,index),time:0,score:0,misses:0,spills:0,perfects:0,combo:0,
  kettle:RULES.capacity,refill:0,target:null,poured:0,pourSpilled:false,overflow:0,swapIndex:0,swapUntil:0,orderIndex:0,
- service:null,ordersServed:0,cleaned:0,events:[],served:0,
+ service:null,ordersServed:0,cleaned:0,events:[],served:0,reading:null,readingSeen:false,lastReading:null,
  cups:GUESTS.map((g,i)=>({...g,seat:i,tea:[42,32,62][i],empty:0,reaction:0,chewing:0,dirty:false,order:null}))};
 }
 const emit=(s,type,detail={})=>s.events.push({type,...detail});
@@ -31,6 +32,7 @@ export function serve(s,id){
 }
 export function pause(s){if(s.phase==='playing'){stopPour(s,false);s.phase='paused';emit(s,'pause');}}
 export function resume(s){if(s.phase==='paused'){s.phase='playing';emit(s,'resume');}}
+export function continueReading(s){if(s.phase!=='reading')return false;s.reading=null;s.phase='playing';emit(s,'continueReading');return true;}
 function complaint(s,id,reason){
  const c=s.cups[id];s.misses++;s.combo=0;c.empty=0;
  if(reason==='empty'){c.tea=35;c.dirty=false;}else c.order=null;
@@ -40,13 +42,15 @@ function complaint(s,id,reason){
 export function tick(s,dt){
  if(s.phase!=='playing'||!Number.isFinite(dt)||dt<=0)return;
  if(dt>.04){let left=dt;while(left>0&&s.phase==='playing'){const step=Math.min(.04,left);tick(s,step);left-=step;}return;}
- const course=COURSES[s.course];s.time=Math.min(course.duration,s.time+dt);
+ const course=COURSES[s.course],reading=!s.readingSeen&&READINGS[s.course],reached=reading&&s.time+dt>=reading.at;
+ if(reached)dt=Math.max(0,reading.at-s.time);
+ s.time=Math.min(course.duration,s.time+dt);
  if(s.refill>0){s.refill=Math.max(0,s.refill-dt);if(!s.refill){s.kettle=RULES.capacity;emit(s,'refilled');}}
  if(s.service){const task=s.service;task.left=Math.max(0,task.left-dt);if(!task.left){const c=s.cups[task.id];if(task.kind==='clean'){c.tea=0;c.empty=0;c.dirty=false;s.cleaned++;s.score+=20;}else{c.order=null;c.chewing=3;s.ordersServed++;s.score+=60;}c.reaction=1.4;s.service=null;emit(s,'served',{id:task.id,kind:task.kind});}}
  const swapAt=course.swaps[s.swapIndex];
- if(swapAt&&s.time>=swapAt){stopPour(s);s.swapUntil=s.time+RULES.swapSeconds;s.cups.forEach(c=>c.seat=(c.seat+1)%3);const id=course.dirty[s.swapIndex];if(id!==undefined){s.cups[id].dirty=true;emit(s,'dirty',{id});}s.swapIndex++;emit(s,'swap');}
+ if(!reached&&swapAt&&s.time>=swapAt){stopPour(s);s.swapUntil=s.time+RULES.swapSeconds;s.cups.forEach(c=>c.seat=(c.seat+1)%3);const id=course.dirty[s.swapIndex];if(id!==undefined){s.cups[id].dirty=true;emit(s,'dirty',{id});}s.swapIndex++;emit(s,'swap');}
  const order=course.orders[s.orderIndex];
- if(order&&s.time>=order[0]){const id=order[1];s.cups[id].order={left:RULES.orderSeconds};s.orderIndex++;emit(s,'order',{id});}
+ if(!reached&&order&&s.time>=order[0]){const id=order[1];s.cups[id].order={left:RULES.orderSeconds};s.orderIndex++;emit(s,'order',{id});}
  const moving=s.time<s.swapUntil;
  for(let id=0;id<s.cups.length;id++){
   const c=s.cups[id];c.reaction=Math.max(0,c.reaction-dt);if(moving)continue;
@@ -62,5 +66,6 @@ export function tick(s,dt){
   }
   if(c.tea<=0){if(!(s.service?.id===id&&s.service.kind==='clean'))c.empty+=dt;if(c.empty>=RULES.emptyGrace){complaint(s,id,'empty');if(s.phase!=='playing')return;}}else c.empty=0;
  }
+ if(reached){stopPour(s,false);s.reading=s.lastReading=reading.kind;s.readingSeen=true;s.phase='reading';emit(s,'reading',{kind:reading.kind});return;}
  if(s.time>=course.duration){stopPour(s);s.score+=(3-s.misses)*100;s.scores[s.course]=Math.floor(s.score);s.phase=s.course===COURSES.length-1?'won':'interlude';emit(s,'end');}
 }

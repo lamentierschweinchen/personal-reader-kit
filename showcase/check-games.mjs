@@ -12,7 +12,7 @@ const out=new URL('../test-results/showcase/games/',import.meta.url);await mkdir
 const entries=[
  {slug:'alice',book:'alice-rackham-28885',chapter:'chapter-01',start:'#primary-action',state:'#table',resume:'#primary-action',about:'#about',dialog:'#about-dialog',close:'#close-about'},
  {slug:'odyssey',book:'odyssey-butler-1727',chapter:'book-01',start:'#start',state:'#game',resume:'#again',about:'#story',dialog:'#source',close:'#source button'},
- {slug:'dracula',book:'dracula',chapter:'chap01',start:'#screen-action',state:'#castle',resume:'#screen-action',about:'#about',dialog:'#notes',close:'#close-notes'}
+ {slug:'dracula',book:'dracula',chapter:'chap01',start:'#chapter-start',state:'#castle',resume:'#screen-action',about:'#about',dialog:'#notes',close:'#close-notes'}
 ];
 const sizes=[[320,568],[390,844],[844,390],[820,1180],[1180,820],[1280,800]],receipts=[],problems=[];
 const phase=(p,e)=>p.locator(e.state).evaluate(n=>n.dataset.phase||n.dataset.mode);

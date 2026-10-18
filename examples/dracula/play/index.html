@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f3eee3">
-  <meta name="description" content="Three rooms grow into the great gatehouse. Find a key, force the shutters, raise the chain, and escape the castle.">
+  <meta name="description" content="Five rooms of an imagined escape, with passages from Harker’s journal. Find the keys, raise the chain, and escape the castle.">
   <title>Castle escape · Dracula</title>
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
@@ -23,14 +23,14 @@
     <button id="pause" class="quiet" disabled><svg class="icon" aria-hidden="true"><use href="#pause-icon"/></svg><span>Pause</span></button>
   </header>
   <main class="game-shell">
-    <div class="heading"><div><p class="eyebrow" id="room-label">I / III · The guest wing</p><h1>Castle escape</h1></div><ol class="steps" aria-label="Rooms cleared"><li data-step="0" aria-current="step">I</li><li data-step="1">II</li><li data-step="2">III</li></ol></div>
+    <div class="heading"><div><p class="eyebrow" id="room-label">I / V · The guest wing</p><h1>Castle escape</h1></div><ol class="steps" aria-label="Rooms cleared"><li data-step="0" aria-current="step">I</li><li data-step="1">II</li><li data-step="2">III</li><li data-step="3">IV</li><li data-step="4">V</li></ol></div>
     <section class="arena" aria-label="Castle escape game">
       <div class="game-status"><div class="objective"><svg class="icon" aria-hidden="true"><use href="#key-icon"/></svg><span id="objective">Find the brass key</span><svg id="bearing" class="icon" aria-hidden="true" hidden><use href="#arrow"/></svg></div><span id="safety" class="safety"><svg class="icon" aria-hidden="true"><use href="#moon-icon"/></svg><span>In shadow</span></span></div>
       <div class="board-wrap" id="board-wrap">
         <svg id="castle" viewBox="0 0 600 600" role="img" aria-label="The guest wing. Find the brass key, lift the stair bolt, and reach the north stair. Red fans show the patrols’ sight. Dark alcoves provide cover."></svg>
         <div class="screen" id="screen">
           <div class="screen-inner" role="region" aria-labelledby="screen-title">
-            <p class="eyebrow" id="screen-kicker">Room I of III</p>
+            <p class="eyebrow" id="screen-kicker">Room I of V</p>
             <h2 id="screen-title">The guest wing</h2>
             <p id="screen-copy">Find the brass key, unlock the arch, and lift the stair bolt in the west room.</p>
             <p id="save-status" class="save-status" role="status" hidden></p>
@@ -54,18 +54,35 @@
       <p class="desktop-help">Dark alcoves hide you. <span>Watch the turn, then cross.</span></p>
     </section>
   </main>
+  <section id="chapter-screen" class="chapter-screen" aria-labelledby="chapter-title" hidden>
+    <div class="chapter-scroll"><div class="chapter-sheet">
+      <p class="eyebrow" id="chapter-kicker">Castle escape · Room I of V</p>
+      <h2 id="chapter-title">The guest wing</h2>
+      <div id="chapter-illustration" class="chapter-illustration"></div>
+      <blockquote id="chapter-quote"></blockquote>
+      <a id="chapter-source" class="chapter-source" href="#reference/chap02/chap02-b061">Jonathan Harker’s journal · Chapter II, 8 May</a>
+      <p id="chapter-goal" class="chapter-goal"></p>
+      <p id="chapter-scope" class="chapter-scope">An imagined escape · passages from Chapters II–IV.</p>
+      <p id="migration-status" class="save-status" role="status" hidden></p>
+      <p id="chapter-save-status" class="save-status" role="status" hidden></p>
+    </div></div>
+    <div class="chapter-actions"><button id="chapter-start" class="primary">Start the guest wing <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button><button id="chapter-replay" class="text-button" hidden>Replay all rooms</button></div>
+  </section>
   <footer><button class="text-button" id="about">From the novel</button><button class="text-button" id="map">Floor plan</button><button class="text-button" id="help">How to play</button></footer>
   <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
   <dialog id="notes" aria-labelledby="notes-title">
     <div class="dialog-head"><h2 id="notes-title">From the novel</h2><button class="quiet" id="close-notes">Close</button></div>
     <div id="source-panel">
-      <p class="eyebrow">Jonathan Harker’s journal · Chapter III, 15 May</p>
-      <blockquote>“That key must be in the Count’s room; I must watch should his door be unlocked, so that I may get it and escape.”</blockquote>
-      <p>In <cite>Dracula</cite>, Harker searches the castle’s locked doors for a way out. The three castle layouts, patrols, tools and winch sequence are invented for this game. Its successful escape is not Harker’s route in the novel.</p>
-      <p class="source-credit">Bram Stoker, <cite>Dracula</cite> (1897). Quotation from Chapter III in the prepared <a href="https://www.gutenberg.org/ebooks/345" target="_blank" rel="noopener noreferrer">Project Gutenberg edition #345</a>. The game’s drawings and other words are original to this adaptation.</p>
+      <p class="eyebrow" id="source-citation"></p>
+      <p id="source-loading" class="source-loading" role="status">Opening the passage…</p>
+      <div id="source-passage" class="source-passage"></div>
+      <button id="source-retry" class="text-button" hidden>Try the passage again</button>
+      <p class="source-credit">The game rearranges scenes from Chapters II–IV into an imagined escape. Its floor plans, patrols and tools are invented.</p>
+      <p class="source-credit" id="source-detail" hidden></p>
+      <p class="source-credit">Bram Stoker, <cite>Dracula</cite> (1897). Jonathan Harker’s journal, from the prepared <a href="https://www.gutenberg.org/ebooks/345" target="_blank" rel="noopener noreferrer">Project Gutenberg edition #345</a>. The game’s drawings and other words are original to this adaptation. This reference visit leaves your main reading place and chapter limit unchanged.</p>
     </div>
     <div id="map-panel" hidden>
-      <p class="eyebrow">Whole room · play paused</p>
+      <p class="eyebrow" id="plan-state">Whole room · play paused</p>
       <p id="plan-summary"></p>
       <svg id="floor-plan" role="img" aria-label="Full castle floor plan"></svg>
       <p class="plan-caption"><span class="you-dot" aria-hidden="true"></span> You are here. The outline marks the current view.</p>
@@ -74,13 +91,14 @@
     </div>
     <div id="help-panel" hidden>
       <p>Hold the on-screen arrows, or use the arrow keys or W A S D. Two directions together move diagonally. Release to stop.</p>
-      <p>Find the objects marked on the floor. Walk close to pick them up, open a matching lock, force the shutters with the crowbar, or turn the winch. The stair leads to the next room; the south gate ends the escape.</p>
+      <p>Each new room opens with a passage from Harker’s journal. Start when you are ready; the opening and its source visit are untimed. A retry returns straight to play.</p>
+      <p>Find the objects marked on the floor. Walk close to pick them up, open a matching lock, force the shutters with the crowbar, or turn the winch. Carry tools through the five rooms. The handle, rope and spindle fit the final winch; the gate key releases its chain. Stairs lead onward, and the south gate ends the escape.</p>
       <p>Move fully into a dark alcove to hide. <strong>In shadow</strong> confirms you are safe. Red fans show where each patrol can see. If the warning fills, you are caught; get out of sight to clear it. Touching a patrol also gives you away.</p>
       <p>The later rooms are wider and deeper. The view follows Harker; a small arrow beside the goal points to an object beyond the view. Floor plan pauses play and shows the whole room.</p>
       <p>Use Pause or Space to stop. Switching away or rotating a phone pauses the game too. Resume when you are ready.</p>
       <label class="gentle"><input type="checkbox" id="gentle"> Gentler patrols <span>Slower shadows, more time to get out of sight.</span></label>
       <p id="notes-save-status" class="save-status" role="status" hidden></p>
-      <p class="source-credit">This is a visual timing game. It has keyboard controls and spoken status changes, but no equivalent nonvisual play mode. Cleared rooms and the gentler setting are saved in this browser. Reloading starts the current room again. Retry keeps cleared rooms; Replay all rooms starts from the guest wing. Reader notes and reading progress are separate.</p>
+      <p class="source-credit">This is a visual timing game. It has keyboard controls and spoken status changes, but no equivalent nonvisual play mode. Cleared rooms and the gentler setting are saved in this browser. Reloading starts the current room again. Retry keeps cleared rooms; Replay all rooms starts from the guest wing. An earlier three-room save keeps whichever of the first two rooms you cleared. If both were cleared, continue at the new chapel. The earlier save is preserved. Reader notes and reading progress are separate.</p>
     </div>
   </dialog>
   <noscript><p class="no-script">This game needs JavaScript. <a href="../">Return to Dracula</a>.</p></noscript>

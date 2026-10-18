@@ -14,13 +14,17 @@ const receipts=[],wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 const key='newreading-homeward-days-v1';
 const profiles=[[320,568],[390,844],[844,390],[820,1180],[1280,800]];
 const selected=process.env.CAMPAIGN_WIDTHS?.split(',').map(Number);
+const concurrency=Number(process.env.CAMPAIGN_CONCURRENCY||2);
+assert.ok(Number.isInteger(concurrency)&&concurrency>=1&&concurrency<=5,'CAMPAIGN_CONCURRENCY must be 1–5');
 const capture=(page,name)=>page.screenshot({path:new URL(engine+'-'+name+'.png',evidence).pathname});
 async function read(page){
  return page.evaluate(()=>({
   mode:document.querySelector('#game').dataset.mode,day:Number(document.querySelector('#game').dataset.day),
   route:document.querySelector('#route-ship').style.left,remaining:document.querySelector('#remaining').textContent,
   x:parseFloat(document.querySelectorAll('.sailor')[2].style.left),message:document.querySelector('#message').textContent,
-  gates:[...document.querySelectorAll('.channel-marker:not([hidden])')].map(e=>({x:parseFloat(e.style.left),y:parseFloat(e.style.top)})).sort((a,b)=>b.y-a.y),
+  gates:[...document.querySelectorAll('.channel-guide:not([hidden])')].map(e=>({x:parseFloat(e.style.left),y:parseFloat(e.style.top)})).sort((a,b)=>b.y-a.y),
+  hull:Number(document.querySelector('#hull-count').textContent),knots:Number(document.querySelector('#knots-count').textContent),
+  bagFeedback:document.querySelector('#bag-feedback').hidden?'':document.querySelector('#bag-feedback').textContent,
   forecast:document.querySelector('#forecast').hidden?'':document.querySelector('#forecast').textContent,
   lightning:!document.querySelector('#lightning').hidden,
   active:[...document.querySelectorAll('.sailor.trouble')].map(el=>{const r=el.getBoundingClientRect();return{i:Number(el.dataset.sailor),x:r.x+r.width/2,y:r.y+r.height/2,spent:Number(el.style.getPropertyValue('--spent'))};}).sort((a,b)=>b.spent-a.spent)
@@ -74,10 +78,24 @@ async function storage(page,seed=false){
 async function voyage(s,{steer=true,crew=true,label='win'}={}){
  const{page,cdp,width}=s,touchControls=cdp&&width<1000;
  const left=await center(page,'#left'),right=await center(page,'#right');
- let held=0,points=[],lastTap=0,lastMessage='',peakCrew=0,forecast=false,lightning=false,screen=false,events=[];
- const started=Date.now();
- while(Date.now()-started<60000){
+ let held=0,points=[],lastTap=0,lastMessage='',peakCrew=0,forecast=false,lightning=false,screen=false,events=[],pairChecked=false;
+ const first=await read(page),hull=[first.hull],knots=[first.knots];
+ const started=Date.now(),budget=Math.max(90000,Number(first.remaining.match(/(\d+)s$/)[1])*4000+15000);
+ let previousRoute=first.route,lastProgress=started;
+ // Five concurrent high-resolution canvases exhausted the old 60s wall limit
+ // on WebKit CI. The game caps frame dt for fairness, so low FPS takes longer.
+ // Bound concurrency, require advancing public progress, and still require the
+ // exact cleared/won result. Never advance the clock or accept a playing state.
+ while(true){
   const r=await read(page);if(r.mode!=='playing')break;
+  if(r.route!==previousRoute){previousRoute=r.route;lastProgress=Date.now();}
+  assert.ok(Date.now()-lastProgress<15000,`Voyage stalled: ${JSON.stringify(r)}`);
+  assert.ok(Date.now()-started<budget,`Voyage exceeded ${budget}ms: ${JSON.stringify(r)}`);
+  for(const[name,values]of[['hull',hull],['knots',knots]])if(r[name]!==values.at(-1)){
+   assert.equal(r[name],values.at(-1)-1,`${name} must decrement one at a time`);values.push(r[name]);
+   await capture(page,`${width}-day-${r.day}-${label}-${name}-${r[name]}`);
+  }
+  if(label==='center-loss')assert.equal(r.knots,3,'Hull damage must not spend bag knots');
   const target=steer?r.gates[0]?.x??r.x:r.x,desired=Math.abs(target-r.x)>4?Math.sign(target-r.x):0;
   if(desired!==held){
    if(held){if(touchControls)await touch(cdp,'touchEnd',[]);else await page.keyboard.up(held<0?'ArrowLeft':'ArrowRight');}
@@ -88,10 +106,19 @@ async function voyage(s,{steer=true,crew=true,label='win'}={}){
   // Wait through part of the ring so later pairs really overlap; no game state,
   // timers, checkpoint values or victory conditions are injected.
   if(crew&&r.active[0]?.spent>45&&Date.now()-lastTap>400){
-   const p=r.active[0];
-   if(touchControls){await touch(cdp,'touchStart',[...points,{x:p.x,y:p.y,id:2}]);await touch(cdp,'touchEnd',[{x:p.x,y:p.y,id:2}]);}
-   else if(width<1000)await page.touchscreen.tap(p.x,p.y);
-   else await page.keyboard.press(String(p.i+1));
+   const pair=r.active.length>1&&!pairChecked,targets=pair?r.active:[r.active[0]];
+   for(const p of targets){
+    // Read each moving target immediately before tapping. A second active
+    // sailor must accept an immediate follow-up command, without a cooldown.
+    const current=(await read(page)).active.find(c=>c.i===p.i);assert.ok(current);
+    if(touchControls){await touch(cdp,'touchStart',[...points,{x:current.x,y:current.y,id:2}]);await touch(cdp,'touchEnd',[{x:current.x,y:current.y,id:2}]);}
+    else if(width<1000)await page.touchscreen.tap(current.x,current.y);
+    else await page.keyboard.press(String(p.i+1));
+    await page.waitForFunction(i=>document.querySelector(`[data-sailor="${i}"]`).classList.contains('thanked'),p.i);
+    assert.equal(await page.locator(`[data-sailor="${p.i}"] .crew-prompt`).textContent(),'Knot safe');
+    assert.equal((await read(page)).knots,r.knots,'A successful tap preserves, rather than restores, knots');
+   }
+   if(pair)pairChecked=true;
    lastTap=Date.now();
   }
   if(r.message&&r.message!==lastMessage){events.push({remaining:r.remaining,message:r.message});lastMessage=r.message;}
@@ -100,8 +127,11 @@ async function voyage(s,{steer=true,crew=true,label='win'}={}){
  }
  if(held){if(touchControls)await touch(cdp,'touchEnd',[]);else await page.keyboard.up(held<0?'ArrowLeft':'ArrowRight');}
  const result=await read(page),title=await page.locator('#result-title').textContent();
+ for(const[name,values]of[['hull',hull],['knots',knots]])if(result[name]!==values.at(-1)){assert.equal(result[name],values.at(-1)-1);values.push(result[name]);}
+ if(label==='wind-loss'){assert.deepEqual(knots,[3,2,1,0]);assert.match(await page.locator('#result-copy').textContent(),/No knots left/);}
+ if(label==='center-loss'){assert.deepEqual(hull,[3,2,1,0]);assert.equal(result.knots,3);}
  await capture(page,`${width}-day-${result.day}-${label}-result`);
- const receipt={width,height:s.height,day:result.day,label,mode:result.mode,title,wallSeconds:Math.round((Date.now()-started)/10)/100,peakCrew,forecast,lightning,events};
+ const receipt={width,height:s.height,day:result.day,label,mode:result.mode,title,wallSeconds:Math.round((Date.now()-started)/10)/100,wallBudgetMs:budget,remaining:result.remaining,hull,knots,peakCrew,pairChecked,forecast,lightning,events};
  receipts.push(receipt);console.log(JSON.stringify(receipt));return result;
 }
 async function campaign(width,height){
@@ -181,6 +211,9 @@ async function resilience(){
 }
 try{
  await lifecycle();await resilience();
- const results=await Promise.allSettled(profiles.filter(([w])=>!selected||selected.includes(w)).map(([w,h])=>campaign(w,h)));
- for(const result of results)if(result.status==='rejected')throw result.reason;
+ const cases=profiles.filter(([w])=>!selected||selected.includes(w));
+ for(let i=0;i<cases.length;i+=concurrency){
+  const results=await Promise.allSettled(cases.slice(i,i+concurrency).map(([w,h])=>campaign(w,h)));
+  for(const result of results)if(result.status==='rejected')throw result.reason;
+ }
 }finally{await writeFile(new URL(engine+'-play-receipt.json',evidence),JSON.stringify(receipts,null,2)+'\n');await browser.close();}
