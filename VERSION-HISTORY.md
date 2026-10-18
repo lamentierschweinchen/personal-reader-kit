@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Larger castle rooms and visible game updates · 18 October 2026
+
+Castle escape now grows from a 600×600 guest wing to a 900×720 chapel and a 1200×900 gatehouse. A following view keeps Harker and objects at the same scale; a paused floor plan supplies orientation. The chapel's crowbar opens a barred passage, and its winch handle carries into the larger gatehouse. Cleared-room checkpoints remain compatible.
+
+The earlier progression release was live, but already-open tabs could keep running the original game. All three games now check for a new offline copy when returning to the tab and while visible. A stopped game offers Reload game or Later; active play is never automatically reloaded. Reloading restarts the current stage and leaves separate reader records intact.
+
 ## Game progression · 18 October 2026
 
 Tea at Six now has three short courses. Untimed character exchanges introduce bread-and-butter orders and clean-cup requests; serving and replacing cups compete with pouring. The illustrated table and direct controls remain. Homeward has four sea days, with illustrated introductions, narrower channels, moving swells, overlapping crew trouble and forecast lightning. Athena helps steady the sea. The days condense episodes from Books V, X and XII, with exact reference visits that preserve the main reading place.

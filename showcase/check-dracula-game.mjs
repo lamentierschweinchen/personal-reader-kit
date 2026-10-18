@@ -1,15 +1,15 @@
 import {createRequire} from 'node:module';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
-import {STAGES,createGame,start,update,retry,nextRoom,collides,solids,coverAt} from '../examples/dracula/play/engine.mjs';
+import {STAGES,VIEW,cameraFor,createGame,start,update,retry,nextRoom,collides,solids,coverAt} from '../examples/dracula/play/engine.mjs';
 const require=createRequire(import.meta.url),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.TEST_URL||'http://127.0.0.1:4314/dracula/play/';
 const out=new URL('../test-results/showcase/dracula-game/',import.meta.url);await mkdir(out,{recursive:true});
 const SAVE_KEY='newreading-dracula-castle-v2',receipts=[];
 const routes=[
  [[[495,500],[495,342]],[[300,342]],[[300,240],[107,240],[107,100]],[[107,240],[495,240],[495,95]]],
- [[[220,497],[220,355]],[[230,244]],[[174,244],[174,208],[107,208]],[[107,100]],[[107,208]],[[174,208],[174,244],[230,244]],[[352,244],[352,275]],[[352,382],[510,382],[510,490]],[[510,382],[505,300]],[[495,300],[495,95]]],
- [[[190,495],[190,350],[208,350]],[[300,350]],[[420,350]],[[420,240],[500,240]],[[500,100]],[[300,100],[105,100]],[[105,250]],[[208,250],[208,350]],[[300,350]],[[300,531]]]
+ [[[300,615],[300,480]],[[300,350]],[[335,244]],[[190,244],[190,208],[107,208]],[[107,100]],[[107,208]],[[190,208],[190,244],[335,244]],[[465,244],[465,275]],[[465,475],[550,475]],[[795,475],[795,610]],[[795,375]],[[795,95]]],
+ [[[250,795],[250,510]],[[415,535]],[[600,550]],[[815,535]],[[900,510]],[[900,380],[1100,380]],[[1100,100]],[[600,100]],[[105,100]],[[105,380]],[[260,380],[260,510]],[[415,535]],[[600,550]],[[600,831]]]
 ];
 // Predict departure windows in Node, then execute the route using real keys/touches.
 // Browser game state, animation time and outcomes are never assigned by this check.
@@ -37,7 +37,7 @@ function departure(g,points){
 }
 const read=page=>page.evaluate(()=>{
  const s=document.querySelector('#castle'),p=document.querySelector('#harker').getAttribute('transform').match(/[\d.-]+/g).map(Number);
- return {phase:s.dataset.phase,stage:Number(s.dataset.stage),completed:Number(s.dataset.completed),gentle:s.dataset.gentle==='true',time:Number(s.dataset.time),patrolTime:Number(s.dataset.patrolTime),x:p[0],y:p[1],warning:Number(s.dataset.warning),cover:document.querySelector('#harker').dataset.cover,inventory:s.dataset.inventory.split(',').filter(Boolean),opened:s.dataset.opened.split(',').filter(Boolean),objective:document.querySelector('#objective').textContent};
+ return {phase:s.dataset.phase,stage:Number(s.dataset.stage),worldWidth:Number(s.dataset.worldWidth),worldHeight:Number(s.dataset.worldHeight),cameraX:Number(s.dataset.cameraX),cameraY:Number(s.dataset.cameraY),view:s.getAttribute('viewBox').split(' ').map(Number),completed:Number(s.dataset.completed),gentle:s.dataset.gentle==='true',time:Number(s.dataset.time),patrolTime:Number(s.dataset.patrolTime),x:p[0],y:p[1],warning:Number(s.dataset.warning),cover:document.querySelector('#harker').dataset.cover,inventory:s.dataset.inventory.split(',').filter(Boolean),opened:s.dataset.opened.split(',').filter(Boolean),objective:document.querySelector('#objective').textContent};
 });
 function model(s){const g=createGame({stage:s.stage-1,completed:s.completed,gentle:s.gentle});return Object.assign(g,{phase:s.phase,time:s.time,patrolTime:s.patrolTime,player:{x:s.x,y:s.y,angle:0},warning:s.warning,inventory:s.inventory,opened:s.opened,cover:s.cover});}
 const shot=async(page,name)=>page.screenshot({path:new URL(name+'.png',out).pathname});
@@ -54,20 +54,36 @@ async function move(page,axis,target,touch,{allowCaught=false}={}){
  const after=await read(page);if(!allowCaught)assert.notEqual(after.phase,'caught',`caught in room ${after.stage} at ${after.x},${after.y} going ${dir}, t=${after.time}`);
 }
 async function winRoom(page,touch,label){
- const stage=(await read(page)).stage,legs=[];
+ const stage=(await read(page)).stage,legs=[];await checkPlan(page,touch,label);await cameraCheck(page);
  for(const points of routes[stage-1]){
   const s=await read(page);assert.equal(s.phase,'playing');
   const wait=departure(model(s),points),target=s.time+wait;
   await page.waitForFunction(t=>Number(document.querySelector('#castle').dataset.time)>=t,target,{polling:'raf',timeout:48000});
   for(const [x,y] of points){await move(page,'x',x,touch);await move(page,'y',y,touch);}
-  const a=await read(page);legs.push({wait:+wait.toFixed(1),end:[a.x,a.y],time:a.time});
+  const a=await read(page);await cameraCheck(page);if(legs.length===0||legs.length===Math.floor(routes[stage-1].length/2))await shot(page,`${label}-room-${stage}-camera-${legs.length}`);legs.push({wait:+wait.toFixed(1),end:[a.x,a.y],time:a.time});
  }
  const a=await read(page);assert.equal(a.phase,stage===3?'escaped':'interlude');assert.equal(a.completed,stage);
- assert.ok(STAGES[stage-1].requires.every(k=>a.inventory.includes(k)));assert.equal(a.opened.length,STAGES[stage-1].doors.length);
+ assert.ok(STAGES[stage-1].requires.every(k=>a.inventory.includes(k)));assert.equal(a.opened.length,STAGES[stage-1].doors.length);if(stage>1)assert.ok(legs.some(l=>l.end[0]>STAGES[stage-2].width),'Actual play must reach the newly added eastern floor');
  await unchanged(page,true);await shot(page,`${label}-room-${stage}-cleared`);
  if(touch){const size=page.viewportSize();await page.setViewportSize({width:320,height:568});await dimensions(page);await checkOverlay(page);await shot(page,`${label}-room-${stage}-small-interlude`);await page.setViewportSize(size);await unchanged(page,true);}
  receipts.push({case:'room-completion',label,stage,time:a.time,method:touch?'trusted touch holds':'trusted keyboard holds',legs});
  console.log(`${label}: room ${stage} cleared through actual ${touch?'touch':'keyboard'} controls in ${a.time.toFixed(1)} active seconds`);
+}
+async function cameraCheck(page){
+ const s=await read(page),room=STAGES[s.stage-1],expected=cameraFor(model(s));
+ assert.equal(s.worldWidth,room.width);assert.equal(s.worldHeight,room.height);assert.deepEqual(s.view.slice(2),[VIEW,VIEW]);
+ assert.ok(Math.abs(s.cameraX-expected.x)<.02&&Math.abs(s.cameraY-expected.y)<.02);
+ const d=await page.evaluate(()=>{const svg=document.querySelector('#castle');return {width:svg.getBoundingClientRect().width,scale:svg.getScreenCTM().a};});
+ assert.ok(Math.abs(d.scale*VIEW-d.width)<.1,'Larger rooms must not shrink the active game scale');
+}
+async function checkPlan(page,touch,label){
+ const before=await read(page),method=touch?'tap':'click';await page.locator('#map')[method]();
+ assert.equal((await read(page)).phase,'paused');await unchanged(page,true);
+ assert.deepEqual((await page.locator('#floor-plan').getAttribute('viewBox')).split(' ').map(Number),[0,0,before.worldWidth,before.worldHeight]);
+ assert.match(await page.locator('#map-panel').textContent(),/Whole room · play paused/);
+ await shot(page,`${label}-room-${before.stage}-plan`);await page.locator('#close-notes')[method]();
+ assert.equal((await read(page)).phase,'paused');await page.locator('#screen-action')[method]();
+ const after=await read(page);assert.equal(after.x,before.x);assert.equal(after.y,before.y);assert.ok(after.time-before.time<.25);
 }
 async function makeTouch(page,context){
  const cdp=await context.newCDPSession(page);let points=[];
@@ -93,9 +109,9 @@ async function checkOverlay(page){
  }
 }
 async function failure(page,stage,touch){
- const targets=stage===1?[[200,500],[200,420]]:stage===2?[[190,497],[190,400]]:[[190,495],[190,397]];
+ const targets=stage===1?[[200,500],[200,420]]:stage===2?[[285,615],[285,550]]:[[250,795],[250,600]];
  for(const [x,y] of targets){await move(page,'x',x,touch,{allowCaught:true});await move(page,'y',y,touch,{allowCaught:true});}
- await page.waitForFunction(()=>document.querySelector('#castle').dataset.phase==='caught',null,{timeout:17000});
+ await page.waitForFunction(()=>document.querySelector('#castle').dataset.phase==='caught',null,{timeout:24000});
  await unchanged(page,true);const s=await read(page);assert.equal(s.stage,stage);assert.equal(s.completed,stage-1);await checkOverlay(page);
  await page.locator('#screen-action')[touch?'tap':'click']();const a=await read(page);assert.equal(a.phase,'playing');assert.equal(a.stage,stage);assert.equal(a.completed,stage-1);assert.deepEqual(a.inventory,STAGES[stage-1].carry);
 }
@@ -109,8 +125,8 @@ function invariants(){
   g.inventory.push('temporary');g.opened=['temporary'];const fresh=retry(g);assert.equal(fresh.completed,stage);assert.equal(fresh.stage,stage);assert.deepEqual(fresh.inventory,STAGES[stage].carry);assert.deepEqual(fresh.opened,[]);
   if(stage<2){g.completed=stage+1;const n=nextRoom(g);assert.equal(n.stage,stage+1);assert.equal(n.completed,stage+1);}
  }
- // The chapel cannot be crossed without the iron key; the winch cannot precede the last key.
- const chapel=createGame({stage:1,completed:1});start(chapel);chapel.player={x:258,y:273,angle:0};for(let i=0;i<150;i++)update(chapel,{x:1,y:0},1/90);assert.ok(chapel.player.x<282);assert.deepEqual(chapel.opened,[]);
+ // The chapel cannot be crossed without the crowbar; the winch cannot precede the last key.
+ const chapel=createGame({stage:1,completed:1});start(chapel);chapel.player={x:368,y:273,angle:0};for(let i=0;i<150;i++)update(chapel,{x:1,y:0},1/90);assert.ok(chapel.player.x<392);assert.deepEqual(chapel.opened,[]);
  const gate=createGame({stage:2,completed:2});start(gate);gate.player={x:107,y:100,angle:0};update(gate,{},1/90);assert.ok(!gate.inventory.includes('winch'));
  console.log('Model: guarded exits, gate collisions, item dependency, retry and next-room invariants passed');
 }

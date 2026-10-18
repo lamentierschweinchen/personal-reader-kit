@@ -48,6 +48,8 @@ jobs:
         if: hashFiles('showcase/check-readers.mjs') != ''
       - run: node showcase/check-games.mjs --skip-build
         if: hashFiles('showcase/check-games.mjs') != ''
+      - run: node showcase/check-game-updates.mjs --skip-build
+        if: hashFiles('showcase/check-game-updates.mjs') != ''
       - run: node showcase/check-gameplay.mjs --skip-build
         if: hashFiles('showcase/check-gameplay.mjs') != ''
   examples:

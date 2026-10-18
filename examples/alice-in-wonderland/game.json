@@ -30,8 +30,8 @@
     },
     {
       "path": "reader-return.mjs",
-      "bytes": 746,
-      "sha256": "611a3a72b80480acc1403514e70502f32582ce517a66c2e7774a5fca667de21b"
+      "bytes": 3972,
+      "sha256": "5d0ddf01a872c582215d66d80c2063b792bc5c900f0ca7e5d6c6d169fd006204"
     }
   ]
 }

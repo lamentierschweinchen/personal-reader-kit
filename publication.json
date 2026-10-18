@@ -603,6 +603,7 @@
     "showcase/capture.mjs",
     "showcase/check-alice-game.mjs",
     "showcase/check-dracula-game.mjs",
+    "showcase/check-game-updates.mjs",
     "showcase/check-gameplay.mjs",
     "showcase/check-games.mjs",
     "showcase/check-handoff.mjs",

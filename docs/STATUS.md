@@ -4,6 +4,14 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with six reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The six specifically reviewed editions are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Open game updates and larger castle floors · 18 October 2026
+
+Already-open tabs could keep running the first game versions after the progression release was published. Existing live Dracula and Odyssey tabs reproduced this: an ordinary reload refreshed Dracula; Odyssey needed a second reload after its offline copy installed. The three games now detect new offline copies on tab return and while visible, then offer **Reload game** or **Later** while play is stopped. Active rounds are never automatically reloaded. Reloading restarts the current stage; cleared stages and separate reader records remain intact. The first offline installation is not presented as an update.
+
+Castle escape now crosses a 600×600 guest wing, 900×720 chapel and 1200×900 gatehouse. The following camera keeps a 600×600 view instead of shrinking characters and objects to fit the whole room. A paused floor plan shows numbered objects, the exit, Harker and the current view. The chapel introduces a crowbar for its barred passage and a handle carried to the final winch. Three and five patrols guard the larger rooms. Existing version-2 cleared-room checkpoints remain readable.
+
+The new update regression uses actual service workers, ordinary tab changes and explicit reload buttons; it does not force a worker update from the test. It covers returning players, a first-visit tab kept open, unchanged saved state, mobile layouts, deferred updates and keyboard dismissal without resuming play. Expanded-castle checks include routes into the added floor space, camera bounds, object dependencies, floor-plan pause and return, current-room retry and prior checkpoints. Release receipts distinguish these browser checks from physical-device and human gameplay acceptance.
+
 ## Game progression · 18 October 2026
 
 **Tea at Six** now has three courses of 32, 36 and 40 seconds. Each begins with an untimed character exchange. Bread-and-butter orders compete with pouring in course two; course three adds dirty cups that must be replaced after a seat change. Serving food briefly slows a guest's drinking, while replacing a cup discards its tea. The original pouring/refill controls and ink drawings remain.

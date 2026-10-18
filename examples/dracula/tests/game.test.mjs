@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {STAGES,RADIUS,createGame,roomFor,start,pause,resume,retry,nextRoom,update,guardAt,visible,coverAt,collides,segmentRect,fanPoints} from '../play/engine.mjs';
+import {STAGES,VIEW,RADIUS,boundsFor,cameraFor,createGame,roomFor,start,pause,resume,retry,nextRoom,update,guardAt,visible,coverAt,collides,segmentRect,fanPoints} from '../play/engine.mjs';
 
 const run=(g,input,seconds)=>{for(let t=0;t<seconds-1e-7;t+=1/120)update(g,input,Math.min(1/120,seconds-t));};
 const live=(stage=0)=>{const g=createGame({stage,completed:stage});start(g);return g;};
@@ -31,8 +31,8 @@ test('outer bounds, solid masonry and closed locks block movement',()=>{
     const s=live(stage);
     for(const wall of [...roomFor(s).walls,...roomFor(s).doors])assert.ok(collides(s,wall.x+wall.w/2,wall.y+wall.h/2));
   }
-  const chapel=live(1);place(chapel,258,273);run(chapel,{x:1,y:0},.35);
-  assert.ok(chapel.player.x<=282-RADIUS+.001);assert.deepEqual(chapel.opened,[]);
+  const chapel=live(1);place(chapel,368,273);run(chapel,{x:1,y:0},.35);
+  assert.ok(chapel.player.x<=392-RADIUS+.001);assert.deepEqual(chapel.opened,[]);
   assert.equal(collides(chapel,chapel.player.x,chapel.player.y),false);
 });
 
@@ -72,7 +72,7 @@ test('walls and closed doors occlude sight; opening a lock changes the same sigh
   for(let stage=0;stage<STAGES.length;stage++){
     const s=createGame({stage});for(let i=0;i<roomFor(s).patrols.length;i++){
       const points=fanPoints(s,guardAt(s,i)).split(' ').flatMap(p=>p.split(',').map(Number));
-      assert.ok(points.every(n=>Number.isFinite(n)&&n>=49-.01&&n<=551+.01));
+      const bounds=boundsFor(s);assert.ok(points.every((n,i)=>Number.isFinite(n)&&n>=49-.01&&n<=(i%2?bounds.bottom:bounds.right)+.01));
     }
   }
 });
@@ -93,9 +93,9 @@ test('the guest wing needs the brass key, opened arch and stair bolt',()=>{
   assert.equal(g.phase,'interlude');assert.equal(g.completed,1);
 });
 
-test('the chapel carries the brass key, but requires its own iron key and handle',()=>{
+test('the chapel carries the brass key, but requires a crowbar to lift the bars and a handle to carry onward',()=>{
   const g=live(1);assert.deepEqual(g.inventory,['brass']);approachDoor(g);assert.deepEqual(g.opened,[]);
-  collect(g,'iron');approachDoor(g);assert.deepEqual(g.opened,['cross-door']);exit(g);assert.equal(g.phase,'playing');
+  collect(g,'crowbar');approachDoor(g);assert.deepEqual(g.opened,['cross-door']);exit(g);assert.equal(g.phase,'playing');
   collect(g,'handle');exit(g);assert.equal(g.phase,'interlude');assert.equal(g.completed,2);
 });
 
@@ -119,4 +119,28 @@ test('retry discards only current-room objects; continuation carries the complet
 test('changing patrol pace while paused preserves position and resumes at the gentler pace',()=>{
   const g=live();run(g,{},2);pause(g);const before=guardAt(g,0);g.gentle=true;run(g,{},5);assert.deepEqual(guardAt(g,0),before);
   resume(g);run(g,{},1);assert.ok(Math.abs(g.patrolTime-2.72)<.001);
+});
+
+
+test('each room grows in width, depth and walkable floor, with objects beyond the earlier extent',()=>{
+  assert.deepEqual(STAGES.map(({width,height})=>[width,height]),[[600,600],[900,720],[1200,900]]);
+  let area=0;
+  for(let i=0;i<STAGES.length;i++){
+    const room=STAGES[i],walkable=(room.width-98)*(room.height-98)-room.walls.reduce((sum,w)=>sum+w.w*w.h,0);
+    assert.ok(walkable>area);area=walkable;
+    if(i){assert.ok(room.items.some(p=>p.x>STAGES[i-1].width));assert.ok([...room.items,room.exit].some(p=>p.y>STAGES[i-1].height));}
+  }
+});
+
+test('camera follows across the expanded floor without reducing its view scale or leaving world bounds',()=>{
+  for(let stage=0;stage<STAGES.length;stage++){
+    const g=live(stage),room=roomFor(g),bounds=boundsFor(g);
+    for(const p of [room.spawn,...room.items,room.exit,{x:bounds.right-RADIUS,y:bounds.bottom-RADIUS}]){
+      place(g,p.x,p.y);const camera=cameraFor(g);
+      assert.equal(camera.width,VIEW);assert.equal(camera.height,VIEW);
+      assert.ok(camera.x>=0&&camera.x+VIEW<=room.width);assert.ok(camera.y>=0&&camera.y+VIEW<=room.height);
+      assert.ok(p.x>=camera.x&&p.x<=camera.x+VIEW&&p.y>=camera.y&&p.y<=camera.y+VIEW);
+    }
+    if(stage){place(g,bounds.right-RADIUS,bounds.bottom-RADIUS);assert.equal(cameraFor(g).x,room.width-VIEW);assert.equal(cameraFor(g).y,room.height-VIEW);}
+  }
 });

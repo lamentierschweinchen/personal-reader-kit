@@ -1005,8 +1005,8 @@
         },
         {
           "path": "play/reader-return.mjs",
-          "bytes": 746,
-          "sha256": "611a3a72b80480acc1403514e70502f32582ce517a66c2e7774a5fca667de21b"
+          "bytes": 3972,
+          "sha256": "5d0ddf01a872c582215d66d80c2063b792bc5c900f0ca7e5d6c6d169fd006204"
         },
         {
           "path": "play/styles.css",
@@ -1031,7 +1031,7 @@
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "91b3ae13c16a210c5420631814ded47951edf87e6044c4214686ccfbfd6e1ffc"
+          "sha256": "6520d4e0476c528557d363521fb6f57bba5b32d975a9a2bcc49f5e7d231d4221"
         },
         {
           "path": "text.mjs",
@@ -1050,7 +1050,8 @@
         "tests/alice-browser.mjs",
         "tests/publication.test.mjs",
         "vercel.json",
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026)."
       ],
       "game": {
         "title": "Tea at Six",
@@ -1350,8 +1351,8 @@
         },
         {
           "path": "play/reader-return.mjs",
-          "bytes": 527,
-          "sha256": "619e91e734f606e74151528036206b0a1fe7d6d2ca9a76a4faa3e263329a8055"
+          "bytes": 3753,
+          "sha256": "aebf4e422908a07c9dc905588a4e8c52e132c2aacb8f12002042c935cdfba05c"
         },
         {
           "path": "play/style.css",
@@ -1376,7 +1377,7 @@
         {
           "path": "sw.js",
           "bytes": 1304,
-          "sha256": "bc70af285166b305260657d0806a398f7e4744b9be262c5f2262d865e3e5531d"
+          "sha256": "a663892670076c4a8ac91b97bb3276cee97dbe6c78e500c29f75c462ba0e224a"
         },
         {
           "path": "text.mjs",
@@ -1391,7 +1392,8 @@
         "provenance": "examples/odyssey/docs/GAME.md"
       },
       "maintenanceChanges": [
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026)."
       ]
     },
     {
@@ -1474,13 +1476,13 @@
         },
         {
           "path": "play/app.mjs",
-          "bytes": 19485,
-          "sha256": "858acb54782d3688ebf920e602d859834463d9c6dbee5da1f4ecb44b1810887f"
+          "bytes": 22616,
+          "sha256": "0bc0f6d798415d6a3642f0613c3fa84d5e81f885647244970d4f9bb806962676"
         },
         {
           "path": "play/engine.mjs",
-          "bytes": 10569,
-          "sha256": "5abddb082813f1198b715c3c0ea66afed9d28e88ccbd199dd1d00bf772fd89be"
+          "bytes": 11650,
+          "sha256": "04ee814c5845f93e56e11d6d9762979d94bd4fbeeb859c217a9d724c257d127e"
         },
         {
           "path": "play/icon.svg",
@@ -1489,18 +1491,18 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 7581,
-          "sha256": "c013583db0c2a62054b7b16b224de8bf8b7088d0f73617761e1ba39b048003e4"
+          "bytes": 8361,
+          "sha256": "e96892aff27c753ecb0a3ffe166a9f055843b6e064337c291561d670ac379f0c"
         },
         {
           "path": "play/reader-return.mjs",
-          "bytes": 527,
-          "sha256": "8ef0e884f3b1ffca6f2aa694e311e02d3668fbb824fe1dc097f69b95ab70a07e"
+          "bytes": 3753,
+          "sha256": "9f7e47f6c0bdc1248f25d3cf7692e20dcbb8e279141e18027805f9700e072de1"
         },
         {
           "path": "play/style.css",
-          "bytes": 12563,
-          "sha256": "5fbc4ebb712d1711d5a522c931b83bc4304bd145ee54809b52b6e35651c620f6"
+          "bytes": 13068,
+          "sha256": "65d486a44e82c571e1ec22a4c948dd59f2d23c7c0bac4deec0f76165614b6ca8"
         },
         {
           "path": "robots.txt",
@@ -1525,7 +1527,7 @@
         {
           "path": "sw.js",
           "bytes": 1386,
-          "sha256": "5b414b6b320624ce2b21b91a5ea34c7e1bfeb719744d0ad7541adcd0d17c1a3d"
+          "sha256": "b7872c5877a2ebcb169b7d6adf7b88ccd412cb24cc455eff89c6b2debb569b7f"
         },
         {
           "path": "text.mjs",
@@ -1540,7 +1542,8 @@
         "provenance": "examples/dracula/docs/GAME.md"
       },
       "maintenanceChanges": [
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026)."
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026)."
       ]
     }
   ],
