@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 81359,
-          "sha256": "09c32187847e3072ad6bfd2da962a294cea0751fae4a12feae8de493785dbe75"
+          "bytes": 83317,
+          "sha256": "dd74caa7da6fc8b2655176450fe8265f32726d75620caa21bf7506d80e6c8c30"
         },
         {
           "path": "austen-colophon.png",
@@ -870,8 +870,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3279,
-          "sha256": "c6212929a339dec37100adb6c9e7ca07f5f1b39443682ab803dd8cb3f7585df1"
+          "bytes": 3504,
+          "sha256": "4f193c638bac2a8a44b9b772adffb0be120cf124a12795e75f32c0917dbe49f8"
         },
         {
           "path": "library.json",
@@ -895,13 +895,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 36442,
-          "sha256": "4f00784a7690d4bbb910f0b52bd5cab7bf55516e6bb9ca0eb4f4d0c34812ae80"
+          "bytes": 37881,
+          "sha256": "537d776f0b0e46889be26ddb885f59e0abfe8eef8d2947aa4d2aa1f8501fdaac"
         },
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "ae865060fb1b1c68bcebd39c383669c420c3a703ee3a3794d3838a955c42517d"
+          "sha256": "223004e0bd37068c2441c17b9a50c489cfef77ed118624687c7904ff6f7593c5"
         },
         {
           "path": "text.mjs",
@@ -918,7 +918,8 @@
         "site/style.css",
         "tests/austen-browser.mjs",
         "tests/publication.test.mjs",
-        "vercel.json"
+        "vercel.json",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ]
     },
     {
@@ -945,8 +946,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 81041,
-          "sha256": "64676456c0abab2eaca12308ccd9669e4ad8b3c1420ee4ee8a62effbb77783e5"
+          "bytes": 83015,
+          "sha256": "41e270e8e205ab0e3fd0cd7fae523d32e678c1cf3c7ccabb246e911716ba7798"
         },
         {
           "path": "bundle.mjs",
@@ -970,8 +971,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3094,
-          "sha256": "4ed3ee80add210a50b1f64e1c2b67b2d01e3d3d365efdb1938ca4fc706344f34"
+          "bytes": 3319,
+          "sha256": "2e702696ae8ef47b078fe4502124b2d7ab5fe70474603e8e6e062f8d6faa96df"
         },
         {
           "path": "library.json",
@@ -995,13 +996,13 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 22600,
-          "sha256": "961436fcb5ad12c46048ba3f9b255d03577a63883736c1e64897dc41bd228128"
+          "bytes": 24412,
+          "sha256": "2dec173c7773821deb69caeeb95855f06fea06cb0c67d8cf8572ea70e714a747"
         },
         {
           "path": "play/index.html",
-          "bytes": 5895,
-          "sha256": "5034409e67c7561505ae80f3f62ba5c2076bfaae780b4bc3e3c8a64a3a2a2239"
+          "bytes": 6248,
+          "sha256": "048d4f22653dd160851007b369583d41312edf7b0a40e260c2dfc9a831f6943e"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1025,13 +1026,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 42644,
-          "sha256": "5c160b11dae874bfd1a63ca8880bb7dd4f66711eeb84ac47804412590bd4b312"
+          "bytes": 44082,
+          "sha256": "bbb46ab126afb053e84c62123173c3390f2206723be4f03f9495d22ef5b4f30f"
         },
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "ac91e7ae469478d78968194eb1b98259a2bf4f1f92d2d26ce3057419f0c135e6"
+          "sha256": "19fc1f44f988c9c609af6ce9055294b6b238d47a910eed21c34815a220e1d614"
         },
         {
           "path": "text.mjs",
@@ -1051,7 +1052,8 @@
         "tests/publication.test.mjs",
         "vercel.json",
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
-        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026)."
+        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ],
       "game": {
         "title": "Tea at Six",
@@ -1083,8 +1085,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 70306,
-          "sha256": "eeaa271efba9ac528fd3f925efaa8a0d01d3fc7b861f734c1a0039e8ec5f450e"
+          "bytes": 72264,
+          "sha256": "0a9fc9ed79662922e43339c14241f80e970aaa2795aa1e5097eb6a9591ec6b8e"
         },
         {
           "path": "bundle.mjs",
@@ -1113,8 +1115,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3056,
-          "sha256": "45fb001d944831587e40b289880560f94d518a374a78bb2e30d9e02855042fd7"
+          "bytes": 3281,
+          "sha256": "3a17c44f0206d604d618f3a98c5ab156aea8ec919a5553274e38c6a29ee670b6"
         },
         {
           "path": "library.json",
@@ -1138,13 +1140,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 36315,
-          "sha256": "7b78029b1b6b66aea1aced5acdece2b49ad672edf53eda170a8980314324e071"
+          "bytes": 37804,
+          "sha256": "809c018aed01303855987cb10716c332c4dd7403bb3a499517c1eb962ab50ed3"
         },
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "000ed7ff642d5f13dc765e12ad2cd0236164cde0eb6c8a97428dab39234115ea"
+          "sha256": "49e30b607c6f9fd021f6af2198f8e373bed3cc435f04e64bf1faf8177e86ff6b"
         },
         {
           "path": "text.mjs",
@@ -1162,7 +1164,8 @@
         "site/style.css",
         "tests/publication.test.mjs",
         "tests/walden-design-browser.mjs",
-        "vercel.json"
+        "vercel.json",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ]
     },
     {
@@ -1189,13 +1192,13 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74687,
-          "sha256": "bf1ec3f26b3615ae225bfbb963ac9cfd214160d1cbb54895813ee33d58d16eea"
+          "bytes": 76645,
+          "sha256": "34370882c354a712954578e436d7b76b93255a7d0782b5a124db60cc5acd2e5f"
         },
         {
           "path": "broadside.css",
-          "bytes": 15909,
-          "sha256": "5caf6dc28bf786d07efb668c9acfacbf1693a600e5063ff3a33ee97d2a6a97a7"
+          "bytes": 17347,
+          "sha256": "87daa5523d9e1cf5c4f18cbcd38565336d8afdd3f714b9efe0758180b2dc3e6d"
         },
         {
           "path": "bundle.mjs",
@@ -1219,8 +1222,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3264,
-          "sha256": "7326bc5fe7419f6053788e1a3919b5d7e6e293dfda3796938ed6f07cf0df98f4"
+          "bytes": 3489,
+          "sha256": "e9ad57be5559d73c6eddcec43cf72016b82d5c611d0e400955cb29eecb8d7edf"
         },
         {
           "path": "lectures.mjs",
@@ -1255,7 +1258,7 @@
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "1b8a0aedd305b512626046a6edcbac17f983e40a3f8707535876d43a49aaf817"
+          "sha256": "7de6bb1938e6f4dc08c626266e791fdc021bdeb2836970cf69f8e96be86212f1"
         },
         {
           "path": "text.mjs",
@@ -1273,7 +1276,8 @@
         "site/style.css",
         "tests/publication.test.mjs",
         "tests/trial-browser.mjs",
-        "vercel.json"
+        "vercel.json",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ]
     },
     {
@@ -1296,8 +1300,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 78396,
-          "sha256": "63fe001fb99768cca51b1cffd9b44bb2437b024654d6ba1bb545861fb8aa3e9d"
+          "bytes": 80354,
+          "sha256": "79dabec86ad642bba812b18f2c77d750f6acac1fcb7930ee0776e3eab5adba6d"
         },
         {
           "path": "bundle.mjs",
@@ -1321,8 +1325,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3035,
-          "sha256": "9ab040acc6105f8d28ea5e0d0b1abffbbfa2d5fb4705dc08d0adac61e41be110"
+          "bytes": 3260,
+          "sha256": "95b5202fe1f3cf7b68b3e643af243048d68c96215dd8bd0504d0a16be8947779"
         },
         {
           "path": "library.json",
@@ -1346,8 +1350,8 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 9394,
-          "sha256": "21ba2b92e95f46934f5ab10ed310ce8b4f0fc9aabc9f21181afc2d52454133de"
+          "bytes": 9663,
+          "sha256": "c6e7ad596d02bcac344281c60b94d3d9a815a821eb97797452c00f633efd925d"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1357,7 +1361,7 @@
         {
           "path": "play/style.css",
           "bytes": 19547,
-          "sha256": "4f3c08ea5cdac4561770387218343d61b662338c1393de8e3bbf355e7a130f15"
+          "sha256": "dd99ad3725f36ced49a581a5643207a724202f4d7f530537ef745f1767f8dbd9"
         },
         {
           "path": "robots.txt",
@@ -1371,13 +1375,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 30314,
-          "sha256": "60468c967b62c2429c8e22591a7f5f6001a2b109f2634ba9135e0fabf63c864f"
+          "bytes": 31976,
+          "sha256": "d04e9f305cee7e229ebb2547c2b0d0af74e9ac4a80e751ac26199a57341150be"
         },
         {
           "path": "sw.js",
           "bytes": 1304,
-          "sha256": "6a84c6f2c29b5c1a08b62d324e57371962c451920c3abf7c7ff67a04110e95ee"
+          "sha256": "8e9fc0b63b9fa1bc99a62c3d6cfa1772cfe65a95775c9abc789931651b7c5dd0"
         },
         {
           "path": "text.mjs",
@@ -1393,7 +1397,8 @@
       },
       "maintenanceChanges": [
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
-        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026)."
+        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ]
     },
     {
@@ -1416,8 +1421,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 72156,
-          "sha256": "f30709793fbf4ccbfc4562165508f8de7189709b6a708af9bff3e19021cc9a48"
+          "bytes": 74114,
+          "sha256": "1ca788ab5da90eca934e29fb297b9504a7a7a94d0c534e4444df986ba0f587dc"
         },
         {
           "path": "bundle.mjs",
@@ -1426,8 +1431,8 @@
         },
         {
           "path": "case-ui.mjs",
-          "bytes": 10799,
-          "sha256": "8e167de05fe35f768489fe35c0bb0b6543be891e5f7c1fb96ba7a51a2e3da16f"
+          "bytes": 10798,
+          "sha256": "8cd58643557ee806f0ec957afe3f3d9ecf9236d4b30456843de49ddc146f40a2"
         },
         {
           "path": "case.mjs",
@@ -1446,8 +1451,8 @@
         },
         {
           "path": "dracula.css",
-          "bytes": 13539,
-          "sha256": "d6f272c8ab812e3b3ddfded939694d21a0353ed3901156608405d6fa0dae198a"
+          "bytes": 15050,
+          "sha256": "119ea8256e79ff4a495f0d41dee65df281ce6f6c77eecbd980d77d1500245111"
         },
         {
           "path": "edition.mjs",
@@ -1461,8 +1466,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 2926,
-          "sha256": "f1a0f51d478dc239f27b3105a554631e2e244a493ac3ea15f2d9b867490d9b3e"
+          "bytes": 3151,
+          "sha256": "2dd811771143079cc8c92f7ee9ba7eb7f7336a613ef9a78305c7bac9b5f9cdb2"
         },
         {
           "path": "library.json",
@@ -1496,8 +1501,8 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 10157,
-          "sha256": "e5e9f3edce7bb4874798240910f9705e1a7c11c96f9172615d40ece8c0a7bdb2"
+          "bytes": 10388,
+          "sha256": "6df4c8ebdcd975025529e4cb94445bac2e3d9b17c2eeca980485571b64f9ef6a"
         },
         {
           "path": "play/progress.mjs",
@@ -1516,8 +1521,8 @@
         },
         {
           "path": "play/style.css",
-          "bytes": 16492,
-          "sha256": "7eb399cb7cca55a35cce26b6e14a756733d0fd6c510f7221ece1925d70cb3946"
+          "bytes": 17377,
+          "sha256": "2f06b60dc8e1fc9288ee802661520d4fce8a2b626852441980e5d0071a69a708"
         },
         {
           "path": "robots.txt",
@@ -1542,7 +1547,7 @@
         {
           "path": "sw.js",
           "bytes": 1441,
-          "sha256": "c70985cacc2d32d63e609cf2ca68a9b1f991e25c2586a60920a09fed8f564545"
+          "sha256": "379a4b67c1ea52f621d0431fa6d98fcb931c997e0397120d6088f8bafb982b8b"
         },
         {
           "path": "text.mjs",
@@ -1558,7 +1563,8 @@
       },
       "maintenanceChanges": [
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
-        "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026)."
+        "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
       ]
     }
   ],

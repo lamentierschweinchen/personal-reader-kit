@@ -22,3 +22,18 @@ body[data-mode=ready] .game-shell{visibility:hidden}
 @media(max-height:650px) and (max-width:380px){.chapter-sheet{padding-top:10px}.chapter-screen h2{font-size:28px;margin-bottom:10px}.chapter-illustration{height:54px;margin-bottom:12px;overflow:hidden}.chapter-illustration svg{height:100%;max-height:none}.chapter-screen blockquote{font-size:20px;line-height:1.35}.chapter-goal{margin-top:6px;line-height:1.4}}
 
 .source-passage mark{background:#e5d2a380;color:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+.topbar,.heading,.game-status,.controls{height:auto}
+.topbar{min-height:52px;flex-wrap:wrap}
+.heading{min-height:70px;padding-block:0}
+.heading>div{min-width:0}
+.heading h1{overflow-wrap:break-word}
+.steps{flex-shrink:0}
+.game-status{min-height:40px;flex-wrap:wrap;padding-block:6px}
+.controls{min-height:50px;flex-wrap:wrap;padding-block:0}
+.control-note{min-width:0;max-width:100%}
+footer{flex-wrap:wrap}
+footer>span{min-width:0}
+@media(pointer:coarse),(max-width:900px){.topbar{min-height:48px}.heading{min-height:62px}.game-status{min-height:39px}.controls{min-height:160px}}
+@media(max-height:720px) and (max-width:599px){.topbar{min-height:44px}.heading{min-height:54px}.game-status{min-height:37px}.controls{min-height:135px}}
+@media(max-height:520px) and (min-width:600px){.topbar{min-height:44px}.heading{min-height:60px}.game-status{min-height:30px}.controls{min-height:0}}

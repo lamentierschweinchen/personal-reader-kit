@@ -5,13 +5,13 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 9394,
-      "sha256": "21ba2b92e95f46934f5ab10ed310ce8b4f0fc9aabc9f21181afc2d52454133de"
+      "bytes": 9663,
+      "sha256": "c6e7ad596d02bcac344281c60b94d3d9a815a821eb97797452c00f633efd925d"
     },
     {
       "path": "style.css",
       "bytes": 19547,
-      "sha256": "4f3c08ea5cdac4561770387218343d61b662338c1393de8e3bbf355e7a130f15"
+      "sha256": "dd99ad3725f36ced49a581a5643207a724202f4d7f530537ef745f1767f8dbd9"
     },
     {
       "path": "game.mjs",

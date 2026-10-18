@@ -8,7 +8,7 @@ if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const output=new URL('../test-results/showcase/',import.meta.url);await mkdir(output,{recursive:true});
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
-const sizes=[{width:320,height:740},{width:402,height:874},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
+const sizes=[{width:320,height:740},{width:375,height:812},{width:390,height:844},{width:430,height:932},{width:402,height:874},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
 const promptText=(await readFile(new URL('./start.txt',import.meta.url),'utf8')).trim();
 const commandText='Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.';
 async function settled(page){await page.locator('header [data-copy]:not([hidden])').waitFor();await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
@@ -47,8 +47,12 @@ try{
     assert.equal(await page.locator('meta[property="og:image"]').getAttribute('content'),'https://newreading.app/assets/read-share.jpg?v=20261019');
     assert.deepEqual(await page.evaluate(async()=>{const img=new Image();img.src='/assets/read-share.jpg';await img.decode();return[img.naturalWidth,img.naturalHeight]}),[1200,630]);
     // The hero switches editions; the explorations each show a different panel.
+    const heroBefore=await page.locator('.hero').boundingBox();
     await page.locator('.hero [data-pick="money"]').click();assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money');assert.equal(await page.locator('[data-text="name"]').textContent(),'fortune');
-    const stageHeights=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));}
+    const heroAfter=await page.locator('.hero').boundingBox();
+    assert.ok(Math.abs(heroAfter.height-heroBefore.height)<1,'Switching the edition keeps the hero height');
+    const stageHeights=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));
+     const fit=await page.locator('.mode-explore').evaluate(e=>{const box=e.getBoundingClientRect();return [...e.querySelectorAll('.mode-text,.stage,.tabs button')].every(x=>{const r=x.getBoundingClientRect();return r.left>=box.left&&r.right<=box.right})});assert.ok(fit,'Explore controls and preview fit their section');}
     assert.equal(new Set(stageHeights).size,1,'Explore keeps one height: '+stageHeights);
     await page.locator('[data-explore="word"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="accounts"]').getAttribute('aria-selected'),'true');
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
@@ -63,7 +67,23 @@ try{
     await page.locator('.sample').first().click();await page.locator('#offline-status').filter({hasText:'Available offline'}).waitFor({timeout:60000});assert.equal(new URL(page.url()).pathname,'/austen/');await page.goBack();await page.locator('.sample').first().waitFor();
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,loadedAssets:true,firstScreenStart:true,copyAndFallback:true,editionSwitch:true,explorePanels:true,guideRoutes:true,readerRoundTrip:true});await context.close();
    }
+   // A hovered cover band must resume after a second activation.
+   const moving=await browser.newContext({viewport:{width:390,height:844}}),motion=await moving.newPage();await motion.goto(base);await settled(motion);
+   const band=motion.locator('[data-marquee]');await band.click();await motion.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+   assert.equal(await band.getAttribute('aria-label'),'Resume the moving covers');
+   assert.equal(await motion.locator('[data-covers]').evaluate(e=>getComputedStyle(e).animationPlayState),'paused');
+   await band.click();assert.equal(await band.getAttribute('aria-label'),'Pause the moving covers');
+   assert.equal(await motion.locator('[data-covers]').evaluate(e=>getComputedStyle(e).animationPlayState),'running');await moving.close();
+   // Enlarge rendered text, including fixed-pixel labels, as a reflow stress check.
+   for(const width of [320,390]){const enlarged=await browser.newContext({viewport:{width,height:844},reducedMotion:'reduce'}),zoom=await enlarged.newPage();await zoom.goto(base);await settled(zoom);
+    await zoom.evaluate(()=>{const es=[...document.querySelectorAll('body,body *')],sizes=es.map(e=>parseFloat(getComputedStyle(e).fontSize));es.forEach((e,i)=>e.style.fontSize=sizes[i]*2+'px')});await settled(zoom);
+    assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Homepage reflows at 200% text');
+    for(const id of ['word','accounts','closer','places','play']){await zoom.locator(`[data-explore="${id}"]`).click();assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Enlarged '+id+' panel fits');}
+    await enlarged.close();
+   }
    const noScript=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('.sample').count(),6);assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
+   assert.equal(await plain.locator('.panel:visible').count(),5,'All Explore examples remain available without JavaScript');
+   assert.equal(await plain.locator('.tabs').isVisible(),false);assert.equal(await plain.locator('[data-pick="money"]').isDisabled(),true);
    await plain.locator('a[href="/start.txt"]').click();assert.equal((await plain.locator('body').textContent()).trim(),promptText);
    await plain.goto(base+'/learn/');assert.equal(await plain.locator('#paste [data-copy]').isVisible(),false);assert.match(await plain.locator('#starter').inputValue(),/https:\/\/newreading.app\/start.txt/);assert.equal(await plain.locator('[data-route]:visible').count(),3);assert.equal(await plain.locator('.learn-q').isVisible(),false);await noScript.close();
   }finally{await browser.close()}

@@ -82,8 +82,10 @@ try {
    await cold.getByRole('link',{name:'Companion',exact:true}).click();await cold.locator('.account-reading').waitFor();assert.equal(await cold.locator('.account-part').count(),3);assert.equal(await cold.locator('.locked-reading').count(),0);assert.equal((await state(cold)).notes.length,5);await capture(cold,engine,'cold-offline-companion');
    // Write while the origin remains stopped and the browser is offline. A
    // reading-only outage cannot establish this persistence guarantee.
-   await go(cold,'civil-disobedience','chap20');const offlineSection=library[1].sections[0],offlineBlock=offlineSection.blocks.find(b=>b.kind==='prose'&&b.text.length>200),offlineStart=40,offlineEnd=120,offlineQuote=offlineBlock.text.slice(offlineStart,offlineEnd);
-   await cold.locator(`#reading-text [data-block="${offlineBlock.id}"]`).scrollIntoViewIfNeeded();await cold.waitForTimeout(350);const offlinePlace=(await state(cold)).positions['civil-disobedience'];assert.ok(offlinePlace);
+   await go(cold,'civil-disobedience','chap20');const offlineSection=library[1].sections[0],offlineBlock=offlineSection.blocks.filter(b=>b.kind==='prose'&&b.text.length>200)[1],offlineStart=40,offlineEnd=120,offlineQuote=offlineBlock.text.slice(offlineStart,offlineEnd);
+   await cold.evaluate(id=>{const block=document.querySelector(`#reading-text [data-block="${id}"]`),edge=document.querySelector('.reader-tools').getBoundingClientRect().bottom+20;scrollTo(0,scrollY+block.getBoundingClientRect().top-edge);},offlineBlock.id);
+   await cold.waitForTimeout(500);
+   await cold.waitForFunction(async id=>(await(await import('/db.mjs')).loadState()).positions['civil-disobedience']?.blockId===id,offlineBlock.id);const offlinePlace=(await state(cold)).positions['civil-disobedience'];assert.ok(offlinePlace);
    const checkOfflinePlace=async()=>{const actual=(await state(cold)).positions['civil-disobedience'];assert.equal(actual.sectionId,offlinePlace.sectionId);assert.equal(actual.blockId,offlinePlace.blockId);assert.equal(actual.revision,offlinePlace.revision);const height=await cold.locator(`#reading-text [data-block="${offlinePlace.blockId}"]`).evaluate(el=>el.getBoundingClientRect().height);assert.ok(Math.abs(actual.ratio-offlinePlace.ratio)*height<=1,'Reading place moved beyond browser subpixel rounding');};
    assert.equal(await select(cold,offlineBlock.id,offlineStart,offlineEnd),offlineQuote);await cold.locator('#selection-save').click();
    const createdNote='Created while offline — original verification note.\nSecond line.';

@@ -4,6 +4,14 @@ The Canetti builder independently reviewed `main@4eaeec6` on 15 October 2026, in
 
 The useful product description is a **reusable reader shell plus a supervised editorial workflow**. This update preserves that boundary. It does not claim automated scholarship, universal ebook conversion, physical mobile dependability or hosted private libraries.
 
+## Alice gesture follow-up, 18 October 2026
+
+The hosted gameplay check interrupted the four-reader release after an unexpected return to course one. An instrumented run withdrew the initial resize-race hypothesis: a held cup reached an interlude, then its trusted touch release landed on the newly revealed primary button. The application had released native pointer capture before the physical gesture ended. At final completion the same button means Replay, explaining the reset.
+
+Retaining pointer capture alone did not fix the compatibility click. The correction also associates each pointer press with its button and current game phase, then requires the same pointer, button and phase at release before a result action can run. Independent review exposed the keyboard equivalent: a held Enter or Space could activate a newly focused result or a reused button with a new meaning. Stale repeats and releases are now consumed; fresh activation remains available. The correction adds no timed input suppression and changes no game rule.
+
+The permanent browser check deliberately holds through all three endings, proves the release point overlaps the result button and requires the complete result state to remain unchanged after release. It also holds cup and primary-button activation keys through natural losses, then verifies fresh activation. Exact Resume labels and phase assertions make the test's intended actions explicit. The guide generalizes ownership across gesture-driven transitions; physical-device and assistive-technology acceptance remain separate from browser evidence.
+
 ## First four readers revisited, 18 October 2026
 
 The original four public readers were revisited against the stronger editorial standard. Each retained its own visual identity and complete prepared editions. Source-adjacent evidence, actual reader actions and independent review determined the changes.

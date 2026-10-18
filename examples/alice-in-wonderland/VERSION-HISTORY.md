@@ -45,3 +45,9 @@ Artwork opens in a fitted full view, with zoom, description, exact source contex
 The source first-use notice is now remembered in this browser for the complete unchanged edition, including metadata and assets. A changed edition gets a separate acknowledgement. Failed preference storage retains a per-tab fallback and explains possible repetition beside the notice. Full source terms remain recoverable.
 
 A later parent visual pass found the small Cat head reproduction was enlarged beyond its intrinsic resolution by the initial fit calculation. Fit now caps both source dimensions and centers the picture on its mat, retaining deliberate zoom and scroll access. Source image bytes are unchanged.
+
+## 18 October 2026 — tea-game gesture ownership
+
+Fixed a held cup's release activating a result button that appeared over it, and a held activation key following focus or a changed button action into the result. Pouring still stops immediately on completion, pause or interruption; native pointer capture stays with the existing gesture until its normal release or cancellation. Result pointer activation requires a fresh matching press and release in the same phase; stale key repeats and releases cannot activate a changed action. Fresh pointer actions, keyboard activation and unpointed clicks remain available. Course rules, timing, difficulty, artwork, checkpoints and reader data are unchanged.
+
+The gameplay journey now deliberately holds a cup beneath every forthcoming result button and requires release to preserve the stopped result. Held cup and primary Enter/Space repeats and releases must also preserve results. It retains natural losses, retries, full-duration wins, requests, seat changes and layout criteria, and separately checks fresh primary Enter/Space and DOM-click activation. Private failing-control traces and rebuilt-output browser receipts remain in the enclosing kit's ignored review workspace.

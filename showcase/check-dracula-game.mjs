@@ -4,6 +4,8 @@ import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {STAGES,VIEW,cameraFor,createGame,start,update,retry,nextRoom,collides,solids,coverAt} from '../examples/dracula/play/engine.mjs';
 const require=createRequire(import.meta.url),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.TEST_URL||'http://127.0.0.1:4314/dracula/play/';
+const sourceRetryOnly=process.argv.includes('--source-retry-only');
+const readerDatabase=new URL(base).pathname.startsWith('/dracula/')?'newreading-dracula-v1':'dracula-reader-v1';
 const out=new URL('../test-results/showcase/dracula-game/',import.meta.url);await mkdir(out,{recursive:true});
 import {SAVE_KEY,LEGACY_KEY} from '../examples/dracula/play/progress.mjs';
 import {STORY} from '../examples/dracula/play/story.mjs';
@@ -137,14 +139,50 @@ function invariants(){
  console.log('Model: guarded exits, gate collisions, item dependency, retry and next-room invariants passed');
 }
 async function readerRecord(page,write=false){
- return page.evaluate(({state,write})=>new Promise((resolve,reject)=>{
-  const request=indexedDB.open('dracula-reader-v1',1);
+ return page.evaluate(({state,write,database})=>new Promise((resolve,reject)=>{
+  const request=indexedDB.open(database,1);
   request.onupgradeneeded=()=>{request.result.createObjectStore('books',{keyPath:'id'});request.result.createObjectStore('state');};
   request.onerror=()=>reject(request.error);
   request.onsuccess=()=>{const db=request.result,tx=db.transaction('state',write?'readwrite':'readonly'),store=tx.objectStore('state');
    if(write)store.put(state,'reader');let result;const get=store.get('reader');get.onsuccess=()=>{result=get.result;};tx.oncomplete=()=>{db.close();resolve(result);};tx.onerror=()=>reject(tx.error);
   };
- }),{state:readerState,write});
+ }),{state:readerState,write,database:readerDatabase});
+}
+async function checkSourceRecovery(browser,engine){
+ // A cached edition served by the worker bypasses page.route. This failure
+ // fixture alone blocks workers; the campaign and offline checks keep them.
+ const context=await browser.newContext({serviceWorkers:'block'});
+ try{
+  const page=await context.newPage(),source=new URL('../library.json',base).href,aborted=[],errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.route(source,route=>{aborted.push(route.request().url());return route.abort('failed');});
+  await page.goto(base);await readerRecord(page,true);const before=await read(page);
+  assert.equal(await page.evaluate(()=>navigator.serviceWorker.controller),null);
+  const [failure]=await Promise.all([
+   page.waitForEvent('requestfailed',{predicate:request=>request.url()===source}),
+   page.locator('#chapter-source').click()
+  ]);
+  await page.locator('#source-retry').waitFor({state:'visible'});
+  assert.deepEqual(aborted,[source],'The source request must reach the abort rule exactly once');
+  assert.ok(failure.failure()?.errorText,'The source fetch must actually fail');assert.equal(await failure.response(),null);
+  assert.match(await page.locator('#source-loading').textContent(),/could not be opened/);
+  assert.equal(await page.locator('#source-passage').textContent(),STORY[0].quote);assert.equal(await page.locator('#source-excerpt').count(),0);
+  await unchanged(page,true);assert.deepEqual(await read(page),before);assert.deepEqual(await readerRecord(page),readerState);
+  await page.unroute(source);
+  const [response]=await Promise.all([
+   page.waitForResponse(response=>response.url()===source),
+   page.locator('#source-retry').click()
+  ]);
+  assert.equal(response.status(),200);assert.equal(response.fromServiceWorker(),false);assert.equal(await response.finished(),null);
+  await page.locator('#source-loading').waitFor({state:'hidden'});await page.locator('#source-retry').waitFor({state:'hidden'});
+  const story=STORY[0],section=book.sections.find(section=>section.id===story.section);
+  assert.deepEqual(await page.locator('#source-passage p').allTextContents(),story.context.map(id=>section.blocks.find(block=>block.id===id).text));
+  assert.equal(await page.locator('#source-excerpt').textContent(),story.quote);
+  await page.locator('#close-notes').click();await page.locator('#notes').waitFor({state:'hidden'});
+  assert.deepEqual(await read(page),before);assert.equal((await read(page)).phase,'ready');assert.deepEqual(await readerRecord(page),readerState);assert.deepEqual(errors,[]);
+  receipts.push({engine,case:'source-fetch-recovery',result:'passed',serviceWorkers:'block',failure:{abortedRequests:aborted.length,error:failure.failure().errorText,response:null,exactFallback:true},retry:{status:response.status(),fromServiceWorker:response.fromServiceWorker(),exactParagraphs:story.context,exactExcerpt:true},game:'Opening state unchanged',reader:{database:readerDatabase,unchanged:true}});
+  console.log(`${engine}: source abort observed; exact fallback and full-passage retry passed`);
+ }finally{await context.close();}
 }
 async function checkReference(page,story,trigger,touch=false,{back=false}={}){
  const before=await read(page),reader=await readerRecord(page),method=touch?'tap':'click';
@@ -167,12 +205,13 @@ async function enterOpening(page,touch,label){
  const r=await page.locator('#chapter-start').boundingBox(),height=page.viewportSize().height;assert.ok(r.y>=0&&r.y+r.height<height-35,'Start must remain visible');
  await page.locator('#chapter-start')[method]();assert.equal((await read(page)).phase,'playing');
 }
-invariants();
+if(!sourceRetryOnly)invariants();
 for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'])){
  const executablePath=process.env[engine==='chromium'?'CHROME_PATH':'WEBKIT_PATH'];
  const browser=await ({chromium,webkit}[engine]).launch({headless:true,...(executablePath?{executablePath}:{})});
  const errors=[],requests=[];let context;
  try{
+  if(sourceRetryOnly){await checkSourceRecovery(browser,engine);continue;}
   context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));context.on('request',r=>requests.push(r.url()));
   await page.goto(base);await readerRecord(page,true);await page.evaluate(()=>localStorage.setItem('reader-preservation-sentinel','untouched'));
@@ -250,11 +289,10 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
   await storage.goto(base);await storage.locator('#help').click();await storage.locator('#gentle').check();assert.ok(await storage.locator('#notes-save-status').isVisible());await storage.locator('#close-notes').click();assert.match(await storage.locator('#chapter-save-status').textContent(),/could not be saved/);await storage.setViewportSize({width:320,height:568});await dimensions(storage);await shot(storage,engine+'-storage-warning-320');await storage.locator('#chapter-start').click();await storage.keyboard.down('ArrowRight');await storage.waitForTimeout(150);await storage.keyboard.up('ArrowRight');assert.ok((await read(storage)).x>105);
   receipts.push({engine,case:'write-failure',result:'passed',warning:'Visible warning; memory play works'});await context.close();context=null;
 
-  context=await browser.newContext();storage=await context.newPage();await storage.route('**/library.json',r=>r.abort());await storage.goto(base);await readerRecord(storage,true);
-  await storage.locator('#chapter-source').click();await storage.locator('#source-retry').waitFor();assert.match(await storage.locator('#source-loading').textContent(),/could not be opened/);assert.equal(await storage.locator('#source-passage').textContent(),STORY[0].quote);await unchanged(storage,true);
-  await storage.unroute('**/library.json');await storage.locator('#source-retry').click();await storage.locator('#source-loading').waitFor({state:'hidden'});await storage.locator('#close-notes').click();assert.equal((await read(storage)).phase,'ready');assert.deepEqual(await readerRecord(storage),readerState);
-  receipts.push({engine,case:'source-fetch-recovery',result:'passed',fallback:'Exact short excerpt retained; retry loads full pinned paragraph; reader state unchanged'});await context.close();context=null;
+  await checkSourceRecovery(browser,engine);
  }finally{if(context)await context.close();await browser.close();}
 }
-await writeFile(new URL(process.env.QA_ENGINE?'browser-receipt-'+process.env.QA_ENGINE+'.json':'browser-receipt.json',out),JSON.stringify({date:new Date().toISOString(),base,receipts,limits:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check']},null,2)+'\n');
-console.log('All five-room Dracula checks passed.');
+const receiptName=(sourceRetryOnly?'source-retry-receipt':'browser-receipt')+(process.env.QA_ENGINE?'-'+process.env.QA_ENGINE:'')+'.json';
+const limits=sourceRetryOnly?['Only the source-fetch failure and retry case ran; no campaign or offline coverage']:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check'];
+await writeFile(new URL(receiptName,out),JSON.stringify({date:new Date().toISOString(),base,receipts,limits},null,2)+'\n');
+console.log(sourceRetryOnly?'Dracula source-retry checks passed.':'All five-room Dracula checks passed.');

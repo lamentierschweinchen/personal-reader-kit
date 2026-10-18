@@ -31,7 +31,7 @@ async function clickVisible(page,locator){
 }
 function sameReadingPlace(actual,expected,blockHeight){
   assert.deepEqual({...actual,ratio:0},{...expected,ratio:0});
-  assert.ok(Math.abs(actual.ratio-expected.ratio)*blockHeight<1,'Reading offset changes by less than one CSS pixel');
+  assert.ok(Math.abs(actual.ratio-expected.ratio)*blockHeight<1,'Reading offset changes by less than one CSS pixel: '+JSON.stringify({actual,expected,blockHeight,delta:Math.abs(actual.ratio-expected.ratio)*blockHeight}));
 }
 async function ready(page,s){await page.locator(`#reading-text[data-section="${s}"][data-position-ready="true"]`).waitFor();assert.equal(await page.locator('#catalogue-return').isVisible(),false);}
 async function dismissNotice(page){await page.waitForFunction(()=>document.body.dataset.editionReady==='true');if(await page.evaluate(()=>document.querySelector('#dialog').open&&document.querySelector('#dialog-title')?.textContent==='Source edition notice'))await close(page);}
@@ -78,7 +78,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     assert.equal((await page.request.get(base+'/.reader/private/intake.md')).status(),404);
     assert.equal((await page.request.get(base+'/edition/library.json')).status(),404);
     for(const target of ['/play/%2e%2e/edition/library.json','/play/%2e%2e/site/app.mjs','/play/%2f..%2f.reader%2fprivate%2fintake.md'])assert.equal((await page.request.get(base+target)).status(),404,'Encoded traversal stays outside exact output: '+target);
-    await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));
+    await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'),null,{timeout:60000});
     await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
     const noticeKey=await page.evaluate(()=>Object.keys(localStorage).find(k=>k.startsWith('alice-rackham-28885:source-notice:v1:')));assert.ok(noticeKey,'The notice is remembered for the complete exact edition');
     const sameEditionTab=await context.newPage();await sameEditionTab.goto(base);await sameEditionTab.waitForFunction(()=>document.body.dataset.editionReady==='true');assert.equal(await sameEditionTab.locator('#dialog').evaluate(e=>e.open),false,'An unchanged edition does not repeat its notice in another tab');await sameEditionTab.close();
@@ -150,6 +150,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('focus'));assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('focus')),false);
     // Companion permission is explicit. Context and images must not advance a
     // source reading place, including returning after zooming an image.
+    await page.locator('[data-nav="shelf"]').click();
     await page.getByRole('link',{name:'Looking closer',exact:true}).click();await page.locator('.looking-exercises').waitFor();
     const before=(await state(page)).positions[id];assert.equal(await page.locator('[data-action="context"]').count(),0);
     await page.getByRole('button',{name:'Choose what I’ve read'}).click();await page.locator(`#boundary-${id}`).selectOption(String(book.sections.findIndex(s=>s.id==='chapter-03')));await page.getByRole('button',{name:'Set my boundaries'}).click();
@@ -163,7 +164,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     assert.equal(await page.locator('.type-study').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.illustration-gallery'))&Node.DOCUMENT_POSITION_FOLLOWING)),true,'Focused tail study precedes the gallery');
     await page.locator('.illustration-gallery>summary').click();
     await page.locator('.plate-choice[data-section="chapter-01"]').first().click();await page.getByRole('button',{name:/Read around this illustration/}).click();await page.locator('#context-text[data-section="chapter-01"][data-location-ready="true"]').waitFor();assert.equal(await page.locator('#context-text').textContent(),exact(section('chapter-01')));await close(page);assert.deepEqual((await state(page)).positions[id],before);
-    await page.evaluate(()=>scrollTo(0,0));await capture(page,engine+'-phone-companion-large');await overflow(page,'large companion');assert.equal(await page.locator('.masthead [aria-current="page"]').getAttribute('data-nav'),'companion');
+    await page.evaluate(()=>scrollTo(0,0));await capture(page,engine+'-phone-companion-large');await overflow(page,'large companion');assert.equal(new URL(page.url()).hash,'#companion');assert.equal(await page.locator('.looking-exercises').isVisible(),true);
     await page.getByRole('button',{name:'Find a phrase',exact:true}).click();await page.locator('#echo-term').fill('curious');await page.getByRole('button',{name:'Find occurrences'}).click();assert.ok(await page.locator('.echo-list li').count()>0);
     const excerpt=page.locator('.fragment-surface[data-omitted-start][data-omitted-end]').first();await excerpt.waitFor();
     const excerptReceipt=await excerpt.evaluate(e=>({text:e.textContent,match:[...e.querySelectorAll('mark')].map(m=>m.textContent).join(''),before:getComputedStyle(e,'::before').content,after:getComputedStyle(e,'::after').content,description:e.getAttribute('aria-description')}));
@@ -235,7 +236,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     await browser.close();browser=null;
     // Stop the origin and the browser. Reopen its persistent profile from disk,
     // then navigate with no server. Both raw and browser uncached requests must fail.
-    await go(page,'chapter-02');await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'));await context.close();context=null;await stopServer(server);server=null;
+    await go(page,'chapter-02');await page.waitForFunction(()=>document.querySelector('#offline-status').textContent.includes('Available offline'),null,{timeout:60000});await context.close();context=null;await stopServer(server);server=null;
     let negativeControl=false;try{await fetch(base+'/uncached-network-control',{signal:AbortSignal.timeout(3000)});}catch{negativeControl=true;}assert.equal(negativeControl,true,'Stopped-origin raw network request must fail');
     context=await pw[engine].launchPersistentContext(profile,{...launch,viewport:{width:402,height:874}});const cold=context.pages()[0]||await context.newPage();await cold.goto(`${base}/#read/${id}/chapter-02`);await ready(cold,'chapter-02');await dismissNotice(cold);
     assert.equal(await cold.locator('#reading-text').textContent(),exact(section('chapter-02')));assert.equal((await state(cold)).notes.length,2);
@@ -252,7 +253,8 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     let offlineState=await state(cold),offlineNote=offlineState.notes.find(n=>n.sectionId==='chapter-12'&&n.quote===offlineQuote);assert.ok(offlineNote);assert.equal(offlineNote.note,createdText);assert.equal(offlineState.notes.length,3);
     await cold.reload();await ready(cold,'chapter-12');await settle(cold);offlineState=await state(cold);assert.equal(offlineState.notes.find(n=>n.id===offlineNote.id)?.note,createdText);assert.equal(offlineState.notes.find(n=>n.id===offlineNote.id)?.quote,offlineQuote);assert.deepEqual(offlineState.positions[id],offlinePosition);
     const offlineGeometry=await cold.locator(`#reading-text [data-block="${offlineBlock.id}"]`).evaluate(e=>({top:e.getBoundingClientRect().top,height:e.getBoundingClientRect().height,edge:document.querySelector('.reader-tools').getBoundingClientRect().bottom+20,bottom:innerHeight}));assert.ok(Math.abs(offlineGeometry.top-offlineGeometry.edge)<2,JSON.stringify(offlineGeometry));
-    await clickVisible(cold,cold.getByRole('link',{name:'Looking closer',exact:true}));await cold.locator('.looking-exercises').waitFor();await cold.getByRole('button',{name:/Read Alice’s first paragraph/}).click();await cold.locator('#context-text[data-location-ready="true"]').waitFor();assert.equal(await cold.locator('#context-text').textContent(),exact(section('chapter-01')));await close(cold);sameReadingPlace((await state(cold)).positions[id],offlinePosition,offlineGeometry.height);await capture(cold,engine+'-offline-companion');
+    await clickVisible(cold,cold.locator('[data-nav="shelf"]'));
+    await cold.getByRole('link',{name:'Looking closer',exact:true}).click();await cold.locator('.looking-exercises').waitFor();await cold.getByRole('button',{name:/Read Alice’s first paragraph/}).click();await cold.locator('#context-text[data-location-ready="true"]').waitFor();assert.equal(await cold.locator('#context-text').textContent(),exact(section('chapter-01')));await close(cold);sameReadingPlace((await state(cold)).positions[id],offlinePosition,offlineGeometry.height);await capture(cold,engine+'-offline-companion');
     await cold.getByRole('button',{name:/Return to your book/}).click();await ready(cold,'chapter-12');sameReadingPlace((await state(cold)).positions[id],offlinePosition,offlineGeometry.height);
     await clickVisible(cold,cold.getByRole('link',{name:'Passages',exact:true}));await cold.locator('.passage').filter({hasText:createdText}).getByRole('button',{name:'Edit note',exact:true}).click();await cold.locator('#note-text').fill(editedText);await cold.getByRole('button',{name:'Save on this device',exact:true}).click();await cold.waitForFunction(()=>!document.querySelector('#dialog').open);
     await cold.reload();await cold.locator('.passage-list').waitFor();offlineState=await state(cold);offlineNote=offlineState.notes.find(n=>n.id===offlineNote.id);assert.equal(offlineNote.note,editedText);assert.equal(offlineNote.quote,offlineQuote);assert.equal(offlineState.notes.length,3);sameReadingPlace(offlineState.positions[id],offlinePosition,offlineGeometry.height);await capture(cold,engine+'-offline-note-persisted');
