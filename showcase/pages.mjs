@@ -43,7 +43,7 @@ const LEDGER = `    Boards.......................... $ 8.03½, mostly shanty boa
         In all,..................... $28.12½`;
 const explore = [
   ['word', 'Follow a word', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
-  ['accounts', 'Keep its accounts', 'every nail, priced.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre>${esc(LEDGER)}</pre></div>`],
+  ['accounts', 'Keep its accounts', 'every nail, priced.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre tabindex="0" aria-label="Thoreau’s house account">${esc(LEDGER)}</pre></div>`],
   ['closer', 'Look closer', 'every line, a little closer', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><a class="plate-open" href="/assets/alice-rabbit.png">View illustration ${arrow}</a></div></div>`],
   ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · map preview</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="Map preview: a suggested walk through six places in the Marrakesh medina from the book"></div>`],
   ['play', 'Play its story', 'then back to your page.', `<div class="xp xp-play"><p class="xp-top">The Odyssey · a short game</p><a class="xp-shot" href="/odyssey/play/"><img src="/assets/play-homeward.jpg" width="780" height="1180" alt="Homeward, a short sea game from the Odyssey: the crew’s boat and the bag of winds"><span class="xp-go">Play Homeward ${arrow}</span></a><p class="xp-more">Or pour <a href="/alice/play/">Tea at Six</a> with the Hatter, or find a way out of <a href="/dracula/play/">Dracula’s castle</a>.</p></div>`],
@@ -91,7 +91,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 
 <section class="hero" data-thread="love" aria-labelledby="hero-title">
  <div class="hero-text">
-  <h1 id="hero-title">Once for <button type="button" class="thread" data-pick="love" aria-pressed="true">love</button><span class="dot">.</span><br>Again for <button type="button" class="thread" data-pick="money" aria-pressed="false">the&nbsp;money</button><span class="dot">.</span></h1>
+  <h1 id="hero-title">Once for <span class="thread-choice"><button type="button" class="thread" data-pick="love" aria-pressed="true" disabled>love</button><span class="dot">.</span></span><br>Again for <span class="thread-choice"><button type="button" class="thread" data-pick="money" aria-pressed="false" disabled>the money</button><span class="dot">.</span></span></h1>
   <svg class="ring" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M24 55C9 34 52 9 108 7c58-2 90 18 84 40-6 23-60 31-112 28C38 72 10 60 16 41c3-10 14-18 30-24"/></svg>
   <p class="hand note-tap" data-tap aria-hidden="true"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span>tap a word</span></p>
  </div>
@@ -103,7 +103,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
    <div class="ed-grid" aria-hidden="true">${threads.love.counts.map((_, i) => `<i style="--i:${i}"></i>`).join('')}</div>
    <blockquote class="ed-quote"><p data-text="quote">${threads.love.quote}</p><cite data-text="who">${threads.love.who}</cite></blockquote>
   </div>
-  <p class="hand note-hero"><svg class="hand-arrow" viewBox="0 0 60 40" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span data-note>he means it.</span></p>
+  <p class="hand note-hero"><svg class="hand-arrow" viewBox="0 0 60 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M56 6C40 4 18 10 8 32m0 0 1-10m-1 10 9-5"/></svg><span data-note>he means it.</span></p>
   </div>
  </figure>
  <div class="hero-cta">

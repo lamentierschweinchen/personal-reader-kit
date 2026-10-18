@@ -29,23 +29,24 @@ function placeRing(animate) {
   if (animate) {ring.classList.remove('drawing'); void ring.getBoundingClientRect(); ring.classList.add('drawing');}
 }
 // "tap a word" points at the other edition until someone has tried it.
-const tap = $('[data-tap]'), phone = matchMedia('(max-width: 820px)');
+const tap = $('[data-tap]');
 let tried = false;
 function placeTap() {
   const money = heroText.querySelector('[data-pick=money]'), show = !tried && hero.dataset.thread === 'love';
   hero.classList.remove('tap-below'); tap.classList.remove('below', 'on');
-  if (!show) return;
   const r = money.getBoundingClientRect(), d = money.nextElementSibling.getBoundingClientRect(), t = heroText.getBoundingClientRect();
   const pad = parseFloat(getComputedStyle(heroText).paddingRight), w = tap.offsetWidth;
   if (t.right - pad - d.right - 6 >= w) Object.assign(tap.style, {left: (d.right - t.left + 4) + 'px', top: (r.top - t.top + (r.height - tap.offsetHeight) / 2) + 'px'});
-  else if (phone.matches) {
+  else {
     hero.classList.add('tap-below'); tap.classList.add('below');
-    Object.assign(tap.style, {left: Math.min(r.left - t.left + r.width * .45, t.width - pad - tap.offsetWidth) + 'px', top: (r.bottom - t.top + 2) + 'px'});
-  } else return;
-  tap.classList.add('on');
+    Object.assign(tap.style, {left: Math.max(pad, Math.min(r.left - t.left + r.width * .45, t.width - pad - tap.offsetWidth)) + 'px', top: (r.bottom - t.top + 8) + 'px'});
+    hero.style.setProperty('--tap-space', (tap.offsetHeight + 14) + 'px');
+  }
+  // Keep the hint's space after it disappears; trying the switch must not move the card.
+  tap.classList.toggle('on', show);
 }
 function choose(key, animate) {setThread(key); placeRing(animate); placeTap();}
-$$('[data-pick]').forEach(b => b.addEventListener('click', () => {tried = true; stopDemo(); choose(b.dataset.pick, true);}));
+$$('[data-pick]').forEach(b => {b.disabled = false; b.addEventListener('click', () => {tried = true; stopDemo(); choose(b.dataset.pick, true);});});
 setThread('love');
 // Measure after the headline's entrance animation settles.
 const settle = () => {placeRing(false); placeTap();};
@@ -79,7 +80,7 @@ let coversPaused = false;
 function updateCoverMotion() {
   const still = motionPreference.matches;
   if (still) for (const a of ['role', 'tabindex', 'aria-label', 'aria-pressed']) marquee.removeAttribute(a);
-  else Object.entries({role: 'button', tabindex: '0', 'aria-label': 'Pause the moving covers', 'aria-pressed': String(coversPaused)}).forEach(([k, v]) => marquee.setAttribute(k, v));
+  else Object.entries({role: 'button', tabindex: '0', 'aria-label': coversPaused ? 'Resume the moving covers' : 'Pause the moving covers', 'aria-pressed': String(coversPaused)}).forEach(([k, v]) => marquee.setAttribute(k, v));
   marquee.classList.toggle('held', coversPaused);
   track.style.animationPlayState = still || coversPaused ? 'paused' : 'running';
 }

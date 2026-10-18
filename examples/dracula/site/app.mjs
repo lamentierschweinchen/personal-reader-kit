@@ -11,6 +11,29 @@ const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&
 const amount=(number,label)=>`${number} ${label}${number===1?'':'s'}`;
 const arrow = (direction='up-right') => `<svg class="ui-icon ui-icon--${direction}" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg>`;
 const main = $('#main'), dialog = $('#dialog');
+
+// Fit navigation to its rendered type, including browser text enlargement.
+function fitReaderChrome() {
+  const header=$('.masthead'),nav=header.querySelector('nav'),brand=header.querySelector('.wordmark'),type=header.querySelector('.type-button');
+  if(!header.getClientRects().length){document.documentElement.style.setProperty('--reader-header-height','0px');return;}
+  const gap=parseFloat(getComputedStyle(header).columnGap)||0,navGap=parseFloat(getComputedStyle(nav).columnGap)||0;
+  const links=[...nav.children],needed=brand.getBoundingClientRect().width+type.getBoundingClientRect().width+links.reduce((sum,a)=>sum+a.getBoundingClientRect().width,0)+navGap*(links.length-1)+2*gap;
+  header.classList.toggle('wrap-chrome',needed>header.clientWidth+1);
+  header.classList.toggle('stack-title',brand.getBoundingClientRect().width+type.getBoundingClientRect().width+gap>header.clientWidth+1);
+  document.documentElement.style.setProperty('--reader-header-height',(getComputedStyle(header).position==='sticky'?header.getBoundingClientRect().height:0)+'px');
+}
+function fitReaderSelects(root) {
+  root.querySelectorAll('select').forEach(select=>{
+    if(select.parentElement.matches('.select-control,.word-chapter-control,.cue-select'))return;
+    const wrap=document.createElement('span');wrap.className='select-control';select.before(wrap);wrap.append(select);wrap.insertAdjacentHTML('beforeend',arrow('down'));
+  });
+}
+let chromeFrame;
+const chromeObserver=new ResizeObserver(()=>{cancelAnimationFrame(chromeFrame);chromeFrame=requestAnimationFrame(fitReaderChrome)});
+for(const node of document.querySelectorAll('.masthead,.masthead>.wordmark,.masthead>nav,.masthead>.type-button'))chromeObserver.observe(node);
+window.addEventListener('resize',fitReaderChrome);
+document.fonts.ready.then(fitReaderChrome);
+
 let state = newState(), books = [], samples = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
 let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0,y:0};
@@ -55,7 +78,9 @@ async function savePosition() {
 async function restorePosition(pos) {
   restored = false;
   $('#reading-text')?.setAttribute('data-position-ready','false');
+  await document.fonts.ready;fitReaderChrome();
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  fitReaderChrome();
   const el = pos?.revision === activeBook?.source.sha256 && pos.sectionId === activeSection?.id && pos.blockId ? [...main.querySelectorAll('[data-block]')].find(x => x.dataset.block === pos.blockId) : null;
   if (el) {
     const rect = el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY + rect.top + pos.ratio*rect.height - readingEdge()));
@@ -172,6 +197,7 @@ async function render({keepScroll=false}={}) {
   $('#catalogue-return').hidden=route.view!=='shelf';
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
+  fitReaderSelects(main);fitReaderChrome();
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
   document.querySelector(`[data-nav="${route.view==='read'?'shelf':route.view}"]`)?.setAttribute('aria-current','page');
   applyPrefs();document.title = route.view==='read' && activeBook ? `${activeSection.title} · Dracula` : 'Dracula · The Whitby Papers';
@@ -187,6 +213,7 @@ async function render({keepScroll=false}={}) {
 function openDialog(title,html) {
   if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
+  fitReaderSelects(dialog);
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
   $('#selection-save').hidden = true;

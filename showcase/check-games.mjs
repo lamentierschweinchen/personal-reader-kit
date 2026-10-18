@@ -14,7 +14,7 @@ const entries=[
  {slug:'odyssey',book:'odyssey-butler-1727',chapter:'book-01',start:'#start',state:'#game',resume:'#again',about:'#story',dialog:'#source',close:'#source button'},
  {slug:'dracula',book:'dracula',chapter:'chap01',start:'#chapter-start',state:'#castle',resume:'#screen-action',about:'#about',dialog:'#notes',close:'#close-notes'}
 ];
-const sizes=[[320,568],[390,844],[844,390],[820,1180],[1180,820],[1280,800]],receipts=[],problems=[];
+const sizes=[[320,568],[320,740],[375,812],[390,844],[430,932],[768,1024],[1024,768],[874,402],[1440,1000]],receipts=[],problems=[];
 const phase=(p,e)=>p.locator(e.state).evaluate(n=>n.dataset.phase||n.dataset.mode);
 async function begin(page,e){
  await page.locator(e.start).tap();
@@ -32,6 +32,7 @@ async function dimensions(page,label){
  assert.ok(r.scroll<=r.width+1,label+' horizontal overflow');
  assert.deepEqual(r.targets.filter(t=>t.w<43.5||t.h<43.5),[],label+' small touch targets');
  assert.deepEqual(r.targets.filter(t=>t.x<-.5||t.x+t.w>r.width+.5||t.y<-.5||t.y+t.h>r.height+2),[],label+' controls outside viewport');
+ if(label.endsWith('ready'))assert.ok(await page.locator('h1').evaluateAll(es=>es.every(e=>{const range=document.createRange();range.selectNodeContents(e);const b=range.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth})),label+' heading is fully visible');
  return r;
 }
 async function dismissNotice(page){
@@ -114,6 +115,7 @@ try{
      receipts.push({engine,slug:e.slug,readerRoundTrip:true,notesUnchanged:true,readingPlaceRestored:true,offlineMode,offlineGameReloadAndPlay:offlineMode!=='verified-at-stopped-local-origin',offlineReaderReturn:offlineMode!=='verified-at-stopped-local-origin'});
     }catch(error){console.log(JSON.stringify({engine,slug:e.slug,url:page.url(),error:error.message}));await page.screenshot({path:new URL('return-failure-'+engine+'-'+e.slug+'.png',out).pathname});throw error;}finally{await context.close();if(!server&&!process.env.TEST_BASE)server=await serve(localPort);}
    }
+   for(const e of entries){const c=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:740}}),p=await c.newPage();await p.goto(base+'/'+e.slug+'/play/');assert.match(await p.locator('noscript').textContent(),/needs JavaScript/);const back=p.locator('noscript a');await back.waitFor();assert.equal(await back.getAttribute('href'),'../');assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.equal(await p.locator('button:visible').count(),0,'No inert game controls without JavaScript');await p.screenshot({path:new URL(engine+'-'+e.slug+'-no-js.png',out).pathname});await c.close()}
    console.log(engine+': game checks passed for '+(process.env.QA_PHASE||'layouts and reader roundtrips')+'.');
   }finally{await browser.close();}
  }

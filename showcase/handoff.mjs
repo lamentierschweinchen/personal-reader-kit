@@ -5,7 +5,7 @@ const limits = {book: 200, idea: 1000};
 export function fitHeader() {
   const header = document.querySelector('header.top');
   if (!header) return;
-  const measure = () => document.documentElement.style.setProperty('--header-clearance', Math.ceil(header.getBoundingClientRect().height + 12) + 'px');
+  const measure = () => document.documentElement.style.setProperty('--header-clearance', Math.ceil((getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().height : 0) + 12) + 'px');
   measure();
   if (typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(header);
   else addEventListener('resize', measure);

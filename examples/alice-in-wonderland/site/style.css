@@ -105,3 +105,23 @@ nav a[data-action="play-game"]{min-height:44px;min-width:44px;display:inline-fle
 
 /* Preserve source resolution at fit size, centered on its inspection mat. */
 #dialog[data-view=artwork] .image-viewport{display:flex;flex-direction:column}#dialog[data-view=artwork] .image-viewport img{flex:none;margin:auto}
+/* Let enlarged navigation wrap, and keep the reading toolbar below it. */
+:root .masthead .wordmark{display:flex;align-items:center;min-height:44px;flex-shrink:0;justify-self:start}
+:root .masthead .type-button{flex-shrink:0}
+:root .masthead nav{min-width:0;flex-wrap:wrap}
+:root .masthead nav a{white-space:nowrap}
+:root .masthead.wrap-chrome{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;row-gap:0;padding-block:6px}
+:root .masthead.wrap-chrome .wordmark{grid-column:1;grid-row:1;justify-self:start}
+:root .masthead.wrap-chrome .type-button{grid-column:2;grid-row:1}
+:root .masthead.wrap-chrome nav{grid-column:1/-1;grid-row:2;width:100%;margin:0;justify-content:space-between}
+:root .reader-tools{top:var(--reader-header-height,0px);flex-wrap:wrap}
+:root .reader-tools .tool-group{flex-wrap:wrap;min-width:0}
+.select-control{display:block;position:relative;min-width:0}
+.select-control select{background-image:none;appearance:none;-webkit-appearance:none;width:100%;min-height:44px;padding-right:2.5em}
+.select-control>.ui-icon{position:absolute;right:.8em;top:50%;transform:translateY(-50%) rotate(90deg);pointer-events:none}
+
+:root body.focus .masthead{display:none}
+
+:root .masthead.stack-title{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
+:root .masthead.stack-title .type-button{grid-column:1;grid-row:2;justify-self:end}
+:root .masthead.stack-title nav{grid-row:3}
