@@ -43,7 +43,7 @@ try{
     const start=page.locator('.hero a[href="#make"]');const startBox=await start.boundingBox();assert.ok(startBox&&startBox.y+startBox.height<=viewport.height+(viewport.height<500?400:0),'Start yours is visible early');
     assert.equal(await page.locator('#starter').inputValue(),commandText);assert.equal(await page.locator('a[href="/start.txt"]').count(),1);
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://newreading.app/');
-    assert.equal(await page.locator('meta[property="og:image"]').getAttribute('content'),'https://newreading.app/assets/read-share.jpg');
+    assert.equal(await page.locator('meta[property="og:image"]').getAttribute('content'),'https://newreading.app/assets/read-share.jpg?v=20261019');
     assert.deepEqual(await page.evaluate(async()=>{const img=new Image();img.src='/assets/read-share.jpg';await img.decode();return[img.naturalWidth,img.naturalHeight]}),[1200,630]);
     // The hero switches editions; the explorations each show a different panel.
     await page.locator('.hero [data-pick="money"]').click();assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money');assert.equal(await page.locator('[data-text="name"]').textContent(),'fortune');

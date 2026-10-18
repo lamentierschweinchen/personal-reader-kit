@@ -88,3 +88,7 @@ The owner selected a new identity for `newreading.app`: IM Fell English for the 
 - `assets/favicon-32.png`, `assets/apple-touch-icon.png`: original artwork (an IM Fell “r” under a red caret), under the kit’s MIT license.
 
 No font is requested remotely; all files are served from this site.
+
+## Monday launch preview · 18 October 2026
+
+The current `assets/read-share.jpg` is a 1200 × 630 HTML-rendered composition made by `share-image.mjs`: “Make any book your own.” and “Read it. Explore it.” beside Austen’s peacock binding, Rackham’s White Rabbit and Thoreau’s pond survey. It uses the existing exact image files, IM Fell English roman/italic and Martian Mono licensed above. The full images remain unchanged; CSS positions them on paper during rendering. No personal notes, reader captures or additional book material enter this asset. The full-size candidate was visually inspected. Previous social-image hashes remain pinned for reachable-history review.

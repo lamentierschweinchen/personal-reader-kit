@@ -2,7 +2,8 @@ document.documentElement.classList.add('js');
 // Without JavaScript the instruction stays open and readable.
 document.getElementById('prompt-box').open = false;
 import {covers, moreCovers, COVER_CSS} from '/covers.mjs';
-import {readDraft, saveDraft, personalPrompt, setupCopy} from '/handoff.mjs';
+import {readDraft, saveDraft, personalPrompt, setupCopy, fitHeader} from '/handoff.mjs';
+fitHeader();
 
 const data = JSON.parse(document.getElementById('data').textContent);
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -55,14 +56,15 @@ else window.addEventListener('resize', settle);
 
 // Show the switch once: money, then back to love. Any touch, key or scroll stops it.
 const device = $('.hero-device'), demo = [];
-function stopDemo() {demo.forEach(clearTimeout); demo.length = 0; device.setAttribute('aria-live', 'polite');}
+let demoStopped = false;
+function stopDemo() {demoStopped = true; demo.forEach(clearTimeout); demo.length = 0; device.setAttribute('aria-live', 'polite');}
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, stopDemo, {once: true, passive: true});
-  document.fonts.ready.then(() => demo.push(setTimeout(() => {
-    if (scrollY > 40) return;
+  document.fonts.ready.then(() => {if (demoStopped) return; demo.push(setTimeout(() => {
+    if (demoStopped || scrollY > 40) return;
     device.setAttribute('aria-live', 'off'); choose('money', true);
     demo.push(setTimeout(() => {choose('love', true); stopDemo();}, 2600));
-  }, 2600)));
+  }, 2600));});
 }
 
 // Any book: a slow band of distinct covers.

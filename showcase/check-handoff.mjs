@@ -122,6 +122,39 @@ try {
       await plate.click(); await page.waitForURL(base + '/assets/alice-rabbit.png');
       assert.deepEqual(errors, []); await context.close();
 
+      // Real touch contexts expose clipped controls that desktop-sized boxes can miss.
+      for (const route of ['/', '/learn/']) {
+        const enlarged = await browser.newContext({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true, reducedMotion: 'reduce'}), largePage = await enlarged.newPage();
+        await copyStub(largePage); await largePage.goto(base + route); await enhanced(largePage);
+        await largePage.evaluate(async () => {
+          await document.fonts.ready;
+          const elements = [...document.querySelectorAll('body, body *')], sizes = elements.map(el => parseFloat(getComputedStyle(el).fontSize));
+          elements.forEach((el, i) => el.style.setProperty('font-size', `${sizes[i] * 2}px`, 'important'));
+        });
+        await largePage.waitForFunction(() => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-clearance')) >= document.querySelector('header.top').getBoundingClientRect().height);
+        const controls = await largePage.locator('header a:visible, header button:visible').evaluateAll(elements => elements.map(el => {const r = el.getBoundingClientRect(); return {label: el.textContent.trim(), left: r.left, right: r.right};}));
+        assert.ok(controls.every(r => r.left >= 0 && r.right <= 390), `Enlarged text leaves every header control reachable: ${JSON.stringify(controls)}`);
+        await largePage.locator('header [data-copy]').tap(); assert.ok((await copied(largePage)).length > 30);
+        await largePage.screenshot({path: fileURLToPath(new URL(`${engine}-large-${route === '/' ? 'home' : 'guide'}.png`, output)), animations: 'disabled'});
+        await enlarged.close();
+      }
+      const short = await browser.newContext({viewport: {width: 667, height: 375}, isMobile: true, hasTouch: true, reducedMotion: 'reduce'}), shortPage = await short.newPage();
+      await shortPage.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {configurable: true, value: {writeText: async () => {throw Error('Denied');}}}));
+      await shortPage.goto(base); await enhanced(shortPage); await shortPage.locator('header [data-copy]').tap(); await shortPage.locator('.fallback[open]').waitFor();
+      const visibleClose = await shortPage.evaluate(() => {
+        const dialog = document.querySelector('.fallback').getBoundingClientRect(), close = document.querySelector('.fallback button').getBoundingClientRect();
+        return {width: close.width, height: Math.min(dialog.bottom, close.bottom, innerHeight) - Math.max(dialog.top, close.top, 0)};
+      });
+      assert.ok(visibleClose.width >= 44 && visibleClose.height >= 44, 'The entire manual-copy close target survives dialog scrolling');
+      await shortPage.locator('.fallback button').tap(); assert.equal(await shortPage.locator('.fallback').getAttribute('open'), null); await short.close();
+
+      // A late font load must not restart the demonstration over a visitor's choice.
+      const delayed = await browser.newContext({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true}), delayedPage = await delayed.newPage();
+      await delayedPage.addInitScript(() => {const pending = new Promise(resolve => {window.releaseFonts = resolve;}); Object.defineProperty(document.fonts, 'ready', {get: () => pending});});
+      await delayedPage.goto(base); await enhanced(delayedPage); await delayedPage.locator('[data-pick="money"]').tap();
+      await delayedPage.evaluate(() => window.releaseFonts()); await delayedPage.waitForTimeout(5600);
+      assert.equal(await delayedPage.locator('.hero').getAttribute('data-thread'), 'money', 'Late fonts preserve an explicit choice'); await delayed.close();
+
       // Storage refusal must not prevent typing, suggestions, or manual copying.
       const blocked = await browser.newContext({viewport: {width: 390, height: 844}, reducedMotion: 'reduce'}), blockedPage = await blocked.newPage();
       const blockedErrors = []; blockedPage.on('pageerror', error => blockedErrors.push(error.message));
@@ -191,7 +224,7 @@ try {
       assert.equal(await plain.locator('[data-route]:visible').count(), 3, 'Every app route is readable without JavaScript');
       assert.equal(await plain.locator('[data-copy]:visible').count(), 0);
       await noScript.close();
-      receipts.push({engine,submitCopies:true,draftRoundTrip:true,nonDestructiveSuggestions:true,allCopyControls:true,boundedStorage:true,blockedStorage:true,copyRecovery:true,landscapeDialog:true,focusReturn:true,illustrationReturn:true,illustrationLinkFallback:true,coverMotionControl:true,keyboardTabs:true,observerFallback:true,staticRoutes:true});
+      receipts.push({engine,submitCopies:true,draftRoundTrip:true,nonDestructiveSuggestions:true,allCopyControls:true,boundedStorage:true,blockedStorage:true,copyRecovery:true,landscapeDialog:true,touchManualClose:true,enlargedHeader:true,lateFontsPreserveChoice:true,focusReturn:true,illustrationReturn:true,illustrationLinkFallback:true,coverMotionControl:true,keyboardTabs:true,observerFallback:true,staticRoutes:true});
     } finally { await browser.close(); }
   }
   await writeFile(new URL('receipt.json', output), JSON.stringify({checkedAt: new Date().toISOString(), passed: true, receipts, limits: 'Automated Chromium/WebKit behavior checks with controlled clipboard and storage failures; not physical-device or screen-reader acceptance.'}, null, 2) + '\n');

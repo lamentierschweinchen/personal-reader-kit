@@ -1,4 +1,5 @@
-import {readDraft, personalPrompt, setupCopy} from '/handoff.mjs';
+import {readDraft, personalPrompt, setupCopy, fitHeader} from '/handoff.mjs';
+fitHeader();
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 

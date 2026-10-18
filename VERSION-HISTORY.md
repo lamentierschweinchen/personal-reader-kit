@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Launch touch correction · 18 October 2026
+
+Keeping a selection now uses the browser’s native touch click, with a short-lived exact source snapshot. The previous unconditional pointerdown cancellation suppressed WebKit’s click, leaving a visible Keep action that worked with a mouse but failed on a real touch tap. Cancelled, moved and held gestures are discarded; mouse and keyboard activation remain. The stock reader and all six public examples receive the same correction, with an original-text touch regression in CI. Source editions and game code are unchanged.
+
+The catalogue header can wrap at enlarged text sizes and anchor destinations clear its measured height. Manual copying keeps Close reachable in short landscape views. A late font download cannot restart the hero demonstration over a visitor’s selection. The launch link preview uses the existing approved binding, illustration and pond survey with the current fonts, dimensions and alt text.
+
 ## Three literary games · 17 October 2026
 
 Alice’s **Tea at Six** keeps its approved 75-second rules, input and pacing byte-for-byte, with new original ink drawings and the reader’s paper/blue palette. **Homeward** is a 72-second Odyssey voyage with rocks, steering and an impatient crew around Aeolus’s wind bag. **Castle escape** is Dracula’s short visual key-and-patrol game. Source views distinguish the books from invented game rules and remain optional.

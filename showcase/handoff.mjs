@@ -1,6 +1,16 @@
 // A small draft follows the reader between these two pages in this tab only.
 const draftKey = 'newreading-starting-point-v1';
 const limits = {book: 200, idea: 1000};
+// Text enlargement can wrap the header. Anchor destinations must clear its actual height.
+export function fitHeader() {
+  const header = document.querySelector('header.top');
+  if (!header) return;
+  const measure = () => document.documentElement.style.setProperty('--header-clearance', Math.ceil(header.getBoundingClientRect().height + 12) + 'px');
+  measure();
+  if (typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(header);
+  else addEventListener('resize', measure);
+  document.fonts.ready.then(measure);
+}
 export function boundedDraft(value = {}) {
   return Object.fromEntries(Object.entries(limits).map(([key, limit]) => [key, typeof value[key] === 'string' ? value[key].slice(0, limit) : '']));
 }

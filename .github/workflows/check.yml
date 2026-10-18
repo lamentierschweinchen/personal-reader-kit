@@ -27,6 +27,7 @@ jobs:
           node-version: '22'
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/selection-touch-browser.mjs
       - run: npm run test:browser
   showcase:
     runs-on: ubuntu-latest

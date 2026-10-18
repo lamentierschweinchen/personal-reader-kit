@@ -654,6 +654,7 @@
     "tests/history.test.mjs",
     "tests/publication.test.mjs",
     "tests/review-browser.mjs",
+    "tests/selection-touch-browser.mjs",
     "tests/share-browser.mjs",
     "tests/share.test.mjs",
     "tests/ui-icons.test.mjs",
@@ -1972,6 +1973,12 @@
       "sha256": "952c3cc0fffff37014d50f57fab8967e4a5f2dc6a213206b3be0def0e4e6abe8",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed personal catalogue preview: authorized public example or original cover composition; source image and font notices retained in ASSETS.md."
+    },
+    {
+      "path": "showcase/assets/read-share.jpg",
+      "sha256": "302bb00ade43139ee815d349bc784a5333898becebfddfc4f78f398009736521",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Visually reviewed 1200×630 Monday launch composition using the exact approved Austen binding, Rackham White Rabbit and Walden pond survey with the current locally licensed IM Fell and Martian Mono fonts. Earlier hashes retained for reachable history."
     }
   ],
   "reviewedHistoricalFiles": [

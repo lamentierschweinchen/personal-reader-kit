@@ -72,7 +72,7 @@ const samples = [
 const head = ({title, desc, url, script}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e7">
 <title>${title}</title><meta name="description" content="${desc}">
-<meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg"><link rel="canonical" href="${url}">
+<meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg?v=20261019"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="New reading: Make any book your own. Austen’s peacock binding, Rackham’s White Rabbit and Thoreau’s pond survey."><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="${url}">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/im-fell-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/martian-mono-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css"><script type="module" src="${script}"></script></head>

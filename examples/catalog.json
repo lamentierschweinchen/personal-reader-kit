@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74612,
-          "sha256": "7c732673733b458785b02ff901818b9629e03387468ed02f8845bf45942cd36b"
+          "bytes": 77004,
+          "sha256": "acdd34b949823d7f8c0cf972d89ee92869e28839ea2709f0bb35da98c32e45fc"
         },
         {
           "path": "austen-colophon.png",
@@ -901,7 +901,7 @@
         {
           "path": "sw.js",
           "bytes": 4661,
-          "sha256": "152e73a12ee90b5978e73a1ac89f2ba7e000ede7f89792aa84b32d6078def4af"
+          "sha256": "b75743d7e0b84fb362f63f710e422d084d27718b39ad996ba1f841144b98b5c0"
         },
         {
           "path": "text.mjs",
@@ -945,8 +945,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 75196,
-          "sha256": "45e3db64ebcafb66e398118d5a90e72a8b8e39af3ea24e154a3336e527c428a6"
+          "bytes": 77588,
+          "sha256": "ac7af5fd4b030aa394cbc06d317fd4664a72a955a284b1cf9cace53fb2df2ea0"
         },
         {
           "path": "bundle.mjs",
@@ -1031,7 +1031,7 @@
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "eda8cbb874fb418b7ca92d6c408399429d06af77de7a3c5c5d00be9b38f68607"
+          "sha256": "c90949fbde1c4d8378ee9ffbf1ad13f1dae4ebd85f4d9f5854e0a8aed195c674"
         },
         {
           "path": "text.mjs",
@@ -1082,8 +1082,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 65334,
-          "sha256": "ee37160c9eeaf9c9347c794fb0f98347128a5629d0e7bf0f3c3b366e7cd6b8ad"
+          "bytes": 67726,
+          "sha256": "f6ac011dfb9b49946eb99a58dbc82f4cba7608934cb67f026f75640a70a30b5e"
         },
         {
           "path": "bundle.mjs",
@@ -1143,7 +1143,7 @@
         {
           "path": "sw.js",
           "bytes": 1148,
-          "sha256": "5f7ebb1923e28d2b6d7aa2909646eed1d837ad2f1c6c5a5e46909ba6ce4f969a"
+          "sha256": "d95235e2dc9ea4db2f7e5ae0f23c9841f1f52bc6ebb7b1180d70677a57e669d9"
         },
         {
           "path": "text.mjs",
@@ -1188,8 +1188,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 66112,
-          "sha256": "1d6d35f86ef984505172a8098d78814ac635796b9150af0ebcab400dd0368164"
+          "bytes": 68504,
+          "sha256": "b469aaf4607323f9088f061a8973cd42910e7412eb38fdb1190c1439e195b7b6"
         },
         {
           "path": "broadside.css",
@@ -1254,7 +1254,7 @@
         {
           "path": "sw.js",
           "bytes": 1164,
-          "sha256": "89a4e890c93455e9b1ed0a3a07c2474f17799aa08c7deb325a891edc2bf269e5"
+          "sha256": "5d5fbf4a46e43712bfdf4926744f28ffc5999ff825ac476d3a50905296cc91e2"
         },
         {
           "path": "text.mjs",
@@ -1295,8 +1295,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 75908,
-          "sha256": "bfc72d4753e616793c3f8fce8ba1251d82300191765330206faec221cf3f1c4f"
+          "bytes": 78300,
+          "sha256": "602cbad65c7c8268f567464cbf41b94571b95c72aefc56473fc5093e71d53ffe"
         },
         {
           "path": "bundle.mjs",
@@ -1376,7 +1376,7 @@
         {
           "path": "sw.js",
           "bytes": 1304,
-          "sha256": "8003d8171de22072c58c1dc99b4f9d77170082b051e9c3af68b954fb525f082d"
+          "sha256": "c504435985ba01b5bdd412576e13d01b74accb2baece4ab7a300b55049d2266d"
         },
         {
           "path": "text.mjs",
@@ -1414,8 +1414,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 69746,
-          "sha256": "3eb58e20ee79e12b07f6c03f7da7db0f7f3bd8107fad32d5c8d32083b1f471e5"
+          "bytes": 72138,
+          "sha256": "8ac4e0bb791c49b5bd3b62d1f759f19791bcff8b1c7b22138a5347b9f2538448"
         },
         {
           "path": "bundle.mjs",
@@ -1525,7 +1525,7 @@
         {
           "path": "sw.js",
           "bytes": 1386,
-          "sha256": "ae3fc5902152541f8d360599356d765054fb11a18ca578440e4c6090912cc466"
+          "sha256": "9c558154954c68266cd3e56f2ad6d749b619f780a333cc6bcfde0444f8a0d50d"
         },
         {
           "path": "text.mjs",

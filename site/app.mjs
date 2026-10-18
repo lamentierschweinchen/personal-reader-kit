@@ -466,10 +466,45 @@ document.addEventListener('change',async event=>{
 document.addEventListener('selectionchange',()=>{
   if(route.view!=='read'||dialog.open||!activeBook)return;
   if(!getSelection()?.isCollapsed){if(focusPointer)focusPointer.hadSelection=true;if(inFocus())hideFocusControls();}
-  selection=readSelection($('#reading-text'),activeBook,activeSection);$('#selection-save').hidden=!selection;
+  selection=readSelection($('#reading-text'),activeBook,activeSection);$('#selection-save').hidden=!(selection||selectionTouch);
 });
-$('#selection-save').addEventListener('pointerdown',e=>e.preventDefault());
-$('#selection-save').addEventListener('click',()=>{if(selection){const saved=selection;getSelection()?.removeAllRanges();beginSelection(saved);}});
+const selectionButton=$('#selection-save');
+let selectionTouch=null,selectionTouchTimer;
+function clearSelectionTouch() {
+  clearTimeout(selectionTouchTimer);selectionTouch=null;selectionButton.hidden=!selection;
+}
+function keepSelection(passage=selection) {
+  if(!passage||dialog.open)return;
+  getSelection()?.removeAllRanges();beginSelection(passage);
+}
+// Cancelling a touch pointerdown suppresses WebKit's click. Let the native tap
+// finish, retaining its source range if the browser collapses the selection.
+selectionButton.addEventListener('pointerdown',event=>{
+  clearSelectionTouch();
+  if(event.pointerType!=='touch'){event.preventDefault();return;}
+  if(!event.isPrimary||event.button!==0||!selection)return;
+  const rect=selectionButton.getBoundingClientRect();
+  selectionTouch={id:event.pointerId,x:event.clientX,y:event.clientY,at:performance.now(),scrollX,scrollY,moved:false,passage:selection,left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom};
+});
+document.addEventListener('pointerdown',event=>{if(selectionTouch&&event.pointerId!==selectionTouch.id)selectionTouch.moved=true;},true);
+document.addEventListener('pointermove',event=>{if(selectionTouch?.id===event.pointerId&&Math.hypot(event.clientX-selectionTouch.x,event.clientY-selectionTouch.y)>10)selectionTouch.moved=true;},{passive:true});
+function endSelectionTouch(event,cancelled=false) {
+  const gesture=selectionTouch;if(!gesture||gesture.id!==event.pointerId)return;
+  gesture.ended=performance.now();gesture.cancelled ||= cancelled;
+  gesture.moved ||= Math.hypot(event.clientX-gesture.x,event.clientY-gesture.y)>10||Math.abs(scrollX-gesture.scrollX)>1||Math.abs(scrollY-gesture.scrollY)>1||event.clientX<gesture.left||event.clientX>gesture.right||event.clientY<gesture.top||event.clientY>gesture.bottom;
+  clearTimeout(selectionTouchTimer);
+  selectionTouchTimer=setTimeout(()=>{if(selectionTouch===gesture)clearSelectionTouch();},700);
+}
+document.addEventListener('pointercancel',event=>endSelectionTouch(event,true));
+document.addEventListener('pointerup',event=>endSelectionTouch(event));
+selectionButton.addEventListener('click',event=>{
+  const gesture=selectionTouch;clearSelectionTouch();
+  if(event.detail&&gesture) {
+    if(gesture.cancelled||gesture.moved||!gesture.ended||gesture.ended-gesture.at>500||performance.now()-gesture.ended>700)return;
+    if(route.view!=='read'||gesture.passage.bookId!==activeBook?.id||gesture.passage.sectionId!==activeSection?.id||gesture.passage.revision!==activeBook?.source.sha256)return;
+    keepSelection(gesture.passage);
+  }else keepSelection();
+});
 document.addEventListener('keydown',event=>{if(!inFocus())return;if(event.key==='Escape'){event.preventDefault();act($('#focus-exit')).catch(fail);}else if(event.key.toLowerCase()==='c'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!focusActionTarget(event.target)){event.preventDefault();showFocusControls(true);}});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
 window.addEventListener('hashchange',async event=>{
