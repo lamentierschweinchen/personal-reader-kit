@@ -11,9 +11,21 @@ test('library admits reviewed discovery metadata without personal records or arb
   d=>{d.editions[0].id='unreviewed-reader';},
   d=>{d.editions[0].rightsPath='../private/permission.txt';},
   d=>{d.editions[0].sourceUrls=['javascript:alert(1)'];},
+  d=>{d.editions[0].sourceLabels=[];},
+  d=>{d.editions[0].sourceLabels=[''];},
+  d=>{d.editions[0].sourceLabels=[{private:'record'}];},
   d=>{d.editions[1]=structuredClone(d.editions[0]);},
   d=>{d.editions[0].preparedBy.email='private@example.invalid';}
  ]){const changed=structuredClone(data);mutate(changed);assert.throws(()=>validateEntries(changed));}
+});
+test('source links use their edition labels rather than inferred author names',()=>{
+ const changed=structuredClone(data),edition=changed.editions[0];
+ edition.sourceUrls=['https://www.gutenberg.org/ebooks/5434','https://www.gutenberg.org/ebooks/10136','https://www.gutenberg.org/ebooks/18435'];
+ edition.sourceLabels=['Brillat-Savarin source','Beeton source','Estes <source>'];
+ const html=renderLibrary(changed);
+ assert.ok(html.includes('href="https://www.gutenberg.org/ebooks/5434">Brillat-Savarin source</a>'));
+ assert.ok(html.includes('href="https://www.gutenberg.org/ebooks/10136">Beeton source</a>'));
+ assert.ok(html.includes('href="https://www.gutenberg.org/ebooks/18435">Estes &lt;source&gt;</a>'));
 });
 test('metadata cannot inject HTML into source details, titles or search attributes',()=>{
  const changed=structuredClone(data);changed.editions[0].title='<img src=x onerror="bad()"> & "title"';

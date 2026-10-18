@@ -6,7 +6,7 @@ import {cover} from './covers.mjs';
 
 const root=new URL('../../',import.meta.url);
 const GH='https://github.com/lamentierschweinchen/personal-reader-kit';
-const keys=['id','exampleId','title','author','shortAuthor','kind','language','edition','feature','description','categories','preparedBy','sourceUrls','rightsPath'];
+const keys=['id','exampleId','title','author','shortAuthor','kind','language','edition','feature','description','categories','preparedBy','sourceUrls','sourceLabels','rightsPath'];
 export const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const arrow='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const close='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M6 18 18 6"/></svg>';
@@ -25,7 +25,9 @@ export function validateEntries(data){
   assert.equal(b.preparedBy.name,'New reading');assert.equal(b.preparedBy.url,'https://newreading.app/');
   assert.ok(Array.isArray(b.categories)&&b.categories.length&&new Set(b.categories).size===b.categories.length);
   assert.ok(b.categories.every(k=>['words','ideas','art','game'].includes(k)));
-  assert.ok(Array.isArray(b.sourceUrls)&&b.sourceUrls.length>=1&&b.sourceUrls.length<=2);
+  assert.ok(Array.isArray(b.sourceUrls)&&b.sourceUrls.length>=1&&b.sourceUrls.length<=3);
+  assert.ok(Array.isArray(b.sourceLabels)&&b.sourceLabels.length===b.sourceUrls.length,'Each source needs its own label');
+  assert.ok(b.sourceLabels.every(label=>typeof label==='string'&&label.trim()&&label.length<=80),'Invalid source label');
   for(const url of b.sourceUrls)assert.match(url,/^https:\/\/www\.gutenberg\.org\/ebooks\/[0-9]+$/);
   assert.match(b.rightsPath,new RegExp('^examples/'+b.exampleId+'/docs/SOURCE-(?:AND-)?RIGHTS\\.md$'));
  }
@@ -34,7 +36,7 @@ export function validateEntries(data){
 
 function editionContent(b){
  const code=GH+'/tree/main/examples/'+b.exampleId;
- return `<div class="edition-layout"><div class="edition-visual">${cover(b)}<p class="hand" aria-hidden="true">someone made<br>this for a reader.</p></div><div class="edition-description"><p class="eyebrow">${escape(b.kind)} · ${escape(b.language)}</p><h2 data-edition-title>${escape(b.title)}</h2><p class="edition-author">${escape(b.author)}</p><p class="edition-credit">Prepared by <b>${escape(b.preparedBy.name)}</b><span>Founding edition</span></p><div class="edition-companion"><p class="eyebrow">Inside this reader</p><h3>${escape(b.feature)}</h3><p>${escape(b.description)}</p></div><a class="button-dark" href="/${b.id}/">Read this edition ${arrow}</a><a class="text-link adapt-link" href="${code}">Make your own version</a><details class="source-details"><summary>Edition, sources &amp; reuse</summary><p>${escape(b.edition)}</p><p>Rights and reuse depend on the edition, its contributors and the territory. The code license does not relicense the book or its artwork.</p><div>${b.sourceUrls.map((u,i)=>`<a href="${u}">${b.sourceUrls.length>1?(i?'Schopenhauer source':'Hegel source'):'Source edition'}</a>`).join('')}<a href="${GH}/blob/main/${b.rightsPath}">Rights &amp; credits</a><a href="${code}">Reader source code</a></div></details><p class="edition-private">Reading places and notes stay in the reader’s browser. The library does not collect them.</p></div></div>`;
+ return `<div class="edition-layout"><div class="edition-visual">${cover(b)}<p class="hand" aria-hidden="true">someone made<br>this for a reader.</p></div><div class="edition-description"><p class="eyebrow">${escape(b.kind)} · ${escape(b.language)}</p><h2 data-edition-title>${escape(b.title)}</h2><p class="edition-author">${escape(b.author)}</p><p class="edition-credit">Prepared by <b>${escape(b.preparedBy.name)}</b><span>Founding edition</span></p><div class="edition-companion"><p class="eyebrow">Inside this reader</p><h3>${escape(b.feature)}</h3><p>${escape(b.description)}</p></div><a class="button-dark" href="/${b.id}/">Read this edition ${arrow}</a><a class="text-link adapt-link" href="${code}">Make your own version</a><details class="source-details"><summary>Edition, sources &amp; reuse</summary><p>${escape(b.edition)}</p><p>Rights and reuse depend on the edition, its contributors and the territory. The code license does not relicense the book or its artwork.</p><div>${b.sourceUrls.map((u,i)=>`<a href="${u}">${escape(b.sourceLabels[i])}</a>`).join('')}<a href="${GH}/blob/main/${b.rightsPath}">Rights &amp; credits</a><a href="${code}">Reader source code</a></div></details><p class="edition-private">Reading places and notes stay in the reader’s browser. The library does not collect them.</p></div></div>`;
 }
 
 export function renderLibrary(data){

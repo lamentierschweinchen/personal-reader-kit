@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Isolated build checks and named collection sources · 18 October 2026
+
+Preparing multi-author readers exposed a preview collision: the publication unit test rebuilt the shared `dist/` with original samples while a customized reader was serving it. `build({output})` now permits a separate output, and the unit check uses a temporary directory while proving that an existing preview marker survives. The unmodified prior builder fails the same regression. The agent guide records output isolation and verification of the actually served collection.
+
+Library source links now use explicit, escaped edition labels and support up to three sources. The six admitted readers and their rendered library HTML remain unchanged; this does not admit another reader or a new source host. All 52 Node checks and the stock original-sample build pass. New collections remain separate local projects pending editorial, source and publication review.
+
 ## Steady controls and finishing typography · 18 October 2026
 
 Explore reserves the height of all five handwritten captions, keeping its tabs in place as examples change. The hero annotation stays with its card on a single background, with readable phone text and an arrow that reaches the quotation. Library sorting uses a compact keyboard-focus underline in place of the oversized box. Short captions and guide headings balance their lines; longer interface copy avoids isolated endings. The homepage drops “Six founding editions.” Book text, source notices, reader storage and the personal entrance are unchanged.

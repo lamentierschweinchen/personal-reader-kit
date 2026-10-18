@@ -22,7 +22,10 @@
       "sourceUrls": [
         "https://www.gutenberg.org/ebooks/1342"
       ],
-      "rightsPath": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ]
     },
     {
       "id": "alice",
@@ -46,7 +49,10 @@
       "sourceUrls": [
         "https://www.gutenberg.org/ebooks/28885"
       ],
-      "rightsPath": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md"
+      "rightsPath": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ]
     },
     {
       "id": "walden",
@@ -70,7 +76,10 @@
       "sourceUrls": [
         "https://www.gutenberg.org/ebooks/205"
       ],
-      "rightsPath": "examples/walden/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/walden/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ]
     },
     {
       "id": "two-halls",
@@ -95,7 +104,11 @@
         "https://www.gutenberg.org/ebooks/51635",
         "https://www.gutenberg.org/ebooks/10731"
       ],
-      "rightsPath": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Hegel source",
+        "Schopenhauer source"
+      ]
     },
     {
       "id": "odyssey",
@@ -118,7 +131,10 @@
       "sourceUrls": [
         "https://www.gutenberg.org/ebooks/1727"
       ],
-      "rightsPath": "examples/odyssey/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/odyssey/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ]
     },
     {
       "id": "dracula",
@@ -141,7 +157,10 @@
       "sourceUrls": [
         "https://www.gutenberg.org/ebooks/345"
       ],
-      "rightsPath": "examples/dracula/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/dracula/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ]
     }
   ]
 }

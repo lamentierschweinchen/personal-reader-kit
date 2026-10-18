@@ -6,7 +6,7 @@ import {KIT_VERSION} from '../site/bundle.mjs';
 import {validateBook,bookText} from '../site/core.mjs';
 const root = fileURLToPath(new URL('../',import.meta.url));
 export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','style.css','manifest.webmanifest','icon.svg','robots.txt'];
-export async function build() {
+export async function build({output=path.join(root,'dist')}={}) {
   const packageVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
   if(packageVersion!==KIT_VERSION)throw new Error('Package and portable-bundle application versions differ.');
   const manifest = JSON.parse(await readFile(path.join(root,'publication.json'),'utf8'));
@@ -16,7 +16,9 @@ export async function build() {
     const book = validateBook(b);
     if (book.source.format !== 'original' || createHash('sha256').update(bookText(book)).digest('hex') !== book.source.sha256) throw new Error('Only verified original sample writing can enter this public build.');
   }
-  const out = path.join(root,'dist');await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});
+  const out = path.resolve(output);
+  if(out===path.resolve(root)||path.resolve(root).startsWith(out+path.sep))throw new Error('Build output cannot replace the project or its parent.');
+  await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});
   for (const name of assets) {
     const input = path.join(root,'site',name);
     if (!(await lstat(input)).isFile()) throw new Error('Build inputs must be regular files.');
