@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "editions": [
+    {
+      "id": "austen",
+      "exampleId": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "shortAuthor": "Jane Austen",
+      "kind": "Novel",
+      "language": "English",
+      "edition": "Hugh Thomson illustrated edition, 1894. Preface by George Saintsbury. Project Gutenberg 1342.",
+      "feature": "Follow a word through the novel.",
+      "description": "Choose a word and see where it returns across the chapters, then visit each occurrence in the book.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1342"
+      ],
+      "rightsPath": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "alice",
+      "exampleId": "alice-in-wonderland",
+      "title": "Alice’s Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "shortAuthor": "Lewis Carroll",
+      "kind": "Tale",
+      "language": "English",
+      "edition": "Arthur Rackham illustrations; proem by Austin Dobson. The source is an undated Heinemann / Doubleday, Page printing. Project Gutenberg 28885.",
+      "feature": "Rackham’s pictures, up close.",
+      "description": "Look at Rackham’s plates beside the scenes they illustrate, or take a seat at the Hatter’s table in Tea at Six.",
+      "categories": [
+        "art",
+        "game"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/28885"
+      ],
+      "rightsPath": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md"
+    },
+    {
+      "id": "walden",
+      "exampleId": "walden",
+      "title": "Walden & Civil Disobedience",
+      "author": "Henry David Thoreau",
+      "shortAuthor": "H. D. Thoreau",
+      "kind": "Nature & essays",
+      "language": "English",
+      "edition": "Walden and On the Duty of Civil Disobedience. Project Gutenberg 205; source updated 20 February 2026.",
+      "feature": "Keep account with Thoreau.",
+      "description": "Examine the house, food and combined-outgoes accounts with their exclusions, and look at the pond survey beside Thoreau’s claims.",
+      "categories": [
+        "art",
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/205"
+      ],
+      "rightsPath": "examples/walden/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "two-halls",
+      "exampleId": "schopenhauer-hegel",
+      "title": "Two lecture halls, one hour",
+      "author": "Hegel & Schopenhauer",
+      "shortAuthor": "Hegel & Schopenhauer",
+      "kind": "Philosophy",
+      "language": "English",
+      "edition": "Hegel’s Lectures on the History of Philosophy, complete volume 1 of 3, translated by E. S. Haldane; Schopenhauer’s The Art of Controversy and the other essays in the selected T. Bailey Saunders collection. Project Gutenberg 51635 and 10731. Saunders’s own omissions are retained and disclosed in this edition.",
+      "feature": "Two philosophers, the same hour.",
+      "description": "Read the two arguments with exact landmarks and independent reading places. The shared lecture-hour framing is an editorial companion.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/51635",
+        "https://www.gutenberg.org/ebooks/10731"
+      ],
+      "rightsPath": "examples/schopenhauer-hegel/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "odyssey",
+      "exampleId": "odyssey",
+      "title": "The Odyssey",
+      "author": "Homer",
+      "shortAuthor": "Homer · Samuel Butler",
+      "kind": "Epic",
+      "language": "English",
+      "edition": "Samuel Butler’s prose translation, 1900, with Henry Festing Jones’s second preface, 1921. Project Gutenberg 1727.",
+      "feature": "A voyage home. A bag of winds.",
+      "description": "Read the complete Butler translation, then steer the boat in Homeward, a short game drawing on episodes from the poem.",
+      "categories": [
+        "game"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1727"
+      ],
+      "rightsPath": "examples/odyssey/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "dracula",
+      "exampleId": "dracula",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "shortAuthor": "Bram Stoker",
+      "kind": "Novel",
+      "language": "English",
+      "edition": "Complete English novel with source front and back matter, cover and publisher colophon. Project Gutenberg 345.",
+      "feature": "Journals, letters. A locked castle.",
+      "description": "Read the novel’s journals and letters, visit the optional Whitby Papers, or try to escape the castle in its accompanying game.",
+      "categories": [
+        "game"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/345"
+      ],
+      "rightsPath": "examples/dracula/docs/SOURCE-RIGHTS.md"
+    }
+  ]
+}

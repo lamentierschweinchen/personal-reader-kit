@@ -1,5 +1,7 @@
 # Source, edition and rights receipt
 
+> **Publication update · 18 October 2026.** This edition was subsequently admitted to the public kit and published at [newreading.app/austen/](https://newreading.app/austen/). See the [current example README](../README.md), [exact publication inventory](../../../publication.json) and [catalogue provenance](../../../showcase/ASSETS.md). The preparation-stage destination and authorization statements below record the original trial. This update clarifies project status; it does not expand the territorial evidence or rights over other editions.
+
 Inspected and accessed 16 October 2026. This is a local example, not a deployed service. The intended future audience is public; no destination or publication approval has been chosen. No remote is attached.
 
 ## Actual edition

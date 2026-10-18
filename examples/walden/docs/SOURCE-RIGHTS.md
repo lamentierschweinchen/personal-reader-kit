@@ -1,5 +1,7 @@
 # Source and rights receipt · 16 October 2026
 
+> **Publication update · 18 October 2026.** This edition was subsequently admitted to the public kit and published at [newreading.app/walden/](https://newreading.app/walden/). See the [current example README](../README.md), [exact publication inventory](../../../publication.json) and [catalogue provenance](../../../showcase/ASSETS.md). The preparation-stage destination and authorization statements below record the original trial. This update clarifies project status; it does not expand the territorial evidence or rights over other editions.
+
 This is a local, authorized public-domain reader trial. The intended future audience is public, but no repository or website destination has been chosen and no publication is authorized. The source catalogue says **public domain in the USA**. This is not worldwide clearance; the user's location, a future hosting jurisdiction and destination remain relevant. No personal-reader material was used.
 
 ## Edition inspected

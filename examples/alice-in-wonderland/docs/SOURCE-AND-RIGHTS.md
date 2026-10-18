@@ -1,5 +1,7 @@
 # Source and rights receipt
 
+> **Publication update · 18 October 2026.** This edition was subsequently admitted to the public kit and published at [newreading.app/alice/](https://newreading.app/alice/). See the [current example README](../README.md), [exact publication inventory](../../../publication.json) and [catalogue provenance](../../../showcase/ASSETS.md). The preparation-stage destination and authorization statements below record the original trial. This update clarifies project status; it does not expand the territorial evidence or rights over other editions.
+
 Access date: **16 October 2026**. The exact chosen source is [Project Gutenberg ebook 28885](https://www.gutenberg.org/ebooks/28885), not its automatically generated synopsis. The actual HTML archive, EPUB container, source HTML/CSS, every image, and the licence text were inspected locally. No personal reader content was used.
 
 ## Edition identity

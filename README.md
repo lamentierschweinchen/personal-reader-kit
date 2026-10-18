@@ -16,6 +16,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 **How it works:** [Follow the short guide](https://newreading.app/learn/): choose an agent, open a project folder and try the kit's sample before bringing your book. It explains the unfamiliar terms and gives you a first instruction to copy.
 
+**Browse the [library](https://newreading.app/library/):** six founding editions, with maker credit, companion previews and source details. [Propose a public edition](docs/LIBRARY.md) for review; keep personal books and reading records out of proposals.
+
 **Read a complete example:** [Pride and Prejudice](https://newreading.app/austen/), [Alice](https://newreading.app/alice/), [Walden & Civil Disobedience](https://newreading.app/walden/), [Two lecture halls: Schopenhauer and Hegel](https://newreading.app/two-halls/), [The Odyssey](https://newreading.app/odyssey/), or [Dracula](https://newreading.app/dracula/). Alice, Odyssey and Dracula also have short visual games beside the reader. Each has its own visual identity, source adapter, credited edition and offline reading. [Example source and hosting details](examples/README.md). The public entrance is [newreading.app](https://newreading.app/); [release status](docs/STATUS.md) records the live verification and its limits.
 
 Get [the public kit on GitHub](https://github.com/lamentierschweinchen/personal-reader-kit). Choose **Use this template** for your own repository, download the ZIP, or clone it:

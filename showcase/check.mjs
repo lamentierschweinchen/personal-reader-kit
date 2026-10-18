@@ -17,7 +17,7 @@ async function layout(page,label){
  assert.ok(metrics.scroll<=metrics.width,label+' overflow');assert.equal(metrics.broken,0,label+' broken image');assert.equal(metrics.arrows,false);
  assert.ok(metrics.targets.every(x=>x.w>=44&&x.h>=44),label+' small target: '+JSON.stringify(metrics.targets.filter(x=>x.w<44||x.h<44)));
  assert.equal(await page.locator('h1').count(),1);
- for(const selector of ['header a[href="/#samples"]','header a[href="/learn/"]','header [data-copy]'])assert.equal(await page.locator(selector).isVisible(),true,label+' navigation remains available');
+ for(const selector of ['header a[href="/library/"]','header a[href="/learn/"]','header [data-copy]'])assert.equal(await page.locator(selector).isVisible(),true,label+' navigation remains available');
 }
 // Inline links inside running text use the WCAG inline exception and are excluded above.
 async function copyCheck(page,field,button){

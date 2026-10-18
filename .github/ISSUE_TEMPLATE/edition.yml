@@ -1,0 +1,66 @@
+name: Propose a library edition
+description: Suggest a public reader for the New reading library.
+title: "Library edition: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This proposal is public. Include only public links and information you are entitled to share. Do not attach personal books, notes, private reading bundles, credentials or private permission correspondence.
+
+        Proposals are reviewed before listing. A proposal does not authorize us to copy or host your reader. See [the library guide](https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/LIBRARY.md).
+  - type: input
+    id: reader
+    attributes:
+      label: Public reader URL
+      description: The finished edition someone can open and read.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source repository and exact revision
+      description: Include the reviewed commit or release; do not upload a private backup.
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Public maker credit
+      description: The name or pseudonym you want credited; optionally include a public profile link.
+    validations:
+      required: true
+  - type: textarea
+    id: edition
+    attributes:
+      label: Book and exact source edition
+      description: Title, author, language, translation, illustrations, introductions, source links and exact source hashes.
+    validations:
+      required: true
+  - type: textarea
+    id: companion
+    attributes:
+      label: What is particular about this reader?
+      description: Describe the reading experience and any companion. Include adapter requirements, tested devices and offline or recovery limits.
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Rights evidence and intended territories
+      description: Link public evidence for every included contribution, along with licenses, required notices and unresolved questions. Owning a copy is not publication permission.
+    validations:
+      required: true
+  - type: textarea
+    id: maintenance
+    attributes:
+      label: Listing assets, reuse and maintenance
+      description: Link a proposed thumbnail you authorize us to display, its source and reuse terms. Say who maintains the reader and how changes are released. Code, book and artwork rights may differ.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Proposal scope
+      options:
+        - label: I am proposing a public listing, with the maker credit and public information above. I understand that listing and mirroring are separate decisions.
+          required: true

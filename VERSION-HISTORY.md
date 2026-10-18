@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Community library bookshelf · 18 October 2026
+
+Adds a separate bookshelf at `/library/`, linked from the homepage and guide. Its six founding editions carry maker credit, concise companion previews and source/reuse disclosures. Covers open the existing canonical readers. Search, category filters, sorting, empty-state recovery and modal previews enhance a complete static page; read links, source disclosures and the contribution route work without JavaScript. Explicit native-select sizing, relative text sizes and a persistent dialog exit keep phone, landscape and enlarged-text use practical.
+
+A public GitHub issue template and the existing-guidance-linked library document establish proposals for review without book uploads. Discovery metadata is bounded to the existing reviewed examples and remains separate from deployed application admission. Exact deployment inputs and the public inventory include the new code; all 177 edition pins, reviewed binary assets, 60-file original-sample starter and personal entrance remain unchanged. Existing readers keep their URLs, runtime/storage identities and records.
+
 ## Catalogue and reader fit · 18 October 2026
 
 The homepage keeps its height when a visitor tries the hero switch, aims the phone annotation at the quotation, resumes the cover band while hovered, and keeps Explore inside its landscape section. Enlarged labels wrap within cards and buttons. Short landscape views let the top navigation scroll away; no-JavaScript visits expose all five Explore examples and the existing copying instruction. Readers and games show an honest fallback with a return link instead of inactive controls. Small labels on the terracotta panel and Make placeholders have stronger contrast. Finite transitions settle sooner.

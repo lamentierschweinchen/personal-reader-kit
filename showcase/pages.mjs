@@ -81,7 +81,7 @@ const head = ({title, desc, url, script}) => `<!doctype html>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
  <a class="brand" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a>
- <nav aria-label="Main"><a class="nav-link" href="/#samples">Samples</a><a class="nav-link" href="/learn/" aria-label="How it works"><span class="nav-full">How it works</span><span class="nav-short" aria-hidden="true">Guide</span></a><button type="button" class="pill" data-copy="base" aria-label="Copy prompt" hidden><span class="nav-full">Copy prompt</span><span class="nav-short" aria-hidden="true">Copy</span> ${copyIcon}</button><a class="pill pill-dark" href="${GH}">GitHub ${arrow}</a></nav>
+ <nav aria-label="Main"><a class="nav-link" href="/library/">Library</a><a class="nav-link" href="/learn/" aria-label="How it works"><span class="nav-full">How it works</span><span class="nav-short" aria-hidden="true">Guide</span></a><button type="button" class="pill" data-copy="base" aria-label="Copy prompt" hidden><span class="nav-full">Copy prompt</span><span class="nav-short" aria-hidden="true">Copy</span> ${copyIcon}</button><a class="pill pill-dark" href="${GH}">GitHub ${arrow}</a></nav>
 </header>`;
 const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
 <div class="toast" role="status" aria-live="polite"></div>
@@ -138,7 +138,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 
 <section class="samples" id="samples" aria-labelledby="samples-title">
  <div class="samples-head reveal"><h2 id="samples-title">Read one <span class="pen-circle">now</span>.</h2></div>
- <p class="samples-intro">Six complete books, each its own edition.</p>
+ <p class="samples-intro">Six founding editions. <a href="/library/">Browse the library</a>.</p>
  <div class="sample-row">${samples.map(([id, t, a, line]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a></article>`).join('')}</div>
 </section>
 

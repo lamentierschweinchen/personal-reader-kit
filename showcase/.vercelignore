@@ -439,3 +439,17 @@
 !start.txt
 !style.css
 !vercel.json
+!library/
+!showcase/library/
+!showcase/library/app.mjs
+!library/app.mjs
+!showcase/library/covers.mjs
+!library/covers.mjs
+!showcase/library/entries.json
+!library/entries.json
+!showcase/library/index.html
+!library/index.html
+!showcase/library/render.mjs
+!library/render.mjs
+!showcase/library/style.css
+!library/style.css

@@ -1,5 +1,7 @@
 # Source editions and rights review — 16 October 2026
 
+> **Publication update · 18 October 2026.** This edition was subsequently admitted to the public kit and published at [newreading.app/two-halls/](https://newreading.app/two-halls/). See the [current example README](../README.md), [exact publication inventory](../../../publication.json) and [catalogue provenance](../../../showcase/ASSETS.md). The preparation-stage destination and authorization statements below record the original trial. This update clarifies project status; it does not expand the territorial evidence or rights over other editions.
+
 This is a local, authorized public-domain example trial. No remote, publication account, territory, domain or deployment has been selected. The catalogue evidence establishes **public domain in the USA**, not worldwide clearance. The code’s MIT license does not license other people’s contributions.
 
 ## Hegel
