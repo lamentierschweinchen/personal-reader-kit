@@ -683,3 +683,23 @@ html:not(.js) .thread{cursor:default;text-decoration:none}
 .mode-explore .tabs button{opacity:1}
 
 .samples-intro a{text-decoration:underline;text-underline-offset:5px;display:inline-flex;align-items:center;min-height:44px}
+
+/* Reserve every caption's lines so the centered tabs stay still when selected. */
+.note-explore{display:grid}
+.note-explore>span{grid-area:1/1;text-wrap:balance}
+.js .note-explore>span[hidden]{display:block!important;visibility:hidden}
+
+/* Keep the note on one background; its arrow still reaches into the quotation. */
+@media(min-width:821px){
+ .note-hero{right:6px;bottom:auto;top:calc(100% + 4px);flex-direction:row;align-items:flex-start;transform:rotate(-3deg)}
+ .note-hero .hand-arrow{order:0;width:40px;height:calc(var(--pw) * .4);margin:calc(var(--pw) * -.37) 0 0;transform:scaleY(-1) rotate(-6deg)}
+}
+.note-hero .hand-arrow path{vector-effect:non-scaling-stroke}
+@media(max-width:820px){
+ .hero[data-thread=money] .note-hero{color:var(--pencil)}
+ .hero[data-thread=money] .note-hero .hand-arrow{color:#b17d2d}
+}
+
+/* Balance short authored captions and avoid isolated endings in longer copy. */
+.s-line,.make-head>p,.newbie-line,.steps h3,.g-body h2,.g-hero h1,.any-note,.mode-text .fine{text-wrap:balance}
+:where(.make,.side,.faq,.guide,.foot) p{text-wrap:pretty}

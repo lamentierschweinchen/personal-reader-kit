@@ -28,6 +28,12 @@ try{
     await page.locator('[data-filter="all"]').click();await page.locator('#search').fill('Haldane');assert.equal(await page.locator('.book:not([hidden])').getAttribute('data-edition'),'two-halls');
     await page.locator('#search').fill('not on this shelf');assert.equal(await page.locator('.empty').isVisible(),true);await page.locator('#reset').click();assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true);
     await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'alice');await page.locator('#sort').selectOption('shelf');
+    // Native selection keeps a visible keyboard baseline without a large focus box.
+    await page.locator('[data-filter="game"]').focus();await page.keyboard.press('Tab');
+    assert.equal(await page.locator('#sort').evaluate(e=>document.activeElement===e),true);
+    const focus=await page.locator('#sort').evaluate(e=>({outline:getComputedStyle(e).outlineStyle,line:getComputedStyle(e.parentElement).borderBottomColor,width:getComputedStyle(e.parentElement).borderBottomWidth}));
+    assert.equal(focus.outline,'none');assert.equal(focus.line,'rgb(173, 53, 37)');assert.equal(focus.width,'2px');
+    await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');await page.locator('#sort').selectOption('shelf');
     await page.locator('[data-preview="alice"]').click();await page.locator('dialog[open]').waitFor();assert.equal(await page.locator('#edition-title').textContent(),'Alice’s Adventures in Wonderland');
     await page.locator('dialog .source-details summary').click();await layout(page,'Edition source');
     // The exit stays available after scrolling a long phone/landscape preview.

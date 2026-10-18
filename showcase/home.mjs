@@ -92,13 +92,16 @@ else motionPreference.addListener(updateCoverMotion);
 updateCoverMotion();
 
 // Explore tabs: each example is its own design.
-const notes = Object.fromEntries(data.explore);
 const xcard = $('.mode-explore');
 function pick(tab) {
   $$('[data-explore]').forEach(t => {const on = t === tab; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;});
   $$('.panel').forEach(p => p.hidden = p.id !== 'panel-' + tab.dataset.explore);
   xcard.dataset.x = tab.dataset.explore;
-  $('[data-explore-note]').textContent = notes[tab.dataset.explore];
+  $$('[data-explore-caption]').forEach(note => {
+    const active = note.dataset.exploreCaption === tab.dataset.explore;
+    note.hidden = !active;
+    note.setAttribute('aria-hidden', String(!active));
+  });
 }
 $$('[data-explore]').forEach(tab => tab.addEventListener('click', () => pick(tab)));
 $('.tabs').addEventListener('keydown', e => {

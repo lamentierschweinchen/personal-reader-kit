@@ -51,9 +51,14 @@ try{
     await page.locator('.hero [data-pick="money"]').click();assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money');assert.equal(await page.locator('[data-text="name"]').textContent(),'fortune');
     const heroAfter=await page.locator('.hero').boundingBox();
     assert.ok(Math.abs(heroAfter.height-heroBefore.height)<1,'Switching the edition keeps the hero height');
-    const stageHeights=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));
+    const stageHeights=[],tabPositions=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));
+     tabPositions.push(await page.locator('.tabs').evaluate(e=>{const r=e.getBoundingClientRect();return[r.x,r.y+scrollY,r.width,r.height]}));
+     assert.equal(await page.locator('[data-explore-caption]:not([hidden])').count(),1);
+     assert.equal(await page.locator(`[data-explore-caption="${id}"]`).getAttribute('aria-hidden'),'false');
      const fit=await page.locator('.mode-explore').evaluate(e=>{const box=e.getBoundingClientRect();return [...e.querySelectorAll('.mode-text,.stage,.tabs button')].every(x=>{const r=x.getBoundingClientRect();return r.left>=box.left&&r.right<=box.right})});assert.ok(fit,'Explore controls and preview fit their section');}
     assert.equal(new Set(stageHeights).size,1,'Explore keeps one height: '+stageHeights);
+    assert.ok(tabPositions.every(r=>r.every((n,i)=>Math.abs(n-tabPositions[0][i])<1)),'Explore tabs keep their position across captions: '+JSON.stringify(tabPositions));
+    assert.doesNotMatch(await page.locator('.samples-intro').textContent(),/Six founding editions/);
     await page.locator('[data-explore="word"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="accounts"]').getAttribute('aria-selected'),'true');
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
     await page.locator('#prompt-box summary').click();await copyCheck(page,'#starter','#prompt-box [data-copy]');

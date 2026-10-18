@@ -27,4 +27,13 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 @media(max-width:520px){.book-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,10rem),1fr))}.intro h1{font-size:clamp(2rem,10vw,2.5625rem)}.book-author,.credit,.filters button,.results-line,.sort select{font-size:.625rem}}
 
 .sort-control{position:relative;display:inline-flex;align-items:center;min-width:0}.sort-control>.icon{position:absolute;right:6px;width:14px;height:14px;pointer-events:none;transform:rotate(90deg);color:var(--muted)}
+
+/* A quiet baseline follows the native control without an oversized focus box. */
+.sort-control{border-bottom:2px solid transparent;border-radius:2px}
+.sort-control:has(select:focus-visible){border-bottom-color:var(--red)}
+.sort-control select:focus-visible{outline:none}
+.sort-control select:hover{color:var(--ink)}
+@media(forced-colors:active){.sort-control:has(select:focus-visible){border-bottom-color:Highlight}}
+.book-feature,.lede,.contribution-copy,.edition-companion h3,.edition-description h2{text-wrap:balance}
+.edition-description p,.edition-sources>p,.contribution-action p,footer p{text-wrap:pretty}
 .cover-austen img{object-fit:contain}

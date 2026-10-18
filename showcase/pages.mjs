@@ -65,7 +65,7 @@ const samples = [
   ['austen', 'Pride and<br><i>Prejudice</i>', 'Jane Austen', 'Follow a word through the novel.'],
   ['alice', 'ALICE', 'Lewis Carroll', 'Rackham’s pictures, up close.', 'Tea at Six'],
   ['walden', 'Walden', 'Henry David Thoreau', 'Thoreau’s accounts, kept.'],
-  ['two-halls', 'Two lecture<br><i>halls</i>', 'Hegel &amp; Schopenhauer', 'Two philosophers, the same hour.'],
+  ['two-halls', 'Two<br>lecture <i>halls</i>', 'Hegel &amp; Schopenhauer', 'Two philosophers, the same hour.'],
   ['odyssey', 'The<br><i>Odyssey</i>', 'Homer · Samuel Butler', 'A voyage home, a bag of winds.', 'Homeward'],
   ['dracula', 'Dracula', 'Bram Stoker', 'Journals, letters, and a locked castle.', 'Castle escape'],
 ];
@@ -130,7 +130,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
   <article class="mode mode-explore reveal" data-x="word">
    <div class="mode-text"><p class="kicker">Explore</p><h3>Whatever the book makes you curious about.</h3>
     <div class="tabs" role="tablist" aria-label="Examples of explorations">${explore.map(([id, t], i) => `<button type="button" role="tab" id="tab-${id}" aria-controls="panel-${id}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-explore="${id}" data-label="${t}">${t}</button>`).join('')}</div>
-    <p class="hand note-explore" data-explore-note>${explore[0][2]}</p></div>
+    <p class="hand note-explore" data-explore-note>${explore.map(([id, , note], i) => `<span data-explore-caption="${id}" aria-hidden="${i > 0}"${i ? ' hidden' : ''}>${esc(note)}</span>`).join('')}</p></div>
    <div class="stage">${explore.map(([id, t, , panel], i) => `<div class="panel" id="panel-${id}" role="tabpanel" aria-labelledby="tab-${id}" tabindex="0"${i ? ' hidden' : ''}>${panel}</div>`).join('')}</div>
   </article>
  </div>
@@ -138,7 +138,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
 
 <section class="samples" id="samples" aria-labelledby="samples-title">
  <div class="samples-head reveal"><h2 id="samples-title">Read one <span class="pen-circle">now</span>.</h2></div>
- <p class="samples-intro">Six founding editions. <a href="/library/">Browse the library</a>.</p>
+ <p class="samples-intro"><a href="/library/">Browse the library</a>.</p>
  <div class="sample-row">${samples.map(([id, t, a, line]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a></article>`).join('')}</div>
 </section>
 
