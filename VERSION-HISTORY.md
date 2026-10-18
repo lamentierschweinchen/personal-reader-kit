@@ -27,6 +27,8 @@ Castle escape now has five increasingly large rooms, with exact journal passages
 
 Homeward also measures its drawing surface again after styles finish loading and follows later container-size changes. This prevents a WebKit opening-screen race that flattened the boat and placed crew below the viewport. A delayed-stylesheet regression covers both engines, container resizing and rotation.
 
+Dracula's journal opening follows the actual header and footer sizes, keeping its actions visible when font metrics or enlarged text change the layout. The hidden board no longer pushes the footer below a narrow screen.
+
 ## Four readers refined · 18 October 2026
 
 Austen's index now finds whole words regardless of capitalization by default, exposes deliberate matching options and reaches every result through chapter filters and paging. Alice puts portrait, tale/tail and Cat studies before a chaptered gallery, gives phone prose its full width and improves artwork inspection and edition-notice persistence. Walden presents three account totals with their exact qualifications and develops the survey's measured, conjectured and figurative claims. Two lecture halls offers optional exact landmarks inside the complete arguments, with independent text positions through rotation and type changes.

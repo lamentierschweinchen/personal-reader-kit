@@ -1521,8 +1521,8 @@
         },
         {
           "path": "play/style.css",
-          "bytes": 17377,
-          "sha256": "2f06b60dc8e1fc9288ee802661520d4fce8a2b626852441980e5d0071a69a708"
+          "bytes": 17759,
+          "sha256": "44601e0e837b94f6350683bc429e428dd229bda3600dea0b8b27dbb7ba641f19"
         },
         {
           "path": "robots.txt",
@@ -1547,7 +1547,7 @@
         {
           "path": "sw.js",
           "bytes": 1441,
-          "sha256": "379a4b67c1ea52f621d0431fa6d98fcb931c997e0397120d6088f8bafb982b8b"
+          "sha256": "a337e5b774a0ad3ecb766a1a0b46812c7db3f1219777b231fd938be9bef2da27"
         },
         {
           "path": "text.mjs",

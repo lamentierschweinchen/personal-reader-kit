@@ -9,7 +9,12 @@
 
 #bearing{width:14px;height:14px;color:var(--accent);flex:none}#floor-plan{display:block;width:100%;max-height:45dvh;font-family:var(--sans)}#map-panel #plan-summary{margin-top:0}#map-panel .plan-caption{display:flex;align-items:center;gap:7px;font:12px/1.5 var(--sans);color:var(--muted);margin:12px 0}.you-dot{display:inline-block;width:10px;height:10px;flex:none;border-radius:50%;background:var(--accent)}#plan-objects{padding-left:24px;font:14px/1.8 var(--sans)}#plan-objects span{color:var(--muted)}
 /* Journal openings have their own reading space; Start stays within reach. */
-body[data-mode=ready] .game-shell{visibility:hidden}
+body[data-mode=ready]{height:100svh;height:100dvh}
+body[data-mode=ready] .game-shell{display:none}
+/* Actual header and footer rows bound the opening, even when their text wraps. */
+body[data-mode=ready] .chapter-screen{position:static;flex:1;min-height:0}
+body[data-mode=ready] .chapter-actions{flex-wrap:wrap}
+body[data-mode=ready] .chapter-actions .primary{max-width:100%}
 .chapter-screen{position:fixed;inset:52px 0 calc(45px + env(safe-area-inset-bottom));z-index:6;display:flex;flex-direction:column;background:var(--paper);padding-inline:max(20px,env(safe-area-inset-left)) max(20px,env(safe-area-inset-right));user-select:text;-webkit-user-select:text}
 .chapter-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-y}
 .chapter-sheet,.chapter-actions{width:min(100%,640px);margin:0 auto}
@@ -34,6 +39,6 @@ body[data-mode=ready] .game-shell{visibility:hidden}
 .control-note{min-width:0;max-width:100%}
 footer{flex-wrap:wrap}
 footer>span{min-width:0}
-@media(pointer:coarse),(max-width:900px){.topbar{min-height:48px}.heading{min-height:62px}.game-status{min-height:39px}.controls{min-height:160px}}
+@media(pointer:coarse),(max-width:900px){.topbar{min-height:48px}.heading{min-height:62px}.game-status{min-height:39px}.controls{min-height:160px}.control-note{flex:0 1 120px}}
 @media(max-height:720px) and (max-width:599px){.topbar{min-height:44px}.heading{min-height:54px}.game-status{min-height:37px}.controls{min-height:135px}}
-@media(max-height:520px) and (min-width:600px){.topbar{min-height:44px}.heading{min-height:60px}.game-status{min-height:30px}.controls{min-height:0}}
+@media(max-height:520px) and (min-width:600px){.topbar{min-height:44px}.heading{min-height:60px}.game-status{min-height:30px}.controls{min-height:0}.control-note{flex-basis:auto}}

@@ -33,6 +33,8 @@ A live WebKit landscape check caught the game module measuring an unstyled page 
 
 The hosted Dracula source-retry fixture initially received a successfully cached edition instead of the intended failed request. That fixture now blocks workers only in its synthetic failure context and requires the abort to be observed, the exact fallback to remain, and a completed network retry to reveal the full source paragraphs. Targeted Chromium/WebKit checks pass; campaign and offline contexts keep their workers. Mounted-reader record assertions now use the actual mounted database name.
 
+The expanded layout matrix also exposed Dracula's footer below a narrow viewport in Linux WebKit. Wider movement-label metrics reproduce the same 14px overflow locally. Journal openings now sit between the actual header and footer rows, and the hidden board no longer affects their layout. Start/Replay and movement labels wrap within their space. The permanent regression covers ordinary and enlarged text, wider metrics, short landscape and a later-room save without changing gameplay.
+
 These are agent review and browser-emulation results. Physical phones/tablets, native installation, screen-reader play, sound quality and human acceptance of the difficulty remain unverified. The games do not claim equivalent nonvisual play. Private source-bearing review records and screenshots stay ignored.
 
 ## Four-reader refinement, 18 October 2026

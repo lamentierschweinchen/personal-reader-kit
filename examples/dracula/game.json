@@ -10,8 +10,8 @@
     },
     {
       "path": "style.css",
-      "bytes": 17377,
-      "sha256": "2f06b60dc8e1fc9288ee802661520d4fce8a2b626852441980e5d0071a69a708"
+      "bytes": 17759,
+      "sha256": "44601e0e837b94f6350683bc429e428dd229bda3600dea0b8b27dbb7ba641f19"
     },
     {
       "path": "app.mjs",

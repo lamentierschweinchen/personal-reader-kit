@@ -5,6 +5,8 @@ import {STAGES,VIEW,cameraFor,createGame,start,update,retry,nextRoom,collides,so
 const require=createRequire(import.meta.url),{chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const base=process.env.TEST_URL||'http://127.0.0.1:4314/dracula/play/';
 const sourceRetryOnly=process.argv.includes('--source-retry-only');
+const footerFitOnly=process.argv.includes('--footer-fit-only');
+assert.ok(!(sourceRetryOnly&&footerFitOnly),'Select only one targeted check');
 const readerDatabase=new URL(base).pathname.startsWith('/dracula/')?'newreading-dracula-v1':'dracula-reader-v1';
 const out=new URL('../test-results/showcase/dracula-game/',import.meta.url);await mkdir(out,{recursive:true});
 import {SAVE_KEY,LEGACY_KEY} from '../examples/dracula/play/progress.mjs';
@@ -148,6 +150,62 @@ async function readerRecord(page,write=false){
   };
  }),{state:readerState,write,database:readerDatabase});
 }
+async function checkFooterFit(browser,engine){
+ const cases=[
+  {width:320,height:740},{width:320,height:740,metrics:true},
+  {width:320,height:568},{width:320,height:568,metrics:true},
+  {width:320,height:740,large:true},{width:320,height:568,large:true},
+  {width:320,height:740,large:true,completed:4},
+  {width:740,height:320,large:true},{width:768,height:1024,large:true}
+ ];
+ for(const fixture of cases){
+  const {width,height,metrics=false,large=false,completed=0}=fixture;
+  const context=await browser.newContext({viewport:{width,height},hasTouch:true,reducedMotion:'reduce',serviceWorkers:'block'});
+  try{
+   const page=await context.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
+   if(completed)await page.addInitScript(({key,completed})=>localStorage.setItem(key,JSON.stringify({version:3,completed,gentle:false})),{key:SAVE_KEY,completed});
+   await page.goto(base);await page.locator('#chapter-start').waitFor();
+   // A modestly wider proportional label reproduces the hidden controls'
+   // second flex row. This is metric stress, not a claim to emulate Linux.
+   if(metrics)await page.addStyleTag({content:':root{--serif:Georgia;--sans:Arial}.control-title{letter-spacing:1.5px}'});
+   if(large)await page.evaluate(()=>{
+    const sizes=[...document.querySelectorAll('.topbar *,.chapter-screen *,footer *')].filter(node=>node instanceof HTMLElement).map(node=>[node,parseFloat(getComputedStyle(node).fontSize)*2]);
+    for(const [node,size] of sizes)node.style.fontSize=size+'px';
+   });
+   await page.evaluate(()=>document.fonts.ready);
+   const layout=await page.evaluate(()=>{
+    const rect=selector=>document.querySelector(selector).getBoundingClientRect().toJSON();
+    const targets=[...document.querySelectorAll('.topbar a,.topbar button,.chapter-actions button,footer button')].filter(node=>node.getClientRects().length).map(node=>{
+     const r=node.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(node);const text=range.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+     return {id:node.id||node.className,x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom,textLeft:text.left,textRight:text.right,hit:node===hit||node.contains(hit)};
+    });
+    return {height:innerHeight,width:innerWidth,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight,header:rect('.topbar'),chapter:rect('.chapter-screen'),reading:rect('.chapter-scroll'),footer:rect('footer'),targets};
+   });
+   const label=`${engine} opening ${width}x${height} ${metrics?'wider metrics':large?'200% text':'native'} room ${completed+1}`;
+   assert.ok(layout.scrollWidth<=width+1&&layout.scrollHeight<=height+2,label+' page overflow: '+JSON.stringify(layout));
+   assert.ok(layout.chapter.y>=layout.header.bottom-.5&&layout.chapter.bottom<=layout.footer.y+.5,label+' opening overlaps header or footer');
+   assert.ok(layout.reading.height>=60,label+' needs a usable passage viewport');
+   for(const target of layout.targets){
+    assert.ok(target.width>=43.5&&target.height>=43.5,label+' small target '+JSON.stringify(target));
+    assert.ok(target.x>=-.5&&target.y>=-.5&&target.right<=width+.5&&target.bottom<=height+.5&&target.hit,label+' unreachable target '+JSON.stringify(target));
+    assert.ok(target.textLeft>=target.x-.5&&target.textRight<=target.right+.5,label+' clipped label '+JSON.stringify(target));
+   }
+   await page.locator('#chapter-source').scrollIntoViewIfNeeded();
+   const source=await page.locator('#chapter-source').boundingBox(),reading=layout.reading;
+   assert.ok(source.y>=reading.y-.5&&source.y+source.height<=reading.bottom+.5,label+' source link must be reachable inside the passage');
+   await page.locator('.chapter-scroll').evaluate(node=>{node.scrollTop=0;});
+   const file=`${engine}-footer-${width}x${height}-${metrics?'metrics':large?'large':'native'}-${completed+1}`;
+   await shot(page,file);await unchanged(page,true);
+   if(!large){
+    await page.locator('#chapter-start').tap();assert.equal((await read(page)).phase,'playing');
+    await page.locator('#pause').tap();assert.equal((await read(page)).phase,'paused');
+    await dimensions(page);
+   }
+   assert.deepEqual(errors,[]);receipts.push({engine,case:'footer-fit',fixture,layout,result:'passed'});
+  }finally{await context.close();}
+ }
+ console.log(`${engine}: opening footer, text reflow and short start/pause checks passed`);
+}
 async function checkSourceRecovery(browser,engine){
  // A cached edition served by the worker bypasses page.route. This failure
  // fixture alone blocks workers; the campaign and offline checks keep them.
@@ -205,13 +263,14 @@ async function enterOpening(page,touch,label){
  const r=await page.locator('#chapter-start').boundingBox(),height=page.viewportSize().height;assert.ok(r.y>=0&&r.y+r.height<height-35,'Start must remain visible');
  await page.locator('#chapter-start')[method]();assert.equal((await read(page)).phase,'playing');
 }
-if(!sourceRetryOnly)invariants();
+if(!sourceRetryOnly&&!footerFitOnly)invariants();
 for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'])){
  const executablePath=process.env[engine==='chromium'?'CHROME_PATH':'WEBKIT_PATH'];
  const browser=await ({chromium,webkit}[engine]).launch({headless:true,...(executablePath?{executablePath}:{})});
  const errors=[],requests=[];let context;
  try{
   if(sourceRetryOnly){await checkSourceRecovery(browser,engine);continue;}
+  if(footerFitOnly){await checkFooterFit(browser,engine);continue;}
   context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));context.on('request',r=>requests.push(r.url()));
   await page.goto(base);await readerRecord(page,true);await page.evaluate(()=>localStorage.setItem('reader-preservation-sentinel','untouched'));
@@ -289,10 +348,10 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
   await storage.goto(base);await storage.locator('#help').click();await storage.locator('#gentle').check();assert.ok(await storage.locator('#notes-save-status').isVisible());await storage.locator('#close-notes').click();assert.match(await storage.locator('#chapter-save-status').textContent(),/could not be saved/);await storage.setViewportSize({width:320,height:568});await dimensions(storage);await shot(storage,engine+'-storage-warning-320');await storage.locator('#chapter-start').click();await storage.keyboard.down('ArrowRight');await storage.waitForTimeout(150);await storage.keyboard.up('ArrowRight');assert.ok((await read(storage)).x>105);
   receipts.push({engine,case:'write-failure',result:'passed',warning:'Visible warning; memory play works'});await context.close();context=null;
 
-  await checkSourceRecovery(browser,engine);
+  await checkFooterFit(browser,engine);await checkSourceRecovery(browser,engine);
  }finally{if(context)await context.close();await browser.close();}
 }
-const receiptName=(sourceRetryOnly?'source-retry-receipt':'browser-receipt')+(process.env.QA_ENGINE?'-'+process.env.QA_ENGINE:'')+'.json';
-const limits=sourceRetryOnly?['Only the source-fetch failure and retry case ran; no campaign or offline coverage']:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check'];
+const receiptName=(sourceRetryOnly?'source-retry-receipt':footerFitOnly?'footer-fit-receipt':'browser-receipt')+(process.env.QA_ENGINE?'-'+process.env.QA_ENGINE:'')+'.json';
+const limits=sourceRetryOnly?['Only the source-fetch failure and retry case ran; no campaign or offline coverage']:footerFitOnly?['Opening layouts and short start/pause checks only; metric stress does not replace Linux or physical-device testing']:['Browser emulation; no physical phone/tablet test','WebKit trusted touch holds unavailable; full keyboard completion tested','Departure windows use the model in Node; browser completion uses real controls and real animation frames','No screen-reader playthrough or equivalent nonvisual mode','Offline service worker and full reader return are checked by the combined catalogue release check'];
 await writeFile(new URL(receiptName,out),JSON.stringify({date:new Date().toISOString(),base,receipts,limits},null,2)+'\n');
-console.log(sourceRetryOnly?'Dracula source-retry checks passed.':'All five-room Dracula checks passed.');
+console.log(sourceRetryOnly?'Dracula source-retry checks passed.':footerFitOnly?'Dracula footer-fit checks passed.':'All five-room Dracula checks passed.');
