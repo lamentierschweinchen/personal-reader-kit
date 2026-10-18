@@ -995,8 +995,8 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 22600,
-          "sha256": "961436fcb5ad12c46048ba3f9b255d03577a63883736c1e64897dc41bd228128"
+          "bytes": 24412,
+          "sha256": "2dec173c7773821deb69caeeb95855f06fea06cb0c67d8cf8572ea70e714a747"
         },
         {
           "path": "play/index.html",
@@ -1031,7 +1031,7 @@
         {
           "path": "sw.js",
           "bytes": 1317,
-          "sha256": "ac91e7ae469478d78968194eb1b98259a2bf4f1f92d2d26ce3057419f0c135e6"
+          "sha256": "0bac234a5211087000f93024bfc8f6efd156f092b85a217a7ba3be9de4604c9b"
         },
         {
           "path": "text.mjs",

@@ -1,7 +1,8 @@
 import {RULES,GUESTS,COURSES,newGame,start,pour,stopPour,refill,serve,pause,resume,continueReading,tick,canAct} from './engine.mjs';
 import {characters,cupArt,kettleArt,garden,toastArt,cleanArt} from './art.mjs';
 const $=s=>document.querySelector(s),progressKey='newreading-tea-courses-v1';
-let storageWarning='',last=performance.now(),pointerId=null,heldKey=null,soundOn=false,audio=null,lastDrop=0,lastStatus='',aboutWasPlaying=false,readingBlockedKey=null;
+let storageWarning='',last=performance.now(),pointerId=null,heldKey=null,armedClick=null,activationKey=null,actionRevision=0,actionPhase='',soundOn=false,audio=null,lastDrop=0,lastStatus='',aboutWasPlaying=false;
+const pointerActions=new Map();
 function load(){try{const p=JSON.parse(sessionStorage.getItem(progressKey)||'null');if(!p||p.version!==1||!Number.isInteger(p.course)||p.course<0||p.course>2||!Array.isArray(p.scores)||!p.scores.every(n=>Number.isInteger(n)&&n>=0&&n<100000))return newGame();if(p.scores.length!==(p.complete?3:p.course))return newGame();const s=newGame(p.course,p.scores);if(p.complete){s.phase='won';s.scores=p.scores;s.score=p.scores[2];s.time=COURSES[2].duration;}return s;}catch{return newGame();}}
 let state=load(),shown='',noticeText='',noticeUntil=0;
 const table=$('#table'),overlay=$('#overlay');
@@ -30,14 +31,16 @@ function save(course=state.course,scores=state.scores.slice(0,course),complete=f
 function tone(freq=440,length=.1,volume=.035){if(!soundOn)return;try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const oscillator=audio.createOscillator(),gain=audio.createGain();oscillator.type='sine';oscillator.frequency.setValueAtTime(freq,audio.currentTime);oscillator.frequency.exponentialRampToValueAtTime(freq*.72,audio.currentTime+length);gain.gain.setValueAtTime(volume,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+length);}catch{soundOn=false;$('#sound').innerHTML=icon('mute');$('#sound').setAttribute('aria-label','Sound unavailable');}}
 function positions(){return matchMedia('(max-width:700px)').matches?[18,50,82]:[24,50,76];}
 function floating(id,text,bad=false){const n=document.createElement('span');n.className='float'+(bad?' bad':'');n.textContent=text;n.style.left=positions()[state.cups[id].seat]+'%';n.style.top='57%';$('#feedback').append(n);setTimeout(()=>n.remove(),1400);}
-function clearInputs(reward=false){const captured=pointerId;pointerId=null;heldKey=null;stopPour(state,reward);if(captured!==null&&table.hasPointerCapture(captured))table.releasePointerCapture(captured);}
+// Keep the physical gesture captured until pointerup/cancel. Its release must
+// not activate a button that has just appeared above the held cup.
+function clearInputs(reward=false){pointerId=null;heldKey=null;stopPour(state,reward);}
 function beginPour(id){if(state.phase!=='playing')return false;if(state.cups[id].dirty){notice('Tap Clean cup first.');return false;}if(state.kettle===0){notice('Empty kettle. Tap Refill.');return false;}const ok=pour(state,id);if(ok)tone(350+id*70,.055,.02);render();return ok;}
 function doRefill(){clearInputs(true);if(refill(state)){notice('Refilling…',RULES.refillSeconds);tone(250,.2);}render();}
 function doServe(id){clearInputs(true);if(serve(state,id))tone(420,.1);render();}
-function togglePause(){if(state.phase==='playing'){readingBlockedKey=heldKey;clearInputs();pause(state);}else if(state.phase==='paused')resume(state);render();}
-function retry(){clearInputs();readingBlockedKey=null;state=newGame(state.course,state.scores);shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();queueMicrotask(()=>say(`Course ${state.course+1}. Start when you’re ready.`));render();}
-function replay(){clearInputs();readingBlockedKey=null;state=newGame();shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();say('A new tea party. Start course one when you’re ready.');render();}
-function primary(){if(['reading','paused'].includes(state.phase)&&readingBlockedKey)return;if(state.phase==='reading'){continueReading(state);}else if(state.phase==='paused')resume(state);else if(state.phase==='intro')start(state);else if(state.phase==='interlude'){state=newGame(state.course+1,state.scores);start(state);}else if(state.phase==='lost'){retry();start(state);}else if(state.phase==='won'){replay();start(state);}shown='';render();}
+function togglePause(){if(state.phase==='playing'){clearInputs();pause(state);}else if(state.phase==='paused')resume(state);render();}
+function retry(){clearInputs();state=newGame(state.course,state.scores);shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();queueMicrotask(()=>say(`Course ${state.course+1}. Start when you’re ready.`));render();}
+function replay(){clearInputs();state=newGame();shown='';noticeUntil=0;lastStatus='';$('#feedback').replaceChildren();save();say('A new tea party. Start course one when you’re ready.');render();}
+function primary(){if(state.phase==='reading'){continueReading(state);}else if(state.phase==='paused')resume(state);else if(state.phase==='intro')start(state);else if(state.phase==='interlude'){state=newGame(state.course+1,state.scores);start(state);}else if(state.phase==='lost'){retry();start(state);}else if(state.phase==='won'){replay();start(state);}shown='';render();}
 function showOverlay(){
  const key=state.phase+':'+state.course;if(key===shown)return;shown=key;
  const phase=state.phase;overlay.hidden=phase==='playing';if(overlay.hidden)return;
@@ -70,7 +73,7 @@ function showOverlay(){
  if(!$('#about-dialog').open)$(['reading','paused'].includes(phase)?'#overlay-title':'#primary-action').focus({preventScroll:true});
 }
 function processEvents(){for(const e of state.events.splice(0)){lastStatus='';
- if(e.type==='reading'){readingBlockedKey=heldKey;clearInputs();noticeUntil=0;$('#feedback').replaceChildren();say('Reading break. Tea, requests and clock are stopped. Continue when you are ready.');}
+ if(e.type==='reading'){clearInputs();noticeUntil=0;$('#feedback').replaceChildren();say('Reading break. Tea, requests and clock are stopped. Continue when you are ready.');}
  if(e.type==='continueReading'){say('Back to the table. Choose a cup or request.');}
  if(e.type==='start'){notice(`Course ${state.course+1}`,1.5);say(`Course ${state.course+1} started. ${COURSES[state.course].duration} seconds.`);}
  if(e.type==='perfect'){floating(e.id,`Lovely! +${e.points}`);tone(650,.1);}
@@ -85,7 +88,7 @@ function processEvents(){for(const e of state.events.splice(0)){lastStatus='';
  if(e.type==='end'){clearInputs();if(state.phase==='interlude')save(state.course+1,state.scores);else if(state.phase==='won')save(2,state.scores,true);say(state.phase==='lost'?'Course lost. Retry this course.':state.phase==='won'?'All three courses complete.':`Course ${state.course+1} complete. Take your time with the next request.`);}
 }}
 function render(){
- processEvents();const course=COURSES[state.course],left=Math.max(0,Math.ceil(course.duration-state.time)),active=canAct(state),moving=state.time<state.swapUntil;
+ processEvents();const phase=state.phase+':'+state.course;if(phase!==actionPhase){actionPhase=phase;actionRevision++;}const course=COURSES[state.course],left=Math.max(0,Math.ceil(course.duration-state.time)),active=canAct(state),moving=state.time<state.swapUntil;
  $('#time').textContent=`0:${String(left).padStart(2,'0')}`;$('#course-label').textContent=`Course ${state.course+1} of 3`;
  $('#score').textContent=(state.scores.slice(0,state.course).reduce((a,b)=>a+b,0)+Math.floor(state.score)).toLocaleString();$('#chances-label').textContent=`${3-state.misses} chance${state.misses===2?'':'s'}`;$('.chances').setAttribute('aria-label',`${3-state.misses} chances remaining`);[...$('#chances').children].forEach((c,i)=>c.classList.toggle('used',i<state.misses));
  const xs=positions();state.cups.forEach((c,i)=>{
@@ -113,6 +116,18 @@ function render(){
 }
 function frame(now){tick(state,Math.min(.1,(now-last)/1000));last=now;render();requestAnimationFrame(frame);}
 // Only actual cup holds pour. No click-to-run automation or hidden simulation controls.
+// A compatibility click can outlive pointer capture. Result actions belong to
+// their own pointerdown, never to the cup gesture beneath a newly shown button.
+document.addEventListener('pointerdown',e=>{armedClick=null;pointerActions.set(e.pointerId,{target:e.target.closest('button'),revision:actionRevision,pointerId:e.pointerId,pointerType:e.pointerType});},true);
+document.addEventListener('pointerup',e=>{const press=pointerActions.get(e.pointerId);pointerActions.delete(e.pointerId);armedClick=press&&press.target===e.target.closest('button')&&press.revision===actionRevision?press:null;},true);
+document.addEventListener('pointercancel',e=>{pointerActions.delete(e.pointerId);if(armedClick?.pointerId===e.pointerId)armedClick=null;},true);
+function resultAction(action){return e=>{const press=armedClick;armedClick=null;/* WebKit touch clicks can use a separate compatibility-mouse identity. */const compatibilityMouse=press?.pointerType==='touch'&&e.pointerType==='mouse';if(e.detail>0&&(!press||press.target!==e.currentTarget||press.revision!==actionRevision||(Number.isFinite(e.pointerId)&&e.pointerId!==press.pointerId&&!compatibilityMouse)))return;action();};}
+// A held activation key can follow focus to a result, or outlive a button's
+// previous meaning. Consume stale repeats/releases; a fresh press owns itself.
+const activationButton=e=>e.target.closest('button, #overlay-title');
+const currentActivation=e=>activationKey?.key===e.key&&activationKey.target===activationButton(e)&&activationKey.revision===actionRevision;
+document.addEventListener('keydown',e=>{if(![' ','Enter'].includes(e.key))return;if(e.repeat){if(!currentActivation(e))e.preventDefault();}else activationKey={key:e.key,target:activationButton(e),revision:actionRevision};},true);
+document.addEventListener('keyup',e=>{if(![' ','Enter'].includes(e.key))return;if(!currentActivation(e))e.preventDefault();if(activationKey?.key===e.key)activationKey=null;},true);
 table.addEventListener('pointerdown',e=>{const b=e.target.closest('.cup');if(!b||b.disabled||pointerId!==null||e.button!==0)return;e.preventDefault();heldKey=null;b.focus({preventScroll:true});if(beginPour(Number(b.dataset.id))){pointerId=e.pointerId;table.setPointerCapture(e.pointerId);}});
 table.addEventListener('pointermove',e=>{if(e.pointerId!==pointerId)return;const b=document.elementFromPoint(e.clientX,e.clientY)?.closest('.cup');if(b&&!b.disabled){if(Number(b.dataset.id)!==state.target)beginPour(Number(b.dataset.id));}else stopPour(state);});
 function release(e){if(e.pointerId===pointerId){pointerId=null;stopPour(state);render();}}
@@ -120,11 +135,10 @@ for(const name of ['pointerup','pointercancel','lostpointercapture'])table.addEv
 cups.forEach((b,i)=>{b.addEventListener('keydown',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(i);}}});b.addEventListener('keyup',e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();stopPour(state);heldKey=null;render();}});b.addEventListener('blur',()=>{if([' ','Enter'].includes(heldKey)){stopPour(state);heldKey=null;}});});
 orders.forEach((b,i)=>b.addEventListener('click',()=>doServe(i)));
 document.addEventListener('keydown',e=>{if($('#about-dialog').open||e.ctrlKey||e.metaKey||e.altKey)return;const key=e.key.toLowerCase();if(['reading','paused'].includes(state.phase)&&e.target===$('#overlay-title')&&['Enter',' '].includes(e.key)){e.preventDefault();if(!e.repeat)primary();return;}if(['1','2','3'].includes(key)){e.preventDefault();if(!e.repeat){heldKey=e.key;beginPour(state.cups.findIndex(c=>c.seat===Number(key)-1));}}else if(['q','w','e'].includes(key)&&!e.repeat){e.preventDefault();doServe(state.cups.findIndex(c=>c.seat===['q','w','e'].indexOf(key)));}else if(key==='r'&&!e.repeat){e.preventDefault();doRefill();}else if(['p','escape'].includes(key)&&!e.repeat){e.preventDefault();togglePause();}});
-document.addEventListener('keyup',e=>{if(e.key===readingBlockedKey){e.preventDefault();readingBlockedKey=null;}if(e.key===heldKey){stopPour(state);heldKey=null;render();}});
-$('#primary-action').addEventListener('keydown',e=>{if(['reading','paused'].includes(state.phase)&&e.repeat&&['Enter',' '].includes(e.key))e.preventDefault();});
-$('#refill').addEventListener('click',doRefill);$('#pause').addEventListener('click',togglePause);$('#restart').addEventListener('click',retry);$('#retry-course').addEventListener('click',retry);$('#replay-all').addEventListener('click',replay);$('#primary-action').addEventListener('click',primary);
+document.addEventListener('keyup',e=>{if(e.key===heldKey){stopPour(state);heldKey=null;render();}});
+$('#refill').addEventListener('click',doRefill);$('#pause').addEventListener('click',togglePause);$('#restart').addEventListener('click',retry);$('#retry-course').addEventListener('click',resultAction(retry));$('#replay-all').addEventListener('click',resultAction(replay));$('#primary-action').addEventListener('click',resultAction(primary));
 $('#sound').addEventListener('click',()=>{soundOn=!soundOn;$('#sound').innerHTML=icon(soundOn?'sound':'mute');$('#sound').setAttribute('aria-label',soundOn?'Turn sound off':'Turn sound on');tone(620,.12);});
 $('#about').addEventListener('click',()=>{aboutWasPlaying=state.phase==='playing';if(aboutWasPlaying){clearInputs();pause(state);}$('#about-dialog').showModal();render();});$('#close-about').addEventListener('click',()=>$('#about-dialog').close());$('#about-dialog').addEventListener('close',()=>{shown='';render();if(!aboutWasPlaying&&state.phase==='playing')$('#about').focus();aboutWasPlaying=false;});
-function autoPause(){readingBlockedKey=null;clearInputs();if(state.phase==='playing')pause(state);render();}
+function autoPause(){armedClick=null;pointerActions.clear();clearInputs();if(state.phase==='playing')pause(state);render();}
 window.addEventListener('blur',autoPause);window.addEventListener('pagehide',autoPause);document.addEventListener('visibilitychange',()=>{if(document.hidden)autoPause();});window.addEventListener('resize',autoPause);window.addEventListener('orientationchange',autoPause);
 render();requestAnimationFrame(frame);

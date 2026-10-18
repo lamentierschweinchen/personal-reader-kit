@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Alice result gestures · 18 October 2026
+
+A held cup could finish a course and then activate the result button when the finger lifted; held Enter or Space could follow focus into the new action. Tea at Six now requires a matching press and release within the same result state, and prevents stale key repeats and releases from activating a changed action. Pouring stops immediately, while fresh taps and keyboard actions remain available. The browser regression holds cups and keys through actual course endings and requires the results to stay intact. The guide records gesture ownership across UI transitions; source editions, game rules and stored checkpoint formats are unchanged.
+
 ## Readable game moments and visible consequences · 18 October 2026
 
 Tea at Six now stops at the first seat change, bread request and dirty-cup rule, with an untimed character exchange and explicit Continue. Pause retains that exchange; pouring, requests and clocks wait together. Homeward replaces collectible-looking diamonds with passage brackets and keeps hull hits and wind-bag knots visible. Crew countdowns, successful commands and each missed knot have distinct feedback; loss advice matches the hazard.

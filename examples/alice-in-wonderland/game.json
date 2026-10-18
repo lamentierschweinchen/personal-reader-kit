@@ -20,8 +20,8 @@
     },
     {
       "path": "game.mjs",
-      "bytes": 22600,
-      "sha256": "961436fcb5ad12c46048ba3f9b255d03577a63883736c1e64897dc41bd228128"
+      "bytes": 24412,
+      "sha256": "2dec173c7773821deb69caeeb95855f06fea06cb0c67d8cf8572ea70e714a747"
     },
     {
       "path": "engine.mjs",
