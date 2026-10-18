@@ -49,14 +49,23 @@ function resetState(){
  updateStatus();
 }
 function resize(){
- const oldLandscape=w>h;w=game.clientWidth;h=game.clientHeight;field=Math.min(w,560);offset=(w-field)/2;
+ const width=game.clientWidth,height=game.clientHeight;if(!width||!height)return;
+ const hadSize=w>0&&h>0,oldLandscape=w>h;w=width;h=height;field=Math.min(w,560);offset=(w-field)/2;
  shipScale=h<540&&w>=600?.76:w<360?.86:w<600?.94:1.12;
  sy=h<540&&w>=600?h*.62:h*.66;
  if(mode==='ready'&&w<600&&h<650){shipScale=.72;sy=h*.72;}
- dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+ dpr=Math.min(devicePixelRatio||1,2);
+ const pixelsWide=Math.round(w*dpr),pixelsHigh=Math.round(h*dpr);
+ if(canvas.width!==pixelsWide||canvas.height!==pixelsHigh){canvas.width=pixelsWide;canvas.height=pixelsHigh;}ctx.setTransform(dpr,0,0,dpr,0,0);
  if(state&&mode==='ready')state.x=readyX();
- if(mode==='playing'&&oldLandscape!==(w>h))pause('A moment to get your bearings.');
+ if(mode==='playing'&&hadSize&&oldLandscape!==(w>h))pause('A moment to get your bearings.');
  positionCrew();
+}
+function observeBounds(){
+ // WebKit may run this module before its stylesheet is applied. Wait for load
+ // before observing: an unstyled canvas participates in its parent's height.
+ resize();
+ new ResizeObserver(()=>{resize();render(0);}).observe(game);
 }
 function setMode(value){
  mode=value;game.dataset.mode=value;game.dataset.day=String(dayIndex+1);
@@ -475,5 +484,6 @@ $('#sound').addEventListener('click',()=>{
   tone('crew');
 });
 resetState();resize();setMode('ready');showSaveWarning();
+if(document.readyState==='complete')observeBounds();else window.addEventListener('load',observeBounds,{once:true});
 if(progress.day>0||progress.finished){$('#start').textContent=progress.finished?'Sail the final day again':`Continue · day ${numerals[progress.day]}`;$('#replay-opening').hidden=false;}
 requestAnimationFrame(tick);

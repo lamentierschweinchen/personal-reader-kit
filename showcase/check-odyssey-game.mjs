@@ -54,6 +54,79 @@ async function dimensions(page,selectors){
  assert.equal(await page.evaluate(()=>document.body.scrollWidth<=innerWidth),true,'Horizontal overflow');
  return boxes;
 }
+async function layoutBounds(page,label){
+ // Observe two animation frames: layout and ResizeObserver must
+ // settle without starting the game or dispatching a synthetic resize event.
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ const result=await page.evaluate(()=>{
+  const game=document.querySelector('#game'),canvas=document.querySelector('#sea');
+  const box=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};
+  return{viewport:{width:innerWidth,height:innerHeight},game:box(game),client:{width:game.clientWidth,height:game.clientHeight},canvas:box(canvas),pixels:{width:canvas.width,height:canvas.height},scale:Math.min(devicePixelRatio||1,2),transform:canvas.getContext('2d').getTransform().a,
+   crew:[...document.querySelectorAll('.sailor')].map(e=>({id:e.dataset.sailor,disabled:e.disabled,...box(e)}))};
+ });
+ const{game,client,canvas,pixels,scale,viewport,crew}=result;
+ assert.ok(client.width>0&&client.height>0,label+' game has positive bounds');
+ assert.equal(pixels.width,Math.round(client.width*scale),label+' canvas backing width follows game');
+ assert.equal(pixels.height,Math.round(client.height*scale),label+' canvas backing height follows game');
+ assert.equal(result.transform,scale,label+' drawing transform matches pixel density');
+ for(const dimension of ['x','y','width','height'])assert.ok(Math.abs(canvas[dimension]-game[dimension])<1,label+' canvas CSS '+dimension+' follows game');
+ assert.equal(crew.length,3,label+' keeps all three sailors');
+ // Ready sailors are disabled but remain part of the ship: never filter them.
+ for(const sailor of crew){
+  assert.ok(sailor.width>=44&&sailor.height>=44,label+' crew target size');
+  assert.ok(sailor.x>=game.x&&sailor.y>=game.y&&sailor.x+sailor.width<=game.x+game.width&&sailor.y+sailor.height<=game.y+game.height,label+' crew stays inside game: '+JSON.stringify(sailor));
+  assert.ok(sailor.x>=0&&sailor.y>=0&&sailor.x+sailor.width<=viewport.width&&sailor.y+sailor.height<=viewport.height,label+' crew stays inside viewport: '+JSON.stringify(sailor));
+ }
+ return result;
+}
+async function lateLayout(){
+ for(const[width,height]of profiles){
+  const context=await browser.newContext({viewport:{width,height},hasTouch:true,isMobile:width<1000,deviceScaleFactor:2,serviceWorkers:'block'});
+  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  let releaseStyle;const heldStyle=new Promise(resolve=>{releaseStyle=resolve;});
+  try{
+   await page.addInitScript(()=>{window.qaResizeEvents=0;addEventListener('resize',()=>window.qaResizeEvents++);});
+   // Make late stylesheet application deterministic in both engines. A print
+   // media link lets the module initialize before the held screen stylesheet.
+   // This reproduces WebKit's observed module-before-style ordering without
+   // depending on network speed or changing any game state/clock.
+   await page.route(base,async route=>{
+    const response=await route.fetch(),html=await response.text();
+    const delayed=html.replace('<link rel="stylesheet" href="./style.css">','<link rel="stylesheet" href="./style.css" media="print">');
+    assert.notEqual(delayed,html,'Found the stylesheet to delay');await route.fulfill({response,body:delayed});
+   });
+   await page.route('**/style.css',async route=>{const response=await route.fetch();await heldStyle;await route.fulfill({response});});
+   await page.goto(base,{waitUntil:'commit'});
+   await page.waitForFunction(()=>!!document.querySelector('.sailor')?.style.top,null,{polling:20,timeout:5000});
+   const before=await page.evaluate(()=>({gameHeight:document.querySelector('#game').clientHeight,canvasHeight:document.querySelector('#sea').height,position:getComputedStyle(document.querySelector('#game')).position}));
+   assert.equal(before.position,'static','Module initialized before screen styles');
+   await page.locator('link[rel=stylesheet]').evaluate(e=>{e.media='all';});releaseStyle();await page.waitForLoadState('load');
+   const loaded=await layoutBounds(page,`${width} delayed stylesheet`);
+   assert.equal((await read(page)).mode,'ready');assert.ok(loaded.crew.every(s=>s.disabled));
+   if(width===844)assert.match(await page.locator('.premise').innerText(),/crew\. And/,'Landscape premise keeps sentence spacing');
+   await capture(page,`${width}-delayed-styles-ready`);
+   const resizeEvents=await page.evaluate(()=>window.qaResizeEvents);
+   await page.locator('#game').evaluate(e=>{e.style.width='calc(100% - 32px)';e.style.height='calc(100svh - 32px)';});
+   const contained=await layoutBounds(page,`${width} later container sizing`);
+   assert.notEqual(contained.client.width,loaded.client.width);assert.notEqual(contained.client.height,loaded.client.height);
+   assert.equal(await page.evaluate(()=>window.qaResizeEvents),resizeEvents,'Container sizing must not rely on window resize');
+   await page.locator('#game').evaluate(e=>{e.style.width='';e.style.height='';});
+   await layoutBounds(page,`${width} restored container`);
+   await page.setViewportSize({width:height,height:width});
+   const rotated=await layoutBounds(page,`${width} rotated ready`);assert.equal((await read(page)).mode,'ready');
+   await capture(page,`${width}-rotated-ready`);
+   await page.setViewportSize({width,height});await layoutBounds(page,`${width} rotation restored`);
+   if(width===844){
+    await page.locator('#start').click();await page.locator('#day-start').click();await page.keyboard.down('ArrowLeft');
+    await page.setViewportSize({width:height,height:width});await layoutBounds(page,'active rotation');
+    assert.equal((await read(page)).mode,'paused');await page.keyboard.up('ArrowLeft');await stable(page);
+    assert.equal(await page.locator('.steer.pressed').count(),0);await capture(page,'late-layout-active-rotation');
+   }
+   assert.deepEqual(errors,[]);receipts.push({name:'late-layout',width,height,before,loaded,contained,rotated,activeRotation:width===844,errors});
+  }catch(error){await capture(page,`${width}-late-layout-failure`);throw error;}
+  finally{releaseStyle();await context.close();}
+ }
+}
 async function stable(page){const before=await read(page);await wait(350);const after=await read(page);assert.equal(after.route,before.route);assert.equal(after.x,before.x);assert.equal(after.mode,before.mode);}
 async function intro(page,width,day){
  const r=await read(page);assert.equal(r.mode,'interlude');assert.equal(r.day,day);await stable(page);
@@ -210,10 +283,13 @@ async function resilience(){
  }finally{await s.context.close();}
 }
 try{
- await lifecycle();await resilience();
- const cases=profiles.filter(([w])=>!selected||selected.includes(w));
- for(let i=0;i<cases.length;i+=concurrency){
-  const results=await Promise.allSettled(cases.slice(i,i+concurrency).map(([w,h])=>campaign(w,h)));
-  for(const result of results)if(result.status==='rejected')throw result.reason;
+ await lateLayout();
+ if(process.env.LAYOUT_ONLY!=='1'){
+  await lifecycle();await resilience();
+  const cases=profiles.filter(([w])=>!selected||selected.includes(w));
+  for(let i=0;i<cases.length;i+=concurrency){
+   const results=await Promise.allSettled(cases.slice(i,i+concurrency).map(([w,h])=>campaign(w,h)));
+   for(const result of results)if(result.status==='rejected')throw result.reason;
+  }
  }
 }finally{await writeFile(new URL(engine+'-play-receipt.json',evidence),JSON.stringify(receipts,null,2)+'\n');await browser.close();}

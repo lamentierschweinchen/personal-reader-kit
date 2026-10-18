@@ -14,6 +14,8 @@ The coordinator personally completed all three Alice courses, Odyssey day I and 
 
 Release integration preserves the previously published four-reader refinements. It checks notes, reading positions and limits through game returns, stopped-origin/offline play, prior-release checkpoint migration and ordinary open-tab updates. Exact novel files, reader-return helpers and the personal entrance remain unchanged by the game changes. All 47 kit and 225 example Node tests, 270 exact example outputs, the original-sample build and the isolated 354-input combined build pass. The reviewed package has 309 deployed files and 662 public files, with the 177 edition pins and 60-file starter unchanged. Final publication is recorded separately in the local release receipts. The earlier Odyssey CI check expired while a voyage was still progressing under its fixed wall deadline. Its driver now limits concurrency, requires advancing route progress and retains a finite deadline and actual win assertions.
 
+A live WebKit landscape check caught the game module measuring an unstyled page before CSS arrived. Homeward now remeasures on load completion and observes actual game bounds. A deterministic delayed-stylesheet test reproduces the old malformed canvas/crew positions and verifies the correction in both engines at all five game-test sizes, with later container changes and rotation. Gameplay timings are unchanged.
+
 These are agent review and browser-emulation results. Physical phones/tablets, native installation, screen-reader play, sound quality and human acceptance of the difficulty remain unverified. The games do not claim equivalent nonvisual play. Private source-bearing review records and screenshots stay ignored.
 
 ## Four-reader refinement, 18 October 2026

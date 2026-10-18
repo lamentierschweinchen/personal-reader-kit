@@ -14,6 +14,8 @@ Tea at Six now stops at the first seat change, bread request and dirty-cup rule,
 
 Castle escape now has five increasingly large rooms, with exact journal passages before each one: guest wing, library, ruined chapel, courtyard and gatehouse. Original architectural details distinguish the rooms; a rope and spindle join the carried tools for the final winch. Source visits reveal the exact quotation within its complete paragraph. Earlier three-room saves keep their cleared first rooms and resume at the new chapel; reader records remain separate. The release preserves the independently published four-reader refinements and all edition bytes.
 
+Homeward also measures its drawing surface again after styles finish loading and follows later container-size changes. This prevents a WebKit opening-screen race that flattened the boat and placed crew below the viewport. A delayed-stylesheet regression covers both engines, container resizing and rotation.
+
 ## Four readers refined · 18 October 2026
 
 Austen's index now finds whole words regardless of capitalization by default, exposes deliberate matching options and reaches every result through chapter filters and paging. Alice puts portrait, tale/tail and Cat studies before a chaptered gallery, gives phone prose its full width and improves artwork inspection and edition-notice persistence. Walden presents three account totals with their exact qualifications and develops the survey's measured, conjectured and figurative claims. Two lecture halls offers optional exact landmarks inside the complete arguments, with independent text positions through rotation and type changes.
