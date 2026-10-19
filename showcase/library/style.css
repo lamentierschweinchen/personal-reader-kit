@@ -48,12 +48,31 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .edition-description p,.edition-sources>p,.contribution-action p,footer p{text-wrap:pretty}
 .cover-austen img{object-fit:contain}
 
-.cover-inward-life{background:#25232c;color:#d9bb7b}.cover-inward-life strong{top:16%;font-size:19cqw;line-height:1.04}.cover-inward-life img{position:absolute;left:5%;top:48%;width:90%;height:36%;object-fit:contain}.cover-inward-life .cover-bottom{font-size:2.7cqw}
+/* Shelf titles carry the reader's entrance face and rhythm. The catalogue's
+   shared display face belongs to its labels, rather than every book jacket. */
+.cover-at-table{background:#f3efe3;color:#2a2a25}
+.cover-at-table strong{font:400 29cqw/.84 Newsreader,Georgia,serif;font-optical-sizing:auto;letter-spacing:-.065em;top:17%;left:12%;text-align:left}
+.cover-at-table strong em{color:#9e453c}
+.cover-at-table img{position:absolute;left:3%;top:41%;width:94%;height:45%;object-fit:contain}
+.cover-at-table .cover-bottom{font-size:2.9cqw}
 
-.cover-at-table{background:#f3efe3;color:#2a2a25}.cover-at-table strong{font-size:25cqw;top:15%;text-align:left;left:12%}.cover-at-table strong em{color:#9e453c}.cover-at-table img{position:absolute;left:3%;top:41%;width:94%;height:45%;object-fit:contain}.cover-at-table .cover-bottom{font-size:2.9cqw}
+.cover-inward-life{background:#25232c;color:#d9bb7b}
+.cover-inward-life strong{font:400 21cqw/.94 Literata,Georgia,serif;font-optical-sizing:auto;letter-spacing:-.06em;top:16%;left:12%;text-align:left}
+.cover-inward-life img{position:absolute;left:5%;top:48%;width:90%;height:36%;object-fit:contain}
+.cover-inward-life .cover-bottom{font-size:2.7cqw}
 
-.cover-beside-the-bed{background:#e3e7dc;color:#30463d}.cover-beside-the-bed strong{font-size:22cqw;top:17%;text-align:left;left:11%}.cover-beside-the-bed img{position:absolute;left:3%;top:43%;width:97%;height:43%;object-fit:contain}.cover-beside-the-bed .cover-bottom{font-size:2.7cqw}
+.cover-music-and-feeling{background:#ede9e2;color:#333144}
+.cover-music-and-feeling strong{font:600 19cqw/.98 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:-.035em;top:17%;left:11%;text-align:left}
+.cover-music-and-feeling img{position:absolute;left:7%;top:48%;width:86%;height:36%;object-fit:contain}
+.cover-music-and-feeling .cover-meta,.cover-music-and-feeling .cover-bottom{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:600;letter-spacing:.12em}
+.cover-music-and-feeling .cover-bottom{font-size:2.7cqw}
 
-.cover-learning-to-see{background:#f7f4ec;color:#2b3a32}.cover-learning-to-see strong{font-size:22cqw;top:17%;text-align:left;left:11%}.cover-learning-to-see img{position:absolute;left:7%;top:37%;width:88%;height:49%;object-fit:contain}.cover-learning-to-see .cover-bottom{font-size:2.7cqw}
-.cover-at-table strong{font-family:Newsreader,Georgia,serif;font-optical-sizing:auto}.cover-inward-life strong{font-family:Literata,Georgia,serif;font-optical-sizing:auto;font-size:18cqw}.cover-beside-the-bed strong{font-family:Bitter,Georgia,serif;font-size:20cqw;line-height:1.12}.cover-learning-to-see strong{font-family:Alegreya,Georgia,serif;font-size:23cqw}
-.cover-music-and-feeling{background:#ede9e2;color:#333144}.cover-music-and-feeling strong{font:19cqw/1.02 Gentium,Georgia,serif;top:16%;left:11%;text-align:left}.cover-music-and-feeling img{position:absolute;left:7%;top:48%;width:86%;height:36%;object-fit:contain}.cover-music-and-feeling .cover-bottom{font-size:2.7cqw}
+.cover-learning-to-see{background:#f7f4ec;color:#2b3a32}
+.cover-learning-to-see strong{font:400 24cqw/.97 Alegreya,Georgia,serif;letter-spacing:-.06em;top:17%;left:11%;text-align:left}
+.cover-learning-to-see img{position:absolute;left:7%;top:40%;width:88%;height:46%;object-fit:contain}
+.cover-learning-to-see .cover-bottom{font-size:2.7cqw}
+
+.cover-beside-the-bed{background:#e3e7dc;color:#30463d}
+.cover-beside-the-bed strong{font:600 20cqw/1.02 Bitter,Georgia,serif;letter-spacing:-.05em;top:17%;left:11%;text-align:left}
+.cover-beside-the-bed img{position:absolute;left:3%;top:43%;width:97%;height:43%;object-fit:contain}
+.cover-beside-the-bed .cover-bottom{font-size:2.7cqw}
