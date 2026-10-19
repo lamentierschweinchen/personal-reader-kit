@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Standalone starter CI · 20 October 2026
+
+The exported personal starter's workflow tried to run an optional regression file that the starter does not contain. That step now runs only when the file exists; the full kit still runs it. The exact 60-file starter passes its required unit, build, audit and Chromium/WebKit checks in a fresh directory. The agent guide records this isolated verification, and deployment guidance corrects the public-example count to eleven. No reader runtime, edition or starter inventory changes.
+
 ## Homepage mixed shelf · 20 October 2026
 
 The homepage's Browse library tiles become an alphabetical mixed shelf of all eleven public readers. Desktop starts with three jackets facing out; phones and tablets use a single native scrolling row with Alice open. Clicking, tapping or using the keyboard turns a book, while hover only lifts it. Complete titles and authors sit beside a short companion description and one reading action. Static links survive disabled or failed JavaScript, enlarged text wraps, and reduced motion removes the turn.

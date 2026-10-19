@@ -4,6 +4,12 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with eleven reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The eleven specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Standalone starter CI · 20 October 2026
+
+The launch review found a packaging gap: the 60-file personal starter includes its CI workflow but does not include the optional selection-touch regression. The workflow now runs that regression only when its file exists. The full kit continues to run it; the starter's required checks are unchanged. Deployment guidance also now names all eleven public examples.
+
+The exact extracted starter reproduces the earlier missing-module failure and passes after the correction: 45 unit tests, the 13-file original-sample build, publication/history audit, the intentional no-examples check, and its complete Chromium/WebKit browser suite. Both engines verify offline reading after stopping the origin, new and edited notes, and zero external requests or browser errors. The guide now requires isolated starter verification. The starter inventory, public edition pins and reader runtime files are unchanged. These are automated browser checks, not a claim of newcomer or physical-device acceptance.
+
 ## Homepage mixed shelf · 20 October 2026
 
 The owner-approved mixed shelf replaces the homepage's six library tiles with all eleven public editions, in alphabetical title order ignoring initial A, An and The. Alice, At Table and Walden initially face out on desktop. At phone and tablet widths, one native horizontally scrolling row starts with Alice open and the other books' spines visible. Activating a book turns it and updates the complete title, author, companion description and reading link; hover only lifts it. Keyboard arrows, Home and End select without turning books merely on focus. Static direct links remain usable without JavaScript or if the shelf module fails. The full library remains separate.
