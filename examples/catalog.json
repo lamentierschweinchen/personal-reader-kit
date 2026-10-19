@@ -1942,13 +1942,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 23447,
-          "sha256": "fd0c48a33772e1a6e585e8de38401e51483e101937f607745e7aca95d72932f7"
+          "bytes": 23543,
+          "sha256": "fe12782e4af2c53233c662c6b65015babed8b4e74045367d37514600407374c0"
         },
         {
           "path": "sw.js",
           "bytes": 2218,
-          "sha256": "1b9847131cc1a10ad837e22a902ba186401b907e8a302236ba2e33aead9a28c5"
+          "sha256": "d85c925f0bf5358c8727a1bf5aac0eaeb79c6201f1c37ec3f67783388a1f7f95"
         },
         {
           "path": "text.mjs",
