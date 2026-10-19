@@ -56,3 +56,9 @@
 .fragment-surface[data-omitted-start]::before{content:'… '}.fragment-surface[data-omitted-end]::after{content:' …'}
 
 .passage-sharing{border-block:1px solid var(--line);padding:16px 0;margin:0 0 24px}.passage-sharing .dialog-actions{margin:0;gap:24px;flex-wrap:wrap}.passage-sharing .small{margin:0 0 8px}.passage-sharing textarea{white-space:pre-wrap;min-height:160px}.passage-sharing button{min-width:44px}
+
+/* Optional maker credit; remove its single paragraph from index.html to omit it. */
+.site-footer{flex-wrap:wrap}
+.site-footer .maker-credit{display:flex;align-items:center;flex-wrap:wrap;gap:0 .3em;min-width:0;max-width:100%;margin:0;font:12px/1.5 var(--sans);color:var(--muted);overflow-wrap:anywhere}
+.site-footer .maker-credit a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;max-width:100%;padding:0 .15em;font:inherit;color:inherit;white-space:normal;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:.2em}
+.site-footer .maker-credit a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}

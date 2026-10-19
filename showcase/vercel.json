@@ -61,14 +61,14 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula))/sw\\.js$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed))/sw\\.js$",
       "headers": {
         "Cache-Control": "no-cache, no-store, must-revalidate"
       },
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

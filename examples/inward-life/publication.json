@@ -1,0 +1,79 @@
+{
+  "intendedVisibility": "public",
+  "sampleProvenance": "Original fictional writing created for this kit; MIT permission. No personal reader content.",
+  "originalSampleSha256": "19cdbf9d1484693e3549bd360dc993c30b35755c8d28e499cf3a1e516dca1fc3",
+  "files": [
+    ".gitignore",
+    ".vercelignore",
+    "AGENTS.md",
+    "LICENSE",
+    "README.md",
+    "VERSION-HISTORY.md",
+    "brand.md",
+    "docs/EDITION-PROVENANCE.md",
+    "docs/FONTS.md",
+    "docs/KIT-FEEDBACK.md",
+    "docs/RIGHTS.md",
+    "docs/SOURCE-RIGHTS.md",
+    "editions/inventory.json",
+    "editions/library.json",
+    "package.json",
+    "publication.json",
+    "samples/README.md",
+    "samples/library.json",
+    "scripts/build.mjs",
+    "scripts/serve.mjs",
+    "site/app.mjs",
+    "site/bundle.mjs",
+    "site/collection-art.svg",
+    "site/collection.css",
+    "site/collection.mjs",
+    "site/core.mjs",
+    "site/db.mjs",
+    "site/icon.svg",
+    "site/index.html",
+    "site/literata-OFL.txt",
+    "site/literata-italic.woff2",
+    "site/literata-normal.woff2",
+    "site/manifest.webmanifest",
+    "site/robots.txt",
+    "site/share.mjs",
+    "site/style.css",
+    "site/text.mjs",
+    "tests/bundle.test.mjs",
+    "tests/core.test.mjs",
+    "tests/inward-profile.test.mjs",
+    "tests/production-studies.test.mjs",
+    "tests/share.test.mjs",
+    "tests/ui-icons.test.mjs",
+    "vercel.json"
+  ],
+  "reviewedEditionFiles": [
+    {
+      "path": "examples/inward-life/editions/library.json",
+      "sha256": "835cd0541133308ef7ef186cb6166e5cc42d18aa0c55e27b962995ec4fc57cb4",
+      "provenance": "examples/inward-life/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted complete three-work English digital collection; embedded source images and full notices."
+    }
+  ],
+  "reviewedFontFiles": [
+    {
+      "path": "site/literata-normal.woff2",
+      "bytes": 397212,
+      "sha256": "230e5b1de4f4ace4d49c9fda9c8cf0851acb5425dce9067d89ff88aed93f325d",
+      "provenance": "docs/FONTS.md",
+      "license": "site/literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Exact full Literata normal variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "site/literata-italic.woff2",
+      "bytes": 396676,
+      "sha256": "38060b182b46a8b6c5f521982e86c59480f8811e77852ed563ce8a66a4adecb6",
+      "provenance": "docs/FONTS.md",
+      "license": "site/literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Exact full Literata italic variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    }
+  ]
+}

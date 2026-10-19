@@ -1,0 +1,41 @@
+# Kit feedback — Inward Life
+
+Observed during the local collection trial, 18 October 2026. This project began at kit 7c9d60c. No upstream changes made.
+
+| Type / status | Reproduction and reader consequence | Local response | Reusable proposal |
+| --- | --- | --- | --- |
+| Edition-specific adapter / implemented | Gutenberg Julian includes a title-page image, contents table, 391 notes and glossary; James includes an image, TEI verse, 363 notes and index. Stock text contract rejects media and source-note links. | Named `inward-life/source@1` profile; embedded JPEGs, source links, small caps, quotation roles and explicit verse lines. Full safe body inventory and non-whitespace conservation receipt. | Extract small, independently tested contracts for linked source notes and portable images. Do not import this complete bespoke profile wholesale. |
+| Workflow friction / worked around | Running `npm test` invokes the source-free build and replaces the live preview’s `dist/library.json`. A local collection server can then serve samples until rebuilt. | Run tests before `npm run build:collection`; verify the requested edition and loaded build fingerprint afterwards. | Give verification builds a separate output directory or isolated build target, preserving the active local reader preview. |
+| Workflow friction / worked around | The source-free starter has a deliberately explicit build inventory and Vercel upload allowlist. Adding collection assets initially failed the upload-inventory assertion. | Added only the three authored collection assets to build/allowlist. Private books remain outside the source-free default build. | Document the coordinated extension points together; the exact inventory remains valuable. |
+| Project loading treatment / corrected classification | The initial missing-book branch looked like a lost direct URL. Coordinator review identified the starter’s hash-reparse recovery. This is not a confirmed upstream defect. | Keep a loading view only for the still-pending unavailable target; late downloads must not rerender an already-open local book. | Verify against unchanged starter, then keep only independently demonstrated defects in the upstream queue. Delayed-download selection regression belongs to local changes. |
+| Optional artwork workflow / proposed | The collection needs a cover with a different scope from a single edition’s illustration. Traquair’s image is specific to Warrack’s Julian, and cannot stand for a shared tradition. | An original, honestly attributed vector composition; historical title pages remain inside their editions. | A small collection-art receipt: thesis, original versus historical status, exact provenance, smallest-size review, reuse rights and a separate source-illustration boundary. Do not require image generation. |
+| Environment friction / recorded | The bundled Playwright version requests a browser revision not installed. | Use installed Chrome channel and the installed WebKit executable for local QA. | Name compatible browser executables in dependency discovery; this is environment setup, not a reader defect. |
+
+Functional verification and editorial endorsement are separate. Exact source preparation, quotations and captures remain ignored under `.reader/`.
+
+## Corrections and local verification
+
+The untouched starter’s direct URL recovered in an isolated delayed-library browser test. The earlier defect diagnosis is withdrawn; see ignored `reports/delayed-download.json`. The customized pending-target view is a local loading treatment, and its late-download regression separately protects an imported-book selection and viewport. A source-link selection failure was introduced by this adapter: link targets reused `data-block` and were enumerated as text blocks. It is fixed locally with `data-source-block`; this is not an upstream defect.
+
+The coordinator independently confirmed the build-output collision and supplied the narrow upstream design. This customized `build({output})` now accepts an isolated output path, and the publication test builds into a temporary directory while asserting the active preview library is byte-unchanged. The customization and source adapter remain intact.
+
+The final stopped-origin test passed in Chromium and matching WebKit: an uncached raw request failed, exact book text reloaded, chapters navigated, an offline annotation survived another reload, and the scholarly trace reopened. Playwright’s WebKit `setOffline(true)` reload still reported an internal browser error with an active/ready worker; it is a network-emulation limitation in this tested setup, not evidence that stopped-origin reading failed. Physical iOS remains untested.
+
+
+## Editorial narrowing after personal review
+
+The coordinator selected Three doors and the mediation trace, and rejected the order-switch study as adding navigation without enough insight. The complete earlier working study is preserved privately, with a recoverable production route and unchanged ordinary reader records. The useful evidence in the mediation trace previously began below a large title, selectors, a second heading and two paragraphs of interpretation. The production revision moves the continuous source directly under a short title and author choice, with interpretation after it. This is an observed local editorial/layout problem, not a source adapter or upstream defect. A reusable companion review should measure how soon the actual evidence appears at ordinary phone type size and allow retirement without a replacement feature.
+
+## Enlarged-text follow-up from combined mounting
+
+The parent’s 320px check doubles each element’s precomputed font size. The accepted compact header produced a 377px document: the brand overlapped navigation and Aa extended beyond the viewport. The same failure reproduced locally at both 21px and 36px reading preferences; source paragraph wrapping was not the cause. This is a local header defect, not a source-data or mounting defect.
+
+The header now wraps according to intrinsic text widths, releases the brand’s fixed narrow maximum, and preserves a separate non-shrinking settings control. A ResizeObserver measures its real height so the sticky reading toolbar remains below all rows. Normal portrait text retains one 56px row; 200% text uses two natural rows (109px in these tests), without an expansion animation, font reduction, clipping or a global overflow rule. Both Chromium and WebKit pass 320/390px × 21/36px × 100/200% text, with brand/nav/settings separation, reachable controls, exact source conservation and successful exact-note saves. This stricter whole-interface state is distinct from the reader’s large-print preset. Physical-device validation remains separate.
+
+## Distinct typography and font-loaded verification
+
+The human asked for a topic-fitting face for every edition; the parent selected Literata here and supplied full fonts from a pinned official revision. This is a deliberate identity change, not a defect. FontFaceSet status alone is not proof that a source glyph used a face: Chromium platform-font evidence confirms the actual normal, real italic, heading and supplied Greek-probe glyphs; WebKit has loaded-face, distinct-raster and screenshot evidence. The prepared witnesses contain no literal Greek codepoints, so the release’s Greek coverage probe remains outside source text. The parent’s full-library cmap check reported zero missing characters.
+
+The first trial WOFF2 conversion changed head.modified; the parent caught it before admission, replaced it with timestamp-preserving `woff2.compress` outputs and compared all relevant tables/outlines. Only final hashes are admitted here. Binary review is per exact flat WOFF2 path/hash with tracked provenance; the build enforces those bytes, and ordinary private-path/credential checks remain active. No upstream kit files were patched.
+
+Observed local inherited control defect: native WebKit settings selects painted below a 44px target despite generic padding. Explicit text-relative height now measures 50.8px in both engines at normal UI size and grows with type. The stale no-JavaScript loading/offline/Add book shell is also hidden, leaving an accurate explanation and catalogue link. Delayed-font and same-origin update checks distinguish face loading from saved-place/record continuity.

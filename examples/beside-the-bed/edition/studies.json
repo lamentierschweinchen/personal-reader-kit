@@ -1,0 +1,125 @@
+[
+  {
+    "id": "visits",
+    "title": "The visitor’s work",
+    "dek": "Preparation, messages, a seat, and the moment to leave.",
+    "intro": "Four passages from Nightingale and Whitman.",
+    "steps": [
+      {
+        "title": "Before arriving",
+        "copy": "Whitman prepares his own body before taking his presence into a hospital: rest, bathing, clean clothes, food. The list makes his confidence in personal presence less abstract. It also leaves a question open: the claim that his cheer helped most is his assessment of his visits, not a patient’s testimony.",
+        "source": {
+          "book": "whitman-specimen",
+          "section": "w037",
+          "first": "w-b0129",
+          "last": "w-b0129"
+        }
+      },
+      {
+        "title": "A message without a second task",
+        "copy": "Nightingale follows a request past the visitor’s promise to help. Asking for the address again makes the sick person remember, decide, and explain a second time. The burden is small enough to escape the helper’s notice. Read this beside Whitman’s letter writing: practical company can mean carrying a message all the way to the post office.",
+        "source": {
+          "book": "nightingale-1898",
+          "section": "id00210",
+          "first": "id00235",
+          "last": "id00238"
+        },
+        "related": {
+          "book": "whitman-specimen",
+          "section": "w026",
+          "first": "w-b0094",
+          "last": "w-b0094"
+        }
+      },
+      {
+        "title": "Something to tell",
+        "copy": "Nightingale’s objection is not to conversation itself. A visitor who arrives with nothing to say can leave the patient to supply the conversation. Her concession in the next paragraph matters: even the visitor’s anxieties need not be excluded. The complaint concerns an unequal effort, rather than a ban on difficult subjects.",
+        "source": {
+          "book": "nightingale-1898",
+          "section": "id00496",
+          "first": "id00522",
+          "last": "id00524"
+        }
+      },
+      {
+        "title": "The end of a visit",
+        "copy": "Standing and fidgeting, or sitting and talking on: Nightingale puts opposite behaviours in the same sentence because both can ignore the person receiving the visit. Her last instruction ends with departure. A useful visitor has to notice an ending as carefully as an entrance.",
+        "source": {
+          "book": "nightingale-1898",
+          "section": "id00210",
+          "first": "id00233",
+          "last": "id00234"
+        }
+      }
+    ]
+  },
+  {
+    "id": "room",
+    "title": "Room for sound",
+    "dek": "What can a visitor infer about a listener?",
+    "intro": "A corridor conversation and a singing ward. Read the passages, then try the optional reading marks.",
+    "steps": [
+      {
+        "title": "Outside the door",
+        "copy": "The conversation is out of reach but not out of hearing. Nightingale locates its cost in the effort to listen and the uncertainty of waiting. Her account of the fatal case is an interpretation: the paragraph reports that others attributed the death to fright.",
+        "source": {
+          "book": "nightingale-1898",
+          "section": "id00210",
+          "first": "id00216",
+          "last": "id00220"
+        },
+        "lenses": {
+          "visitor": {
+            "phrases": [
+              "friends or of doctors",
+              "hold a long conversation",
+              "Walking on tip-toe",
+              "leave the patient"
+            ],
+            "copy": "The visitors talk, move, and decide when to enter. They cannot take quiet voices or careful steps as proof that the patient is at ease."
+          },
+          "listener": {
+            "phrases": [
+              "expecting them to come in",
+              "strain upon his attention",
+              "uncertainty",
+              "within hearing or knowledge"
+            ],
+            "copy": "Nightingale describes the patient trying not to listen. She also reports a disagreement about the cause of a death. The passage gives us her reading of these responses; it leaves the visitors with less certainty than they seem to assume."
+          }
+        }
+      },
+      {
+        "title": "In the singing ward",
+        "copy": "Whitman first leaves a sleeping soldier, then sits beside a wakeful friend and clears his view of the singers. That sequence matters. The music does not arrive in a room emptied of other needs. The visitor reports his own pleasure vividly; the silent patients’ pleasure is less directly available to the reader.",
+        "source": {
+          "book": "whitman-specimen",
+          "section": "w044",
+          "first": "w-b0149",
+          "last": "w-b0150"
+        },
+        "lenses": {
+          "visitor": {
+            "phrases": [
+              "As my soldier was asleep, I left him",
+              "I stept round",
+              "loop'd them all up",
+              "I receiv'd"
+            ],
+            "copy": "Whitman changes rooms and clears his friend’s view before listening. His own pleasure is directly reported. We do not have the same access to each patient’s pleasure."
+          },
+          "listener": {
+            "phrases": [
+              "wide awake and comparatively easy",
+              "to get a better view",
+              "the silence of the men",
+              "the attitudes they took"
+            ],
+            "copy": "His friend turns to see the singers: one observable response. The other men are described as silent. What, beyond that silence, does Whitman know about what they hear?"
+          }
+        },
+        "verse": true
+      }
+    ]
+  }
+]

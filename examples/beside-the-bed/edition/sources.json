@@ -1,0 +1,55 @@
+{
+  "id": "record",
+  "title": "From notes to a printed book",
+  "dek": "A bedside record and its later publication carry different kinds of authority.",
+  "parts": [
+    {
+      "title": "A note for a particular task",
+      "text": "In the opening endnote, Whitman describes small folded notebooks used to remember names, circumstances, and wants. The Library of Congress holds a Washington hospital notebook catalogued as 1863. That surviving object does not establish that every dated scene in the printed book is a verbatim transcript of a notebook leaf.",
+      "source": {
+        "book": "whitman-specimen",
+        "section": "w001",
+        "first": "w-b0005",
+        "last": "w-b0008"
+      },
+      "sourceLabel": "Whitman’s opening endnote",
+      "citation": {
+        "title": "Library of Congress · Washington hospital notebook [1863]",
+        "url": "https://www.loc.gov/item/mss454430077/"
+      }
+    },
+    {
+      "title": "When a fact becomes an opinion",
+      "text": "Nightingale’s examples separate what somebody saw from the conclusion they reported. Emptying a utensil once is an observation of the utensil, not a count of its uses. Crossing a room does not settle how long someone can stand. Her argument changes the unit of evidence: the familiar word “better” conceals several different comparisons. It also exposes the patient’s difficult position—present, able to contradict, and often too tired or shy to do so.",
+      "source": {
+        "book": "nightingale-1898",
+        "section": "id00540",
+        "first": "id00542",
+        "last": "id00549"
+      },
+      "sourceLabel": "Nightingale’s observation examples"
+    },
+    {
+      "title": "The printed book looks back",
+      "text": "The opening command to assemble the book is dated July 1882. Near its end, Whitman acknowledges possible errors in chronology and technical detail while defending the fidelity of his own perceptions. In an October 1882 letter to Sylvester Baxter, he describes gathering decades of personal notes into an autobiography. These are acts of selection and publication. The hospital visit and the later claim made for its written account occupy different moments.",
+      "source": {
+        "book": "whitman-specimen",
+        "section": "w246",
+        "first": "w-b0822",
+        "last": "w-b0823"
+      },
+      "sourceLabel": "Whitman’s final confession",
+      "citation": {
+        "title": "Walt Whitman to Sylvester Baxter · 8 October 1882",
+        "url": "https://whitmanarchive.org/item/nyp.00446"
+      },
+      "related": {
+        "book": "whitman-specimen",
+        "section": "w001",
+        "first": "w-b0003",
+        "last": "w-b0003"
+      },
+      "relatedLabel": "The July 1882 opening"
+    }
+  ]
+}

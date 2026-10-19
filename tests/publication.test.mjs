@@ -5,6 +5,22 @@ import path from 'node:path';
 import {tmpdir} from 'node:os';
 import {inspectFile} from '../scripts/audit.mjs';
 import {build,assets} from '../scripts/build.mjs';
+import {createHash} from 'node:crypto';
+test('font admission pins bytes, provenance and the complete license without suppressing credential checks',()=>{
+  const name='site/original-fixture.woff2',license='site/OFL-fixture.txt',provenance='docs/FONTS.md';
+  const bytes=Buffer.from([119,79,70,50,0,1]),notice=Buffer.from('Original test notice; this fixture does not represent a real licensed font.');
+  const sha=b=>createHash('sha256').update(b).digest('hex'),allowed=[name,license,provenance];
+  const pin={path:name,sha256:sha(bytes),license,licenseSha256:sha(notice),provenance,reason:'Original scanner fixture.'};
+  assert.deepEqual(inspectFile(name,bytes,allowed,[],[],[pin]),[]);
+  assert.match(inspectFile(name,bytes,allowed).join(' '),/font bytes/);
+  assert.match(inspectFile(name,Buffer.concat([bytes,Buffer.from('changed')]),allowed,[],[],[pin]).join(' '),/font bytes/);
+  assert.match(inspectFile(name,bytes,allowed.filter(p=>p!==license),[],[],[pin]).join(' '),/font bytes/);
+  assert.deepEqual(inspectFile(license,notice,allowed,[],[],[pin]),[]);
+  assert.match(inspectFile(license,Buffer.from('shortened notice'),allowed,[],[],[pin]).join(' '),/license differs/);
+  const secret=Buffer.concat([bytes,Buffer.from('ghp_'+'A'.repeat(36))]);
+  assert.match(inspectFile(name,secret,allowed,[],[],[{...pin,sha256:sha(secret)}]).join(' '),/credential/);
+  assert.match(inspectFile('examples/unreviewed/site/fixture.woff2',bytes,['examples/unreviewed/site/fixture.woff2',license,provenance],[],[],[{...pin,path:'examples/unreviewed/site/fixture.woff2'}]).join(' '),/binary/);
+});
 test('publication scanner rejects unknown/private paths and recognizable credentials',()=>{
   assert.deepEqual(inspectFile('README.md',Buffer.from('Hello'),['README.md']),[]);
   assert.match(inspectFile('source/book.epub',Buffer.from('text'),[]).join(' '),/private/);

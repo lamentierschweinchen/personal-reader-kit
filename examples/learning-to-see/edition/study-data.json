@@ -1,0 +1,57 @@
+{
+  "sources": {
+    "letter": {
+      "book": "ruskin",
+      "section": "letter-1",
+      "blocks": [
+        "b71",
+        "b72"
+      ]
+    },
+    "boughs": {
+      "book": "ruskin",
+      "section": "letter-1",
+      "blocks": [
+        "b74",
+        "b75",
+        "b76",
+        "b77",
+        "b78",
+        "b79",
+        "b80"
+      ]
+    },
+    "olive": {
+      "book": "crane",
+      "section": "chapter-1",
+      "blocks": [
+        "b144",
+        "b145",
+        "b146",
+        "b147"
+      ]
+    },
+    "repeat": {
+      "book": "crane",
+      "section": "chapter-1",
+      "blocks": [
+        "b163",
+        "b164"
+      ]
+    }
+  },
+  "figures": {
+    "olive-nature": {
+      "book": "crane",
+      "asset": "a28"
+    },
+    "olive-design": {
+      "book": "crane",
+      "asset": "a29"
+    },
+    "repeat": {
+      "book": "crane",
+      "asset": "a36"
+    }
+  }
+}

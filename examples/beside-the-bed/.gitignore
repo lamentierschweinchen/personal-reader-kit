@@ -1,0 +1,6 @@
+dist/
+.reader/
+test-results/
+node_modules/
+.vercel/
+.env*

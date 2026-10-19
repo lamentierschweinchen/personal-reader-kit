@@ -1,5 +1,5 @@
 import {createRequire} from 'node:module';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
 import {buildShowcase} from './build.mjs';
@@ -8,6 +8,7 @@ if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const out=new URL('../test-results/library/',import.meta.url);await mkdir(out,{recursive:true});
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
+const editionCount=JSON.parse(await readFile(new URL('./library/entries.json',import.meta.url))).editions.length;
 const sizes=[{width:320,height:740},{width:390,height:844},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
 async function settle(page){await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
 async function layout(page,label){
@@ -23,7 +24,7 @@ try{
     const context=await browser.newContext({viewport,hasTouch:viewport.width<600,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],unexpected=[];
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url());});
     await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');
-    assert.equal(await page.locator('.book:not([hidden])').count(),6);
+    assert.equal(await page.locator('.book:not([hidden])').count(),editionCount);
     const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);
     await page.locator('[data-filter="all"]').click();await page.locator('#search').fill('Haldane');assert.equal(await page.locator('.book:not([hidden])').getAttribute('data-edition'),'two-halls');
     await page.locator('#search').fill('not on this shelf');assert.equal(await page.locator('.empty').isVisible(),true);await page.locator('#reset').click();assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true);
@@ -46,7 +47,7 @@ try{
     const originalSize=await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));await page.evaluate(()=>document.documentElement.style.fontSize='200%');assert.ok(await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>=originalSize*1.9);await layout(page,'200% text');
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,search:true,filter:true,sort:true,dialogExit:true,focusReturn:true,previewReopen:true,stableFilterWidth:true,noReadingStorage:true});await context.close();
    }
-   const plainContext=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:390,height:844}}),plain=await plainContext.newPage();await plain.goto(base+'/library/');await settle(plain);assert.equal(await plain.locator('.cover-button').count(),6);assert.equal(await plain.locator('.browse-tools').isVisible(),false);await plain.locator('[data-preview="alice"]').click();await plain.locator('#edition-alice>summary').click();assert.equal(await plain.locator('#edition-alice .edition-description').isVisible(),true);await plainContext.close();
+   const plainContext=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:390,height:844}}),plain=await plainContext.newPage();await plain.goto(base+'/library/');await settle(plain);assert.equal(await plain.locator('.cover-button').count(),editionCount);assert.equal(await plain.locator('.browse-tools').isVisible(),false);await plain.locator('[data-preview="alice"]').click();await plain.locator('#edition-alice>summary').click();assert.equal(await plain.locator('#edition-alice .edition-description').isVisible(),true);await plainContext.close();
    const deepContext=await browser.newContext(),deep=await deepContext.newPage();await deep.goto(base+'/library/#edition-two-halls');await deep.waitForFunction(()=>document.body.dataset.libraryReady==='true');assert.equal(await deep.locator('#edition-two-halls').getAttribute('open'),'');await deepContext.close();
   }finally{await browser.close();}
  }

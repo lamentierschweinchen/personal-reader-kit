@@ -102,6 +102,96 @@
     "examples/alice-in-wonderland/tests/ui-icons.test.mjs",
     "examples/alice-in-wonderland/tests/upgrade.test.mjs",
     "examples/alice-in-wonderland/vercel.json",
+    "examples/at-table/.gitignore",
+    "examples/at-table/.vercelignore",
+    "examples/at-table/AGENTS.md",
+    "examples/at-table/LICENSE",
+    "examples/at-table/README.md",
+    "examples/at-table/VERSION-HISTORY.md",
+    "examples/at-table/brand.md",
+    "examples/at-table/docs/FONTS.md",
+    "examples/at-table/docs/KIT-FEEDBACK.md",
+    "examples/at-table/docs/RIGHTS.md",
+    "examples/at-table/docs/SOURCE-RIGHTS.md",
+    "examples/at-table/docs/TABLE-ADAPTER.md",
+    "examples/at-table/edition/library.json",
+    "examples/at-table/edition/manifest.json",
+    "examples/at-table/package.json",
+    "examples/at-table/publication.json",
+    "examples/at-table/samples/README.md",
+    "examples/at-table/samples/library.json",
+    "examples/at-table/scripts/build.mjs",
+    "examples/at-table/scripts/serve.mjs",
+    "examples/at-table/site/app.mjs",
+    "examples/at-table/site/assets.mjs",
+    "examples/at-table/site/bundle.mjs",
+    "examples/at-table/site/core.mjs",
+    "examples/at-table/site/db.mjs",
+    "examples/at-table/site/icon.svg",
+    "examples/at-table/site/index.html",
+    "examples/at-table/site/manifest.webmanifest",
+    "examples/at-table/site/newsreader-OFL.txt",
+    "examples/at-table/site/newsreader-italic.woff2",
+    "examples/at-table/site/newsreader-normal.woff2",
+    "examples/at-table/site/robots.txt",
+    "examples/at-table/site/share.mjs",
+    "examples/at-table/site/style.css",
+    "examples/at-table/site/table.mjs",
+    "examples/at-table/site/table.svg",
+    "examples/at-table/site/text.mjs",
+    "examples/at-table/tests/bundle.test.mjs",
+    "examples/at-table/tests/core.test.mjs",
+    "examples/at-table/tests/share.test.mjs",
+    "examples/at-table/tests/table-assets.test.mjs",
+    "examples/at-table/tests/ui-icons.test.mjs",
+    "examples/at-table/vercel.json",
+    "examples/beside-the-bed/.gitignore",
+    "examples/beside-the-bed/.vercelignore",
+    "examples/beside-the-bed/AGENTS.md",
+    "examples/beside-the-bed/LICENSE",
+    "examples/beside-the-bed/README.md",
+    "examples/beside-the-bed/VERSION-HISTORY.md",
+    "examples/beside-the-bed/brand.md",
+    "examples/beside-the-bed/docs/EDITION-SCOPE.md",
+    "examples/beside-the-bed/docs/FONTS.md",
+    "examples/beside-the-bed/docs/KIT-FEEDBACK.md",
+    "examples/beside-the-bed/docs/RIGHTS.md",
+    "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+    "examples/beside-the-bed/edition/inventory.json",
+    "examples/beside-the-bed/edition/library.json",
+    "examples/beside-the-bed/edition/notices.json",
+    "examples/beside-the-bed/edition/sources.json",
+    "examples/beside-the-bed/edition/studies.json",
+    "examples/beside-the-bed/package.json",
+    "examples/beside-the-bed/publication.json",
+    "examples/beside-the-bed/samples/README.md",
+    "examples/beside-the-bed/samples/library.json",
+    "examples/beside-the-bed/scripts/build.mjs",
+    "examples/beside-the-bed/scripts/serve.mjs",
+    "examples/beside-the-bed/site/OFL.txt",
+    "examples/beside-the-bed/site/app.mjs",
+    "examples/beside-the-bed/site/bitter-italic.woff2",
+    "examples/beside-the-bed/site/bitter-normal.woff2",
+    "examples/beside-the-bed/site/bundle.mjs",
+    "examples/beside-the-bed/site/collection.css",
+    "examples/beside-the-bed/site/core.mjs",
+    "examples/beside-the-bed/site/cover.svg",
+    "examples/beside-the-bed/site/db.mjs",
+    "examples/beside-the-bed/site/icon.svg",
+    "examples/beside-the-bed/site/index.html",
+    "examples/beside-the-bed/site/manifest.webmanifest",
+    "examples/beside-the-bed/site/notices.mjs",
+    "examples/beside-the-bed/site/robots.txt",
+    "examples/beside-the-bed/site/share.mjs",
+    "examples/beside-the-bed/site/studies.mjs",
+    "examples/beside-the-bed/site/style.css",
+    "examples/beside-the-bed/site/text.mjs",
+    "examples/beside-the-bed/tests/bundle.test.mjs",
+    "examples/beside-the-bed/tests/core.test.mjs",
+    "examples/beside-the-bed/tests/notices.test.mjs",
+    "examples/beside-the-bed/tests/share.test.mjs",
+    "examples/beside-the-bed/tests/ui-icons.test.mjs",
+    "examples/beside-the-bed/vercel.json",
     "examples/catalog.json",
     "examples/dracula/.vercelignore",
     "examples/dracula/AGENTS.md",
@@ -150,6 +240,329 @@
     "examples/dracula/tests/share.test.mjs",
     "examples/dracula/tests/ui-icons.test.mjs",
     "examples/dracula/vercel.json",
+    "examples/inward-life/.gitignore",
+    "examples/inward-life/.vercelignore",
+    "examples/inward-life/AGENTS.md",
+    "examples/inward-life/LICENSE",
+    "examples/inward-life/README.md",
+    "examples/inward-life/VERSION-HISTORY.md",
+    "examples/inward-life/brand.md",
+    "examples/inward-life/docs/EDITION-PROVENANCE.md",
+    "examples/inward-life/docs/FONTS.md",
+    "examples/inward-life/docs/KIT-FEEDBACK.md",
+    "examples/inward-life/docs/RIGHTS.md",
+    "examples/inward-life/docs/SOURCE-RIGHTS.md",
+    "examples/inward-life/editions/inventory.json",
+    "examples/inward-life/editions/library.json",
+    "examples/inward-life/package.json",
+    "examples/inward-life/publication.json",
+    "examples/inward-life/samples/README.md",
+    "examples/inward-life/samples/library.json",
+    "examples/inward-life/scripts/build.mjs",
+    "examples/inward-life/scripts/serve.mjs",
+    "examples/inward-life/site/app.mjs",
+    "examples/inward-life/site/bundle.mjs",
+    "examples/inward-life/site/collection-art.svg",
+    "examples/inward-life/site/collection.css",
+    "examples/inward-life/site/collection.mjs",
+    "examples/inward-life/site/core.mjs",
+    "examples/inward-life/site/db.mjs",
+    "examples/inward-life/site/icon.svg",
+    "examples/inward-life/site/index.html",
+    "examples/inward-life/site/literata-OFL.txt",
+    "examples/inward-life/site/literata-italic.woff2",
+    "examples/inward-life/site/literata-normal.woff2",
+    "examples/inward-life/site/manifest.webmanifest",
+    "examples/inward-life/site/robots.txt",
+    "examples/inward-life/site/share.mjs",
+    "examples/inward-life/site/style.css",
+    "examples/inward-life/site/text.mjs",
+    "examples/inward-life/tests/bundle.test.mjs",
+    "examples/inward-life/tests/core.test.mjs",
+    "examples/inward-life/tests/inward-profile.test.mjs",
+    "examples/inward-life/tests/production-studies.test.mjs",
+    "examples/inward-life/tests/share.test.mjs",
+    "examples/inward-life/tests/ui-icons.test.mjs",
+    "examples/inward-life/vercel.json",
+    "examples/learning-to-see/.gitignore",
+    "examples/learning-to-see/.vercelignore",
+    "examples/learning-to-see/AGENTS.md",
+    "examples/learning-to-see/LICENSE",
+    "examples/learning-to-see/README.md",
+    "examples/learning-to-see/brand.md",
+    "examples/learning-to-see/docs/EDITION-INVENTORY.json",
+    "examples/learning-to-see/docs/FONTS.md",
+    "examples/learning-to-see/docs/KIT-FEEDBACK.md",
+    "examples/learning-to-see/docs/PROVENANCE.md",
+    "examples/learning-to-see/docs/RIGHTS.md",
+    "examples/learning-to-see/docs/SOURCE-ADAPTER.md",
+    "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+    "examples/learning-to-see/edition/inventory.json",
+    "examples/learning-to-see/edition/library.json",
+    "examples/learning-to-see/edition/study-data.json",
+    "examples/learning-to-see/package.json",
+    "examples/learning-to-see/publication.json",
+    "examples/learning-to-see/samples/README.md",
+    "examples/learning-to-see/samples/library.json",
+    "examples/learning-to-see/scripts/build.mjs",
+    "examples/learning-to-see/scripts/serve.mjs",
+    "examples/learning-to-see/site/alegreya-OFL.txt",
+    "examples/learning-to-see/site/alegreya-italic.woff2",
+    "examples/learning-to-see/site/alegreya-normal.woff2",
+    "examples/learning-to-see/site/app.mjs",
+    "examples/learning-to-see/site/bundle.mjs",
+    "examples/learning-to-see/site/collection.css",
+    "examples/learning-to-see/site/core.mjs",
+    "examples/learning-to-see/site/cover.svg",
+    "examples/learning-to-see/site/db.mjs",
+    "examples/learning-to-see/site/icon.svg",
+    "examples/learning-to-see/site/index.html",
+    "examples/learning-to-see/site/manifest.webmanifest",
+    "examples/learning-to-see/site/media.mjs",
+    "examples/learning-to-see/site/robots.txt",
+    "examples/learning-to-see/site/share.mjs",
+    "examples/learning-to-see/site/studio.mjs",
+    "examples/learning-to-see/site/style.css",
+    "examples/learning-to-see/site/text.mjs",
+    "examples/learning-to-see/tests/bundle.test.mjs",
+    "examples/learning-to-see/tests/core.test.mjs",
+    "examples/learning-to-see/tests/illustrated.test.mjs",
+    "examples/learning-to-see/tests/share.test.mjs",
+    "examples/learning-to-see/tests/ui-icons.test.mjs",
+    "examples/learning-to-see/vercel.json",
+    "examples/music-and-feeling/.gitignore",
+    "examples/music-and-feeling/.vercelignore",
+    "examples/music-and-feeling/AGENTS.md",
+    "examples/music-and-feeling/LICENSE",
+    "examples/music-and-feeling/README.md",
+    "examples/music-and-feeling/VERSION-HISTORY.md",
+    "examples/music-and-feeling/docs/COLLECTION.md",
+    "examples/music-and-feeling/docs/FONTS.md",
+    "examples/music-and-feeling/docs/KIT-FEEDBACK.md",
+    "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+    "examples/music-and-feeling/edition/hanslick-001.jpg",
+    "examples/music-and-feeling/edition/hanslick-002.jpg",
+    "examples/music-and-feeling/edition/hanslick-003.jpg",
+    "examples/music-and-feeling/edition/hanslick-004.jpg",
+    "examples/music-and-feeling/edition/hanslick-005.jpg",
+    "examples/music-and-feeling/edition/hanslick-006.jpg",
+    "examples/music-and-feeling/edition/hanslick-007.jpg",
+    "examples/music-and-feeling/edition/hanslick-008.jpg",
+    "examples/music-and-feeling/edition/hanslick-009.jpg",
+    "examples/music-and-feeling/edition/hanslick-010.jpg",
+    "examples/music-and-feeling/edition/hanslick-011.jpg",
+    "examples/music-and-feeling/edition/hanslick-012.jpg",
+    "examples/music-and-feeling/edition/hanslick-013.jpg",
+    "examples/music-and-feeling/edition/hanslick-014.jpg",
+    "examples/music-and-feeling/edition/hanslick-015.jpg",
+    "examples/music-and-feeling/edition/hanslick-016.jpg",
+    "examples/music-and-feeling/edition/hanslick-017.jpg",
+    "examples/music-and-feeling/edition/hanslick-018.jpg",
+    "examples/music-and-feeling/edition/hanslick-019.jpg",
+    "examples/music-and-feeling/edition/hanslick-020.jpg",
+    "examples/music-and-feeling/edition/hanslick-021.jpg",
+    "examples/music-and-feeling/edition/hanslick-022.jpg",
+    "examples/music-and-feeling/edition/hanslick-023.jpg",
+    "examples/music-and-feeling/edition/hanslick-024.jpg",
+    "examples/music-and-feeling/edition/hanslick-025.jpg",
+    "examples/music-and-feeling/edition/hanslick-026.jpg",
+    "examples/music-and-feeling/edition/hanslick-027.jpg",
+    "examples/music-and-feeling/edition/hanslick-028.jpg",
+    "examples/music-and-feeling/edition/hanslick-029.jpg",
+    "examples/music-and-feeling/edition/hanslick-030.jpg",
+    "examples/music-and-feeling/edition/hanslick-031.jpg",
+    "examples/music-and-feeling/edition/hanslick-032.jpg",
+    "examples/music-and-feeling/edition/hanslick-033.jpg",
+    "examples/music-and-feeling/edition/hanslick-034.jpg",
+    "examples/music-and-feeling/edition/hanslick-035.jpg",
+    "examples/music-and-feeling/edition/hanslick-036.jpg",
+    "examples/music-and-feeling/edition/hanslick-037.jpg",
+    "examples/music-and-feeling/edition/hanslick-038.jpg",
+    "examples/music-and-feeling/edition/hanslick-039.jpg",
+    "examples/music-and-feeling/edition/hanslick-040.jpg",
+    "examples/music-and-feeling/edition/hanslick-041.jpg",
+    "examples/music-and-feeling/edition/hanslick-042.jpg",
+    "examples/music-and-feeling/edition/hanslick-043.jpg",
+    "examples/music-and-feeling/edition/hanslick-044.jpg",
+    "examples/music-and-feeling/edition/hanslick-045.jpg",
+    "examples/music-and-feeling/edition/hanslick-046.jpg",
+    "examples/music-and-feeling/edition/hanslick-047.jpg",
+    "examples/music-and-feeling/edition/hanslick-048.jpg",
+    "examples/music-and-feeling/edition/hanslick-049.jpg",
+    "examples/music-and-feeling/edition/hanslick-050.jpg",
+    "examples/music-and-feeling/edition/hanslick-051.jpg",
+    "examples/music-and-feeling/edition/hanslick-052.jpg",
+    "examples/music-and-feeling/edition/hanslick-053.jpg",
+    "examples/music-and-feeling/edition/hanslick-054.jpg",
+    "examples/music-and-feeling/edition/hanslick-055.jpg",
+    "examples/music-and-feeling/edition/hanslick-056.jpg",
+    "examples/music-and-feeling/edition/hanslick-057.jpg",
+    "examples/music-and-feeling/edition/hanslick-058.jpg",
+    "examples/music-and-feeling/edition/hanslick-059.jpg",
+    "examples/music-and-feeling/edition/hanslick-060.jpg",
+    "examples/music-and-feeling/edition/hanslick-061.jpg",
+    "examples/music-and-feeling/edition/hanslick-062.jpg",
+    "examples/music-and-feeling/edition/hanslick-063.jpg",
+    "examples/music-and-feeling/edition/hanslick-064.jpg",
+    "examples/music-and-feeling/edition/hanslick-065.jpg",
+    "examples/music-and-feeling/edition/hanslick-066.jpg",
+    "examples/music-and-feeling/edition/hanslick-067.jpg",
+    "examples/music-and-feeling/edition/hanslick-068.jpg",
+    "examples/music-and-feeling/edition/hanslick-069.jpg",
+    "examples/music-and-feeling/edition/hanslick-070.jpg",
+    "examples/music-and-feeling/edition/hanslick-071.jpg",
+    "examples/music-and-feeling/edition/hanslick-072.jpg",
+    "examples/music-and-feeling/edition/hanslick-073.jpg",
+    "examples/music-and-feeling/edition/hanslick-074.jpg",
+    "examples/music-and-feeling/edition/hanslick-075.jpg",
+    "examples/music-and-feeling/edition/hanslick-076.jpg",
+    "examples/music-and-feeling/edition/hanslick-077.jpg",
+    "examples/music-and-feeling/edition/hanslick-078.jpg",
+    "examples/music-and-feeling/edition/hanslick-079.jpg",
+    "examples/music-and-feeling/edition/hanslick-080.jpg",
+    "examples/music-and-feeling/edition/hanslick-081.jpg",
+    "examples/music-and-feeling/edition/hanslick-082.jpg",
+    "examples/music-and-feeling/edition/hanslick-083.jpg",
+    "examples/music-and-feeling/edition/hanslick-084.jpg",
+    "examples/music-and-feeling/edition/hanslick-085.jpg",
+    "examples/music-and-feeling/edition/hanslick-086.jpg",
+    "examples/music-and-feeling/edition/hanslick-087.jpg",
+    "examples/music-and-feeling/edition/hanslick-088.jpg",
+    "examples/music-and-feeling/edition/hanslick-089.jpg",
+    "examples/music-and-feeling/edition/hanslick-090.jpg",
+    "examples/music-and-feeling/edition/hanslick-091.jpg",
+    "examples/music-and-feeling/edition/hanslick-092.jpg",
+    "examples/music-and-feeling/edition/hanslick-093.jpg",
+    "examples/music-and-feeling/edition/hanslick-094.jpg",
+    "examples/music-and-feeling/edition/hanslick-095.jpg",
+    "examples/music-and-feeling/edition/hanslick-096.jpg",
+    "examples/music-and-feeling/edition/hanslick-097.jpg",
+    "examples/music-and-feeling/edition/hanslick-098.jpg",
+    "examples/music-and-feeling/edition/hanslick-099.jpg",
+    "examples/music-and-feeling/edition/hanslick-100.jpg",
+    "examples/music-and-feeling/edition/hanslick-101.jpg",
+    "examples/music-and-feeling/edition/hanslick-102.jpg",
+    "examples/music-and-feeling/edition/hanslick-103.jpg",
+    "examples/music-and-feeling/edition/hanslick-104.jpg",
+    "examples/music-and-feeling/edition/hanslick-105.jpg",
+    "examples/music-and-feeling/edition/hanslick-106.jpg",
+    "examples/music-and-feeling/edition/hanslick-107.jpg",
+    "examples/music-and-feeling/edition/hanslick-108.jpg",
+    "examples/music-and-feeling/edition/hanslick-109.jpg",
+    "examples/music-and-feeling/edition/hanslick-110.jpg",
+    "examples/music-and-feeling/edition/hanslick-111.jpg",
+    "examples/music-and-feeling/edition/hanslick-112.jpg",
+    "examples/music-and-feeling/edition/hanslick-113.jpg",
+    "examples/music-and-feeling/edition/hanslick-114.jpg",
+    "examples/music-and-feeling/edition/hanslick-115.jpg",
+    "examples/music-and-feeling/edition/hanslick-116.jpg",
+    "examples/music-and-feeling/edition/hanslick-117.jpg",
+    "examples/music-and-feeling/edition/hanslick-118.jpg",
+    "examples/music-and-feeling/edition/hanslick-119.jpg",
+    "examples/music-and-feeling/edition/hanslick-120.jpg",
+    "examples/music-and-feeling/edition/hanslick-121.jpg",
+    "examples/music-and-feeling/edition/hanslick-122.jpg",
+    "examples/music-and-feeling/edition/hanslick-123.jpg",
+    "examples/music-and-feeling/edition/hanslick-124.jpg",
+    "examples/music-and-feeling/edition/hanslick-125.jpg",
+    "examples/music-and-feeling/edition/hanslick-126.jpg",
+    "examples/music-and-feeling/edition/hanslick-127.jpg",
+    "examples/music-and-feeling/edition/hanslick-128.jpg",
+    "examples/music-and-feeling/edition/hanslick-129.jpg",
+    "examples/music-and-feeling/edition/hanslick-130.jpg",
+    "examples/music-and-feeling/edition/hanslick-131.jpg",
+    "examples/music-and-feeling/edition/hanslick-132.jpg",
+    "examples/music-and-feeling/edition/hanslick-133.jpg",
+    "examples/music-and-feeling/edition/hanslick-134.jpg",
+    "examples/music-and-feeling/edition/hanslick-135.jpg",
+    "examples/music-and-feeling/edition/hanslick-136.jpg",
+    "examples/music-and-feeling/edition/hanslick-137.jpg",
+    "examples/music-and-feeling/edition/hanslick-138.jpg",
+    "examples/music-and-feeling/edition/hanslick-139.jpg",
+    "examples/music-and-feeling/edition/hanslick-140.jpg",
+    "examples/music-and-feeling/edition/hanslick-141.jpg",
+    "examples/music-and-feeling/edition/hanslick-142.jpg",
+    "examples/music-and-feeling/edition/hanslick-143.jpg",
+    "examples/music-and-feeling/edition/hanslick-144.jpg",
+    "examples/music-and-feeling/edition/hanslick-145.jpg",
+    "examples/music-and-feeling/edition/hanslick-146.jpg",
+    "examples/music-and-feeling/edition/hanslick-147.jpg",
+    "examples/music-and-feeling/edition/hanslick-148.jpg",
+    "examples/music-and-feeling/edition/hanslick-149.jpg",
+    "examples/music-and-feeling/edition/hanslick-150.jpg",
+    "examples/music-and-feeling/edition/hanslick-151.jpg",
+    "examples/music-and-feeling/edition/hanslick-152.jpg",
+    "examples/music-and-feeling/edition/hanslick-153.jpg",
+    "examples/music-and-feeling/edition/hanslick-154.jpg",
+    "examples/music-and-feeling/edition/hanslick-155.jpg",
+    "examples/music-and-feeling/edition/hanslick-156.jpg",
+    "examples/music-and-feeling/edition/hanslick-157.jpg",
+    "examples/music-and-feeling/edition/hanslick-158.jpg",
+    "examples/music-and-feeling/edition/hanslick-159.jpg",
+    "examples/music-and-feeling/edition/hanslick-160.jpg",
+    "examples/music-and-feeling/edition/hanslick-161.jpg",
+    "examples/music-and-feeling/edition/hanslick-162.jpg",
+    "examples/music-and-feeling/edition/hanslick-163.jpg",
+    "examples/music-and-feeling/edition/hanslick-164.jpg",
+    "examples/music-and-feeling/edition/hanslick-165.jpg",
+    "examples/music-and-feeling/edition/hanslick-166.jpg",
+    "examples/music-and-feeling/edition/hanslick-167.jpg",
+    "examples/music-and-feeling/edition/hanslick-168.jpg",
+    "examples/music-and-feeling/edition/hanslick-169.jpg",
+    "examples/music-and-feeling/edition/hanslick-170.jpg",
+    "examples/music-and-feeling/edition/hanslick-171.jpg",
+    "examples/music-and-feeling/edition/hanslick-172.jpg",
+    "examples/music-and-feeling/edition/hanslick-173.jpg",
+    "examples/music-and-feeling/edition/hanslick-174.jpg",
+    "examples/music-and-feeling/edition/hanslick-175.jpg",
+    "examples/music-and-feeling/edition/hanslick-176.jpg",
+    "examples/music-and-feeling/edition/hanslick-177.jpg",
+    "examples/music-and-feeling/edition/hanslick-178.jpg",
+    "examples/music-and-feeling/edition/hanslick-179.jpg",
+    "examples/music-and-feeling/edition/hanslick-180.jpg",
+    "examples/music-and-feeling/edition/hanslick-181.jpg",
+    "examples/music-and-feeling/edition/hanslick-182.jpg",
+    "examples/music-and-feeling/edition/hanslick-183.jpg",
+    "examples/music-and-feeling/edition/hanslick-184.jpg",
+    "examples/music-and-feeling/edition/hanslick-185.jpg",
+    "examples/music-and-feeling/edition/hanslick-186.jpg",
+    "examples/music-and-feeling/edition/inventory.json",
+    "examples/music-and-feeling/edition/library.json",
+    "examples/music-and-feeling/edition/notation-42.jpg",
+    "examples/music-and-feeling/edition/notation-48.jpg",
+    "examples/music-and-feeling/edition/notation-49.jpg",
+    "examples/music-and-feeling/edition/studies.json",
+    "examples/music-and-feeling/edition/tolstoy-cover.jpg",
+    "examples/music-and-feeling/package.json",
+    "examples/music-and-feeling/publication.json",
+    "examples/music-and-feeling/samples/library.json",
+    "examples/music-and-feeling/scripts/build.mjs",
+    "examples/music-and-feeling/scripts/serve.mjs",
+    "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
+    "examples/music-and-feeling/site/app.mjs",
+    "examples/music-and-feeling/site/bundle.mjs",
+    "examples/music-and-feeling/site/collection.mjs",
+    "examples/music-and-feeling/site/core.mjs",
+    "examples/music-and-feeling/site/cover.svg",
+    "examples/music-and-feeling/site/db.mjs",
+    "examples/music-and-feeling/site/edition.mjs",
+    "examples/music-and-feeling/site/gentiumplus-400-italic.woff2",
+    "examples/music-and-feeling/site/gentiumplus-400-normal.woff2",
+    "examples/music-and-feeling/site/gentiumplus-700-italic.woff2",
+    "examples/music-and-feeling/site/gentiumplus-700-normal.woff2",
+    "examples/music-and-feeling/site/icon.svg",
+    "examples/music-and-feeling/site/index.html",
+    "examples/music-and-feeling/site/manifest.webmanifest",
+    "examples/music-and-feeling/site/robots.txt",
+    "examples/music-and-feeling/site/share.mjs",
+    "examples/music-and-feeling/site/style.css",
+    "examples/music-and-feeling/site/text.mjs",
+    "examples/music-and-feeling/tests/bundle.test.mjs",
+    "examples/music-and-feeling/tests/core.test.mjs",
+    "examples/music-and-feeling/tests/edition.test.mjs",
+    "examples/music-and-feeling/tests/share.test.mjs",
+    "examples/music-and-feeling/tests/ui-icons.test.mjs",
+    "examples/music-and-feeling/vercel.json",
     "examples/odyssey/.vercelignore",
     "examples/odyssey/AGENTS.md",
     "examples/odyssey/LICENSE",
@@ -607,6 +1020,7 @@
     "showcase/build.mjs",
     "showcase/capture.mjs",
     "showcase/check-alice-game.mjs",
+    "showcase/check-collection-recovery.mjs",
     "showcase/check-dracula-game.mjs",
     "showcase/check-game-updates.mjs",
     "showcase/check-gameplay.mjs",
@@ -1800,6 +2214,1242 @@
       "sha256": "1247adaf04d11cd048cda539a03913056fab5b63ee6c77220bcfe135ac03341e",
       "provenance": "examples/dracula/docs/SOURCE-RIGHTS.md",
       "reason": "Exact prepared public-domain edition authorized for the reader/game release on 17 October 2026; source notices and historic asset credits retained."
+    },
+    {
+      "path": "examples/inward-life/editions/library.json",
+      "sha256": "835cd0541133308ef7ef186cb6166e5cc42d18aa0c55e27b962995ec4fc57cb4",
+      "provenance": "examples/inward-life/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted English three-work collection and its input lock; historical source notices and embedded images retained."
+    },
+    {
+      "path": "examples/inward-life/editions/inventory.json",
+      "sha256": "fdf5f959035d6b204476e2c087dffc1238006bc2b6f3bae143481c26a577090a",
+      "provenance": "examples/inward-life/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted English three-work collection and its input lock; historical source notices and embedded images retained."
+    },
+    {
+      "path": "examples/at-table/edition/library.json",
+      "sha256": "4aece6dc00c250caee2e5560edf242594f7b44297bcd7a0abbcee817ca8b4fa0",
+      "provenance": "examples/at-table/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted three-work cooking collection and integrity manifest; full selected witnesses, historical images and notices."
+    },
+    {
+      "path": "examples/at-table/edition/manifest.json",
+      "sha256": "a0c02452c3624adb6d50ef989826f2930f2c3d31f019d5e7b76221f6e2c514f3",
+      "provenance": "examples/at-table/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted three-work cooking collection and integrity manifest; full selected witnesses, historical images and notices."
+    },
+    {
+      "path": "examples/beside-the-bed/edition/library.json",
+      "sha256": "dc81e6ddffbb6fc6b6954e36ad4f8d94a27b0b431d58129f3f3ec1f42b0fd427",
+      "provenance": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Nightingale/Whitman collection, selected companion/source essay, notices and integrity inventory."
+    },
+    {
+      "path": "examples/beside-the-bed/edition/studies.json",
+      "sha256": "3181441e0f44897a36b68e99e4f07769512691406ce263112a7b0c149b3e63f6",
+      "provenance": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Nightingale/Whitman collection, selected companion/source essay, notices and integrity inventory."
+    },
+    {
+      "path": "examples/beside-the-bed/edition/sources.json",
+      "sha256": "15a89d6549f34428085cd1fa052351e6a67952c77385816c131cdfb60d5ee97e",
+      "provenance": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Nightingale/Whitman collection, selected companion/source essay, notices and integrity inventory."
+    },
+    {
+      "path": "examples/beside-the-bed/edition/notices.json",
+      "sha256": "6fe91147d8377afdf5b61cfdc1fbe29b6bbc839bda82f57ca90539aebc1eedcb",
+      "provenance": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Nightingale/Whitman collection, selected companion/source essay, notices and integrity inventory."
+    },
+    {
+      "path": "examples/beside-the-bed/edition/inventory.json",
+      "sha256": "efd8ffea4d91a6aa7a57c19f914ed6cb03afc3caeb93c89895f6aeb436cca8b3",
+      "provenance": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Nightingale/Whitman collection, selected companion/source essay, notices and integrity inventory."
+    },
+    {
+      "path": "examples/learning-to-see/edition/library.json",
+      "sha256": "872567767b0738f44d8ee19c7e7af9eefb361a103d10da2baa9592fe4a865c95",
+      "provenance": "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Ruskin/Crane digital editions with218embedded illustrations, companion references and per-image integrity metadata."
+    },
+    {
+      "path": "examples/learning-to-see/edition/study-data.json",
+      "sha256": "90b0b9507358b34cb9a9156eea8b608280cfd6c6e828838f0c61f529424ff5c9",
+      "provenance": "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Ruskin/Crane digital editions with218embedded illustrations, companion references and per-image integrity metadata."
+    },
+    {
+      "path": "examples/learning-to-see/edition/inventory.json",
+      "sha256": "c039bc2e6d344ce72611f4a7cb273af2d0b9a256cc59fa026790760c89a055bf",
+      "provenance": "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+      "reason": "Same immutable illustrated source data pins; sourceCommit updated to the final font/no-JavaScript runtime snapshot."
+    },
+    {
+      "path": "examples/learning-to-see/docs/EDITION-INVENTORY.json",
+      "sha256": "00913bdb25e9ca6dcb31ac22f5f1d2401dc1a571f2fd808dca5249be275d8b46",
+      "provenance": "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact accepted Ruskin/Crane digital editions with218embedded illustrations, companion references and per-image integrity metadata."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/library.json",
+      "sha256": "b4bea6ac4dafdb144adec6e19b1b9407f826eca57c0e7c894201e1c6f443cce1",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/studies.json",
+      "sha256": "382034f6ccd5e28f53d7b3088cdc46744445bbfd222147c2e77858b0e0946039",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-001.jpg",
+      "sha256": "dfa5a73cb683dfd44d42578d1d66d3d3674e6849e24768df974c75e656cca52a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-002.jpg",
+      "sha256": "513f4a70521417ecc771729bd2c7e045029a3bd7d0f4dfc8ed6d17d4b6d4a691",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-003.jpg",
+      "sha256": "6f859f6ec3182da2c46e3a54962bb08449293dbf53bdc6fdc68350151f35b1e6",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-004.jpg",
+      "sha256": "25c0b450a4ef040caa3c3af50717fdf55be84e0180f13d9cadbd90866a635f49",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-005.jpg",
+      "sha256": "5dc6fb2beb1390c5e265edf350cc7ebd253b3d013a11a657515bf1f4a2bf404a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-006.jpg",
+      "sha256": "348373085276bdcc59528f28b27ef0f3f1e7e2737fca4ed7ac83ac25e72a8c9e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-007.jpg",
+      "sha256": "8436190c6b53973aae803b7f16ebf88fd5e3da799d1e713a08d9889d9a8575e5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-008.jpg",
+      "sha256": "c376cde86df05ecccdec1d616ef119e6273ea67b9d9d6e9c4ad82fc0249871c3",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-009.jpg",
+      "sha256": "d5d149971ad8fb19eb66a130096aaae9bd1dec0cdeac94397ed191c9d021a098",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-010.jpg",
+      "sha256": "2b7df3ad56603dddb65bf85652f8181be78a9b722f83a3e1740e1fd30a8ec653",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-011.jpg",
+      "sha256": "0c14059938110129c4d0985e0953a8a96d08fadf5b03029555b7f14180a37a61",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-012.jpg",
+      "sha256": "55afaea29abe60c672a5b60596c17d9cc7b802c7b1e55aca9bcbc9987c78884a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-013.jpg",
+      "sha256": "e2d7f882c872d0b94abe6a6b0dbd529aa86374509714d5c25c95d092ae29cfa9",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-014.jpg",
+      "sha256": "717f82e8f064a17639f0e8bebeed528d1f8c3c8a4eb4c689fcf51ab27f280cff",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-015.jpg",
+      "sha256": "fb82c1dd1d5236413651bce9d609b9768ace4558d99add15d4e8ae451116dc99",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-016.jpg",
+      "sha256": "09198cc2d1fd89073b580e5516dd4a082194b5cc59f9f3fc3e42dfd34b48a83d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-017.jpg",
+      "sha256": "eb8d1600a593f0b6260c6d83c89297ea088a2daa2b9673daafc1163e43950ab3",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-018.jpg",
+      "sha256": "9058753c0a5dd870e0a0b90de269af78c3d1412616d90da039da8c850f473b3f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-019.jpg",
+      "sha256": "4312aa7835539714743a9fab6718c5c15fa9cec696e5e0adc85c3a57efe373a5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-020.jpg",
+      "sha256": "da7300f03a90e2fb25992b11ce7f897fa34957aa3e6a57d2cdbb0d5356526251",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-021.jpg",
+      "sha256": "dc435b817d5adba0460b81c6592f11b9434472f127756aabcbc7d4c0979cd2c0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-022.jpg",
+      "sha256": "78f2b880b44a1549f966c475c018a4102a85e83d94abb0834b8df48574de0780",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-023.jpg",
+      "sha256": "55c204c5351ecab029b16931d34898921cd228f8787ed800f79de9be65388edc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-024.jpg",
+      "sha256": "521dbf27654d90e5ac9f63a84f3e54bef7d3332550c431c6c18b7438566e71ec",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-025.jpg",
+      "sha256": "506fb5ca0fd074d28e911866371af45e68d9a06f80a6c2b6efbfdb8ef0a7592a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-026.jpg",
+      "sha256": "dbfb7d9184a063abaadeb65b0b3188d2fc5d26794ba7f36fec89a9af2e61ef74",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-027.jpg",
+      "sha256": "41222a6ef2ce9db772462719f9e0ebc3c1c7e49bc158879b517ca1ec4354a885",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-028.jpg",
+      "sha256": "9e09134185d196e997c930071f8f117c9ee09af71524dc2a714eaa4017acd562",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-029.jpg",
+      "sha256": "360ec9bd557594b87ad585b26becf56c9944835ca86254b60de2ad066485042e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-030.jpg",
+      "sha256": "02c845352fef8c29ac6ed6d12d4d3380bebf6390eaa8ede72313e7fff0d4e263",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-031.jpg",
+      "sha256": "af6affe2c96a1b5aaa6a1293d2386daee49901c4c9922122b143f5be6d1d8608",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-032.jpg",
+      "sha256": "5ff4ce4f35fc5ec6efea92940376dbee009c3373b2bc2cc7ee1e73244fd5a2d5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-033.jpg",
+      "sha256": "17fccf81b984a8521fdd04b8c8bbd17d13411479fd64e2c8f729e53d136503c3",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-034.jpg",
+      "sha256": "43fc694577857dc194993f4aea941c0af568aedb57748e3cd51cccf9b9ec348e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-035.jpg",
+      "sha256": "dc017c97d1d70188b522ca2d377c56d84b62ca0c22066cd7f94d98f8134d8db5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-036.jpg",
+      "sha256": "f557ab625dde835f512cbd0033d2351534b76d3ab9d74a86d236d04d0a80c6b8",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-037.jpg",
+      "sha256": "8a229dc4e37757ba45904dbe35facca37d9edad2ac15921638da74090d063580",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-038.jpg",
+      "sha256": "339aca0988cf376ccc53ba5a085bc26f417c169a3d81dc8c0e2268eabd736c8e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-039.jpg",
+      "sha256": "1fdc660461c3485c8966f6aef19b8aa01d9529ab45ff54869052356d31d2ef7e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-040.jpg",
+      "sha256": "09037c50871da0cea46ec95068b02b2237d66471f3fbe8fbed1d37cae316981f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-041.jpg",
+      "sha256": "88f8e2c94e7b1e2c977044c25c4f8f948a5be9d95afc4d4548c9c2adb14ddc64",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-042.jpg",
+      "sha256": "6851617effec3708d5e89ae0c698f0315869a3a9ed6e8e1d18079b9abcbdca48",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-043.jpg",
+      "sha256": "4191004a2acc643e02c68b8d714afa989cf116f093d8b66d203b8afd2df0e952",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-044.jpg",
+      "sha256": "147d461ec20dd16e4a5934ae26f7cb86085275d8d99bbe4fa708a1bd4e938310",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-045.jpg",
+      "sha256": "4f52cfea29ca70441bed6495357e88b94f9b2439845a36211a330e8993a11da9",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-046.jpg",
+      "sha256": "3c9b2bfaee381bc6cfabd9135669a11ed8897c971352e5960c94d993b4938918",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-047.jpg",
+      "sha256": "d006179d44fd026e769f401691696f1cfbacb1ad085e3c19fe63391f217ebf70",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-048.jpg",
+      "sha256": "8e2e73f63e62607a7a95c0c33a202f95d4fabb4c87d908dd7abb4ab25a438d8e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-049.jpg",
+      "sha256": "05878ba6097a3a22751c06c60adffe6a2ad71a921cb6abd1adaba31666338d4c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-050.jpg",
+      "sha256": "4ff7daebcd21d454a2fd1d99a354a64778acd344e76df4b6a111f905c5f5bf80",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-051.jpg",
+      "sha256": "7e54f957b88c4ee436f71b0fe3006489d113db253595028bc741b752e586ac93",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-052.jpg",
+      "sha256": "66078957223570f055f369c5f9332518ea960d8acdaeba49605bd76afdde6983",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-053.jpg",
+      "sha256": "c57be20f404f48c45cb754f716cd0a1f3d98b2dfa2b9a0d7391b0c6a46cc3e4d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-054.jpg",
+      "sha256": "60fcc7be3a90ba2c6b4a4b559d68d3c6d24f5325ccf7db2ff4ced2db3b46bf68",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-055.jpg",
+      "sha256": "31a87d7a926bb1eebcafcebb46a4e96bbf80150eef51753fcb74186b5c67d768",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-056.jpg",
+      "sha256": "bd163624b57078dd3ea23301ca907e57cdd5926aad2463c8d0a9299f869dcd14",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-057.jpg",
+      "sha256": "951c19b69afff45ed23e6e99842f70da8b83455e57757c6ef5d3587c8ccd057e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-058.jpg",
+      "sha256": "da52ae3ef48d3631e30da5fba24c565d451d13ae285d6c8d0195193acf76873f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-059.jpg",
+      "sha256": "848b9d246805b3fb8866dd3a7d280430c2a8be40c61606c5ae04397e9649f543",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-060.jpg",
+      "sha256": "c451843f32b86beaa63ab05f041707e9ccd304a12ec456ddebda4c0df7b6250f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-061.jpg",
+      "sha256": "d7f79dcdca5467898b68ea1e4450c965c787b6f1a35a9bc74a600e7881ac7ace",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-062.jpg",
+      "sha256": "49259aea89b5606f29e9237a6960089bd9d62322800a1cafa27863187089ed36",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-063.jpg",
+      "sha256": "5e9d584e3bc49676adb75689a25880eae0569484b4f027a54c8e658cb595552d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-064.jpg",
+      "sha256": "1046540a7caaa1bad1eb3ab732ec3dc270eef863be163d1e88a12f9b4572d177",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-065.jpg",
+      "sha256": "5fbe567ad07fc21999cb74320844c1b5fbe351a330f35d7448c6e615afa81e02",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-066.jpg",
+      "sha256": "e2c158c714a3807cd6b2bdf105f7ee6fea7dde9dfc027009da062c8d6751ae1a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-067.jpg",
+      "sha256": "08e1c0946f8db016ba5c4e5088afb88981649fbe9e284d66add5d51c1babdf2c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-068.jpg",
+      "sha256": "4494600ac8de6d2a8e25fd6051d3099b79acc0ce61fc58964bcc8a2f0984b229",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-069.jpg",
+      "sha256": "f6b84f3a5288f53635b020be87c8e673e171534d6b8216b7eb860891647a140c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-070.jpg",
+      "sha256": "d2d750bb7036cfd795041128e600ccf49e2c999505928c02245d5a9a2a194ba7",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-071.jpg",
+      "sha256": "762f1ca816727d2a58277fb98e96865993c26211a864bf7ed9814a71c6660237",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-072.jpg",
+      "sha256": "671918791254308948bac1bd090af456fe1dfca6aa13c074399eb5e68c0cda65",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-073.jpg",
+      "sha256": "7df50ceef3f56c140ec5bd76cca02a66c86e0ff5b6187509ee73915d0f975170",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-074.jpg",
+      "sha256": "4072b45c0a2489960692a07fecbdd2194982ea4fdcf205cdf9f331520d48a790",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-075.jpg",
+      "sha256": "4b141c2d1b261f0dd247cd01afc51a5f17f4c461468c21606d8704d27239a76f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-076.jpg",
+      "sha256": "745452046b89f86a58c151efcf3e85242eb198a5daceadf5b58f38b4fb6aa2da",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-077.jpg",
+      "sha256": "abc6c1cbdc866e1f48202ba5b4d97a94af33e2bf578f959ae37c7147310db10d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-078.jpg",
+      "sha256": "b3c63f85af58f28da5233dc9fbbdf4ae997fc9ff6ebaa36514d14e81a0794085",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-079.jpg",
+      "sha256": "ddc4a8dc80aaf8b113d3cc097eed352386426803b5e7e783e6e1d181f3de437e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-080.jpg",
+      "sha256": "32ea1ee78312e98eef1bde288146cab73d0698f6e73fe2a794ce3f441362fd9c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-081.jpg",
+      "sha256": "063b75541b24e0770fa660a6d0db0bc25f5b37755ee6ed6013af32305adf83b2",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-082.jpg",
+      "sha256": "6f7daa1e13b238a20844cc04dc6a56124c496c1e85a923067820014acc55ca52",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-083.jpg",
+      "sha256": "ac3ff9f6f669fccf980fe1305a1333d979732ec7e75008072f98e37abc6e55dd",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-084.jpg",
+      "sha256": "82de4ffa23fb589c3fa2358c444d935ca516cbc700a34770175ed3603300b8b1",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-085.jpg",
+      "sha256": "394dbd52061b53f15e924b170dece085b109e28695584357b366809bc2f65a70",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-086.jpg",
+      "sha256": "b24ff090815d614d22b24ea55289d1ba07731ffdf5068107ff5df541af236d1b",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-087.jpg",
+      "sha256": "6d3af06e5f63288f9a6a8a8456747b585fdc1fc7d51c453da0497ef7b0a361e5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-088.jpg",
+      "sha256": "0fb8296f348f8909b3243f56d499e1699c484c2bf7d36114b48e3330c029b67c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-089.jpg",
+      "sha256": "a11705e47fb420988e11bbf8cad96f4b39b8bb10f8eb1b945fbcbb80cc75451c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-090.jpg",
+      "sha256": "d7d29860419dabd898fe69e91e5949f1bd2f5ba66988c668ea884562ba6ee4cc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-091.jpg",
+      "sha256": "aae50d2034d9d6ec7d65758948715c7004d9db15e8ff2577456e3c40f8b8904c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-092.jpg",
+      "sha256": "2385fc439d823aeb5d226db859dfddc4c7a204e0f174f7c093ba1d3f5246fc0e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-093.jpg",
+      "sha256": "fcc728e0062e9123cb88bb075dc2b6bf0e742381e20bc8110b9c012ac8826a0e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-094.jpg",
+      "sha256": "a1c58cc8bd496e55029806d1c0d0468e30bb8932bf4d4adcaa2da5d779961c9c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-095.jpg",
+      "sha256": "225c0e0fd95232bb17a1ab4245d9902359c14d2ce580d04fff177e10d98a2f80",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-096.jpg",
+      "sha256": "b194fc602840e1ef11b873e12b0ecd4d7441c23592b9637a41e40cf318272dfd",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-097.jpg",
+      "sha256": "9f2f65373e504478f7a6587147fe669b9227f0907cbfac5e0912688f47280105",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-098.jpg",
+      "sha256": "bba6f128d9cb7eb86123c392792741357e63e8a9f1d76ed69e642dae2da60c1f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-099.jpg",
+      "sha256": "40d15c13b80fc372beffa0fa64c6dfa1e931615dcea27d13fc0e412282a7f38f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-100.jpg",
+      "sha256": "8b9028b9e1f93044085b499c86300a8e79e2070a6903db118c1cde40cd395dfc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-101.jpg",
+      "sha256": "0fe74ba1bfa4e1928f38963b264747df76bf278497bbe58f79690b683f13b6f5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-102.jpg",
+      "sha256": "adaa6db1663bcc2ed6dfc1ea6b0897597818b83acc4a8ae8046d5f7b0201b3d1",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-103.jpg",
+      "sha256": "2d94267e5a1995294050e810738a7c583b9fe6d09bf98c5210e38702ff673f26",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-104.jpg",
+      "sha256": "4bb9194e9e525fe061bdfc15397b41b797739f837abb128db1d922c6462da210",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-105.jpg",
+      "sha256": "ee19a067835f6114db062e5ce02bb15d0daa46c0945e05e399ecb9a7425a99a7",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-106.jpg",
+      "sha256": "92cd1068d336db1ad0d5b0bddf5f25ec3edb3fb6228b2effd0b5775e3bf1e21f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-107.jpg",
+      "sha256": "4dfcfd72848d784165a79cea51430859e807c06c1cfeccc44ede46450f852bbc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-108.jpg",
+      "sha256": "91e46ceb7d3e053c8d9b3a29b720dbc111aeae9f893bfcb6a19958e9d5195e1d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-109.jpg",
+      "sha256": "2a60a4965c01478b3c65fd0c0bb98635e0a8e68b92f3177dd7edfef3a68d3d6c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-110.jpg",
+      "sha256": "0cb6e76f6eb7884c0c0075e9de480b2e2da8b355e26a7e5c7fc32f41bab21b48",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-111.jpg",
+      "sha256": "f2d3e1dd353aaad157e2ea803c389386a13eeea7acd33ce1fbf70d8394b46484",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-112.jpg",
+      "sha256": "ac1fbde1e65d1acf11718ffa814e1f28904612012c64ad48a44279e969977acd",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-113.jpg",
+      "sha256": "c45ace7e0d88e79791b42b594667dbf48c0ccfc61117f5390d3ad2e6a1639b7b",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-114.jpg",
+      "sha256": "638a97faa100f16e0c3a3fec78a5d37ccb2147990e1fef9b76bd2caaa82d4e73",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-115.jpg",
+      "sha256": "4ca42b88684849328a7854e7d59e9c2309de7a9cded7b58cb6a661ef505376e4",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-116.jpg",
+      "sha256": "d3dcf933f1eb974605975f3815751492084443b31efe587d6fcfbf1a389bac22",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-117.jpg",
+      "sha256": "7570c3b8faa8cf28895857ac047b2aa576a1f94d97c06152967aabb5c99aa51e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-118.jpg",
+      "sha256": "0d0bf48836523aadd34149189682d38bf63ab2ad2aa3472707043a3bd4264790",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-119.jpg",
+      "sha256": "46959cc04b3f210dfb0ebd1d29d8a503b196cbf5a9771ac20b30193ecd4213ce",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-120.jpg",
+      "sha256": "338081436ae525f60b1a510ab6fcdcbeaac90d6d2ce1d0c724c27901e1070acb",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-121.jpg",
+      "sha256": "2f2eef69094d92e2e0d93936362f680289fb8aa789cf8398a8e3e6c1c3c1c1c5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-122.jpg",
+      "sha256": "d98e37074b4d4d2a67a1ce38aac1c0a5b2fe463c35b341184f98c2dc04b8693f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-123.jpg",
+      "sha256": "fee49186c2cce5632e47d697c6f7d12c0f4c9f2cd48b69c9d657d0e20a30ea08",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-124.jpg",
+      "sha256": "15cfa89067f979392a7924daacb8ede7d68ac6daa7529401c95bb1857e48a4da",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-125.jpg",
+      "sha256": "24acb480dbfb4fed3879c5edf4cbecae9c11a76a7edba8a0e30f3bb35e98e664",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-126.jpg",
+      "sha256": "cd32baa657792e2b27548b4d5d7c0b3c4b538630308d802a69faf989dc5b669f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-127.jpg",
+      "sha256": "446f5879a7289aac023c5ed4c72bf42fee159256858ff3f30810dadb6dc4dc9e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-128.jpg",
+      "sha256": "7f99a90691dac41054aa75b6f34bd07f64900ca8950710e54b008e268cb49431",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-129.jpg",
+      "sha256": "b117ddf13d48ef8b9a373bec2ff17cba4ee865d9986f35374b7566e7669a89bd",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-130.jpg",
+      "sha256": "2381dcdc8cca7ff9f11cc1410d3788d935a628f482672380fed657295c446047",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-131.jpg",
+      "sha256": "bb43e581bcc96817e084021167315848f98a7bacd1c623a9984c7550bcd2ce43",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-132.jpg",
+      "sha256": "b962499d5a271645e73d0d8a273c323f74bd7713e3f02ce22c78296924690b6a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-133.jpg",
+      "sha256": "29b2e66ba4cefd60184e127997cdb28c46a065ce2d7b8198862cdc5606ed14c4",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-134.jpg",
+      "sha256": "33138c06fe58fa4f375e4651205d94c53e6c7d0fff7ce04c85da3f22baf6c80f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-135.jpg",
+      "sha256": "e3fd5ed36b51bb68291afebcfd400c5155ec442da856a6375c841d10c48d0682",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-136.jpg",
+      "sha256": "064f0d059a25dfb3137634fe3b4fe9282c5abec4a54f687b5b670bdab69c283c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-137.jpg",
+      "sha256": "3a18af0a641058beafcedf8ad8d1604a7407b716c7c821343b363592784fe4fc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-138.jpg",
+      "sha256": "27bd9777ab9c1d18c56ae5a8f1d412a13d4586a9cf3c64eb59ae8b5392849e3d",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-139.jpg",
+      "sha256": "30dc1c88018078bbfb311892c293627dd56f9031d2f7dc8a05559a9f4bb9f3a3",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-140.jpg",
+      "sha256": "8d1a565b7b2e712ffe2fcc1bddbd3e46e7533a3c1d641489b003455ecfa56586",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-141.jpg",
+      "sha256": "cbdcc18fbb320a6eda102f71ef011792528385a32ba75fd241a4ed4079fce1ab",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-142.jpg",
+      "sha256": "51787cde1a48aed279a2ad970139b6810d0165583097c680dbbd9ae9cb1b5bb6",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-143.jpg",
+      "sha256": "70cdfdfc0c96ede987cb482209455eaf7ecb1681a218b1bf066117ded03d85ac",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-144.jpg",
+      "sha256": "d052036df3234717af15bade0f0adddd5bc3eebcb33636eca23c5b9e4db5fb7f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-145.jpg",
+      "sha256": "e1e5231f9b20403537b663ce14b33aa28d9bc05f6839b670bce62869e4b20dea",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-146.jpg",
+      "sha256": "e7f06a6d047a1579b9a4022fef49b490b36f6ca25e3c0f31a073eb115eb91f9a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-147.jpg",
+      "sha256": "072d5ee8a01592370a8ef9dbf040b7c496bde7d91ea2f253e34b57b8046ade30",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-148.jpg",
+      "sha256": "316f726294606cf119fe97980f70ce42bbe17563f9ffea2cedb8de545f15238c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-149.jpg",
+      "sha256": "09232ae09977a563a66715e9d6e8bf45713dc4d99e3a5ea501d3af5c3df2dd62",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-150.jpg",
+      "sha256": "e74586083a06d41445576b6dad56974890243d7835ff55745ecd3637784aa9c4",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-151.jpg",
+      "sha256": "f18ac3687ab057e6d268e15b5ddcbfb2c358e0172a5d9662de8057c7daa9087e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-152.jpg",
+      "sha256": "43346e1218804d9bf72933e2b3bcea2311dcd14ef495414ab433421caf621682",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-153.jpg",
+      "sha256": "0184a018785fcd93d7b3ff460976324ffbf72d4301d8d7b7ed8f7259b92b24b5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-154.jpg",
+      "sha256": "5a1302ccc733d81d51586e77a9722455653ef07b1f543e0affb64533c4e00683",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-155.jpg",
+      "sha256": "ad1746386d49b0a67d0b79e4080643002908bf654c7e334bc8819284f13fae51",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-156.jpg",
+      "sha256": "8d9a282a84e2c2eb37d65e0486adb7a8763bfafcaa77ed4f9460c6c0cbd22cc0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-157.jpg",
+      "sha256": "b67d21c5f6c19b4376f0fec255e283cf6fd17a88a9a0b9db4373d03be2b8ecaa",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-158.jpg",
+      "sha256": "934ebb266830c668a2bf13183ac7cf60beca20358a6537708e0bc6fd7406ea8c",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-159.jpg",
+      "sha256": "944678244c1c4f2a4c893f263bd72dbdbe6daba243066f2fb3773e16d8f9b1b8",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-160.jpg",
+      "sha256": "8e4a2c6c15562667455a21af94f70b50f1026b7821dfbc8d0bce5da664a932cc",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-161.jpg",
+      "sha256": "ddfd953d700d15f9ed7cc394ef89faef2a26538944116d260c901f85e50bf6c0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-162.jpg",
+      "sha256": "f7079eafa51ae790b2e29ea45b1db537389de4c9007b55638fb71dd753535ad0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-163.jpg",
+      "sha256": "f5f77fa77f56bc0fc2aaa459d3a15bac15ad73a30138f3346171fedd85f8105e",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-164.jpg",
+      "sha256": "705814d943efce8b9089efd83b7da8cf34c3a385a669cafb8fe88fcda3c8f1fe",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-165.jpg",
+      "sha256": "a7e440ee813ce76ca8f99bf886a9897058730878494947debab41dec13c6081a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-166.jpg",
+      "sha256": "b8478f6e70a68c27074d1e2da02b05ae51759f0b05bc20d7d5afc8fd2606daa7",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-167.jpg",
+      "sha256": "c7a405c112e81405d51f6fcdfbf7a2805502c491b1ea274acce36070b1d7c008",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-168.jpg",
+      "sha256": "a9afc6aa76923e69567f5bc5ee8b6a2ed9ed1d531dd301522a5865c6d2da3e73",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-169.jpg",
+      "sha256": "0202e531bae34133e1e5130fe3eaf59bc4a298348be7d45427b07d48fb36bece",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-170.jpg",
+      "sha256": "aee2b5e6dea45c65de4ef9d405b927ac95cc4301ecd9f461e841fea2ea9846ee",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-171.jpg",
+      "sha256": "9fac04aa0032ac003396f76c11557d76455372dd95e4d4e010a9e1d866105881",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-172.jpg",
+      "sha256": "f74e1e6c95f95bb40eaff779dac0d56c6d84662e69680d0bf3a4001f17808255",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-173.jpg",
+      "sha256": "e13a62a5e8916ab8c5e7fa79dccd057d91f88b20805042a59e4c92bfffac5e8b",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-174.jpg",
+      "sha256": "d4b562c3267628b9880d9b72f3d3a1b1e6f8e37e50187e6b3630cc3aa2d38e86",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-175.jpg",
+      "sha256": "6ccd73d62b802c450ec6b263432d26923a57a9a3d956c39f9e6e60334e0683f9",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-176.jpg",
+      "sha256": "0f3f392ea3ba53f64734d82b408d2c1ba173062a684927eda4a66e2de1a57ab3",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-177.jpg",
+      "sha256": "2a93d24909cd9ea8ee9367221d39af1287e45d0b5bdb599ae0779fba1d9411b0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-178.jpg",
+      "sha256": "a640bdf501f0fb5dfa846bb7e51411db2cacfa4e226e61a24072bd950c101e8a",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-179.jpg",
+      "sha256": "4b34b1f4c9c23d6c481ffa23cfa07e37f9315999786bebf27fc51156e7a2c7b5",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-180.jpg",
+      "sha256": "6c47c2d26e45bd164f18a110880342672795dfad086efa080983c5dc33bb648b",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-181.jpg",
+      "sha256": "6b90854ea9f473423e7d9cabdd5054e6b9e366fad43c2afc925cd1b23d104371",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-182.jpg",
+      "sha256": "6d56ef158dfdffcdd329a3246093ea17c1ce2c268be26f7de2cdfd6ada38e8ba",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-183.jpg",
+      "sha256": "e8fbab8aec50330f599f592fe42ba9a98135faa2d0be2f722509974478cd6279",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-184.jpg",
+      "sha256": "4cbf8e2b3b5a2af31860ecac41b23421013e96c420522dbed6d2e1d4593f2972",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-185.jpg",
+      "sha256": "56a50a5709914eaccef8a2d9b9fcd84bc21a667e9d4709913a0a13746dbcc276",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/hanslick-186.jpg",
+      "sha256": "26d4bd3c2a41796b843a2640a7b5d601200a22fa9f7a3b54625a4b593deb4450",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/notation-42.jpg",
+      "sha256": "4bc8afa3f2ed286d547b637247b5a13012132b68d93cedbef18d88530f427e9f",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/notation-48.jpg",
+      "sha256": "6a816477c69a16c9859b093736241f38b3d89dfb5b27f23b494d08dbf982af38",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/notation-49.jpg",
+      "sha256": "1c6f0a4e9dee0cbec1e61bb5c0d77fb3f1a9af365fbd4acdd36603fe9dfe9ef0",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/tolstoy-cover.jpg",
+      "sha256": "fb82cba66755010d4154cd85c426524cbe570f3e16a7f8b09528da83b5dd4b98",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed complete historical text/production study or source facsimile; image metadata and notices stay tied to this witness."
+    },
+    {
+      "path": "examples/music-and-feeling/edition/inventory.json",
+      "sha256": "a2e661f2c212a5bdf051e223b03c726cf394470703ab3bfd5957e20e4c4a0889",
+      "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact inventory of the selected complete collection and its190 reviewed source images."
     }
   ],
   "reviewedSiteAssets": [
@@ -2022,6 +3672,110 @@
       "path": "showcase/assets/two-halls-preview.jpg",
       "sha256": "c3f65ce9feb4e4b00a88ce829d5a5a5575283fd77b70d499805fafde4e60441a",
       "reason": "Retired reviewed public-example screenshot from 5a55295, replaced by edition artwork after independent design review. Existing provenance and binary pin are retained."
+    }
+  ],
+  "reviewedFontFiles": [
+    {
+      "path": "examples/at-table/site/newsreader-italic.woff2",
+      "bytes": 239360,
+      "sha256": "8920f06c4c116e91721a2cbbbb195d1ab6997a657cb3313dab5c99b6b202d899",
+      "provenance": "examples/at-table/docs/FONTS.md",
+      "license": "examples/at-table/site/newsreader-OFL.txt",
+      "licenseSha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8",
+      "reason": "Exact full Newsreader italic variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/at-table/site/newsreader-normal.woff2",
+      "bytes": 214960,
+      "sha256": "52f54c34206c51e23e2907bfda4f04fb11ac6ba7f75f8021b2d0075b091d1308",
+      "provenance": "examples/at-table/docs/FONTS.md",
+      "license": "examples/at-table/site/newsreader-OFL.txt",
+      "licenseSha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8",
+      "reason": "Exact full Newsreader normal variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/beside-the-bed/site/bitter-italic.woff2",
+      "sha256": "edda4dc6263ff6a4e43df69ccc58d69e9b9b6f4a06f29bba3f35927fd61cfe28",
+      "provenance": "examples/beside-the-bed/docs/FONTS.md",
+      "license": "examples/beside-the-bed/site/OFL.txt",
+      "reason": "Official Bitter variable face; full unmodified-glyph WOFF2 conversion with OFL 1.1, explicit exact asset admission.",
+      "licenseSha256": "152a1e283e23b42c4940da4c72f2f5bebaa17969cb77c76d7af05903846006f1"
+    },
+    {
+      "path": "examples/beside-the-bed/site/bitter-normal.woff2",
+      "sha256": "909e4081666953dc96de920c7fd5158daaca30ad6b2c352c859cc425dbf86ae1",
+      "provenance": "examples/beside-the-bed/docs/FONTS.md",
+      "license": "examples/beside-the-bed/site/OFL.txt",
+      "reason": "Official Bitter variable face; full unmodified-glyph WOFF2 conversion with OFL 1.1, explicit exact asset admission.",
+      "licenseSha256": "152a1e283e23b42c4940da4c72f2f5bebaa17969cb77c76d7af05903846006f1"
+    },
+    {
+      "path": "examples/inward-life/site/literata-italic.woff2",
+      "bytes": 396676,
+      "sha256": "38060b182b46a8b6c5f521982e86c59480f8811e77852ed563ce8a66a4adecb6",
+      "provenance": "examples/inward-life/docs/FONTS.md",
+      "license": "examples/inward-life/site/literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Exact full Literata italic variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/inward-life/site/literata-normal.woff2",
+      "bytes": 397212,
+      "sha256": "230e5b1de4f4ace4d49c9fda9c8cf0851acb5425dce9067d89ff88aed93f325d",
+      "provenance": "examples/inward-life/docs/FONTS.md",
+      "license": "examples/inward-life/site/literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Exact full Literata normal variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/learning-to-see/site/alegreya-italic.woff2",
+      "bytes": 170792,
+      "sha256": "bb51b7d7a138ab9314eb8518b359534d1a51d91652a6fc60dae371a088ac7f77",
+      "provenance": "examples/learning-to-see/docs/FONTS.md",
+      "license": "examples/learning-to-see/site/alegreya-OFL.txt",
+      "licenseSha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
+      "reason": "Exact full Alegreya italic variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/learning-to-see/site/alegreya-normal.woff2",
+      "bytes": 161220,
+      "sha256": "7b280b08beda4f54bed2c2e1cdc64063bc5b5bf38832cffbf04f5efadf3bfa87",
+      "provenance": "examples/learning-to-see/docs/FONTS.md",
+      "license": "examples/learning-to-see/site/alegreya-OFL.txt",
+      "licenseSha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
+      "reason": "Exact full Alegreya normal variable face from Google Fonts47d54ca1ebb14fd864695f1d39dc734f39017c33; lossless WOFF2 packaging with preserved names/license/timestamps/cmap/metrics/outlines, documented structural changes, and no subsetting; SIL OFL1.1."
+    },
+    {
+      "path": "examples/music-and-feeling/site/gentiumplus-700-normal.woff2",
+      "sha256": "9ea8a713e985416fb5c541f54e876a4d6205a7c507f8efaa1c753d01e4c37011",
+      "provenance": "examples/music-and-feeling/docs/FONTS.md",
+      "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
+      "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
+      "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
+    },
+    {
+      "path": "examples/music-and-feeling/site/gentiumplus-700-italic.woff2",
+      "sha256": "a9c76ddc643f6ede6041d1835ea51ab1bdeb40b27ebfd40ab223d474f2e6cd34",
+      "provenance": "examples/music-and-feeling/docs/FONTS.md",
+      "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
+      "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
+      "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
+    },
+    {
+      "path": "examples/music-and-feeling/site/gentiumplus-400-italic.woff2",
+      "sha256": "378748e1c7ac7e1730747d35acff37ed14790f2d8cf094d0090a99208d3d8111",
+      "provenance": "examples/music-and-feeling/docs/FONTS.md",
+      "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
+      "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
+      "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
+    },
+    {
+      "path": "examples/music-and-feeling/site/gentiumplus-400-normal.woff2",
+      "sha256": "d9493926bf5d22f49c98414bf5f0ffa6b6cb3ed519d7036ecc35eca3acbfc038",
+      "provenance": "examples/music-and-feeling/docs/FONTS.md",
+      "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
+      "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
+      "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
     }
   ]
 }

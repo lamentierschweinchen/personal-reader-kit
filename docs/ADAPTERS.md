@@ -22,6 +22,8 @@ For every supported asset, define its identity, safe media type, decoded-byte ha
 
 Choose whether editions contain asset bytes or depend on a reviewed application asset set. With external assets, a JSON bundle alone is not a self-contained illustrated edition. State that beside export and in recovery instructions. Restore into a fresh browser at a different origin with the original library unavailable; open every required image and note. Recognizing metadata while the website supplies the pictures does not prove portability.
 
+Required source notices are part of that recovery contract. A hosted license view does not prove that a downloaded edition carries its terms. Inspect both the exact-edition download and the full reading bundle; carry required notices inside the edition or in an explicit, validated supplement tied to its unchanged exact bytes. Restore and open the full notices with the original library and notice endpoints returning real HTTP failures, including service-worker requests. Preserve recovery of older exports while identifying missing notices honestly; refuse a new export that would silently omit required terms. A matching application shell can support recovered books without claiming that a book bundle also restores its companion or a complete offline website.
+
 Media, linked source notes, table spans and per-line geometry remain unsupported in the stock kit. The four trial formats are not interchangeable. A common implementation is future work, one tested representation at a time; do not merge four bespoke schemas wholesale.
 
 ## Preserve editorial structure
@@ -29,6 +31,12 @@ Media, linked source notes, table spans and per-line geometry remain unsupported
 Source order and the best entry point differ. A novel can begin at Chapter 1 while its preface, dedication and index remain available in original order. Front matter and captions may reveal later events. A single linear through-section boundary cannot express every permission: gate spoiler-heavy apparatus separately or omit it from the companion index until explicitly allowed. Chapter order and scrolling are not permission.
 
 Source notes are reference excursions. Open the requested note and a return path without replacing the main place or disclosing all notes. Two works need independent positions and permissions. Pair positions and drafts belong to the originating pair, not the current route; a trip to the shelf should not discard a reflection.
+
+For a collection, record the complete boundary of every selected work, including a work extracted from a larger volume. Keep its relevant notes and source terms, and distinguish the first publication date from the actual digital witness. A pairing is the editor's invitation; it does not establish agreement, influence or a historical meeting. Let the source's qualifications remain beside the tempting short quotation.
+
+Keep original demonstration IDs separate from supplied historical collection IDs. The starter reserves `bell` and `rain` for its original samples; copying that reservation to every built-in historical work can prevent exact-bundle recovery when the library endpoint is unavailable. Historical editions still need canonical-byte collision checks and preservation of differing stored copies. Prove restoration with the supplied library unavailable, then open the restored source media and notes; a loaded website must not secretly supply missing recovery material.
+
+Proofread the final transformed text. A corrected paragraph can be damaged by a later cleanup step: a quotation beginning at a printed line boundary may look like a repeated continuation mark. Enumerate destructive removals, compare their actual quotation scope with the witness, and preserve verified paragraph corrections through the remaining pipeline. Reflow joins, emphasis offsets and note boundaries need a separate final check. A proof pass over an earlier intermediate file does not establish fidelity of the delivered edition.
 
 Shaped verse may need a documented source-layout mode and readable alternate. Both preserve characters, breaks and anchors. Check visible spacing separately from character equality. Image initials must remain whole when highlights cross their characters. Enlargement cannot create detail missing from a low-resolution source.
 

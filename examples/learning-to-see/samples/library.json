@@ -1,0 +1,263 @@
+[
+  {
+    "schema": 1,
+    "id": "bell",
+    "title": "The distance of a bell",
+    "author": "Reader Kit · original sample",
+    "edition": "An original miniature in four movements, 2026",
+    "language": "en",
+    "source": {
+      "sha256": "29cd14b715090846f13c849cccae225fb1e4c0a416ce6b0a2572c4323d9c5dfd",
+      "format": "original",
+      "description": "Original fictional writing created for this kit. No real town or route is described. Reusable under the repository's MIT license."
+    },
+    "sections": [
+      {
+        "id": "arrival",
+        "title": "I. A town by ear",
+        "blocks": [
+          {
+            "id": "bell-1",
+            "kind": "prose",
+            "text": "Before I saw the town, I heard someone closing a window. Two wooden knocks, then a smaller sound, as though the house had cleared its throat. The bus had left me beside a wall with nothing written on it. I put my bag down. Somewhere beyond the wall, a bell was counting a time I had not yet learned.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-2",
+            "kind": "prose",
+            "text": "I had brought a map folded to the wrong side. On the side that faced me there was only water, with a thin blue line showing where a boat might go. It was a very convincing line. It crossed the bay without pausing, without weather, without any of the things a person has to carry.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-3",
+            "kind": "prose",
+            "text": "A woman walked past carrying two empty jars. Their rims met with a light, uneven music. I followed the sound as far as the next corner, where she turned into a courtyard and I continued into a street that smelled of warm stone. There was no reason to call this being lost. I had not decided where I was going.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-4",
+            "kind": "verse",
+            "text": "A street can begin\n    with a sound.\n\nYou do not have to see\n    its other end.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-5",
+            "kind": "prose",
+            "text": "At the first open doorway I stopped to unfold the map. The town appeared in a corner, smaller than the thumb that held it down. I could see the station and the harbour, the road that climbed away from both. But the doorway was absent. So was the woman with the jars. I folded the paper again, leaving the water outside.",
+            "after": "\n\n",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "id": "crossing",
+        "title": "II. What the bridge keeps",
+        "blocks": [
+          {
+            "id": "bell-6",
+            "kind": "prose",
+            "text": "The bridge was short enough to cross without a thought. I crossed it with several. Below, the water carried a leaf in a circle. Each time the leaf approached the shadow of the bridge, I expected it to disappear. Each time it returned, altered only in its direction.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-7",
+            "kind": "prose",
+            "text": "On the far bank a man was painting a door the same colour it had been before. The wet part looked darker. He worked from the middle towards the edges, as if he wanted the change to remain inside the old shape. Beside his foot, a radio spoke too softly for me to understand. I could hear the pauses between its sentences.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-8",
+            "kind": "verse",
+            "text": "The leaf goes round.\nThe water goes away.\n\n    Both are travelling.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-9",
+            "kind": "prose",
+            "text": "I stayed on the bridge until the painter looked up. He gave me a small nod, neither welcome nor question. It was enough to make the bridge feel occupied. When I moved, I noticed the place where my hand had warmed the rail. I could not take that warmth with me. I could only leave it there for the next hand.",
+            "after": "\n\n",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "id": "room",
+        "title": "III. An interval",
+        "blocks": [
+          {
+            "id": "bell-10",
+            "kind": "prose",
+            "text": "The room I rented faced a wall. On the wall was the shadow of a tree I could not see. During the afternoon it crossed from one side to the other, slowly enough that I noticed its movement only when I looked away and back. This was the room's clock. It did not tell me what I ought to do.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-11",
+            "kind": "prose",
+            "text": "I opened my book at the paper I had left between its pages. It was a receipt from another town. A date, a sum, the name of a place where I had eaten alone. The passage beside it was about a person waiting for someone. I remembered the meal more clearly than I remembered the passage. For a moment each seemed to be the other's annotation.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-12",
+            "kind": "verse",
+            "text": "Between two pages\n        a whole afternoon.\n\nBetween two afternoons\n        this little paper.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-13",
+            "kind": "prose",
+            "text": "I read until the shadow touched the window frame. Then I left the book open and went downstairs for water. In the hall, someone had set a pair of shoes beside a closed door, pointing in opposite directions. It was the first thing all day that I wanted to describe exactly, without deciding what it meant.",
+            "after": "\n\n",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "id": "return",
+        "title": "IV. The other side",
+        "blocks": [
+          {
+            "id": "bell-14",
+            "kind": "prose",
+            "text": "At evening I took the same streets back. They were not the same length. The bridge came sooner; the wall came later. A shop I had not noticed in the morning had its shutters closed, and the closed shutters were what made me notice it. I began to wonder how much of a town is only visible when it withdraws.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-15",
+            "kind": "prose",
+            "text": "The bell sounded again. I was near enough now to hear the small break after each stroke, when the metal was still moving but the next sound had not arrived. I had spent the day crossing that kind of interval. From a name to a place. From a sentence to the silence after it. From a room to the person who would remember the room.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-16",
+            "kind": "verse",
+            "text": "I brought back\n    the map,\n    the book,\n    the little paper.\n\nThe sound came with me\nwithout taking room.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "bell-17",
+            "kind": "prose",
+            "text": "By the wall I unfolded the map one last time. I could put my finger on the place where I had begun. It was still a very small town. I put the map away before the bell had finished.",
+            "after": "\n",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "context": [
+      {
+        "label": "About the work",
+        "text": "A fictional travel miniature written for this reader kit. Its town is deliberately unnamed. It offers a walk, recurring sounds and a book within a book as material for three different reading experiments.",
+        "kind": "author",
+        "through": null
+      },
+      {
+        "label": "About the author",
+        "text": "There is no historical author biography to reconstruct: this is original demonstration writing created with an AI assistant for the project, not an excerpt from a published book.",
+        "kind": "author",
+        "through": null
+      },
+      {
+        "label": "A possible connection",
+        "text": "The map is accurate at one scale and incomplete at another. You might read that contrast beside the room's account of attention. This is an editorial suggestion, not an asserted authorial intention.",
+        "kind": "editorial",
+        "through": "room"
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "rain",
+    "title": "A room after rain",
+    "author": "Reader Kit · original sample",
+    "edition": "Three original fragments, 2026",
+    "language": "en",
+    "source": {
+      "sha256": "fe4603287eb45aa5db5f9d8d411e164d2baa2781a2fdc0fb053fd2a90507a235",
+      "format": "original",
+      "description": "Original fictional sample created for the kit; reusable under its MIT license."
+    },
+    "sections": [
+      {
+        "id": "window",
+        "title": "I. The window",
+        "blocks": [
+          {
+            "id": "rain-1",
+            "kind": "verse",
+            "text": "After the rain\nthe window holds\n    a second window.\n\nI look through one\nand at the other.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "rain-2",
+            "kind": "prose",
+            "text": "The glass is dry inside. Outside, a drop waits at the bottom of the frame. I know it will fall, but knowing does not tell me when. For a while I give it my whole attention. Then a sound in the room turns my head, and when I look again it is gone.",
+            "after": "\n\n",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "id": "table",
+        "title": "II. On the table",
+        "blocks": [
+          {
+            "id": "rain-3",
+            "kind": "prose",
+            "text": "There is a circle on the table where a cup stood. Someone has wiped it once, but not enough. I set my cup inside it. A small agreement between two people who have never met: for this moment, the same place is the right place.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "rain-4",
+            "kind": "verse",
+            "text": "What remains\n    is not always\nwhat was meant\n    to remain.",
+            "after": "\n\n",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "id": "leaving",
+        "title": "III. Leaving",
+        "blocks": [
+          {
+            "id": "rain-5",
+            "kind": "prose",
+            "text": "Before leaving, I move the chair back to where I found it. This seems polite until I remember that I do not know where it was before the person before me. I leave it at an angle towards the window. Perhaps that is what a room is: a series of small invitations, none of them final.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "rain-6",
+            "kind": "verse",
+            "text": "A room is not empty\nwhen you leave it.\n\nIt is full\nof the next time.",
+            "after": "\n",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "context": [
+      {
+        "label": "About these fragments",
+        "text": "Three original pieces created with an AI assistant for this kit. The sample anthology demonstrates how a reader can connect two works without receiving an imposed interpretation. No external literary or biographical claims are made.",
+        "kind": "author",
+        "through": null
+      }
+    ]
+  }
+]

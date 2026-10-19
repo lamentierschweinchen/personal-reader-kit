@@ -1,0 +1,10 @@
+{
+  "librarySha256": "835cd0541133308ef7ef186cb6166e5cc42d18aa0c55e27b962995ec4fc57cb4",
+  "bookIds": [
+    "julian",
+    "tagore",
+    "james"
+  ],
+  "profile": "inward-life/source@1",
+  "provenance": "docs/SOURCE-RIGHTS.md"
+}

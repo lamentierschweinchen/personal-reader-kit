@@ -1,0 +1,13 @@
+{
+  "files": {
+    "library.json": "dc81e6ddffbb6fc6b6954e36ad4f8d94a27b0b431d58129f3f3ec1f42b0fd427",
+    "studies.json": "3181441e0f44897a36b68e99e4f07769512691406ce263112a7b0c149b3e63f6",
+    "sources.json": "15a89d6549f34428085cd1fa052351e6a67952c77385816c131cdfb60d5ee97e",
+    "notices.json": "6fe91147d8377afdf5b61cfdc1fbe29b6bbc839bda82f57ca90539aebc1eedcb"
+  },
+  "bookIds": [
+    "nightingale-1898",
+    "whitman-specimen"
+  ],
+  "provenance": "docs/SOURCE-RIGHTS.md"
+}

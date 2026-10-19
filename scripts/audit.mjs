@@ -4,21 +4,26 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../',import.meta.url));
-export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[]) {
+const editionPattern=/^(?:examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)|examples\/learning-to-see\/docs\/EDITION-INVENTORY\.json)$/;
+const fontPattern=/^(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed)\/site)\/[a-z0-9-]+\.woff2$/;
+export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[],reviewedFonts=[]) {
   const problems=[];
   if(!allowed.includes(name))problems.push('not in the reviewed file inventory');
   if(/(^|\/)(?:\.reader|\.env(?:\..*)?|\.vercel|node_modules|test-results|source|books|annotations|private)(\/|$)/i.test(name) || /\.(?:epub|pdf|mobi|azw3?|docx|pem|key|reader\.json|reader-backup\.json|reader-bundle\.json)$/i.test(name))problems.push('private/book path or disallowed format');
   // Public examples are an explicit, path-and-content-pinned exception. This
   // covers JSON with embedded images as well as separate source image files.
   // No directory-wide binary exemption and no suppression of credential scans.
-  const editionPath=/^examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)$/.test(name);
+  const editionPath=editionPattern.test(name);
   const reviewed=editionPath&&reviewedEditions.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
-  if(/^examples\/[^/]+\/editions?\//.test(name)&&!reviewed)problems.push('edition bytes lack an exact reviewed provenance entry');
+  if((/^examples\/[^/]+\/editions?\//.test(name)||name==='examples/learning-to-see/docs/EDITION-INVENTORY.json')&&!reviewed)problems.push('edition bytes lack an exact reviewed provenance entry');
   const siteAssetPath=/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|png|woff2)$/.test(name);
   const reviewedSite=siteAssetPath&&reviewedSiteAssets.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
   if(siteAssetPath&&!reviewedSite)problems.push('showcase asset lacks an exact reviewed provenance entry');
+  const reviewedFont=fontPattern.test(name)&&reviewedFonts.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&allowed.includes(f.provenance)&&allowed.includes(f.license)&&/^[a-f0-9]{64}$/.test(f.licenseSha256)&&typeof f.reason==='string'&&f.reason.trim());
+  if(fontPattern.test(name)&&!reviewedFont)problems.push('font bytes lack an exact reviewed provenance and license entry');
+  for(const font of reviewedFonts.filter(f=>f.license===name))if(createHash('sha256').update(bytes).digest('hex')!==font.licenseSha256)problems.push('font license differs from its reviewed full notice');
   const content=inspectContent(bytes);
-  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g)$/.test(name))||reviewedSite)&&reason==='binary data requires a separate provenance review'))];
+  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g)$/.test(name))||reviewedSite||reviewedFont)&&reason==='binary data requires a separate provenance review'))];
 }
 export function inspectContent(bytes) {
   const problems=[];
@@ -48,9 +53,11 @@ async function inspectRepository(directory) {
   const historical=manifest.reviewedHistoricalFiles || [];
   if(!Array.isArray(historical)||historical.some(f=>!f||typeof f.path!=='string'||!f.path||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Historical review entries need a path, SHA-256 and reason.');
   const editions=manifest.reviewedEditionFiles || [];
-  if(!Array.isArray(editions)||editions.some(f=>!f||!/^examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Edition review entries need an exact example asset path, SHA-256, tracked provenance and reason.');
+  if(!Array.isArray(editions)||editions.some(f=>!f||!editionPattern.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Edition review entries need an exact example asset path, SHA-256, tracked provenance and reason.');
   const siteAssets=manifest.reviewedSiteAssets || [];
   if(!Array.isArray(siteAssets)||siteAssets.some(f=>!f||!/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|png|woff2)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Showcase asset review entries need an exact asset path, SHA-256, tracked provenance and reason.');
+  const fonts=manifest.reviewedFontFiles||[];
+  if(!Array.isArray(fonts)||fonts.some(f=>!f||!fontPattern.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.license!=='string'||!allowed.includes(f.license)||!(/^[a-f0-9]{64}$/).test(f.licenseSha256)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Font review entries need an exact font path, SHA-256, tracked provenance, full license hash and reason.');
   const tracked=git('ls-files','-z').split('\0').filter(Boolean), failures=[], inventory=[];
   const shallow=git('rev-parse','--is-shallow-repository').trim()==='true';
   if(shallow)failures.push('Incomplete history: this is a shallow repository. Fetch the complete intended ref history before auditing.');
@@ -76,9 +83,9 @@ async function inspectRepository(directory) {
     const file=path.join(directory,name);
     let bytes;
     try{if(!(await lstat(file)).isFile())throw new Error('Not regular');bytes=await readFile(file);}catch{failures.push(`${name}: missing or non-regular working file`);continue;}
-    for(const reason of inspectFile(name,bytes,allowed,editions,siteAssets))failures.push(`${name} (working): ${reason}`);
+    for(const reason of inspectFile(name,bytes,allowed,editions,siteAssets,fonts))failures.push(`${name} (working): ${reason}`);
     const staged=gitBytes('show',`:${name}`);
-    for(const reason of inspectFile(name,staged,allowed,editions,siteAssets))failures.push(`${name} (index): ${reason}`);
+    for(const reason of inspectFile(name,staged,allowed,editions,siteAssets,fonts))failures.push(`${name} (index): ${reason}`);
     if(!bytes.equals(staged))failures.push(`${name}: index and working file differ; stage the reviewed final bytes`);
     inventory.push({path:name,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length});
   }
@@ -96,7 +103,7 @@ async function inspectRepository(directory) {
       if(type!=='blob'||mode!=='100644') {failures.push(`${name} (history): unexpected file mode/type`);continue;}
       const data=gitBytes('cat-file','blob',hash),digest=createHash('sha256').update(data).digest('hex');
       const reviewed=historical.some(f=>f.path===name&&f.sha256===digest);
-      for(const reason of inspectFile(name,data,reviewed?[...allowed,name]:allowed,editions,siteAssets))failures.push(`${name} (history ${tree.slice(0,8)}): ${reason}`);
+      for(const reason of inspectFile(name,data,reviewed?[...allowed,name]:allowed,editions,siteAssets,fonts))failures.push(`${name} (history ${tree.slice(0,8)}): ${reason}`);
     }
   }
   const objects=git('rev-list','--objects','--all','HEAD').trim().split('\n').filter(Boolean).map(line=>line.split(' ')[0]);

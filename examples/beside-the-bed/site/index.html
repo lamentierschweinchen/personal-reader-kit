@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f2e9">
+  <meta name="description" content="Florence Nightingale and Walt Whitman. Two complete historical works on visiting and companionship, with a reading companion and a source essay.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/collection.css">
+  <title>Beside the Bed · Nightingale & Whitman</title>
+</head>
+<body>
+  <svg class="icon-definitions" aria-hidden="true" focusable="false"><defs><path id="ui-arrow" d="M3 8h10M8 3l5 5-5 5"/></defs></svg>
+  <a class="skip-link" href="#main">Skip to reading</a>
+  <header class="masthead">
+    <a class="wordmark" href="#shelf" data-nav="shelf" aria-label="Beside the Bed, your books">Beside the Bed</a>
+    <nav aria-label="Main navigation">
+      <a href="#companion" data-nav="companion">Visits</a>
+      <a href="#passages" data-nav="passages">Passages</a>
+    </nav>
+    <button class="type-button" data-action="settings" aria-label="Reading settings">Aa</button>
+  </header>
+  <div id="storage-warning" class="warning" role="alert" hidden></div>
+  <p id="focus-help" class="visually-hidden">Focus mode: tap the reading surface or press C to recall controls. Escape exits. Selecting words still lets you keep passages.</p>
+  <button id="focus-reveal" class="focus-reveal" data-action="focus-reveal" aria-controls="focus-tools" aria-expanded="false" hidden>Show reading controls</button>
+  <div id="focus-tools" role="group" aria-label="Reading controls" hidden><button data-action="focus-hide">Hide controls</button><button id="focus-exit" data-action="focus" hidden>Exit focus <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button></div>
+  <main id="main" tabindex="-1"><p class="loading">Opening the books…</p></main>
+
+  <button id="selection-save" hidden>Keep or share passage <span aria-hidden="true">＋</span></button>
+  <footer class="site-footer"><button id="offline-status" data-action="offline">Checking offline copy…</button><button data-action="import">Add a book <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button><p class="maker-credit">Made with <a href="https://newreading.app/">newreading.app</a></p></footer>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <noscript><style>.loading,.site-footer,.masthead nav,.type-button{display:none!important}main{min-height:0}.no-script{padding:32px 6vw;max-width:760px;margin:auto}</style><section class="no-script"><h1>Beside the Bed</h1><p>This reader needs JavaScript to open its books and annotations. The reading and offline controls are unavailable here.</p><p class="catalogue-return"><a href="https://newreading.app/library/">Return to all readers</a></p></section></noscript>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>

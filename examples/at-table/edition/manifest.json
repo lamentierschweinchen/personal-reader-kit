@@ -1,0 +1,17 @@
+{
+  "librarySha256": "4aece6dc00c250caee2e5560edf242594f7b44297bcd7a0abbcee817ca8b4fa0",
+  "editions": [
+    {
+      "id": "savarin",
+      "sha256": "eb409117436b7cefaa676b5f0b824d98392c5ad7c4050b7428e076673b73cba2"
+    },
+    {
+      "id": "beeton",
+      "sha256": "8f525182c5fcbccdffdd2bbcc5571ce81be4310f2bc1cf81f40517213584a909"
+    },
+    {
+      "id": "estes",
+      "sha256": "fb8772195ee02d21b3796bff9847ebf8ca6136f7f710012c97ec598b95d25877"
+    }
+  ]
+}

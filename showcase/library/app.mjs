@@ -22,7 +22,7 @@ function render(){
  const ordered=[...books].sort((a,b)=>sort.value==='shelf'?Number(a.dataset.order)-Number(b.dataset.order):a.dataset[sort.value].localeCompare(b.dataset[sort.value]));
  grid.append(...ordered,empty);
  empty.hidden=visible>0;
- status.textContent=`${visible} ${visible===1?'edition':'editions'}${query||category!=='all'?' found':' · the founding shelf'}`;
+ status.textContent=`${visible} ${visible===1?'edition':'editions'}${query||category!=='all'?' found':' · the shelf'}`;
 }
 input.addEventListener('input',render);
 sort.addEventListener('change',render);

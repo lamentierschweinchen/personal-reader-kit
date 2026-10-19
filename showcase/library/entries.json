@@ -161,6 +161,156 @@
       "sourceLabels": [
         "Source edition"
       ]
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "at-table",
+      "exampleId": "at-table",
+      "title": "At Table",
+      "author": "Jean Anthelme Brillat-Savarin · Isabella Beeton · Rufus Estes",
+      "shortAuthor": "Brillat-Savarin / Beeton / Estes",
+      "kind": "Cooking & hospitality",
+      "edition": "Three complete selected digital texts: Robinson’s Brillat-Savarin translation, Beeton’s Household Management and Estes’s 1911 Good Things to Eat. The Robinson witness omits two French meditations; Beeton’s digital text supplies illustration descriptions, without the engravings.",
+      "feature": "In the kitchen",
+      "description": "Compare asparagus, stock and coffee across a gastronome’s stories, a household manual and a professional cook’s recipes. An optional reading follows Estes’s work, wages and authorship.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5434",
+        "https://www.gutenberg.org/ebooks/10136",
+        "https://www.gutenberg.org/ebooks/18435"
+      ],
+      "sourceLabels": [
+        "Brillat-Savarin / Robinson",
+        "Isabella Beeton",
+        "Rufus Estes"
+      ],
+      "rightsPath": "examples/at-table/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "inward-life",
+      "exampleId": "inward-life",
+      "title": "The Inward Life",
+      "author": "Julian of Norwich · Rabindranath Tagore · William James",
+      "shortAuthor": "Julian / Tagore / James",
+      "kind": "Spiritual life & philosophy",
+      "edition": "Revelations of Divine Love, Grace Warrack’s 1901 version; Sādhanā, the English witness dated 1916 with its credited collaborators; The Varieties of Religious Experience, twenty-eighth impression, 1917.",
+      "feature": "Three ways in",
+      "description": "Follow questions of experience, love and action through three complete works. A quieter study looks at Warrack’s editing, Tagore’s English collaborators and James’s selected mystical tradition.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/52958",
+        "https://www.gutenberg.org/ebooks/6842",
+        "https://www.gutenberg.org/ebooks/621"
+      ],
+      "sourceLabels": [
+        "Julian / Grace Warrack",
+        "Tagore and collaborators",
+        "William James"
+      ],
+      "rightsPath": "examples/inward-life/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "music-and-feeling",
+      "exampleId": "music-and-feeling",
+      "title": "What Can Music Say?",
+      "author": "Eduard Hanslick · Leo Tolstoy",
+      "shortAuthor": "Hanslick / Tolstoy",
+      "kind": "Music & aesthetics",
+      "edition": "The Beautiful in Music, Gustav Cohen’s translation of the seventh German edition in the 1891-dated scan witness; What Is Art?, Aylmer Maude’s 1904 witness. Historical notation and full source apparatus accompany the texts.",
+      "feature": "One symphony, two judgments",
+      "description": "Hanslick and Tolstoy both find difficulties in Beethoven’s Ninth. Read the passages together and examine the different things each critic asks music to do.",
+      "categories": [
+        "words",
+        "ideas",
+        "art"
+      ],
+      "sourceUrls": [
+        "https://commons.wikimedia.org/wiki/File:The_beautiful_in_music_-_a_contribution_to_the_revisal_of_musical_aesthetics_(IA_beautifulinmusichans).pdf",
+        "https://www.gutenberg.org/ebooks/64908"
+      ],
+      "sourceLabels": [
+        "Hanslick / Gustav Cohen · dated scan",
+        "Tolstoy / Aylmer Maude"
+      ],
+      "rightsPath": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "learning-to-see",
+      "exampleId": "learning-to-see",
+      "title": "Learning to See",
+      "author": "John Ruskin · Walter Crane",
+      "shortAuthor": "Ruskin / Crane",
+      "kind": "Drawing & ornament",
+      "edition": "The complete selected English digital editions of The Elements of Drawing and Line & Form, including 218 source illustrations, notes and indexes.",
+      "feature": "From branch to pattern",
+      "description": "Look closely at Crane’s two olive branches beside Ruskin’s attention to boughs and white intervals. An optional workbench lets you adjust a repeating sprig and inspect its joins.",
+      "categories": [
+        "words",
+        "art"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/30325",
+        "https://www.gutenberg.org/ebooks/25290"
+      ],
+      "sourceLabels": [
+        "John Ruskin",
+        "Walter Crane"
+      ],
+      "rightsPath": "examples/learning-to-see/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "beside-the-bed",
+      "exampleId": "beside-the-bed",
+      "title": "Beside the Bed",
+      "author": "Florence Nightingale · Walt Whitman",
+      "shortAuthor": "Nightingale / Whitman",
+      "kind": "Care & observation",
+      "edition": "Notes on Nursing, Appleton 1898; the complete Specimen Days extracted from Gutenberg’s Complete Prose Works, with its notes and verse. Historical nursing is read as literary and social evidence.",
+      "feature": "The visitor’s work",
+      "description": "Follow preparations, messages, conversation and departure through two accounts of visiting the sick. An optional close reading compares a whispered corridor with a singing ward.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12439",
+        "https://www.gutenberg.org/ebooks/8813"
+      ],
+      "sourceLabels": [
+        "Florence Nightingale",
+        "Walt Whitman"
+      ],
+      "rightsPath": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

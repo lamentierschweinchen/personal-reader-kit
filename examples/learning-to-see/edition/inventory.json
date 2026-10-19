@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "sourceCommit": "addc2e087ac5f112e858c93b4eacf200cbc66c43",
+  "files": {
+    "library.json": "872567767b0738f44d8ee19c7e7af9eefb361a103d10da2baa9592fe4a865c95",
+    "study-data.json": "90b0b9507358b34cb9a9156eea8b608280cfd6c6e828838f0c61f529424ff5c9"
+  },
+  "policy": "Exact reviewed historical digital editions and companion references; no private reading records."
+}

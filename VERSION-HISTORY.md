@@ -8,6 +8,14 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Five meetings of writers · 19 October 2026
+
+Adds five reviewed English multi-author readers at their own canonical paths and on the community shelf. They have distinct original vectors and Newsreader, Literata, Gentium Plus, Alegreya and Bitter typography; primary reading remains independent of their selected companions. Exact source/translation/media notices, prepared-input guards, source character preservation and separate app/cache/storage scopes accompany each collection. The stock reader and the six prior readers/games/personal entrance retain their existing runtime and source bytes.
+
+The kit documents the editorial trials, source-first comparisons, complete plate fitting, full-font/OFL admission, actual 200% interface checks, source-notice recovery and proofreading after destructive transformations. A strict fresh-origin regression restores full and single editions with real missing-data HTTP responses, full notices, notes and fonts, then stops the server; incomplete companions cannot produce a complete offline claim. All public examples retain their item-specific rights and exact inventories. Final review and deployment evidence are recorded in docs/STATUS.md.
+
+The final identity review also prompted a narrow At Table phone-heading repair. The optional Made with newreading.app footer is now a removable default in the starter and five incoming public copies, as previously requested by the owner. Older readers retain their existing implementations. Exact source editions, local reading schemas and required notices are unchanged; these UI supplements are declared in the catalogue packaging records.
+
 ## Isolated build checks and named collection sources · 18 October 2026
 
 Preparing multi-author readers exposed a preview collision: the publication unit test rebuilt the shared `dist/` with original samples while a customized reader was serving it. `build({output})` now permits a separate output, and the unit check uses a temporary directory while proving that an existing preview marker survives. The unmodified prior builder fails the same regression. The agent guide records output isolation and verification of the actually served collection.
