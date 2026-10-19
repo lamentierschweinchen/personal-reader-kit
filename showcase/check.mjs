@@ -9,6 +9,7 @@ const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_M
 const output=new URL('../test-results/showcase/',import.meta.url);await mkdir(output,{recursive:true});
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
 const sizes=[{width:320,height:740},{width:375,height:812},{width:390,height:844},{width:430,height:932},{width:402,height:874},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
+const shelfOrder=['alice','at-table','beside-the-bed','dracula','inward-life','learning-to-see','odyssey','austen','two-halls','walden','music-and-feeling'];
 const promptText=(await readFile(new URL('./start.txt',import.meta.url),'utf8')).trim();
 const commandText='Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.';
 async function settled(page){await page.locator('header [data-copy]:not([hidden])').waitFor();await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
@@ -38,8 +39,10 @@ try{
     page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url())});page.on('pageerror',e=>errors.push(e.message));
     await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.copiedPrompt=text}}}));
     await page.goto(base);await page.locator('header [data-copy]:not([hidden])').waitFor();await settled(page);await layout(page,'Home');
-    assert.deepEqual(await page.locator('.sample').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/austen/','/alice/','/walden/','/two-halls/','/odyssey/','/dracula/']);
-    assert.equal(await page.locator('.samples a[href*="/play/"]').count(),0);
+    await page.locator('#samples .shelf-interactive:not([hidden])').waitFor();
+    assert.deepEqual(await page.locator('#samples .book-pick').evaluateAll(a=>a.map(x=>x.dataset.shelfBook)),shelfOrder);
+    assert.deepEqual(await page.locator('#samples .shelf-fallback a').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),shelfOrder.map(id=>'/'+id+'/'));
+    assert.equal(await page.locator('#samples a[href*="/play/"]').count(),0);
     assert.deepEqual(await page.locator('#panel-play a').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),['/odyssey/play/','/alice/play/','/dracula/play/']);
     const start=page.locator('.hero a[href="#make"]');const startBox=await start.boundingBox();assert.ok(startBox&&startBox.y+startBox.height<=viewport.height+(viewport.height<500?400:0),'Start yours is visible early');
     assert.equal(await page.locator('#starter').inputValue(),commandText);assert.equal(await page.locator('a[href="/start.txt"]').count(),1);
@@ -58,7 +61,7 @@ try{
      const fit=await page.locator('.mode-explore').evaluate(e=>{const box=e.getBoundingClientRect();return [...e.querySelectorAll('.mode-text,.stage,.tabs button')].every(x=>{const r=x.getBoundingClientRect();return r.left>=box.left&&r.right<=box.right})});assert.ok(fit,'Explore controls and preview fit their section');}
     assert.equal(new Set(stageHeights).size,1,'Explore keeps one height: '+stageHeights);
     assert.ok(tabPositions.every(r=>r.every((n,i)=>Math.abs(n-tabPositions[0][i])<1)),'Explore tabs keep their position across captions: '+JSON.stringify(tabPositions));
-    assert.doesNotMatch(await page.locator('.samples-intro').textContent(),/Six founding editions/);
+    assert.doesNotMatch(await page.locator('#samples').textContent(),/Six founding editions|Just added|On the shelf/);
     await page.locator('[data-explore="word"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="accounts"]').getAttribute('aria-selected'),'true');
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
     await page.locator('#prompt-box summary').click();await copyCheck(page,'#starter','#prompt-box [data-copy]');
@@ -68,8 +71,10 @@ try{
     for(const [ai,route] of [['claude','claude'],['gemini','antigravity'],['chatgpt','codex']]){await page.locator(`input[value="${ai}"]`).check({force:true});assert.equal(await page.locator(`[data-route="${route}"]`).isVisible(),true);assert.equal(await page.locator('[data-route]:visible').count(),1);}
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}-guide.png`,output)),fullPage:true,animations:'disabled'});await copyCheck(page,'#starter','#paste [data-copy]');
     for(const details of await page.locator('.g-faq details').all()){await details.locator('summary').click();}await layout(page,'Expanded help');
-    await page.locator('header a.brand').click();await page.locator('.sample').first().waitFor();
-    await page.locator('.sample').first().click();await page.locator('#offline-status').filter({hasText:'Available offline'}).waitFor({timeout:60000});assert.equal(new URL(page.url()).pathname,'/austen/');await page.goBack();await page.locator('.sample').first().waitFor();
+    await page.locator('header a.brand').click();await page.locator('#samples .shelf-interactive:not([hidden])').waitFor();
+    await page.locator('#samples [data-shelf-book="austen"]').click();
+    assert.equal(await page.locator('#chosen-book .chosen-read').getAttribute('href'),'/austen/');
+    await page.locator('#chosen-book .chosen-read').click();await page.locator('#offline-status').filter({hasText:'Available offline'}).waitFor({timeout:60000});assert.equal(new URL(page.url()).pathname,'/austen/');await page.goBack();await page.locator('#samples .shelf-interactive:not([hidden])').waitFor();
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,loadedAssets:true,firstScreenStart:true,copyAndFallback:true,editionSwitch:true,explorePanels:true,guideRoutes:true,readerRoundTrip:true});await context.close();
    }
    // A hovered cover band must resume after a second activation.
@@ -86,7 +91,7 @@ try{
     for(const id of ['word','accounts','closer','places','play']){await zoom.locator(`[data-explore="${id}"]`).click();assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Enlarged '+id+' panel fits');}
     await enlarged.close();
    }
-   const noScript=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('.sample').count(),6);assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
+   const noScript=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('#samples .shelf-interactive').isVisible(),false);assert.equal(await plain.locator('#samples .shelf-fallback').isVisible(),true);assert.deepEqual(await plain.locator('#samples .shelf-fallback a').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),shelfOrder.map(id=>'/'+id+'/'));assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);
    assert.equal(await plain.locator('.panel:visible').count(),5,'All Explore examples remain available without JavaScript');
    assert.equal(await plain.locator('.tabs').isVisible(),false);assert.equal(await plain.locator('[data-pick="money"]').isDisabled(),true);
    await plain.locator('a[href="/start.txt"]').click();assert.equal((await plain.locator('body').textContent()).trim(),promptText);

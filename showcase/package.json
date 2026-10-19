@@ -8,7 +8,7 @@
   "scripts": {
     "build": "node build.mjs",
     "dev": "node serve.mjs",
-    "check": "node check.mjs && node check-library.mjs --skip-build && node check-handoff.mjs --skip-build && node check-readers.mjs --skip-build && node check-collection-recovery.mjs && node check-inputs.mjs && node check-games.mjs --skip-build && node check-gameplay.mjs --skip-build",
+    "check": "node check.mjs && node check-shelf.mjs --skip-build && node check-library.mjs --skip-build && node check-handoff.mjs --skip-build && node check-readers.mjs --skip-build && node check-collection-recovery.mjs && node check-inputs.mjs && node check-games.mjs --skip-build && node check-gameplay.mjs --skip-build",
     "share-image": "node share-image.mjs"
   }
 }

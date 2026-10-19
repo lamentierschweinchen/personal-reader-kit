@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Homepage mixed shelf · 20 October 2026
+
+The homepage's Browse library tiles become an alphabetical mixed shelf of all eleven public readers. Desktop starts with three jackets facing out; phones and tablets use a single native scrolling row with Alice open. Clicking, tapping or using the keyboard turns a book, while hover only lifts it. Complete titles and authors sit beside a short companion description and one reading action. Static links survive disabled or failed JavaScript, enlarged text wraps, and reduced motion removes the turn.
+
+The shelf shares validated catalogue metadata and jacket artwork with the full library. Generated cover rules and controls are scoped to protect the existing homepage interactions. Focused checks cover 36 Chromium/WebKit cases, with native WebKit captures used for 3D paint verification because its macOS snapshot API can flatten the scene. Existing homepage, library, handoff, personal entrance and stock-reader checks also pass. Only the homepage changes among the 606 prior output files; three runtime assets are added. The other 605 files, eleven reader applications, edition/font pins and original-sample starter inventory retain their reviewed bytes. Detailed verification is recorded in STATUS.md.
+
 ## Five meetings of writers · 19 October 2026
 
 Adds five reviewed English multi-author readers at their own canonical paths and on the community shelf. They have distinct original vectors and Newsreader, Literata, Gentium Plus, Alegreya and Bitter typography; primary reading remains independent of their selected companions. Exact source/translation/media notices, prepared-input guards, source character preservation and separate app/cache/storage scopes accompany each collection. The six prior readers, games and personal entrance retain their existing runtime and source bytes. The stock reader retains its original sample editions; its index and stylesheet gain the approved optional footer credit.

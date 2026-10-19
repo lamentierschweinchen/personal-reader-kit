@@ -40,6 +40,8 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - run: node showcase/check.mjs
         if: hashFiles('showcase/check.mjs') != ''
+      - run: node showcase/check-shelf.mjs --skip-build
+        if: hashFiles('showcase/check-shelf.mjs') != ''
       - run: node showcase/check-library.mjs --skip-build
         if: hashFiles('showcase/check-library.mjs') != ''
       - run: node showcase/check-handoff.mjs --skip-build

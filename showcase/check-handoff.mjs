@@ -212,9 +212,9 @@ try {
       const pending = await browser.newContext(), pendingPage = await pending.newPage();
       await pendingPage.addInitScript(() => {window.IntersectionObserver = class {observe() {} unobserve() {}};});
       await pendingPage.goto(base); await enhanced(pendingPage);
-      assert.equal(await pendingPage.locator('.sample.in').count(), 0);
-      await pendingPage.locator('.sample').first().focus();
-      assert.equal(await pendingPage.locator('.sample').first().evaluate(el => el.classList.contains('in')), true);
+      assert.equal(await pendingPage.locator('form.idea.in').count(), 0);
+      await pendingPage.locator('#book').focus();
+      assert.equal(await pendingPage.locator('form.idea').evaluate(el => el.classList.contains('in')), true);
       await pending.close();
 
       const noScript = await browser.newContext({javaScriptEnabled: false}), plain = await noScript.newPage();

@@ -1,0 +1,129 @@
+.mixed-library{--body:Piazzolla,Georgia,serif;--shelf-ease:cubic-bezier(.22,.75,.2,1);padding:clamp(44px,5vw,80px) var(--gutter) 30px;max-width:1600px;margin-inline:auto}
+.mixed-library .shelf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mixed-library .shelf-heading{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.mixed-library .shelf-heading h2{font:400 clamp(2.625rem,4.6vw,4.25rem)/1.08 var(--display);letter-spacing:-.03em}
+.mixed-library .pen-circle::after{clip-path:inset(0)}
+.mixed-library .all-editions{display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px 16px;min-height:44px;font:.6875rem/1.5 var(--mono)}
+.mixed-library .all-editions>span{color:var(--muted);font-size:.625rem}
+.mixed-library .all-editions .arrow{width:24px}
+.mixed-library .shelf-preamble{display:flex;align-items:center;justify-content:space-between;margin-top:34px;gap:24px}
+.mixed-library .shelf-hand{font:1.9375rem/1.05 var(--hand);color:var(--red);transform:rotate(-3deg)}
+.mixed-library .covers-switch{font:.625rem/1.5 var(--mono);color:var(--muted);min-height:44px;display:inline-flex;align-items:center;gap:10px}
+.mixed-library .covers-switch .arrow{width:16px}
+.mixed-library a:hover{color:var(--red)}
+.mixed-library .shelf-room{padding-top:36px;position:relative}
+.mixed-library .bookcase{--front-w:clamp(150px,13.8vw,200px);display:flex;align-items:flex-end;justify-content:center;gap:6px;list-style:none;margin:0;padding:0 8px;height:356px;isolation:isolate}
+.mixed-library .shelf-volume{--spine-paper:#f3efe3;--spine-ink:#2a2a25;--spine-face:var(--display);--spine-size:23px;flex:0 0 var(--thickness);width:var(--thickness);height:var(--book-height);position:relative;z-index:1;transform:translateZ(0)}
+.mixed-library .shelf-volume.is-faceout{flex-basis:calc(var(--front-w) + var(--thickness)/2 - 6px);width:calc(var(--front-w) + var(--thickness)/2 - 6px)}
+.mixed-library .shelf-volume.is-selected{z-index:3}
+.mixed-library .book-pick{position:relative;display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:none;text-align:left;perspective:1600px;color:var(--spine-ink);cursor:pointer;border-radius:1px;touch-action:pan-x pan-y pinch-zoom;-webkit-tap-highlight-color:transparent}
+.mixed-library .book-pick:focus-visible{outline:2px solid var(--red);outline-offset:5px}
+.mixed-library .book-object{position:absolute;left:0;bottom:0;width:var(--front-w);height:100%;transform-style:preserve-3d;transform-origin:0 50%;transform:translateX(calc(var(--thickness)/2)) rotateY(90deg);transition:transform .58s var(--shelf-ease),translate .18s var(--shelf-ease);pointer-events:none}
+.mixed-library .is-faceout .book-object{transform:translateX(calc(var(--thickness)/2)) rotateY(12deg)}
+.mixed-library .book-object>span{position:absolute;display:block;backface-visibility:hidden}
+.mixed-library .book-front{inset:0;transform:translateZ(calc(var(--thickness)/2));box-shadow:1px 1px 0 #0003}
+.mixed-library .cover{width:100%;height:auto;max-width:none;margin:0;transform:none}
+.mixed-library .book-front .cover{display:block;width:100%;height:100%;aspect-ratio:auto;box-shadow:none;border-radius:1px 2px 2px 1px}
+.mixed-library .book-front .cover img{pointer-events:none}
+.mixed-library .book-spine{left:calc(var(--thickness)/-2);top:0;width:var(--thickness);height:100%;transform:rotateY(-90deg);background:var(--spine-paper);color:var(--spine-ink);box-shadow:inset 1px 0 #fff3,inset -2px 0 4px #0002,inset 4px 0 7px #0001,1px 0 #0002;overflow:hidden;border-radius:2px 0 0 2px}
+.mixed-library .spine-title{position:absolute;top:18px;bottom:48px;left:0;right:0;display:flex;align-items:center;writing-mode:vertical-rl;text-orientation:mixed;font:400 var(--spine-size)/1 var(--spine-face);letter-spacing:-.02em;white-space:nowrap}
+.mixed-library .spine-imprint{position:absolute;bottom:15px;left:0;right:0;display:flex;justify-content:center;gap:3px;font:italic 17px/1 var(--display)}
+.mixed-library .spine-imprint>span{display:block;width:4px;height:4px;margin-top:5px;background:currentColor;border-radius:50%;opacity:.65}
+.mixed-library .book-back{inset:0;background:var(--spine-paper);transform:rotateY(180deg) translateZ(calc(var(--thickness)/2));box-shadow:inset 0 0 0 1px #0002}
+.mixed-library .book-top{width:100%;height:var(--thickness);top:calc(var(--thickness)/-2);left:0;background:repeating-linear-gradient(0deg,#e5decd 0px,#f6efdf 1px,#e5decd 2px);transform:rotateX(90deg);border:1px solid #d5cbb7}
+.mixed-library .book-pages{right:calc(var(--thickness)/-2);top:1px;bottom:1px;width:var(--thickness);background:repeating-linear-gradient(90deg,#c9c1ad 0px,#f2ecdd 1px,#e5ddcc 2px);transform:rotateY(90deg)}
+.mixed-library .shelf-edge{height:11px;margin:0 -12px;position:relative;background:linear-gradient(#e0d8c7 0,#eee8dc 2px,#d4c9b4 3px,#e5ddcd 10px);box-shadow:0 12px 18px -9px #6f5f3b55,0 1px 1px #a99c8240;z-index:4;pointer-events:none}
+.mixed-library .shelf-edge::before{content:'';position:absolute;left:10px;right:10px;top:-5px;height:5px;background:linear-gradient(transparent,#5c4d2c28)}
+
+.mixed-library .volume-at-table{--spine-face:Newsreader,Georgia,serif;--spine-ink:#9e453c;--spine-size:25px}
+.mixed-library .volume-at-table .spine-title{font-style:italic}
+.mixed-library .volume-inward-life{--spine-paper:#25232c;--spine-ink:#d9bb7b;--spine-face:Literata,Georgia,serif;--spine-size:22px}
+.mixed-library .volume-inward-life .book-spine::after,.mixed-library .volume-dracula .book-spine::after{content:'';position:absolute;inset:8px 6px;border-block:1px solid currentColor;opacity:.55}
+.mixed-library .volume-music-and-feeling{--spine-paper:#ede9e2;--spine-ink:#333144;--spine-face:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--spine-size:20px}
+.mixed-library .volume-music-and-feeling .spine-title{font-weight:600;letter-spacing:-.035em}
+.mixed-library .volume-learning-to-see{--spine-paper:#f7f4ec;--spine-ink:#2b3a32;--spine-face:Alegreya,Georgia,serif;--spine-size:25px}
+.mixed-library .volume-beside-the-bed{--spine-paper:#e3e7dc;--spine-ink:#30463d;--spine-face:Bitter,Georgia,serif;--spine-size:21px}
+.mixed-library .volume-beside-the-bed .spine-title{font-weight:600;letter-spacing:-.04em}
+.mixed-library .volume-austen{--spine-paper:#15382d;--spine-ink:#d9b76b;--spine-size:22px}
+.mixed-library .volume-austen .book-spine::after{content:'';position:absolute;inset:7px 5px;border:1px solid #d9b76b77}
+.mixed-library .volume-alice{--spine-paper:#efd7c9;--spine-ink:#6e2430;--spine-size:25px}
+.mixed-library .volume-walden{--spine-paper:#cfc4a2;--spine-ink:#344334;--spine-size:26px}
+.mixed-library .volume-two-halls{--spine-paper:#25241e;--spine-ink:#eee7d6;--spine-size:24px}
+.mixed-library .volume-odyssey{--spine-paper:#16473f;--spine-ink:#f4e6bd;--spine-size:27px}
+.mixed-library .volume-dracula{--spine-paper:#691f2b;--spine-ink:#ead9ad;--spine-size:27px}
+
+.mixed-library .chosen-book{min-height:159px;display:grid;grid-template-columns:minmax(200px,1.15fr) minmax(200px,1fr) auto;align-items:center;gap:50px;padding:27px 6px 32px}
+.mixed-library .chosen-author{font:.625rem/1.6 var(--mono);color:var(--muted);margin:0 0 7px}
+.mixed-library .chosen-bibliography h3{font:400 1.875rem/1.1 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.mixed-library .chosen-feature{font:italic 1.25rem/1.4 var(--body);color:var(--muted);max-width:30ch;text-wrap:balance}
+.mixed-library .chosen-read{display:inline-flex;align-items:center;gap:15px;min-height:44px;font:.6875rem/1.5 var(--mono);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.mixed-library .shelf-controls{display:none}
+.mixed-library .shelf-fallback{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));gap:32px;list-style:none;margin-top:32px}
+.mixed-library .shelf-fallback li{min-width:0}
+.mixed-library .shelf-fallback a{display:block;min-height:44px}
+.mixed-library .shelf-fallback h3{font:400 1.5rem/1.1 var(--display);margin:18px 0 7px;text-wrap:balance}
+.mixed-library .shelf-fallback p{font:.625rem/1.65 var(--mono);color:var(--muted)}
+
+/* Lift the entire book; selection alone controls its angle. */
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .mixed-library .shelf-volume:hover{z-index:5}
+ .mixed-library .book-pick:hover .book-object{translate:0 -5px}
+}
+@media(min-width:1101px) and (prefers-reduced-motion:no-preference){
+ .mixed-library.shelf-interacted .shelf-volume{transition:flex-basis .54s var(--shelf-ease),width .54s var(--shelf-ease)}
+}
+@media(min-width:1500px){.mixed-library .bookcase{gap:12px}}
+@media(max-width:1100px){
+ .mixed-library .shelf-controls{display:flex;gap:6px;align-items:center}
+ .mixed-library .shelf-controls button{display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink)}
+ .mixed-library .shelf-controls button:disabled{opacity:.3;cursor:default}
+ .mixed-library .shelf-controls button:hover:not(:disabled){color:var(--red);border-color:var(--red)}
+ .mixed-library .shelf-preamble{margin-top:17px;gap:12px}
+ .mixed-library .shelf-hand{font-size:1.6875rem}
+ .mixed-library .covers-switch{display:none}
+ .mixed-library .shelf-room{padding-top:12px}
+ .mixed-library .bookcase{--front-w:180px;justify-content:flex-start;gap:6px;height:305px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;scroll-snap-type:x proximity;scroll-padding-inline:var(--gutter);padding:16px var(--gutter) 11px;margin-inline:calc(var(--gutter)*-1);width:calc(100% + var(--gutter)*2);isolation:auto}
+ .mixed-library .bookcase::-webkit-scrollbar{display:none}
+ .mixed-library .shelf-volume{height:calc(var(--book-height)*.82);scroll-snap-align:start}
+ .mixed-library .book-object{transition:transform .5s var(--shelf-ease),translate .18s var(--shelf-ease)}
+ .mixed-library .spine-title{font-size:calc(var(--spine-size)*.82);top:15px;bottom:36px}
+ .mixed-library .spine-imprint{font-size:15px;bottom:12px}
+ .mixed-library .shelf-edge{margin-top:-11px;margin-inline:calc(var(--gutter)*-1)}
+ .mixed-library .chosen-book{display:flex;flex-wrap:wrap;padding:27px 0 19px;min-height:157px;column-gap:24px;row-gap:12px}
+ .mixed-library .chosen-bibliography{flex:1 1 10rem}
+ .mixed-library .chosen-bibliography h3{font-size:1.75rem}
+ .mixed-library .chosen-author{line-height:1.7;margin-bottom:6px}
+ .mixed-library .chosen-feature{flex-basis:100%;order:2;font-size:1.125rem;max-width:36ch}
+ .mixed-library .chosen-read{order:1;font-size:.625rem;gap:9px;max-width:100%}
+ .mixed-library .chosen-read .arrow{width:18px}
+}
+@media(max-width:600px){
+ .mixed-library{padding-top:32px}
+ .mixed-library .shelf-heading{gap:12px;flex-wrap:wrap}
+ .mixed-library .shelf-heading h2{font-size:clamp(2rem,9vw,2.75rem)}
+ .mixed-library .all-editions{font-size:.625rem;max-width:11em;gap:3px 8px}
+ .mixed-library .all-editions .arrow{display:none}
+ .mixed-library .shelf-hand{font-size:1.5625rem}
+ .mixed-library .chosen-book{column-gap:18px;row-gap:15px}
+ .mixed-library .chosen-bibliography h3{font-size:1.5625rem}
+ .mixed-library .chosen-feature{font-size:1.0625rem;max-width:none}
+ .mixed-library .chosen-read{gap:7px}
+}
+@media(max-width:380px){
+ .mixed-library .bookcase{--front-w:167px;height:287px}
+ .mixed-library .shelf-volume{height:calc(var(--book-height)*.77)}
+ .mixed-library .spine-title{font-size:calc(var(--spine-size)*.77)}
+ .mixed-library .shelf-hand{font-size:1.25rem}
+ .mixed-library .chosen-book{column-gap:14px;row-gap:8px}
+ .mixed-library .chosen-bibliography{flex-basis:100%}
+ .mixed-library .chosen-feature{font-size:1rem;order:1}
+ .mixed-library .chosen-read{order:2;margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ .mixed-library *,.mixed-library *::before,.mixed-library *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media(forced-colors:active){
+ .mixed-library .book-front,.mixed-library .book-spine,.mixed-library .shelf-edge{border:1px solid CanvasText}
+ .mixed-library .book-spine{background:Canvas;color:CanvasText}
+ .mixed-library .shelf-controls button:disabled{opacity:1;color:GrayText}
+}

@@ -4,9 +4,12 @@
 // checked against the Pride and Prejudice edition in ../../../../projects
 // (1894 illustrated, Gutenberg 1342): "love" 93 and "fortune" 39 across
 // chapters 1–61; Ch. 1 and Ch. 34 quotations verbatim.
-import {readFile, writeFile, mkdir} from 'node:fs/promises';
+import {writeFile, mkdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
+import {buildShelf} from './shelf/render.mjs';
 const dir = fileURLToPath(new URL('.', import.meta.url));
+export async function buildPages() {
+const shelf = await buildShelf();
 // Canonical handoffs, as on the live site; start.txt holds the full instruction.
 const prompt = 'Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.';
 const learnPrompt = 'Use https://newreading.app/start.txt to help me build my own reader. Get the kit, start with a sample and show me a working preview. Then help me add my book, make the reader my own and put it on my phone.';
@@ -61,22 +64,13 @@ const routes = {
     account: 'Uses your Google account. Usage limits depend on your plan.',
     steps: ['Install the Antigravity app for your computer, then sign in.', 'Create a project using your <b>My reader</b> folder.', 'Start a task in <b>Local mode</b>. Paste the instruction below.']},
 };
-const samples = [
-  ['austen', 'Pride and<br><i>Prejudice</i>', 'Jane Austen', 'Follow a word through the novel.'],
-  ['alice', 'ALICE', 'Lewis Carroll', 'Rackham’s pictures, up close.', 'Tea at Six'],
-  ['walden', 'Walden', 'Henry David Thoreau', 'Thoreau’s accounts, kept.'],
-  ['two-halls', 'Two<br>lecture <i>halls</i>', 'Hegel &amp; Schopenhauer', 'Two philosophers, the same hour.'],
-  ['odyssey', 'The<br><i>Odyssey</i>', 'Homer · Samuel Butler', 'A voyage home, a bag of winds.', 'Homeward'],
-  ['dracula', 'Dracula', 'Bram Stoker', 'Journals, letters, and a locked castle.', 'Castle escape'],
-];
-
 const head = ({title, desc, url, script}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f1e7">
 <title>${title}</title><meta name="description" content="${desc}">
 <meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg?v=20261019"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="New reading: Make any book your own. Austen’s peacock binding, Rackham’s White Rabbit and Thoreau’s pond survey."><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="${url}">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/im-fell-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/martian-mono-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css"><script type="module" src="${script}"></script></head>
+<link rel="stylesheet" href="/style.css">${script === '/home.mjs' ? '<link rel="stylesheet" href="/shelf/covers.css"><link rel="stylesheet" href="/shelf/style.css"><script type="module" src="/shelf/app.mjs"></script>' : ''}<script type="module" src="${script}"></script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
@@ -136,11 +130,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
  </div>
 </section>
 
-<section class="samples" id="samples" aria-labelledby="samples-title">
- <div class="samples-head reveal"><h2 id="samples-title">Read one <span class="pen-circle">now</span>.</h2></div>
- <p class="samples-intro"><a href="/library/">Browse the library</a>.</p>
- <div class="sample-row">${samples.map(([id, t, a, line]) => `<article class="sample-entry"><a class="sample sample-${id} reveal" href="/${id}/"><span class="s-title">${t}</span><span class="s-line">${line}</span><span class="s-by">${a} ${arrow}</span></a></article>`).join('')}</div>
-</section>
+${shelf}
 
 <section class="make" id="make" aria-labelledby="make-title">
  <div class="make-head reveal"><h2 id="make-title">Have a book <em>in&nbsp;mind?</em></h2><p>Name it, say what you’d like, and copy your starting point.</p></div>
@@ -172,7 +162,7 @@ ${foot}
 <script type="application/json" id="data">${JSON.stringify({threads, explore: explore.map(([id, , note]) => [id, note])})}</script>
 </body></html>`;
 await writeFile(dir + 'index.html', html);
-console.log('Built v2.');
+console.log('Built homepage and mixed shelf.');
 
 // ── How it works ─────────────────────────────────────────────────────────
 const learn = `${head({title: 'How it works · new reading', desc: 'Make your own reader with an AI coding app: which app to open, what to paste, and how to take it with you.', url: 'https://newreading.app/learn/', script: '/learn.mjs'})}
@@ -222,3 +212,5 @@ ${foot}
 await mkdir(dir + 'learn', {recursive: true});
 await writeFile(dir + 'learn/index.html', learn);
 console.log('Built learn.');
+}
+if (process.argv[1] === fileURLToPath(import.meta.url)) await buildPages();

@@ -795,3 +795,17 @@
 !start.txt
 !style.css
 !vercel.json
+
+# Generated homepage and mixed shelf
+!shelf/
+!showcase/shelf/
+!showcase/shelf/render.mjs
+!shelf/render.mjs
+!showcase/shelf/app.mjs
+!shelf/app.mjs
+!showcase/shelf/style.css
+!shelf/style.css
+!showcase/shelf/covers.css
+!shelf/covers.css
+!showcase/pages.mjs
+!pages.mjs
