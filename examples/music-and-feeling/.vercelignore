@@ -416,6 +416,8 @@
 !examples/music-and-feeling/site/manifest.webmanifest
 !examples/music-and-feeling/site/robots.txt
 !examples/music-and-feeling/site/share.mjs
+!examples/music-and-feeling/site/share-card.mjs
+!examples/music-and-feeling/site/share-card.css
 !examples/music-and-feeling/site/style.css
 !examples/music-and-feeling/site/text.mjs
 !examples/music-and-feeling/vercel.json
@@ -440,6 +442,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/text.mjs
 !vercel.json

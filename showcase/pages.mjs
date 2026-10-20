@@ -45,11 +45,11 @@ const LEDGER = `    Boards.......................... $ 8.03½, mostly shanty boa
                                        ————  on my back.
         In all,..................... $28.12½`;
 const explore = [
-  ['word', 'Follow a word', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · following a word</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
-  ['accounts', 'Keep its accounts', 'every nail, priced.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre tabindex="0" aria-label="Thoreau’s house account">${esc(LEDGER)}</pre></div>`],
-  ['closer', 'Look closer', 'every line, a little closer', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><a class="plate-open" href="/assets/alice-rabbit.png">View illustration ${arrow}</a></div></div>`],
-  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · map preview</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="Map preview: a suggested walk through six places in the Marrakesh medina from the book"></div>`],
   ['play', 'Play its story', 'then back to your page.', `<div class="xp xp-play"><p class="xp-top">The Odyssey · a short game</p><a class="xp-shot" href="/odyssey/play/"><img src="/assets/play-homeward.jpg" width="780" height="1180" alt="Homeward, a short sea game from the Odyssey: the crew’s boat and the bag of winds"><span class="xp-go">Play Homeward ${arrow}</span></a><p class="xp-more">Or pour <a href="/alice/play/">Tea at Six</a> with the Hatter, or find a way out of <a href="/dracula/play/">Dracula’s castle</a>.</p></div>`],
+  ['places', 'Walk its places', 'walk it someday.', `<div class="xp xp-places"><p class="xp-top">Die Stimmen von Marrakesch · map preview</p><img src="/assets/personal-canetti-map.png" width="748" height="940" alt="Map preview: a suggested walk through six places in the Marrakesh medina from the book"></div>`],
+  ['closer', 'Look closer', 'every line, a little closer', `<div class="xp xp-closer"><p class="xp-top">Alice · Arthur Rackham’s plates</p><div class="xp-plate"><img src="/assets/alice-rabbit.png" width="600" height="825" alt="Arthur Rackham’s White Rabbit plunging towards its hole beneath the brambles"><a class="plate-open" href="/assets/alice-rabbit.png">View illustration ${arrow}</a></div></div>`],
+  ['accounts', 'Count the cost', 'every nail, priced.', `<div class="xp xp-ledger"><p class="xp-top">Walden · Economy · the house</p><pre tabindex="0" aria-label="Thoreau’s house account">${esc(LEDGER)}</pre></div>`],
+  ['word', 'Find a pattern', 'who else says “pride”?', `<div class="xp xp-word"><p class="xp-top">Pride and Prejudice · patterns in the text</p><p class="xp-big">pride</p><p class="xp-meta">47 times · 61 chapters</p><div class="xp-grid">${PRIDE.map(n => `<i style="--v:${n ? (.35 + .65 * Math.min(1, n / 7)).toFixed(2) : 0}"></i>`).join('')}</div><blockquote>“I could easily forgive his pride, if he had not mortified mine.”<cite>Elizabeth · Chapter 5</cite></blockquote></div>`],
 ];
 
 // Local-project routes checked against each provider’s official setup guide, 17 October 2026.
@@ -121,7 +121,7 @@ const html = `${head({title: 'new reading · Turn any book into your personal re
     <p class="fine">Your notes stay on your device. No account, no ads, no feed.</p></div>
    <div class="shot"><img src="/assets/reader-keep.jpg" width="450" height="978" alt="The Pride and Prejudice reader keeping its first sentence, with a private note"><p class="hand note-read" aria-hidden="true">keep this one</p></div>
   </article>
-  <article class="mode mode-explore reveal" data-x="word">
+  <article class="mode mode-explore reveal" data-x="${explore[0][0]}">
    <div class="mode-text"><p class="kicker">Explore</p><h3>Whatever the book makes you curious about.</h3>
     <div class="tabs" role="tablist" aria-label="Examples of explorations">${explore.map(([id, t], i) => `<button type="button" role="tab" id="tab-${id}" aria-controls="panel-${id}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-explore="${id}" data-label="${t}">${t}</button>`).join('')}</div>
     <p class="hand note-explore" data-explore-note>${explore.map(([id, , note], i) => `<span data-explore-caption="${id}" aria-hidden="${i > 0}"${i ? ' hidden' : ''}>${esc(note)}</span>`).join('')}</p></div>

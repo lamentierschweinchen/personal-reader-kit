@@ -41,6 +41,8 @@
 !examples/dracula/site/manifest.webmanifest
 !examples/dracula/site/robots.txt
 !examples/dracula/site/share.mjs
+!examples/dracula/site/share-card.mjs
+!examples/dracula/site/share-card.css
 !examples/dracula/site/style.css
 !examples/dracula/site/text.mjs
 !examples/dracula/vercel.json
@@ -70,6 +72,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/text.mjs
 !vercel.json

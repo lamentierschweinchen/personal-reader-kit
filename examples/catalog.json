@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 83317,
-          "sha256": "dd74caa7da6fc8b2655176450fe8265f32726d75620caa21bf7506d80e6c8c30"
+          "bytes": 83599,
+          "sha256": "588faeb0de7a8766de3be9f274f2432cb84c8255cb5208279b19534fae66bb08"
         },
         {
           "path": "austen-colophon.png",
@@ -870,8 +870,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3504,
-          "sha256": "4f193c638bac2a8a44b9b772adffb0be120cf124a12795e75f32c0917dbe49f8"
+          "bytes": 3553,
+          "sha256": "186b35c20e2aea424858438c1b0eee3901aae888223b9019647977cda76fad5d"
         },
         {
           "path": "library.json",
@@ -889,19 +889,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 37881,
-          "sha256": "537d776f0b0e46889be26ddb885f59e0abfe8eef8d2947aa4d2aa1f8501fdaac"
+          "bytes": 38078,
+          "sha256": "2e70fe7f66b09ff920e92cb59e9d7b5e080122202c4a06a4c16efcaa30c7ab06"
         },
         {
           "path": "sw.js",
-          "bytes": 4661,
-          "sha256": "223004e0bd37068c2441c17b9a50c489cfef77ed118624687c7904ff6f7593c5"
+          "bytes": 4697,
+          "sha256": "4a36a0fa3b6b1cdc22cbfd95e89c417a681c0f44c0eff6655ce0d4aea44e4613"
         },
         {
           "path": "text.mjs",
@@ -918,8 +928,14 @@
         "site/style.css",
         "tests/austen-browser.mjs",
         "tests/publication.test.mjs",
+        "tests/share-browser.mjs",
         "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "scripts/build.mjs",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -946,8 +962,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 83015,
-          "sha256": "41e270e8e205ab0e3fd0cd7fae523d32e678c1cf3c7ccabb246e911716ba7798"
+          "bytes": 83297,
+          "sha256": "086069bd17640754720766e6f6bfd15f1dd1aa4915fa4151033340bd99d83760"
         },
         {
           "path": "bundle.mjs",
@@ -971,8 +987,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3319,
-          "sha256": "2e702696ae8ef47b078fe4502124b2d7ab5fe70474603e8e6e062f8d6faa96df"
+          "bytes": 3368,
+          "sha256": "b4cb9287b033e2199f4b476cc0c5915e77dc024552d8de4efae512cc95f5bc0c"
         },
         {
           "path": "library.json",
@@ -1020,19 +1036,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 44082,
-          "sha256": "bbb46ab126afb053e84c62123173c3390f2206723be4f03f9495d22ef5b4f30f"
+          "bytes": 44279,
+          "sha256": "2588bd8fc2cfdfc651f68a3408dd68d4cea1de6c024b5cb632e3c0e9e37b6fd2"
         },
         {
           "path": "sw.js",
-          "bytes": 1317,
-          "sha256": "19fc1f44f988c9c609af6ce9055294b6b238d47a910eed21c34815a220e1d614"
+          "bytes": 1353,
+          "sha256": "5bbfd552be6389c8885c176e8e251d621f62a14f09a88064570f291ad29518bd"
         },
         {
           "path": "text.mjs",
@@ -1049,11 +1075,18 @@
         "site/style.css",
         "site/text.mjs",
         "tests/alice-browser.mjs",
+        "tests/share-browser.mjs",
         "tests/publication.test.mjs",
         "vercel.json",
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
         "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "scripts/build.mjs",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "scripts/audit-edition.mjs",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ],
       "game": {
         "title": "Tea at Six",
@@ -1085,8 +1118,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 72264,
-          "sha256": "0a9fc9ed79662922e43339c14241f80e970aaa2795aa1e5097eb6a9591ec6b8e"
+          "bytes": 72546,
+          "sha256": "861b3c6306b97b341ced16fdc083040eaef4771dc42aaed7ebb9e37b24a72957"
         },
         {
           "path": "bundle.mjs",
@@ -1115,8 +1148,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3281,
-          "sha256": "3a17c44f0206d604d618f3a98c5ab156aea8ec919a5553274e38c6a29ee670b6"
+          "bytes": 3330,
+          "sha256": "49d5bf8e547a37f937da36b21b5f1e01cddabe6ec1230385b2d4978f9d6e2b5a"
         },
         {
           "path": "library.json",
@@ -1134,19 +1167,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 37804,
-          "sha256": "809c018aed01303855987cb10716c332c4dd7403bb3a499517c1eb962ab50ed3"
+          "bytes": 38001,
+          "sha256": "bfaf435fd236d00b0e1d8d9756f2ca72a743fcd167a93fd925a57ff5b1387635"
         },
         {
           "path": "sw.js",
-          "bytes": 1148,
-          "sha256": "49e30b607c6f9fd021f6af2198f8e373bed3cc435f04e64bf1faf8177e86ff6b"
+          "bytes": 1184,
+          "sha256": "e850d66f490f6e96ab76611e7cb8f4a45594278f096316a2d06b3aa030e2e549"
         },
         {
           "path": "text.mjs",
@@ -1163,9 +1206,15 @@
         "site/index.html",
         "site/style.css",
         "tests/publication.test.mjs",
+        "tests/sharing-browser.mjs",
         "tests/walden-design-browser.mjs",
         "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "scripts/build.mjs",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1192,8 +1241,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 76645,
-          "sha256": "34370882c354a712954578e436d7b76b93255a7d0782b5a124db60cc5acd2e5f"
+          "bytes": 76927,
+          "sha256": "1985f234ae4a20b46d9d78666fc1cf52cb4a727cbca007dccab0376c5ac85c04"
         },
         {
           "path": "broadside.css",
@@ -1222,8 +1271,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3489,
-          "sha256": "e9ad57be5559d73c6eddcec43cf72016b82d5c611d0e400955cb29eecb8d7edf"
+          "bytes": 3538,
+          "sha256": "c5aa7cc44e83ff52ed613c76f9bbba6255389edc152b558088c14fac8a362f23"
         },
         {
           "path": "lectures.mjs",
@@ -1246,19 +1295,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 30852,
-          "sha256": "a903e84c8df6917b61f50185bc90f943b82d90b6395ef2d9a9d4f76e5ef015b5"
+          "bytes": 31049,
+          "sha256": "fd26e814ecb8c1794458d51e66226d7ae3a25ed885de026254c39c6f8d699892"
         },
         {
           "path": "sw.js",
-          "bytes": 1164,
-          "sha256": "7de6bb1938e6f4dc08c626266e791fdc021bdeb2836970cf69f8e96be86212f1"
+          "bytes": 1200,
+          "sha256": "97bcd556bb4bf5e5f8c55ace477add792a8219f0c23cd93ec8814d9544ab5e37"
         },
         {
           "path": "text.mjs",
@@ -1277,7 +1336,12 @@
         "tests/publication.test.mjs",
         "tests/trial-browser.mjs",
         "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "scripts/build.mjs",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1300,8 +1364,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 80354,
-          "sha256": "79dabec86ad642bba812b18f2c77d750f6acac1fcb7930ee0776e3eab5adba6d"
+          "bytes": 80636,
+          "sha256": "55952fe8f7f0654b53bcdc10c2fa11f5995c2acaab8d9a87e4cafef3456cb4a2"
         },
         {
           "path": "bundle.mjs",
@@ -1325,8 +1389,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3260,
-          "sha256": "95b5202fe1f3cf7b68b3e643af243048d68c96215dd8bd0504d0a16be8947779"
+          "bytes": 3309,
+          "sha256": "8c4244a87e7e56d4807dfae7fa451d136747cae4a285dc2822375ee0ef297e17"
         },
         {
           "path": "library.json",
@@ -1369,19 +1433,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 31976,
-          "sha256": "d04e9f305cee7e229ebb2547c2b0d0af74e9ac4a80e751ac26199a57341150be"
+          "bytes": 32173,
+          "sha256": "c14ef53b900380caf4644d6962f025c6bbca93c066229fd5d27b0b3b8ff8cfb8"
         },
         {
           "path": "sw.js",
-          "bytes": 1304,
-          "sha256": "8e9fc0b63b9fa1bc99a62c3d6cfa1772cfe65a95775c9abc789931651b7c5dd0"
+          "bytes": 1340,
+          "sha256": "8f563d0f99c79808897eabab89e77fd95a841ebcb737e8f3e1df0c41770a594c"
         },
         {
           "path": "text.mjs",
@@ -1398,7 +1472,15 @@
       "maintenanceChanges": [
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
         "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1421,8 +1503,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74114,
-          "sha256": "1ca788ab5da90eca934e29fb297b9504a7a7a94d0c534e4444df986ba0f587dc"
+          "bytes": 74396,
+          "sha256": "550871e4d76e43e2b0058d577afc47bbf43b6dde9a3d56c1f3ca355cd2bd071b"
         },
         {
           "path": "bundle.mjs",
@@ -1466,8 +1548,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3151,
-          "sha256": "2dd811771143079cc8c92f7ee9ba7eb7f7336a613ef9a78305c7bac9b5f9cdb2"
+          "bytes": 3200,
+          "sha256": "7c3156a9c80fc190bc897d415e8c7571549a66eefcdff6d366c98e19fd54f4fe"
         },
         {
           "path": "library.json",
@@ -1530,6 +1612,16 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
@@ -1541,13 +1633,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 23665,
-          "sha256": "8938f0c68d1d4990e59dcd49e3f88bb68e30ecc9f7e7caf00a1ac19934e2fbfc"
+          "bytes": 23862,
+          "sha256": "8cc60cdce2e0cc78997d3fe5390c928673bdac0a2760e338253bab2c2677b304"
         },
         {
           "path": "sw.js",
-          "bytes": 1441,
-          "sha256": "a337e5b774a0ad3ecb766a1a0b46812c7db3f1219777b231fd938be9bef2da27"
+          "bytes": 1477,
+          "sha256": "ac2952cc6b17d78784db18e7d0cf8a096969440322f1970397deab344d7bd5cf"
         },
         {
           "path": "text.mjs",
@@ -1564,7 +1656,15 @@
       "maintenanceChanges": [
         "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
         "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained."
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1594,8 +1694,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 68460,
-          "sha256": "bf37b41e6ba4143d210964a723f17ceb2e44f349457e38ce217306b40a81faaf"
+          "bytes": 68742,
+          "sha256": "a8f8c7f1b6874cc2075014ebea37cc3648a8fdc6f7b55cb3c959492f2fb1d707"
         },
         {
           "path": "assets.mjs",
@@ -1624,8 +1724,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3317,
-          "sha256": "a8f93c715550b4b4d7c3c284c87a8fd5d8cd339ee69c21a5a957137562307c1b"
+          "bytes": 3366,
+          "sha256": "12cc29e371d94c30b2a4c34af9050630721bf5a8f3acbe6f5d1f50e5f8e28209"
         },
         {
           "path": "library.json",
@@ -1658,19 +1758,29 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 34393,
-          "sha256": "bc94e0287e9a0a76ecf3d46e875b7948672815c57316bced8a207910b0dee87b"
+          "bytes": 34590,
+          "sha256": "4e59fc1054351b91bd9f9c1b1c0a79076245948b1a7fc838298e6120e404f2bd"
         },
         {
           "path": "sw.js",
-          "bytes": 1241,
-          "sha256": "0e69eadae5972292a08079867590aea8e8943130a2c1e2c5e118b03e4d4fcc72"
+          "bytes": 1277,
+          "sha256": "804a654329965a9b7c32dac65341a252082e93b069db123261eac740f5932b56"
         },
         {
           "path": "table.mjs",
@@ -1687,6 +1797,17 @@
           "bytes": 4645,
           "sha256": "fb1557d626cb2e6accb1354c76b56f8db8071c427623d72d263386d6126f63f0"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1718,8 +1839,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 69618,
-          "sha256": "cceb4c2ae1d1d23d705e2d8aba82b5813db7c47e702b55efcd991db5e008140b"
+          "bytes": 69900,
+          "sha256": "7d6d650bfe97704f7c96aaf20647af8f8f8bccaeaf3812e00d36653867109243"
         },
         {
           "path": "bundle.mjs",
@@ -1758,8 +1879,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3726,
-          "sha256": "4aa8657887f019599735b987ebd35b3dfed3d1e7499ec7250b7145c7558b3f72"
+          "bytes": 3775,
+          "sha256": "4bf7aac57b0c499ff9d86cfbfb6913882f95c4033a6ac4ea55d3683e977a3a0d"
         },
         {
           "path": "library.json",
@@ -1792,25 +1913,46 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
         },
         {
           "path": "style.css",
-          "bytes": 23447,
-          "sha256": "fd0c48a33772e1a6e585e8de38401e51483e101937f607745e7aca95d72932f7"
+          "bytes": 23644,
+          "sha256": "fc5dd9f07f6735073a99a6d70c554707549ee8e893c91d07f2610be28ca69ddd"
         },
         {
           "path": "sw.js",
-          "bytes": 1259,
-          "sha256": "eb7eaf6db06111481f5d40136364c8fe7ce95f59944e74ca1ca209938329d33e"
+          "bytes": 1295,
+          "sha256": "dafff0c111c769196c39bdf59dbb88c2c1279939572e004b1dd0a5a787781b0f"
         },
         {
           "path": "text.mjs",
           "bytes": 4397,
           "sha256": "34ef47c96eba6391a4c55405777893484b3ef6cc88e6cb5fe9d1facffde39e89"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -1847,8 +1989,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 78638,
-          "sha256": "6df30630ae5a5387df4e43479d28b03ee2f1d13e2244f86d239e491f3df72b61"
+          "bytes": 78920,
+          "sha256": "28013963001111b4ab6c68fd2d13362a61e364a0b51ed42e80da79c86e909727"
         },
         {
           "path": "bitter-italic.woff2",
@@ -1892,8 +2034,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3375,
-          "sha256": "2ed57e215836821797691194354c4f91fb6755b472a99ebc05d9de20e5025773"
+          "bytes": 3424,
+          "sha256": "679d9bb968a51904cdbf66f86ba932e04dbabd17a435c586960a751ef4175a1e"
         },
         {
           "path": "library.json",
@@ -1921,6 +2063,16 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
@@ -1942,19 +2094,30 @@
         },
         {
           "path": "style.css",
-          "bytes": 23543,
-          "sha256": "fe12782e4af2c53233c662c6b65015babed8b4e74045367d37514600407374c0"
+          "bytes": 23740,
+          "sha256": "9bef27c43fa41205644af6c026590e41558042294e09368cca3081422c3baea9"
         },
         {
           "path": "sw.js",
-          "bytes": 2218,
-          "sha256": "d85c925f0bf5358c8727a1bf5aac0eaeb79c6201f1c37ec3f67783388a1f7f95"
+          "bytes": 2290,
+          "sha256": "d05bb95e0e2fc972f0a69ec28be67db3b40d04131d055e7157d376dd3f618540"
         },
         {
           "path": "text.mjs",
           "bytes": 3976,
           "sha256": "2d2454d2e4c6ad80723fb68b8ffa71ed2a9a9c62c5c15267cbe9fdbcfac01036"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -2001,8 +2164,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 64795,
-          "sha256": "8c736779ce7a3a8194aee2e2a55272480db86eaf98b3eb6e46be259e54a83742"
+          "bytes": 65077,
+          "sha256": "f7fe331bac53a49472df15d573ff762f738e7f22ef0caceff86aa81b5fe51f47"
         },
         {
           "path": "bundle.mjs",
@@ -2036,8 +2199,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3371,
-          "sha256": "4e3b3147bb8cd368cbf06c9175e48d01b21dfc385a8b6484919c171d510af494"
+          "bytes": 3420,
+          "sha256": "3a45f56a9751a19bd2ad25e4d84fad1ddb9054aca20caf545753ce80bf95a4fc"
         },
         {
           "path": "library.json",
@@ -2060,6 +2223,16 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
@@ -2076,19 +2249,30 @@
         },
         {
           "path": "style.css",
-          "bytes": 23447,
-          "sha256": "fd0c48a33772e1a6e585e8de38401e51483e101937f607745e7aca95d72932f7"
+          "bytes": 23644,
+          "sha256": "d78050996ddb41ab079a614ab109422d1147e87ce973e9fdae908fd3e14e0ac7"
         },
         {
           "path": "sw.js",
-          "bytes": 1281,
-          "sha256": "8e455d9584f2f9535717effafb7bffd13f191a9bb2826c73aedea5658b266502"
+          "bytes": 1317,
+          "sha256": "067741d46f5bfda0aacf7ecb65eda41d0e65e0a0451d12fe2f163582a6ce8df4"
         },
         {
           "path": "text.mjs",
           "bytes": 6669,
           "sha256": "0fa103394d38b84609b2e8d5adef1241fffc67ac94cdb3b5f0c2b15d8543db51"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     },
     {
@@ -2124,8 +2308,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 71383,
-          "sha256": "8d66f3863789be7f7b04dd6105fd0e8a84f71733471f6f2348379fe8f081e111"
+          "bytes": 71665,
+          "sha256": "b4baaae46f105c42e67748ebde32976ceff4da2d558f49f3bfe9bff4f127e926"
         },
         {
           "path": "bundle.mjs",
@@ -3114,8 +3298,8 @@
         },
         {
           "path": "index.html",
-          "bytes": 3350,
-          "sha256": "2d61cd2481d389fac8d824205af5f5edfe24886e91218115715e5d896a99371e"
+          "bytes": 3399,
+          "sha256": "7736e907ce44ff609dbdd6306f8788f114dc039baa0216dda5be6d5da165666a"
         },
         {
           "path": "library.json",
@@ -3148,6 +3332,16 @@
           "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
         },
         {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
           "path": "share.mjs",
           "bytes": 1342,
           "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
@@ -3159,13 +3353,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 38055,
-          "sha256": "b34f249976b770f839a1c6e677248a823850f225dbbce72449d98ab2e2ce9d46"
+          "bytes": 38252,
+          "sha256": "0484eaad17b19f93d02290d1a8cbb1ab270e16ae9d8e4c1aa68fb27778aa7b79"
         },
         {
           "path": "sw.js",
-          "bytes": 5152,
-          "sha256": "d74bbd842bdd279871287762d8ed6f7a2eedb17383609fa2d07cf96b7e01b2b8"
+          "bytes": 5188,
+          "sha256": "4a0aa074d3e349618cea3b3094b1cd8986f450214f15e31b646121329200b266"
         },
         {
           "path": "text.mjs",
@@ -3177,6 +3371,17 @@
           "bytes": 49696,
           "sha256": "fb82cba66755010d4154cd85c426524cbe570f3e16a7f8b09528da83b5dd4b98"
         }
+      ],
+      "maintenanceChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "site/style.css",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "publication.json",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
       ]
     }
   ],

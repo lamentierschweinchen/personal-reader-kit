@@ -8,6 +8,14 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Quotation images and exploration order · 20 October 2026
+
+The starter and all eleven public readers can make a quotation card from a selected or saved passage. Make card opens a local preview in the edition's colours and type; Share image hands the prepared PNG to a compatible device share menu, and Save image downloads it. Exact words, source emphasis and complete attribution are retained. Private notes and reading records stay out of the image. Passages that cannot fit legibly, fixed tables and shaped text that the card cannot preserve are refused explicitly; text sharing stays available.
+
+Generation, download, share dismissal and preview closure preserve an unfinished note and the reading place. Late results cannot replace a newer preview, and holding a key while closing cannot reopen it. The generic renderer, stylesheet and original-fixture tests are included in the 64-file starter. Public editions, fonts, local storage schemas, namespaces and games keep their existing bytes.
+
+The homepage's exploration examples now open with Homeward, followed by the walking map, illustration, accounts and text patterns. The last two are labelled Count the cost and Find a pattern. The shelf has one library link, with a visible keyboard underline. Detailed verification and its limits are recorded in STATUS.md.
+
 ## Standalone starter CI · 20 October 2026
 
 The exported personal starter's workflow tried to run an optional regression file that the starter does not contain. That step now runs only when the file exists; the full kit still runs it. The exact 60-file starter passes its required unit, build, audit and Chromium/WebKit checks in a fresh directory. The agent guide records this isolated verification, and deployment guidance corrects the public-example count to eleven. No reader runtime, edition or starter inventory changes.

@@ -12,6 +12,8 @@
 !site/bundle.mjs
 !site/text.mjs
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/manifest.webmanifest
 !site/icon.svg

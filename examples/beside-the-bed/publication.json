@@ -40,6 +40,8 @@
     "site/manifest.webmanifest",
     "site/notices.mjs",
     "site/robots.txt",
+    "site/share-card.css",
+    "site/share-card.mjs",
     "site/share.mjs",
     "site/studies.mjs",
     "site/style.css",

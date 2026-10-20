@@ -28,6 +28,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/text.mjs
 !examples/inward-life/package.json
@@ -49,6 +51,8 @@
 !examples/inward-life/site/manifest.webmanifest
 !examples/inward-life/site/robots.txt
 !examples/inward-life/site/share.mjs
+!examples/inward-life/site/share-card.mjs
+!examples/inward-life/site/share-card.css
 !examples/inward-life/site/style.css
 !examples/inward-life/site/text.mjs
 !site/literata-normal.woff2

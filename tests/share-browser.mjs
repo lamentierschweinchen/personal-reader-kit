@@ -91,7 +91,9 @@ export async function shareChecks({browser,base,engine,output}) {
       await page.setViewportSize({width,height});
       await page.evaluate(()=>{document.documentElement.style.setProperty('--size','36px');document.documentElement.dataset.theme='dusk';});
       await page.getByRole('button',{name:'Share passage',exact:true}).scrollIntoViewIfNeeded();
-      const geometry=await page.locator('.passage-sharing button').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height};}));
+      const controls=page.locator('.passage-sharing button:visible');
+      assert.deepEqual(await controls.allTextContents(),['Share passage','Copy passage','Make card']);
+      const geometry=await controls.evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height};}));
       assert.ok(geometry.every(r=>r.width>=44&&r.height>=44),JSON.stringify(geometry));
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.querySelector('#dialog').scrollWidth<=document.querySelector('#dialog').clientWidth+1));
       await settledCapture(page,{path:new URL(`${engine}-share-${label}.png`,output).pathname});

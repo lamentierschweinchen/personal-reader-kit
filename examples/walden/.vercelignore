@@ -12,6 +12,8 @@
 !site/bundle.mjs
 !site/text.mjs
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/manifest.webmanifest
 !site/icon.svg
@@ -40,6 +42,8 @@
 !examples/walden/site/bundle.mjs
 !examples/walden/site/text.mjs
 !examples/walden/site/share.mjs
+!examples/walden/site/share-card.mjs
+!examples/walden/site/share-card.css
 !examples/walden/site/style.css
 !examples/walden/site/manifest.webmanifest
 !examples/walden/site/icon.svg

@@ -65,3 +65,6 @@
 
 /* Leave room for enlarged controls on narrower system fonts. */
 .reader-tools{flex-wrap:wrap}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#dce5df;--share-card-ink:#203b34;--share-card-accent:#637c6d;--share-card-font:var(--serif, Georgia, serif)}

@@ -13,6 +13,8 @@
 !site/bundle.mjs
 !site/text.mjs
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/lectures.mjs
 !site/style.css
 !site/broadside.css
@@ -43,6 +45,8 @@
 !examples/schopenhauer-hegel/site/bundle.mjs
 !examples/schopenhauer-hegel/site/text.mjs
 !examples/schopenhauer-hegel/site/share.mjs
+!examples/schopenhauer-hegel/site/share-card.mjs
+!examples/schopenhauer-hegel/site/share-card.css
 !examples/schopenhauer-hegel/site/lectures.mjs
 !examples/schopenhauer-hegel/site/style.css
 !examples/schopenhauer-hegel/site/broadside.css

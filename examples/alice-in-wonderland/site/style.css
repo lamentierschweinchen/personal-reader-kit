@@ -125,3 +125,6 @@ nav a[data-action="play-game"]{min-height:44px;min-width:44px;display:inline-fle
 :root .masthead.stack-title{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
 :root .masthead.stack-title .type-button{grid-column:1;grid-row:2;justify-self:end}
 :root .masthead.stack-title nav{grid-row:3}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#f6d54c;--share-card-ink:#292720;--share-card-accent:#74601b;--share-card-font:var(--serif, Georgia, serif)}

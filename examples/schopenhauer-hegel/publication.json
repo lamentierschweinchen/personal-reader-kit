@@ -55,6 +55,8 @@
     "site/lectures.mjs",
     "site/manifest.webmanifest",
     "site/robots.txt",
+    "site/share-card.css",
+    "site/share-card.mjs",
     "site/share.mjs",
     "site/style.css",
     "site/text.mjs",

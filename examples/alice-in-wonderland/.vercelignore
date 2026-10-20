@@ -37,6 +37,8 @@
 !examples/alice-in-wonderland/site/manifest.webmanifest
 !examples/alice-in-wonderland/site/robots.txt
 !examples/alice-in-wonderland/site/share.mjs
+!examples/alice-in-wonderland/site/share-card.mjs
+!examples/alice-in-wonderland/site/share-card.css
 !examples/alice-in-wonderland/site/style.css
 !examples/alice-in-wonderland/site/text.mjs
 !examples/alice-in-wonderland/vercel.json
@@ -62,6 +64,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/text.mjs
 !vercel.json

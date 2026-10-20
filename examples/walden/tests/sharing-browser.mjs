@@ -84,7 +84,10 @@ export async function sharingChecks({browser,base,engine,out}) {
       await page.locator('#selection-save').click();await page.locator('.passage-sharing').waitFor();assert.match(await page.locator('.passage-sharing .small').first().textContent(),/Original browser-test edition · 2026/);assert.equal(await page.locator('.dialog-quote').textContent(),fixture.text);assert.equal(await page.locator('.dialog-quote script').count(),0);
     }
     async function geometry() {
-      const result=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth||document.querySelector('#dialog').scrollWidth>document.querySelector('#dialog').clientWidth+1,targets:[...document.querySelectorAll('.passage-sharing button,.close-dialog')].map(e=>({name:e.textContent,width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height}))}));
+      const controls=page.locator('.passage-sharing button:visible,.close-dialog:visible');
+      assert.deepEqual(await controls.allTextContents(),['Close ×','Share passage','Copy passage','Make card']);
+      const targets=await controls.evaluateAll(nodes=>nodes.map(e=>({name:e.textContent,width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
+      const result={overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth||document.querySelector('#dialog').scrollWidth>document.querySelector('#dialog').clientWidth+1),targets};
       assert.equal(result.overflow,false);for(const target of result.targets)assert.ok(target.width>=44&&target.height>=44,JSON.stringify(target));return result;
     }
     for(const [name,width,height,size] of [['phone',390,844,21],['phone-landscape-large',844,390,36],['tablet-large',820,1180,36],['tablet-landscape-large',1180,820,36]]) {

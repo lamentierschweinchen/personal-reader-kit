@@ -31,6 +31,8 @@
 !examples/odyssey/site/manifest.webmanifest
 !examples/odyssey/site/robots.txt
 !examples/odyssey/site/share.mjs
+!examples/odyssey/site/share-card.mjs
+!examples/odyssey/site/share-card.css
 !examples/odyssey/site/style.css
 !examples/odyssey/site/text.mjs
 !examples/odyssey/vercel.json
@@ -52,6 +54,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/text.mjs
 !vercel.json

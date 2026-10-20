@@ -27,6 +27,8 @@
 !examples/at-table/site/manifest.webmanifest
 !examples/at-table/site/robots.txt
 !examples/at-table/site/share.mjs
+!examples/at-table/site/share-card.mjs
+!examples/at-table/site/share-card.css
 !examples/at-table/site/style.css
 !examples/at-table/site/table.mjs
 !examples/at-table/site/table.svg
@@ -46,6 +48,8 @@
 !site/manifest.webmanifest
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/table.mjs
 !site/table.svg

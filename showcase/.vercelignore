@@ -118,6 +118,8 @@
 !examples/alice-in-wonderland/site/manifest.webmanifest
 !examples/alice-in-wonderland/site/robots.txt
 !examples/alice-in-wonderland/site/share.mjs
+!examples/alice-in-wonderland/site/share-card.mjs
+!examples/alice-in-wonderland/site/share-card.css
 !examples/alice-in-wonderland/site/style.css
 !examples/alice-in-wonderland/site/text.mjs
 !examples/alice-in-wonderland/vercel.json
@@ -140,6 +142,8 @@
 !examples/at-table/site/newsreader-normal.woff2
 !examples/at-table/site/robots.txt
 !examples/at-table/site/share.mjs
+!examples/at-table/site/share-card.mjs
+!examples/at-table/site/share-card.css
 !examples/at-table/site/style.css
 !examples/at-table/site/table.mjs
 !examples/at-table/site/table.svg
@@ -169,6 +173,8 @@
 !examples/beside-the-bed/site/notices.mjs
 !examples/beside-the-bed/site/robots.txt
 !examples/beside-the-bed/site/share.mjs
+!examples/beside-the-bed/site/share-card.mjs
+!examples/beside-the-bed/site/share-card.css
 !examples/beside-the-bed/site/studies.mjs
 !examples/beside-the-bed/site/style.css
 !examples/beside-the-bed/site/text.mjs
@@ -203,6 +209,8 @@
 !examples/dracula/site/manifest.webmanifest
 !examples/dracula/site/robots.txt
 !examples/dracula/site/share.mjs
+!examples/dracula/site/share-card.mjs
+!examples/dracula/site/share-card.css
 !examples/dracula/site/style.css
 !examples/dracula/site/text.mjs
 !examples/dracula/vercel.json
@@ -227,6 +235,8 @@
 !examples/inward-life/site/manifest.webmanifest
 !examples/inward-life/site/robots.txt
 !examples/inward-life/site/share.mjs
+!examples/inward-life/site/share-card.mjs
+!examples/inward-life/site/share-card.css
 !examples/inward-life/site/style.css
 !examples/inward-life/site/text.mjs
 !examples/inward-life/vercel.json
@@ -251,6 +261,8 @@
 !examples/learning-to-see/site/media.mjs
 !examples/learning-to-see/site/robots.txt
 !examples/learning-to-see/site/share.mjs
+!examples/learning-to-see/site/share-card.mjs
+!examples/learning-to-see/site/share-card.css
 !examples/learning-to-see/site/studio.mjs
 !examples/learning-to-see/site/style.css
 !examples/learning-to-see/site/text.mjs
@@ -469,6 +481,8 @@
 !examples/music-and-feeling/site/manifest.webmanifest
 !examples/music-and-feeling/site/robots.txt
 !examples/music-and-feeling/site/share.mjs
+!examples/music-and-feeling/site/share-card.mjs
+!examples/music-and-feeling/site/share-card.css
 !examples/music-and-feeling/site/style.css
 !examples/music-and-feeling/site/text.mjs
 !examples/music-and-feeling/vercel.json
@@ -492,6 +506,8 @@
 !examples/odyssey/site/manifest.webmanifest
 !examples/odyssey/site/robots.txt
 !examples/odyssey/site/share.mjs
+!examples/odyssey/site/share-card.mjs
+!examples/odyssey/site/share-card.css
 !examples/odyssey/site/style.css
 !examples/odyssey/site/text.mjs
 !examples/odyssey/vercel.json
@@ -674,6 +690,8 @@
 !examples/pride-and-prejudice/site/manifest.webmanifest
 !examples/pride-and-prejudice/site/robots.txt
 !examples/pride-and-prejudice/site/share.mjs
+!examples/pride-and-prejudice/site/share-card.mjs
+!examples/pride-and-prejudice/site/share-card.css
 !examples/pride-and-prejudice/site/style.css
 !examples/pride-and-prejudice/site/text.mjs
 !examples/pride-and-prejudice/vercel.json
@@ -696,6 +714,8 @@
 !examples/schopenhauer-hegel/site/manifest.webmanifest
 !examples/schopenhauer-hegel/site/robots.txt
 !examples/schopenhauer-hegel/site/share.mjs
+!examples/schopenhauer-hegel/site/share-card.mjs
+!examples/schopenhauer-hegel/site/share-card.css
 !examples/schopenhauer-hegel/site/style.css
 !examples/schopenhauer-hegel/site/text.mjs
 !examples/schopenhauer-hegel/vercel.json
@@ -716,6 +736,8 @@
 !examples/walden/site/manifest.webmanifest
 !examples/walden/site/robots.txt
 !examples/walden/site/share.mjs
+!examples/walden/site/share-card.mjs
+!examples/walden/site/share-card.css
 !examples/walden/site/style.css
 !examples/walden/site/text.mjs
 !examples/walden/vercel.json

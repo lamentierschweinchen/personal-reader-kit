@@ -32,6 +32,8 @@ Share and Copy project only the selected quotation plus its verified author, tit
 
 Copy changes the device clipboard only when requested and reports success after the API resolves. Clipboard managers or enabled system clipboard synchronization can subsequently retain it. Denial/unavailability leaves the full attributed text selectable for manual copying, without claiming success or losing an unfinished note. Exact source line breaks and spaces are kept in plain text; receiving apps may display them differently, and typographic emphasis is not transferred. A missing or changed edition must be restored before attributed sharing; the saved quotation and draft exports remain recoverable.
 
+Make card renders the selected quotation and verified attribution into a PNG locally. It does not capture the page, personal annotation or other records. Previewing makes no upload or clipboard request. Share image hands the prepared file to the device only after a separate explicit click; Save image downloads it. Closing the preview releases its temporary image URL. Dismissal, unavailable file sharing and image-generation failures leave the note draft and text-sharing actions available.
+
 ## Catalogue starting point
 
 The New reading homepage keeps only the visitor’s book title (up to 200 characters) and idea (up to 1,000 characters) in session storage for that browser tab. This carries the draft into the setup guide and its copy controls. It is not sent to a server, added to the URL or synchronized between devices. Readers’ books and notes use the separate storage described above.

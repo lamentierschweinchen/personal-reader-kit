@@ -69,3 +69,6 @@
 
 /* A catalogue exit belongs to the edition entrance, outside the reading view. */
 .site-footer .catalogue-return{display:inline-flex;align-items:center;min-width:44px;min-height:44px;white-space:nowrap}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#f3eee1;--share-card-ink:#29251e;--share-card-accent:#8b5c40;--share-card-font:var(--serif, Georgia, serif)}

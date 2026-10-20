@@ -49,12 +49,17 @@ try{
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://newreading.app/');
     assert.equal(await page.locator('meta[property="og:image"]').getAttribute('content'),'https://newreading.app/assets/read-share.jpg?v=20261019');
     assert.deepEqual(await page.evaluate(async()=>{const img=new Image();img.src='/assets/read-share.jpg';await img.decode();return[img.naturalWidth,img.naturalHeight]}),[1200,630]);
+    assert.equal(await page.locator('[data-explore][aria-selected="true"]').getAttribute('data-explore'),'play');
+    assert.equal(await page.locator('#samples a[href="/library/"]').count(),1,'One library destination in the shelf');
+    await page.locator('.all-editions').focus();
+    const libraryFocus=await page.locator('.all-editions').evaluate(e=>({outline:getComputedStyle(e).outlineStyle,line:getComputedStyle(e).textDecorationLine}));
+    assert.equal(libraryFocus.outline,'none');assert.equal(libraryFocus.line,'underline','Keyboard focus remains visible');
     // The hero switches editions; the explorations each show a different panel.
     const heroBefore=await page.locator('.hero').boundingBox();
     await page.locator('.hero [data-pick="money"]').click();assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money');assert.equal(await page.locator('[data-text="name"]').textContent(),'fortune');
     const heroAfter=await page.locator('.hero').boundingBox();
     assert.ok(Math.abs(heroAfter.height-heroBefore.height)<1,'Switching the edition keeps the hero height');
-    const stageHeights=[],tabPositions=[];for(const id of ['word','accounts','closer','places','play']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));
+    const stageHeights=[],tabPositions=[];for(const id of ['play','places','closer','accounts','word']){await page.locator(`[data-explore="${id}"]`).click();assert.equal(await page.locator(`#panel-${id}`).isVisible(),true);assert.equal(await page.locator('.panel:visible').count(),1);await settled(page);stageHeights.push(Math.round((await page.locator('.stage').boundingBox()).height));
      tabPositions.push(await page.locator('.tabs').evaluate(e=>{const r=e.getBoundingClientRect();return[r.x,r.y+scrollY,r.width,r.height]}));
      assert.equal(await page.locator('[data-explore-caption]:not([hidden])').count(),1);
      assert.equal(await page.locator(`[data-explore-caption="${id}"]`).getAttribute('aria-hidden'),'false');
@@ -62,7 +67,7 @@ try{
     assert.equal(new Set(stageHeights).size,1,'Explore keeps one height: '+stageHeights);
     assert.ok(tabPositions.every(r=>r.every((n,i)=>Math.abs(n-tabPositions[0][i])<1)),'Explore tabs keep their position across captions: '+JSON.stringify(tabPositions));
     assert.doesNotMatch(await page.locator('#samples').textContent(),/Six founding editions|Just added|On the shelf/);
-    await page.locator('[data-explore="word"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="accounts"]').getAttribute('aria-selected'),'true');
+    await page.locator('[data-explore="play"]').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('[data-explore="places"]').getAttribute('aria-selected'),'true');
     await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,output)),fullPage:true,animations:'disabled'});
     await page.locator('#prompt-box summary').click();await copyCheck(page,'#starter','#prompt-box [data-copy]');
     await page.locator('#book').fill('Walden');await page.locator('[data-copy="personal"]').click();assert.match(await page.evaluate(()=>window.copiedPrompt),/The book I have in mind: Walden/);
@@ -88,7 +93,7 @@ try{
    for(const width of [320,390]){const enlarged=await browser.newContext({viewport:{width,height:844},reducedMotion:'reduce'}),zoom=await enlarged.newPage();await zoom.goto(base);await settled(zoom);
     await zoom.evaluate(()=>{const es=[...document.querySelectorAll('body,body *')],sizes=es.map(e=>parseFloat(getComputedStyle(e).fontSize));es.forEach((e,i)=>e.style.fontSize=sizes[i]*2+'px')});await settled(zoom);
     assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Homepage reflows at 200% text');
-    for(const id of ['word','accounts','closer','places','play']){await zoom.locator(`[data-explore="${id}"]`).click();assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Enlarged '+id+' panel fits');}
+    for(const id of ['play','places','closer','accounts','word']){await zoom.locator(`[data-explore="${id}"]`).click();assert.ok(await zoom.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Enlarged '+id+' panel fits');}
     await enlarged.close();
    }
    const noScript=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:402,height:874}}),plain=await noScript.newPage();await plain.goto(base);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('#samples .shelf-interactive').isVisible(),false);assert.equal(await plain.locator('#samples .shelf-fallback').isVisible(),true);assert.deepEqual(await plain.locator('#samples .shelf-fallback a').evaluateAll(a=>a.map(x=>new URL(x.href).pathname)),shelfOrder.map(id=>'/'+id+'/'));assert.equal(await plain.locator('header [data-copy]').isVisible(),false);assert.equal(await plain.locator('#starter').inputValue(),commandText);

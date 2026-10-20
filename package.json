@@ -17,6 +17,7 @@
     "import:epub": "node scripts/import-epub.mjs",
     "upgrade:check": "node scripts/check-upgrade.mjs",
     "check:examples": "node scripts/check-examples.mjs",
-    "editorial:check": "node scripts/editorial-review.mjs check"
+    "editorial:check": "node scripts/editorial-review.mjs check",
+    "test:cards": "node tests/share-card-browser.mjs"
   }
 }

@@ -12,6 +12,8 @@
 !site/bundle.mjs
 !site/text.mjs
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/style.css
 !site/manifest.webmanifest
 !site/icon.svg
@@ -202,6 +204,8 @@
 !examples/pride-and-prejudice/site/bundle.mjs
 !examples/pride-and-prejudice/site/text.mjs
 !examples/pride-and-prejudice/site/share.mjs
+!examples/pride-and-prejudice/site/share-card.mjs
+!examples/pride-and-prejudice/site/share-card.css
 !examples/pride-and-prejudice/site/style.css
 !examples/pride-and-prejudice/site/manifest.webmanifest
 !examples/pride-and-prejudice/site/icon.svg

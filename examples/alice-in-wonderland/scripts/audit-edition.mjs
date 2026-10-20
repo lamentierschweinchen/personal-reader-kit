@@ -21,8 +21,8 @@ const outputs=[];
 for(const name of (await readdir(new URL('dist/',root))).sort()){
   const bytes=await readFile(new URL('dist/'+name,root));outputs.push({path:name,bytes:bytes.length,sha256:sha(bytes)});
 }
-const expected=['app.mjs','bundle.mjs','core.mjs','db.mjs','icon.svg','index.html','library.json','manifest.webmanifest','robots.txt','share.mjs','style.css','sw.js','text.mjs'];
-if(JSON.stringify(outputs.map(x=>x.path))!==JSON.stringify(expected))failures.push('Build output does not match the exact thirteen-file deployment candidate.');
+const expected=['app.mjs','bundle.mjs','core.mjs','db.mjs','icon.svg','index.html','library.json','manifest.webmanifest','robots.txt','share-card.css','share-card.mjs','share.mjs','style.css','sw.js','text.mjs'];
+if(JSON.stringify(outputs.map(x=>x.path))!==JSON.stringify(expected))failures.push('Build output does not match the exact fifteen-file deployment candidate.');
 if(outputs.find(x=>x.path==='library.json')?.sha256!==edition.receipt.librarySha256)failures.push('Built edition differs from the reviewed candidate.');
 const report={checkedAt:new Date().toISOString(),passed:failures.length===0,publicationAuthorized:false,destination:null,completeLocalCommitsIncludingReflogs:history.length,historicalEditionPayloads:[...versions],source:edition.receipt.source,editionSha256:edition.receipt.librarySha256,decodedImageAssets:edition.book.assets.map(a=>({id:a.id,sha256:a.sha256,mime:a.mime})),outputs,failures,limits:'Local HEAD, refs, reflogs, index and working candidate reviewed. No remote exists. The inherited audit cannot interpret binary images hidden inside JSON; this project gate separately decodes and pins each PNG/JPEG against the inspected source inventory. Exact hashes and a heuristic scan do not establish worldwide rights or human proofreading.'};
 await writeFile(new URL('.reader/edition-publication-review.json',root),JSON.stringify(report,null,2)+'\n');

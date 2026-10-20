@@ -256,3 +256,6 @@ body.austen{--paper:#fdfcf9;--ink:#2d2730;--muted:#6b606a;--line:#d8cfd5;--accen
 :root .masthead.stack-title{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
 :root .masthead.stack-title .type-button{grid-column:1;grid-row:2;justify-self:end}
 :root .masthead.stack-title nav{grid-row:3}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#e9dfeb;--share-card-ink:#322438;--share-card-accent:#694e73;--share-card-font:var(--serif, Georgia, serif)}

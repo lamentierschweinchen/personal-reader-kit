@@ -38,6 +38,8 @@
 !examples/beside-the-bed/site/notices.mjs
 !examples/beside-the-bed/site/robots.txt
 !examples/beside-the-bed/site/share.mjs
+!examples/beside-the-bed/site/share-card.mjs
+!examples/beside-the-bed/site/share-card.css
 !examples/beside-the-bed/site/studies.mjs
 !examples/beside-the-bed/site/style.css
 !examples/beside-the-bed/site/text.mjs
@@ -61,6 +63,8 @@
 !site/notices.mjs
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/studies.mjs
 !site/style.css
 !site/text.mjs

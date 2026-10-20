@@ -62,3 +62,6 @@
 
 /* Keep the Play navigation target comfortable on touch screens. */
 nav a[data-action="play-game"]{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#601d2a;--share-card-ink:#f8eedc;--share-card-accent:#d8b48b;--share-card-font:var(--serif, Georgia, serif)}

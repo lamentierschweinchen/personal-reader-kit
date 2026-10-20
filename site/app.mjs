@@ -3,6 +3,7 @@ import {loadState,loadBooks,saveBook,updateState,rawState,rawBooks,removeBook,re
 import {createBundle,validateBundle,planBundleRestore,snapshotToken,canonical,BUNDLE_LIMIT} from './bundle.mjs';
 import {renderText,readSelection,renderPassage} from './text.mjs';
 import {passageShareData,sharePassage,copyPassage} from './share.mjs';
+import {mountPassageCard} from './share-card.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const amount=(number,label)=>`${number} ${label}${number===1?'':'s'}`;
@@ -137,7 +138,9 @@ async function render({keepScroll=false}={}) {
   for(const node of main.querySelectorAll('[data-fragment]')){const f=fragments[Number(node.dataset.fragment)];renderPassage(node,f.passage,f.book,f.hit);}
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
+let disposePassageCard=()=>{};
 function openDialog(title,html) {
+  disposePassageCard();disposePassageCard=()=>{};
   if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
@@ -145,6 +148,7 @@ function openDialog(title,html) {
   $('#selection-save').hidden = true;
 }
 function finishDialog() {
+  disposePassageCard();disposePassageCard=()=>{};
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
   if(origin)scrollTo(0,origin.scroll);
@@ -190,6 +194,7 @@ function noteDialog(note,rangeChanged=false) {
   const book=bookById(note.bookId),valid=anchorStatus(note,book).valid;
   const sharing=valid?`<section class="passage-sharing" aria-label="Share the quotation"><p class="small">${esc(book.author)} · ${esc(book.title)}<br>${esc(book.sections.find(s=>s.id===note.sectionId).title)}${book.edition?`<br>${esc(book.edition)}`:''}</p><div class="dialog-actions"><button type="button" class="text" data-action="share-passage">Share passage</button><button type="button" class="text" data-action="copy-passage">Copy passage</button></div><p class="small" id="share-status" role="status">Quotation and source attribution only. Your note stays private.</p><div id="share-fallback" hidden><label for="share-text">Passage with attribution · select to copy</label><textarea id="share-text" readonly rows="7" spellcheck="false"></textarea></div></section>`:'<p class="small">Restore the exact edition to share this passage with attribution. Your saved quotation remains available.</p>';
   openDialog(note.id ? 'Your kept passage.' : 'Keep this passage.',`<blockquote class="dialog-quote">${esc(note.quote)}</blockquote>${sharing}<form id="note-form"><label for="note-text">Your note · optional</label><textarea id="note-text" maxlength="50000" placeholder="What stays with you?">${esc(note.note||'')}</textarea><div class="dialog-actions"><button class="primary" type="submit">Save on this device</button>${note.id ? '<button type="button" class="text" data-action="delete-note">Remove passage</button>' : ''}<button type="button" class="text" data-action="export-draft">Export draft</button></div></form>`);
+  if(valid)disposePassageCard=mountPassageCard(dialog.querySelector('.passage-sharing'),note,book);
   $('#dialog-title').tabIndex=-1;$('#dialog-title').focus({preventScroll:true});
 }
 async function sendPassage(action) {

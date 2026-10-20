@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {KIT_VERSION} from '../site/bundle.mjs';
 import {validateBook,bookText} from '../site/core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','style.css','manifest.webmanifest','icon.svg','robots.txt','edition.mjs','collection.mjs','cover.svg','gentiumplus-400-normal.woff2','gentiumplus-400-italic.woff2','gentiumplus-700-normal.woff2','gentiumplus-700-italic.woff2','GentiumPlus-OFL.txt'];
+export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','style.css','manifest.webmanifest','icon.svg','robots.txt','edition.mjs','collection.mjs','cover.svg','gentiumplus-400-normal.woff2','gentiumplus-400-italic.woff2','gentiumplus-700-normal.woff2','gentiumplus-700-italic.woff2','GentiumPlus-OFL.txt'];
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 export async function build({sampleOnly=false,output=path.join(root,'dist')}={}) {
  const p=JSON.parse(await readFile(path.join(root,'package.json'),'utf8'));if(p.version!==KIT_VERSION)throw Error('Bundle/application version mismatch.');

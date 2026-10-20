@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {KIT_VERSION} from '../site/bundle.mjs';
 import {validateBook,bookText} from '../site/core.mjs';
 const root = fileURLToPath(new URL('../',import.meta.url));
-export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','notices.mjs','text.mjs','share.mjs','style.css','collection.css','studies.mjs','cover.svg','bitter-normal.woff2','bitter-italic.woff2','OFL.txt','manifest.webmanifest','icon.svg','robots.txt'];
+export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','notices.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','style.css','collection.css','studies.mjs','cover.svg','bitter-normal.woff2','bitter-italic.woff2','OFL.txt','manifest.webmanifest','icon.svg','robots.txt'];
 export async function build({output='dist',outputDir=output}={}) {
   if(path.isAbsolute(outputDir)||outputDir.split(/[\\/]/).includes('..'))throw new Error('Build output must stay inside this project.');
   const packageVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;

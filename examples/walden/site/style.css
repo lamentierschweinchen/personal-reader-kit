@@ -234,3 +234,6 @@
 :root .masthead.stack-title{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
 :root .masthead.stack-title .type-button{grid-column:1;grid-row:2;justify-self:end}
 :root .masthead.stack-title nav{grid-row:3}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#e5e3cc;--share-card-ink:#203c35;--share-card-accent:#6e7851;--share-card-font:var(--serif, Georgia, serif)}

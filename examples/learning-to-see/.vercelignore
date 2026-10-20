@@ -27,6 +27,8 @@
 !examples/learning-to-see/site/media.mjs
 !examples/learning-to-see/site/robots.txt
 !examples/learning-to-see/site/share.mjs
+!examples/learning-to-see/site/share-card.mjs
+!examples/learning-to-see/site/share-card.css
 !examples/learning-to-see/site/studio.mjs
 !examples/learning-to-see/site/style.css
 !examples/learning-to-see/site/text.mjs
@@ -45,6 +47,8 @@
 !site/media.mjs
 !site/robots.txt
 !site/share.mjs
+!site/share-card.mjs
+!site/share-card.css
 !site/studio.mjs
 !site/style.css
 !site/text.mjs

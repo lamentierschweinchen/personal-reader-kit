@@ -93,3 +93,6 @@ h1,h2,h3{overflow-wrap:anywhere}.study-directory h2{max-width:100%}.site-footer{
 .site-footer .maker-credit{display:flex;align-items:center;flex-wrap:wrap;gap:0 .3em;min-width:0;max-width:100%;margin:0;font:12px/1.5 var(--sans);color:var(--muted);overflow-wrap:anywhere}
 .site-footer .maker-credit a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;max-width:100%;padding:0 .15em;font:inherit;color:inherit;white-space:normal;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:.2em}
 .site-footer .maker-credit a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* Keep exported passages in this edition’s own palette. */
+:root{--share-card-paper:#e6dfd0;--share-card-ink:#262923;--share-card-accent:#6f634b;--share-card-font:var(--serif, Georgia, serif)}

@@ -1,10 +1,16 @@
 import assert from 'node:assert/strict';
 
+async function appReady(page) {
+  // The first heading appears before edition loading finishes. Await the real
+  // entry module before leaving the page, so navigation cannot abort that load.
+  await page.waitForFunction(async()=>{await import('/app.mjs');return true;});
+}
+
 export async function sharingContinuityChecks({browser,base}) {
   const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage();
   const state=()=>page.evaluate(async()=>(await import('/db.mjs')).loadState());
   try {
-    await page.goto(base);await page.locator('.edition-intro').waitFor();
+    await page.goto(base);await page.locator('.edition-intro').waitFor();await appReady(page);
     const fixture=await page.evaluate(async()=>{
       const core=await import('/core.mjs'),db=await import('/db.mjs');
       const source=await core.fromText('A short original source for a deliberately delayed edition download.',{title:'Original late edition',author:'A fixture author'});
@@ -13,7 +19,7 @@ export async function sharingContinuityChecks({browser,base}) {
       const book=await core.fromText(Array.from({length:80},(_,i)=>`${i}. An original paragraph checks that a quotation dialog preserves the main reading place. `.repeat(3)).join('\n\n'),{title:'Original continuity fixture'});
       await db.saveBook(book);return {book,source};
     });
-    await page.goto(`${base}/#read/${fixture.book.id}/${fixture.book.sections[0].id}`);await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();
+    await page.goto(`${base}/#read/${fixture.book.id}/${fixture.book.sections[0].id}`);await page.reload();await page.locator('#reading-text[data-position-ready=true]').waitFor();await appReady(page);
     await page.evaluate(()=>{const block=document.querySelectorAll('#reading-text [data-block]')[8],range=document.createRange();range.setStart(block.firstChild,0);range.setEnd(block.firstChild,20);getSelection().removeAllRanges();getSelection().addRange(range);});
     await page.locator('#selection-save:not([hidden])').waitFor();
     await page.evaluate(()=>{scrollTo(0,1600);window.dispatchEvent(new Event('scroll'));document.querySelector('#selection-save').click();});
@@ -64,7 +70,7 @@ export async function shareChecks({browser,base,engine,output}) {
   async function share(){await page.getByRole('button',{name:'Share passage',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('[data-action=share-passage]').disabled);}
   async function copy(){await page.getByRole('button',{name:'Copy passage',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('[data-action=copy-passage]').disabled);}
   try {
-    await page.goto(base);await page.locator('.edition-intro').waitFor();
+    await page.goto(base);await page.locator('.edition-intro').waitFor();await appReady(page);
     const fixture=await page.evaluate(async()=>{
       const core=await import('/core.mjs'),db=await import('/db.mjs');
       const text='Original opening context. '.repeat(45)+'\n\n  An original line, λόγος →\n    still indented.\n\n\n\nThe next stanza. <script> remains text.\n\n'+'More original reading follows. '.repeat(180);
@@ -74,7 +80,7 @@ export async function shareChecks({browser,base,engine,output}) {
       return {book,from:book.sections[0].blocks[1].id,to:book.sections[0].blocks[2].id};
     });
     const url=`${base}/#read/${fixture.book.id}/${fixture.book.sections[0].id}`;
-    await page.goto(base);await page.locator('.edition-intro').waitFor();await page.evaluate(hash=>location.hash=hash,new URL(url).hash);await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled();
+    await page.goto(base);await page.locator('.edition-intro').waitFor();await appReady(page);await page.evaluate(hash=>location.hash=hash,new URL(url).hash);await page.locator('#reading-text[data-position-ready=true]').waitFor();await settled();
     const quote=await page.evaluate(({from,to})=>{
       const a=document.querySelector(`[data-block="${from}"]`),b=document.querySelector(`[data-block="${to}"]`);
       a.scrollIntoView({block:'center'});const range=document.createRange();range.setStart(a,0);range.setEnd(b,b.childNodes.length);
@@ -125,7 +131,7 @@ export async function shareChecks({browser,base,engine,output}) {
     page.once('dialog',d=>d.dismiss());await page.keyboard.press('Escape');assert.equal(await page.locator('#note-text').inputValue(),privateNote);
     await page.getByRole('button',{name:'Save on this device',exact:true}).click();
     await page.waitForFunction(async()=>(await (await import('/db.mjs')).loadState()).notes.length===1);await page.waitForFunction(()=>!document.querySelector('dialog').open);
-    await page.goto(base);await page.reload();await page.locator('.edition-intro').waitFor();
+    await page.goto(base);await page.locator('.edition-intro').waitFor();await appReady(page);
     await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action=edit-note]').click();
     assert.equal(await page.locator('#note-text').inputValue(),privateNote);await share();
     assert.deepEqual(await page.evaluate(()=>shareProbe.shares),[expected]);
@@ -140,7 +146,9 @@ export async function shareChecks({browser,base,engine,output}) {
       await page.getByRole('button',{name:'Apply to my reader',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('dialog').open);
       await page.locator('[data-action=edit-note]').click();await settled();
       assert.equal(await page.locator('.dialog-quote').evaluate(el=>getComputedStyle(el).fontSize),`${size}px`);
-      const targets=await page.locator('.passage-sharing button').evaluateAll(xs=>xs.map(x=>({label:x.textContent,width:x.getBoundingClientRect().width,height:x.getBoundingClientRect().height})));
+      const controls=page.locator('.passage-sharing button:visible');
+      assert.deepEqual(await controls.allTextContents(),['Share passage','Copy passage','Make card']);
+      const targets=await controls.evaluateAll(xs=>xs.map(x=>({label:x.textContent,width:x.getBoundingClientRect().width,height:x.getBoundingClientRect().height})));
       assert.ok(targets.every(x=>x.width>=43.99&&x.height>=43.99),JSON.stringify(targets));
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.querySelector('dialog').scrollWidth<=document.querySelector('dialog').clientWidth),true);
       await page.locator('.passage-sharing').evaluate(el=>el.scrollIntoView({block:'center'}));await settled();
@@ -153,7 +161,7 @@ export async function shareChecks({browser,base,engine,output}) {
 
     // A saved quote survives an edition mismatch, but must not borrow attribution.
     await page.evaluate(async book=>{book.source.sha256='e'.repeat(64);await (await import('/db.mjs')).saveBook(book);},fixture.book);
-    await page.goto(base);await page.reload();await page.locator('.edition-intro').waitFor();await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action=edit-note]').click();
+    await page.goto(base);await page.locator('.edition-intro').waitFor();await appReady(page);await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action=edit-note]').click();
     assert.equal(await page.locator('[data-action=share-passage],[data-action=copy-passage]').count(),0);
     assert.match(await page.locator('dialog').textContent(),/Restore the exact edition/);
     assert.equal(await page.locator('#note-text').inputValue(),privateNote);

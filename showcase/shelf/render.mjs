@@ -34,7 +34,7 @@ export function renderShelf(data) {
   return `<section class="mixed-library" id="samples" aria-labelledby="samples-title">
  <div class="shelf-heading"><h2 id="samples-title">Read one <span class="pen-circle">now</span>.</h2><a class="all-editions" href="/library/">The library <span>${books.length} editions</span> ${arrow}</a></div>
  <div class="shelf-interactive" hidden>
-  <div class="shelf-preamble"><p class="shelf-hand">Take one off the shelf.</p><a href="/library/" class="covers-switch">Show all covers ${arrow}</a><div class="shelf-controls" role="group" aria-label="Choose a book"><button type="button" data-shelf-step="-1" aria-label="Previous book">${back}</button><button type="button" data-shelf-step="1" aria-label="Next book">${arrow}</button></div></div>
+  <div class="shelf-preamble"><p class="shelf-hand">Take one off the shelf.</p><div class="shelf-controls" role="group" aria-label="Choose a book"><button type="button" data-shelf-step="-1" aria-label="Previous book">${back}</button><button type="button" data-shelf-step="1" aria-label="Next book">${arrow}</button></div></div>
   <p class="shelf-sr" id="shelf-help">Select a book to see its cover and reading link. With a book focused, use the Left and Right arrow keys to choose another.</p>
   <div class="shelf-room"><ul class="bookcase" aria-label="${books.length} editions, alphabetical by title">${volumes}</ul><div class="shelf-edge" aria-hidden="true"></div></div>
   <div class="chosen-book" id="chosen-book">${detail(books[0])}</div>

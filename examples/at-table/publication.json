@@ -35,6 +35,8 @@
     "site/newsreader-italic.woff2",
     "site/newsreader-normal.woff2",
     "site/robots.txt",
+    "site/share-card.css",
+    "site/share-card.mjs",
     "site/share.mjs",
     "site/style.css",
     "site/table.mjs",
