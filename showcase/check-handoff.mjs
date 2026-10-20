@@ -200,14 +200,14 @@ try {
       assert.equal(await motion.getAttribute('aria-pressed'), 'true');
       assert.equal(await playState(), 'paused');
       await observerPage.evaluate(() => {window.tabKeys = []; window.addEventListener('keydown', e => {if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) window.tabKeys.push([e.key, e.defaultPrevented]);});});
-      await observerPage.locator('[data-explore="word"]').focus();
-      for (const [key, id] of [['End', 'play'], ['Home', 'word'], ['ArrowLeft', 'play'], ['ArrowRight', 'word'], ['ArrowRight', 'accounts']]) {
+      await observerPage.locator('[data-explore="play"]').focus();
+      for (const [key, id] of [['End', 'word'], ['Home', 'play'], ['ArrowLeft', 'word'], ['ArrowRight', 'play'], ['ArrowRight', 'places']]) {
         await observerPage.keyboard.press(key);
         assert.equal(await observerPage.locator(`[data-explore="${id}"]`).getAttribute('aria-selected'), 'true');
         assert.equal(await observerPage.locator(`#panel-${id}`).isVisible(), true);
       }
       assert.ok((await observerPage.evaluate(() => window.tabKeys)).every(([, prevented]) => prevented));
-      await observerPage.keyboard.press('Tab'); await focusIs(observerPage, '#panel-accounts');
+      await observerPage.keyboard.press('Tab'); await focusIs(observerPage, '#panel-places');
       await noObserver.close();
       const pending = await browser.newContext(), pendingPage = await pending.newPage();
       await pendingPage.addInitScript(() => {window.IntersectionObserver = class {observe() {} unobserve() {}};});

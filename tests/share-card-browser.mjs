@@ -449,7 +449,7 @@ export async function shareCardChecks({browser,base,engine,output=defaultOutput,
 
 export async function offlineCardChecks({browser,base,engine,stopOrigin,project='.'}) {
   const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true,acceptDownloads:true}),page=await context.newPage(),errors=[],securityViolations=[];
-  let lastRaster;
+  let lastRaster,phase='startup';
   page.setDefaultTimeout(15000);page.on('pageerror',error=>errors.push(error.message));
   await page.exposeFunction('recordCardSecurityViolation',event=>securityViolations.push(event));
   await page.addInitScript(()=>document.addEventListener('securitypolicyviolation',event=>window.recordCardSecurityViolation({directive:event.effectiveDirective,blockedURI:event.blockedURI})));
@@ -458,33 +458,42 @@ export async function offlineCardChecks({browser,base,engine,stopOrigin,project=
     await page.goto(base+'/');await page.locator('#main h1').waitFor();await appReady(page);
     const item=await fixture(page,shortText,'An original card made offline',{kind:'verse'});
     await openFixture(page,base,item);
+    phase='cache readiness';
     await page.waitForFunction(()=>document.querySelector('#offline-status')?.textContent.includes('Available offline'));
-    await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
+    const controlledBeforeOffline=await page.evaluate(()=>!!navigator.serviceWorker.controller);
     // Do not rasterize online first: bundled card code and font variants must
     // really be available from the installed worker during their first use.
     assert.equal(await page.evaluate(()=>cardQA.rasters.length),0);
+    phase='network outage';
     if(engine==='webkit') {
       await stopOrigin();
       await assert.rejects(()=>page.request.get(base+'/card-negative-control',{timeout:2000}));
     } else await context.setOffline(true);
+    phase='offline reload';
     await page.reload();await page.locator(`#reading-text[data-book="${item.id}"][data-position-ready="true"]`).waitFor();await appReady(page);
+    // A document requested during activation can miss clients.claim(). Verify
+    // control on the actual offline navigation, after the cache is complete.
+    phase='offline document control';
+    await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
     assert.equal(await page.evaluate(async()=>{
       try{await fetch('/card-negative-control',{cache:'no-store'});return false;}catch{return true;}
     }),true,'Direct network access is genuinely unavailable');
     await selectAll(page);await page.locator('#note-text').fill(privateNote);
     await page.waitForFunction(async id=>!!(await (await import('/db.mjs')).loadState()).positions[id],item.id);
     const before=await page.evaluate(async id=>(await (await import('/db.mjs')).loadState()).positions[id],item.id);
+    phase='first offline card';
     const card=lastRaster=await makeCard(page);assertRaster(card,item);
     await saveImage(page,card);await assertDraft(page);
     assert.deepEqual(await page.evaluate(async id=>(await (await import('/db.mjs')).loadState()).positions[id],item.id),before,'Offline card making does not move the reading place');
     await page.getByRole('button',{name:'Save on this device',exact:true}).click();
     await page.locator('#dialog').waitFor({state:'hidden'});await assertRevoked(page,card.url);
+    phase='saved-note reload';
     await page.reload();await page.locator(`#reading-text[data-book="${item.id}"][data-position-ready="true"]`).waitFor();await appReady(page);
     const after=await page.evaluate(async()=>(await (await import('/db.mjs')).loadState()));
     assert.equal(after.notes.length,1);assert.equal(after.notes[0].quote,item.text);assert.equal(after.notes[0].note,privateNote);
     assert.deepEqual(after.positions[item.id],before);
     assert.deepEqual(errors,[]);assert.deepEqual(securityViolations,[]);
-    return {engine,project,firstCardCreatedOffline:true,serviceWorkerReload:true,realPNGAndDownload:true,noteSavedAndReloadedOffline:true,
+    return {engine,project,controlledBeforeOffline,firstCardCreatedOffline:true,serviceWorkerReload:true,realPNGAndDownload:true,noteSavedAndReloadedOffline:true,
       readingPlacePreserved:true,negativeControl:true,outage:engine==='webkit'?'origin stopped':'browser network disabled',errors,securityViolations};
   } catch(error) {
     const name=`${engine}-${project.replaceAll('/','-').replace('.','starter')}-offline-failure`;
@@ -494,10 +503,15 @@ export async function offlineCardChecks({browser,base,engine,stopOrigin,project=
       return entry?Array.from(new Uint8Array(await entry.blob.arrayBuffer())):null;
     }).catch(()=>null);
     if(png)await writeFile(new URL(name+'-export.png',defaultOutput),Buffer.from(png));
-    await writeFile(new URL(name+'.json',defaultOutput),JSON.stringify({
-      error:error.message,errors,securityViolations,lastRaster,state:await page.evaluate(async()=>({url:location.href,offline:document.querySelector('#offline-status')?.textContent,
-        card:document.querySelector('.passage-card-status')?.textContent,worker:!!navigator.serviceWorker?.controller,caches:await caches.keys()})).catch(()=>null)
-    },null,2)+'\n');
+    const state=await page.evaluate(async()=>{
+      const describe=worker=>worker?{script:worker.scriptURL,state:worker.state}:null,keys=await caches.keys();
+      return {url:location.href,offline:document.querySelector('#offline-status')?.textContent,card:document.querySelector('.passage-card-status')?.textContent,
+        worker:!!navigator.serviceWorker?.controller,controller:describe(navigator.serviceWorker?.controller),
+        registrations:(await navigator.serviceWorker.getRegistrations()).map(registration=>({scope:registration.scope,active:describe(registration.active),waiting:describe(registration.waiting),installing:describe(registration.installing)})),
+        caches:keys,cachedPaths:await Promise.all(keys.map(async name=>({name,paths:(await (await caches.open(name)).keys()).map(request=>new URL(request.url).pathname)})))};
+    }).catch(()=>null);
+    console.error('Offline card failure: '+JSON.stringify({engine,project,phase,error:error.message,state}));
+    await writeFile(new URL(name+'.json',defaultOutput),JSON.stringify({error:error.message,phase,errors,securityViolations,lastRaster,state},null,2)+'\n');
     throw error;
   } finally {await context.close();}
 }
