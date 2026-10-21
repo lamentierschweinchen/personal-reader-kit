@@ -58,3 +58,20 @@
 .mixed-library .cover-beside-the-bed strong{font:600 20cqw/1.02 Bitter,Georgia,serif;letter-spacing:-.05em;top:17%;left:11%;text-align:left}
 .mixed-library .cover-beside-the-bed img{position:absolute;left:3%;top:43%;width:97%;height:43%;object-fit:contain}
 .mixed-library .cover-beside-the-bed .cover-bottom{font-size:2.7cqw}
+.mixed-library .cover-mountains{background:#263d36;color:#f2efe6}
+.mixed-library .cover-mountains strong{top:13%;font-family:Baskerville,Georgia,serif;font-size:22cqw;line-height:.94}
+.mixed-library .cover-mountains img{position:absolute;left:8%;top:45%;width:84%;height:38%;object-fit:contain}
+.mixed-library .cover-mountains .cover-meta{font-size:3.8cqw;letter-spacing:.16em}
+.mixed-library .cover-mountains .cover-bottom{font-size:3cqw;letter-spacing:.06em}
+.mixed-library .cover-nietzsche{background:#f4f0e5;color:#24251e}
+.mixed-library .cover-nietzsche strong{top:19%;left:7%;right:7%;font-family:Baskerville,Georgia,serif;font-size:16cqw;line-height:1.03;letter-spacing:-.055em}
+.mixed-library .cover-nietzsche strong em{display:block;font-size:.86em;letter-spacing:-.04em}
+.mixed-library .cover-nietzsche .cover-art{position:absolute;left:0;top:39%;width:100%;height:45%}
+.mixed-library .cover-nietzsche .cover-meta{font-size:3.5cqw;letter-spacing:.1em}
+.mixed-library .cover-nietzsche .cover-bottom{font-size:3.2cqw;letter-spacing:.13em}
+.mixed-library .cover-war-and-peace{background:#e9e6d9;color:#394d38}
+.mixed-library .cover-war-and-peace strong{top:15%;left:8%;right:8%;font-family:Literata,Georgia,serif;font-size:20cqw;line-height:.98;letter-spacing:-.055em}
+.mixed-library .cover-war-and-peace strong em{font-size:.58em;letter-spacing:-.025em}
+.mixed-library .cover-war-and-peace img{position:absolute;left:27%;top:48%;width:46%;height:34%;object-fit:contain;mix-blend-mode:multiply}
+.mixed-library .cover-war-and-peace .cover-meta{font-size:4cqw;letter-spacing:.17em}
+.mixed-library .cover-war-and-peace .cover-bottom{font-size:3cqw;letter-spacing:.05em}

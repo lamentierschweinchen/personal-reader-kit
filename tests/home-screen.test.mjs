@@ -76,5 +76,5 @@ test('optional public readers have distinct icons and retain standalone IDs; cat
  }
  const icon=await readFile(path.join(root,'showcase/assets/apple-touch-icon.png'));inspectPng(icon,{size:180});
  for(const name of ['showcase/index.html','showcase/learn/index.html','showcase/library/index.html'])assert.match(await readFile(path.join(root,name),'utf8'),/rel="apple-touch-icon"[^>]*href="\/assets\/apple-touch-icon.png"/);
- assert.equal(identities.size,11);
+ assert.equal(identities.size,catalog.examples.length);
 });

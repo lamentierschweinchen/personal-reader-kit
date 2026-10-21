@@ -12,7 +12,10 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 // require a separate physical-device review.
 const root=fileURLToPath(new URL('../',import.meta.url));
 const defaultOutput=new URL('../test-results/share-card/',import.meta.url);
-const projects=['.','examples/pride-and-prejudice','examples/alice-in-wonderland','examples/walden','examples/schopenhauer-hegel','examples/odyssey','examples/dracula','examples/at-table','examples/inward-life','examples/music-and-feeling','examples/learning-to-see','examples/beside-the-bed'];
+const projects=['.'];
+try{projects.push(...JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8')).examples.map(e=>e.directory));}
+catch(error){if(error.code!=='ENOENT')throw error;}
+
 const action=(page,name)=>page.locator(`[data-card-action="${name}"]`);
 const preview=page=>page.locator('.passage-card-preview');
 const compact=text=>text.replace(/\s/gu,'');
@@ -281,8 +284,13 @@ export async function shareCardChecks({browser,base,engine,output=defaultOutput,
     const response=await page.goto(base+'/');await page.locator('#main h1').waitFor();await appReady(page);
     const contentSecurityPolicy=response.headers()['content-security-policy'];
     assert.ok(contentSecurityPolicy,'Regression server sends the actual deployment CSP');
-    if(project==='examples/dracula') {
-      await page.locator('#dialog[open] [data-action="notice-read"]').click();
+    if(await page.locator('#dialog[open]').count()) {
+      const notice=page.locator('#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="notice-continue"]');
+      if(await notice.count())await notice.first().click();
+      else {
+        assert.match(await page.locator('#dialog-title').textContent(),/source|edition|Gutenberg/i,'Only the first-use source notice may be dismissed');
+        await page.locator('#dialog[open] [data-action="close"]').first().click();
+      }
       await page.locator('#dialog').waitFor({state:'hidden'});
     }
     const item=await fixture(page,shortText,'A card from original writing',{kind:'verse'});

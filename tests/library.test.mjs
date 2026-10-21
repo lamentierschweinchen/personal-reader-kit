@@ -46,7 +46,7 @@ test('static library retains read and contribution destinations without JavaScri
 test('library stays outside the original-sample starter and edition inventory',async()=>{
  const publication=JSON.parse(await readFile(new URL('../publication.json',import.meta.url),'utf8'));
  assert.ok(!publication.starterFiles.some(p=>p.startsWith('showcase/')||p==='docs/LIBRARY.md'));
- assert.equal(publication.reviewedEditionFiles.filter(f=>!['inward-life','at-table','beside-the-bed','learning-to-see','music-and-feeling'].some(id=>f.path.startsWith('examples/'+id+'/'))).length,177);
+ assert.equal(publication.reviewedEditionFiles.filter(f=>!['inward-life','at-table','beside-the-bed','learning-to-see','music-and-feeling','mountains-and-heights','nietzsche-in-company','war-and-peace'].some(id=>f.path.startsWith('examples/'+id+'/'))).length,177);
  for(const b of data.editions){assert.ok(publication.files.includes(b.rightsPath));assert.ok((await readFile(new URL('../'+b.rightsPath,import.meta.url),'utf8')).trim());assert.ok(publication.reviewedEditionFiles.some(f=>f.path.startsWith('examples/'+b.exampleId+'/')));}
 });
 test('each admitted reader revalidates its worker and keeps its noindex boundary',async()=>{

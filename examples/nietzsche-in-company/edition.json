@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "sourceCommit": "94a9f7fd661107ae41008c480d70618a9363d4c0",
+  "profile": "personal-reader/text@1",
+  "files": [
+    {
+      "path": "edition/library.json",
+      "sha256": "8db6b0db60dcf08315689074ca85d5af325fadbfc61cfd5c5c42bd5056064348"
+    },
+    {
+      "path": "edition/company.json",
+      "sha256": "72c73ed5d8c845301cbba0902b68e6cbbbda63f9a072816682eb2ab4a956f14f"
+    }
+  ],
+  "books": [
+    {
+      "id": "nietzsche",
+      "canonicalSha256": "64806a8099889af50e76ab6288a5be282418354969df57ad8a9c99177cea51ee",
+      "sourceSha256": "a05b25aa8ee0300887863d97d975aa9a48d472e4e36add5fdfef05c6ef8e4f24",
+      "sections": 10,
+      "blocks": 832,
+      "verseBlocks": 4,
+      "sourceNotices": 6
+    },
+    {
+      "id": "epicurus",
+      "canonicalSha256": "d04950b5fdf279cb15370d3ef4375ee5f6015efe2b0715c99b8c13efe655817a",
+      "sourceSha256": "6acb9d00d09e2366ab6d71dc5dd29745b84972c92a932e69267cdc3c66e5e6c4",
+      "sections": 1,
+      "blocks": 12,
+      "verseBlocks": 1,
+      "sourceNotices": 9
+    }
+  ]
+}

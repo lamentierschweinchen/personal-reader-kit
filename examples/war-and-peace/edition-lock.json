@@ -1,0 +1,134 @@
+{
+  "sourceCommit": "40ce940dab021fd09d7103bf0410b854db93cf01",
+  "bookId": "war-and-peace-maude",
+  "witnessSha256": "68fe0f65e6fe4f26c37bf304ed560b04b1bc0a4b605509128d88ce582ee13001",
+  "librarySha256": "d1141e0adb219de52c15975188fb49c6b04f1154499fc88b769dd443e3053699",
+  "files": [
+    {
+      "path": "edition/library.json",
+      "name": "library.json",
+      "bytes": 4278750,
+      "sha256": "d1141e0adb219de52c15975188fb49c6b04f1154499fc88b769dd443e3053699"
+    },
+    {
+      "path": "edition/structure.json",
+      "name": "structure.json",
+      "bytes": 49480,
+      "sha256": "5d51c04f94a6d958c4e8f0203209c6365dab18a8af7e4d1b3856e37d50408a2c"
+    },
+    {
+      "path": "edition/companion.json",
+      "name": "companion.json",
+      "bytes": 13529,
+      "sha256": "2481e899cf7bc2d81d6bb99cfd4f247ad78bf0c51a3d49c8fbf47e1d6bc9d111"
+    },
+    {
+      "path": "site/Literata-Roman.ttf",
+      "name": "Literata-Roman.ttf",
+      "bytes": 955132,
+      "sha256": "b41138c9373112f32abb589cc22e8674b06ed4048b0c513be922bdd26f274440"
+    },
+    {
+      "path": "site/Literata-Italic.ttf",
+      "name": "Literata-Italic.ttf",
+      "bytes": 902728,
+      "sha256": "d483dfaeba9cbf4ce71d32a52ee65df82f7e35b15fff8d1011cdb242d1fcd465"
+    },
+    {
+      "path": "site/Literata-OFL.txt",
+      "name": "Literata-OFL.txt",
+      "bytes": 4389,
+      "sha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "name": "apple-touch-icon.png",
+      "bytes": 4045,
+      "sha256": "a37b059570c85b7f63e22364e65d8a6cd54597018f1ea81e232fd10c5a0dd04d"
+    },
+    {
+      "path": "site/icon-192.png",
+      "name": "icon-192.png",
+      "bytes": 4296,
+      "sha256": "59cf8501b6c6d52085c8987b75404edf22615d7eef2b81f3e88570464f305fb3"
+    },
+    {
+      "path": "site/icon-512.png",
+      "name": "icon-512.png",
+      "bytes": 14776,
+      "sha256": "ea8fe92c2cbfcf7d2d035cc2d1abac981ce4dcabedf73428b203bceb1f5b15b2"
+    },
+    {
+      "path": "edition/plate-portrait.webp",
+      "name": "plate-portrait.webp",
+      "bytes": 835434,
+      "sha256": "88656a58a85b2e2830ea07d1d39efee4d5f025bf639487438ef9147fc5d71dc1"
+    },
+    {
+      "path": "edition/plate-tushin.webp",
+      "name": "plate-tushin.webp",
+      "bytes": 1171958,
+      "sha256": "6a22b7512305e53398385d899b3ae3517da7bcea8936b59b9552e4f8614d55bf"
+    },
+    {
+      "path": "edition/plate-tilsit.webp",
+      "name": "plate-tilsit.webp",
+      "bytes": 869008,
+      "sha256": "6cee39ce69dd5aacf47fef0b4d093372ac56cddca031ee718aa8dc5b45e1a92e"
+    },
+    {
+      "path": "edition/plate-ball.webp",
+      "name": "plate-ball.webp",
+      "bytes": 956632,
+      "sha256": "b13418c7ca9d48d02269bc7fd617df6b15742721703609cf961aafcaf70340df"
+    },
+    {
+      "path": "edition/plate-hunt.webp",
+      "name": "plate-hunt.webp",
+      "bytes": 1045534,
+      "sha256": "b5b6ff27fd85113d385c8b46e194c8f1dd776ce098643eed07f7c305d39b6462"
+    },
+    {
+      "path": "edition/plate-sleigh.webp",
+      "name": "plate-sleigh.webp",
+      "bytes": 1127606,
+      "sha256": "4e2ee4bdd0616edf3b79a820a75b8f231930dfe5604c271d16238c2614a330c2"
+    },
+    {
+      "path": "edition/plate-lavrushka.webp",
+      "name": "plate-lavrushka.webp",
+      "bytes": 923340,
+      "sha256": "d45e80a6acff4a7d6addb77c5330da906832b235f6b5dda46c30ea9db5732c9f"
+    },
+    {
+      "path": "edition/plate-kutuzov.webp",
+      "name": "plate-kutuzov.webp",
+      "bytes": 899462,
+      "sha256": "46ed36d0ea69211319ada7d5bd164e2e45abf9e81cf109ab9a3107417975baf7"
+    },
+    {
+      "path": "edition/plate-rostopchin.webp",
+      "name": "plate-rostopchin.webp",
+      "bytes": 1061100,
+      "sha256": "a029da1d33ed9975fbf82221b9af597021dee679214b7184c2bfcd493948b6a3"
+    },
+    {
+      "path": "edition/plate-mytishchi.webp",
+      "name": "plate-mytishchi.webp",
+      "bytes": 955052,
+      "sha256": "0aa1999140a5559cf32e4944942ee25456f8128d7257a8f8aea77647358de166"
+    },
+    {
+      "path": "edition/plate-execution.webp",
+      "name": "plate-execution.webp",
+      "bytes": 929088,
+      "sha256": "8f7e3b498aa9dc49c84782add0349370f8a4368eb486852f24a31f941e489423"
+    },
+    {
+      "path": "edition/plate-petya.webp",
+      "name": "plate-petya.webp",
+      "bytes": 1109696,
+      "sha256": "59bc98deea5129adfbd5305c3a8e2208dd49fa3c0fac0f3bd014c6d95a3d9923"
+    }
+  ]
+}

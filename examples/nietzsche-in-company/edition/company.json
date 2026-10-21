@@ -1,0 +1,2265 @@
+{
+  "title": "Nietzsche in company",
+  "subtitle": "",
+  "intro": "",
+  "books": [
+    {
+      "id": "nietzsche",
+      "role": "1910 English edition",
+      "short": "The Joyful Wisdom",
+      "by": "Friedrich Nietzsche",
+      "scope": "All 383 aphorisms · prelude, songs & prefaces",
+      "start": "book-1",
+      "description": "Prose by Thomas Common; poetry by Paul V. Cohn and Maude D. Petre.",
+      "featured": true
+    },
+    {
+      "id": "epicurus",
+      "role": "The letter",
+      "short": "Letter to Menœceus",
+      "by": "Epicurus",
+      "scope": "Complete · C. D. Yonge’s translation",
+      "start": "letter",
+      "description": "",
+      "featured": true
+    }
+  ],
+  "about": "Thomas Common’s Nietzsche; C. D. Yonge’s Epicurus. The circle-and-horizon artwork is original to this reader.",
+  "encounters": [
+    {
+      "id": "still-water",
+      "number": "01",
+      "title": "Epicurus in §§45 and 370",
+      "relation": "Nietzsche / Epicurus",
+      "deck": "",
+      "labels": [
+        "Nietzsche · §45 · 1882",
+        "Epicurus · Letter · pleasure and choice"
+      ],
+      "passages": [
+        {
+          "bookId": "nietzsche",
+          "sectionId": "book-1",
+          "revision": "a05b25aa8ee0300887863d97d975aa9a48d472e4e36add5fdfef05c6ef8e4f24",
+          "segments": [
+            {
+              "blockId": "n-45-2",
+              "start": 0,
+              "end": 721,
+              "quote": "Epicurus.—Yes, I am proud of perceiving the character of Epicurus differently from anyone else perhaps, and of enjoying the happiness of the afternoon of antiquity in all that I hear and read of him:—I see his eye gazing out on a broad whitish sea, over the shore-rocks on which the sunshine rests, while great and small creatures play in its light, secure and calm like this light and that eye itself. Such happiness could only have been devised by a chronic sufferer, the happiness of an eye before which the sea of existence has become calm, and which can no longer tire of gazing at the surface and at the variegated, tender, tremulous skin of this sea. Never previously was there such a moderation of voluptuousness.",
+              "prefix": "",
+              "suffix": ""
+            }
+          ],
+          "quote": "Epicurus.—Yes, I am proud of perceiving the character of Epicurus differently from anyone else perhaps, and of enjoying the happiness of the afternoon of antiquity in all that I hear and read of him:—I see his eye gazing out on a broad whitish sea, over the shore-rocks on which the sunshine rests, while great and small creatures play in its light, secure and calm like this light and that eye itself. Such happiness could only have been devised by a chronic sufferer, the happiness of an eye before which the sea of existence has become calm, and which can no longer tire of gazing at the surface and at the variegated, tender, tremulous skin of this sea. Never previously was there such a moderation of voluptuousness."
+        },
+        {
+          "bookId": "epicurus",
+          "sectionId": "letter",
+          "revision": "6acb9d00d09e2366ab6d71dc5dd29745b84972c92a932e69267cdc3c66e5e6c4",
+          "segments": [
+            {
+              "blockId": "e-letter-7",
+              "start": 0,
+              "end": 768,
+              "quote": "“For then we have need of pleasure when we grieve, because pleasure is not present; but when we do not grieve, then we have no need of pleasure; and on this account, we affirm, that pleasure is the beginning and end of living happily; for we have recognized this as the first good, being connate with us; and with reference to it, it is that we begin every choice and avoidance; and to this we come as if we judged of all good by passion as the standard; and, since this is the first good and connate with us, on this account we do not choose every pleasure, but at times we pass over many pleasures when any difficulty is likely to ensue from them; and we think many pains better than pleasures, when a greater pleasure follows them, if we endure the pain for a time.",
+              "prefix": "",
+              "suffix": ""
+            }
+          ],
+          "quote": "“For then we have need of pleasure when we grieve, because pleasure is not present; but when we do not grieve, then we have no need of pleasure; and on this account, we affirm, that pleasure is the beginning and end of living happily; for we have recognized this as the first good, being connate with us; and with reference to it, it is that we begin every choice and avoidance; and to this we come as if we judged of all good by passion as the standard; and, since this is the first good and connate with us, on this account we do not choose every pleasure, but at times we pass over many pleasures when any difficulty is likely to ensue from them; and we think many pains better than pleasures, when a greater pleasure follows them, if we endure the pain for a time."
+        }
+      ],
+      "observation": "In §45, suffering equips Epicurus to invent happiness. In §370, the need for peace becomes evidence of depleted life. Both explain a philosophy through the person who needs it. Epicurus gives reasons for choosing pleasures and pains.",
+      "question": "",
+      "alternate": {
+        "label": "§370 · 1887",
+        "returnLabel": "§45 · 1882",
+        "labels": [
+          "Nietzsche · §370 · excerpt · 1887",
+          "Epicurus · Letter · pleasure and choice"
+        ],
+        "excerpts": [
+          true,
+          false
+        ],
+        "passages": [
+          {
+            "bookId": "nietzsche",
+            "sectionId": "book-5",
+            "revision": "a05b25aa8ee0300887863d97d975aa9a48d472e4e36add5fdfef05c6ef8e4f24",
+            "quote": "Conversely, the greatest sufferer, the man poorest in vitality, would have most need of mildness, peace and kindliness in thought and action: he would need, if possible, a God who is specially the God of the sick, a \"Saviour\"; similarly he would have need of logic, the abstract intelligibility of existence—for logic soothes and gives confidence;—in short he would need a certain warm, fear-dispelling narrowness and imprisonment within optimistic horizons. In this manner I gradually began to understand Epicurus, the opposite of a Dionysian pessimist;—in a similar manner also the \"Christian,\" who in fact is only a type of Epicurean, and like him essentially a romanticist:—and my vision has always become keener in tracing that most difficult and insidious of all forms of retrospective inference, in which, most mistakes have been made—the inference from the work to its author from the deed to its doer, from the ideal to him who needs it, from every mode of thinking and valuing to the imperative want behind it.—In regard to all æsthetic values I now avail myself of this radical distinction: I ask in every single case, \"Has hunger or superfluity become creative here?\" At the outset another distinction might seem to recommend itself more—it is far more conspicuous,—namely, to have in view whether the desire for rigidity, for perpetuation, for being is the cause of the creating, or the desire for destruction, for change, for the new, for the future—for becoming. But when looked at more carefully, both these kinds of desire prove themselves ambiguous, and are explicable precisely according to the before-mentioned, and, as it seems to me, rightly preferred scheme.",
+            "segments": [
+              {
+                "blockId": "n-370-2",
+                "start": 2589,
+                "end": 4270,
+                "quote": "Conversely, the greatest sufferer, the man poorest in vitality, would have most need of mildness, peace and kindliness in thought and action: he would need, if possible, a God who is specially the God of the sick, a \"Saviour\"; similarly he would have need of logic, the abstract intelligibility of existence—for logic soothes and gives confidence;—in short he would need a certain warm, fear-dispelling narrowness and imprisonment within optimistic horizons. In this manner I gradually began to understand Epicurus, the opposite of a Dionysian pessimist;—in a similar manner also the \"Christian,\" who in fact is only a type of Epicurean, and like him essentially a romanticist:—and my vision has always become keener in tracing that most difficult and insidious of all forms of retrospective inference, in which, most mistakes have been made—the inference from the work to its author from the deed to its doer, from the ideal to him who needs it, from every mode of thinking and valuing to the imperative want behind it.—In regard to all æsthetic values I now avail myself of this radical distinction: I ask in every single case, \"Has hunger or superfluity become creative here?\" At the outset another distinction might seem to recommend itself more—it is far more conspicuous,—namely, to have in view whether the desire for rigidity, for perpetuation, for being is the cause of the creating, or the desire for destruction, for change, for the new, for the future—for becoming. But when looked at more carefully, both these kinds of desire prove themselves ambiguous, and are explicable precisely according to the before-mentioned, and, as it seems to me, rightly preferred scheme.",
+                "prefix": " every desert into a luxuriant orchard. ",
+                "suffix": " The desire for destruction, change and "
+              }
+            ]
+          },
+          {
+            "bookId": "epicurus",
+            "sectionId": "letter",
+            "revision": "6acb9d00d09e2366ab6d71dc5dd29745b84972c92a932e69267cdc3c66e5e6c4",
+            "segments": [
+              {
+                "blockId": "e-letter-7",
+                "start": 0,
+                "end": 768,
+                "quote": "“For then we have need of pleasure when we grieve, because pleasure is not present; but when we do not grieve, then we have no need of pleasure; and on this account, we affirm, that pleasure is the beginning and end of living happily; for we have recognized this as the first good, being connate with us; and with reference to it, it is that we begin every choice and avoidance; and to this we come as if we judged of all good by passion as the standard; and, since this is the first good and connate with us, on this account we do not choose every pleasure, but at times we pass over many pleasures when any difficulty is likely to ensue from them; and we think many pains better than pleasures, when a greater pleasure follows them, if we endure the pain for a time.",
+                "prefix": "",
+                "suffix": ""
+              }
+            ],
+            "quote": "“For then we have need of pleasure when we grieve, because pleasure is not present; but when we do not grieve, then we have no need of pleasure; and on this account, we affirm, that pleasure is the beginning and end of living happily; for we have recognized this as the first good, being connate with us; and with reference to it, it is that we begin every choice and avoidance; and to this we come as if we judged of all good by passion as the standard; and, since this is the first good and connate with us, on this account we do not choose every pleasure, but at times we pass over many pleasures when any difficulty is likely to ensue from them; and we think many pains better than pleasures, when a greater pleasure follows them, if we endure the pain for a time."
+          }
+        ],
+        "observation": "In §370, the need for peace marks depleted life; in §45, suffering enables a refined happiness. Nietzsche diagnoses the need for an ideal; Epicurus argues which pleasures and pains to choose. Nietzsche also warns that preservation and destruction can each express abundance or deprivation.",
+        "question": ""
+      },
+      "featured": true
+    }
+  ],
+  "notes": [
+    {
+      "book": "nietzsche",
+      "section": "preface",
+      "block": "n-preface-7",
+      "start": 1458,
+      "end": 1461,
+      "destination": {
+        "book": "nietzsche",
+        "section": "preface",
+        "block": "n-preface-12"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "preface",
+      "block": "n-preface-9",
+      "start": 1903,
+      "end": 1906,
+      "destination": {
+        "book": "nietzsche",
+        "section": "preface",
+        "block": "n-preface-13"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "prelude",
+      "block": "n-prelude-3",
+      "start": 2919,
+      "end": 2922,
+      "destination": {
+        "book": "nietzsche",
+        "section": "prelude",
+        "block": "n-prelude-4"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "prelude",
+      "block": "n-prelude-3",
+      "start": 6553,
+      "end": 6556,
+      "destination": {
+        "book": "nietzsche",
+        "section": "prelude",
+        "block": "n-prelude-5"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "prelude",
+      "block": "n-prelude-3",
+      "start": 8765,
+      "end": 8768,
+      "destination": {
+        "book": "nietzsche",
+        "section": "prelude",
+        "block": "n-prelude-6"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "prelude",
+      "block": "n-prelude-3",
+      "start": 12010,
+      "end": 12013,
+      "destination": {
+        "book": "nietzsche",
+        "section": "prelude",
+        "block": "n-prelude-7"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-12-2",
+      "start": 373,
+      "end": 376,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-1",
+        "block": "n-12-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-57-2",
+      "start": 555,
+      "end": 558,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-2",
+        "block": "n-57-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-141-2",
+      "start": 406,
+      "end": 409,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-3",
+        "block": "n-143-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-317-2",
+      "start": 246,
+      "end": 249,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-4",
+        "block": "n-317-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-348-2",
+      "start": 3007,
+      "end": 3010,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-5",
+        "block": "n-348-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-357-2",
+      "start": 9353,
+      "end": 9356,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-5",
+        "block": "n-357-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-366-2",
+      "start": 1844,
+      "end": 1847,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-5",
+        "block": "n-366-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-383-2",
+      "start": 1514,
+      "end": 1517,
+      "destination": {
+        "book": "nietzsche",
+        "section": "book-5",
+        "block": "n-383-3"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "songs",
+      "block": "n-songs-3",
+      "start": 10,
+      "end": 13,
+      "destination": {
+        "book": "nietzsche",
+        "section": "songs",
+        "block": "n-songs-4"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "songs",
+      "block": "n-songs-3",
+      "start": 2209,
+      "end": 2212,
+      "destination": {
+        "book": "nietzsche",
+        "section": "songs",
+        "block": "n-songs-6"
+      }
+    },
+    {
+      "book": "nietzsche",
+      "section": "songs",
+      "block": "n-songs-3",
+      "start": 10111,
+      "end": 10114,
+      "destination": {
+        "book": "nietzsche",
+        "section": "songs",
+        "block": "n-songs-7"
+      }
+    },
+    {
+      "book": "epicurus",
+      "section": "letter",
+      "block": "e-letter-5",
+      "start": 91,
+      "end": 96,
+      "destination": {
+        "book": "epicurus",
+        "section": "letter",
+        "block": "e-note-142"
+      }
+    }
+  ],
+  "locations": {
+    "1": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-1-2"
+    },
+    "2": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-2-2"
+    },
+    "3": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-3-2"
+    },
+    "4": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-4-2"
+    },
+    "5": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-5-2"
+    },
+    "6": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-6-2"
+    },
+    "7": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-7-2"
+    },
+    "8": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-8-2"
+    },
+    "9": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-9-2"
+    },
+    "10": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-10-2"
+    },
+    "11": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-11-2"
+    },
+    "12": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-12-2"
+    },
+    "13": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-13-2"
+    },
+    "14": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-14-2"
+    },
+    "15": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-15-2"
+    },
+    "16": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-16-2"
+    },
+    "17": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-17-2"
+    },
+    "18": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-18-2"
+    },
+    "19": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-19-2"
+    },
+    "20": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-20-2"
+    },
+    "21": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-21-2"
+    },
+    "22": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-22-2"
+    },
+    "23": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-23-2"
+    },
+    "24": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-24-2"
+    },
+    "25": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-25-2"
+    },
+    "26": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-26-2"
+    },
+    "27": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-27-2"
+    },
+    "28": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-28-2"
+    },
+    "29": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-29-2"
+    },
+    "30": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-30-2"
+    },
+    "31": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-31-2"
+    },
+    "32": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-32-2"
+    },
+    "33": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-33-2"
+    },
+    "34": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-34-2"
+    },
+    "35": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-35-2"
+    },
+    "36": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-36-2"
+    },
+    "37": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-37-2"
+    },
+    "38": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-38-2"
+    },
+    "39": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-39-2"
+    },
+    "40": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-40-2"
+    },
+    "41": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-41-2"
+    },
+    "42": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-42-2"
+    },
+    "43": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-43-2"
+    },
+    "44": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-44-2"
+    },
+    "45": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-45-2"
+    },
+    "46": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-46-2"
+    },
+    "47": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-47-2"
+    },
+    "48": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-48-2"
+    },
+    "49": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-49-2"
+    },
+    "50": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-50-2"
+    },
+    "51": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-51-2"
+    },
+    "52": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-52-2"
+    },
+    "53": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-53-2"
+    },
+    "54": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-54-2"
+    },
+    "55": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-55-2"
+    },
+    "56": {
+      "book": "nietzsche",
+      "section": "book-1",
+      "block": "n-56-2"
+    },
+    "57": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-57-2"
+    },
+    "58": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-58-2"
+    },
+    "59": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-59-2"
+    },
+    "60": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-60-2"
+    },
+    "61": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-61-2"
+    },
+    "62": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-62-2"
+    },
+    "63": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-63-2"
+    },
+    "64": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-64-2"
+    },
+    "65": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-65-2"
+    },
+    "66": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-66-2"
+    },
+    "67": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-67-2"
+    },
+    "68": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-68-2"
+    },
+    "69": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-69-2"
+    },
+    "70": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-70-2"
+    },
+    "71": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-71-2"
+    },
+    "72": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-72-2"
+    },
+    "73": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-73-2"
+    },
+    "74": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-74-2"
+    },
+    "75": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-75-2"
+    },
+    "76": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-76-2"
+    },
+    "77": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-77-2"
+    },
+    "78": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-78-2"
+    },
+    "79": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-79-2"
+    },
+    "80": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-80-2"
+    },
+    "81": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-81-2"
+    },
+    "82": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-82-2"
+    },
+    "83": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-83-2"
+    },
+    "84": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-84-2"
+    },
+    "85": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-85-2"
+    },
+    "86": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-86-2"
+    },
+    "87": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-87-2"
+    },
+    "88": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-88-2"
+    },
+    "89": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-89-2"
+    },
+    "90": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-90-2"
+    },
+    "91": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-91-2"
+    },
+    "92": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-92-2"
+    },
+    "93": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-93-2"
+    },
+    "94": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-94-2"
+    },
+    "95": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-95-2"
+    },
+    "96": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-96-2"
+    },
+    "97": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-97-2"
+    },
+    "98": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-98-2"
+    },
+    "99": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-99-2"
+    },
+    "100": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-100-2"
+    },
+    "101": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-101-2"
+    },
+    "102": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-102-2"
+    },
+    "103": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-103-2"
+    },
+    "104": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-104-2"
+    },
+    "105": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-105-2"
+    },
+    "106": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-106-2"
+    },
+    "107": {
+      "book": "nietzsche",
+      "section": "book-2",
+      "block": "n-107-2"
+    },
+    "108": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-108-2"
+    },
+    "109": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-109-2"
+    },
+    "110": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-110-2"
+    },
+    "111": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-111-2"
+    },
+    "112": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-112-2"
+    },
+    "113": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-113-2"
+    },
+    "114": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-114-2"
+    },
+    "115": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-115-2"
+    },
+    "116": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-116-2"
+    },
+    "117": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-117-2"
+    },
+    "118": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-118-2"
+    },
+    "119": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-119-2"
+    },
+    "120": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-120-2"
+    },
+    "121": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-121-2"
+    },
+    "122": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-122-2"
+    },
+    "123": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-123-2"
+    },
+    "124": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-124-2"
+    },
+    "125": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-125-2"
+    },
+    "126": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-126-2"
+    },
+    "127": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-127-2"
+    },
+    "128": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-128-2"
+    },
+    "129": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-129-2"
+    },
+    "130": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-130-2"
+    },
+    "131": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-131-2"
+    },
+    "132": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-132-2"
+    },
+    "133": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-133-2"
+    },
+    "134": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-134-2"
+    },
+    "135": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-135-2"
+    },
+    "136": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-136-2"
+    },
+    "137": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-137-2"
+    },
+    "138": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-138-2"
+    },
+    "139": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-139-2"
+    },
+    "140": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-140-2"
+    },
+    "141": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-141-2"
+    },
+    "142": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-142-2"
+    },
+    "143": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-143-2"
+    },
+    "144": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-144-2"
+    },
+    "145": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-145-2"
+    },
+    "146": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-146-2"
+    },
+    "147": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-147-2"
+    },
+    "148": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-148-2"
+    },
+    "149": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-149-2"
+    },
+    "150": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-150-2"
+    },
+    "151": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-151-2"
+    },
+    "152": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-152-2"
+    },
+    "153": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-153-2"
+    },
+    "154": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-154-2"
+    },
+    "155": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-155-2"
+    },
+    "156": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-156-2"
+    },
+    "157": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-157-2"
+    },
+    "158": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-158-2"
+    },
+    "159": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-159-2"
+    },
+    "160": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-160-2"
+    },
+    "161": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-161-2"
+    },
+    "162": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-162-2"
+    },
+    "163": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-163-2"
+    },
+    "164": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-164-2"
+    },
+    "165": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-165-2"
+    },
+    "166": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-166-2"
+    },
+    "167": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-167-2"
+    },
+    "168": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-168-2"
+    },
+    "169": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-169-2"
+    },
+    "170": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-170-2"
+    },
+    "171": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-171-2"
+    },
+    "172": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-172-2"
+    },
+    "173": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-173-2"
+    },
+    "174": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-174-2"
+    },
+    "175": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-175-2"
+    },
+    "176": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-176-2"
+    },
+    "177": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-177-2"
+    },
+    "178": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-178-2"
+    },
+    "179": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-179-2"
+    },
+    "180": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-180-2"
+    },
+    "181": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-181-2"
+    },
+    "182": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-182-2"
+    },
+    "183": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-183-2"
+    },
+    "184": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-184-2"
+    },
+    "185": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-185-2"
+    },
+    "186": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-186-2"
+    },
+    "187": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-187-2"
+    },
+    "188": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-188-2"
+    },
+    "189": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-189-2"
+    },
+    "190": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-190-2"
+    },
+    "191": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-191-2"
+    },
+    "192": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-192-2"
+    },
+    "193": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-193-2"
+    },
+    "194": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-194-2"
+    },
+    "195": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-195-2"
+    },
+    "196": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-196-2"
+    },
+    "197": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-197-2"
+    },
+    "198": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-198-2"
+    },
+    "199": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-199-2"
+    },
+    "200": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-200-2"
+    },
+    "201": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-201-2"
+    },
+    "202": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-202-2"
+    },
+    "203": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-203-2"
+    },
+    "204": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-204-2"
+    },
+    "205": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-205-2"
+    },
+    "206": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-206-2"
+    },
+    "207": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-207-2"
+    },
+    "208": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-208-2"
+    },
+    "209": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-209-2"
+    },
+    "210": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-210-2"
+    },
+    "211": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-211-2"
+    },
+    "212": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-212-2"
+    },
+    "213": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-213-2"
+    },
+    "214": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-214-2"
+    },
+    "215": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-215-2"
+    },
+    "216": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-216-2"
+    },
+    "217": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-217-2"
+    },
+    "218": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-218-2"
+    },
+    "219": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-219-2"
+    },
+    "220": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-220-2"
+    },
+    "221": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-221-2"
+    },
+    "222": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-222-2"
+    },
+    "223": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-223-2"
+    },
+    "224": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-224-2"
+    },
+    "225": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-225-2"
+    },
+    "226": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-226-2"
+    },
+    "227": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-227-2"
+    },
+    "228": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-228-2"
+    },
+    "229": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-229-2"
+    },
+    "230": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-230-2"
+    },
+    "231": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-231-2"
+    },
+    "232": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-232-2"
+    },
+    "233": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-233-2"
+    },
+    "234": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-234-2"
+    },
+    "235": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-235-2"
+    },
+    "236": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-236-2"
+    },
+    "237": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-237-2"
+    },
+    "238": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-238-2"
+    },
+    "239": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-239-2"
+    },
+    "240": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-240-2"
+    },
+    "241": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-241-2"
+    },
+    "242": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-242-2"
+    },
+    "243": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-243-2"
+    },
+    "244": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-244-2"
+    },
+    "245": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-245-2"
+    },
+    "246": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-246-2"
+    },
+    "247": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-247-2"
+    },
+    "248": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-248-2"
+    },
+    "249": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-249-2"
+    },
+    "250": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-250-2"
+    },
+    "251": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-251-1"
+    },
+    "252": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-252-2"
+    },
+    "253": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-253-2"
+    },
+    "254": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-254-2"
+    },
+    "255": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-255-2"
+    },
+    "256": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-256-2"
+    },
+    "257": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-257-2"
+    },
+    "258": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-258-2"
+    },
+    "259": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-259-2"
+    },
+    "260": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-260-2"
+    },
+    "261": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-261-2"
+    },
+    "262": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-262-2"
+    },
+    "263": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-263-2"
+    },
+    "264": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-264-2"
+    },
+    "265": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-265-2"
+    },
+    "266": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-266-2"
+    },
+    "267": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-267-2"
+    },
+    "268": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-268-2"
+    },
+    "269": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-269-2"
+    },
+    "270": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-270-2"
+    },
+    "271": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-271-2"
+    },
+    "272": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-272-2"
+    },
+    "273": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-273-2"
+    },
+    "274": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-274-2"
+    },
+    "275": {
+      "book": "nietzsche",
+      "section": "book-3",
+      "block": "n-275-2"
+    },
+    "276": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-276-2"
+    },
+    "277": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-277-2"
+    },
+    "278": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-278-2"
+    },
+    "279": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-279-2"
+    },
+    "280": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-280-2"
+    },
+    "281": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-281-2"
+    },
+    "282": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-282-2"
+    },
+    "283": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-283-2"
+    },
+    "284": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-284-2"
+    },
+    "285": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-285-2"
+    },
+    "286": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-286-2"
+    },
+    "287": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-287-2"
+    },
+    "288": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-288-2"
+    },
+    "289": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-289-2"
+    },
+    "290": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-290-2"
+    },
+    "291": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-291-2"
+    },
+    "292": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-292-2"
+    },
+    "293": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-293-2"
+    },
+    "294": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-294-2"
+    },
+    "295": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-295-2"
+    },
+    "296": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-296-2"
+    },
+    "297": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-297-2"
+    },
+    "298": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-298-2"
+    },
+    "299": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-299-2"
+    },
+    "300": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-300-2"
+    },
+    "301": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-301-2"
+    },
+    "302": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-302-2"
+    },
+    "303": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-303-2"
+    },
+    "304": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-304-2"
+    },
+    "305": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-305-2"
+    },
+    "306": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-306-2"
+    },
+    "307": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-307-2"
+    },
+    "308": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-308-2"
+    },
+    "309": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-309-2"
+    },
+    "310": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-310-2"
+    },
+    "311": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-311-2"
+    },
+    "312": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-312-2"
+    },
+    "313": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-313-2"
+    },
+    "314": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-314-2"
+    },
+    "315": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-315-2"
+    },
+    "316": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-316-2"
+    },
+    "317": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-317-2"
+    },
+    "318": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-318-2"
+    },
+    "319": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-319-2"
+    },
+    "320": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-320-2"
+    },
+    "321": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-321-2"
+    },
+    "322": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-322-2"
+    },
+    "323": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-323-2"
+    },
+    "324": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-324-2"
+    },
+    "325": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-325-2"
+    },
+    "326": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-326-2"
+    },
+    "327": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-327-2"
+    },
+    "328": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-328-2"
+    },
+    "329": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-329-3"
+    },
+    "330": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-330-2"
+    },
+    "331": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-331-2"
+    },
+    "332": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-332-2"
+    },
+    "333": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-333-2"
+    },
+    "334": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-334-2"
+    },
+    "335": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-335-2"
+    },
+    "336": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-336-2"
+    },
+    "337": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-337-2"
+    },
+    "338": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-338-2"
+    },
+    "339": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-339-2"
+    },
+    "340": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-340-2"
+    },
+    "341": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-341-2"
+    },
+    "342": {
+      "book": "nietzsche",
+      "section": "book-4",
+      "block": "n-342-2"
+    },
+    "343": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-343-2"
+    },
+    "344": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-344-2"
+    },
+    "345": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-345-2"
+    },
+    "346": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-346-2"
+    },
+    "347": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-347-2"
+    },
+    "348": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-348-2"
+    },
+    "349": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-349-2"
+    },
+    "350": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-350-2"
+    },
+    "351": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-351-2"
+    },
+    "352": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-352-2"
+    },
+    "353": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-353-2"
+    },
+    "354": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-354-2"
+    },
+    "355": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-355-2"
+    },
+    "356": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-356-2"
+    },
+    "357": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-357-2"
+    },
+    "358": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-358-2"
+    },
+    "359": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-359-2"
+    },
+    "360": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-360-2"
+    },
+    "361": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-361-2"
+    },
+    "362": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-362-2"
+    },
+    "363": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-363-2"
+    },
+    "364": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-364-2"
+    },
+    "365": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-365-2"
+    },
+    "366": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-366-2"
+    },
+    "367": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-367-2"
+    },
+    "368": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-368-2"
+    },
+    "369": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-369-2"
+    },
+    "370": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-370-2"
+    },
+    "371": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-371-2"
+    },
+    "372": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-372-2"
+    },
+    "373": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-373-2"
+    },
+    "374": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-374-2"
+    },
+    "375": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-375-2"
+    },
+    "376": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-376-2"
+    },
+    "377": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-377-2"
+    },
+    "378": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-378-2"
+    },
+    "379": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-379-2"
+    },
+    "380": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-380-2"
+    },
+    "381": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-381-2"
+    },
+    "382": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-382-2"
+    },
+    "383": {
+      "book": "nietzsche",
+      "section": "book-5",
+      "block": "n-383-2"
+    }
+  },
+  "sourcePins": {
+    "nietzsche": "a05b25aa8ee0300887863d97d975aa9a48d472e4e36add5fdfef05c6ef8e4f24",
+    "epicurus": "6acb9d00d09e2366ab6d71dc5dd29745b84972c92a932e69267cdc3c66e5e6c4"
+  }
+}

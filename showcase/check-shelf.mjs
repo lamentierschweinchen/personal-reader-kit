@@ -17,9 +17,9 @@ const metadata=JSON.parse(await readFile(new URL('./library/entries.json',import
 const runtimeFiles=['index.html','home.mjs','style.css','shelf/app.mjs','shelf/style.css','shelf/covers.css'];
 const buildHashes=()=>Promise.all(runtimeFiles.map(async file=>({file,sha256:createHash('sha256').update(await readFile(new URL('./dist/'+file,import.meta.url))).digest('hex')})));
 const testedFiles=await buildHashes();
-const order=['alice','at-table','beside-the-bed','dracula','inward-life','learning-to-see','odyssey','austen','two-halls','walden','music-and-feeling'];
+const order=['alice','mountains','at-table','beside-the-bed','dracula','inward-life','learning-to-see','nietzsche','odyssey','austen','two-halls','walden','war-and-peace','music-and-feeling'];
 const titles=new Map(metadata.editions.map(b=>[b.id,b.title]));
-const sizes=[{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:768,height:1024},{width:1024,height:768},{width:1100,height:900},{width:1101,height:900},{width:1280,height:900},{width:1440,height:1000}];
+const sizes=[{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:768,height:1024},{width:1024,height:768},{width:1280,height:900},{width:1281,height:900},{width:1366,height:900},{width:1440,height:1000}];
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
 const pick=(page,id)=>page.locator(`#samples [data-shelf-book="${id}"]`);
 const selected=page=>page.locator('#samples .book-pick[aria-pressed="true"]').getAttribute('data-shelf-book');
@@ -84,7 +84,7 @@ async function state(page,id,label){
  assert.equal(await page.locator('#samples .shelf-volume.is-selected').getAttribute('data-volume'),id,label+' selected volume');
  assert.equal(await page.locator('#chosen-book h3').textContent(),titles.get(id),label+' title');
  assert.equal(new URL(await page.locator('#chosen-book .chosen-read').getAttribute('href'),base).pathname,'/'+id+'/',label+' reader path');
- assert.equal(await page.locator('#samples .shelf-volume.is-faceout').count(),page.viewportSize().width<=1100?1:3,label+' face-out count');
+ assert.equal(await page.locator('#samples .shelf-volume.is-faceout').count(),page.viewportSize().width<=1280?1:3,label+' face-out count');
  assert.equal(await page.locator('#samples .shelf-fallback').isVisible(),false,label+' fallback hidden after enhancement');
 }
 
@@ -100,7 +100,7 @@ async function keyboardJourney(page){
  await page.keyboard.press('ArrowRight');await settled(page);await state(page,'inward-life','Right arrow');
  await page.keyboard.press('Home');await settled(page);await state(page,'alice','Home');
  await page.keyboard.press('End');await settled(page);await state(page,'music-and-feeling','End');
- await page.keyboard.press('ArrowLeft');await settled(page);await state(page,'walden','Left arrow');
+ await page.keyboard.press('ArrowLeft');await settled(page);await state(page,'war-and-peace','Left arrow');
  await pick(page,'at-table').focus();await page.keyboard.press('Enter');await settled(page);await state(page,'at-table','Enter activates');
  assert.equal(await page.locator('#selection-status').getAttribute('aria-live'),'polite');
  assert.match(await page.locator('#selection-status').textContent(),/At Table/);
@@ -123,11 +123,11 @@ try{
   const browser=await pw[engine].launch({headless:true,...(executablePath?{executablePath}:{})});
   try{
    for(const viewport of sizes){
-    const context=await browser.newContext({viewport,hasTouch:viewport.width<=1100,reducedMotion:'reduce'});
+    const context=await browser.newContext({viewport,hasTouch:viewport.width<=1280,reducedMotion:'reduce'});
     try{
      const page=await context.newPage(),network=monitor(page);await page.goto(base);await ready(page);
      assert.deepEqual(await page.locator('#samples .book-pick').evaluateAll(es=>es.map(e=>e.dataset.shelfBook)),order,'Alphabetical title order');
-     assert.deepEqual(await page.locator('#samples .shelf-volume.is-faceout').evaluateAll(es=>es.map(e=>e.dataset.volume)),viewport.width<=1100?['alice']:['alice','at-table','walden'],'Approved starting covers');
+     assert.deepEqual(await page.locator('#samples .shelf-volume.is-faceout').evaluateAll(es=>es.map(e=>e.dataset.volume)),viewport.width<=1280?['alice']:['alice','at-table','walden'],'Approved starting covers');
      await state(page,'alice','Initial');await layout(page,engine+' '+viewport.width+' initial');
      assert.ok(await page.locator('#samples .book-object').evaluateAll(es=>es.every(e=>getComputedStyle(e).transitionDuration.split(',').every(s=>parseFloat(s)===0))),'Reduced motion removes book transitions');
      await screenshot(page,`${engine}-${viewport.width}x${viewport.height}`);
@@ -138,22 +138,22 @@ try{
       await pick(page,id).click();await settled(page);await state(page,id,id);await layout(page,engine+' '+viewport.width+' '+id);
       assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money','Shelf leaves hero alone');
      }
-     if(viewport.width<=1100){
+     if(viewport.width<=1280){
       assert.equal(await page.locator('[data-shelf-step="1"]').isDisabled(),true,'Last book disables Next');
-      await page.locator('[data-shelf-step="-1"]').click();await settled(page);await state(page,'walden','Previous control');
+      await page.locator('[data-shelf-step="-1"]').click();await settled(page);await state(page,'war-and-peace','Previous control');
       await pick(page,'alice').focus();await page.keyboard.press('Home');await settled(page);
       assert.equal(await page.locator('[data-shelf-step="-1"]').isDisabled(),true,'First book disables Previous');
-      await page.locator('[data-shelf-step="1"]').click();await settled(page);await state(page,'at-table','Next control');
+      await page.locator('[data-shelf-step="1"]').click();await settled(page);await state(page,'mountains','Next control');
      }
      assert.deepEqual(network,{errors:[],external:[],badResponses:[]});
-     receipts.push({engine,viewport,allElevenSelections:true,keyboard:true,heroIsolation:true,layout:true,reducedMotion:true});
-     console.log(JSON.stringify({engine,viewport,allElevenSelections:'passed'}));
+     receipts.push({engine,viewport,allSelections:true,keyboard:true,heroIsolation:true,layout:true,reducedMotion:true});
+     console.log(JSON.stringify({engine,viewport,allSelections:'passed'}));
     }finally{await context.close();}
    }
 
    // Normal animation: hover changes only elevation; rapid navigation and a
    // breakpoint crossing must end with the selected cover and link aligned.
-   const animated=await browser.newContext({viewport:{width:1280,height:900},reducedMotion:'no-preference'});
+   const animated=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'no-preference'});
    try{
     const page=await animated.newPage(),network=monitor(page);await page.goto(base);await ready(page);
     await page.mouse.move(0,0);await settled(page);
@@ -167,9 +167,9 @@ try{
     await inward.click();await settled(page);await state(page,'inward-life','Click turns');
     await screenshot(page,engine+'-desktop-inward');
     await pick(page,'alice').focus();await page.keyboard.press('Home');
-    for(let i=0;i<10;i++)await page.keyboard.press('ArrowRight');
+    for(let i=0;i<order.length-1;i++)await page.keyboard.press('ArrowRight');
     await settled(page);await state(page,'music-and-feeling','Rapid keyboard changes');await layout(page,engine+' rapid desktop');
-    for(const width of [1100,1101,390,1280]){
+    for(const width of [1280,1281,390,1280]){
      await page.setViewportSize({width,height:900});await settled(page);await state(page,'music-and-feeling','Resize '+width);await layout(page,engine+' resize '+width);
     }
     await page.setViewportSize({width:390,height:844});await settled(page);
@@ -207,7 +207,7 @@ try{
      await screenshot(page,`${engine}-${width}-${fallback}`,{scripted:fallback!=='no-javascript'});
      await page.locator('#samples .shelf-fallback a[href="/alice/"]').click();await page.waitForURL('**/alice/');
      assert.equal(new URL(page.url()).pathname,'/alice/','Static link navigates');
-     receipts.push({engine,width,fallback,allElevenLinks:true});
+     receipts.push({engine,width,fallback,allLinks:true});
     }finally{await context.close();}
    }
 

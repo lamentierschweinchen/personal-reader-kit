@@ -1,6 +1,6 @@
 # Contributing an edition to the library
 
-The [New reading library](https://newreading.app/library/) collects prepared editions: a particular source, a useful reading experience and any companion its maker has built. Eleven editions prepared by New reading form the current shelf, including five meetings of writers. Community proposals are reviewed before joining it.
+The [New reading library](https://newreading.app/library/) collects prepared editions: a particular source, a useful reading experience and any companion its maker has built. Fourteen editions prepared by New reading form the current shelf, including six meetings of writers. Community proposals are reviewed before joining it.
 
 ## Propose a reader
 
@@ -18,9 +18,9 @@ Link acceptance is specific to the reviewed revision and destination. Recheck ch
 
 ## Maintaining the catalogue
 
-`showcase/library/entries.json` contains public discovery metadata only. It references the existing examples and their source reviews; it is not a list of arbitrary applications to execute or deploy. The current validator admits exactly the eleven reviewed hosted examples. Accepting an external contribution requires a deliberate schema and review change, including a clear maker-hosted label, approved local thumbnail, revision and maintenance record. Do not weaken that validator merely to make a submission pass.
+`showcase/library/entries.json` contains public discovery metadata only. It references the existing examples and their source reviews; it is not a list of arbitrary applications to execute or deploy. The current validator admits exactly the fourteen reviewed hosted examples. Accepting an external contribution requires a deliberate schema and review change, including a clear maker-hosted label, approved local thumbnail, revision and maintenance record. Do not weaken that validator merely to make a submission pass.
 
-The generator renders all eleven read links and edition disclosures into static HTML. Search, filtering, sorting and modal previews enhance it without an account, upload endpoint, analytics or reading-storage access. Existing reader URLs, database names, workers and records remain unchanged. The library is not an offline reader and does not claim a universal import format.
+The generator renders all fourteen read links and edition disclosures into static HTML. Search, filtering, sorting and modal previews enhance it without an account, upload endpoint, analytics or reading-storage access. Existing reader URLs, database names, workers and records remain unchanged. The library is not an offline reader and does not claim a universal import format.
 
 After an accepted metadata change, run `node showcase/library/render.mjs` and review the generated HTML. The combined builder also regenerates it deterministically. Update the exact publication inventory and named deployment inputs when adding code or assets, then run the kit tests, relevant browser checks, minimal-input build and public file/history audit. Preserve the original-sample starter’s boundary. See [showcase hosting](../showcase/README.md) for the established destination.
 

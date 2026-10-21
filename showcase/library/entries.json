@@ -311,6 +311,93 @@
         "Walt Whitman"
       ],
       "rightsPath": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "mountains",
+      "exampleId": "mountains-and-heights",
+      "title": "The Alps",
+      "author": "Martin Conway · A. D. McCormick",
+      "shortAuthor": "Conway / McCormick",
+      "kind": "Mountains & travel",
+      "edition": "The complete 1904 text by Martin Conway, with all seventy colour illustrations by A. D. McCormick. Project Gutenberg 39542 and the University of Toronto scan of the printed volume.",
+      "feature": "Snow, rock, and seventy paintings.",
+      "description": "Read Conway’s visitor and climber beside the Jungfrau, or compare two paintings of Pallanza.",
+      "categories": [
+        "art",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/39542",
+        "https://archive.org/details/alps00conw"
+      ],
+      "sourceLabels": [
+        "Text edition",
+        "Illustrated volume"
+      ],
+      "rightsPath": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "nietzsche",
+      "exampleId": "nietzsche-in-company",
+      "title": "Nietzsche in company",
+      "author": "Friedrich Nietzsche · Epicurus",
+      "shortAuthor": "Nietzsche / Epicurus",
+      "kind": "Philosophy",
+      "edition": "The complete Joyful Wisdom, including its verse, in the 1910 English edition; Epicurus’s complete Letter to Menoeceus in C. D. Yonge’s translation. Project Gutenberg 52124 and 57342.",
+      "feature": "Nietzsche reads Epicurus.",
+      "description": "Read Nietzsche’s account of Epicurus beside the letter itself, then compare it with Nietzsche’s later judgment.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/52124",
+        "https://www.gutenberg.org/ebooks/57342"
+      ],
+      "sourceLabels": [
+        "Nietzsche source",
+        "Epicurus source"
+      ],
+      "rightsPath": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "language": "English",
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "id": "war-and-peace",
+      "exampleId": "war-and-peace",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "shortAuthor": "Leo Tolstoy",
+      "kind": "Novel",
+      "edition": "The complete Maude translation: fifteen books and both epilogues. Twelve plates from the illustrated album published for Sever in 1893 accompany the text.",
+      "feature": "The novel and its 1893 illustrations.",
+      "description": "Open the album as you reach each illustrated chapter, with names and historical references at hand.",
+      "categories": [
+        "art",
+        "ideas"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2600",
+        "https://www.prlib.ru/item/1988888"
+      ],
+      "sourceLabels": [
+        "Maude translation",
+        "1893 illustrated album"
+      ],
+      "rightsPath": "examples/war-and-peace/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

@@ -4,8 +4,8 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../',import.meta.url));
-const editionPattern=/^(?:examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)|examples\/learning-to-see\/docs\/EDITION-INVENTORY\.json)$/;
-const fontPattern=/^(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed)\/site)\/[a-z0-9-]+\.woff2$/;
+const editionPattern=/^(?:examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg|webp)|examples\/learning-to-see\/docs\/EDITION-INVENTORY\.json)$/;
+const fontPattern=/^(?:(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed)\/site)\/[a-z0-9-]+\.woff2|examples\/war-and-peace\/site\/Literata-(?:Roman|Italic)\.ttf)$/;
 const iconPattern=/^(?:site|examples\/[a-z0-9-]+\/site)\/(?:apple-touch-icon|icon-(?:192|512))\.png$/;
 export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[],reviewedFonts=[],reviewedIcons=[]) {
   const problems=[];
@@ -26,7 +26,7 @@ export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteA
   const reviewedIcon=iconPattern.test(name)&&reviewedIcons.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
   if(iconPattern.test(name)&&!reviewedIcon)problems.push('home-screen icon lacks an exact reviewed provenance entry');
   const content=inspectContent(bytes);
-  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g)$/.test(name))||reviewedSite||reviewedFont||reviewedIcon)&&reason==='binary data requires a separate provenance review'))];
+  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g|webp)$/.test(name))||reviewedSite||reviewedFont||reviewedIcon)&&reason==='binary data requires a separate provenance review'))];
 }
 export function inspectContent(bytes) {
   const problems=[];

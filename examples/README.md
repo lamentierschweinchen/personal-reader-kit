@@ -1,4 +1,4 @@
-# Eleven readers and three small games
+# Fourteen readers and three small games
 
 These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not presets for the stock importer.
 
@@ -15,6 +15,10 @@ These are complete, runnable examples of what an agent can build with the kit. E
 | [What Can Music Say?](music-and-feeling/README.md) | A spare listening room and two judgments of Beethoven’s Ninth | Hanslick/Cohen, 1891-dated scan; Tolstoy/Maude, [64908](https://www.gutenberg.org/ebooks/64908) |
 | [Learning to See](learning-to-see/README.md) | Two olive branches, complete source plates and an adjustable repeating sprig | Ruskin and Crane; [30325](https://www.gutenberg.org/ebooks/30325), [25290](https://www.gutenberg.org/ebooks/25290) |
 | [Beside the Bed](beside-the-bed/README.md) | An empty chair, the visitor’s work and close reading of sound | Nightingale and Whitman’s complete Specimen Days; [12439](https://www.gutenberg.org/ebooks/12439), [8813](https://www.gutenberg.org/ebooks/8813) |
+
+| [The Alps](mountains-and-heights/README.md) | Conway’s complete book, seventy paintings and paired views of snow and rock | Conway and McCormick; [39542](https://www.gutenberg.org/ebooks/39542), [1904 scan](https://archive.org/details/alps00conw) |
+| [Nietzsche in company](nietzsche-in-company/README.md) | The complete Joyful Wisdom, read beside Epicurus’s letter | Nietzsche and Epicurus; [52124](https://www.gutenberg.org/ebooks/52124), [57342](https://www.gutenberg.org/ebooks/57342) |
+| [War and Peace](war-and-peace/README.md) | The complete Maude translation and twelve 1893 plates, opened by chapter | Tolstoy/Maude; [2600](https://www.gutenberg.org/ebooks/2600), [album](https://www.prlib.ru/item/1988888) |
 
 ## Try one
 
@@ -35,7 +39,7 @@ From a selected or saved passage, **Make card** creates a quotation image in tha
 
 ## What is public
 
-The user selected these eleven reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these fourteen reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. The catalogue declarations establish **public domain in the USA**, not worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -60,11 +64,11 @@ Before shipping authored UI or companion prose, follow the enclosing [reader-cop
 
 Maintain the published examples here. The source trial commits identify their starting point; do not continually copy entire working directories from a personal project. If accepting a later trial change, review that diff, rerun its journeys, and update only the selected files and evidence. New personal projects use `publication.json.starterFiles`, which excludes this optional collection.
 
-## One catalogue, eleven reader paths
+## One catalogue, fourteen reader paths
 
 [newreading.app](https://newreading.app/) is built by the [showcase](../showcase/README.md) with the founding readers at `/austen/`, `/alice/`, `/walden/`, `/two-halls/`, `/odyssey/` and `/dracula/`. The five meetings have their own paths at `/at-table/`, `/inward-life/`, `/music-and-feeling/`, `/learning-to-see/` and `/beside-the-bed/`. It uses one Vercel project with `showcase` as the Root Directory. The existing `read.lookatseel.com` address remains available. The earlier book subdomains redirect network requests to the corresponding new paths.
 
-The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All eleven applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
+The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All fourteen applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
 
 Each example can still be built independently with `npm run build` and output `dist`. Unmodified standalone builds need separate origins: their root URLs, database names and cache prefixes collide if their folders are simply copied under one address. The old-host redirect rules apply only to the four named `lookatseel.com` book hosts, so a new owner's deployment is unaffected. See [hosting and migration guidance](../docs/DEPLOYMENT.md#hosting-several-customized-readers).
 

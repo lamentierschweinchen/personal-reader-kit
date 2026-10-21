@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Published on the canonical addresses; production verification and limits are recorded in docs/STATUS.md.",
+  "status": "Fourteen owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -3605,6 +3605,550 @@
         "site/icon-192.png",
         "site/icon-512.png",
         "site/manifest.webmanifest"
+      ]
+    },
+    {
+      "id": "mountains-and-heights",
+      "title": "The Alps",
+      "description": "Conway’s complete 1904 book with McCormick’s seventy colour plates, Snow and rock, Pallanza and Chillon.",
+      "directory": "examples/mountains-and-heights",
+      "sourceCommit": "ae78483dee45db2e8b77ce2789c13648ad66c2d2",
+      "sourceFileCount": 33,
+      "packagingChanges": [
+        ".gitignore",
+        ".vercelignore",
+        "AGENTS.md",
+        "README.md",
+        "VERSION-HISTORY.md",
+        "docs/APP-ICONS.md",
+        "docs/EDITION-INVENTORY.json",
+        "docs/SOURCE-ADAPTER.md",
+        "docs/SOURCE-RIGHTS.md",
+        "edition/cover-plate.jpg",
+        "edition/inventory.json",
+        "package.json",
+        "publication.json",
+        "scripts/build.mjs",
+        "scripts/serve.mjs",
+        "site/app.mjs",
+        "site/index.html",
+        "tests/design-browser.mjs",
+        "tests/edition.test.mjs",
+        "tests/first-load-browser.mjs",
+        "tests/notice-browser.mjs",
+        "tests/reader-browser.mjs"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:reader",
+        "test:design",
+        "test:notice",
+        "test:first-load"
+      ],
+      "url": "https://newreading.app/mountains/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 80085,
+          "sha256": "745f73516133dcd0bd3d3eef72cb78333632790cfb944922c5130b42772b6640"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 3547,
+          "sha256": "dc8b1a206a462f103e4e7732e667137c08ff5d9bde56c195ff69539bc56840fe"
+        },
+        {
+          "path": "build.json",
+          "bytes": 567,
+          "sha256": "f13cb58e6bcda07753a8c8025592d9053b0a42635f555717f1c2020ff5966840"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 19569,
+          "sha256": "9b9b7a867dd791b42c331b5dffe1b50f9e7d5e7009b947ee538cf90129df4acd"
+        },
+        {
+          "path": "cover-plate.jpg",
+          "bytes": 287944,
+          "sha256": "84492b3ef88477b4dbb9ef3be8720c94685258600ee87eef33303b9ef6d8030d"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "experience.json",
+          "bytes": 3218,
+          "sha256": "15e8315503e7c96b2bd9feb181b37a561cdc2ce2a43a5bbf0aeed6e10cfa18b0"
+        },
+        {
+          "path": "experience.mjs",
+          "bytes": 7493,
+          "sha256": "82207b78cf456054d3077eb0a438f7371061bd48303d97206e75bccada908bc4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 3199,
+          "sha256": "ed9ea47f459ac07a7486f4ab2a3b96dcb6c2909ccd383f5fe4894fdf2c65a8a9"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 6801,
+          "sha256": "9074dd090e30f1db8e1694365b611e69c871e24e850eae0dbeefe67b49f30fb8"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 207,
+          "sha256": "d47c515af9158fecfb5393ebfdaf687d3bcf41b6a537c339fb02f973b99c1a0b"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3136,
+          "sha256": "e9d1deebd30635508ad62b34dbad8fb05fd4dd14185fde8650b2b1e3db2343b8"
+        },
+        {
+          "path": "library.json",
+          "bytes": 30792259,
+          "sha256": "1bf5e98ae6a74446d257b59d803a4bc8a52ba269fcf3c61c115a9068a4f6a0c4"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 333,
+          "sha256": "9063482a59252713b2da2df6006c1bc6db1e5a1ee0278701cea4447c8ff38ee8"
+        },
+        {
+          "path": "media.mjs",
+          "bytes": 4736,
+          "sha256": "49098af37df08b9ffc98707ca2391d7557c5b3c8ad7253853733e42cba60e433"
+        },
+        {
+          "path": "mountains.css",
+          "bytes": 16722,
+          "sha256": "edebdb44a6adaf5fd1b3db1679bb42f2ce97052cc8c2f86bf3e5cdd8c95e388c"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23644,
+          "sha256": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1318,
+          "sha256": "c7cef1443cc68e3993a9b0e21aeab8437d3adb0bcd27cbddd0c6b7cdfea1864f"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4677,
+          "sha256": "9d34ed995c19446fac5b8b3450339f65834d8b9424342e6cf2a78cffaace3ddd"
+        }
+      ]
+    },
+    {
+      "id": "nietzsche-in-company",
+      "title": "Nietzsche in company",
+      "description": "The complete Joyful Wisdom, with Epicurus’s Letter to Menœceus and a comparison of §§45 and 370.",
+      "directory": "examples/nietzsche-in-company",
+      "sourceCommit": "94a9f7fd661107ae41008c480d70618a9363d4c0",
+      "sourceFileCount": 32,
+      "packagingChanges": [
+        "README.md",
+        "AGENTS.md",
+        "package.json",
+        ".vercelignore",
+        "vercel.json",
+        "edition.json",
+        "edition/",
+        "docs/SOURCE-RIGHTS.md",
+        "docs/COMPATIBILITY.md",
+        "scripts/build.mjs",
+        "scripts/serve.mjs",
+        "site/app.mjs",
+        "site/company.mjs",
+        "site/company.css",
+        "site/edition-copy.mjs",
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/robots.txt",
+        "tests/browser.mjs",
+        "tests/edition.test.mjs",
+        "tests/install-artwork.test.mjs"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:browser"
+      ],
+      "url": "https://newreading.app/nietzsche/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 64900,
+          "sha256": "5970d45b3a41a9620f1fe146cdad56d5acce38d5fd48c5be1abc2bcd607ec23c"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 6336,
+          "sha256": "58269a534f5c3bfb6df696263244482a704c237a7b8607167ee9012f44c2daf8"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "company.css",
+          "bytes": 14972,
+          "sha256": "d12dd6792e8da93289d6c73889ecb7bfd6d4bbd5fde5f524eed9f8ba825cc57e"
+        },
+        {
+          "path": "company.json",
+          "bytes": 54437,
+          "sha256": "72c73ed5d8c845301cbba0902b68e6cbbbda63f9a072816682eb2ab4a956f14f"
+        },
+        {
+          "path": "company.mjs",
+          "bytes": 6920,
+          "sha256": "89c4f5422949c7f39fa9642fffbf980410925d58d8c144f3d332183146efeafe"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 18083,
+          "sha256": "46636e1e3543a0fa7fa5cd36460cc17f5681445bd09611537b6d84689cf8fe16"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "edition-copy.mjs",
+          "bytes": 1306,
+          "sha256": "71c8a3158b4095e5dc188556d5ac7f496791e91b261a2cbe702b4fcad2b6dc38"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 6679,
+          "sha256": "cc8ee079e25782540adabe49e90398697b19477f77b23c80136ded12ee681a40"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 19152,
+          "sha256": "67dbd7f1b5b09ae1a122de64641c5985d3f30cdcfc2d5f686dae8df4f933612f"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 484,
+          "sha256": "c55d8f5e1e3628864cdc87f1d20c97334566ffa509164163aface46b75ffccb4"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3568,
+          "sha256": "f6f6746dd1a9d7bd4bd5ab652841fbce88138c01f5a8e3e84e75f1856e8e4166"
+        },
+        {
+          "path": "library.json",
+          "bytes": 917559,
+          "sha256": "8db6b0db60dcf08315689074ca85d5af325fadbfc61cfd5c5c42bd5056064348"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 685,
+          "sha256": "9eb0b174bf0b0783b1b86ba55132b244ea175db99a9a2b80f89f6b94d2bac022"
+        },
+        {
+          "path": "reading-place.mjs",
+          "bytes": 959,
+          "sha256": "e6679eede71c937b27a67ca8faedf2050dca8aeab392c2b0c6e7eec2924ddf17"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 23,
+          "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23644,
+          "sha256": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1321,
+          "sha256": "bc150a91af682debbf3e81b9d6f98c9f604b41594e6a4f7414ef0fa7373995f8"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
+      ],
+      "maintenanceChanges": []
+    },
+    {
+      "id": "war-and-peace",
+      "title": "War and Peace",
+      "description": "The complete Maude translation with twelve illustrations from the 1893 album, opened through the chapters you choose.",
+      "directory": "examples/war-and-peace",
+      "sourceCommit": "40ce940dab021fd09d7103bf0410b854db93cf01",
+      "sourceFileCount": 43,
+      "packagingChanges": [
+        ".vercelignore",
+        "AGENTS.md",
+        "LICENSE",
+        "README.md",
+        "docs/EDITION-INVENTORY.json",
+        "docs/SOURCE-RIGHTS.md",
+        "edition-lock.json",
+        "edition/companion.json",
+        "package.json",
+        "scripts/build.mjs",
+        "scripts/serve.mjs",
+        "site/app.mjs",
+        "site/edition.css",
+        "site/edition.mjs",
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "tests/edition.test.mjs",
+        "tests/harness.mjs",
+        "tests/offline-browser.mjs",
+        "tests/reader-browser.mjs"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:reader",
+        "test:offline"
+      ],
+      "url": "https://newreading.app/war-and-peace/",
+      "reviewedBuild": [
+        {
+          "path": "Literata-Italic.ttf",
+          "bytes": 902728,
+          "sha256": "d483dfaeba9cbf4ce71d32a52ee65df82f7e35b15fff8d1011cdb242d1fcd465"
+        },
+        {
+          "path": "Literata-OFL.txt",
+          "bytes": 4389,
+          "sha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e"
+        },
+        {
+          "path": "Literata-Roman.ttf",
+          "bytes": 955132,
+          "sha256": "b41138c9373112f32abb589cc22e8674b06ed4048b0c513be922bdd26f274440"
+        },
+        {
+          "path": "app.mjs",
+          "bytes": 76216,
+          "sha256": "c452967ffacaedd8ea2ade1b13d655cf04f203db02fb895d9fa408271f3cc3f9"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 4045,
+          "sha256": "a37b059570c85b7f63e22364e65d8a6cd54597018f1ea81e232fd10c5a0dd04d"
+        },
+        {
+          "path": "build.json",
+          "bytes": 867,
+          "sha256": "efa012c0fab3839b1f68a364acf2c45b99ae84236a68b9e22987d715f2304011"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "companion.json",
+          "bytes": 13529,
+          "sha256": "2481e899cf7bc2d81d6bb99cfd4f247ad78bf0c51a3d49c8fbf47e1d6bc9d111"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7264,
+          "sha256": "3572003fb36684607e6477442ab4f7e0d36902777445476d206da2dc911f9e4e"
+        },
+        {
+          "path": "edition.css",
+          "bytes": 17699,
+          "sha256": "40aaa1b709a9b1cb514d1f8229863c175f8d889ab6ca28896857a82041de6e43"
+        },
+        {
+          "path": "edition.mjs",
+          "bytes": 7939,
+          "sha256": "2349c3321fc6e8fec06641833811982d510f18d263dc513730f48938987a6449"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 4296,
+          "sha256": "59cf8501b6c6d52085c8987b75404edf22615d7eef2b81f3e88570464f305fb3"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 14776,
+          "sha256": "ea8fe92c2cbfcf7d2d035cc2d1abac981ce4dcabedf73428b203bceb1f5b15b2"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 337,
+          "sha256": "0ac3b4f54d0493a94edaf3fe6af756545720d7b4c158cfced9130c53596c9f98"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3360,
+          "sha256": "8f2ff7c356b1599ccf5d423b94c86183790f51cfd1d65928dec9872960d206b8"
+        },
+        {
+          "path": "library.json",
+          "bytes": 4278750,
+          "sha256": "d1141e0adb219de52c15975188fb49c6b04f1154499fc88b769dd443e3053699"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 417,
+          "sha256": "e502475e737ed6bd5cac0370040bcff3ec52725b68c677da242b6b6b79faa42b"
+        },
+        {
+          "path": "plate-ball.webp",
+          "bytes": 956632,
+          "sha256": "b13418c7ca9d48d02269bc7fd617df6b15742721703609cf961aafcaf70340df"
+        },
+        {
+          "path": "plate-execution.webp",
+          "bytes": 929088,
+          "sha256": "8f7e3b498aa9dc49c84782add0349370f8a4368eb486852f24a31f941e489423"
+        },
+        {
+          "path": "plate-hunt.webp",
+          "bytes": 1045534,
+          "sha256": "b5b6ff27fd85113d385c8b46e194c8f1dd776ce098643eed07f7c305d39b6462"
+        },
+        {
+          "path": "plate-kutuzov.webp",
+          "bytes": 899462,
+          "sha256": "46ed36d0ea69211319ada7d5bd164e2e45abf9e81cf109ab9a3107417975baf7"
+        },
+        {
+          "path": "plate-lavrushka.webp",
+          "bytes": 923340,
+          "sha256": "d45e80a6acff4a7d6addb77c5330da906832b235f6b5dda46c30ea9db5732c9f"
+        },
+        {
+          "path": "plate-mytishchi.webp",
+          "bytes": 955052,
+          "sha256": "0aa1999140a5559cf32e4944942ee25456f8128d7257a8f8aea77647358de166"
+        },
+        {
+          "path": "plate-petya.webp",
+          "bytes": 1109696,
+          "sha256": "59bc98deea5129adfbd5305c3a8e2208dd49fa3c0fac0f3bd014c6d95a3d9923"
+        },
+        {
+          "path": "plate-portrait.webp",
+          "bytes": 835434,
+          "sha256": "88656a58a85b2e2830ea07d1d39efee4d5f025bf639487438ef9147fc5d71dc1"
+        },
+        {
+          "path": "plate-rostopchin.webp",
+          "bytes": 1061100,
+          "sha256": "a029da1d33ed9975fbf82221b9af597021dee679214b7184c2bfcd493948b6a3"
+        },
+        {
+          "path": "plate-sleigh.webp",
+          "bytes": 1127606,
+          "sha256": "4e2ee4bdd0616edf3b79a820a75b8f231930dfe5604c271d16238c2614a330c2"
+        },
+        {
+          "path": "plate-tilsit.webp",
+          "bytes": 869008,
+          "sha256": "6cee39ce69dd5aacf47fef0b4d093372ac56cddca031ee718aa8dc5b45e1a92e"
+        },
+        {
+          "path": "plate-tushin.webp",
+          "bytes": 1171958,
+          "sha256": "6a22b7512305e53398385d899b3ae3517da7bcea8936b59b9552e4f8614d55bf"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "structure.json",
+          "bytes": 49480,
+          "sha256": "5d51c04f94a6d958c4e8f0203209c6365dab18a8af7e4d1b3856e37d50408a2c"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23644,
+          "sha256": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1621,
+          "sha256": "cf5a082c078534ce856a5582d7627aa8773e08f5b8162004b45b2062b8394ede"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
       ]
     }
   ],

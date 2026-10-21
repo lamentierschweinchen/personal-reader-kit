@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace'});
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
@@ -45,8 +45,16 @@ export async function buildReaders(output){
         bytes=Buffer.from(text);
       }
       if(asset.path==='db.mjs'){
-        const prior=slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling'].includes(slug)?slug+'-v1':'reading-kit-v1';
+        const prior=slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
         bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
+      }
+      if(asset.path==='app.mjs'&&slug==='nietzsche')bytes=Buffer.from(replace(bytes.toString(),"fetch('/company.json'",`fetch('${base}company.json'`));
+      if(asset.path==='app.mjs'&&slug==='mountains')bytes=Buffer.from(replace(bytes.toString(),"fetch('/experience.json')",`fetch('${base}experience.json')`));
+      if(asset.path==='edition.mjs'&&slug==='war-and-peace'){
+        let text=replace(original.toString(),"['/structure.json','/companion.json']",`['${base}structure.json','${base}companion.json']`);
+        text=replace(text,'src="/${esc(p.file)}"','src="'+base+'${esc(p.file)}"');
+        text=replace(text,'href="/Literata-OFL.txt"',`href="${base}Literata-OFL.txt"`);
+        bytes=Buffer.from(text);
       }
       if(asset.path==='app.mjs'&&slug==='dracula')bytes=Buffer.from(replace(bytes.toString(),"fetch('/source-notices.json')",`fetch('${base}source-notices.json')`));
       if(asset.path==='collection.mjs'&&slug==='inward-life')bytes=Buffer.from(replace(original.toString(),'src="/collection-art.svg"',`src="${base}collection-art.svg"`));

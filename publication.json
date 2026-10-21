@@ -361,6 +361,58 @@
     "examples/learning-to-see/tests/share.test.mjs",
     "examples/learning-to-see/tests/ui-icons.test.mjs",
     "examples/learning-to-see/vercel.json",
+    "examples/mountains-and-heights/.gitignore",
+    "examples/mountains-and-heights/.vercelignore",
+    "examples/mountains-and-heights/AGENTS.md",
+    "examples/mountains-and-heights/LICENSE",
+    "examples/mountains-and-heights/README.md",
+    "examples/mountains-and-heights/VERSION-HISTORY.md",
+    "examples/mountains-and-heights/docs/APP-ICONS.md",
+    "examples/mountains-and-heights/docs/EDITION-INVENTORY.json",
+    "examples/mountains-and-heights/docs/SOURCE-ADAPTER.md",
+    "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+    "examples/mountains-and-heights/edition/cover-plate.jpg",
+    "examples/mountains-and-heights/edition/experience.json",
+    "examples/mountains-and-heights/edition/inventory.json",
+    "examples/mountains-and-heights/edition/library.json",
+    "examples/mountains-and-heights/package.json",
+    "examples/mountains-and-heights/publication.json",
+    "examples/mountains-and-heights/samples/README.md",
+    "examples/mountains-and-heights/samples/library.json",
+    "examples/mountains-and-heights/scripts/build.mjs",
+    "examples/mountains-and-heights/scripts/make-app-icons.py",
+    "examples/mountains-and-heights/scripts/serve.mjs",
+    "examples/mountains-and-heights/site/app.mjs",
+    "examples/mountains-and-heights/site/apple-touch-icon.png",
+    "examples/mountains-and-heights/site/bundle.mjs",
+    "examples/mountains-and-heights/site/core.mjs",
+    "examples/mountains-and-heights/site/db.mjs",
+    "examples/mountains-and-heights/site/experience.mjs",
+    "examples/mountains-and-heights/site/icon-192.png",
+    "examples/mountains-and-heights/site/icon-512.png",
+    "examples/mountains-and-heights/site/icon.svg",
+    "examples/mountains-and-heights/site/index.html",
+    "examples/mountains-and-heights/site/manifest.webmanifest",
+    "examples/mountains-and-heights/site/media.mjs",
+    "examples/mountains-and-heights/site/mountains.css",
+    "examples/mountains-and-heights/site/robots.txt",
+    "examples/mountains-and-heights/site/share-card.css",
+    "examples/mountains-and-heights/site/share-card.mjs",
+    "examples/mountains-and-heights/site/share.mjs",
+    "examples/mountains-and-heights/site/style.css",
+    "examples/mountains-and-heights/site/text.mjs",
+    "examples/mountains-and-heights/tests/bundle.test.mjs",
+    "examples/mountains-and-heights/tests/core.test.mjs",
+    "examples/mountains-and-heights/tests/design-browser.mjs",
+    "examples/mountains-and-heights/tests/edition.test.mjs",
+    "examples/mountains-and-heights/tests/first-load-browser.mjs",
+    "examples/mountains-and-heights/tests/illustrated.test.mjs",
+    "examples/mountains-and-heights/tests/notice-browser.mjs",
+    "examples/mountains-and-heights/tests/reader-browser.mjs",
+    "examples/mountains-and-heights/tests/share-card.test.mjs",
+    "examples/mountains-and-heights/tests/share.test.mjs",
+    "examples/mountains-and-heights/tests/ui-icons.test.mjs",
+    "examples/mountains-and-heights/vercel.json",
     "examples/music-and-feeling/.gitignore",
     "examples/music-and-feeling/.vercelignore",
     "examples/music-and-feeling/AGENTS.md",
@@ -599,6 +651,53 @@
     "examples/music-and-feeling/tests/share.test.mjs",
     "examples/music-and-feeling/tests/ui-icons.test.mjs",
     "examples/music-and-feeling/vercel.json",
+    "examples/nietzsche-in-company/.gitignore",
+    "examples/nietzsche-in-company/.vercelignore",
+    "examples/nietzsche-in-company/AGENTS.md",
+    "examples/nietzsche-in-company/LICENSE",
+    "examples/nietzsche-in-company/README.md",
+    "examples/nietzsche-in-company/docs/COMPATIBILITY.md",
+    "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+    "examples/nietzsche-in-company/edition.json",
+    "examples/nietzsche-in-company/edition/company.json",
+    "examples/nietzsche-in-company/edition/library.json",
+    "examples/nietzsche-in-company/install-artwork.json",
+    "examples/nietzsche-in-company/package.json",
+    "examples/nietzsche-in-company/samples/README.md",
+    "examples/nietzsche-in-company/samples/library.json",
+    "examples/nietzsche-in-company/scripts/build.mjs",
+    "examples/nietzsche-in-company/scripts/install-artwork.mjs",
+    "examples/nietzsche-in-company/scripts/serve.mjs",
+    "examples/nietzsche-in-company/site/app.mjs",
+    "examples/nietzsche-in-company/site/apple-touch-icon.png",
+    "examples/nietzsche-in-company/site/bundle.mjs",
+    "examples/nietzsche-in-company/site/company.css",
+    "examples/nietzsche-in-company/site/company.mjs",
+    "examples/nietzsche-in-company/site/core.mjs",
+    "examples/nietzsche-in-company/site/db.mjs",
+    "examples/nietzsche-in-company/site/edition-copy.mjs",
+    "examples/nietzsche-in-company/site/icon-192.png",
+    "examples/nietzsche-in-company/site/icon-512.png",
+    "examples/nietzsche-in-company/site/icon.svg",
+    "examples/nietzsche-in-company/site/index.html",
+    "examples/nietzsche-in-company/site/manifest.webmanifest",
+    "examples/nietzsche-in-company/site/reading-place.mjs",
+    "examples/nietzsche-in-company/site/robots.txt",
+    "examples/nietzsche-in-company/site/share-card.css",
+    "examples/nietzsche-in-company/site/share-card.mjs",
+    "examples/nietzsche-in-company/site/share.mjs",
+    "examples/nietzsche-in-company/site/style.css",
+    "examples/nietzsche-in-company/site/text.mjs",
+    "examples/nietzsche-in-company/tests/browser.mjs",
+    "examples/nietzsche-in-company/tests/bundle.test.mjs",
+    "examples/nietzsche-in-company/tests/core.test.mjs",
+    "examples/nietzsche-in-company/tests/edition.test.mjs",
+    "examples/nietzsche-in-company/tests/install-artwork.test.mjs",
+    "examples/nietzsche-in-company/tests/reading-place.test.mjs",
+    "examples/nietzsche-in-company/tests/share-card.test.mjs",
+    "examples/nietzsche-in-company/tests/share.test.mjs",
+    "examples/nietzsche-in-company/tests/ui-icons.test.mjs",
+    "examples/nietzsche-in-company/vercel.json",
     "examples/odyssey/.vercelignore",
     "examples/odyssey/AGENTS.md",
     "examples/odyssey/LICENSE",
@@ -1026,6 +1125,62 @@
     "examples/walden/tests/walden-design-browser.mjs",
     "examples/walden/tests/walden.test.mjs",
     "examples/walden/vercel.json",
+    "examples/war-and-peace/.gitignore",
+    "examples/war-and-peace/.vercelignore",
+    "examples/war-and-peace/AGENTS.md",
+    "examples/war-and-peace/LICENSE",
+    "examples/war-and-peace/README.md",
+    "examples/war-and-peace/docs/EDITION-INVENTORY.json",
+    "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+    "examples/war-and-peace/edition-lock.json",
+    "examples/war-and-peace/edition/companion.json",
+    "examples/war-and-peace/edition/library.json",
+    "examples/war-and-peace/edition/plate-ball.webp",
+    "examples/war-and-peace/edition/plate-execution.webp",
+    "examples/war-and-peace/edition/plate-hunt.webp",
+    "examples/war-and-peace/edition/plate-kutuzov.webp",
+    "examples/war-and-peace/edition/plate-lavrushka.webp",
+    "examples/war-and-peace/edition/plate-mytishchi.webp",
+    "examples/war-and-peace/edition/plate-petya.webp",
+    "examples/war-and-peace/edition/plate-portrait.webp",
+    "examples/war-and-peace/edition/plate-rostopchin.webp",
+    "examples/war-and-peace/edition/plate-sleigh.webp",
+    "examples/war-and-peace/edition/plate-tilsit.webp",
+    "examples/war-and-peace/edition/plate-tushin.webp",
+    "examples/war-and-peace/edition/structure.json",
+    "examples/war-and-peace/package.json",
+    "examples/war-and-peace/scripts/build.mjs",
+    "examples/war-and-peace/scripts/serve.mjs",
+    "examples/war-and-peace/site/Literata-Italic.ttf",
+    "examples/war-and-peace/site/Literata-OFL.txt",
+    "examples/war-and-peace/site/Literata-Roman.ttf",
+    "examples/war-and-peace/site/app.mjs",
+    "examples/war-and-peace/site/apple-touch-icon.png",
+    "examples/war-and-peace/site/bundle.mjs",
+    "examples/war-and-peace/site/core.mjs",
+    "examples/war-and-peace/site/db.mjs",
+    "examples/war-and-peace/site/edition.css",
+    "examples/war-and-peace/site/edition.mjs",
+    "examples/war-and-peace/site/icon-192.png",
+    "examples/war-and-peace/site/icon-512.png",
+    "examples/war-and-peace/site/icon.svg",
+    "examples/war-and-peace/site/index.html",
+    "examples/war-and-peace/site/manifest.webmanifest",
+    "examples/war-and-peace/site/robots.txt",
+    "examples/war-and-peace/site/share-card.css",
+    "examples/war-and-peace/site/share-card.mjs",
+    "examples/war-and-peace/site/share.mjs",
+    "examples/war-and-peace/site/style.css",
+    "examples/war-and-peace/site/text.mjs",
+    "examples/war-and-peace/tests/bundle.test.mjs",
+    "examples/war-and-peace/tests/edition-merge.test.mjs",
+    "examples/war-and-peace/tests/edition.test.mjs",
+    "examples/war-and-peace/tests/harness.mjs",
+    "examples/war-and-peace/tests/offline-browser.mjs",
+    "examples/war-and-peace/tests/reader-browser.mjs",
+    "examples/war-and-peace/tests/share-card.test.mjs",
+    "examples/war-and-peace/tests/share.test.mjs",
+    "examples/war-and-peace/vercel.json",
     "package.json",
     "publication.json",
     "samples/README.md",
@@ -1086,6 +1241,7 @@
     "showcase/check-handoff.mjs",
     "showcase/check-inputs.mjs",
     "showcase/check-library.mjs",
+    "showcase/check-new-editions.mjs",
     "showcase/check-odyssey-game.mjs",
     "showcase/check-personal.mjs",
     "showcase/check-readers.mjs",
@@ -3538,6 +3694,132 @@
       "sha256": "a2e661f2c212a5bdf051e223b03c726cf394470703ab3bfd5957e20e4c4a0889",
       "provenance": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
       "reason": "Exact inventory of the selected complete collection and its190 reviewed source images."
+    },
+    {
+      "path": "examples/mountains-and-heights/edition/cover-plate.jpg",
+      "sha256": "84492b3ef88477b4dbb9ef3be8720c94685258600ee87eef33303b9ef6d8030d",
+      "provenance": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact decoded embedded plate 53 used on the reader opening; no additional crop, resize or colour change."
+    },
+    {
+      "path": "examples/mountains-and-heights/edition/experience.json",
+      "sha256": "15e8315503e7c96b2bd9feb181b37a561cdc2ce2a43a5bbf0aeed6e10cfa18b0",
+      "provenance": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved source-led companion configuration or immutable edition pins."
+    },
+    {
+      "path": "examples/mountains-and-heights/edition/inventory.json",
+      "sha256": "0c159046680c3defbb3b5ca0ea1d35a7267883d5085d50d25c9b98a34d5244af",
+      "provenance": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved source-led companion configuration or immutable edition pins."
+    },
+    {
+      "path": "examples/mountains-and-heights/edition/library.json",
+      "sha256": "1bf5e98ae6a74446d257b59d803a4bc8a52ba269fcf3c61c115a9068a4f6a0c4",
+      "provenance": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact complete Conway 1904 digital edition with 70 embedded McCormick JPEGs, full source notice, metadata and source links; no browser records."
+    },
+    {
+      "path": "examples/nietzsche-in-company/edition/library.json",
+      "sha256": "8db6b0db60dcf08315689074ca85d5af325fadbfc61cfd5c5c42bd5056064348",
+      "provenance": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "reason": "Owner-approved Nietzsche and Epicurus package; exact accepted text, source notices and active anchored comparison."
+    },
+    {
+      "path": "examples/nietzsche-in-company/edition/company.json",
+      "sha256": "72c73ed5d8c845301cbba0902b68e6cbbbda63f9a072816682eb2ab4a956f14f",
+      "provenance": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "reason": "Owner-approved Nietzsche and Epicurus package; exact accepted text, source notices and active anchored comparison."
+    },
+    {
+      "path": "examples/war-and-peace/edition/companion.json",
+      "sha256": "2481e899cf7bc2d81d6bb99cfd4f247ad78bf0c51a3d49c8fbf47e1d6bc9d111",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed chapter-gated picture apparatus and corrected captions from source 40ce940; only public source/backup wording changed."
+    },
+    {
+      "path": "examples/war-and-peace/edition/library.json",
+      "sha256": "d1141e0adb219de52c15975188fb49c6b04f1154499fc88b769dd443e3053699",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact complete reviewed Maude novel or chapter structure from source 40ce940; source notices retained and edition fingerprints unchanged."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-ball.webp",
+      "sha256": "b13418c7ca9d48d02269bc7fd617df6b15742721703609cf961aafcaf70340df",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-execution.webp",
+      "sha256": "8f7e3b498aa9dc49c84782add0349370f8a4368eb486852f24a31f941e489423",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-hunt.webp",
+      "sha256": "b5b6ff27fd85113d385c8b46e194c8f1dd776ce098643eed07f7c305d39b6462",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-kutuzov.webp",
+      "sha256": "46ed36d0ea69211319ada7d5bd164e2e45abf9e81cf109ab9a3107417975baf7",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-lavrushka.webp",
+      "sha256": "d45e80a6acff4a7d6addb77c5330da906832b235f6b5dda46c30ea9db5732c9f",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-mytishchi.webp",
+      "sha256": "0aa1999140a5559cf32e4944942ee25456f8128d7257a8f8aea77647358de166",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-petya.webp",
+      "sha256": "59bc98deea5129adfbd5305c3a8e2208dd49fa3c0fac0f3bd014c6d95a3d9923",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-portrait.webp",
+      "sha256": "88656a58a85b2e2830ea07d1d39efee4d5f025bf639487438ef9147fc5d71dc1",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-rostopchin.webp",
+      "sha256": "a029da1d33ed9975fbf82221b9af597021dee679214b7184c2bfcd493948b6a3",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-sleigh.webp",
+      "sha256": "4e2ee4bdd0616edf3b79a820a75b8f231930dfe5604c271d16238c2614a330c2",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-tilsit.webp",
+      "sha256": "6cee39ce69dd5aacf47fef0b4d093372ac56cddca031ee718aa8dc5b45e1a92e",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/plate-tushin.webp",
+      "sha256": "6a22b7512305e53398385d899b3ae3517da7bcea8936b59b9552e4f8614d55bf",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed faithful display reproduction of the 1893 album image; public-domain/faithful-reproduction basis and public service terms recorded in SOURCE-RIGHTS.md. No invented open licence."
+    },
+    {
+      "path": "examples/war-and-peace/edition/structure.json",
+      "sha256": "5d51c04f94a6d958c4e8f0203209c6365dab18a8af7e4d1b3856e37d50408a2c",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact complete reviewed Maude novel or chapter structure from source 40ce940; source notices retained and edition fingerprints unchanged."
     }
   ],
   "reviewedSiteAssets": [
@@ -3864,6 +4146,24 @@
       "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
       "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
       "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
+    },
+    {
+      "path": "examples/war-and-peace/site/Literata-Italic.ttf",
+      "bytes": 902728,
+      "sha256": "d483dfaeba9cbf4ce71d32a52ee65df82f7e35b15fff8d1011cdb242d1fcd465",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "license": "examples/war-and-peace/site/Literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Unmodified complete Literata variable TTF from Google Fonts; exact source URLs and bytes recorded, full SIL OFL 1.1 retained locally. No subsetting, conversion or renaming of font internals."
+    },
+    {
+      "path": "examples/war-and-peace/site/Literata-Roman.ttf",
+      "bytes": 955132,
+      "sha256": "b41138c9373112f32abb589cc22e8674b06ed4048b0c513be922bdd26f274440",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "license": "examples/war-and-peace/site/Literata-OFL.txt",
+      "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Unmodified complete Literata variable TTF from Google Fonts; exact source URLs and bytes recorded, full SIL OFL 1.1 retained locally. No subsetting, conversion or renaming of font internals."
     }
   ],
   "reviewedIconFiles": [
@@ -4082,6 +4382,60 @@
       "sha256": "066980466df13b7443fdc0808b82c642f6b791d3bb3df353dc487dd769a15977",
       "provenance": "docs/HOME-SCREEN.md",
       "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/mountains-and-heights/site/apple-touch-icon.png",
+      "sha256": "dc8b1a206a462f103e4e7732e667137c08ff5d9bde56c195ff69539bc56840fe",
+      "provenance": "examples/mountains-and-heights/docs/APP-ICONS.md",
+      "reason": "Original geometric M monogram; exact opaque PNG exported from the original vector, no source illustration or personal asset."
+    },
+    {
+      "path": "examples/mountains-and-heights/site/icon-192.png",
+      "sha256": "ed9ea47f459ac07a7486f4ab2a3b96dcb6c2909ccd383f5fe4894fdf2c65a8a9",
+      "provenance": "examples/mountains-and-heights/docs/APP-ICONS.md",
+      "reason": "Original geometric M monogram; exact opaque PNG exported from the original vector, no source illustration or personal asset."
+    },
+    {
+      "path": "examples/mountains-and-heights/site/icon-512.png",
+      "sha256": "9074dd090e30f1db8e1694365b611e69c871e24e850eae0dbeefe67b49f30fb8",
+      "provenance": "examples/mountains-and-heights/docs/APP-ICONS.md",
+      "reason": "Original geometric M monogram; exact opaque PNG exported from the original vector, no source illustration or personal asset."
+    },
+    {
+      "path": "examples/nietzsche-in-company/site/apple-touch-icon.png",
+      "sha256": "58269a534f5c3bfb6df696263244482a704c237a7b8607167ee9012f44c2daf8",
+      "provenance": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "reason": "Original circle-and-horizon artwork from accepted source revision; exact opaque installation render."
+    },
+    {
+      "path": "examples/nietzsche-in-company/site/icon-192.png",
+      "sha256": "cc8ee079e25782540adabe49e90398697b19477f77b23c80136ded12ee681a40",
+      "provenance": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "reason": "Original circle-and-horizon artwork from accepted source revision; exact opaque installation render."
+    },
+    {
+      "path": "examples/nietzsche-in-company/site/icon-512.png",
+      "sha256": "67dbd7f1b5b09ae1a122de64641c5985d3f30cdcfc2d5f686dae8df4f933612f",
+      "provenance": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "reason": "Original circle-and-horizon artwork from accepted source revision; exact opaque installation render."
+    },
+    {
+      "path": "examples/war-and-peace/site/apple-touch-icon.png",
+      "sha256": "a37b059570c85b7f63e22364e65d8a6cd54597018f1ea81e232fd10c5a0dd04d",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Original WP vector monogram rasterized as an opaque PNG, unchanged reviewed bytes under normalized public filenames; MIT software artwork. No historical image or literary text."
+    },
+    {
+      "path": "examples/war-and-peace/site/icon-192.png",
+      "sha256": "59cf8501b6c6d52085c8987b75404edf22615d7eef2b81f3e88570464f305fb3",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Original WP vector monogram rasterized as an opaque PNG, unchanged reviewed bytes under normalized public filenames; MIT software artwork. No historical image or literary text."
+    },
+    {
+      "path": "examples/war-and-peace/site/icon-512.png",
+      "sha256": "ea8fe92c2cbfcf7d2d035cc2d1abac981ce4dcabedf73428b203bceb1f5b15b2",
+      "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "reason": "Original WP vector monogram rasterized as an opaque PNG, unchanged reviewed bytes under normalized public filenames; MIT software artwork. No historical image or literary text."
     }
   ]
 }

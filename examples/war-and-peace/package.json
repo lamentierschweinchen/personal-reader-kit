@@ -1,0 +1,14 @@
+{
+  "name": "war-and-peace-reader",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:reader": "node tests/reader-browser.mjs",
+    "test:offline": "node tests/offline-browser.mjs"
+  }
+}

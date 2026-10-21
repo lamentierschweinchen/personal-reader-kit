@@ -1,0 +1,116 @@
+{
+  "bookId": "conway-alps-1904",
+  "bookSha256": "a7ce0999c92116c06878e6b86caddb3a69f6f67192c51fba866fbc41c7dc48ad",
+  "artist": "A. D. McCormick",
+  "kicker": "Seen at the Wren Library",
+  "editionLine": "London, 1904 · twelve chapters · seventy colour plates",
+  "coverPlate": "plate-53",
+  "coverCaption": "Kranzberg—Rotthalhorn—and Jungfrau: Sunset · A. D. McCormick",
+  "sourceView": [
+    {
+      "label": "Text and plates",
+      "text": "Text: Project Gutenberg 39542. Plates: the 1904 Pratt Library, University of Toronto copy (Internet Archive, 2015).",
+      "links": [
+        {
+          "label": "Gutenberg",
+          "url": "https://www.gutenberg.org/ebooks/39542"
+        },
+        {
+          "label": "Toronto scan",
+          "url": "https://archive.org/details/alps00conw"
+        }
+      ]
+    },
+    {
+      "label": "Wren Library",
+      "text": "Seen in Trinity’s 2026 mountaineering exhibition.",
+      "links": [
+        {
+          "label": "Trinity’s announcement",
+          "url": "https://bsky.app/profile/trincolllibcam.bsky.social/post/3mwayh2j5ks26"
+        }
+      ]
+    },
+    {
+      "label": "Transcription",
+      "text": "The digital text is complete; only selected passages have been checked against print.",
+      "links": []
+    }
+  ],
+  "studies": [
+    {
+      "title": "Snow and rock",
+      "attribution": "W. Martin Conway · Chapter II",
+      "plates": [
+        "plate-10"
+      ],
+      "excerpts": [
+        {
+          "label": "The visitor",
+          "sectionId": "chapter-02",
+          "blockId": "b0144",
+          "start": 633,
+          "end": 1113
+        },
+        {
+          "label": "The climber",
+          "sectionId": "chapter-02",
+          "blockId": "b0144",
+          "start": 2228,
+          "end": 2465
+        },
+        {
+          "label": "Conway’s qualification",
+          "sectionId": "chapter-02",
+          "blockId": "b0149",
+          "start": 0,
+          "end": 292
+        }
+      ],
+      "passages": [
+        {
+          "sectionId": "chapter-02",
+          "blockId": "b0144"
+        }
+      ],
+      "sourceLabel": "Read chapter II",
+      "credit": "A. D. McCormick, plate 10."
+    },
+    {
+      "title": "Pallanza",
+      "plates": [
+        "plate-25",
+        "plate-52"
+      ],
+      "note": "Different foregrounds: a broad red roof in Evening, a nearer pale gable in Sunset. The campanile identifies the same town.",
+      "passages": [
+        {
+          "sectionId": "chapter-05",
+          "blockId": "b0249"
+        }
+      ],
+      "sourceLabel": "Conway on changing light",
+      "credit": "A. D. McCormick, plates 25 and 52."
+    },
+    {
+      "title": "Chillon",
+      "plates": [
+        "plate-12"
+      ],
+      "legend": {
+        "plateId": "plate-12",
+        "sectionId": "chapter-02",
+        "blockId": "b0154"
+      },
+      "note": "McCormick shows the castle and its reflection; Byron supplies the depth below.",
+      "passages": [
+        {
+          "sectionId": "chapter-02",
+          "blockId": "b0155"
+        }
+      ],
+      "sourceLabel": "Conway on poets",
+      "credit": "A. D. McCormick, plate 12; Byron’s caption. Conway, chapter II, pp. 34–36."
+    }
+  ]
+}

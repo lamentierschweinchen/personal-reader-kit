@@ -17,7 +17,7 @@ const lines = {
 const dimensions = {
   'at-table':[318,48], 'inward-life':[337,53], 'music-and-feeling':[296,45],
   'learning-to-see':[328,45], 'beside-the-bed':[306,51], austen:[330,47],
-  alice:[306,46], walden:[318,52], 'two-halls':[293,46], odyssey:[332,52], dracula:[314,48],
+  mountains:[326,48], nietzsche:[315,47], 'war-and-peace':[342,54], alice:[306,46], walden:[318,52], 'two-halls':[293,46], odyssey:[332,52], dracula:[314,48],
 };
 const faceout = new Set(['alice','at-table','walden']);
 const sortTitle = b => b.title.replace(/^(a|an|the)\s+/i, '');

@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "source": "site/icon.svg",
+  "sourceSha256": "c55d8f5e1e3628864cdc87f1d20c97334566ffa509164163aface46b75ffccb4",
+  "provenance": "Original circle-and-horizon mark for this reader, rendered locally. No book art or external image service.",
+  "icons": [
+    {
+      "path": "site/apple-touch-icon.png",
+      "size": 180,
+      "sha256": "58269a534f5c3bfb6df696263244482a704c237a7b8607167ee9012f44c2daf8"
+    },
+    {
+      "path": "site/icon-192.png",
+      "size": 192,
+      "sha256": "cc8ee079e25782540adabe49e90398697b19477f77b23c80136ded12ee681a40"
+    },
+    {
+      "path": "site/icon-512.png",
+      "size": 512,
+      "sha256": "67dbd7f1b5b09ae1a122de64641c5985d3f30cdcfc2d5f686dae8df4f933612f"
+    }
+  ]
+}

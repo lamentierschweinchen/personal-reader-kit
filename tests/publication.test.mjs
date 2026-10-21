@@ -21,6 +21,20 @@ test('font admission pins bytes, provenance and the complete license without sup
   assert.match(inspectFile(name,secret,allowed,[],[],[{...pin,sha256:sha(secret)}]).join(' '),/credential/);
   assert.match(inspectFile('examples/unreviewed/site/fixture.woff2',bytes,['examples/unreviewed/site/fixture.woff2',license,provenance],[],[],[{...pin,path:'examples/unreviewed/site/fixture.woff2'}]).join(' '),/binary/);
 });
+test('reviewed plate and TrueType admission stays bound to bytes, paths and notices',()=>{
+  const bytes=Buffer.from([82,73,70,70,0,87,69,66,80]),sha=b=>createHash('sha256').update(b).digest('hex');
+  const name='examples/war-and-peace/edition/plate-portrait.webp',provenance='examples/war-and-peace/docs/SOURCE-RIGHTS.md';
+  const pin={path:name,sha256:sha(bytes),provenance,reason:'Original binary fixture, not a book image.'};
+  assert.deepEqual(inspectFile(name,bytes,[name,provenance],[pin]),[]);
+  assert.match(inspectFile(name,bytes,[name,provenance]).join(' '),/edition bytes/);
+  assert.match(inspectFile(name,Buffer.concat([bytes,Buffer.from('changed')]),[name,provenance],[pin]).join(' '),/edition bytes/);
+  const font='examples/war-and-peace/site/Literata-Roman.ttf',license='examples/war-and-peace/site/Literata-OFL.txt';
+  const fontPin={path:font,sha256:sha(bytes),provenance,license,licenseSha256:sha(Buffer.from('fixture')),reason:'Scanner fixture.'};
+  assert.deepEqual(inspectFile(font,bytes,[font,license,provenance],[],[],[fontPin]),[]);
+  assert.match(inspectFile(font,bytes,[font,provenance],[],[],[fontPin]).join(' '),/font bytes/);
+  const arbitrary=font.replace('Literata-Roman','Unreviewed');
+  assert.match(inspectFile(arbitrary,bytes,[arbitrary,license,provenance],[],[],[{...fontPin,path:arbitrary}]).join(' '),/binary/);
+});
 test('publication scanner rejects unknown/private paths and recognizable credentials',()=>{
   assert.deepEqual(inspectFile('README.md',Buffer.from('Hello'),['README.md']),[]);
   assert.match(inspectFile('source/book.epub',Buffer.from('text'),[]).join(' '),/private/);

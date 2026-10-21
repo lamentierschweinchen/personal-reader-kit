@@ -14,7 +14,7 @@ function enhanceShelf(root) {
   if (!picks.length || !details || !status || !bookcase || picks.some(p=>!templates.has(p.dataset.shelfBook))) return;
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const narrow = matchMedia('(max-width: 1100px)');
+  const narrow = matchMedia('(max-width: 1280px)');
   let chosen = picks[0].dataset.shelfBook;
   let open = volumes.filter(v=>v.classList.contains('is-faceout')).map(v=>v.dataset.volume);
   let fade;

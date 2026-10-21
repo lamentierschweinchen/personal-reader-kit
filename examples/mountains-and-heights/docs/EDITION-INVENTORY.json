@@ -1,0 +1,835 @@
+{
+  "schema": 1,
+  "bookId": "conway-alps-1904",
+  "profile": "mountains/illustrated@1",
+  "sourceCommit": "ae78483dee45db2e8b77ce2789c13648ad66c2d2",
+  "librarySha256": "1bf5e98ae6a74446d257b59d803a4bc8a52ba269fcf3c61c115a9068a4f6a0c4",
+  "source": {
+    "sha256": "caa2957498d1d8164c92fc5cd41a0bc759a173f7ad04b1d4ec64cb6269af74bf",
+    "format": "text/html",
+    "description": "Project Gutenberg 39542, ISO-8859-1 HTML. Complete twelve chapters, front matter, 70 original colour plates and their legends, source footnotes, appended publisher’s catalogue and complete Gutenberg licence. HTML layout whitespace is collapsed for reflow; explicit poetry lines retained. One documented spacing correction against print. Plate-page margins cropped and landscape plates rotated; no colour retouching."
+  },
+  "sections": [
+    {
+      "id": "front",
+      "title": "Title and frontispiece",
+      "blocks": 9
+    },
+    {
+      "id": "contents",
+      "title": "CONTENTS",
+      "blocks": 24
+    },
+    {
+      "id": "illustrations",
+      "title": "LIST OF ILLUSTRATIONS",
+      "blocks": 71
+    },
+    {
+      "id": "chapter-01",
+      "title": "THE ALPS\nCHAPTER I\nTHE TREASURES OF THE SNOW",
+      "blocks": 34
+    },
+    {
+      "id": "chapter-02",
+      "title": "CHAPTER II\nHOW TO SEE MOUNTAINS",
+      "blocks": 28
+    },
+    {
+      "id": "chapter-03",
+      "title": "CHAPTER III\nHOW MOUNTAINS ARE MADE",
+      "blocks": 38
+    },
+    {
+      "id": "chapter-04",
+      "title": "CHAPTER IV\nALL SORTS AND CONDITIONS OF ALPS",
+      "blocks": 45
+    },
+    {
+      "id": "chapter-05",
+      "title": "CHAPTER V\nTHE MOODS OF THE MOUNTAINS",
+      "blocks": 40
+    },
+    {
+      "id": "chapter-06",
+      "title": "CHAPTER VI\nMOUNTAINS ALL THE YEAR ROUND",
+      "blocks": 33
+    },
+    {
+      "id": "chapter-07",
+      "title": "CHAPTER VII\nTYPES OF ALPINE PEAKS",
+      "blocks": 34
+    },
+    {
+      "id": "chapter-08",
+      "title": "CHAPTER VIII\nPASSES",
+      "blocks": 29
+    },
+    {
+      "id": "chapter-09",
+      "title": "CHAPTER IX\nGLACIERS",
+      "blocks": 40
+    },
+    {
+      "id": "chapter-10",
+      "title": "CHAPTER X\nALPINE PASTURES",
+      "blocks": 41
+    },
+    {
+      "id": "chapter-11",
+      "title": "CHAPTER XI\nTHE HUMAN INTEREST",
+      "blocks": 41
+    },
+    {
+      "id": "chapter-12",
+      "title": "CHAPTER XII\nVOLCANOES",
+      "blocks": 29
+    },
+    {
+      "id": "publishers-catalogue",
+      "title": "BLACK'S BEAUTIFUL BOOKS",
+      "blocks": 343
+    },
+    {
+      "id": "transcribers-note",
+      "title": "Transcriber’s note",
+      "blocks": 1
+    },
+    {
+      "id": "source-notices",
+      "title": "Project Gutenberg notice and licence",
+      "blocks": 1
+    }
+  ],
+  "plates": [
+    {
+      "id": "plate-01",
+      "sha256": "a5a3896a5d4679ce2241ce6913a0d12119543fcefee9b4508d3dd591e445a3db",
+      "width": 971,
+      "height": 1400,
+      "alt": "HAYMAKERS IN THE VAL MAGGIA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n9/mode/1up",
+      "sourcePage": "Plate 1 of 70"
+    },
+    {
+      "id": "plate-02",
+      "sha256": "f7957b9c48444fd7b5872635debd85bf1fdaf64c20d64bc15dec66f23e88950c",
+      "width": 1062,
+      "height": 1400,
+      "alt": "BERN FROM THE SCHÄNZLI",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n24/mode/1up",
+      "sourcePage": "Plate 2 of 70"
+    },
+    {
+      "id": "plate-03",
+      "sha256": "481ebcaf27f6bc341b8137faef703912e4020347e151b61a2dd7379c8c1589ac",
+      "width": 1400,
+      "height": 1074,
+      "alt": "VIEW OF THE BERNESE ALPS FROM THE GURTEN, NEAR BERN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n30/mode/1up",
+      "sourcePage": "Plate 3 of 70"
+    },
+    {
+      "id": "plate-04",
+      "sha256": "2130dac28f4d8fedc5636b7615a1ceb92f63f3c9682bcd7fd1028e87beafc44b",
+      "width": 1400,
+      "height": 1086,
+      "alt": "THE PIER AT SCHERZLIGEN, LAKE OF THUN—EVENING",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n36/mode/1up",
+      "sourcePage": "Plate 4 of 70"
+    },
+    {
+      "id": "plate-05",
+      "sha256": "edcf1ae87f4342d97b52fef938c71153654674055c5028b4ded8045de1983fb1",
+      "width": 1052,
+      "height": 1400,
+      "alt": "MELCHIOR ANDEREGG",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n42/mode/1up",
+      "sourcePage": "Plate 5 of 70"
+    },
+    {
+      "id": "plate-06",
+      "sha256": "967d250a0bc2c61633479482f0d7900282027f3a43eeda744370e64c3c830598",
+      "width": 1400,
+      "height": 1152,
+      "alt": "STORM COMING UP OVER LAKE OF LUCERNE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n48/mode/1up",
+      "sourcePage": "Plate 6 of 70"
+    },
+    {
+      "id": "plate-07",
+      "sha256": "fca16624a1fecaf5f98cd51b160516ebe687adabe82239c1f13196bbfe2d8b39",
+      "width": 1400,
+      "height": 1061,
+      "alt": "LOOKING UP VALLEY TOWARDS ZERMATT FROM NEAR RANDA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n56/mode/1up",
+      "sourcePage": "Plate 7 of 70"
+    },
+    {
+      "id": "plate-08",
+      "sha256": "bcd2465a008fbaf4e4db30da780d6ce6bc8f16ac152bc1348e64c0bc7ced5898",
+      "width": 1400,
+      "height": 1074,
+      "alt": "EIGER, MÖNCH, AND JUNGFRAU, FROM SCHERZLIGEN, NEAR THUN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n62/mode/1up",
+      "sourcePage": "Plate 8 of 70"
+    },
+    {
+      "id": "plate-09",
+      "sha256": "925450e1488c66be5bee7e6bc947ed1f1a77bf27b8ac29626a70a3244fa2e6ee",
+      "width": 1400,
+      "height": 1130,
+      "alt": "LUCERNE AND LAKE FROM THE DREI LINDEN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n70/mode/1up",
+      "sourcePage": "Plate 9 of 70"
+    },
+    {
+      "id": "plate-10",
+      "sha256": "e28a8443e6ff6782364c8718788faa91e395eda42b90a88d71ecfede179befa6",
+      "width": 1400,
+      "height": 1180,
+      "alt": "THE JUNGFRAU FROM INTERLAKEN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n78/mode/1up",
+      "sourcePage": "Plate 10 of 70"
+    },
+    {
+      "id": "plate-11",
+      "sha256": "117cfbd8d33291eec27a6314492c9b14437a720553c939be6225247aa22a3548",
+      "width": 1400,
+      "height": 1099,
+      "alt": "FIESCHERHORN AND LOWER GRINDELWALD GLACIER",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n88/mode/1up",
+      "sourcePage": "Plate 11 of 70"
+    },
+    {
+      "id": "plate-12",
+      "sha256": "70937fba52672f5efd06b8a54fe6f123cd36a70b4618490ca55970fad38a4ecd",
+      "width": 1400,
+      "height": 965,
+      "alt": "THE CASTLE OF CHILLON",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n96/mode/1up",
+      "sourcePage": "Plate 12 of 70"
+    },
+    {
+      "id": "plate-13",
+      "sha256": "41a368986863061c3f434b23a1869249f5c0eaa1199d0fa9b191faddbaff927b",
+      "width": 1061,
+      "height": 1400,
+      "alt": "THE CORPUS CHRISTI PROCESSION TO THE HOFKIRCHE OF ST. LEODEGAR",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n104/mode/1up",
+      "sourcePage": "Plate 13 of 70"
+    },
+    {
+      "id": "plate-14",
+      "sha256": "8cafd3ed290568786c29e17712b449baa1dba33d7ee76b01daef3fe1125eaed3",
+      "width": 1400,
+      "height": 1158,
+      "alt": "CLOUD-BURST OVER LUCERNE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n114/mode/1up",
+      "sourcePage": "Plate 14 of 70"
+    },
+    {
+      "id": "plate-15",
+      "sha256": "6d0116d8596ea3c9d80f6d28ace86ff51ecca3f191907c8325ebdd75415b6fd3",
+      "width": 1018,
+      "height": 1400,
+      "alt": "AT MEIRINGEN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n122/mode/1up",
+      "sourcePage": "Plate 15 of 70"
+    },
+    {
+      "id": "plate-16",
+      "sha256": "42dba7380c15f363881d5b1f5b8c1352287630a3a52133df132e98ac5b0358a0",
+      "width": 1400,
+      "height": 1027,
+      "alt": "STORM CLOUDS OVER THE LAKE OF THUN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n130/mode/1up",
+      "sourcePage": "Plate 16 of 70"
+    },
+    {
+      "id": "plate-17",
+      "sha256": "8509c98a60bcf6fcbde5c8cbb4c29e5a05e8567968a85c7158ac7c30978d9f97",
+      "width": 1400,
+      "height": 1148,
+      "alt": "VITZNAU AND LAKE OF LUCERNE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n136/mode/1up",
+      "sourcePage": "Plate 17 of 70"
+    },
+    {
+      "id": "plate-18",
+      "sha256": "7f1c7227cbdd61ec70d64f5d3f37b81cc94b6d953a06b5135edc466fe9af8bcc",
+      "width": 990,
+      "height": 1400,
+      "alt": "THE FALLS OF TOSA, VAL FORMAZZA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n146/mode/1up",
+      "sourcePage": "Plate 18 of 70"
+    },
+    {
+      "id": "plate-19",
+      "sha256": "38c4956b9a8d11c6691e0c89014ef65c02bbf4819a1865bf0394a0171d1c42e2",
+      "width": 1400,
+      "height": 1133,
+      "alt": "LOOKING OVER LUCERNE FROM THE DREI LINDEN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n160/mode/1up",
+      "sourcePage": "Plate 19 of 70"
+    },
+    {
+      "id": "plate-20",
+      "sha256": "aca116b939f14e05ae07830af95d5a927d7d44749ef378a9543e183550e7adcf",
+      "width": 1090,
+      "height": 1400,
+      "alt": "FRANÇOIS DEVOUASSOUD",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n166/mode/1up",
+      "sourcePage": "Plate 20 of 70"
+    },
+    {
+      "id": "plate-21",
+      "sha256": "df9d8eb6ebe3fceaf1461d5415b6a4b0c5aba60b87cbb062d7a4c5bca83d3de7",
+      "width": 975,
+      "height": 1400,
+      "alt": "AT BIGNASCO",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n174/mode/1up",
+      "sourcePage": "Plate 21 of 70"
+    },
+    {
+      "id": "plate-22",
+      "sha256": "e2287bc1b79b4070e8004a170aa88445f5aefe33f124a81b02cf2ae5f72cedc1",
+      "width": 1096,
+      "height": 1400,
+      "alt": "LOOKING DOWN THE ALETSCH GLACIER FROM CONCORDIA HUT",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n184/mode/1up",
+      "sourcePage": "Plate 22 of 70"
+    },
+    {
+      "id": "plate-23",
+      "sha256": "9e29f2c8d83a1b9285f60db5ca6547fa8dc896a2e65ee4d1b94420ac661fb509",
+      "width": 1400,
+      "height": 1273,
+      "alt": "ASCONIA—ON LAGO MAGGIORE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n190/mode/1up",
+      "sourcePage": "Plate 23 of 70"
+    },
+    {
+      "id": "plate-24",
+      "sha256": "258102c55b6a3b0a08f27b27b345c769eabf1bbff8c290dbdd86074eff451b45",
+      "width": 1400,
+      "height": 1102,
+      "alt": "LOCARNO FROM THE BANKS OF THE LAKE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n198/mode/1up",
+      "sourcePage": "Plate 24 of 70"
+    },
+    {
+      "id": "plate-25",
+      "sha256": "6fbccdb4736ad657ba5285dd79415012eef9d20a922f92f36129f826c7ed30d5",
+      "width": 1400,
+      "height": 990,
+      "alt": "PALLANZA—EVENING",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n204/mode/1up",
+      "sourcePage": "Plate 25 of 70"
+    },
+    {
+      "id": "plate-26",
+      "sha256": "4e421ab518a3342ae2ba91a80c12518b96a350eebcb7c58a591f0b07cbbd2316",
+      "width": 1046,
+      "height": 1400,
+      "alt": "THE MADONNA DEL SASSO, LOCARNO",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n210/mode/1up",
+      "sourcePage": "Plate 26 of 70"
+    },
+    {
+      "id": "plate-27",
+      "sha256": "67a7478c9d428499d76c86f289f523691af474c658f1e9a0df101cca49424ff1",
+      "width": 1400,
+      "height": 1149,
+      "alt": "LOCARNO AT SUNSET, AND NORTH END OF LAGO MAGGIORE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n222/mode/1up",
+      "sourcePage": "Plate 27 of 70"
+    },
+    {
+      "id": "plate-28",
+      "sha256": "c6f15023ada54b19811c6b476ce05897c63b94276efba97cc762c50f28d62337",
+      "width": 1248,
+      "height": 1400,
+      "alt": "MOONLIGHT IN THE VAL FORMAZZA FROM THE TOSA FALLS",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n230/mode/1up",
+      "sourcePage": "Plate 28 of 70"
+    },
+    {
+      "id": "plate-29",
+      "sha256": "1e6be5d51045768dba4ca467a4ff653c653e50650b203d3dc0f2247f85e169a7",
+      "width": 785,
+      "height": 1400,
+      "alt": "A MOUNTAIN PATH, GRINDELWALD",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n238/mode/1up",
+      "sourcePage": "Plate 29 of 70"
+    },
+    {
+      "id": "plate-30",
+      "sha256": "05b7235bc8161fda64d1e173e8d8bef2dc88c97058e66db36915b30593ec76c1",
+      "width": 1400,
+      "height": 1105,
+      "alt": "THE ALETSCHHORN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n246/mode/1up",
+      "sourcePage": "Plate 30 of 70"
+    },
+    {
+      "id": "plate-31",
+      "sha256": "c5148e849b2a6b769d66a94d163e5f186e7611cc408de1327274a25dbb360633",
+      "width": 1400,
+      "height": 993,
+      "alt": "THE GROSSER ALETSCH-FIRN FROM CONCORDIA HUT",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n254/mode/1up",
+      "sourcePage": "Plate 31 of 70"
+    },
+    {
+      "id": "plate-32",
+      "sha256": "8219f5eefc25f26980e02b9c873645864e313742f004c0785f712a25077c05c0",
+      "width": 1400,
+      "height": 1214,
+      "alt": "THUNDERSTORM BREAKING OVER PALLANZA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n266/mode/1up",
+      "sourcePage": "Plate 32 of 70"
+    },
+    {
+      "id": "plate-33",
+      "sha256": "ae9307369e56a89f48828056bb764fbff18ee904a44259272e096329edefdcbf",
+      "width": 1031,
+      "height": 1400,
+      "alt": "THE WETTERHORN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n276/mode/1up",
+      "sourcePage": "Plate 33 of 70"
+    },
+    {
+      "id": "plate-34",
+      "sha256": "a3cae8b81232fc356facf60e459f8c4f0c651e89a059fa98e63a788cd53d0568",
+      "width": 1400,
+      "height": 1108,
+      "alt": "MÄRJELEN ALP",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n284/mode/1up",
+      "sourcePage": "Plate 34 of 70"
+    },
+    {
+      "id": "plate-35",
+      "sha256": "e9b94642857225f2234becf71a9eb53191c1b6294162f609d9f92bafd6fa28b3",
+      "width": 1049,
+      "height": 1400,
+      "alt": "LOWER GLACIER AND GRINDELWALD CHURCH",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n296/mode/1up",
+      "sourcePage": "Plate 35 of 70"
+    },
+    {
+      "id": "plate-36",
+      "sha256": "e8be52decfd8ce75db4c391abeb081b0cdf4314b4e9d922c8cbe019b9bbd7cdb",
+      "width": 1400,
+      "height": 1068,
+      "alt": "GRINDELWALD LOOKING TOWARDS THE WENGEN ALP",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n304/mode/1up",
+      "sourcePage": "Plate 36 of 70"
+    },
+    {
+      "id": "plate-37",
+      "sha256": "79f9f1aba5924fc079176494f3bc03ea2447c5ebbbb7d1d63fe18a8cfde5fdcd",
+      "width": 1204,
+      "height": 1400,
+      "alt": "RIMPFISCHORN AND STRAHLHORN FROM THE RIFFELBERG",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n312/mode/1up",
+      "sourcePage": "Plate 37 of 70"
+    },
+    {
+      "id": "plate-38",
+      "sha256": "cfad5c46eedcfa7e43ea7b12a0e540d9523e45ba6f3cdda8c56469d5ba0c7c79",
+      "width": 1009,
+      "height": 1400,
+      "alt": "THE MATTERHORN, TWILIGHT",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n322/mode/1up",
+      "sourcePage": "Plate 38 of 70"
+    },
+    {
+      "id": "plate-39",
+      "sha256": "c0a7b1405a5f99154939f74b8316e268171b9c93b1e741df143248f0d18e2cfb",
+      "width": 1400,
+      "height": 1027,
+      "alt": "WEISSHORN AND MATTERHORN FROM FIESCHERALP",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n330/mode/1up",
+      "sourcePage": "Plate 39 of 70"
+    },
+    {
+      "id": "plate-40",
+      "sha256": "d237b3c970b08e4f775ca24b68dc2d44e38689cfc09e0ca901509ff129eedfa2",
+      "width": 981,
+      "height": 1400,
+      "alt": "AIGUILLE VERTE AND AIGUILLE DU DRU FROM THE CHAMONIX VALLEY",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n338/mode/1up",
+      "sourcePage": "Plate 40 of 70"
+    },
+    {
+      "id": "plate-41",
+      "sha256": "8d4cea5a5a6d0d382334170463cee7549cbee5baa328a8a572bbc99e8e91c498",
+      "width": 1076,
+      "height": 1400,
+      "alt": "BODEN AND GORNER GLACIERS",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n344/mode/1up",
+      "sourcePage": "Plate 41 of 70"
+    },
+    {
+      "id": "plate-42",
+      "sha256": "c07dd8f7dd3190401e052e55b5d94827fd56ce402422a9707f1418018ebc475d",
+      "width": 1400,
+      "height": 1015,
+      "alt": "THE BREITHORN FROM SCHWARZ SEE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n354/mode/1up",
+      "sourcePage": "Plate 42 of 70"
+    },
+    {
+      "id": "plate-43",
+      "sha256": "eee7d05e80563fdb3b31ae2859b4fb36d130114446897c39491430234acc3aaa",
+      "width": 1400,
+      "height": 1071,
+      "alt": "THE LYSKAMM",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n360/mode/1up",
+      "sourcePage": "Plate 43 of 70"
+    },
+    {
+      "id": "plate-44",
+      "sha256": "58544c4cebf876503da519a2390569d85bf1e841a14908bf2a795b1cdac827b5",
+      "width": 1074,
+      "height": 1400,
+      "alt": "THE ROAD FROM VITZNAU TO GERSAU",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n370/mode/1up",
+      "sourcePage": "Plate 44 of 70"
+    },
+    {
+      "id": "plate-45",
+      "sha256": "324d6ba7b6b5717f8fe03fd6661ca559604167df5be8a581a1981f566eceda68",
+      "width": 1136,
+      "height": 1400,
+      "alt": "AMSTEG IN THE REUSSTHAL",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n382/mode/1up",
+      "sourcePage": "Plate 45 of 70"
+    },
+    {
+      "id": "plate-46",
+      "sha256": "f48e8248b5043321bff48bb2da6ca68ef47e528c6c6aefa3b7b9572138d915b8",
+      "width": 962,
+      "height": 1400,
+      "alt": "THE DENT BLANCHE FROM THE RIFFELBERG",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n390/mode/1up",
+      "sourcePage": "Plate 46 of 70"
+    },
+    {
+      "id": "plate-47",
+      "sha256": "e6330a0ea168463e6f028e2c2f332f5428109c8c760879995aef80e915a812ec",
+      "width": 1400,
+      "height": 729,
+      "alt": "THE VILLAGE OF SOLDIMO, AT THE ENTRANCE OF THE VAL MAGGIA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n400/mode/1up",
+      "sourcePage": "Plate 47 of 70"
+    },
+    {
+      "id": "plate-48",
+      "sha256": "24fa1f2cb59b9da0561def89fdd54ec4dd0f868ca6453c027d86e71773328021",
+      "width": 940,
+      "height": 1400,
+      "alt": "FLÜELEN AT END OF LAKE OF URI, SOUTH ARM OF LAKE OF LUCERNE",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n406/mode/1up",
+      "sourcePage": "Plate 48 of 70"
+    },
+    {
+      "id": "plate-49",
+      "sha256": "837f26e186f2fc233f7b59e929ca3a2fc328be1ea11908f57507f2db80583c60",
+      "width": 1400,
+      "height": 1126,
+      "alt": "FURGGEN GLACIER ICEFALL",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n416/mode/1up",
+      "sourcePage": "Plate 49 of 70"
+    },
+    {
+      "id": "plate-50",
+      "sha256": "3f19e7e76eed87516952a776ed56a27ff78d572bceb32ddcaa154d2d029b5583",
+      "width": 922,
+      "height": 1400,
+      "alt": "THE GLETSCHERHORN FROM THE PAVILION, HOTEL CATHREIN, CLOSE TO CONCORDIA HUT",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n422/mode/1up",
+      "sourcePage": "Plate 50 of 70"
+    },
+    {
+      "id": "plate-51",
+      "sha256": "d7e6c9b9fff5b28a824587b01fcc58b4a84126fd1a8887790cbc0a57adeae12c",
+      "width": 1009,
+      "height": 1400,
+      "alt": "THE TRUGBERG",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n428/mode/1up",
+      "sourcePage": "Plate 51 of 70"
+    },
+    {
+      "id": "plate-52",
+      "sha256": "8d232b2263b8c8c31102fa2ff0e41653b728c44e72fa5eadae8022188689def5",
+      "width": 1400,
+      "height": 1028,
+      "alt": "PALLANZA—SUNSET",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n434/mode/1up",
+      "sourcePage": "Plate 52 of 70"
+    },
+    {
+      "id": "plate-53",
+      "sha256": "84492b3ef88477b4dbb9ef3be8720c94685258600ee87eef33303b9ef6d8030d",
+      "width": 1400,
+      "height": 1040,
+      "alt": "KRANZBERG—ROTTHALHORN—AND JUNGFRAU: SUNSET",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n440/mode/1up",
+      "sourcePage": "Plate 53 of 70"
+    },
+    {
+      "id": "plate-54",
+      "sha256": "b6ee1140c1052e2e07dea47a09d84e0ec62b75821b3cd18c467a2717fd76531e",
+      "width": 1400,
+      "height": 1002,
+      "alt": "MÄRJELEN SEE AND GREAT ALETSCH GLACIER",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n450/mode/1up",
+      "sourcePage": "Plate 54 of 70"
+    },
+    {
+      "id": "plate-55",
+      "sha256": "68783190de7cf16c30c4e94913da4a7e72ed924d91f49adf69df621dec66b18c",
+      "width": 1400,
+      "height": 1136,
+      "alt": "THE CASTLE OF ZÄHRINGEN-KYBURG, THUN",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n460/mode/1up",
+      "sourcePage": "Plate 55 of 70"
+    },
+    {
+      "id": "plate-56",
+      "sha256": "032281cc510c9a0949184f026a30ab42ed1b6745d2a74c4e0b459bd921646196",
+      "width": 1400,
+      "height": 1040,
+      "alt": "CHALETS AND CHURCH. RIEDERALP",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n472/mode/1up",
+      "sourcePage": "Plate 56 of 70"
+    },
+    {
+      "id": "plate-57",
+      "sha256": "a0bb51467ff66363475b1fe359d10afa4e0c4bb0bb5468c6ba48da7f3ab0904a",
+      "width": 984,
+      "height": 1400,
+      "alt": "EVENING IN ZERMATT",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n478/mode/1up",
+      "sourcePage": "Plate 57 of 70"
+    },
+    {
+      "id": "plate-58",
+      "sha256": "7c7297a08f72e4ff4cba96bd2b0d8f9258f46c8481a1ec8092d9642670de3529",
+      "width": 1400,
+      "height": 1077,
+      "alt": "BERN FROM THE NORTH-WEST",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n484/mode/1up",
+      "sourcePage": "Plate 58 of 70"
+    },
+    {
+      "id": "plate-59",
+      "sha256": "b3717bc4417c961d8a8304981761fc538d394e961e286bf1999c187cb607900d",
+      "width": 1400,
+      "height": 1136,
+      "alt": "LOOKING DOWN THE VAL FORMAZZA FROM TOSA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n490/mode/1up",
+      "sourcePage": "Plate 59 of 70"
+    },
+    {
+      "id": "plate-60",
+      "sha256": "5193c177d0c42241b89efa88e63fab2b11fa6fc240441a4e74cf357e23a8b230",
+      "width": 1006,
+      "height": 1400,
+      "alt": "IN THE VAL BAVONA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n496/mode/1up",
+      "sourcePage": "Plate 60 of 70"
+    },
+    {
+      "id": "plate-61",
+      "sha256": "4af6bd99dff34887f4926133e98a1abc2ac176d0621953cafdc9fdc5605bbc4d",
+      "width": 1400,
+      "height": 1149,
+      "alt": "IN THE VAL D'AOSTA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n504/mode/1up",
+      "sourcePage": "Plate 61 of 70"
+    },
+    {
+      "id": "plate-62",
+      "sha256": "809593ac7cf2045777f0c3522c4828c709aa913b60dfe78bc7d01e500a95c047",
+      "width": 1400,
+      "height": 1025,
+      "alt": "CHÂTILLON, VAL D'AOSTA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n522/mode/1up",
+      "sourcePage": "Plate 62 of 70"
+    },
+    {
+      "id": "plate-63",
+      "sha256": "52506a6cb5ddd478074f0fc9525f2c17a1c5f3ceff3ae91be318a3c91913d914",
+      "width": 1127,
+      "height": 1400,
+      "alt": "A CORNER OF THE TOWN OF ALTDORF",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n528/mode/1up",
+      "sourcePage": "Plate 63 of 70"
+    },
+    {
+      "id": "plate-64",
+      "sha256": "f3d6a57e39d48e9348feb28d1dec408dbea9a55d38d429ec607a8abf59cc6c4e",
+      "width": 1152,
+      "height": 1400,
+      "alt": "PONTE BROLLA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n536/mode/1up",
+      "sourcePage": "Plate 64 of 70"
+    },
+    {
+      "id": "plate-65",
+      "sha256": "06b4555e4c23cfcdee21c0f8a4dcde802ace0a0e4b05f9234365021e83129274",
+      "width": 987,
+      "height": 1400,
+      "alt": "IN THE VAL D'AOSTA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n542/mode/1up",
+      "sourcePage": "Plate 65 of 70"
+    },
+    {
+      "id": "plate-66",
+      "sha256": "5f535d50d5fbe0868f5e79fc26365647b72d8ec4be132b0a9090fa73fbedb8da",
+      "width": 1068,
+      "height": 1400,
+      "alt": "IN THE WOODS OF CHAMONIX",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n548/mode/1up",
+      "sourcePage": "Plate 66 of 70"
+    },
+    {
+      "id": "plate-67",
+      "sha256": "c9e5f5aee3038e35085137753f580ef4c5701ba9509eefa6457a998895549d45",
+      "width": 1202,
+      "height": 1400,
+      "alt": "IN A GARDEN AT LOCARNO",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n554/mode/1up",
+      "sourcePage": "Plate 67 of 70"
+    },
+    {
+      "id": "plate-68",
+      "sha256": "3639683c6ebe204ee4c63baa52d03e24dbf290c195a8c96675f47fa6a3bcb13e",
+      "width": 1400,
+      "height": 1139,
+      "alt": "PILATUS AND LAKE OF LUCERNE FROM THE SLOPES OF THE RIGI",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n562/mode/1up",
+      "sourcePage": "Plate 68 of 70"
+    },
+    {
+      "id": "plate-69",
+      "sha256": "237bc5502343fa433c4136d813e2c1bafcceb5023d8bf69c51e34feddd66592c",
+      "width": 1400,
+      "height": 1158,
+      "alt": "MONTREUX, LAKE OF GENEVA",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n570/mode/1up",
+      "sourcePage": "Plate 69 of 70"
+    },
+    {
+      "id": "plate-70",
+      "sha256": "503e74fdcac6f25543f05066b7863bfbd79f3d64df256e2a6d257a3d70eaf2fb",
+      "width": 1400,
+      "height": 1034,
+      "alt": "AFTER THE SUNSET",
+      "credit": "A. D. McCormick, The Alps (London: Adam and Charles Black, 1904). Pratt Library, University of Toronto; digitized by the Internet Archive.",
+      "sourceUrl": "https://archive.org/details/alps00conw/page/n584/mode/1up",
+      "sourcePage": "Plate 70 of 70"
+    }
+  ],
+  "fonts": [],
+  "icons": [
+    {
+      "path": "site/icon.svg",
+      "sha256": "d47c515af9158fecfb5393ebfdaf687d3bcf41b6a537c339fb02f973b99c1a0b"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "sha256": "dc8b1a206a462f103e4e7732e667137c08ff5d9bde56c195ff69539bc56840fe"
+    },
+    {
+      "path": "site/icon-192.png",
+      "sha256": "ed9ea47f459ac07a7486f4ab2a3b96dcb6c2909ccd383f5fe4894fdf2c65a8a9"
+    },
+    {
+      "path": "site/icon-512.png",
+      "sha256": "9074dd090e30f1db8e1694365b611e69c871e24e850eae0dbeefe67b49f30fb8"
+    }
+  ],
+  "cover": {
+    "path": "edition/cover-plate.jpg",
+    "plateId": "plate-53",
+    "sha256": "84492b3ef88477b4dbb9ef3be8720c94685258600ee87eef33303b9ef6d8030d",
+    "bytes": 287944,
+    "width": 1400,
+    "height": 1040,
+    "sourceUrl": "https://archive.org/details/alps00conw/page/n440/mode/1up",
+    "policy": "Exact decoded embedded payload of the opening plate; no additional crop, resize or colour change."
+  }
+}

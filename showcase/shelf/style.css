@@ -11,7 +11,7 @@
 .mixed-library .shelf-hand{font:1.9375rem/1.05 var(--hand);color:var(--red);transform:rotate(-3deg)}
 .mixed-library a:hover{color:var(--red)}
 .mixed-library .shelf-room{padding-top:36px;position:relative}
-.mixed-library .bookcase{--front-w:clamp(150px,13.8vw,200px);display:flex;align-items:flex-end;justify-content:center;gap:6px;list-style:none;margin:0;padding:0 8px;height:356px;isolation:isolate}
+.mixed-library .bookcase{--front-w:clamp(150px,calc(30vw - 235px),200px);display:flex;align-items:flex-end;justify-content:center;gap:6px;list-style:none;margin:0;padding:0 8px;height:356px;isolation:isolate}
 .mixed-library .shelf-volume{--spine-paper:#f3efe3;--spine-ink:#2a2a25;--spine-face:var(--display);--spine-size:23px;flex:0 0 var(--thickness);width:var(--thickness);height:var(--book-height);position:relative;z-index:1;transform:translateZ(0)}
 .mixed-library .shelf-volume.is-faceout{flex-basis:calc(var(--front-w) + var(--thickness)/2 - 6px);width:calc(var(--front-w) + var(--thickness)/2 - 6px)}
 .mixed-library .shelf-volume.is-selected{z-index:3}
@@ -51,6 +51,11 @@
 .mixed-library .volume-odyssey{--spine-paper:#16473f;--spine-ink:#f4e6bd;--spine-size:27px}
 .mixed-library .volume-dracula{--spine-paper:#691f2b;--spine-ink:#ead9ad;--spine-size:27px}
 
+.mixed-library .volume-mountains{--spine-paper:#263d36;--spine-ink:#f2efe6;--spine-face:Baskerville,Georgia,serif;--spine-size:29px}
+.mixed-library .volume-mountains .book-spine::after{content:'';position:absolute;inset:10px 7px;border-block:1px solid currentColor;opacity:.45}
+.mixed-library .volume-nietzsche{--spine-paper:#d6aa49;--spine-ink:#24251e;--spine-face:Baskerville,Georgia,serif;--spine-size:23px}
+.mixed-library .volume-war-and-peace{--spine-paper:#e9e6d9;--spine-ink:#394d38;--spine-face:Literata,Georgia,serif;--spine-size:24px}
+
 .mixed-library .chosen-book{min-height:159px;display:grid;grid-template-columns:minmax(200px,1.15fr) minmax(200px,1fr) auto;align-items:center;gap:50px;padding:27px 6px 32px}
 .mixed-library .chosen-author{font:.625rem/1.6 var(--mono);color:var(--muted);margin:0 0 7px}
 .mixed-library .chosen-bibliography h3{font:400 1.875rem/1.1 var(--display);letter-spacing:-.02em;text-wrap:balance}
@@ -68,11 +73,11 @@
  .mixed-library .shelf-volume:hover{z-index:5}
  .mixed-library .book-pick:hover .book-object{translate:0 -5px}
 }
-@media(min-width:1101px) and (prefers-reduced-motion:no-preference){
+@media(min-width:1281px) and (prefers-reduced-motion:no-preference){
  .mixed-library.shelf-interacted .shelf-volume{transition:flex-basis .54s var(--shelf-ease),width .54s var(--shelf-ease)}
 }
 @media(min-width:1500px){.mixed-library .bookcase{gap:12px}}
-@media(max-width:1100px){
+@media(max-width:1280px){
  .mixed-library .shelf-controls{display:flex;gap:6px;align-items:center}
  .mixed-library .shelf-controls button{display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink)}
  .mixed-library .shelf-controls button:disabled{opacity:.3;cursor:default}

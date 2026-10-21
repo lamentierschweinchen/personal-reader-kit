@@ -76,3 +76,22 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-beside-the-bed strong{font:600 20cqw/1.02 Bitter,Georgia,serif;letter-spacing:-.05em;top:17%;left:11%;text-align:left}
 .cover-beside-the-bed img{position:absolute;left:3%;top:43%;width:97%;height:43%;object-fit:contain}
 .cover-beside-the-bed .cover-bottom{font-size:2.7cqw}
+
+/* Jackets borrow the reader’s actual painting, portrait or original device. */
+.cover-mountains{background:#263d36;color:#f2efe6}
+.cover-mountains strong{top:13%;font-family:Baskerville,Georgia,serif;font-size:22cqw;line-height:.94}
+.cover-mountains img{position:absolute;left:8%;top:45%;width:84%;height:38%;object-fit:contain}
+.cover-mountains .cover-meta{font-size:3.8cqw;letter-spacing:.16em}
+.cover-mountains .cover-bottom{font-size:3cqw;letter-spacing:.06em}
+.cover-nietzsche{background:#f4f0e5;color:#24251e}
+.cover-nietzsche strong{top:19%;left:7%;right:7%;font-family:Baskerville,Georgia,serif;font-size:16cqw;line-height:1.03;letter-spacing:-.055em}
+.cover-nietzsche strong em{display:block;font-size:.86em;letter-spacing:-.04em}
+.cover-nietzsche .cover-art{position:absolute;left:0;top:39%;width:100%;height:45%}
+.cover-nietzsche .cover-meta{font-size:3.5cqw;letter-spacing:.1em}
+.cover-nietzsche .cover-bottom{font-size:3.2cqw;letter-spacing:.13em}
+.cover-war-and-peace{background:#e9e6d9;color:#394d38}
+.cover-war-and-peace strong{top:15%;left:8%;right:8%;font-family:Literata,Georgia,serif;font-size:20cqw;line-height:.98;letter-spacing:-.055em}
+.cover-war-and-peace strong em{font-size:.58em;letter-spacing:-.025em}
+.cover-war-and-peace img{position:absolute;left:27%;top:48%;width:46%;height:34%;object-fit:contain;mix-blend-mode:multiply}
+.cover-war-and-peace .cover-meta{font-size:4cqw;letter-spacing:.17em}
+.cover-war-and-peace .cover-bottom{font-size:3cqw;letter-spacing:.05em}

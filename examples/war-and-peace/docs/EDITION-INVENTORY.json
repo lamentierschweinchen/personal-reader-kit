@@ -1,0 +1,620 @@
+{
+  "sourceCommit": "40ce940dab021fd09d7103bf0410b854db93cf01",
+  "novel": {
+    "id": "war-and-peace-maude",
+    "source": "https://www.gutenberg.org/files/2600/2600-h/2600-h.htm",
+    "witnessSha256": "68fe0f65e6fe4f26c37bf304ed560b04b1bc0a4b605509128d88ce582ee13001",
+    "librarySha256": "d1141e0adb219de52c15975188fb49c6b04f1154499fc88b769dd443e3053699",
+    "chapters": 365,
+    "blocks": 11395,
+    "inlineNotes": 136,
+    "emphasisRanges": 976
+  },
+  "album": {
+    "catalogue": "https://www.prlib.ru/item/1988888",
+    "description": "[St Petersburg]: Evgeny Evdokimov, censorship date 1893; supplement to Sever. Eight text pages; twelve printed illustration/portrait leaves. Author portrait plus eleven novel scenes.",
+    "physicalOriginal": "State Public Historical Library (ГПИБ), Moscow: this means the printed album copy, not custody of every watercolour.",
+    "digitalSource": "Presidential Library (ПБ).",
+    "derivatives": [
+      {
+        "page": 13,
+        "id": "portrait",
+        "rotate": 90,
+        "file": "plate-portrait.webp",
+        "width": 1887,
+        "height": 2586,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "e6665e5c606c5fbb96a537b9bfe362c66623dd8f539a9e96d301cf8aa1399971",
+        "regionSha256": [
+          "586824435d081daad915d86047f2b3d286528ab9fa3d81c50d5727c1d3064714",
+          "8fe627d668ede50a059642e2588f7748ebf2c50a50a1b1c6e36ebd5e32ecf9bd",
+          "8f510937b5bdac0e11f90b829c9dee9b3defda145c0f040030a7ee609e428fb9",
+          "b538c8b5e5ca7c6ccf1a4646261e1f4a0b174e75a02b446d3f77600368d35166"
+        ],
+        "sha256": "88656a58a85b2e2830ea07d1d39efee4d5f025bf639487438ef9147fc5d71dc1",
+        "path": "edition/plate-portrait.webp"
+      },
+      {
+        "page": 15,
+        "id": "tushin",
+        "rotate": 0,
+        "file": "plate-tushin.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "ac633505c2b38f1c7e89656fcf6e35373de87a28b0eaa728ea4df8071f2f99e8",
+        "regionSha256": [
+          "f4fd42bfb3d8abddaa73db531830b26e9cc52a504c601d94c06cb0b5f2be79f5",
+          "e713fd028bebdafc5959b471856f57decf154333436d1d116b791d9ebbd6d93a",
+          "aeed0e263de82cf83978a4fafc215201efc17ed7dd6f61df9c1be6eea04e36bd",
+          "901c7139e77553c139ffef6ad8ec69fcf366ec9d124d5ded2ab3a87f8fc7d32c"
+        ],
+        "sha256": "6a22b7512305e53398385d899b3ae3517da7bcea8936b59b9552e4f8614d55bf",
+        "path": "edition/plate-tushin.webp"
+      },
+      {
+        "page": 17,
+        "id": "tilsit",
+        "rotate": 0,
+        "file": "plate-tilsit.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "399a3bcbcf0e4615f374c5aed6f19bf9281bf4d91032b02eb737889d5d6110db",
+        "regionSha256": [
+          "c605bc2cd9896723779b73503cb15ea5813393034794e42fabc660471b54a141",
+          "e38af310241396dbc1f434589d08660028308ecc30fd5b99cc2235f22a6384b0",
+          "e4f2abe387a2502f1e2f155f7988cb1c328831fba906b346edec995b6a840373",
+          "b0b638dd58dc6bf24d53cfe94199b75b2ab930679aa842dd3ea7fec4377abf1a"
+        ],
+        "sha256": "6cee39ce69dd5aacf47fef0b4d093372ac56cddca031ee718aa8dc5b45e1a92e",
+        "path": "edition/plate-tilsit.webp"
+      },
+      {
+        "page": 19,
+        "id": "ball",
+        "rotate": 90,
+        "file": "plate-ball.webp",
+        "width": 1887,
+        "height": 2586,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "bfa15bb0fb418c0223c9cebb3daaf3bb5b68842f0fe1f54a7e79771b3faec2b0",
+        "regionSha256": [
+          "7e6c9e7aad0d869d839a736e4f2c1df27ec461454aaf5eec3a6d418b333788b0",
+          "9101a6bf76265b831632c4c24cd3f96f4715e323171c9f80ed1a35f870a5c280",
+          "c740ba9766c7247686897178a4e2f16bba0e9b2acd4dae62a0d0fc416d3f35c6",
+          "8111d7d49cac377575c68eef7eb1440b15100bd0f48b434228fb5436178ed019"
+        ],
+        "sha256": "b13418c7ca9d48d02269bc7fd617df6b15742721703609cf961aafcaf70340df",
+        "path": "edition/plate-ball.webp"
+      },
+      {
+        "page": 21,
+        "id": "hunt",
+        "rotate": 0,
+        "file": "plate-hunt.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "365a518ea4261b30b6b927c4022e7faa0561c12f81d1c732bd1bf846a3f5e0f9",
+        "regionSha256": [
+          "0884aac4a0c2ac27376157392eecfc181fdf2b83239a2f13d6dfb8fabd2581c1",
+          "38281b70a1dbe9ea2eb1eebfa83174d1de10de60063b9078f409eed890a4bffa",
+          "8c2ecf94dfc5c5c81f8d7ef659917cf54633585479c53597594722fe2508788a",
+          "98420b1c31458ea99ca37e125be984c2e4f5578f64eef36bb48487f26cfd46b7"
+        ],
+        "sha256": "b5b6ff27fd85113d385c8b46e194c8f1dd776ce098643eed07f7c305d39b6462",
+        "path": "edition/plate-hunt.webp"
+      },
+      {
+        "page": 23,
+        "id": "sleigh",
+        "rotate": 0,
+        "file": "plate-sleigh.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "964be41d636ba8d3bbd0f3a1e6b580c6810b1c3b4596e25ab514ec6a9785b375",
+        "regionSha256": [
+          "98f6e75700162669d0c7d90459444f516b5681e80a20f40369985d4905728cf9",
+          "c7cddb40f3640f491a9c6ac1408f6f6d5c0e45cb493516a740c91ba0e92be2d1",
+          "4addbeb3155f2f80209eaf0f06a8d7d8a4f2000a1e4edc1b6ce42fa171adf14f",
+          "cb1acc5e43aa92cbd786d1bf948316915a57790c18ca8e3959c534be2368952c"
+        ],
+        "sha256": "4e2ee4bdd0616edf3b79a820a75b8f231930dfe5604c271d16238c2614a330c2",
+        "path": "edition/plate-sleigh.webp"
+      },
+      {
+        "page": 25,
+        "id": "lavrushka",
+        "rotate": 0,
+        "file": "plate-lavrushka.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "d6d5614b091f3effa5c840453e2fb9a117852145e7ddd9bc67c1d3498ef7c97c",
+        "regionSha256": [
+          "ef23b39f834967a4763f520494140a72339c7e88fe8a5f4abaf2e8787719c6bf",
+          "4d7d2ec94c53fd4485dfddb123ca40c4068206e0cddae495dfd2ed68e5955006",
+          "4f9d535303b7a907f7a18f09b65ac35f656a61bb56ab32ecb9f9118ea2d3264b",
+          "58ab8e8c9ed4f3eced2037bf176c394a28b1298f35619aed9dbb58b61ad7447e"
+        ],
+        "sha256": "d45e80a6acff4a7d6addb77c5330da906832b235f6b5dda46c30ea9db5732c9f",
+        "path": "edition/plate-lavrushka.webp"
+      },
+      {
+        "page": 27,
+        "id": "kutuzov",
+        "rotate": 0,
+        "file": "plate-kutuzov.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "ad0eb783ef59492411ae2e231080d674138c5e90c4a4afd8afedf9bec8f0c3c7",
+        "regionSha256": [
+          "bd4928efb6bbb35b00b617b7097e7f2a314a49aee574e4b450c0c8b41ae3170b",
+          "31dcbae539cee9ffbe376c5e3f389d1746ceea1caddaafe6a6b546643ecc8733",
+          "f265dbfd249c29fd74a89f6f883d9f6292bce49d054b11484049111952766b20",
+          "1e1944395e043321fa70e033bbb697406a01f18509aa0042d2c6ecad20535535"
+        ],
+        "sha256": "46ed36d0ea69211319ada7d5bd164e2e45abf9e81cf109ab9a3107417975baf7",
+        "path": "edition/plate-kutuzov.webp"
+      },
+      {
+        "page": 29,
+        "id": "rostopchin",
+        "rotate": 0,
+        "file": "plate-rostopchin.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "5203b00cd56d199e4ee963cdcd3dddd02c9ac27ac03d271f345e23daf0063ccb",
+        "regionSha256": [
+          "35823b5245b6ee5d464e1a38e37ddce63d7a4f92e9b4c9fbc49b96d320078856",
+          "eef63ed8436a86c73eac6b8362c3ffc52d4f314b3378dcddae50f23bb34e2bd8",
+          "bfabf4ba2a286d6d12a806bc5ea17eac7efa49158c07f464cb727b9d24aae172",
+          "7046a96677ce28c3192a77a42ea7a48da2a63923ce0261d2b33034e78e5a2d73"
+        ],
+        "sha256": "a029da1d33ed9975fbf82221b9af597021dee679214b7184c2bfcd493948b6a3",
+        "path": "edition/plate-rostopchin.webp"
+      },
+      {
+        "page": 31,
+        "id": "mytishchi",
+        "rotate": 0,
+        "file": "plate-mytishchi.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "4be031d0f928838a301e59f220912dbe35a172ef2533f5eae1f18bf9a098b947",
+        "regionSha256": [
+          "c1ff0ba9806b432ac1ed51c5a6c99d1acc8f141cc1ff899caf9611e2ab347f4e",
+          "93c54c76bf34c2444a45492235e892fffd795a3057ae6b33ac2a0df87baa6600",
+          "6df86eed88249cd697cab6a69aedc3531198fa335453dbceb7cb134396233778",
+          "f81b06ffe1b00f499bef21a5ef939c0f54ccf0d6a905bff5b2cd097d87917f07"
+        ],
+        "sha256": "0aa1999140a5559cf32e4944942ee25456f8128d7257a8f8aea77647358de166",
+        "path": "edition/plate-mytishchi.webp"
+      },
+      {
+        "page": 33,
+        "id": "execution",
+        "rotate": 0,
+        "file": "plate-execution.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "d23e1b11d7a06c2f9dddbd5cf3b6a58314240f85eaa0f7266b2e85be8aa287d8",
+        "regionSha256": [
+          "833ab83191e039a4b904832428749754a687c9585e63588428b96752cc3a474d",
+          "a9f8a6685c495d2ccfbb16921b3e654bd8754eaf7eb9cdc4d89489f9e41280a2",
+          "4d4b2e8c014be60ca8f4ca4f4b1c98e5e07969acb4755ad11df35c50fa9df5ab",
+          "5e2c5add06db3c7929eb56e112e64537dbcf00ae78d50fdb421b193bda8685d9"
+        ],
+        "sha256": "8f7e3b498aa9dc49c84782add0349370f8a4368eb486852f24a31f941e489423",
+        "path": "edition/plate-execution.webp"
+      },
+      {
+        "page": 35,
+        "id": "petya",
+        "rotate": 0,
+        "file": "plate-petya.webp",
+        "width": 2586,
+        "height": 1887,
+        "crop": {
+          "left": 269,
+          "top": 254,
+          "width": 2586,
+          "height": 1887
+        },
+        "referenceSha256": "d9bb26470066b92df63ce5083c8c2d1f7ea66a39e91d73546ece01f713b9c04f",
+        "regionSha256": [
+          "72190dd5de9a1d49096699622755ab30dc91adb873b60799e2962930b894fb1e",
+          "584d2af418af0d2663ee05eff33ee31c0bb559050b133a748ef06c9484fa959c",
+          "f68a1418803c81457e1643698ffb426413ac72819df4fad98a1bafd17068ac55",
+          "a15033124d342f42381a905e519978891db898d25dfe71442a798e0020f80e66"
+        ],
+        "sha256": "59bc98deea5129adfbd5305c3a8e2208dd49fa3c0fac0f3bd014c6d95a3d9923",
+        "path": "edition/plate-petya.webp"
+      }
+    ],
+    "requests": [
+      {
+        "page": 13,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390486_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 13,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390486_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 13,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390486_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 13,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390486_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 15,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390488_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 15,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390488_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 15,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390488_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 15,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390488_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 17,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390490_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 17,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390490_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 17,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390490_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 17,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390490_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 19,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390492_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 19,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390492_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 19,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390492_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 19,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390492_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 21,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390494_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 21,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390494_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 21,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390494_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 21,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390494_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 23,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390496_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 23,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390496_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 23,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390496_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 23,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390496_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 25,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390498_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 25,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390498_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 25,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390498_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 25,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390498_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 27,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390500_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 27,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390500_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 27,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390500_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 27,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390500_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 29,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390502_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 29,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390502_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 29,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390502_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 29,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390502_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 31,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390504_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 31,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390504_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 31,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390504_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 31,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390504_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 33,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390506_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 33,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390506_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 33,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390506_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 33,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390506_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 35,
+        "x": 0,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390508_doc1.tiff&RGN=0.0,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 35,
+        "x": 1,
+        "y": 0,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390508_doc1.tiff&RGN=0.5,0.0,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 35,
+        "x": 0,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390508_doc1.tiff&RGN=0.0,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      },
+      {
+        "page": 35,
+        "x": 1,
+        "y": 1,
+        "url": "https://content.prlib.ru/fcgi-bin/iipsrv.fcgi?FIF=/var/data/scans/public/6411BA0C-A525-4E5F-8886-15522D6CE317/0/390508_doc1.tiff&RGN=0.5,0.5,0.5,0.5&WID=1600&QLT=95&CVT=jpeg"
+      }
+    ]
+  },
+  "fonts": {
+    "family": "Literata",
+    "source": [
+      "https://raw.githubusercontent.com/google/fonts/main/ofl/literata/Literata%5Bopsz,wght%5D.ttf",
+      "https://raw.githubusercontent.com/google/fonts/main/ofl/literata/Literata-Italic%5Bopsz,wght%5D.ttf"
+    ],
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/literata/OFL.txt",
+    "terms": "SIL OFL 1.1, complete notice retained unmodified and served locally. Fonts unchanged. Actual 102 distinct non-whitespace source codepoints present in both Roman and Italic cmap tables."
+  },
+  "icons": {
+    "source": "site/icon.svg",
+    "description": "Original WP monogram, exported as opaque PNGs; MIT software artwork.",
+    "files": [
+      {
+        "path": "site/apple-touch-icon.png",
+        "name": "apple-touch-icon.png",
+        "bytes": 4045,
+        "sha256": "a37b059570c85b7f63e22364e65d8a6cd54597018f1ea81e232fd10c5a0dd04d"
+      },
+      {
+        "path": "site/icon-192.png",
+        "name": "icon-192.png",
+        "bytes": 4296,
+        "sha256": "59cf8501b6c6d52085c8987b75404edf22615d7eef2b81f3e88570464f305fb3"
+      },
+      {
+        "path": "site/icon-512.png",
+        "name": "icon-512.png",
+        "bytes": 14776,
+        "sha256": "ea8fe92c2cbfcf7d2d035cc2d1abac981ce4dcabedf73428b203bceb1f5b15b2"
+      }
+    ]
+  }
+}

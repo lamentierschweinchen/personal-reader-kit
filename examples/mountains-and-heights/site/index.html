@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2efe6">
+  <meta name="description" content="The Alps by W. Martin Conway, with seventy colour plates by A. D. McCormick.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/share-card.css">
+  <link rel="stylesheet" href="/mountains.css">
+  <title>Mountains &amp; heights</title>
+</head>
+<body>
+  <svg class="icon-definitions" aria-hidden="true" focusable="false"><defs><path id="ui-arrow" d="M3 8h10M8 3l5 5-5 5"/></defs></svg>
+  <a class="skip-link" href="#main">Skip to reading</a>
+  <header class="masthead">
+    <a class="wordmark" href="#shelf" aria-label="Mountains and heights, opening page">Mountains &amp; heights</a>
+    <nav aria-label="Main navigation">
+      <a href="#shelf" data-nav="shelf">Read</a>
+      <a href="#companion" data-nav="companion">Plates</a>
+      <a href="#passages" data-nav="passages">Passages</a>
+    </nav>
+    <button class="type-button" data-action="settings" aria-label="Reading settings">Aa</button>
+  </header>
+  <div id="storage-warning" class="warning" role="alert" hidden></div>
+  <p id="focus-help" class="visually-hidden">Focus mode: tap the reading surface or press C to recall controls. Escape exits. Selecting words still lets you keep passages.</p>
+  <button id="focus-reveal" class="focus-reveal" data-action="focus-reveal" aria-controls="focus-tools" aria-expanded="false" hidden>Show reading controls</button>
+  <div id="focus-tools" role="group" aria-label="Reading controls" hidden><button data-action="focus-hide">Hide controls</button><button id="focus-exit" data-action="focus" hidden>Exit focus <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button></div>
+  <main id="main" tabindex="-1"><p class="loading">Opening the book…</p></main>
+
+  <button id="selection-save" hidden>Keep or share passage <span aria-hidden="true">＋</span></button>
+  <footer class="site-footer"><button id="offline-status" data-action="offline">Checking offline copy…</button><button data-action="import">Add a book <svg class="ui-icon ui-icon--up-right" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg></button><p class="maker-credit">Made with <a href="https://newreading.app/">newreading.app</a></p></footer>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <noscript>This reader needs JavaScript to store books and annotations on your device. No book is uploaded by this application.</noscript>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>

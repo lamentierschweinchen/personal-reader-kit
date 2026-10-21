@@ -1,0 +1,298 @@
+{
+  "portrait": {
+    "id": "portrait",
+    "file": "plate-portrait.webp",
+    "width": 1887,
+    "height": 2586,
+    "plate": 1,
+    "title": "Tolstoy at work",
+    "artist": "Ilya Repin",
+    "through": null,
+    "block": null,
+    "alt": "Tolstoy writes beside a window, with papers spread across the desk.",
+    "caption": []
+  },
+  "pictures": [
+    {
+      "id": "tushin",
+      "file": "plate-tushin.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 2,
+      "title": "Túshin’s battery at Schöngrabern",
+      "artist": "Nikolay Karazin",
+      "through": "part-02-chapter-20",
+      "block": "part-02-chapter-20-p011",
+      "alt": "Gunners and fallen horses around an artillery battery; smoke rises above a burning village.",
+      "caption": [
+        "Túshin is saluting a mounted superior. The chapter makes the two visits sharply different: the staff officer shouts an order and rides off under fire; Andrew dismounts and stays to help withdraw the guns."
+      ]
+    },
+    {
+      "id": "tilsit",
+      "file": "plate-tilsit.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 3,
+      "title": "Napoleon and Alexander at Tilsit",
+      "artist": "Aleksey Kivshenko",
+      "through": "part-05-chapter-19",
+      "block": "part-05-chapter-19-p008",
+      "alt": "Two emperors meet beside a pavilion on a raft; boats surround it on a broad river.",
+      "caption": [],
+      "history": {
+        "title": "A meeting on neutral water",
+        "paragraphs": [
+          "Napoleon and Alexander I met on the Niemen on 25 June 1807 by the Gregorian calendar. The raft let the sovereigns meet between the two banks. The peace between France and Russia followed on 7 July.",
+          "The novel gives the meeting’s date as 13 June. These are two calendars for the same day: the Julian calendar then used in Russia was twelve days behind the Gregorian calendar.",
+          "Ernst Ludwig Siehr, a Tilsit official, describes 150 French carpenters building a pavilion with doors on opposite sides. His account gives forty-five minutes for the conversation; Borís records one hour and fifty-three minutes in the novel."
+        ],
+        "sources": [
+          {
+            "label": "Fondation Napoléon · the meeting of 25 June 1807",
+            "url": "https://www.napoleon.org/en/history-of-the-two-empires/images/napoleon-and-czar-alexander-meeting-on-the-raft-on-the-niemen-25-june-1807"
+          },
+          {
+            "label": "McGill University · Napoleon Collection",
+            "url": "https://digital.library.mcgill.ca/napoleon/search/printsdetail.php?ID=770&doctype=Prints&sitelanguage=english"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ball",
+      "file": "plate-ball.webp",
+      "width": 1887,
+      "height": 2586,
+      "plate": 4,
+      "title": "Natásha at her first ball",
+      "artist": "Leonid Pasternak",
+      "through": "part-06-chapter-16",
+      "block": "part-06-chapter-16-p011",
+      "alt": "Prince Andrew bows towards Natasha in a white dress; a ballroom recedes through mirrors and chandeliers.",
+      "caption": [
+        "Pasternak holds the couple at the bow. In the chapter, Andrew is already reaching for Natásha’s waist before he finishes asking her to dance; she changes from fearing rejection to smiling before they enter the circle."
+      ],
+      "history": {
+        "title": "Pasternak’s encounter with Tolstoy",
+        "paragraphs": [
+          "According to the State Leo Tolstoy Museum, Pasternak met Tolstoy in 1893 and later showed him his illustrations at Khamovniki."
+        ],
+        "sources": [
+          {
+            "label": "State Leo Tolstoy Museum · Natasha at the Ball",
+            "url": "https://ar.culture.ru/en/subject/pasternak-natasha-na-balu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hunt",
+      "file": "plate-hunt.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 5,
+      "title": "The Rostóvs hunting at Otrádnoe",
+      "artist": "Aleksey Kivshenko",
+      "through": "part-07-chapter-05",
+      "block": "part-07-chapter-05-p020",
+      "alt": "Two huntsmen and a cluster of hounds bend over a wolf; mounted riders wait across open fields.",
+      "caption": [
+        "Daniel pins the wolf while the mounted hunters are still riding up. Nicholas moves to stab her; Daniel stops him and has her bound alive."
+      ]
+    },
+    {
+      "id": "sleigh",
+      "file": "plate-sleigh.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 6,
+      "title": "The Rostóvs’ Christmas visit",
+      "artist": "Nikolay Karazin",
+      "through": "part-07-chapter-10",
+      "block": "part-07-chapter-10-p068",
+      "alt": "Horse-drawn sleighs race over a snowy road at night; figures lean forward beneath a dark sky.",
+      "caption": [
+        "Karazin shows the two leading sleighs abreast during Nicholas’s race with Zakhár. Nicholas is driving in an old lady’s dress under his hussar coat; the strange faces in his sleigh include Natásha and Sónya in disguise."
+      ]
+    },
+    {
+      "id": "lavrushka",
+      "file": "plate-lavrushka.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 7,
+      "title": "Napoleon and Lavrúshka",
+      "artist": "Leonid Pasternak",
+      "through": "part-10-chapter-07",
+      "block": "part-10-chapter-07-p008",
+      "alt": "Lavrúshka rides beside Napoleon, gesturing across his chest; Napoleon’s mounted officers follow.",
+      "caption": [
+        "Tolstoy quotes Thiers’s awestruck captive, then gives us a servant acting astonishment to please Napoleon."
+      ]
+    },
+    {
+      "id": "kutuzov",
+      "file": "plate-kutuzov.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 8,
+      "title": "Kutúzov on the Poklónny Hill",
+      "artist": "Aleksey Kivshenko",
+      "through": "part-11-chapter-03",
+      "block": "part-11-chapter-03-p004",
+      "alt": "Kutuzov sits on a bench with officers grouped around him; a broad landscape opens behind them.",
+      "caption": [
+        "The roadside bench places this gathering on Poklónny Hill, before Filí. Kivshenko’s better-known council picture is set inside a cottage."
+      ]
+    },
+    {
+      "id": "rostopchin",
+      "file": "plate-rostopchin.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 9,
+      "title": "Rostopchín and Vereshchágin",
+      "artist": "Aleksey Kivshenko",
+      "through": "part-11-chapter-25",
+      "block": "part-11-chapter-25-p028",
+      "alt": "A young man stands below steps in a crowded courtyard; an official addresses the gathered people.",
+      "caption": [
+        "Vereshchágin still stands between the dragoons, his hands folded. Tolstoy makes the crowd hesitate even after Rostopchín hands him over; the first blow comes from a soldier, on repeated orders."
+      ]
+    },
+    {
+      "id": "mytishchi",
+      "file": "plate-mytishchi.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 10,
+      "title": "Natásha and Prince Andrew at Mytíshchi",
+      "artist": "Leonid Pasternak",
+      "through": "part-11-chapter-32",
+      "block": "part-11-chapter-32-p029",
+      "alt": "In a dim wooden room Natasha kneels beside Andrew’s bed; a small warm light falls across them.",
+      "caption": []
+    },
+    {
+      "id": "execution",
+      "file": "plate-execution.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 11,
+      "title": "The execution in Moscow",
+      "artist": "Leonid Pasternak",
+      "through": "part-12-chapter-11",
+      "block": "part-12-chapter-11-p010",
+      "alt": "French soldiers with muskets stand in the foreground; smoke and a group beside a post are farther back.",
+      "caption": [
+        "The album calls the victims incendiaries. The charge returns at the end of Tolstoy’s scene in the words of a soldier trying to console himself after the killing."
+      ]
+    },
+    {
+      "id": "petya",
+      "file": "plate-petya.webp",
+      "width": 2586,
+      "height": 1887,
+      "plate": 12,
+      "title": "The death of Pétya Rostóv",
+      "artist": "Nikolay Karazin",
+      "through": "part-14-chapter-11",
+      "block": "part-14-chapter-11-p015",
+      "alt": "Pétya leans sideways in the saddle with both arms flung out beside a smoking fire; riders and soldiers fill the courtyard.",
+      "caption": [
+        "Karazin catches Pétya still in the saddle, arms flung out, beside the smoking fire. Tolstoy describes him slipping sideways before the horse stops and he falls."
+      ]
+    }
+  ],
+  "about": [
+    {
+      "title": "The Maude witness",
+      "paragraphs": [
+        "The complete Louise and Aylmer Maude translation from Project Gutenberg 2600: fifteen books and both epilogues. The HTML was updated on 14 June 2022 and credits An Anonymous Volunteer and David Widger.",
+        "Accented names, retained French, emphasis, notes, verse and fixed layouts follow that digital text. No print edition is specified, and this is not a full proof against print. Suspected source errors have not been silently corrected."
+      ],
+      "links": [
+        {
+          "label": "Project Gutenberg · edition 2600 and source downloads",
+          "url": "https://www.gutenberg.org/ebooks/2600"
+        }
+      ]
+    },
+    {
+      "title": "The watercolour album",
+      "paragraphs": [
+        "Evgeny Evdokimov issued this album as a supplement to Sever in 1893: Repin’s portrait and eleven scenes by Nikolay Karazin, Aleksey Kivshenko and Leonid Pasternak.",
+        "The State Public Historical Library in Moscow holds the printed copy; the Presidential Library supplies the scans. Display images are cropped and rotated from those scans, without colour correction or reconstruction.",
+        "The Tolstoy Museum catalogues a corresponding first-ball watercolour by Pasternak; identity with the exact sheet reproduced here is unproved. Other originals’ present locations remain unresolved.",
+        "The 1893 artwork is in the public domain in the United States and outside ordinary UK copyright terms. These faithful scans are reproduced on that basis, with the holding and digitising libraries credited; no Creative Commons licence or library endorsement is claimed."
+      ],
+      "links": [
+        {
+          "label": "Presidential Library · full album and catalogue",
+          "url": "https://www.prlib.ru/item/1988888"
+        }
+      ]
+    },
+    {
+      "title": "Reading records",
+      "paragraphs": [
+        "Your place, picture scope and notes are stored in this browser at this address. Browser storage can be cleared or evicted; Settings provides private exports and recovery.",
+        "A text bundle includes the complete novel and source notices, but not the picture companion or fonts. Keep a copy of this reader project with your backup. Museum and library links require a connection."
+      ]
+    }
+  ],
+  "names": [
+    {
+      "name": "Anna Pávlovna Schérer",
+      "text": "The hostess of the opening reception in Petersburg. Pávlovna is her patronymic; Annette is the French form used in her invitation.",
+      "through": "part-01-chapter-01"
+    },
+    {
+      "name": "Prince Vasíli Kurágin",
+      "text": "Anna Pávlovna’s first guest, a court figure. Hélène, Anatole and Hippolyte belong to the Kurágin family.",
+      "through": "part-01-chapter-02"
+    },
+    {
+      "name": "Pierre Bezúkhov",
+      "text": "The young man newly returned from abroad. Pierre is the French form of Peter; the elderly Count Bezúkhov is his father.",
+      "through": "part-01-chapter-02"
+    },
+    {
+      "name": "Prince Andrew Bolkónski",
+      "text": "The husband of Lise, the “little princess.” André and Andrew refer to the same man in this translation.",
+      "through": "part-01-chapter-06"
+    },
+    {
+      "name": "The Rostóvs",
+      "text": "Count Ilyá Rostóv and Countess Natálya are the parents in the Moscow household. Their children include Nicholas, Natásha, Véra and Pétya.",
+      "through": "part-01-chapter-09"
+    },
+    {
+      "name": "Sónya",
+      "text": "The young cousin brought up in the Rostóv household. She is distinct from Natásha.",
+      "through": "part-01-chapter-09"
+    },
+    {
+      "name": "Borís Drubetskóy",
+      "text": "The son of Princess Anna Mikháylovna, the Rostóv countess’s relation. Anna Mikháylovna is distinct from the Petersburg hostess Anna Pávlovna.",
+      "through": "part-01-chapter-12"
+    },
+    {
+      "name": "The elder Prince Bolkónski",
+      "text": "Prince Andrew’s father, Nicholas. His daughter Princess Mary lives with him at Bald Hills. He is distinct from the young Nicholas Rostóv.",
+      "through": "part-01-chapter-26"
+    }
+  ],
+  "readingNotes": [
+    "Russian family names can change their ending. Rostóv and Rostóva belong to the same family. French forms also appear: André and Andrew are the same first name.",
+    "The translation often gives French conversation in English. Retained French phrases sometimes have a short explanation immediately after them.",
+    "Russia used the Julian calendar. During the years of the story it ran twelve days behind the Gregorian calendar common in western Europe: 13 June and 25 June can refer to the same day."
+  ],
+  "readingNoteSources": [
+    {
+      "label": "Dates in Imperial Russia · Yale University Press",
+      "url": "https://academic.oup.com/yale-scholarship-online/book/22559/chapter-abstract/182890433"
+    }
+  ]
+}

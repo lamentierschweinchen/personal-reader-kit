@@ -1,5 +1,8 @@
 // Cover compositions around the exact reviewed reader artwork.
 export const cover=(b,mini=false)=>`<div class="cover cover-${b.id}${mini?' mini':''}" aria-hidden="true">${{
+ mountains:'<span class="cover-meta">MARTIN CONWAY</span><strong>The<br><em>Alps</em></strong><img src="/mountains/cover-plate.jpg" alt=""><span class="cover-bottom">PAINTED BY A. D. McCORMICK</span>',
+ nietzsche:'<span class="cover-meta">THE JOYFUL WISDOM</span><strong>Nietzsche<br><em>in company</em></strong><svg aria-hidden="true" focusable="false" class="cover-art" viewBox="0 0 480 400"><circle cx="240" cy="200" r="145" fill="#d6aa49"/><g stroke="currentColor" fill="none" stroke-width="1.8"><path d="M350 77a166 166 0 1 0 48 181M36 170h300M143 211h302M66 252h252"/><g fill="#f4f0e5"><circle cx="336" cy="170" r="5"/><circle cx="143" cy="211" r="5"/><circle cx="318" cy="252" r="5"/></g></g></svg><span class="cover-bottom">WITH EPICURUS</span>',
+ 'war-and-peace':'<span class="cover-meta">LEO TOLSTOY</span><strong>War<br><em>and</em> Peace</strong><img src="/war-and-peace/plate-portrait.webp" alt=""><span class="cover-bottom">LOUISE &amp; AYLMER MAUDE</span>',
  austen:'<img src="/assets/austen-cover.jpg" alt="">',
  alice:'<span class="cover-meta">LEWIS CARROLL</span><strong>Alice</strong><img src="/assets/alice-rabbit.png" alt=""><span class="cover-bottom">PICTURES BY ARTHUR RACKHAM</span>',
  walden:'<span class="cover-meta">HENRY DAVID THOREAU</span><strong>Walden</strong><i>& Civil Disobedience</i><img src="/assets/walden-survey.jpg" alt=""><span class="cover-bottom">A LIFE, ACCOUNTED FOR.</span>',
