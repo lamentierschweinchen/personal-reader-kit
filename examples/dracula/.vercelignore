@@ -37,6 +37,9 @@
 !examples/dracula/site/dracula.css
 !examples/dracula/site/edition.mjs
 !examples/dracula/site/icon.svg
+!examples/dracula/site/apple-touch-icon.png
+!examples/dracula/site/icon-192.png
+!examples/dracula/site/icon-512.png
 !examples/dracula/site/index.html
 !examples/dracula/site/manifest.webmanifest
 !examples/dracula/site/robots.txt
@@ -68,6 +71,9 @@
 !site/dracula.css
 !site/edition.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt

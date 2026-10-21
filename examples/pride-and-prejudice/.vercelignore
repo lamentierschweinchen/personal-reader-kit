@@ -17,6 +17,9 @@
 !site/style.css
 !site/manifest.webmanifest
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/robots.txt
 !samples/
 !samples/library.json
@@ -209,6 +212,9 @@
 !examples/pride-and-prejudice/site/style.css
 !examples/pride-and-prejudice/site/manifest.webmanifest
 !examples/pride-and-prejudice/site/icon.svg
+!examples/pride-and-prejudice/site/apple-touch-icon.png
+!examples/pride-and-prejudice/site/icon-192.png
+!examples/pride-and-prejudice/site/icon-512.png
 !examples/pride-and-prejudice/site/robots.txt
 !examples/pride-and-prejudice/samples/
 !examples/pride-and-prejudice/samples/library.json

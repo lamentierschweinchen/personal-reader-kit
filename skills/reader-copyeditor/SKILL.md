@@ -34,6 +34,8 @@ Inspect the surrounding qualifications before elevating a number or phrase. Stat
 
 A question that merely asks the reader to repeat the preceding paragraph may add no value. A generic notebook is not a companion simply because its prompts mention the book. For teaching, inspect the actual worked example and a meaningful exception; distinguish the author's rules or motives from the editor's interpretation and exercises. Preserve the conditions under which advice is useful. A flag must explain what it matched and allow a reasoned decision to keep the words.
 
+Do not fill a cast. Two well-supported voices are enough; remove a third whose connection adds little. The three proposal families below are approaches to test, not a required number of authors or finished companions.
+
 ### 2. The reader's surface
 
 Remove self-narration: announcements of what the editor is about to do, explanations of restraint, praise for the product's sensitivity, and repeated permission to interpret or disagree. Usually start with the observation, evidence, question or action itself.
@@ -45,6 +47,8 @@ Keep consequential information at the action: spoiler scope, storage failure, pr
 ### 3. Claims and voice
 
 Keep author, narrator, translator and editor distinct. Check facts against the relevant evidence; distinguish historical events, later testimony and current conditions. Do not turn a deletion into a stronger unsupported assertion or a later event into the cause of an earlier action. Preserve ambiguity and allow a proposed comparison to fail. Never invent a quotation, authorial intention or scholarly consensus. In a comparison, check who speaks, which narrative level they occupy, and which contributor or edition supplied the passage or image. Do not turn an ambiguous identity into a definite character record. Check spoilers in front matter, indexes and captions as well as chapter prose.
+
+Check captions and alt text against the full image, then the passage. A picture's title does not establish which moment or figure it depicts. Two views of one place do not establish a fixed viewpoint or a sequence in time.
 
 Read aloud for cadence and check neighboring paragraphs for repeated openings, conclusions and rhetorical gestures. Keep particularity, humor and deliberate rhythm. Do not impose a universal sentence length, spelling convention, punctuation ban or "AI score". A phrase list can locate candidates; it cannot decide whether prose is good or generated.
 

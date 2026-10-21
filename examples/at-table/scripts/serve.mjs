@@ -6,7 +6,7 @@ import {build} from './build.mjs';
 const root = process.env.READER_OUTPUT ? path.resolve(process.env.READER_OUTPUT) : fileURLToPath(new URL('../dist/',import.meta.url));
 await build({shell:process.env.READER_SHELL==='1',output:root});
 const config = JSON.parse(await readFile(new URL('../vercel.json',import.meta.url),'utf8'));
-const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.svg':'image/svg+xml','.txt':'text/plain; charset=utf-8','.woff2':'font/woff2'};
+const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.svg':'image/svg+xml','.png':'image/png','.txt':'text/plain; charset=utf-8','.woff2':'font/woff2'};
 const port = Number(process.env.PORT || 4173);
 http.createServer(async (req,res) => {
   try {

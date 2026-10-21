@@ -7,7 +7,7 @@ import {validateBook,anchorStatus} from '../site/core.mjs';
 import {dossier,evidence} from '../site/case.mjs';
 import {isReviewedEdition} from '../site/edition.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','case.mjs','case-ui.mjs','edition.mjs','style.css','dracula.css','manifest.webmanifest','icon.svg','robots.txt'];
+export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','case.mjs','case-ui.mjs','edition.mjs','style.css','dracula.css','manifest.webmanifest','icon.svg','apple-touch-icon.png','icon-192.png','icon-512.png','robots.txt'];
 export async function build(){
  const pins=JSON.parse(await readFile(path.join(root,'edition-lock.json'),'utf8'));
  const prepared=['library.json','source-notices.json'];

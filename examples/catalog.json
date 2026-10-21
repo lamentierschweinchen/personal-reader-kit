@@ -29,6 +29,11 @@
           "sha256": "588faeb0de7a8766de3be9f274f2432cb84c8255cb5208279b19534fae66bb08"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 6547,
+          "sha256": "e33c02ffc5ad12dfef975c6116aadf142cb48286f4ea0779339d2ac2c7e0b6b1"
+        },
+        {
           "path": "austen-colophon.png",
           "bytes": 14567,
           "sha256": "c757484ae3a9446ae021db86fac4faa8560e78439062c60cc6fb121b1c6a3bdb"
@@ -864,14 +869,24 @@
           "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 7094,
+          "sha256": "4561d88afb4ce87340c71966bfd35f6e6a1f11840e57700256dbf3a1d0327248"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 23433,
+          "sha256": "d63466c6109e92984489f6418d582cb7990ebede706db57f5a33df445fb56a82"
+        },
+        {
           "path": "icon.svg",
-          "bytes": 252,
-          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+          "bytes": 777,
+          "sha256": "c8c41c365726dba7ad6aaaf5cec812371e7cc0766bfc4a3a96016b3888f604c7"
         },
         {
           "path": "index.html",
-          "bytes": 3553,
-          "sha256": "186b35c20e2aea424858438c1b0eee3901aae888223b9019647977cda76fad5d"
+          "bytes": 3630,
+          "sha256": "b897d9097c14f805a49bc553ef50388765d04ad22066a5a27fdea13b2406fe8f"
         },
         {
           "path": "library.json",
@@ -880,8 +895,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 328,
-          "sha256": "55a2a1b8516f8dc20191e161b512d487fc4ba16bb4aeee1cb6ec8eeac1a3a6ea"
+          "bytes": 426,
+          "sha256": "a91987c514765c2351706d8ba0fc1907051a74d626d4037e1d291b2bbc9801d7"
         },
         {
           "path": "robots.txt",
@@ -910,8 +925,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 4697,
-          "sha256": "4a36a0fa3b6b1cdc22cbfd95e89c417a681c0f44c0eff6655ce0d4aea44e4613"
+          "bytes": 4753,
+          "sha256": "b59516e4cc289b37fb1a7fe2e767dcfaca22f0ae4db77e02782782add96db333"
         },
         {
           "path": "text.mjs",
@@ -935,7 +950,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/icon.svg",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -966,6 +986,11 @@
           "sha256": "086069bd17640754720766e6f6bfd15f1dd1aa4915fa4151033340bd99d83760"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 3150,
+          "sha256": "875e5694c40cdd471894cfc037321393258ae6589c207f0cb5724cbe87199dea"
+        },
+        {
           "path": "bundle.mjs",
           "bytes": 4496,
           "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
@@ -981,14 +1006,24 @@
           "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 3358,
+          "sha256": "be2330c92a1d32dc0018f003ea5c73f387e77f45e9c3fa011c7858523e6f0744"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 12099,
+          "sha256": "42e3d7600282079c062156868c7855d662f933642d6be83ea8b1207952e08895"
+        },
+        {
           "path": "icon.svg",
           "bytes": 240,
           "sha256": "5957be54a615c38b6bedde4f32caf2be63784f458797c89c857e5937b56f8595"
         },
         {
           "path": "index.html",
-          "bytes": 3368,
-          "sha256": "b4cb9287b033e2199f4b476cc0c5915e77dc024552d8de4efae512cc95f5bc0c"
+          "bytes": 3445,
+          "sha256": "76303d2c77b65db60c283fccf87f3b77bbf257e2afcf8d1483cb3f77ff46f2a1"
         },
         {
           "path": "library.json",
@@ -997,8 +1032,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 239,
-          "sha256": "8d24b91a4e8ea39c801e0949cad56c0aa630971aa628f52398c320fba933f2be"
+          "bytes": 414,
+          "sha256": "3e290b4e59dcbc5e1a7cdf2bc981b98b75ad46c57333a09dfcd6124217383786"
         },
         {
           "path": "play/art.mjs",
@@ -1057,8 +1092,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1353,
-          "sha256": "5bbfd552be6389c8885c176e8e251d621f62a14f09a88064570f291ad29518bd"
+          "bytes": 1409,
+          "sha256": "8722579cb3438f249ae1fadd5fbd15bfd26f66928abbecae3dd92291be147bef"
         },
         {
           "path": "text.mjs",
@@ -1086,7 +1121,12 @@
         "site/share-card.mjs",
         "publication.json",
         "scripts/audit-edition.mjs",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ],
       "game": {
         "title": "Tea at Six",
@@ -1122,6 +1162,11 @@
           "sha256": "861b3c6306b97b341ced16fdc083040eaef4771dc42aaed7ebb9e37b24a72957"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 4367,
+          "sha256": "dc7a1c385195b76e1b449f5123a25c0aea3b05a5344e92c1820cac12472baa56"
+        },
+        {
           "path": "bundle.mjs",
           "bytes": 4496,
           "sha256": "1d45e96700ce22ea46aad65f47952e3fdc411aa56befd5984d88d8a300d52469"
@@ -1142,14 +1187,24 @@
           "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 4327,
+          "sha256": "5225ae57297505b698eb8320d3cd808c43c1f629ecb159cbe5e5ac63943560f3"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 16926,
+          "sha256": "1a7b613b688054e57a32d0a233c78fd90309fbbc049ad3dbccf374b107c90e0e"
+        },
+        {
           "path": "icon.svg",
           "bytes": 298,
           "sha256": "f5253877ced8029426c6eba8284e0d8e386ef271eb5363fdf6d9d97065cdec5d"
         },
         {
           "path": "index.html",
-          "bytes": 3330,
-          "sha256": "49d5bf8e547a37f937da36b21b5f1e01cddabe6ec1230385b2d4978f9d6e2b5a"
+          "bytes": 3407,
+          "sha256": "61828023d826bc78a52a1adee86119a0f62cf9b58ac5fb439493ea41f1a33c16"
         },
         {
           "path": "library.json",
@@ -1158,8 +1213,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 248,
-          "sha256": "7e0cc781df2881ef6bdd8285ace158edb5658522a4d42b30c305012dd71d5922"
+          "bytes": 423,
+          "sha256": "212f7c7b4e88c454f15ee2e33d07d159e89d27233b5c85de102b183a506964cb"
         },
         {
           "path": "robots.txt",
@@ -1188,8 +1243,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1184,
-          "sha256": "e850d66f490f6e96ab76611e7cb8f4a45594278f096316a2d06b3aa030e2e549"
+          "bytes": 1240,
+          "sha256": "373215c400bd3e02505c1a13f506a85953732f65235e3995ddeac29325627085"
         },
         {
           "path": "text.mjs",
@@ -1214,7 +1269,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1245,6 +1305,11 @@
           "sha256": "1985f234ae4a20b46d9d78666fc1cf52cb4a727cbca007dccab0376c5ac85c04"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 1251,
+          "sha256": "1fae450b93d87c9fc7ffffe055f01ed9c64c11982b4d9be819802bcbe73e48d5"
+        },
+        {
           "path": "broadside.css",
           "bytes": 17347,
           "sha256": "87daa5523d9e1cf5c4f18cbcd38565336d8afdd3f714b9efe0758180b2dc3e6d"
@@ -1265,14 +1330,24 @@
           "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 1181,
+          "sha256": "0658bf41bb9a77f8f6093cd387e8ca28d2d8ba5986d2252f22a82c94372c9c2a"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 8358,
+          "sha256": "cbf29cfd4e65df9e29f81507d84fd993b4ab2a1361fbf867b07d7742b125a03e"
+        },
+        {
           "path": "icon.svg",
           "bytes": 200,
           "sha256": "f9da8a6c8938babc004da2dfd7ae13901873c7cbb4923676d060b577f6c6c021"
         },
         {
           "path": "index.html",
-          "bytes": 3538,
-          "sha256": "c5aa7cc44e83ff52ed613c76f9bbba6255389edc152b558088c14fac8a362f23"
+          "bytes": 3615,
+          "sha256": "7d216fe621813afa3be2c519e8e1711a9c38e08a15fe5041755cb7f9747fec35"
         },
         {
           "path": "lectures.mjs",
@@ -1286,8 +1361,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 277,
-          "sha256": "ae18940abfa4ed94a3cbc9b45a1f9376af9a8b85169c3d61ea0c179a06160a56"
+          "bytes": 429,
+          "sha256": "36642763349503d9126588dbe5630aa09d797483786485e28afd217fb89538de"
         },
         {
           "path": "robots.txt",
@@ -1316,8 +1391,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1200,
-          "sha256": "97bcd556bb4bf5e5f8c55ace477add792a8219f0c23cd93ec8814d9544ab5e37"
+          "bytes": 1256,
+          "sha256": "938a6d374973c72a2ed8da6d172bceb4c638c64381d3507388544d967d5b393a"
         },
         {
           "path": "text.mjs",
@@ -1341,7 +1416,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1368,6 +1448,11 @@
           "sha256": "55952fe8f7f0654b53bcdc10c2fa11f5995c2acaab8d9a87e4cafef3456cb4a2"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 3510,
+          "sha256": "c914b147b2e4426e09c0ab3777631893b2f07822a1e128cc2cfc6267cf294020"
+        },
+        {
           "path": "bundle.mjs",
           "bytes": 4599,
           "sha256": "a6fc0003d79696fe358ec0be82eef3f317239053c16374fa118c36ec7fc97b3f"
@@ -1383,14 +1468,24 @@
           "sha256": "e24be4accf42b98d6c6e20220b0837890a261885e8a22a9efe0d99c4aae74f29"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 3095,
+          "sha256": "36616be74839b74ea2a46852c0a4fa43e3f1258e12419edbbeb4b1b1ed1b6243"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 12639,
+          "sha256": "5773afc6541acdbfeeb63913f7065a53501617b8d6e54e48e53507e310a5c503"
+        },
+        {
           "path": "icon.svg",
           "bytes": 294,
           "sha256": "4cabb068bc6cd9cb731d62f99c0b27a5abb61200624d05ce409987fb69203839"
         },
         {
           "path": "index.html",
-          "bytes": 3309,
-          "sha256": "8c4244a87e7e56d4807dfae7fa451d136747cae4a285dc2822375ee0ef297e17"
+          "bytes": 3386,
+          "sha256": "15f24455714e80deb6a4e19612e1eccc622f214faf37bbb0525662c4d34dfac7"
         },
         {
           "path": "library.json",
@@ -1399,8 +1494,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 262,
-          "sha256": "e25f8fdd9f8e1743428b061b38b7525b7001155a02dd82d3933bb643819e2ae4"
+          "bytes": 428,
+          "sha256": "98d741c0765e854ee1671bfb457cb02d38c251b273dcf9fe3d262fd70dc2cfd4"
         },
         {
           "path": "play/game.mjs",
@@ -1454,8 +1549,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1340,
-          "sha256": "8f563d0f99c79808897eabab89e77fd95a841ebcb737e8f3e1df0c41770a594c"
+          "bytes": 1396,
+          "sha256": "2bb491e54182c986b95f9d00a1233a74614d2ddac3aaa0ffc3f5e2b615531f30"
         },
         {
           "path": "text.mjs",
@@ -1480,7 +1575,12 @@
         "site/style.css",
         "site/share-card.css",
         "site/share-card.mjs",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1505,6 +1605,11 @@
           "path": "app.mjs",
           "bytes": 74396,
           "sha256": "550871e4d76e43e2b0058d577afc47bbf43b6dde9a3d56c1f3ca355cd2bd071b"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 2108,
+          "sha256": "807a1996d9b9922495e57ab569a496f8ee86109c409bbe6d761945bfdb294c10"
         },
         {
           "path": "bundle.mjs",
@@ -1542,14 +1647,24 @@
           "sha256": "9a6baa8823b078ff4c9c1fb65d08267212c6227e104e71d84aec2c34795241c5"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 2121,
+          "sha256": "487239662607b25819586eab02401a25941c7721d508261cc9d581a1a6d94c73"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 9183,
+          "sha256": "9f1c3ba80da45b5fc9eb74140cc45c1b1a85719a73f41145bd9c3cdb79cd2cde"
+        },
+        {
           "path": "icon.svg",
-          "bytes": 252,
-          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+          "bytes": 413,
+          "sha256": "3d3fd547fd6a3ddc931bf3fe1e9a1ae2c130606ce478a9c40e34695a1a0003ca"
         },
         {
           "path": "index.html",
-          "bytes": 3200,
-          "sha256": "7c3156a9c80fc190bc897d415e8c7571549a66eefcdff6d366c98e19fd54f4fe"
+          "bytes": 3277,
+          "sha256": "18398f5902729cac90068bcda1e9a803ae4392f70f0559c5584a8859bd57d380"
         },
         {
           "path": "library.json",
@@ -1558,8 +1673,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 238,
-          "sha256": "c372d030c786b926cf784e524935b28a71823facc0d3f84afb79e3233c1ac2db"
+          "bytes": 413,
+          "sha256": "8c29c0cfe01c0d1d3e4c6cd1f1d9665da292432888af4ededefe8eff29fab75b"
         },
         {
           "path": "play/app.mjs",
@@ -1638,8 +1753,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1477,
-          "sha256": "ac2952cc6b17d78784db18e7d0cf8a096969440322f1970397deab344d7bd5cf"
+          "bytes": 1533,
+          "sha256": "4d269d85fef712c61b1bb78d4deea68703fd0ab3d59ed6d87d2f34448af787bb"
         },
         {
           "path": "text.mjs",
@@ -1664,7 +1779,13 @@
         "site/style.css",
         "site/share-card.css",
         "site/share-card.mjs",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/icon.svg",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1698,6 +1819,11 @@
           "sha256": "a8f8c7f1b6874cc2075014ebea37cc3648a8fdc6f7b55cb3c959492f2fb1d707"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 7206,
+          "sha256": "bfd68275befc0be69ad839ba08c9ca26b49f7cd8e8b97fb1e551f41636568a00"
+        },
+        {
           "path": "assets.mjs",
           "bytes": 2835,
           "sha256": "a58b98fc4c8f363d9792e760dc065687f7c0bc7669d1a8c288971e6f2b1af85c"
@@ -1718,14 +1844,24 @@
           "sha256": "25a87f2659aca9256c51a95d8c4c606a207b4e2736460b7ff3d3d8e6d97fac39"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 7463,
+          "sha256": "1ba8df4f3d7fac566a4cbb4e8a06b82970ff546589d17a296bd650a5688b83e5"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 25894,
+          "sha256": "535e38ffe06f4fdad58934c133d5f89a5c613208de696df741416d25ab841415"
+        },
+        {
           "path": "icon.svg",
           "bytes": 591,
           "sha256": "b638c7ed2fe42c5df4d2dc8ffc7414b50369fe655176dd78d6278a9fe6291d30"
         },
         {
           "path": "index.html",
-          "bytes": 3366,
-          "sha256": "12cc29e371d94c30b2a4c34af9050630721bf5a8f3acbe6f5d1f50e5f8e28209"
+          "bytes": 3443,
+          "sha256": "c6e024e740d99e7cc773be9f9a310b3187a74b32da2c211c7190fdb71fb9209b"
         },
         {
           "path": "library.json",
@@ -1734,8 +1870,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 271,
-          "sha256": "e3c6ceee8698e1b59d8eebbf87d1e5056cff3c8db4eac8f4c2e8c374885649d7"
+          "bytes": 426,
+          "sha256": "0187e866d66b71fe123872c701f2660470a6d3747a463bc367e28de55ac89db4"
         },
         {
           "path": "newsreader-OFL.txt",
@@ -1779,8 +1915,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1277,
-          "sha256": "804a654329965a9b7c32dac65341a252082e93b069db123261eac740f5932b56"
+          "bytes": 1333,
+          "sha256": "322bfd1e6e7b28cf4e4845708a3b51b2d681b4594461cc26ebd8f79fb95d3a54"
         },
         {
           "path": "table.mjs",
@@ -1807,7 +1943,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1843,6 +1984,11 @@
           "sha256": "7d6d650bfe97704f7c96aaf20647af8f8f8bccaeaf3812e00d36653867109243"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 6582,
+          "sha256": "27f555c27fcadd69cddf42f2856a6f91998e563c8e599384bbde871dd8eb22b8"
+        },
+        {
           "path": "bundle.mjs",
           "bytes": 4496,
           "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
@@ -1873,14 +2019,24 @@
           "sha256": "01719d689f0116fd34fdb17acbb7c8417cfdbdd854544c16f012f630054b4054"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 7091,
+          "sha256": "f18804d8a262d04b1a8aef2a2fcb5e51268b94ab65c92ec483a179cf6842e1c9"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 24596,
+          "sha256": "93343c359502051746faa15694d23d82474b96317e5b83232180fc76bc57a912"
+        },
+        {
           "path": "icon.svg",
           "bytes": 328,
           "sha256": "f40715fa3be3abbed435a143f3d6d870a87061109d6b68c4f9664b2a3543ab1d"
         },
         {
           "path": "index.html",
-          "bytes": 3775,
-          "sha256": "4bf7aac57b0c499ff9d86cfbfb6913882f95c4033a6ac4ea55d3683e977a3a0d"
+          "bytes": 3852,
+          "sha256": "ffd1d45eefe742c2ec6ea95a29c59102dfb9655d2be1d480a7e4d7717aacdce3"
         },
         {
           "path": "library.json",
@@ -1904,8 +2060,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 249,
-          "sha256": "8e12e1eabc42d0292bc5d0d5a5847c11daa192126056830032b2719077e3d73a"
+          "bytes": 404,
+          "sha256": "ee459cafe35d00ec655068a6e142a4656eb4d1d7cccf9044389034e6ed538a3b"
         },
         {
           "path": "robots.txt",
@@ -1934,8 +2090,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1295,
-          "sha256": "dafff0c111c769196c39bdf59dbb88c2c1279939572e004b1dd0a5a787781b0f"
+          "bytes": 1351,
+          "sha256": "5e7c073b4457d38a4ff424ef6dba2acad25554bfa9d7cf8b35beb24b15c80470"
         },
         {
           "path": "text.mjs",
@@ -1952,7 +2108,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -1993,6 +2154,11 @@
           "sha256": "28013963001111b4ab6c68fd2d13362a61e364a0b51ed42e80da79c86e909727"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 2076,
+          "sha256": "7d0071d28b3cf9ff33ae5cadc5c9a02d773c7078a7eaee7f4154a5f2f72b3271"
+        },
+        {
           "path": "bitter-italic.woff2",
           "bytes": 113520,
           "sha256": "edda4dc6263ff6a4e43df69ccc58d69e9b9b6f4a06f29bba3f35927fd61cfe28"
@@ -2028,14 +2194,24 @@
           "sha256": "132dcdf41bdf685514cb3c9209141e5259705c87355699de22c3bc428ebcdf68"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 1902,
+          "sha256": "650541c8be33bde22721d1f572606ec92e3a2c7dc97463f75baeb4dc270d9831"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 8311,
+          "sha256": "20b43f25f24f49ad3939b6ec964c6371c9872769471dd8f9c0d78c2aa49fb0cb"
+        },
+        {
           "path": "icon.svg",
-          "bytes": 252,
-          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+          "bytes": 456,
+          "sha256": "fae4fb0a856f2626fa2383a97ac4e80adcc967c5c2675a80e11a08731595e38a"
         },
         {
           "path": "index.html",
-          "bytes": 3424,
-          "sha256": "679d9bb968a51904cdbf66f86ba932e04dbabd17a435c586960a751ef4175a1e"
+          "bytes": 3501,
+          "sha256": "55b7f943106bbe6e968730db4e6b8d6fe08f57e93c3d287fb2cfb03690a5a187"
         },
         {
           "path": "library.json",
@@ -2044,8 +2220,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 361,
-          "sha256": "ca45f8a29f5be0fa8e22c0b79e04703434d7d37fba90972751c4923b486bbe56"
+          "bytes": 446,
+          "sha256": "74d6e580922a5c797c67786e8a5cf061535fb6871ad1862964acfa956bb2ec13"
         },
         {
           "path": "notices.json",
@@ -2099,8 +2275,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 2290,
-          "sha256": "d05bb95e0e2fc972f0a69ec28be67db3b40d04131d055e7157d376dd3f618540"
+          "bytes": 2402,
+          "sha256": "8a930db57753a4e92521c3b45a88bd7010a7d31b2799f5d436b0ef4a9503117c"
         },
         {
           "path": "text.mjs",
@@ -2117,7 +2293,13 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/icon.svg",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -2168,6 +2350,11 @@
           "sha256": "f7fe331bac53a49472df15d573ff762f738e7f22ef0caceff86aa81b5fe51f47"
         },
         {
+          "path": "apple-touch-icon.png",
+          "bytes": 4433,
+          "sha256": "ae78e90145f67656013331284d68804cf422066b22addcb01a02531c66807175"
+        },
+        {
           "path": "bundle.mjs",
           "bytes": 4496,
           "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
@@ -2193,14 +2380,24 @@
           "sha256": "9f7a9a5c9fd1f2684a97fafcb9ef6e4d0dd23029f46f7050d82a4cb55126e926"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 4752,
+          "sha256": "a188f0f214023a3dabb8f8b581ad5e6dc3356f1ea20dd5ce91dd3a587e5c0371"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 16127,
+          "sha256": "49494d86e895a44263e705793a8913ed5dff4addb37c13412a1cc6a9179c6a1c"
+        },
+        {
           "path": "icon.svg",
-          "bytes": 252,
-          "sha256": "212a2af43ca4bbb3801c80387aa6ab6e0ec84c6edf779cbb488a97971d3659d8"
+          "bytes": 582,
+          "sha256": "6ae9cae353683b16cd78cb3f158e822de251813c4ec4accbe8198fb04c60f665"
         },
         {
           "path": "index.html",
-          "bytes": 3420,
-          "sha256": "3a45f56a9751a19bd2ad25e4d84fad1ddb9054aca20caf545753ce80bf95a4fc"
+          "bytes": 3497,
+          "sha256": "93551bc75f5d94a615a69be2f52b3ccbca173a9e338b32e1001533b0b8d22083"
         },
         {
           "path": "library.json",
@@ -2209,8 +2406,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 277,
-          "sha256": "366e8c41baa957d55a7cca9dbeab712acca99793a8df088cb20ac3065e9908cb"
+          "bytes": 429,
+          "sha256": "2567698a4d65cb7721032f1ff0e912dff92b01aead27b32da55e9c2db482026a"
         },
         {
           "path": "media.mjs",
@@ -2254,8 +2451,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 1317,
-          "sha256": "067741d46f5bfda0aacf7ecb65eda41d0e65e0a0451d12fe2f163582a6ce8df4"
+          "bytes": 1373,
+          "sha256": "62a29c5078f9524e1dbee14ba3567405e48b73cdb7cbb1118382ec8c89ee017d"
         },
         {
           "path": "text.mjs",
@@ -2272,7 +2469,13 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/icon.svg",
+        "site/manifest.webmanifest"
       ]
     },
     {
@@ -2310,6 +2513,11 @@
           "path": "app.mjs",
           "bytes": 71665,
           "sha256": "b4baaae46f105c42e67748ebde32976ceff4da2d558f49f3bfe9bff4f127e926"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 7589,
+          "sha256": "012e86126387d9bf0bf7f2a51ff8315cbda8bb041350935bdf1c63f1c94a8f92"
         },
         {
           "path": "bundle.mjs",
@@ -3292,14 +3500,24 @@
           "sha256": "26d4bd3c2a41796b843a2640a7b5d601200a22fa9f7a3b54625a4b593deb4450"
         },
         {
+          "path": "icon-192.png",
+          "bytes": 7873,
+          "sha256": "1c2dc3d925e8c9b8b97541471f0bb2c7b0a31229f6ff5e0212a7d647095c4f43"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 59495,
+          "sha256": "25d9989068c668e742f6d7a783933e01c18e10cf67c07fd418dfea02b694f500"
+        },
+        {
           "path": "icon.svg",
           "bytes": 311,
           "sha256": "34aea3499b00195f40fe115112ccb5c622290e4c43d75bac8bab63d04c9e2877"
         },
         {
           "path": "index.html",
-          "bytes": 3399,
-          "sha256": "7736e907ce44ff609dbdd6306f8788f114dc039baa0216dda5be6d5da165666a"
+          "bytes": 3476,
+          "sha256": "d20f2f04b3c4501fae1c6154623833630ff70cff89caccf88011d9d3625d69c6"
         },
         {
           "path": "library.json",
@@ -3308,8 +3526,8 @@
         },
         {
           "path": "manifest.webmanifest",
-          "bytes": 236,
-          "sha256": "c998fa7a951bd38082ed4302ab32d502f6548c8dcc3e2f0d6de9eb096ebfb79b"
+          "bytes": 411,
+          "sha256": "72f3ccb96079ea0f45d522a0fe3e5d5c56f3fb3b38b54ce3f98ba7bc6baff77c"
         },
         {
           "path": "notation-42.jpg",
@@ -3358,8 +3576,8 @@
         },
         {
           "path": "sw.js",
-          "bytes": 5188,
-          "sha256": "4a0aa074d3e349618cea3b3094b1cd8986f450214f15e31b646121329200b266"
+          "bytes": 5244,
+          "sha256": "551f8eabb51a2e51c38f7af59ea4ff13acf8331fcac26e8481da87a9f03b7325"
         },
         {
           "path": "text.mjs",
@@ -3381,7 +3599,12 @@
         "site/share-card.css",
         "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged."
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/serve.mjs",
+        "site/apple-touch-icon.png",
+        "site/icon-192.png",
+        "site/icon-512.png",
+        "site/manifest.webmanifest"
       ]
     }
   ],

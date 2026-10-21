@@ -33,6 +33,9 @@
 !examples/alice-in-wonderland/site/core.mjs
 !examples/alice-in-wonderland/site/db.mjs
 !examples/alice-in-wonderland/site/icon.svg
+!examples/alice-in-wonderland/site/apple-touch-icon.png
+!examples/alice-in-wonderland/site/icon-192.png
+!examples/alice-in-wonderland/site/icon-512.png
 !examples/alice-in-wonderland/site/index.html
 !examples/alice-in-wonderland/site/manifest.webmanifest
 !examples/alice-in-wonderland/site/robots.txt
@@ -60,6 +63,9 @@
 !site/core.mjs
 !site/db.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt

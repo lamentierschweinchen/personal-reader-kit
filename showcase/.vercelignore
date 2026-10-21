@@ -114,6 +114,9 @@
 !examples/alice-in-wonderland/site/core.mjs
 !examples/alice-in-wonderland/site/db.mjs
 !examples/alice-in-wonderland/site/icon.svg
+!examples/alice-in-wonderland/site/apple-touch-icon.png
+!examples/alice-in-wonderland/site/icon-192.png
+!examples/alice-in-wonderland/site/icon-512.png
 !examples/alice-in-wonderland/site/index.html
 !examples/alice-in-wonderland/site/manifest.webmanifest
 !examples/alice-in-wonderland/site/robots.txt
@@ -135,6 +138,9 @@
 !examples/at-table/site/core.mjs
 !examples/at-table/site/db.mjs
 !examples/at-table/site/icon.svg
+!examples/at-table/site/apple-touch-icon.png
+!examples/at-table/site/icon-192.png
+!examples/at-table/site/icon-512.png
 !examples/at-table/site/index.html
 !examples/at-table/site/manifest.webmanifest
 !examples/at-table/site/newsreader-OFL.txt
@@ -168,6 +174,9 @@
 !examples/beside-the-bed/site/cover.svg
 !examples/beside-the-bed/site/db.mjs
 !examples/beside-the-bed/site/icon.svg
+!examples/beside-the-bed/site/apple-touch-icon.png
+!examples/beside-the-bed/site/icon-192.png
+!examples/beside-the-bed/site/icon-512.png
 !examples/beside-the-bed/site/index.html
 !examples/beside-the-bed/site/manifest.webmanifest
 !examples/beside-the-bed/site/notices.mjs
@@ -205,6 +214,9 @@
 !examples/dracula/site/dracula.css
 !examples/dracula/site/edition.mjs
 !examples/dracula/site/icon.svg
+!examples/dracula/site/apple-touch-icon.png
+!examples/dracula/site/icon-192.png
+!examples/dracula/site/icon-512.png
 !examples/dracula/site/index.html
 !examples/dracula/site/manifest.webmanifest
 !examples/dracula/site/robots.txt
@@ -228,6 +240,9 @@
 !examples/inward-life/site/core.mjs
 !examples/inward-life/site/db.mjs
 !examples/inward-life/site/icon.svg
+!examples/inward-life/site/apple-touch-icon.png
+!examples/inward-life/site/icon-192.png
+!examples/inward-life/site/icon-512.png
 !examples/inward-life/site/index.html
 !examples/inward-life/site/literata-OFL.txt
 !examples/inward-life/site/literata-italic.woff2
@@ -256,6 +271,9 @@
 !examples/learning-to-see/site/cover.svg
 !examples/learning-to-see/site/db.mjs
 !examples/learning-to-see/site/icon.svg
+!examples/learning-to-see/site/apple-touch-icon.png
+!examples/learning-to-see/site/icon-192.png
+!examples/learning-to-see/site/icon-512.png
 !examples/learning-to-see/site/index.html
 !examples/learning-to-see/site/manifest.webmanifest
 !examples/learning-to-see/site/media.mjs
@@ -477,6 +495,9 @@
 !examples/music-and-feeling/site/gentiumplus-700-italic.woff2
 !examples/music-and-feeling/site/gentiumplus-700-normal.woff2
 !examples/music-and-feeling/site/icon.svg
+!examples/music-and-feeling/site/apple-touch-icon.png
+!examples/music-and-feeling/site/icon-192.png
+!examples/music-and-feeling/site/icon-512.png
 !examples/music-and-feeling/site/index.html
 !examples/music-and-feeling/site/manifest.webmanifest
 !examples/music-and-feeling/site/robots.txt
@@ -502,6 +523,9 @@
 !examples/odyssey/site/core.mjs
 !examples/odyssey/site/db.mjs
 !examples/odyssey/site/icon.svg
+!examples/odyssey/site/apple-touch-icon.png
+!examples/odyssey/site/icon-192.png
+!examples/odyssey/site/icon-512.png
 !examples/odyssey/site/index.html
 !examples/odyssey/site/manifest.webmanifest
 !examples/odyssey/site/robots.txt
@@ -686,6 +710,9 @@
 !examples/pride-and-prejudice/site/core.mjs
 !examples/pride-and-prejudice/site/db.mjs
 !examples/pride-and-prejudice/site/icon.svg
+!examples/pride-and-prejudice/site/apple-touch-icon.png
+!examples/pride-and-prejudice/site/icon-192.png
+!examples/pride-and-prejudice/site/icon-512.png
 !examples/pride-and-prejudice/site/index.html
 !examples/pride-and-prejudice/site/manifest.webmanifest
 !examples/pride-and-prejudice/site/robots.txt
@@ -709,6 +736,9 @@
 !examples/schopenhauer-hegel/site/core.mjs
 !examples/schopenhauer-hegel/site/db.mjs
 !examples/schopenhauer-hegel/site/icon.svg
+!examples/schopenhauer-hegel/site/apple-touch-icon.png
+!examples/schopenhauer-hegel/site/icon-192.png
+!examples/schopenhauer-hegel/site/icon-512.png
 !examples/schopenhauer-hegel/site/index.html
 !examples/schopenhauer-hegel/site/lectures.mjs
 !examples/schopenhauer-hegel/site/manifest.webmanifest
@@ -732,6 +762,9 @@
 !examples/walden/site/core.mjs
 !examples/walden/site/db.mjs
 !examples/walden/site/icon.svg
+!examples/walden/site/apple-touch-icon.png
+!examples/walden/site/icon-192.png
+!examples/walden/site/icon-512.png
 !examples/walden/site/index.html
 !examples/walden/site/manifest.webmanifest
 !examples/walden/site/robots.txt

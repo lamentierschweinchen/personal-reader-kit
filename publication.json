@@ -18,6 +18,7 @@
     "docs/COMPANION-CASE-STUDY.md",
     "docs/DEPLOYMENT.md",
     "docs/DESIGN.md",
+    "docs/HOME-SCREEN.md",
     "docs/LIBRARY.md",
     "docs/PILOT.md",
     "docs/PRIVACY.md",
@@ -75,9 +76,12 @@
     "examples/alice-in-wonderland/scripts/prepare-epub.py",
     "examples/alice-in-wonderland/scripts/serve.mjs",
     "examples/alice-in-wonderland/site/app.mjs",
+    "examples/alice-in-wonderland/site/apple-touch-icon.png",
     "examples/alice-in-wonderland/site/bundle.mjs",
     "examples/alice-in-wonderland/site/core.mjs",
     "examples/alice-in-wonderland/site/db.mjs",
+    "examples/alice-in-wonderland/site/icon-192.png",
+    "examples/alice-in-wonderland/site/icon-512.png",
     "examples/alice-in-wonderland/site/icon.svg",
     "examples/alice-in-wonderland/site/index.html",
     "examples/alice-in-wonderland/site/manifest.webmanifest",
@@ -125,10 +129,13 @@
     "examples/at-table/scripts/build.mjs",
     "examples/at-table/scripts/serve.mjs",
     "examples/at-table/site/app.mjs",
+    "examples/at-table/site/apple-touch-icon.png",
     "examples/at-table/site/assets.mjs",
     "examples/at-table/site/bundle.mjs",
     "examples/at-table/site/core.mjs",
     "examples/at-table/site/db.mjs",
+    "examples/at-table/site/icon-192.png",
+    "examples/at-table/site/icon-512.png",
     "examples/at-table/site/icon.svg",
     "examples/at-table/site/index.html",
     "examples/at-table/site/manifest.webmanifest",
@@ -174,6 +181,7 @@
     "examples/beside-the-bed/scripts/serve.mjs",
     "examples/beside-the-bed/site/OFL.txt",
     "examples/beside-the-bed/site/app.mjs",
+    "examples/beside-the-bed/site/apple-touch-icon.png",
     "examples/beside-the-bed/site/bitter-italic.woff2",
     "examples/beside-the-bed/site/bitter-normal.woff2",
     "examples/beside-the-bed/site/bundle.mjs",
@@ -181,6 +189,8 @@
     "examples/beside-the-bed/site/core.mjs",
     "examples/beside-the-bed/site/cover.svg",
     "examples/beside-the-bed/site/db.mjs",
+    "examples/beside-the-bed/site/icon-192.png",
+    "examples/beside-the-bed/site/icon-512.png",
     "examples/beside-the-bed/site/icon.svg",
     "examples/beside-the-bed/site/index.html",
     "examples/beside-the-bed/site/manifest.webmanifest",
@@ -225,6 +235,7 @@
     "examples/dracula/scripts/copy-game.mjs",
     "examples/dracula/scripts/serve.mjs",
     "examples/dracula/site/app.mjs",
+    "examples/dracula/site/apple-touch-icon.png",
     "examples/dracula/site/bundle.mjs",
     "examples/dracula/site/case-ui.mjs",
     "examples/dracula/site/case.mjs",
@@ -232,6 +243,8 @@
     "examples/dracula/site/db.mjs",
     "examples/dracula/site/dracula.css",
     "examples/dracula/site/edition.mjs",
+    "examples/dracula/site/icon-192.png",
+    "examples/dracula/site/icon-512.png",
     "examples/dracula/site/icon.svg",
     "examples/dracula/site/index.html",
     "examples/dracula/site/manifest.webmanifest",
@@ -269,12 +282,15 @@
     "examples/inward-life/scripts/build.mjs",
     "examples/inward-life/scripts/serve.mjs",
     "examples/inward-life/site/app.mjs",
+    "examples/inward-life/site/apple-touch-icon.png",
     "examples/inward-life/site/bundle.mjs",
     "examples/inward-life/site/collection-art.svg",
     "examples/inward-life/site/collection.css",
     "examples/inward-life/site/collection.mjs",
     "examples/inward-life/site/core.mjs",
     "examples/inward-life/site/db.mjs",
+    "examples/inward-life/site/icon-192.png",
+    "examples/inward-life/site/icon-512.png",
     "examples/inward-life/site/icon.svg",
     "examples/inward-life/site/index.html",
     "examples/inward-life/site/literata-OFL.txt",
@@ -320,11 +336,14 @@
     "examples/learning-to-see/site/alegreya-italic.woff2",
     "examples/learning-to-see/site/alegreya-normal.woff2",
     "examples/learning-to-see/site/app.mjs",
+    "examples/learning-to-see/site/apple-touch-icon.png",
     "examples/learning-to-see/site/bundle.mjs",
     "examples/learning-to-see/site/collection.css",
     "examples/learning-to-see/site/core.mjs",
     "examples/learning-to-see/site/cover.svg",
     "examples/learning-to-see/site/db.mjs",
+    "examples/learning-to-see/site/icon-192.png",
+    "examples/learning-to-see/site/icon-512.png",
     "examples/learning-to-see/site/icon.svg",
     "examples/learning-to-see/site/index.html",
     "examples/learning-to-see/site/manifest.webmanifest",
@@ -552,6 +571,7 @@
     "examples/music-and-feeling/scripts/serve.mjs",
     "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
     "examples/music-and-feeling/site/app.mjs",
+    "examples/music-and-feeling/site/apple-touch-icon.png",
     "examples/music-and-feeling/site/bundle.mjs",
     "examples/music-and-feeling/site/collection.mjs",
     "examples/music-and-feeling/site/core.mjs",
@@ -562,6 +582,8 @@
     "examples/music-and-feeling/site/gentiumplus-400-normal.woff2",
     "examples/music-and-feeling/site/gentiumplus-700-italic.woff2",
     "examples/music-and-feeling/site/gentiumplus-700-normal.woff2",
+    "examples/music-and-feeling/site/icon-192.png",
+    "examples/music-and-feeling/site/icon-512.png",
     "examples/music-and-feeling/site/icon.svg",
     "examples/music-and-feeling/site/index.html",
     "examples/music-and-feeling/site/manifest.webmanifest",
@@ -598,9 +620,12 @@
     "examples/odyssey/scripts/copy-game.mjs",
     "examples/odyssey/scripts/serve.mjs",
     "examples/odyssey/site/app.mjs",
+    "examples/odyssey/site/apple-touch-icon.png",
     "examples/odyssey/site/bundle.mjs",
     "examples/odyssey/site/core.mjs",
     "examples/odyssey/site/db.mjs",
+    "examples/odyssey/site/icon-192.png",
+    "examples/odyssey/site/icon-512.png",
     "examples/odyssey/site/icon.svg",
     "examples/odyssey/site/index.html",
     "examples/odyssey/site/manifest.webmanifest",
@@ -821,9 +846,12 @@
     "examples/pride-and-prejudice/scripts/prepare-epub.py",
     "examples/pride-and-prejudice/scripts/serve.mjs",
     "examples/pride-and-prejudice/site/app.mjs",
+    "examples/pride-and-prejudice/site/apple-touch-icon.png",
     "examples/pride-and-prejudice/site/bundle.mjs",
     "examples/pride-and-prejudice/site/core.mjs",
     "examples/pride-and-prejudice/site/db.mjs",
+    "examples/pride-and-prejudice/site/icon-192.png",
+    "examples/pride-and-prejudice/site/icon-512.png",
     "examples/pride-and-prejudice/site/icon.svg",
     "examples/pride-and-prejudice/site/index.html",
     "examples/pride-and-prejudice/site/manifest.webmanifest",
@@ -892,10 +920,13 @@
     "examples/schopenhauer-hegel/scripts/prepare-sources.mjs",
     "examples/schopenhauer-hegel/scripts/serve.mjs",
     "examples/schopenhauer-hegel/site/app.mjs",
+    "examples/schopenhauer-hegel/site/apple-touch-icon.png",
     "examples/schopenhauer-hegel/site/broadside.css",
     "examples/schopenhauer-hegel/site/bundle.mjs",
     "examples/schopenhauer-hegel/site/core.mjs",
     "examples/schopenhauer-hegel/site/db.mjs",
+    "examples/schopenhauer-hegel/site/icon-192.png",
+    "examples/schopenhauer-hegel/site/icon-512.png",
     "examples/schopenhauer-hegel/site/icon.svg",
     "examples/schopenhauer-hegel/site/index.html",
     "examples/schopenhauer-hegel/site/lectures.mjs",
@@ -962,10 +993,13 @@
     "examples/walden/scripts/prepare-walden.py",
     "examples/walden/scripts/serve.mjs",
     "examples/walden/site/app.mjs",
+    "examples/walden/site/apple-touch-icon.png",
     "examples/walden/site/bundle.mjs",
     "examples/walden/site/companion.mjs",
     "examples/walden/site/core.mjs",
     "examples/walden/site/db.mjs",
+    "examples/walden/site/icon-192.png",
+    "examples/walden/site/icon-512.png",
     "examples/walden/site/icon.svg",
     "examples/walden/site/index.html",
     "examples/walden/site/manifest.webmanifest",
@@ -999,6 +1033,7 @@
     "scripts/audit.mjs",
     "scripts/build.mjs",
     "scripts/check-examples.mjs",
+    "scripts/check-home-screen.mjs",
     "scripts/check-upgrade.mjs",
     "scripts/editorial-review.mjs",
     "scripts/import-epub.mjs",
@@ -1088,9 +1123,12 @@
     "showcase/style.css",
     "showcase/vercel.json",
     "site/app.mjs",
+    "site/apple-touch-icon.png",
     "site/bundle.mjs",
     "site/core.mjs",
     "site/db.mjs",
+    "site/icon-192.png",
+    "site/icon-512.png",
     "site/icon.svg",
     "site/index.html",
     "site/library.mjs",
@@ -1111,6 +1149,7 @@
     "tests/experience-browser.mjs",
     "tests/game-build.test.mjs",
     "tests/history.test.mjs",
+    "tests/home-screen.test.mjs",
     "tests/library.test.mjs",
     "tests/local-preview-browser.mjs",
     "tests/local-preview.test.mjs",
@@ -1140,6 +1179,7 @@
     "docs/COMPANION-CASE-STUDY.md",
     "docs/DEPLOYMENT.md",
     "docs/DESIGN.md",
+    "docs/HOME-SCREEN.md",
     "docs/PILOT.md",
     "docs/PRIVACY.md",
     "docs/REVIEW.md",
@@ -1153,6 +1193,7 @@
     "scripts/audit.mjs",
     "scripts/build.mjs",
     "scripts/check-examples.mjs",
+    "scripts/check-home-screen.mjs",
     "scripts/check-upgrade.mjs",
     "scripts/editorial-review.mjs",
     "scripts/import-epub.mjs",
@@ -1161,9 +1202,12 @@
     "scripts/preview-local.mjs",
     "scripts/serve.mjs",
     "site/app.mjs",
+    "site/apple-touch-icon.png",
     "site/bundle.mjs",
     "site/core.mjs",
     "site/db.mjs",
+    "site/icon-192.png",
+    "site/icon-512.png",
     "site/icon.svg",
     "site/index.html",
     "site/library.mjs",
@@ -1183,6 +1227,7 @@
     "tests/epub.test.mjs",
     "tests/experience-browser.mjs",
     "tests/history.test.mjs",
+    "tests/home-screen.test.mjs",
     "tests/local-preview-browser.mjs",
     "tests/local-preview.test.mjs",
     "tests/publication.test.mjs",
@@ -3819,6 +3864,224 @@
       "reason": "Full Gentium Plus face from pinned SIL/Google Fonts revision; OFL1.1; lossless container conversion.",
       "license": "examples/music-and-feeling/site/GentiumPlus-OFL.txt",
       "licenseSha256": "c309a440be606e283ccacc746662d714b9c5b5a7a0a10dd2514b90206b55ddfe"
+    }
+  ],
+  "reviewedIconFiles": [
+    {
+      "path": "examples/alice-in-wonderland/site/apple-touch-icon.png",
+      "sha256": "875e5694c40cdd471894cfc037321393258ae6589c207f0cb5724cbe87199dea",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/alice-in-wonderland/site/icon-192.png",
+      "sha256": "be2330c92a1d32dc0018f003ea5c73f387e77f45e9c3fa011c7858523e6f0744",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/alice-in-wonderland/site/icon-512.png",
+      "sha256": "42e3d7600282079c062156868c7855d662f933642d6be83ea8b1207952e08895",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/at-table/site/apple-touch-icon.png",
+      "sha256": "bfd68275befc0be69ad839ba08c9ca26b49f7cd8e8b97fb1e551f41636568a00",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/at-table/site/icon-192.png",
+      "sha256": "1ba8df4f3d7fac566a4cbb4e8a06b82970ff546589d17a296bd650a5688b83e5",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/at-table/site/icon-512.png",
+      "sha256": "535e38ffe06f4fdad58934c133d5f89a5c613208de696df741416d25ab841415",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/beside-the-bed/site/apple-touch-icon.png",
+      "sha256": "7d0071d28b3cf9ff33ae5cadc5c9a02d773c7078a7eaee7f4154a5f2f72b3271",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/beside-the-bed/site/icon-192.png",
+      "sha256": "650541c8be33bde22721d1f572606ec92e3a2c7dc97463f75baeb4dc270d9831",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/beside-the-bed/site/icon-512.png",
+      "sha256": "20b43f25f24f49ad3939b6ec964c6371c9872769471dd8f9c0d78c2aa49fb0cb",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/dracula/site/apple-touch-icon.png",
+      "sha256": "807a1996d9b9922495e57ab569a496f8ee86109c409bbe6d761945bfdb294c10",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/dracula/site/icon-192.png",
+      "sha256": "487239662607b25819586eab02401a25941c7721d508261cc9d581a1a6d94c73",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/dracula/site/icon-512.png",
+      "sha256": "9f1c3ba80da45b5fc9eb74140cc45c1b1a85719a73f41145bd9c3cdb79cd2cde",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/inward-life/site/apple-touch-icon.png",
+      "sha256": "27f555c27fcadd69cddf42f2856a6f91998e563c8e599384bbde871dd8eb22b8",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/inward-life/site/icon-192.png",
+      "sha256": "f18804d8a262d04b1a8aef2a2fcb5e51268b94ab65c92ec483a179cf6842e1c9",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/inward-life/site/icon-512.png",
+      "sha256": "93343c359502051746faa15694d23d82474b96317e5b83232180fc76bc57a912",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/learning-to-see/site/apple-touch-icon.png",
+      "sha256": "ae78e90145f67656013331284d68804cf422066b22addcb01a02531c66807175",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/learning-to-see/site/icon-192.png",
+      "sha256": "a188f0f214023a3dabb8f8b581ad5e6dc3356f1ea20dd5ce91dd3a587e5c0371",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/learning-to-see/site/icon-512.png",
+      "sha256": "49494d86e895a44263e705793a8913ed5dff4addb37c13412a1cc6a9179c6a1c",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/music-and-feeling/site/apple-touch-icon.png",
+      "sha256": "012e86126387d9bf0bf7f2a51ff8315cbda8bb041350935bdf1c63f1c94a8f92",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/music-and-feeling/site/icon-192.png",
+      "sha256": "1c2dc3d925e8c9b8b97541471f0bb2c7b0a31229f6ff5e0212a7d647095c4f43",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/music-and-feeling/site/icon-512.png",
+      "sha256": "25d9989068c668e742f6d7a783933e01c18e10cf67c07fd418dfea02b694f500",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/odyssey/site/apple-touch-icon.png",
+      "sha256": "c914b147b2e4426e09c0ab3777631893b2f07822a1e128cc2cfc6267cf294020",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/odyssey/site/icon-192.png",
+      "sha256": "36616be74839b74ea2a46852c0a4fa43e3f1258e12419edbbeb4b1b1ed1b6243",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/odyssey/site/icon-512.png",
+      "sha256": "5773afc6541acdbfeeb63913f7065a53501617b8d6e54e48e53507e310a5c503",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/pride-and-prejudice/site/apple-touch-icon.png",
+      "sha256": "e33c02ffc5ad12dfef975c6116aadf142cb48286f4ea0779339d2ac2c7e0b6b1",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/pride-and-prejudice/site/icon-192.png",
+      "sha256": "4561d88afb4ce87340c71966bfd35f6e6a1f11840e57700256dbf3a1d0327248",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/pride-and-prejudice/site/icon-512.png",
+      "sha256": "d63466c6109e92984489f6418d582cb7990ebede706db57f5a33df445fb56a82",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/site/apple-touch-icon.png",
+      "sha256": "1fae450b93d87c9fc7ffffe055f01ed9c64c11982b4d9be819802bcbe73e48d5",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/site/icon-192.png",
+      "sha256": "0658bf41bb9a77f8f6093cd387e8ca28d2d8ba5986d2252f22a82c94372c9c2a",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/schopenhauer-hegel/site/icon-512.png",
+      "sha256": "cbf29cfd4e65df9e29f81507d84fd993b4ab2a1361fbf867b07d7742b125a03e",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/walden/site/apple-touch-icon.png",
+      "sha256": "dc7a1c385195b76e1b449f5123a25c0aea3b05a5344e92c1820cac12472baa56",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/walden/site/icon-192.png",
+      "sha256": "5225ae57297505b698eb8320d3cd808c43c1f629ecb159cbe5e5ac63943560f3",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "examples/walden/site/icon-512.png",
+      "sha256": "1a7b613b688054e57a32d0a233c78fd90309fbbc049ad3dbccf374b107c90e0e",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "sha256": "0e20a9cba2f7634a0592f1d997309d625a75c4fc2d35a046e75b6c0ca5e8c9a0",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "site/icon-192.png",
+      "sha256": "5c857aa0075caae3dd67dec0653c1e941973e372f5cc075dbbb7bd8c27f65eea",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
+    },
+    {
+      "path": "site/icon-512.png",
+      "sha256": "066980466df13b7443fdc0808b82c642f6b791d3bb3df353dc487dd769a15977",
+      "provenance": "docs/HOME-SCREEN.md",
+      "reason": "Original contemporary vector emblem, exported directly from this reader's site/icon.svg as an opaque PNG; kit MIT license. No book text, historical illustration or private reader asset."
     }
   ]
 }

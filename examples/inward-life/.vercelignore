@@ -24,6 +24,9 @@
 !site/core.mjs
 !site/db.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt
@@ -47,6 +50,9 @@
 !examples/inward-life/site/core.mjs
 !examples/inward-life/site/db.mjs
 !examples/inward-life/site/icon.svg
+!examples/inward-life/site/apple-touch-icon.png
+!examples/inward-life/site/icon-192.png
+!examples/inward-life/site/icon-512.png
 !examples/inward-life/site/index.html
 !examples/inward-life/site/manifest.webmanifest
 !examples/inward-life/site/robots.txt

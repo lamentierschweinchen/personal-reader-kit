@@ -8,6 +8,12 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Home Screen identity and editorial checks · 21 October 2026
+
+The starter and eleven public readers now supply opaque 180px Apple touch icons and 192/512px manifest icons. Four inherited generic marks are replaced with original emblems; the other readers retain their existing artwork. Installed IDs, scoped launch URLs, book bytes and reading records remain unchanged. The exact build, offline cache and publication inventories include each icon. The starter carries the same provision and its own three provenance pins.
+
+The guide requires a distinct small-scale icon and explains verification and device limits. The copyeditor now explicitly rejects an unearned extra companion and checks captions against both the full image and the source passage. No private examples enter the kit. Local browser, starter and exact-inventory checks are recorded in STATUS.md; publication and physical installation are separate checks.
+
 ## Prepared editions and recovery · 21 October 2026
 
 The starter now previews explicitly selected prepared text editions with `npm run preview:local -- .reader/prepared/book.json`. It validates private inputs, serves only on loopback, and keeps generated files in a guarded ignored directory. Each running preview holds its own verified file snapshot, so preparing another edition cannot change an already open server. The ordinary build still contains only the original samples; illustrated or custom-profile books require their own reviewed adapter.

@@ -56,6 +56,8 @@ Choose the medium that serves that brief. Original vector drawing often suits li
 
 Try the composition at shelf size and on the phone entrance, in grayscale and alongside the other readers. Keep the title and Begin/Resume legible and prompt. Inspect ordinary reading too: the cover's motif should not become repeated furniture around every paragraph. Put detailed making-of notes in About, and preserve any historical artwork's own credit. Retire an image that needs a long explanation to justify its relationship to the books.
 
+Carry the reader's identity onto the Home Screen as well. Use a simple, original mark that survives at 48–60px, with an opaque PNG for Apple and raster manifest icons. Follow the [icon contract and installation checks](HOME-SCREEN.md); changing the icon must not change existing application or browser-record identity.
+
 ## Interface icons
 
 Unicode arrows used as interface icons have appeared as colored emoji or inconsistent fallback glyphs on iPhone in both reference-reader experiences. Treat this as a recurring platform issue. Do not rely on a preferred font or a text-presentation selector to suppress emoji.

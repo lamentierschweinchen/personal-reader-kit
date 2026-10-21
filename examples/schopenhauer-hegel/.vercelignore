@@ -20,6 +20,9 @@
 !site/broadside.css
 !site/manifest.webmanifest
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/robots.txt
 !samples/
 !samples/library.json
@@ -52,6 +55,9 @@
 !examples/schopenhauer-hegel/site/broadside.css
 !examples/schopenhauer-hegel/site/manifest.webmanifest
 !examples/schopenhauer-hegel/site/icon.svg
+!examples/schopenhauer-hegel/site/apple-touch-icon.png
+!examples/schopenhauer-hegel/site/icon-192.png
+!examples/schopenhauer-hegel/site/icon-512.png
 !examples/schopenhauer-hegel/site/robots.txt
 !examples/schopenhauer-hegel/samples/
 !examples/schopenhauer-hegel/samples/library.json

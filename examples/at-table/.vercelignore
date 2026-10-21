@@ -23,6 +23,9 @@
 !examples/at-table/site/core.mjs
 !examples/at-table/site/db.mjs
 !examples/at-table/site/icon.svg
+!examples/at-table/site/apple-touch-icon.png
+!examples/at-table/site/icon-192.png
+!examples/at-table/site/icon-512.png
 !examples/at-table/site/index.html
 !examples/at-table/site/manifest.webmanifest
 !examples/at-table/site/robots.txt
@@ -44,6 +47,9 @@
 !site/core.mjs
 !site/db.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt

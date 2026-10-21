@@ -4,7 +4,7 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {validateBook} from '../site/core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','media.mjs','studio.mjs','style.css','collection.css','cover.svg','manifest.webmanifest','icon.svg','robots.txt','alegreya-normal.woff2','alegreya-italic.woff2','alegreya-OFL.txt'];
+export const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','media.mjs','studio.mjs','style.css','collection.css','cover.svg','manifest.webmanifest','icon.svg','apple-touch-icon.png','icon-192.png','icon-512.png','robots.txt','alegreya-normal.woff2','alegreya-italic.woff2','alegreya-OFL.txt'];
 export async function build({output='dist'}={}){
  const privateRoot=path.join(root,'edition');
  const pins=JSON.parse(await readFile(path.join(privateRoot,'inventory.json'),'utf8'));for(const [name,pin]of Object.entries(pins.files)){const b=await readFile(path.join(privateRoot,name));if(createHash('sha256').update(b).digest('hex')!==pin)throw new Error('Reviewed edition input changed: '+name);}

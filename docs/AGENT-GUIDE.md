@@ -100,6 +100,8 @@ Also test the awkward exits: close and Escape while a note is unfinished, browse
 
 ### Verify the reading experience
 
+Give the reader a bespoke [Home Screen icon](HOME-SCREEN.md) drawn from its own identity. Keep installed IDs and storage boundaries stable; verify the actual raster files, mounted URLs and a real device installation when available.
+
 These checks come from observed failures in the reference-reader reviews. Use original or specifically authorized local fixtures; never copy their private text or screenshots into the kit.
 
 - **A visible range, not just a highlight.** Open a kept passage late inside a paragraph several screens tall. Measure its actual `Range.getClientRects()` against the scrolling container's usable viewport, excluding sticky headers and other occlusion. Test enlarged type too. The whole range should be visible when it fits; for a longer selection, its beginning must be visible and the rest reachable. An element can pass `isVisible()` while the selected words remain below the dialog. A search result must retain its occurrence offsets and land on that match, not highlight or position only the containing block.

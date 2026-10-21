@@ -1,17 +1,1 @@
-{
-  "name": "Beside the Bed \u2014 Nightingale & Whitman",
-  "short_name": "Beside the Bed",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#f3f2e9",
-  "theme_color": "#203c36",
-  "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ],
-  "id": "/beside-the-bed"
-}
+{"name":"Beside the Bed — Nightingale & Whitman","short_name":"Beside the Bed","start_url":"/","display":"standalone","background_color":"#f3f2e9","theme_color":"#203c36","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"},{"src":"/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}],"id":"/beside-the-bed","scope":"/"}

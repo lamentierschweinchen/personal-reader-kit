@@ -6,7 +6,8 @@ import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../',import.meta.url));
 const editionPattern=/^(?:examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg)|examples\/learning-to-see\/docs\/EDITION-INVENTORY\.json)$/;
 const fontPattern=/^(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed)\/site)\/[a-z0-9-]+\.woff2$/;
-export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[],reviewedFonts=[]) {
+const iconPattern=/^(?:site|examples\/[a-z0-9-]+\/site)\/(?:apple-touch-icon|icon-(?:192|512))\.png$/;
+export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[],reviewedFonts=[],reviewedIcons=[]) {
   const problems=[];
   if(!allowed.includes(name))problems.push('not in the reviewed file inventory');
   if(/(^|\/)(?:\.reader|\.env(?:\..*)?|\.vercel|node_modules|test-results|source|books|annotations|private)(\/|$)/i.test(name) || /\.(?:epub|pdf|mobi|azw3?|docx|pem|key|reader\.json|reader-backup\.json|reader-bundle\.json)$/i.test(name))problems.push('private/book path or disallowed format');
@@ -22,8 +23,10 @@ export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteA
   const reviewedFont=fontPattern.test(name)&&reviewedFonts.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&allowed.includes(f.provenance)&&allowed.includes(f.license)&&/^[a-f0-9]{64}$/.test(f.licenseSha256)&&typeof f.reason==='string'&&f.reason.trim());
   if(fontPattern.test(name)&&!reviewedFont)problems.push('font bytes lack an exact reviewed provenance and license entry');
   for(const font of reviewedFonts.filter(f=>f.license===name))if(createHash('sha256').update(bytes).digest('hex')!==font.licenseSha256)problems.push('font license differs from its reviewed full notice');
+  const reviewedIcon=iconPattern.test(name)&&reviewedIcons.some(f=>f.path===name&&f.sha256===createHash('sha256').update(bytes).digest('hex')&&typeof f.provenance==='string'&&allowed.includes(f.provenance)&&typeof f.reason==='string'&&f.reason.trim());
+  if(iconPattern.test(name)&&!reviewedIcon)problems.push('home-screen icon lacks an exact reviewed provenance entry');
   const content=inspectContent(bytes);
-  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g)$/.test(name))||reviewedSite||reviewedFont)&&reason==='binary data requires a separate provenance review'))];
+  return [...problems,...content.filter(reason=>!(((reviewed&&/\.(?:png|jpe?g)$/.test(name))||reviewedSite||reviewedFont||reviewedIcon)&&reason==='binary data requires a separate provenance review'))];
 }
 export function inspectContent(bytes) {
   const problems=[];
@@ -58,6 +61,8 @@ async function inspectRepository(directory) {
   if(!Array.isArray(siteAssets)||siteAssets.some(f=>!f||!/^showcase\/assets\/[a-z0-9-]+\.(?:webp|jpg|png|woff2)$/.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Showcase asset review entries need an exact asset path, SHA-256, tracked provenance and reason.');
   const fonts=manifest.reviewedFontFiles||[];
   if(!Array.isArray(fonts)||fonts.some(f=>!f||!fontPattern.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.license!=='string'||!allowed.includes(f.license)||!(/^[a-f0-9]{64}$/).test(f.licenseSha256)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Font review entries need an exact font path, SHA-256, tracked provenance, full license hash and reason.');
+  const icons=manifest.reviewedIconFiles||[];
+  if(!Array.isArray(icons)||icons.some(f=>!f||!iconPattern.test(f.path)||!(/^[a-f0-9]{64}$/).test(f.sha256)||typeof f.provenance!=='string'||!allowed.includes(f.provenance)||typeof f.reason!=='string'||!f.reason.trim()))throw new Error('Icon review entries need an exact icon path, SHA-256, tracked provenance and reason.');
   const tracked=git('ls-files','-z').split('\0').filter(Boolean), failures=[], inventory=[];
   const shallow=git('rev-parse','--is-shallow-repository').trim()==='true';
   if(shallow)failures.push('Incomplete history: this is a shallow repository. Fetch the complete intended ref history before auditing.');
@@ -83,9 +88,9 @@ async function inspectRepository(directory) {
     const file=path.join(directory,name);
     let bytes;
     try{if(!(await lstat(file)).isFile())throw new Error('Not regular');bytes=await readFile(file);}catch{failures.push(`${name}: missing or non-regular working file`);continue;}
-    for(const reason of inspectFile(name,bytes,allowed,editions,siteAssets,fonts))failures.push(`${name} (working): ${reason}`);
+    for(const reason of inspectFile(name,bytes,allowed,editions,siteAssets,fonts,icons))failures.push(`${name} (working): ${reason}`);
     const staged=gitBytes('show',`:${name}`);
-    for(const reason of inspectFile(name,staged,allowed,editions,siteAssets,fonts))failures.push(`${name} (index): ${reason}`);
+    for(const reason of inspectFile(name,staged,allowed,editions,siteAssets,fonts,icons))failures.push(`${name} (index): ${reason}`);
     if(!bytes.equals(staged))failures.push(`${name}: index and working file differ; stage the reviewed final bytes`);
     inventory.push({path:name,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length});
   }
@@ -103,7 +108,7 @@ async function inspectRepository(directory) {
       if(type!=='blob'||mode!=='100644') {failures.push(`${name} (history): unexpected file mode/type`);continue;}
       const data=gitBytes('cat-file','blob',hash),digest=createHash('sha256').update(data).digest('hex');
       const reviewed=historical.some(f=>f.path===name&&f.sha256===digest);
-      for(const reason of inspectFile(name,data,reviewed?[...allowed,name]:allowed,editions,siteAssets,fonts))failures.push(`${name} (history ${tree.slice(0,8)}): ${reason}`);
+      for(const reason of inspectFile(name,data,reviewed?[...allowed,name]:allowed,editions,siteAssets,fonts,icons))failures.push(`${name} (history ${tree.slice(0,8)}): ${reason}`);
     }
   }
   const objects=git('rev-list','--objects','--all','HEAD').trim().split('\n').filter(Boolean).map(line=>line.split(' ')[0]);

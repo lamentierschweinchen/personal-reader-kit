@@ -51,6 +51,8 @@ The real-book trials required adapters for illustrations, notes, tables and shap
 
 **Keep it on your home screen.** Open the reader in Safari on iPhone/iPad or Chrome on Android, then use **Add to Home Screen** or **Install**. Desktop browsers offer app installation too. Open the new icon while online, confirm your books and notes, then check its offline copy before travelling. [Device-by-device instructions and backup steps](docs/DEPLOYMENT.md#add-the-reader-to-your-home-screen)
 
+Give the finished reader its own [Home Screen icon](docs/HOME-SCREEN.md); the starter includes the PNG sizes and checks needed for it.
+
 ## Make your reader, with an agent
 
 If you have the repository open in an agent that can work with local files, start with:

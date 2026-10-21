@@ -22,6 +22,9 @@
 !examples/learning-to-see/site/cover.svg
 !examples/learning-to-see/site/db.mjs
 !examples/learning-to-see/site/icon.svg
+!examples/learning-to-see/site/apple-touch-icon.png
+!examples/learning-to-see/site/icon-192.png
+!examples/learning-to-see/site/icon-512.png
 !examples/learning-to-see/site/index.html
 !examples/learning-to-see/site/manifest.webmanifest
 !examples/learning-to-see/site/media.mjs
@@ -42,6 +45,9 @@
 !site/cover.svg
 !site/db.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/media.mjs

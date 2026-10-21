@@ -17,6 +17,9 @@
 !site/style.css
 !site/manifest.webmanifest
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/robots.txt
 !samples/
 !samples/library.json
@@ -47,6 +50,9 @@
 !examples/walden/site/style.css
 !examples/walden/site/manifest.webmanifest
 !examples/walden/site/icon.svg
+!examples/walden/site/apple-touch-icon.png
+!examples/walden/site/icon-192.png
+!examples/walden/site/icon-512.png
 !examples/walden/site/robots.txt
 !examples/walden/samples/
 !examples/walden/samples/library.json

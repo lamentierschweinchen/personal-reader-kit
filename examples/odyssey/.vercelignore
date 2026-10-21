@@ -27,6 +27,9 @@
 !examples/odyssey/site/core.mjs
 !examples/odyssey/site/db.mjs
 !examples/odyssey/site/icon.svg
+!examples/odyssey/site/apple-touch-icon.png
+!examples/odyssey/site/icon-192.png
+!examples/odyssey/site/icon-512.png
 !examples/odyssey/site/index.html
 !examples/odyssey/site/manifest.webmanifest
 !examples/odyssey/site/robots.txt
@@ -50,6 +53,9 @@
 !site/core.mjs
 !site/db.mjs
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt

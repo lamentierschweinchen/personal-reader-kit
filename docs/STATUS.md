@@ -4,6 +4,16 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with eleven reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The eleven specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Home Screen icons · 21 October 2026 · prepared locally
+
+The starter and all eleven approved readers have explicit Apple touch icons and two raster manifest sizes, drawn from their own identities. Austen, Dracula, Learning to See and Beside the Bed replace the inherited generic mark. The other SVGs and the catalogue's existing Apple icon remain unchanged. Standalone and mounted readers retain their installed IDs, launch paths, worker scopes and storage contracts.
+
+Local verification passes 72 kit tests and 363 example tests. The exact 74-file starter passes 63 tests, build, icon validation and its index/history audit. All 619 example outputs match the updated inventories; 549 are unchanged. The fresh combined build uses 738 declared inputs. All 383 edition pins, 33 site-asset pins and twelve font/license pins retain their prior values. The public inventory contains 1,160 files, including 36 exactly reviewed icon PNGs. No private reader, source image or record is admitted.
+
+Chromium and WebKit each decode and verify all twelve readers' PNGs under the production content policy, then reopen the documents and icons offline. WebKit's first simulated-offline reload failed inside the browser; all twelve checks passed with the origin actually stopped. Both receipts remain in ignored evidence. All eleven standalone development servers also return exact PNG bytes with the correct MIME type. The coordinator reviewed the artwork at 60px and the code, inventories and provenance exceptions.
+
+The guide and copyeditor add two editorial requirements: a comparison must earn its place, and image descriptions must agree with the image and source. Physical iPhone/iPad/Android installation, existing-shortcut refresh and installed-app record continuity remain untested. This section records local preparation, not a production deployment or completed device installation.
+
 ## Prepared editions and recovery · 21 October 2026
 
 Fresh builder trials exposed a missing local preview path for prepared editions and duplicate shelf entries after restoring a supplied book. The new `preview:local` command accepts explicit supported text-book JSON files below ignored `.reader/`, validates them before writing, and serves an immutable verified snapshot on loopback. It refuses unsupported media and unrecognized output contents. The normal public build remains original-samples-only.

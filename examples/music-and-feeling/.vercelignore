@@ -412,6 +412,9 @@
 !examples/music-and-feeling/site/gentiumplus-700-italic.woff2
 !examples/music-and-feeling/site/gentiumplus-700-normal.woff2
 !examples/music-and-feeling/site/icon.svg
+!examples/music-and-feeling/site/apple-touch-icon.png
+!examples/music-and-feeling/site/icon-192.png
+!examples/music-and-feeling/site/icon-512.png
 !examples/music-and-feeling/site/index.html
 !examples/music-and-feeling/site/manifest.webmanifest
 !examples/music-and-feeling/site/robots.txt
@@ -438,6 +441,9 @@
 !site/gentiumplus-700-italic.woff2
 !site/gentiumplus-700-normal.woff2
 !site/icon.svg
+!site/apple-touch-icon.png
+!site/icon-192.png
+!site/icon-512.png
 !site/index.html
 !site/manifest.webmanifest
 !site/robots.txt
