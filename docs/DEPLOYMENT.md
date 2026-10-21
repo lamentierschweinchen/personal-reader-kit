@@ -46,7 +46,7 @@ The Git integration can deploy subsequent pushes automatically. Keep personal fi
 
 ## Add the reader to your home screen
 
-Open the reader's final HTTPS address first. Install the individual reader, not the catalogue that links to it. The stock reader and eleven public examples already include a web-app manifest and an offline worker; no app-store account is needed.
+Open the reader's final HTTPS address first. Install the individual reader, not the catalogue that links to it. The stock reader and included public examples already include a web-app manifest and an offline worker; no app-store account is needed.
 
 | Device | Steps |
 | --- | --- |
@@ -80,7 +80,9 @@ Use separate origins for independently customized copies of this kit; a shared c
 
 Do not place independent builds under `/alice`, `/walden` or similar paths and assume isolation. A subpath deployment requires deliberate base-URL handling, worker scope, cache namespaces, database names and a tested migration for existing records. Alternatively build one intentional multi-book application with compatible edition profiles. Neither arrangement is provided by copying the current output folders. Verify simultaneous use and offline upgrades if that architecture is implemented. An iframe on a different origin retains that origin's storage rules and is not a substitute for testing its privacy and usability.
 
-The included [showcase](../showcase/README.md) implements a bounded exception for its eleven reviewed examples. Its builder verifies all standalone outputs, then adapts known URLs, database names, cache/worker scopes and manifest identities before mounting them at eleven paths. Combined-origin tests cover simultaneous use and offline reloads. This is a reviewed adapter for those examples, not general subpath support in the stock reader. Same-origin namespaces do not provide a security boundary. The owner explicitly chose a clean launch; personalized copies should follow the migration procedure below.
+The included [showcase](../showcase/README.md) implements a bounded exception for its reviewed examples. Its builder verifies all standalone outputs, then adapts known URLs, database names, cache/worker scopes and manifest identities before mounting them at explicitly reviewed paths. Combined-origin tests cover simultaneous use and offline reloads. This is a reviewed adapter for those examples, not general subpath support in the stock reader. Same-origin namespaces do not provide a security boundary. The owner explicitly chose a clean launch; personalized copies should follow the migration procedure below.
+
+Include resources requested only after opening a companion or source view: JSON, dynamic image URLs, font/preload URLs and full-notice links. Assert each expected rewrite and fail the build if its assumptions change. Preserve exact edition and asset bytes. Exercise these views under the final mounted path, then reopen them with the origin stopped; a working standalone entrance is insufficient.
 
 ## Choose an address and move without losing your library
 

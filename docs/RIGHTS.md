@@ -16,6 +16,8 @@ For a public example, check the **specific edition and every included contributi
 
 For an adaptation trail, distinguish the original artwork or composition from the particular scan, recording, restoration, translation or later completion being offered. Record the exact contribution and rights evidence rather than assigning one date to everything. A useful original commentary can link to an official listening or viewing page without copying its media into the reader; explain that the external visit needs a connection.
 
+For a historical scan, inspect whether the reproduction adds creative work; a recent file date or institutional footer does not answer that question. Record the territorial basis and check the provider's access/reuse terms separately, including which service and users they cover. Do not infer permission from silence. The [US Copyright Office, §909.3(A)](https://www.copyright.gov/comp3/chap900/ch900-visual-art.pdf) and [UK IPO's digital-images guidance](https://www.gov.uk/government/publications/copyright-notice-digital-images-photographs-and-the-internet/copyright-notice-digital-images-photographs-and-the-internet) distinguish copying from creative contributions; neither grants worldwide clearance.
+
 A single quotation or small word count is not automatic permission. For a proposed critical quotation, record the purpose, amount, attribution and applicable legal basis; quote only what the point needs and review the context. The [US Copyright Office](https://www.copyright.gov/fair-use/) explains that even a small but central portion may fail fair use and supplies no fixed safe amount. [UK guidance](https://www.gov.uk/guidance/exceptions-to-copyright) separately requires fair dealing and sufficient acknowledgement for criticism, review or quotation. These are jurisdiction-specific considerations, not blanket clearance.
 
 ## A reviewable rights receipt
@@ -37,7 +39,9 @@ Real books make valuable trials because they expose structures that convenient s
 
 Use the actual source text, not a catalogue's generated synopsis. Preserve the chosen digital edition accurately, and do not describe that as a verified facsimile of a historical printing without comparison. Retain a source-edition e-reader link where useful, clearly distinguished from any future kit-generated export. Public-domain books do not make a reader's personal notes public.
 
-## Sources checked 16–18 October 2026
+An ancillary decorative cover with unresolved provenance may be excluded from the public package. Record that decision and verify its absence from built assets, caches and promotional copies. Preserve the source archive privately. This is not permission to drop integral illustrations, text-bearing initials, captions or apparatus, or to delete unsupported content merely to pass a validator.
+
+## Sources checked 16–21 October 2026
 
 The [US Copyright Office's text of 17 USC §202](https://www.copyright.gov/title17/92chap2.html#202) distinguishes ownership of a copy from copyright ownership. This is a US rule cited for that distinction, not a worldwide legal opinion.
 

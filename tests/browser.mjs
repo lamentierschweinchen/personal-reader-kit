@@ -2,15 +2,18 @@ import {createRequire} from 'node:module';
 import {spawn} from 'node:child_process';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
+import {pathToFileURL} from 'node:url';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {bundleChecks} from './bundle-browser.mjs';
 import {shareChecks,sharingContinuityChecks} from './share-browser.mjs';
 import {reviewChecks} from './review-browser.mjs';
-import {experienceChecks,handoffChecks,quietFocusChecks,builderTrialChecks,settledCapture} from './experience-browser.mjs';
+import {experienceChecks,handoffChecks,quietFocusChecks,builderTrialChecks,settledCapture,settledRenderChecks} from './experience-browser.mjs';
 const require=createRequire(import.meta.url);
 let playwright;
 try {playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright');}catch{throw new Error('Install Playwright for optional browser tests: npm install --no-save --package-lock=false playwright@1.62.1');}
-const port=Number(process.env.TEST_PORT||4175),base=`http://127.0.0.1:${port}`,output=new URL('../test-results/',import.meta.url);
+const port=Number(process.env.TEST_PORT||4175),base=`http://127.0.0.1:${port}`,output=process.env.REVIEW_OUTPUT?pathToFileURL(path.resolve(process.env.REVIEW_OUTPUT)+path.sep):new URL('../test-results/',import.meta.url);
 await mkdir(output,{recursive:true});
 const server=spawn(process.execPath,['scripts/serve.mjs'],{cwd:new URL('../',import.meta.url),env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
 let serverErrors='';server.stderr.on('data',x=>serverErrors+=x);
@@ -58,11 +61,93 @@ const select=page=>page.evaluate(()=>{
   range.setStart(...point(blocks[0],10));range.setEnd(...point(blocks[1],35));const sel=getSelection();sel.removeAllRanges();sel.addRange(range);
   return blocks[0].textContent.slice(10)+'\n\n'+blocks[1].textContent.slice(0,35);
 });
+async function loadingChecks({browser,engine}) {
+  const sampleBytes=await readFile(new URL('../samples/library.json',import.meta.url)),samples=JSON.parse(sampleBytes),sample=samples[0];
+  const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+  const expectedApp=hash(await readFile(new URL('../site/app.mjs',import.meta.url)));
+  const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  const fresh=()=>browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});
+  const context=await fresh();
+  try {
+    const page=await context.newPage();let requestedAt,markRequested;
+    const requested=new Promise(resolve=>{markRequested=resolve;});
+    await page.route('**/library.json',async route=>{requestedAt=Date.now();markRequested();await pause(9000);await route.continue();});
+    const runtime=page.waitForResponse(r=>r.url()===base+'/app.mjs').then(async r=>hash(await r.body()));
+    const library=page.waitForResponse(r=>r.url()===base+'/library.json').then(async r=>{assert.equal(r.status(),200);assert.equal(hash(await r.body()),hash(sampleBytes));});
+    await page.goto(base,{waitUntil:'domcontentloaded'});assert.equal(await runtime,expectedApp);
+    await requested;await page.locator('#library-loading').waitFor();
+    await settledCapture(page,{path:new URL(`${engine}-library-loading.png`,output).pathname});
+    await pause(Math.max(0,8500-(Date.now()-requestedAt)));
+    assert.equal(await page.locator('#library-loading').textContent(),'Loading the library…');
+    assert.equal(await page.locator('#storage-warning').isVisible(),false);
+    assert.equal(await page.getByRole('button',{name:'Bring a book',exact:false}).isEnabled(),true);
+    await library;await page.locator('.book-row').nth(samples.length-1).waitFor();
+    assert.equal(await page.locator('#library-loading').count(),0);
+    assert.equal(await page.locator('.book-row').count(),samples.length);
+    await page.goto(base+'/#read/'+sample.id+'/'+sample.sections[0].id);
+    await page.locator('#reading-text[data-position-ready="true"]').waitFor();
+    assert.equal(await page.locator('#reading-text').textContent(),sample.sections[0].blocks.map(b=>b.text+b.after).join(''));
+    await settledCapture(page,{path:new URL(`${engine}-library-loaded.png`,output).pathname});
+    // The same original fixture is now local. A supplied-library response must not
+    // replace its active DOM, selection, saved place or unfinished note.
+    await page.evaluate(async book=>(await import('/db.mjs')).saveBook(book),sample);
+    for(const draft of [false,true]) {
+      const local=await context.newPage();let release,markPending;
+      const gate=new Promise(resolve=>{release=resolve;}),pending=new Promise(resolve=>{markPending=resolve;});
+      await local.route('**/library.json',async route=>{markPending();await gate;await route.continue();});
+      try {
+        await local.goto(base+'/#read/'+sample.id+'/'+sample.sections[0].id,{waitUntil:'domcontentloaded'});
+        await pending;await local.locator('#reading-text[data-position-ready="true"]').waitFor();
+        assert.equal(await local.locator('#library-loading').count(),0);
+        await select(local);await local.waitForFunction(()=>!document.querySelector('#selection-save').hidden);
+        if(draft){await local.locator('#selection-save').click();await local.locator('#note-text').fill('Unfinished original-sample note during a library download.');}
+        const before=await local.evaluate(()=>{window.loadingReadingNode=document.querySelector('#reading-text');return{selection:getSelection().toString(),scroll:scrollY,text:window.loadingReadingNode.textContent,hash:location.hash};});
+        const position=(await state(local)).positions[sample.id];
+        release();await local.evaluate(()=>import('/app.mjs').then(()=>true));
+        const after=await local.evaluate(()=>({sameNode:window.loadingReadingNode===document.querySelector('#reading-text'),selection:getSelection().toString(),scroll:scrollY,text:document.querySelector('#reading-text').textContent,hash:location.hash}));
+        assert.equal(after.sameNode,true);delete after.sameNode;assert.deepEqual(after,before);
+        assert.deepEqual((await state(local)).positions[sample.id],position);
+        if(draft){assert.equal(await local.locator('#dialog').evaluate(el=>el.open),true);assert.equal(await local.locator('#note-text').inputValue(),'Unfinished original-sample note during a library download.');await settledCapture(local,{path:new URL(`${engine}-library-draft-preserved.png`,output).pathname});}
+      }finally{release();await local.close({runBeforeUnload:false});}
+    }
+  }finally{await context.close();}
+  const importingContext=await fresh();let releaseImport;
+  try {
+    const importing=await importingContext.newPage(),gate=new Promise(resolve=>{releaseImport=resolve;});
+    await importing.route('**/library.json',async route=>{await gate;await route.continue();});
+    await importing.goto(base,{waitUntil:'domcontentloaded'});await importing.locator('#library-loading').waitFor();
+    const bringBook=importing.getByRole('button',{name:'Bring a book',exact:false});await bringBook.focus();await bringBook.press('Enter');
+    await importing.locator('#book-title').fill('An unfinished original import');
+    releaseImport();await importing.evaluate(()=>import('/app.mjs').then(()=>true));
+    assert.equal(await importing.locator('#library-loading').count(),0);
+    assert.equal(await importing.locator('#dialog').evaluate(el=>el.open),true);
+    assert.equal(await importing.locator('#book-title').inputValue(),'An unfinished original import');
+    await importing.getByRole('button',{name:'Close ×',exact:true}).click();
+    assert.equal(await importing.locator('.book-row').count(),samples.length,'Closing the import must reveal the supplied books without another navigation');
+    assert.equal(await importing.getByRole('button',{name:'Bring a book',exact:false}).evaluate(el=>el===document.activeElement),true);
+    await settledCapture(importing,{path:new URL(`${engine}-library-import-return.png`,output).pathname});
+  }finally{releaseImport();await importingContext.close();}
+  const failedContext=await fresh();
+  try {
+    const failed=await failedContext.newPage();await failed.route('**/library.json',route=>route.fulfill({status:503,body:'Unavailable'}));
+    await failed.goto(base);await failed.getByText('The supplied library is unavailable.',{exact:false}).waitFor();
+    assert.equal(await failed.locator('#library-loading').count(),0);
+    assert.equal(await failed.locator('.book-row').count(),0);
+    await failed.unroute('**/library.json');await failed.reload();await failed.locator('.book-row').nth(samples.length-1).waitFor();
+    assert.equal(await failed.locator('#storage-warning').isVisible(),false);assert.equal(await failed.locator('#library-loading').count(),0);
+  }finally{await failedContext.close();}
+  return {appSha256:expectedApp,sampleSha256:hash(sampleBytes),responseDelayMs:9000,pendingAt8500ms:true,exactSamplesLoaded:true,localFirstReading:true,lateResponsePreservesSelectionPlaceAndDraft:true,pendingClearedWithoutReplacingImport:true,failureClearsPending:true,reloadRecovers:true};
+}
+
 try {
   for(const engine of engines) {
     const executable=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;
     const browser=await playwright[engine].launch({headless:true,...(executable?{executablePath:executable}:{})});
     try {
+      if(process.env.QA_ONLY==='readiness'){const settledReadiness=await settledRenderChecks({browser,engine,output});receipts.push({engine,settledReadiness});console.log(JSON.stringify(receipts.at(-1)));continue;}
+      const suppliedLibrary=await loadingChecks({browser,engine});
+      if(process.env.QA_ONLY==='loading'){receipts.push({engine,suppliedLibrary});console.log(JSON.stringify(receipts.at(-1)));continue;}
+      const settledReadiness=await settledRenderChecks({browser,engine,output});
       const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true}),page=await context.newPage();
       const errors=[],external=[];page.on('pageerror',e=>{errors.push(e.message);console.error('Reader script error:',e.message);});page.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('blob:'))external.push(r.url());});
       await page.goto(base);await page.getByRole('button',{name:'Open the book',exact:false}).first().click();await page.waitForSelector('#reading-text');
@@ -196,7 +281,7 @@ try {
         await page.getByRole('link',{name:'Books',exact:true}).click();await page.getByRole('button',{name:'A local test <script>',exact:true}).click();await page.waitForSelector('#reading-text');assert.equal(await page.locator('#reading-text').textContent(),text);await offlineJourney(page,sample);assert.equal(await page.evaluate(async()=>{try{await fetch('/network-negative-control');return false;}catch{return true;}}),true);await context.setOffline(false);
       }
       assert.deepEqual(external,[]);assert.deepEqual(errors,[]);
-      receipts.push({engine,passageSharing,builderTrials,portableBundle,independentReview,readingExperience,reciprocalHandoff,quietFocus,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapters and companion; new and edited notes survive offline reload; failed direct fetch negative control':'pending stopped-origin check',errors,external});
+      receipts.push({engine,suppliedLibrary,settledReadiness,passageSharing,builderTrials,portableBundle,independentReview,readingExperience,reciprocalHandoff,quietFocus,viewports:5,uiIcons:{sharedPath:true,decorative:true,textualNames:true,currentColor:true,plainSourceLinks:true,sourceArrowsPreserved:true},textFidelity:true,visibleStanzaGaps:true,annotations:true,draftNavigationGuard:true,connectionDraftRecovery:true,failedStorageDraftRetained:true,independentProgress:true,spoilerBoundaries:true,multiTab:true,conflictingDraftPreserved:true,corruptDataPreserved:true,partialBookRecovery:true,privateImport:true,backupValidation:true,offline:engine==='chromium'?'reload, local book, chapters and companion; new and edited notes survive offline reload; failed direct fetch negative control':'pending stopped-origin check',errors,external});
       if(engine==='webkit') {
         // WebKit's emulated offline mode can reject worker responses. Stop the origin instead.
         server.kill();await once(server,'exit');await page.reload();await page.waitForSelector('.passage');assert.equal(await page.locator('.passage').count(),2);

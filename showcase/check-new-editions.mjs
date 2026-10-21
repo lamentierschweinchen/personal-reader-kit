@@ -5,6 +5,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {serve} from './serve.mjs';
 import {buildShowcase} from './build.mjs';
+import {settledRender} from '../tests/experience-browser.mjs';
 if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const entries=[
@@ -37,21 +38,6 @@ async function dismissNotice(page){
  if(await controls.count())await controls.first().click();else await page.locator('#dialog [data-action="close"]').first().click();
  await page.locator('#dialog').waitFor({state:'hidden'});
 }
-async function artwork(page){
- // Offscreen plates are deliberately lazy: getClientRects() alone would wait
- // indefinitely for images the browser has not requested. This is screenshot
- // readiness; complete edition/asset checks belong to the build and source tests.
- await bounded(page.evaluate(async()=>{
-  await document.fonts.ready;
-  const visible=[...document.images].filter(i=>{const r=i.getBoundingClientRect();return r.width>0&&r.height>0&&r.top<innerHeight&&r.bottom>0&&r.left<innerWidth&&r.right>0;});
-  await Promise.all(visible.map(async(i,index)=>{
-   let timer;
-   try{await Promise.race([i.decode(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`Visible image ${index} did not decode (loading=${i.loading}, complete=${i.complete}, width=${i.naturalWidth})`)),10000);})]);}
-   finally{clearTimeout(timer);}
-   if(!i.complete||!i.naturalWidth)throw new Error(`Visible image ${index} has no decoded pixels`);
-  }));
- }),15000,'Viewport artwork and fonts');
-}
 async function source(page,e,section=e.section){
  const library=JSON.parse(await readFile(new URL(`dist/${e.slug}/library.json`,import.meta.url)));
  const blocks=library.find(b=>b.id===e.book).sections.find(s=>s.id===section).blocks.filter(b=>typeof b.text==='string');
@@ -61,7 +47,7 @@ async function source(page,e,section=e.section){
  }
 }
 async function layout(page,label){
- await artwork(page);
+ await settledRender(page);
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),label+' horizontal overflow');
 }
 for(const engine of ['chromium','webkit']){
@@ -116,7 +102,7 @@ for(const engine of ['chromium','webkit']){
    const page=pages[i];await page.goto(`${base}/${e.slug}/#read/${e.book}/${e.next}`);await page.reload();await ready(page,e,e.next);await source(page,e,e.next);await layout(page,e.slug+' offline');
    assert.equal(await page.evaluate(async()=>{try{await fetch('/uncached-proof',{signal:AbortSignal.timeout(3000)});return false}catch{return true}}),true);
    const state=await page.evaluate(async slug=>(await import('/'+slug+'/db.mjs')).loadState(),e.slug);assert.equal(state.notes.length,1);assert.equal(state.notes[0].note,`Original ${e.slug} mounting check.`);
-   await page.goto(`${base}/${e.slug}/#shelf`);await page.reload();await page.locator(e.shelf).waitFor();await artwork(page);
+   await page.goto(`${base}/${e.slug}/#shelf`);await page.reload();await page.locator(e.shelf).waitFor();await settledRender(page);
    const apple=await page.locator('link[rel="apple-touch-icon"]').getAttribute('href');assert.equal(await page.evaluate(async src=>(await fetch(src)).ok,apple),true);
    receipt.cases.find(c=>c.engine===engine&&c.reader===e.slug).stoppedOriginTextArtIconAndNote=true;
    });

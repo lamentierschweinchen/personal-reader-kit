@@ -4,6 +4,16 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with fourteen reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The fourteen specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Lessons carried into the starter · 21 October 2026
+
+The illustrated-reader trial exposed an eight-second supplied-library timeout. Original sample responses delayed nine seconds reproduced the failure in Chromium and WebKit. The starter now allows ninety seconds, shows a quiet pending line on an empty shelf and opens stored books immediately. Review also caught an empty shelf after a download completed behind an import dialog; closing that dialog now reveals the books and restores keyboard focus. Late responses preserve reading, selection, saved place and unfinished notes.
+
+The portable capture helper now bounds font, image and transition waits and decodes only viewport-intersecting images. Twelve original-fixture cases cover delayed, lazy, stalled and broken artwork, pending fonts and finite/infinite animations in both engines. The previous helper's premature capture and unbounded font wait were reproduced separately. This checks screenshot readiness, not whole-edition artwork completeness.
+
+Verification passes all 73 kit unit tests and the exact 74-file starter's 64 unit tests, build, audit and full Chromium/WebKit browser suite, including restoration and offline reload. All six mounted new-reader cases pass with the shared helper. A fresh catalogue build retains all 749 output hashes; the publication manifest, source editions, icons, fonts, storage contracts and personal entrance are unchanged. The coordinator inspected phone captures and followed the delayed import/return in the in-app browser. Physical-device installation and a ninety-second stalled download were not tested; HTTP failure/reload was tested separately.
+
+The existing guides now cover slow loading, bounded visual readiness, notice acknowledgement, historical scans, decorative-cover exclusions and mounted dynamic resources. Stronger copyediting and immutable-edition guidance were already present. This update adds no public book or publishing permission.
+
 ## Three new editions · 21 October 2026
 
 The owner approved publication of Nietzsche in company and The Alps, and asked us to resolve the War and Peace scan question and publish that reader. The catalogue now packages fourteen bounded editions. The new public copies retain their own designs, faithful text, annotations, explicit companion permissions, offline storage and bespoke Home Screen icons. Original local repositories and browser records are separate.

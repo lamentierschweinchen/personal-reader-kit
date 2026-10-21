@@ -1,11 +1,110 @@
 import assert from 'node:assert/strict';
 
-export async function settledCapture(page,options) {
+// Screenshot readiness is local to this viewport, not an edition-asset audit.
+// Never scroll or make unseen lazy images eager to settle a reading capture.
+export async function settledRender(page,{timeout=15000}={}) {
+  assert.ok(Number.isFinite(timeout)&&timeout>0,'A finite positive render timeout is required');
+  let timer;
+  try {
+    return await Promise.race([page.evaluate(async timeout=>{
+      let phase='fonts',timer,expired=false,pending=[];
+      const describe=({image,index})=>{const r=image.getBoundingClientRect();return `image ${index} (loading=${image.loading||'eager'}, complete=${image.complete}, pixels=${image.naturalWidth}×${image.naturalHeight}, rect=${[r.x,r.y,r.width,r.height].map(Math.round).join(',')})`;};
+      const check=()=>{if(expired)throw new Error('Render deadline already expired');};
+      const work=async()=>{
+        await document.fonts.ready;check();
+        phase='finite transitions';
+        await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));check();
+        phase='animation frames';
+        await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));check();
+        pending=[...document.images].map((image,index)=>({image,index})).filter(({image})=>{
+          const r=image.getBoundingClientRect();return r.width>0&&r.height>0&&r.top<innerHeight&&r.bottom>0&&r.left<innerWidth&&r.right>0&&getComputedStyle(image).visibility!=='hidden';
+        });
+        phase='visible artwork';const visibleImages=pending.length;
+        await Promise.all([...pending].map(async entry=>{
+          try{await entry.image.decode();}catch(error){throw new Error(`Visible ${describe(entry)} failed to decode: ${error.name}`);}
+          check();
+          if(!entry.image.complete||!entry.image.naturalWidth||!entry.image.naturalHeight)throw new Error(`Visible ${describe(entry)} has no decoded pixels`);
+          pending=pending.filter(item=>item!==entry);
+        }));
+        return {visibleImages};
+      };
+      try{return await Promise.race([work(),new Promise((_,reject)=>{timer=setTimeout(()=>{
+        expired=true;reject(new Error(`Settled render exceeded ${timeout}ms during ${phase}${pending.length?': '+pending.slice(0,8).map(describe).join('; '):''}`));
+      },timeout);})]);}finally{clearTimeout(timer);}
+    },timeout),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`Settled render browser reply exceeded ${timeout+1000}ms`)),timeout+1000);})]);
+  } finally {clearTimeout(timer);}
+}
+
+export async function settledCapture(page,options={}) {
+  const timeout=options.timeout??15000,deadline=Date.now()+timeout;
+  assert.ok(Number.isFinite(timeout)&&timeout>0,'A finite positive capture timeout is required');
+  const remaining=()=>{const ms=deadline-Date.now();assert.ok(ms>0,'Settled capture exceeded its deadline');return ms;};
   const parts=new URL(page.url()).hash.slice(1).split('/').map(decodeURIComponent);
-  if(parts[0]==='read')await page.waitForFunction(([book,section])=>{const el=document.querySelector('#reading-text');return el?.dataset.book===book&&el.dataset.section===section&&el.dataset.positionReady==='true';},parts.slice(1));
-  if(await page.locator('#dialog[open] #context-text').count())await page.locator('#context-text[data-location-ready="true"]').waitFor();
-  await page.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
-  return page.screenshot(options);
+  if(parts[0]==='read')await page.waitForFunction(([book,section])=>{const el=document.querySelector('#reading-text');return el?.dataset.book===book&&el.dataset.section===section&&el.dataset.positionReady==='true';},parts.slice(1),{timeout:remaining()});
+  if(await page.locator('#dialog[open] #context-text').count())await page.locator('#context-text[data-location-ready="true"]').waitFor({timeout:remaining()});
+  await settledRender(page,{timeout:remaining()});
+  return page.screenshot({...options,timeout:remaining()});
+}
+
+// Original controlled responses exercise the capture helper without books,
+// installed workers, external requests or changes to the application under test.
+export async function settledRenderChecks({browser,engine,output}) {
+  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});
+  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><rect width="80" height="80" fill="#183c38"/><circle cx="40" cy="40" r="22" fill="#f1d48b"/></svg>',cases=[];
+  const fixture=async(body,modes={})=>{
+    const page=await context.newPage(),requests=[],held=new Map();page.setDefaultTimeout(5000);
+    await page.route('**/*',async route=>{
+      const pathname=new URL(route.request().url()).pathname;requests.push(pathname);
+      if(pathname==='/')return route.fulfill({contentType:'text/html',body:`<!doctype html><meta charset="utf-8"><style>body{margin:0}img{display:block}h1{font:20px serif;margin:0;height:40px}.gap{height:40000px}</style><h1>Original artwork fixture</h1>${body}`});
+      if(modes[pathname]==='hold'){held.set(pathname,route);return;}
+      return route.fulfill({contentType:'image/svg+xml',body:modes[pathname]==='broken'?'not an image':svg});
+    });
+    await page.goto('http://settled-render.invalid/',{waitUntil:'domcontentloaded',timeout:5000});
+    const unchanged=()=>page.evaluate(()=>({html:document.body.innerHTML,scroll:[scrollX,scrollY]}));
+    return {page,requests,held,unchanged};
+  };
+  const deadlineFailure=async(page,pattern)=>{
+    const started=Date.now();let message;
+    await assert.rejects(()=>settledRender(page,{timeout:250}),error=>{message=error.message;return pattern.test(message);});
+    assert.ok(Date.now()-started<3000,'Readiness must fail within a finite deadline');return message;
+  };
+  try {
+    const delayed=await fixture('<img id="art" src="/delayed.svg" width="80" height="80">',{'/delayed.svg':'hold'});
+    const before=await delayed.unchanged();let finished=false;
+    const rendering=settledRender(delayed.page,{timeout:5000}).then(result=>{finished=true;return result;});
+    await new Promise(resolve=>setTimeout(resolve,150));
+    assert.equal(finished,false,'Visible artwork must finish decoding before capture');assert.ok(delayed.held.has('/delayed.svg'));
+    await delayed.held.get('/delayed.svg').fulfill({contentType:'image/svg+xml',body:svg});
+    assert.deepEqual(await rendering,{visibleImages:1});assert.deepEqual(await delayed.unchanged(),before);
+    if(output)await settledCapture(delayed.page,{path:new URL(`${engine}-settled-artwork.png`,output).pathname});
+    cases.push({name:'delayed visible artwork',decoded:true,unchanged:true});await delayed.page.close();
+
+    const lazy=await fixture('<img src="/visible.svg" width="80" height="80"><div class="gap"></div><img id="unseen" loading="lazy" src="/unseen.svg" width="80" height="80">',{'/unseen.svg':'hold'});
+    const original=await lazy.unchanged();assert.deepEqual(await settledRender(lazy.page,{timeout:5000}),{visibleImages:1});
+    assert.equal(lazy.requests.includes('/unseen.svg'),false,'Unseen lazy artwork must remain unrequested');assert.deepEqual(await lazy.unchanged(),original);
+    assert.equal(await lazy.page.locator('#unseen').evaluate(image=>image.complete),false);
+    cases.push({name:'offscreen lazy artwork',unrequested:true,unchanged:true});
+    await lazy.page.locator('#unseen').evaluate(image=>image.scrollIntoView());
+    const scrolled=await lazy.unchanged(),stalled=await deadlineFailure(lazy.page,/during visible artwork.*image 1.*complete=false/);
+    assert.ok(lazy.requests.includes('/unseen.svg'));assert.deepEqual(await lazy.unchanged(),scrolled);
+    cases.push({name:'stalled visible artwork',bounded:true,unchangedScroll:true,error:stalled});await lazy.page.close();
+
+    const broken=await fixture('<img src="/broken.svg" width="80" height="80">',{'/broken.svg':'broken'}),brokenBefore=await broken.unchanged();
+    await assert.rejects(()=>settledRender(broken.page,{timeout:5000}),/Visible image 0.*failed to decode/);assert.deepEqual(await broken.unchanged(),brokenBefore);
+    cases.push({name:'broken visible artwork',rejected:true,unchanged:true});await broken.page.close();
+
+    const fonts=await fixture('<p>Original font-readiness fixture.</p>');
+    await fonts.page.evaluate(()=>Object.defineProperty(document.fonts,'ready',{value:new Promise(()=>{}),configurable:true}));
+    cases.push({name:'pending font readiness',bounded:true,error:await deadlineFailure(fonts.page,/during fonts/)});await fonts.page.close();
+
+    const transitions=await fixture('<div id="motion">Original animation fixture.</div>');
+    await transitions.page.evaluate(()=>{const e=document.querySelector('#motion');window.finite=e.animate([{opacity:1},{opacity:.5}],{duration:120,fill:'forwards'});window.endless=e.animate([{transform:'translateX(0)'},{transform:'translateX(2px)'}],{duration:200,iterations:Infinity});});
+    await settledRender(transitions.page,{timeout:5000});assert.equal(await transitions.page.evaluate(()=>finite.playState),'finished');
+    assert.equal(await transitions.page.evaluate(()=>endless.playState),'running');
+    await transitions.page.evaluate(()=>{endless.cancel();window.paused=document.querySelector('#motion').animate([{opacity:1},{opacity:.5}],{duration:10000});paused.pause();});
+    cases.push({name:'finite transitions',awaited:true,infiniteIgnored:true,pausedBounded:true,error:await deadlineFailure(transitions.page,/during finite transitions/)});await transitions.page.close();
+    return {cases,sourceFree:true,externalRequests:false};
+  } finally {await context.close();}
 }
 
 export async function rangeInViewport(page) {

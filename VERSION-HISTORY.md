@@ -8,6 +8,14 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Lessons from three new readers · 21 October 2026
+
+The starter gives a slow supplied library up to ninety seconds to arrive and shows a quiet loading line on an empty shelf. Stored books remain usable immediately. A response arriving during an import leaves the draft alone and reveals the books when the dialog closes, restoring keyboard focus. Original fixtures reproduce the former eight-second failure and empty return, then verify both repairs.
+
+The shared capture helper now waits for visible artwork with finite deadlines for fonts, images and transitions. It leaves unseen lazy images alone and reports broken visible artwork. Both the starter checks and mounted-reader checks use it; complete asset verification remains separate.
+
+The existing guides gain checks for slow loading, notice acknowledgement, historical scans, uncertain decorative covers and resources loaded inside mounted companions. The prior copyeditor already covers unearned comparisons, empty prose and immutable source metadata. The fourteen published readers, catalogue and personal entrance retain all 749 output files unchanged. Verification and limits are recorded in STATUS.md.
+
 ## Home Screen identity and editorial checks · 21 October 2026
 
 The starter and eleven public readers now supply opaque 180px Apple touch icons and 192/512px manifest icons. Four inherited generic marks are replaced with original emblems; the other readers retain their existing artwork. Installed IDs, scoped launch URLs, book bytes and reading records remain unchanged. The exact build, offline cache and publication inventories include each icon. The starter carries the same provision and its own three provenance pins.

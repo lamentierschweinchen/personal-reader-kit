@@ -10,6 +10,7 @@ const esc = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&
 const amount=(number,label)=>`${number} ${label}${number===1?'':'s'}`;
 const arrow = (direction='up-right') => `<svg class="ui-icon ui-icon--${direction}" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#ui-arrow"></use></svg>`;
 const main = $('#main'), dialog = $('#dialog');
+let libraryLoading = true, shelfRefreshPending = false;
 let state = newState(), books = [], samples = [], editionConflicts = [], route = {view:'shelf'}, activeBook, activeSection;
 let selection, editing, selectionChoice, editingRangeChanged=false, dialogOrigin, restored = true, requestedPosition, pendingScroll, statusTimer;
 let focusControls=false,focusPointer=null,focusTap=null,focusRecallPosition={x:0,y:0};
@@ -79,7 +80,7 @@ function progressLabel(book) {
   return `Section ${Math.max(1,index+1)} of ${book.sections.length}`;
 }
 function shelf() {
-  return `<section class="shelf"><div class="shelf-intro"><div><p class="eyebrow">A personal reader · yours to make</p><h1>In good<br><em>company.</em></h1></div><div class="intro-note"><p>Read, mark, annotate.<br>Keep a passage.<br>Take your books offline.</p><button class="primary" data-action="import">Bring a book ${arrow()}</button></div></div><div class="shelf-list">${books.map((b,i) => `<article class="book-row"><span class="book-number">${String(i+1).padStart(2,'0')}</span><div><h2><button class="book-title" data-action="resume" data-book="${esc(b.id)}">${esc(b.title)}</button></h2><p class="small">${esc(b.author)}</p></div><div class="book-actions"><button class="text" data-action="resume" data-book="${esc(b.id)}">${state.positions[b.id] ? 'Continue reading' : 'Open the book'} ${arrow()}</button><span class="small">${esc(progressLabel(b))}</span>${removable(b) ? `<button class="small" data-action="remove-book" data-book="${esc(b.id)}">Remove from device</button>` : ''}</div></article>`).join('')}</div><div class="shelf-bottom"><p>${hasReviewedSamples()?'The two opening works are original sample writing. ':''}Books you add stay in this browser, along with your notes.</p><a class="text-link" href="#companion">${hasReviewedSamples()?'Try three ways of exploring':'Explore your passages'} ${arrow()}</a></div></section>`;
+  return `<section class="shelf"><div class="shelf-intro"><div><p class="eyebrow">A personal reader · yours to make</p><h1>In good<br><em>company.</em></h1></div><div class="intro-note"><p>Read, mark, annotate.<br>Keep a passage.<br>Take your books offline.</p><button class="primary" data-action="import">Bring a book ${arrow()}</button></div></div><div class="shelf-list">${libraryLoading&&!books.length?'<p id="library-loading" class="small" role="status">Loading the library…</p>':''}${books.map((b,i) => `<article class="book-row"><span class="book-number">${String(i+1).padStart(2,'0')}</span><div><h2><button class="book-title" data-action="resume" data-book="${esc(b.id)}">${esc(b.title)}</button></h2><p class="small">${esc(b.author)}</p></div><div class="book-actions"><button class="text" data-action="resume" data-book="${esc(b.id)}">${state.positions[b.id] ? 'Continue reading' : 'Open the book'} ${arrow()}</button><span class="small">${esc(progressLabel(b))}</span>${removable(b) ? `<button class="small" data-action="remove-book" data-book="${esc(b.id)}">Remove from device</button>` : ''}</div></article>`).join('')}</div><div class="shelf-bottom"><p>${hasReviewedSamples()?'The two opening works are original sample writing. ':''}Books you add stay in this browser, along with your notes.</p><a class="text-link" href="#companion">${hasReviewedSamples()?'Try three ways of exploring':'Explore your passages'} ${arrow()}</a></div></section>`;
 }
 function reader() {
   activeBook = bookById(route.book);
@@ -136,6 +137,7 @@ function companion() {
   return `<section class="page${selected==='walk'?'':' companion-compact'}"><header class="page-head companion-heading"><p class="eyebrow">An optional companion</p><h1>${selected==='walk'?'A little further.':'Companion'}</h1><p>${sampleWalk?'A fictional listening walk, an index across your books, and a place to compare passages.':'Follow a word across your books, or compare passages you have kept.'}</p></header><div class="companion-top"><p class="small">Unread passages stay hidden. Set a boundary explicitly; opening an experiment never advances your reading place.</p><button class="secondary" data-action="boundaries">Choose what I’ve read</button></div>${returnLink()}<div class="experiment-tabs" role="group" aria-label="Experience prototypes">${sampleWalk?`<button data-action="experiment" data-experiment="walk" aria-pressed="${selected==='walk'}">01 &nbsp; A listening walk</button>`:''}<button data-action="experiment" data-experiment="echo" aria-pressed="${selected==='echo'}">02 &nbsp; An echo index</button><button data-action="experiment" data-experiment="facing" aria-pressed="${selected==='facing'}">03 &nbsp; Facing pages</button></div>${selected==='walk' ? walk() : selected==='echo' ? echoes() : facing()}<div class="prototype-choice"><p>Save a preference to discuss with your agent.</p><button class="secondary" data-action="choose-prototype">${state.reflections['prototype-choice']===selected ? '✓ Your preferred direction' : 'Keep this direction'}</button></div></section>`;
 }
 async function render({keepScroll=false}={}) {
+  if(route.view==='shelf')shelfRefreshPending=false;
   const y = scrollY;hideFocusControls();fragments=[];contextPassages=[];selection = null;$('#selection-save').hidden = true;
   main.innerHTML = route.view === 'read' ? reader() : route.view === 'passages' ? passages() : route.view === 'companion' ? companion() : shelf();
   document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current',false));
@@ -162,7 +164,11 @@ function openDialog(title,html) {
 function finishDialog() {
   disposePassageCard();disposePassageCard=()=>{};
   const origin=dialogOrigin;dialogOrigin=null;
-  if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
+  const refreshShelf=shelfRefreshPending&&route.view==='shelf';
+  if(refreshShelf){shelfRefreshPending=false;void render({keepScroll:true});}
+  const action=origin?.element?.dataset.action;
+  const focusTarget=origin?.element?.isConnected?origin.element:refreshShelf&&action?main.querySelector(`[data-action="${CSS.escape(action)}"]`):null;
+  focusTarget?.focus({preventScroll:true});
   if(origin)scrollTo(0,origin.scroll);
   editing=null;selection=null;selectionChoice=null;editingRangeChanged=false;bundleCandidate=null;
 }
@@ -542,12 +548,15 @@ try {state=await loadState();}catch {stateDamaged=true;showWarning('Saved reader
 try {const local=await loadBooks();books=local.books;if(local.rejected.length)showWarning(`${local.rejected.length} local book record(s) need recovery. Other books are available. Nothing was removed; export original recovery data from Settings.`);}catch {showWarning('Local books could not be opened. Stored data has not been removed. Keep original files and export your notes from Settings.');}
 route=parseRoute();await render();
 try {
-  const response=await fetch('/library.json',{signal:AbortSignal.timeout(8000)});if(!response.ok)throw new Error('Unavailable');
+  const response=await fetch('/library.json',{signal:AbortSignal.timeout(90000)});if(!response.ok)throw new Error('Unavailable');
   const records=await response.json();if(!Array.isArray(records))throw new Error('Invalid sample library');
-  const supplied=records.map(validateBook);mergeLibrary(supplied,[]);samples=supplied;mergeAvailable(books);await prepareSampleCopy();
+  const supplied=records.map(validateBook);mergeLibrary(supplied,[]);samples=supplied;mergeAvailable(books);await prepareSampleCopy();libraryLoading=false;
+  // Defer a covered shelf until the dialog closes; keep active reading untouched.
+  if(dialog.open&&route.view==='shelf')shelfRefreshPending=true;
   // Do not disturb a reader, selection or open import dialog when a slow download finishes.
   if(!dialog.open&&route.view==='shelf'){route=parseRoute();await render({keepScroll:route.view!=='read'});}
   else if(!dialog.open&&route.view==='passages')await render({keepScroll:true});
   else if(!dialog.open&&route.view==='companion'&&!dirtyReflection())await render({keepScroll:true});
 }catch {showWarning('The supplied library is unavailable. Your local books and records are independent; reconnect and reload to retry.',false);}
+finally {libraryLoading=false;$('#library-loading')?.remove();}
 void offline();
