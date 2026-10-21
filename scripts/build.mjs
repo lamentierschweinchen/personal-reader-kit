@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {KIT_VERSION} from '../site/bundle.mjs';
 import {validateBook,bookText} from '../site/core.mjs';
 const root = fileURLToPath(new URL('../',import.meta.url));
-export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','style.css','manifest.webmanifest','icon.svg','robots.txt'];
+export const assets = ['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','library.mjs','text.mjs','share.mjs','share-card.mjs','share-card.css','style.css','manifest.webmanifest','icon.svg','robots.txt'];
 export async function build({output=path.join(root,'dist')}={}) {
   const packageVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
   if(packageVersion!==KIT_VERSION)throw new Error('Package and portable-bundle application versions differ.');

@@ -29,7 +29,7 @@ export async function reviewChecks({browser,base,engine,output}) {
     await context.route('**/library.json',route=>route.abort());
     await page.goto(`${base}/#read/${data.book.id}/text`);await page.reload();await page.waitForSelector('#reading-text');
     assert.equal(await page.locator('#reading-text').textContent(),data.book.sections[0].blocks.map(b=>b.text+b.after).join(''));
-    await page.waitForFunction(()=>document.querySelector('#storage-warning').textContent.includes('samples are unavailable'));
+    await page.waitForFunction(()=>document.querySelector('#storage-warning').textContent.includes('supplied library is unavailable'));
     assert.equal(await page.locator('#reading-text em').textContent(),'First');
     const geometry=await page.evaluate(()=>{const b=[...document.querySelectorAll('#reading-text [data-block]')],lh=parseFloat(getComputedStyle(document.querySelector('#reading-text')).lineHeight);return {two:b[1].getBoundingClientRect().top-b[0].getBoundingClientRect().top,four:b[2].getBoundingClientRect().top-b[1].getBoundingClientRect().top,lh};});
     assert.ok(geometry.four>geometry.two+geometry.lh,JSON.stringify(geometry));

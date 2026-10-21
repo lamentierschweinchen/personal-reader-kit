@@ -10,6 +10,7 @@
 !site/core.mjs
 !site/db.mjs
 !site/bundle.mjs
+!site/library.mjs
 !site/text.mjs
 !site/share.mjs
 !site/share-card.mjs

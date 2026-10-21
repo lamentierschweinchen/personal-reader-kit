@@ -30,6 +30,7 @@ jobs:
       - run: node tests/selection-touch-browser.mjs
         if: hashFiles('tests/selection-touch-browser.mjs') != ''
       - run: npm run test:browser
+      - run: npm run test:preview-local
       - run: npm run test:cards
         env:
           SHARE_CARD_PROJECTS: ${{ hashFiles('examples/catalog.json') != '' && 'all' || '.' }}

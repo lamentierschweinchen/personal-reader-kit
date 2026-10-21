@@ -42,6 +42,8 @@ Shaped verse may need a documented source-layout mode and readable alternate. Bo
 
 ## Test the adapted reader
 
+Use [the local preview](AGENT-GUIDE.md#preview-prepared-books-locally) to inspect prepared editions that fit the stock text contract. It keeps private library output separate from the original-sample public build. A new media/profile extension also needs a reviewed local build and exact asset list; the text-only helper deliberately refuses it. Do not weaken sample fingerprints, copy an entire preparation directory into the served output, or treat a local preview as permission to host books.
+
 The original fixture suite remains regression evidence; its book IDs, labels and sample experiments are not a generic acceptance driver. Reuse `settledCapture` and `rangeInViewport` from `tests/experience-browser.mjs` when the adapted DOM contract is unchanged. Otherwise adapt their geometric assertions explicitly, preserving the usable-viewport check.
 
 Create a real-edition journey using stable IDs: long paragraph, multi-block selection, risky source layout, image, note/backlink where present, reference round trip and any paired reading. Verify complete source coverage separately. Exercise large type, night, quiet mode, landscape reading height, save/reload, failed writes, new-origin restoration and stopped-origin reopening. Explicit installed browser paths address runtime mismatches; an offline-emulation flag alone does not establish outage resilience.

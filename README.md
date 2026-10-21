@@ -47,6 +47,8 @@ Choose **Bring a book** to add a UTF-8 `.txt` or prepared reader `.json` file, u
 
 The real-book trials required adapters for illustrations, notes, tables and shaped verse. The stock kit still uses its narrow text contract. [Adapter decisions](docs/ADAPTERS.md) explain compatibility, asset recovery and how to test an adapted reader without overstating automatic import support.
 
+**Develop a prepared reader locally.** An agent can open one or more validated text editions from ignored `.reader/` files with `npm run preview:local -- .reader/prepared/book.reader.json`. This creates a separate local preview at **http://127.0.0.1:4183**; it does not change the public sample build or upload the book. Keep that address for your saved reading. Follow [the prepared-book preview steps](docs/AGENT-GUIDE.md#preview-prepared-books-locally) for multiple books, backups and format limits.
+
 **Keep it on your home screen.** Open the reader in Safari on iPhone/iPad or Chrome on Android, then use **Add to Home Screen** or **Install**. Desktop browsers offer app installation too. Open the new icon while online, confirm your books and notes, then check its offline copy before travelling. [Device-by-device instructions and backup steps](docs/DEPLOYMENT.md#add-the-reader-to-your-home-screen)
 
 ## Make your reader, with an agent

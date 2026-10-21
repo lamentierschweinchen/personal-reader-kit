@@ -8,6 +8,14 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Prepared editions and recovery · 21 October 2026
+
+The starter now previews explicitly selected prepared text editions with `npm run preview:local -- .reader/prepared/book.json`. It validates private inputs, serves only on loopback, and keeps generated files in a guarded ignored directory. Each running preview holds its own verified file snapshot, so preparing another edition cannot change an already open server. The ordinary build still contains only the original samples; illustrated or custom-profile books require their own reviewed adapter.
+
+Restoring a supplied edition no longer duplicates it on the shelf. When supplied and stored editions share an ID but differ, the stored edition remains active with its notes. Settings offers separate exact exports of both editions and explains what removal will reveal. Sample-only claims and the sample walk appear only with the verified original samples. Original fixtures cover restoration, conflicts, offline reload and two simultaneous previews; no private trial book or image enters the kit.
+
+Four new files bring the starter to 68 files. The original sample bytes, portable edition contract, storage schema, eleven public readers and catalogue are unchanged. The starter runtime changes are verified separately from those independent applications. Detailed checks and limits are recorded in STATUS.md.
+
 ## Quotation images and exploration order · 20 October 2026
 
 The starter and all eleven public readers can make a quotation card from a selected or saved passage. Make card opens a local preview in the edition's colours and type; Share image hands the prepared PNG to a compatible device share menu, and Save image downloads it. Exact words, source emphasis and complete attribution are retained. Private notes and reading records stay out of the image. Passages that cannot fit legibly, fixed tables and shaped text that the card cannot preserve are refused explicitly; text sharing stays available.
