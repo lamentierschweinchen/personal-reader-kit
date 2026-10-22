@@ -10,6 +10,8 @@ Give your own agent this repository and one or more book files. This is a reusab
 
 **The default website hosts the reader and original samples. Your imported books and notes stay in your browser.** There is no book upload endpoint, analytics, remote font request, AI API key or account requirement inside the reader. A public repository should never become your personal library.
 
+The separate public catalogue at newreading.app uses [bounded usage counts](https://github.com/lamentierschweinchen/personal-reader-kit/blob/main/docs/ANALYTICS.md). Those scripts are not part of this default reader or its starter files.
+
 **Public beta:** ready to try with your own agent and private backups. Browser verification covers the core flows; physical iPhone/iPad gestures and a new user’s end-to-end deployment still need direct testing. [Exact evidence and limits](docs/STATUS.md)
 
 ## Try it

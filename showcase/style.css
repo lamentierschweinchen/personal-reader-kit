@@ -431,6 +431,7 @@ h1 em,h2 em,.thread{font-family:var(--display);font-style:italic;font-weight:400
 .g-num{font:italic 400 clamp(44px,5vw,72px)/.9 var(--display);color:var(--pencil)}
 .g-body h2{font:400 clamp(32px,3.4vw,50px)/1.05 var(--display);letter-spacing:-.015em;margin-bottom:16px}
 .g-body>p{font:400 18px/1.55 var(--serif);max-width:38em;margin-bottom:14px}
+.privacy-page .g-step{display:block;max-width:760px}
 .g-body b{font-weight:600}
 .g-label{display:block;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:6px 0 8px}
 .g-body textarea{width:100%;max-width:760px;height:120px;font:15px/1.5 var(--mono);padding:16px;border:1px solid var(--line);border-radius:16px;background:#fbf9f3;color:var(--ink);resize:none}

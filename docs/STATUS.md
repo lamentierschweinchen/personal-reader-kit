@@ -4,6 +4,16 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with fourteen reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The fourteen specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Public-site usage counts · 22 October 2026
+
+The optional hosted integration is prepared and locally verified. The provider API reported analytics disabled before this work; no launch analytics baseline is claimed. Activation, usage-cost approval and live delivery remain pending. [Event meanings and data boundary](ANALYTICS.md).
+
+The current official provider script is exercised through intercepted HTTPS requests in Chromium and WebKit, including all fourteen reader roots and three games. Checks cover actual outgoing payloads, private text and URL sentinels, successful and failed copying, delayed startup, blocked storage, privacy preferences, imported-book suppression, modal-paused reading time and a stopped-origin offline reload. Both engines also verify that the runtime integrity pin accepts the reviewed script and rejects changed bytes without affecting reading. Chromium uses its real clipboard for the successful-copy case; WebKit's clipboard outcomes use API stubs. No automated events are sent to the live site.
+
+All 73 kit tests, six analytics unit tests and 463 example tests pass. Fourteen independent example builds retain all 704 reviewed output files exactly. The mounted checks pass eleven established readers and six new-edition browser cases, including source, saved-note and offline behavior in both engines. Maker handoff and twelve library layouts pass. The coordinator reviewed the privacy page at 320, 390, 768 and 1440 pixels and followed both mounted footer variants. This is browser emulation, not physical Home Screen testing or owner acceptance.
+
+The combined site adds two files and changes only mounted HTML, its worker content fingerprints, catalogue copy/action hooks and the privacy-page style. The other 712 prior outputs, all edition and asset pins, and the 74-file starter inventory retain their bytes. The public inventory now names 1,321 files and the isolated deployment inventory names 835 inputs. No new book, private reader or public destination is admitted.
+
 ## Lessons carried into the starter · 21 October 2026
 
 The illustrated-reader trial exposed an eight-second supplied-library timeout. Original sample responses delayed nine seconds reproduced the failure in Chromium and WebKit. The starter now allows ninety seconds, shows a quiet pending line on an empty shelf and opens stored books immediately. Review also caught an empty shelf after a download completed behind an import dialog; closing that dialog now reveals the books and restores keyboard focus. Late responses preserve reading, selection, saved place and unfinished notes.

@@ -37,6 +37,7 @@ function preview(id,trigger){
  content.querySelector('[data-edition-title]').id='edition-title';
  dialogContent.replaceChildren(content);
  dialog.showModal();document.body.classList.add('dialog-open');dialog.scrollTop=0;
+ document.dispatchEvent(new CustomEvent('newreading:analytics',{detail:{name:'edition_preview',edition:id}}));
  return true;
 }
 document.addEventListener('click',e=>{const trigger=e.target.closest('[data-preview]');if(trigger&&preview(trigger.dataset.preview,trigger))e.preventDefault();});

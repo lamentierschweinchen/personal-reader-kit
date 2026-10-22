@@ -969,3 +969,9 @@
 !start.txt
 !style.css
 !vercel.json
+!analytics.mjs
+!privacy/
+!privacy/index.html
+!showcase/analytics.mjs
+!showcase/privacy/
+!showcase/privacy/index.html

@@ -70,14 +70,14 @@ const head = ({title, desc, url, script}) => `<!doctype html>
 <meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:image" content="https://newreading.app/assets/read-share.jpg?v=20261019"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="New reading: Make any book your own. Austen’s peacock binding, Rackham’s White Rabbit and Thoreau’s pond survey."><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="${url}">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/im-fell-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/martian-mono-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css">${script === '/home.mjs' ? '<link rel="stylesheet" href="/shelf/covers.css"><link rel="stylesheet" href="/shelf/style.css"><script type="module" src="/shelf/app.mjs"></script>' : ''}<script type="module" src="${script}"></script></head>
+<link rel="stylesheet" href="/style.css">${script === '/home.mjs' ? '<link rel="stylesheet" href="/shelf/covers.css"><link rel="stylesheet" href="/shelf/style.css"><script type="module" src="/shelf/app.mjs"></script>' : ''}${script ? `<script type="module" src="${script}"></script>` : ''}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
  <a class="brand" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a>
  <nav aria-label="Main"><a class="nav-link" href="/library/">Library</a><a class="nav-link" href="/learn/" aria-label="How it works"><span class="nav-full">How it works</span><span class="nav-short" aria-hidden="true">Guide</span></a><button type="button" class="pill" data-copy="base" aria-label="Copy prompt" hidden><span class="nav-full">Copy prompt</span><span class="nav-short" aria-hidden="true">Copy</span> ${copyIcon}</button><a class="pill pill-dark" href="${GH}">GitHub ${arrow}</a></nav>
 </header>`;
-const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
+const foot = `<footer class="foot"><div><a class="brand brand-foot" href="/" aria-label="new reading, home"><span class="brand-new">new</span><svg class="caret" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><path d="m1 11 8-9 8 9"/></svg><span class="brand-reading">reading</span></a><p>Turn any book into your personal reader.</p></div><div class="foot-links"><a href="/learn/">How it works</a><a href="/privacy/">Privacy</a><a href="https://lookatseel.com/">Made by Lukas Seel</a><a href="${GH}">Free &amp; open source ${arrow}</a></div><p class="support"><span class="hand">Please support writers.</span> Buy the ebook from <a href="https://bookshop.org/">Bookshop.org</a>, <a href="https://www.kobo.com/">Kobo</a> or <a href="https://www.ebooks.com/">eBooks.com</a>, or straight from the publisher. Classics are free at <a href="https://standardebooks.org/">Standard Ebooks</a>.</p></footer>
 <div class="toast" role="status" aria-live="polite"></div>
 <dialog class="fallback" aria-labelledby="fb-title"><form method="dialog"><button aria-label="Close">Close</button></form><h2 id="fb-title">Copy by hand.</h2><p>Automatic copying wasn’t available. Select and copy the text below.</p><textarea readonly aria-label="Text to copy"></textarea></dialog>`;
 const html = `${head({title: 'new reading · Turn any book into your personal reader', desc: 'Read complete books in their own editions, then make yours.', url: 'https://newreading.app/', script: '/home.mjs'})}
@@ -151,7 +151,7 @@ ${shelf}
  <div class="faq reveal">
   <details><summary>What happens to the words? ${plus}</summary><p>The original wording, emphasis and structure come first. Any converted book needs checking against the source; new features live around it.</p></details>
   <details><summary>What do I need? ${plus}</summary><p>A computer, a coding app, and a book you own or one in the public domain. The kit is free and open source; your AI app may have plan costs or usage limits.</p></details>
-  <details><summary>What stays private? ${plus}</summary><p>In the finished reader, imported books and notes stay in that browser. They don’t sync between devices. Files you give an AI app may be processed by its provider; books you choose to publish will be online. This site has no analytics or third-party scripts.</p></details>
+  <details><summary>What stays private? ${plus}</summary><p>Imported books and notes stay in your browser. This site counts visits and a few actions through Vercel, without collecting your text, searches or reading place. Files you give an AI app may be processed by its provider. <a href="/privacy/">Privacy details</a>.</p></details>
   <details><summary>Can I make one for someone else? ${plus}</summary><p>Yes, with a public-domain book or one you have permission to share. Owning a book doesn’t give permission to publish its text.</p></details>
   <details id="prompt-box" open><summary>Just the prompt, please. ${plus}</summary><textarea id="starter" readonly spellcheck="false" aria-label="Starter prompt">${esc(prompt)}</textarea><div class="prompt-actions"><button type="button" class="link" data-copy="base" hidden>Copy prompt</button><a class="link" href="/start.txt">Full instruction</a><a class="link" href="${GH}">Get the repository ${arrow}</a></div></details>
  </div>
@@ -212,5 +212,26 @@ ${foot}
 await mkdir(dir + 'learn', {recursive: true});
 await writeFile(dir + 'learn/index.html', learn);
 console.log('Built learn.');
+const privacy = `${head({title: 'Privacy · New reading', desc: 'What stays in your browser, and what New reading counts.', url: 'https://newreading.app/privacy/'})}
+<main id="main" class="guide privacy-page">
+<section class="g-hero"><p class="kicker">Privacy</p><h1>Your reading<br><em>stays with you.</em></h1><p class="g-lead">Books you import, notes, kept passages and reading places stay in your browser. They are not sent to our analytics.</p></section>
+<section class="g-step"><div class="g-body">
+<h2>What we count</h2>
+<p>New reading uses Vercel Web Analytics to count visits to the public site and editions, and a few actions such as opening an edition preview, copying the maker instruction or following the repository link. We also count when a public book’s text has been visible for a total of thirty seconds.</p>
+<p>We send fixed public page and action labels. We leave out URL queries and fragments, searches, book titles you enter, prompt text, quotations, notes and your place in a book. We do not record your screen or keystrokes.</p>
+<p>Vercel reports aggregate visits, referring sites, approximate location, browser and device type. It processes connection information to produce those reports. This integration sets no analytics cookies or persistent browser identifier. We skip analytics when your browser sends Do Not Track or Global Privacy Control, and when you are offline.</p>
+<p>Counts have limits: an open page does not prove someone read it, and a copied prompt does not prove they built a reader. Blocked scripts and offline visits are absent.</p>
+<p><a class="link" href="https://vercel.com/docs/analytics/privacy-policy">Vercel’s analytics privacy details</a></p>
+</div></section>
+<section class="g-step"><div class="g-body">
+<h2>What stays here</h2>
+<p>The book and idea you type on the homepage stay in this tab’s session storage. Copying the instruction puts it on your clipboard only when you ask. Giving it or a book file to an AI app is a separate choice: that provider may process what you send.</p>
+<p>Reading records use local browser storage. They do not automatically sync, and clearing site data can remove them. Keep a private reading bundle as a backup. A shared device or browser profile is not a private vault.</p>
+<p>The reusable reader kit and private readers do not inherit this catalogue’s analytics. The separate personal entrance at read.lookatseel.com is also excluded. Our host may keep ordinary access logs.</p>
+<p>New reading is made by <a href="https://lookatseel.com/">Lukas Seel</a>. For a privacy question, use the contact links there. Last updated 22 October 2026.</p>
+</div></section>
+</main>${foot}</body></html>`;
+await mkdir(dir + 'privacy', {recursive: true});
+await writeFile(dir + 'privacy/index.html', privacy);
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) await buildPages();

@@ -8,6 +8,14 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Public-site usage counts · 22 October 2026
+
+The combined catalogue build adds optional Vercel analytics to the three public entrances, fourteen readers and three game pages. Fixed events distinguish opening an edition, offering manual copying, copying a current maker prompt and showing restored public text for thirty seconds. These are usage signals, not proof of completed reading or a finished reader.
+
+Query strings, fragments, searches, maker text, imported books, quotations, notes and reading places stay out of the event payloads. The integration respects Do Not Track and Global Privacy Control, excludes private and preview addresses, and fails closed when its provider cannot be used. It does not join the reader's offline cache or access reading records. A quiet privacy notice is linked from the catalogue and mounted reader footers.
+
+The default starter, independent example builds, personal entrance, exact literary sources and storage identities remain unchanged. Provider activation is separate from this code revision; verification and deployment status are recorded in STATUS.md.
+
 ## Lessons from three new readers · 21 October 2026
 
 The starter gives a slow supplied library up to ninety seconds to arrive and shows a quiet loading line on an empty shelf. Stored books remain usable immediately. A response arriving during an import leaves the draft alone and reveals the books when the dialog closes, restoring keyboard focus. Original fixtures reproduce the former eight-second failure and empty return, then verify both repairs.

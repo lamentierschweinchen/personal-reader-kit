@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import {injectAnalytics} from './analytics.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -27,6 +28,11 @@ export async function buildReaders(output){
     assert.deepEqual((await list(path.join(source,'dist'))).sort(),entry.reviewedBuild.map(a=>a.path).sort());
     await mkdir(destination,{recursive:true});
     const changed=[],unchanged=[];
+    // IDs are admitted from the same hash-checked public edition used by this mount.
+    const libraryAsset=entry.reviewedBuild.find(asset=>asset.path==='library.json');
+    const libraryBytes=await readFile(path.join(source,'dist/library.json'));
+    assert.equal(sha(libraryBytes),libraryAsset.sha256);
+    const publicBooks=JSON.parse(libraryBytes).map(book=>book.id);
     for(const asset of entry.reviewedBuild){
       assert.match(asset.path,/^(?:play\/)?[a-zA-Z0-9_./-]+$/);
       assert.ok(!asset.path.split('/').some(p=>!p||p==='.'||p==='..'));
@@ -38,6 +44,14 @@ export async function buildReaders(output){
       if(asset.path==='sw.js')continue;
       let bytes=original;
       if(asset.path==='index.html')bytes=Buffer.from(original.toString().replaceAll('href="/','href="'+base).replaceAll('src="/','src="'+base));
+      if(asset.path==='index.html'){
+        let html=bytes.toString();
+        const maker='<p class="maker-credit">Made with <a href="https://newreading.app/">newreading.app</a></p>';
+        if(html.includes(maker))html=replace(html,maker,'<p class="maker-credit">Made with <a href="https://newreading.app/">newreading.app</a> · <a href="/privacy/">Privacy</a></p>');
+        else {assert.equal(html.split('<footer class="site-footer">').length,2);html=replace(html,'</footer>','<a class="catalogue-return" href="/privacy/">Privacy</a></footer>');}
+        bytes=Buffer.from(html);
+      }
+      if(['index.html','play/index.html'].includes(asset.path))bytes=Buffer.from(injectAnalytics(bytes.toString(),{edition:slug,publicBooks}));
       if(asset.path==='app.mjs'){
         let text=replace(original.toString(),"register('/sw.js'",`register('${base}sw.js'`);
         text=replace(text,"fetch('/library.json'",`fetch('${base}library.json'`);

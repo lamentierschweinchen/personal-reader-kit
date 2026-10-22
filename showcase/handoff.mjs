@@ -57,6 +57,7 @@ export function setupCopy(getText) {
       await navigator.clipboard.writeText(value);
       // A draft edited while permission was pending is no longer the copied draft.
       if (attempt !== revision || value !== getText()) return;
+      document.dispatchEvent(new CustomEvent('newreading:analytics', {detail: {name: 'prompt_copy', outcome: 'copied'}}));
       if (button.dataset.copy === 'personal' && status) {
         status.textContent = 'Copied. Paste it into your coding app to begin.';
       } else {
@@ -68,6 +69,7 @@ export function setupCopy(getText) {
       if (attempt !== revision || value !== getText()) return;
       trigger = button; text.value = value;
       if (!fallback.open) fallback.showModal();
+      document.dispatchEvent(new CustomEvent('newreading:analytics', {detail: {name: 'prompt_copy', outcome: 'fallback'}}));
       text.focus({preventScroll: true}); text.select();
     } finally {
       busy = false; button.removeAttribute('aria-busy');

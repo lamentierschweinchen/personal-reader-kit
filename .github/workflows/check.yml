@@ -16,6 +16,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm test
+      - run: node --test showcase/analytics.test.mjs
+        if: hashFiles('showcase/analytics.test.mjs') != ''
       - run: npm run build
       - run: npm run audit:public
   browser:
@@ -51,6 +53,13 @@ jobs:
         if: hashFiles('showcase/check-library.mjs') != ''
       - run: node showcase/check-handoff.mjs --skip-build
         if: hashFiles('showcase/check-handoff.mjs') != ''
+      - name: Verify bounded analytics with the reviewed provider script
+        if: hashFiles('showcase/check-analytics.mjs') != ''
+        run: |
+          mkdir -p .reader/analytics-2026-10-22
+          curl --fail --silent --show-error https://va.vercel-scripts.com/v1/script.js -o .reader/analytics-2026-10-22/vendor-script.js
+          node showcase/check-analytics.mjs --skip-build
+          node showcase/check-analytics.mjs --skip-build --integrity-only
       - run: node showcase/check-personal.mjs --skip-build
         if: hashFiles('showcase/check-personal.mjs') != ''
       - run: node showcase/check-readers.mjs --skip-build
