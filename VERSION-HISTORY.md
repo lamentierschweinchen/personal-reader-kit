@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Library footer touch target · 22 October 2026
+
+The hosted library check found that the new Privacy link measured 42 pixels wide with the Linux runner’s font metrics. Footer links now have an explicit 44-pixel minimum width as well as height. The existing browser check retains its full touch-target assertion.
+
 ## Public-site usage counts · 22 October 2026
 
 The combined catalogue build adds optional Vercel analytics to the three public entrances, fourteen readers and three game pages. Fixed events distinguish opening an edition, offering manual copying, copying a current maker prompt and showing restored public text for thirty seconds. These are usage signals, not proof of completed reading or a finished reader.
