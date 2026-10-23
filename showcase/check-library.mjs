@@ -37,18 +37,18 @@ async function collectionTypography(browser,page){
  }finally{await interior.close();}
  return pairs;
 }
-async function jacketFit(page){
+async function jacketFit(page,label){
  const result=await page.locator('.book:nth-child(n+7) .cover').evaluateAll(covers=>covers.map(cover=>{
   const title=cover.querySelector('strong'),box=cover.getBoundingClientRect(),words=[];
   const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT);let node;
   while(node=walker.nextNode())for(const match of node.textContent.matchAll(/\S+/gu)){
    const range=document.createRange();range.setStart(node,match.index);range.setEnd(node,match.index+match[0].length);
    const rects=[...range.getClientRects()].filter(r=>r.width&&r.height);
-   words.push({text:match[0],lines:rects.length,inside:rects.every(r=>r.left>=box.left&&r.right<=box.right)});
+   words.push({text:match[0],lines:rects.length,inside:rects.every(r=>r.left>=box.left&&r.right<=box.right),bounds:rects.map(r=>({left:r.left,right:r.right}))});
   }
-  return {id:cover.className,words};
+  return {id:cover.className,words,bounds:{left:box.left,right:box.right},font:getComputedStyle(title).font};
  }));
- for(const cover of result)assert.ok(cover.words.every(w=>w.lines===1&&w.inside),cover.id+' jacket lettering clips or splits a word: '+JSON.stringify(cover.words));
+ for(const cover of result)assert.ok(cover.words.every(w=>w.lines===1&&w.inside),label+' jacket lettering clips or splits a word: '+JSON.stringify(cover));
 }
 try{
  for(const engine of ['chromium','webkit']){
@@ -58,7 +58,15 @@ try{
    for(const viewport of sizes){
     const context=await browser.newContext({viewport,hasTouch:viewport.width<600,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],unexpected=[];
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url());});
-    await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');await jacketFit(page);
+    await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');await jacketFit(page,`${engine}/${viewport.width} normal`);
+    // A wide system face guards the jacket when the preferred serif is absent.
+    // This is a fallback-width control, not a simulation of a particular OS.
+    if(viewport.width===320){
+     const cover=page.locator('.book[data-edition="douglass"] .cover');await cover.screenshot({path:fileURLToPath(new URL(`${engine}-douglass-jacket.png`,out))});
+     const title=page.locator('.book[data-edition="douglass"] .cover strong');await title.evaluate(e=>e.style.fontFamily='Courier New,monospace');
+     try{await settle(page);await cover.screenshot({path:fileURLToPath(new URL(`${engine}-douglass-wide-fallback.png`,out))});await jacketFit(page,`${engine}/${viewport.width} wide system fallback`);}
+     finally{await title.evaluate(e=>e.style.removeProperty('font-family'));}
+    }
     const typography=viewport.width===320?await collectionTypography(browser,page):null;
     assert.equal(await page.locator('.book:not([hidden])').count(),editionCount);
     const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);
@@ -80,7 +88,7 @@ try{
     // Browser reading storage is unaffected by catalogue actions.
     assert.deepEqual(await page.evaluate(async()=>({dbs:(await indexedDB.databases()).map(d=>d.name),local:localStorage.length,session:sessionStorage.length})),{dbs:[],local:0,session:0});
     await page.locator('h1').click();await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,out)),fullPage:true,animations:'disabled'});
-    const originalSize=await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));await page.evaluate(()=>document.documentElement.style.fontSize='200%');assert.ok(await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>=originalSize*1.9);await layout(page,'200% text');await jacketFit(page);
+    const originalSize=await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));await page.evaluate(()=>document.documentElement.style.fontSize='200%');assert.ok(await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>=originalSize*1.9);await layout(page,'200% text');await jacketFit(page,`${engine}/${viewport.width} enlarged`);
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,search:true,filter:true,sort:true,dialogExit:true,focusReturn:true,previewReopen:true,stableFilterWidth:true,noReadingStorage:true,...(typography?{typography}:{})});await context.close();
    }
    const plainContext=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:390,height:844}}),plain=await plainContext.newPage();await plain.goto(base+'/library/');await settle(plain);assert.equal(await plain.locator('.cover-button').count(),editionCount);assert.equal(await plain.locator('.browse-tools').isVisible(),false);await plain.locator('[data-preview="alice"]').click();await plain.locator('#edition-alice>summary').click();assert.equal(await plain.locator('#edition-alice .edition-description').isVisible(),true);await plainContext.close();
