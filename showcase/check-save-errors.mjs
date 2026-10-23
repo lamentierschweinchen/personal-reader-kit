@@ -16,7 +16,8 @@ const locations={
  austen:['austen-pride-1894','chapter-1'],alice:['alice-rackham-28885','chapter-01'],walden:['walden','chap02'],'two-halls':['hegel','section-3'],
  odyssey:['odyssey-butler-1727','book-01'],dracula:['dracula','chap01'],'at-table':['savarin','s226'],'inward-life':['julian','s13'],
  'beside-the-bed':['nightingale-1898','id00210'],'learning-to-see':['ruskin','letter-1'],'music-and-feeling':['hanslick','chapter-1'],
- nietzsche:['nietzsche','book-1'],mountains:['conway-alps-1904','chapter-01'],'war-and-peace':['war-and-peace-maude','part-01-chapter-01']
+ nietzsche:['nietzsche','book-1'],mountains:['conway-alps-1904','chapter-01'],'war-and-peace':['war-and-peace-maude','part-01-chapter-01'],
+ douglass:['douglass-1845','chapter-i'],poe:['usher-1845','story']
 };
 assert.deepEqual(Object.keys(locations).sort(),Object.values(readerPaths).sort(),'Every packaged reader has an actual-source journey');
 const selected=process.env.SAVE_ERROR_IDS?.split(',')||Object.keys(locations),engines=process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'];

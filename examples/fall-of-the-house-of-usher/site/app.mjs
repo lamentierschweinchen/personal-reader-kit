@@ -197,7 +197,17 @@ function closeDialog(saved=false) {
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
-function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
+function fail(error) {
+  const alert=dialog.open && $('#dialog-error');
+  if(!alert){say(error.message || 'This action could not be saved.');return;}
+  alert.textContent=error.message || 'Could not save on this device. Your draft is still here.';
+  const bounds=dialog.getBoundingClientRect(),message=alert.getBoundingClientRect();
+  const top=Math.max(bounds.top+dialog.clientTop,dialog.querySelector('.dialog-header')?.getBoundingClientRect().bottom||0)+8;
+  const bottom=bounds.top+dialog.clientTop+dialog.clientHeight-8;
+  // Scroll only the modal, retaining the draft, keyboard focus and reading place.
+  if(message.height>bottom-top || message.top<top)dialog.scrollTop+=message.top-top;
+  else if(message.bottom>bottom)dialog.scrollTop+=message.bottom-bottom;
+}
 function download(value,name,compact=false) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,compact?undefined:2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
@@ -477,7 +487,7 @@ document.addEventListener('input',event=>{
 });
 document.addEventListener('submit',async event=>{
   if(event.target.id==='poe-search'){event.preventDefault();searchQuery=$('#search-query').value;openSearch();return;}
-  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
+  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]'),focused=document.activeElement;if(button)button.disabled=true;
   try {
     if(form.id==='import-form') {
       const file=$('#book-file').files[0];if(!file)throw new Error('Choose a book file first.');if(file.size>LIMIT)throw new Error('This file is larger than 8 MB. Ask your agent to split it into volumes.');
@@ -505,7 +515,7 @@ document.addEventListener('submit',async event=>{
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Companion boundaries saved. Your reading place is unchanged.');
     }
-  } catch(error) {fail(error);}finally{if(button?.isConnected)button.disabled=false;}
+  } catch(error) {fail(error);}finally{if(button?.isConnected){button.disabled=false;if(dialog.open&&focused===button&&document.activeElement===document.body)button.focus({preventScroll:true});}}
 });
 document.addEventListener('change',async event=>{
   try {

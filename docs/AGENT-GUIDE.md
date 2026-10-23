@@ -152,6 +152,8 @@ Continuity and persistence checks:
 
 Classify evidence as an observed runtime defect, synthetic failure, resolved fix, proposal or optional product decision. Record the interaction exercised and what remains untested. The consolidated dispositions in [REVIEW.md](REVIEW.md#consolidated-handoff-16-october-2026) distinguish implemented kit behavior from guidance for future companions. Native touch selection, screen-reader use, proofreading and reader learning require their own evidence.
 
+When adding a reader to an existing catalogue, reconcile checks that claim to cover every edition with the admitted inventory. Add actual-source journeys before release. A bespoke reader may predate a shared fix; passing its own tests does not prove that it preserves drafts, focus or visible save errors. Keep deliberately limited matrices labelled with their actual scope.
+
 ## 4. A personal website
 
 Guide prerequisites as needed, rather than assuming GitHub, Node, a terminal or Vercel knowledge. Follow [DEPLOYMENT.md](DEPLOYMENT.md) through a verified URL. Default to the public reader shell with browser-local book imports. Ask about private hosted files only if the person needs them; it is a different architecture and audience.

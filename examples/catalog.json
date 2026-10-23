@@ -4335,8 +4335,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 74081,
-          "sha256": "54553bc7a27b71271d7c0d91a48727700a09f2af7475e0fc16efcf27c5ddc0df"
+          "bytes": 74760,
+          "sha256": "bea821f69d335101184cd493e0f0c041a6bf50163621a168fac0edbd3a7f9c95"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4351,7 +4351,7 @@
         {
           "path": "build.json",
           "bytes": 590,
-          "sha256": "dabe15277942f796e0f95c4bb8f7b8e9402a346cc5cd9ea2bd3c96a5cf0d7b51"
+          "sha256": "8b791d0a43a5d8f73f22117072f82480770d9330f7d30e81bd4f3d5762a46710"
         },
         {
           "path": "bundle.mjs",
@@ -4441,7 +4441,7 @@
         {
           "path": "sw.js",
           "bytes": 1474,
-          "sha256": "98b06a4ba4652991508ef9310cb98e58b8258597717469463062551b68ebb29f"
+          "sha256": "6e9fe06d767e3603eb6ab805d9ee2f7d3ceae7be0b62add2c21cd19bf70817a0"
         },
         {
           "path": "text.mjs",
@@ -4459,7 +4459,9 @@
           "sha256": "422a7561e728a1e96295f6384d6a33e88bc55efe82f14779508b297018f40d47"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "23 October 2026: reveal failed-save messages inside the modal and restore the focused submit button; preserve drafts, saved records and background position. Actual-source enlarged-type checks cover both browser engines."
+      ]
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"
