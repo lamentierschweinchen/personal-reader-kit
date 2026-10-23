@@ -26,6 +26,27 @@ const server=await serve(),base='http://127.0.0.1:'+server.address().port,site='
 const receipts=[],sentinel='ANALYTICS_PRIVATE_SENTINEL_20261022';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function until(check,label){for(let i=0;i<100;i++){if(await check())return;await pause(20);}throw Error('Timed out: '+label);}
+async function integrationRequested(f,timeout=30000){
+  const deadline=Date.now()+timeout;
+  do{if(f.resources.includes('/analytics.mjs'))return;await pause(20);}while(Date.now()<deadline);
+  throw Error('Timed out waiting for optional integration request');
+}
+// A reader's top-level-await library preparation can outlive window load.
+// Start the short event assertion only after optional integration/provider readiness.
+async function publicPageview(f,path,{initializationTimeout=30000,providerTimeout=6000}={}){
+  let phase='integration request';
+  try{
+    await integrationRequested(f,initializationTimeout);
+    phase='provider ready';
+    await f.page.waitForFunction(()=>window.vai===true,null,{timeout:providerTimeout});
+    phase='canonical pageview';
+    await until(()=>f.bodies.length>0,'public path '+path);
+    assert.equal(f.bodies[0].o,site+path);assertBodies(f.bodies);
+  }catch(error){
+    const diagnostics={path,phase,readyState:await f.page.evaluate(()=>document.readyState),resources:f.resources,errors:f.errors,bodyCount:f.bodies.length};
+    throw new Error('Public pageview readiness: '+JSON.stringify(diagnostics),{cause:error});
+  }
+}
 function assertBodies(bodies){
   const raw=JSON.stringify(bodies);assert.ok(!raw.includes(sentinel),'No private sentinel reaches a provider body');
   for(const body of bodies){
@@ -34,7 +55,7 @@ function assertBodies(bodies){
     assert.ok(!body.ed||Object.keys(body.ed).length<=2,'At most two fixed properties');
   }
 }
-async function fixture(browser,{hostname='newreading.app',dnt=null,gpc=false,webdriver=false,offline=false,referrer='',failed=false,failedCollection=false,delayProvider=false,delayIntegration=false,delayGameStyle=false,holdParser=false,attribution=false,flags=false,blockedStorage=false,integrityMismatch=false,missingEdition=null,continuationMode=null}={}){
+async function fixture(browser,{hostname='newreading.app',dnt=null,gpc=false,webdriver=false,offline=false,referrer='',failed=false,failedCollection=false,delayProvider=false,delayIntegration=false,delayGameStyle=false,holdParser=false,attribution=false,flags=false,blockedStorage=false,integrityMismatch=false,missingEdition=null,continuationMode=null,delayLibrary=false}={}){
   const context=await browser.newContext({serviceWorkers:'block',reducedMotion:'reduce',viewport:{width:1000,height:900},userAgent:'Mozilla/5.0 AppleWebKit/537.36 Chrome/130.0.0.0 Safari/537.36'});
   await context.addInitScript(({dnt,gpc,webdriver,referrer,offline,attribution,blockedStorage,holdParser,sentinel})=>{
     if(attribution)localStorage.setItem('__va_attribution',JSON.stringify({userId:sentinel,traits:{private:sentinel}}));
@@ -47,6 +68,7 @@ async function fixture(browser,{hostname='newreading.app',dnt=null,gpc=false,web
     if(holdParser)window.qaAnalyticsModuleLoaded=false;
   },{dnt,gpc,webdriver,referrer,offline,attribution,blockedStorage,holdParser,sentinel});
   const bodies=[],resources=[],errors=[];
+  let releaseLibrary;const libraryReady=delayLibrary?new Promise(resolve=>{releaseLibrary=resolve;}):Promise.resolve();
   let releaseContinuation;const continuationReady=continuationMode==='held'?new Promise(resolve=>{releaseContinuation=resolve;}):Promise.resolve();
   let releaseVendor;const vendorReady=delayProvider?new Promise(resolve=>{releaseVendor=resolve;}):Promise.resolve();
   let releaseIntegration,releaseGameStyle,releaseGameLoad,releaseParser;
@@ -57,6 +79,7 @@ async function fixture(browser,{hostname='newreading.app',dnt=null,gpc=false,web
   await context.route('**/*',async route=>{
     const request=route.request(),url=new URL(request.url());resources.push(url.pathname);
     if(url.hostname!==hostname){await route.abort();return;}
+    if(delayLibrary&&url.pathname==='/learning-to-see/library.json')await libraryReady;
     if(url.pathname==='/continuation.mjs'){if(continuationMode==='failed'){await route.abort('failed');return;}await continuationReady;}
     if(missingEdition&&url.pathname===`/${missingEdition}/library.json`){await route.fulfill({status:404,body:'Fixture unavailable source'});return;}
     if(url.pathname==='/analytics.mjs')await integrationReady;
@@ -93,7 +116,24 @@ async function fixture(browser,{hostname='newreading.app',dnt=null,gpc=false,web
   // WebKit refuses even intercepted navigation while network emulation is offline.
   // Startup exclusion uses onLine=false; the worker test below uses a real outage.
   const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
-  return {context,page,bodies,resources,errors,releaseContinuation,releaseVendor,releaseIntegration,releaseGameStyle,releaseGameLoad,releaseParser,url:path=>'https://'+hostname+path};
+  return {context,page,bodies,resources,errors,releaseLibrary,releaseContinuation,releaseVendor,releaseIntegration,releaseGameStyle,releaseGameLoad,releaseParser,url:path=>'https://'+hostname+path};
+}
+async function publicReadiness(browser,engine){
+  const f=await fixture(browser,{delayLibrary:true,delayIntegration:true});
+  try{
+    await f.page.goto(f.url('/learning-to-see/?private='+sentinel+'#'+sentinel));
+    await until(()=>f.resources.includes('/learning-to-see/library.json'),'held source request');
+    assert.equal(await f.page.evaluate(()=>document.readyState),'complete');
+    await assert.rejects(publicPageview(f,'/learning-to-see/',{initializationTimeout:150}),/"phase":"integration request"/);
+    assert.equal(f.resources.includes('/analytics.mjs'),false);assert.equal(f.bodies.length,0);
+    f.releaseLibrary();
+    await integrationRequested(f);
+    await assert.rejects(publicPageview(f,'/learning-to-see/',{providerTimeout:150}),/"phase":"provider ready"/);
+    assert.equal(f.resources.includes('/_vercel/insights/script.js'),false);assert.equal(f.bodies.length,0);
+    f.releaseIntegration();await publicPageview(f,'/learning-to-see/');
+    assert.equal(f.bodies.length,1);assert.deepEqual(f.errors,[]);
+    receipts.push({engine,passed:true,publicPageviewReadiness:'held source and held optional module fail their respective phases; release yields one canonical pageview'});
+  }finally{f.releaseLibrary();f.releaseIntegration();await f.context.unrouteAll({behavior:'wait'});await f.context.close();}
 }
 async function canonicalAdmission(browser,engine){
   const edition='war-and-peace',work='war-and-peace-maude',section='part-01-chapter-01',block='part-01-chapter-01-p001';
@@ -263,10 +303,12 @@ try{
       window.va('event',{name:'edition_preview',data:{page:'library',edition:'alice',secret:'BAD'}});
     });await pause(50);assert.equal(f.bodies.filter(body=>body.en).length,1,'Unknown events/properties rejected');await f.context.close();
 
+    await publicReadiness(browser,engine);
+
     // Every public root and the three game entrances has only a canonical pageview.
     for(const path of ['/learn/',...PUBLIC_EDITIONS.map(id=>`/${id}/`),'/alice/play/','/odyssey/play/','/dracula/play/']){
       f=await fixture(browser);await f.page.goto(f.url(path+'?private='+sentinel+'#'+sentinel));
-      await until(()=>f.bodies.length>0,'public path '+path);assert.equal(f.bodies[0].o,site+path);assertBodies(f.bodies);await f.context.close();
+      await publicPageview(f,path);await f.context.close();
     }
 
     // Privacy preferences and unmeasurable referrers never load the SDK.

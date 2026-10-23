@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Analytics readiness check · 23 October 2026
+
+The positive-root check now waits for the reader's optional integration and provider to become ready before starting its short pageview deadline. Document load can precede the reader's awaited source preparation. Held-source and held-module controls must fail the corresponding readiness phase; canonical payload and privacy assertions remain unchanged. The complete local analytics and provider-integrity suites pass in Chromium and WebKit. Application and deployed output bytes are unchanged.
+
 ## Dialog visibility check · 23 October 2026
 
 The hosted WebKit check confused a preferred reading margin with the usable viewport. It now verifies the source glyph against actual visible toolbar/header bounds. Exact character, source block, revision, saved place and deliberate navigation checks remain. Negative controls still reject hidden text and the original lost-position bug. Reader applications and deployed output bytes are unchanged.
