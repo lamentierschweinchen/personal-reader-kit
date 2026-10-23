@@ -21,6 +21,7 @@
     "editorial:check": "node scripts/editorial-review.mjs check",
     "test:cards": "node tests/share-card-browser.mjs",
     "test:preview-local": "node tests/local-preview-browser.mjs",
-    "check:icons": "node scripts/check-home-screen.mjs"
+    "check:icons": "node scripts/check-home-screen.mjs",
+    "export:starter": "node scripts/export-starter.mjs"
   }
 }

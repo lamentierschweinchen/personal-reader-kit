@@ -58,18 +58,20 @@ async function savePosition(override=null) {
   try {await commit(s => {s.positions[book.id] = pos;s.lastBook = book.id;return s;});}
   catch {if (!storageError) showWarning('Your reading position could not be saved. Keep this tab open; export your passages from Settings.');}
 }
-async function restorePosition(pos) {
-  restored = false;
-  $('#reading-text')?.setAttribute('data-position-ready','false');
-  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+function placePosition(pos) {
   const el = pos?.revision === activeBook?.source.sha256 && pos.sectionId === activeSection?.id && pos.blockId ? [...main.querySelectorAll('[data-block]')].find(x => x.dataset.block === pos.blockId) : null;
   if (el) {
     const range=Number.isInteger(pos.offset)?characterRange(el,pos.offset):null;
     for(let i=0;i<2;i++){const rect=range?.getBoundingClientRect()||el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY+rect.top+(range?-(pos.inset||0):pos.ratio*rect.height)-readingEdge()));}
   }
   else scrollTo(0,0);
-  restored = true;
   stablePlace={book:activeBook?.id,pos:pos?.revision===activeBook.source.sha256&&pos.sectionId===activeSection.id?pos:{sectionId:activeSection.id,blockId:null,ratio:0,revision:activeBook.source.sha256},y:scrollY};
+}
+async function restorePosition(pos) {
+  restored = false;
+  $('#reading-text')?.setAttribute('data-position-ready','false');
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  placePosition(pos);restored = true;
   $('#reading-text')?.setAttribute('data-position-ready','true');
 }
 function progressLabel(book) {
@@ -101,7 +103,7 @@ function fragment(passage,hit) {
   const index=fragments.push({passage,book,hit})-1;
   return `<blockquote class="reading-surface fragment-surface" data-fragment="${index}" lang="${esc(book.language)}"></blockquote>`;
 }
-const pairKey=pair=>JSON.stringify(pair);
+const pairKey=pair=>canonical(pair);
 function companion() {
   if(!company)return '<section class="page"><h1>Comparisons unavailable</h1><p>Reconnect and reload to open the accompanying readings.</p></section>';
   const item=route.book?company.encounters.find(e=>e.id===route.book):company.encounters.find(e=>e.featured!==false);
@@ -130,9 +132,25 @@ async function render({keepScroll=false}={}) {
   firstSourceNotice();
 }
 let disposePassageCard=()=>{};
+function dialogReadingLayout() {
+  const text=route.view==='read'&&$('#reading-text');
+  if(!text)return null;
+  const rect=text.getBoundingClientRect();return [rect.width,rect.height,readingEdge()].join(':');
+}
+function restoreDialogScroll(origin) {
+  if(location.hash!==origin.hash)return;
+  const pos=origin.position;
+  if(pos&&(route.view!=='read'||origin.bookId!==activeBook?.id||pos.revision!==activeBook?.source.sha256||pos.sectionId!==activeSection?.id))return;
+  if(pos?.blockId&&origin.layout!==dialogReadingLayout()){
+    if(![...main.querySelectorAll('#reading-text [data-block]')].some(node=>node.dataset.block===pos.blockId))return;
+    // Reuse this reader's source character and inset after reflow.
+    placePosition(pos);
+  }else scrollTo(0,origin.scroll);
+}
+const dialogPosition=()=>dialogOrigin?.hash===location.hash&&dialogOrigin.position?dialogOrigin.position:currentPosition();
 function openDialog(title,html) {
   disposePassageCard();disposePassageCard=()=>{};
-  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,hash:location.hash,bookId:activeBook?.id,position:currentPosition(),layout:dialogReadingLayout()};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
@@ -142,7 +160,7 @@ function finishDialog() {
   disposePassageCard();disposePassageCard=()=>{};
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
-  if(origin)scrollTo(0,origin.scroll);
+  if(origin)restoreDialogScroll(origin);
   editing=null;selection=null;selectionChoice=null;editingRangeChanged=false;bundleCandidate=null;
 }
 function closeDialog(saved=false) {
@@ -151,7 +169,17 @@ function closeDialog(saved=false) {
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
-function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
+function fail(error) {
+  const alert=dialog.open && $('#dialog-error');
+  if(!alert){say(error.message || 'This action could not be saved.');return;}
+  alert.textContent=error.message || 'Could not save on this device. Your draft is still here.';
+  const bounds=dialog.getBoundingClientRect(),message=alert.getBoundingClientRect();
+  const top=Math.max(bounds.top+dialog.clientTop,dialog.querySelector('.dialog-header')?.getBoundingClientRect().bottom||0)+8;
+  const bottom=bounds.top+dialog.clientTop+dialog.clientHeight-8;
+  // Scroll only the modal, retaining the draft, keyboard focus and reading place.
+  if(message.height>bottom-top || message.top<top)dialog.scrollTop+=message.top-top;
+  else if(message.bottom>bottom)dialog.scrollTop+=message.bottom-bottom;
+}
 function download(value,name,compact=false) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,compact?undefined:2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
@@ -346,7 +374,7 @@ async function act(target) {
       state=await recoverState(recoveryCandidate);stateDamaged=false;recoveryCandidate=null;closeDialog(true);await render();$('#storage-warning').textContent='Reader state repaired. The original damaged state is retained in recovery data; local books were kept.';say('Recovery saved. Reading records are writable again.');break;
     }
     case 'preset': {
-      const pos=currentPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
+      const pos=dialogPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin){dialogOrigin.scroll=scrollY;dialogOrigin.layout=dialogReadingLayout();}}break;
     }
     case 'persist': {const granted=await navigator.storage?.persist?.();say(granted?'Browser storage retention granted. Keep backups too.':'The browser did not grant retention. Keep original files and backups.');break;}
     case 'check-offline':await offline();$('#offline-detail').textContent=offlineReady?'The application, included editions and comparisons are verified in this browser’s offline cache. Local books remain in browser storage.':'The offline copy is not verified. Stay connected and try again.';break;
@@ -412,7 +440,7 @@ document.addEventListener('input',event=>{
   }
 });
 document.addEventListener('submit',async event=>{
-  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
+  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]'),focused=document.activeElement;if(button)button.disabled=true;
   try {
     if(form.id==='import-form') {
       const file=$('#book-file').files[0];if(!file)throw new Error('Choose a book file first.');if(file.size>LIMIT)throw new Error('This file is larger than 8 MB. Ask your agent to split it into volumes.');
@@ -433,13 +461,13 @@ document.addEventListener('submit',async event=>{
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
       await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
-      const pos=currentPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
+      const pos=dialogPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
       await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
     } else if(form.id==='boundaries-form') {
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Companion boundaries saved. Your reading place is unchanged.');
     }
-  } catch(error) {fail(error);}finally{if(button?.isConnected)button.disabled=false;}
+  } catch(error) {fail(error);}finally{if(button?.isConnected){button.disabled=false;if(dialog.open&&focused===button&&document.activeElement===document.body)button.focus({preventScroll:true});}}
 });
 document.addEventListener('change',async event=>{
   try {
@@ -517,8 +545,9 @@ window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.
 window.addEventListener('resize',()=>{if(route.view!=='read'||dialog.open||!restored)return;const book=activeBook?.id,section=activeSection?.id,pos=stablePlace?.book===book?stablePlace.pos:state.positions[book];clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(route.view==='read'&&!dialog.open&&activeBook?.id===book&&activeSection?.id===section)void restorePosition(pos);},80);});
 window.addEventListener('hashchange',async event=>{
   if(dirtyReflection()){history.replaceState(null,'',event.oldURL);say('Save or discard your unsaved note before leaving this comparison.');return;}
-  if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
-  if(!navigationSaved)await savePosition(stablePlace?.book===activeBook?.id&&route.view==='read'?stablePlace.pos:null);navigationSaved=false;route=parseRoute();await render();main.focus({preventScroll:true});
+  const fromDialog=dialog.open;
+  if(fromDialog&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
+  if(!fromDialog&&!navigationSaved)await savePosition(stablePlace?.book===activeBook?.id&&route.view==='read'?stablePlace.pos:null);navigationSaved=false;route=parseRoute();await render();main.focus({preventScroll:true});
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden)void savePosition();});
 window.addEventListener('pagehide',()=>{void savePosition();});

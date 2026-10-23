@@ -227,8 +227,9 @@ const privacy = `${head({title: 'Privacy · New reading', desc: 'What stays in y
 <h2>What stays here</h2>
 <p>The book and idea you type on the homepage stay in this tab’s session storage. Copying the instruction puts it on your clipboard only when you ask. Giving it or a book file to an AI app is a separate choice: that provider may process what you send.</p>
 <p>Reading records use local browser storage. They do not automatically sync, and clearing site data can remove them. Keep a private reading bundle as a backup. A shared device or browser profile is not a private vault.</p>
+<p>The library’s Continue link uses a small local record of the last public book you read. It checks that reader’s saved place in this browser. Neither the record nor the saved place is sent to analytics.</p>
 <p>The reusable reader kit and private readers do not inherit this catalogue’s analytics. The separate personal entrance at read.lookatseel.com is also excluded. Our host may keep ordinary access logs.</p>
-<p>New reading is made by <a href="https://lookatseel.com/">Lukas Seel</a>. For a privacy question, use the contact links there. Last updated 22 October 2026.</p>
+<p>New reading is made by <a href="https://lookatseel.com/">Lukas Seel</a>. For a privacy question, use the contact links there. Last updated 23 October 2026.</p>
 </div></section>
 </main>${foot}</body></html>`;
 await mkdir(dir + 'privacy', {recursive: true});

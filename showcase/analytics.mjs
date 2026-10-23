@@ -58,7 +58,13 @@ export function injectAnalytics(html,{edition,publicBooks=[]}={}){
   if(!Array.isArray(publicBooks)||publicBooks.some(id=>typeof id!=='string'||!/^[-a-zA-Z0-9_]{1,100}$/.test(id)))throw Error('Invalid public analytics book inventory');
   if(html.split('</head>').length!==2||html.includes('data-newreading-analytics'))throw Error('Analytics HTML insertion assumption changed');
   const books=edition?` data-public-books="${publicBooks.join(',')}"`:'';
-  return html.replace('</head>',`<script type="module" src="/analytics.mjs" data-newreading-analytics${books}></script></head>`);
+  return html.replace('</head>',`<meta name="newreading-analytics" data-newreading-analytics${books}></head>`);
+}
+// Append only to existing essential modules in the mounted public build.
+// WebKit font readiness can wait for even an unawaited import begun before load.
+export function appendAnalyticsLoader(source){
+  if(typeof source!=='string'||!source.trim()||source.includes('/analytics.mjs')||source.includes('newreading-analytics-loader'))throw Error('Invalid or duplicate analytics loader');
+  return source+"\n/* newreading-analytics-loader */\n{\n  const queueAnalytics=()=>window.setTimeout(()=>{void import('/analytics.mjs').catch(()=>{});},0);\n  if(document.readyState==='complete')queueAnalytics();\n  else window.addEventListener('load',queueAnalytics,{once:true});\n}\n";
 }
 
 export function startAnalytics(win=window,doc=document){
@@ -70,7 +76,7 @@ export function startAnalytics(win=window,doc=document){
   };
   const permitted=()=>eligible({url:win.location.href,referrer:doc.referrer,webdriver:nav.webdriver,dnt:[nav.doNotTrack,win.doNotTrack,nav.msDoNotTrack].some(value=>['1','yes'].includes(String(value).toLowerCase()))?'1':null,gpc:nav.globalPrivacyControl,online:nav.onLine,userAgent:nav.userAgent})&&!reservedData();
   if(!permitted()||win.va||win.vaq||win.vai)return;
-  const initial=publicPage(win.location.href),configuration=doc.querySelector('script[data-newreading-analytics]');
+  const initial=publicPage(win.location.href),configuration=doc.querySelector('meta[data-newreading-analytics]');
   if(!configuration)return;
   // Only the generated public-ID inventory is inspected, never library/record storage.
   const publicBooks=new Set((configuration.getAttribute('data-public-books')||'').split(',').filter(id=>/^[-a-zA-Z0-9_]{1,100}$/.test(id)));
@@ -133,7 +139,8 @@ export function startAnalytics(win=window,doc=document){
       if(doc.visibilityState!=='visible'||doc.querySelector('dialog[open]'))return false;
       let parts;try{parts=win.location.hash.slice(1).split('/').map(decodeURIComponent);}catch{return false;}
       if(parts.length!==3||parts[0]!=='read'||!publicBooks.has(parts[1]))return false;
-      const text=doc.querySelector('#reading-text[data-position-ready="true"]');
+      // The mounted reader proves its immutable edition; analytics reads only this boolean.
+      const text=doc.querySelector('#reading-text[data-position-ready="true"][data-public-edition="verified"]');
       if(!text||text.getAttribute('data-book')!==parts[1]||text.getAttribute('data-section')!==parts[2]||!text.querySelector('[data-block]'))return false;
       const rect=text.getBoundingClientRect();return rect.width>0&&rect.bottom>0&&rect.top<win.innerHeight;
     }
@@ -148,10 +155,16 @@ export function startAnalytics(win=window,doc=document){
       visibleSince=now;visibleTimer=win.setTimeout(reading,30000-visibleMs);
     }
     observer=new win.MutationObserver(reading);
-    observer.observe(doc.body,{childList:true,subtree:true,attributes:true,attributeFilter:['data-position-ready','data-book','data-section','open']});
+    observer.observe(doc.body,{childList:true,subtree:true,attributes:true,attributeFilter:['data-position-ready','data-public-edition','data-book','data-section','open']});
     listen(win,'hashchange',reading);listen(win,'scroll',reading,{passive:true});listen(doc,'visibilitychange',reading);
     reading();
   }
   return {stop};
 }
-if(typeof window!=='undefined'&&typeof document!=='undefined')startAnalytics();
+if(typeof window!=='undefined'&&typeof document!=='undefined'){
+  // Even a dynamically inserted provider script can postpone window load if
+  // inserted earlier. Reading and font readiness must finish independently.
+  const queueAnalytics=()=>window.setTimeout(()=>startAnalytics(),0);
+  if(document.readyState==='complete')queueAnalytics();
+  else window.addEventListener('load',queueAnalytics,{once:true});
+}

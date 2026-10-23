@@ -161,7 +161,8 @@ async function render({keepScroll=false}={}) {
     $('#reading-text').dataset.positionReady='true';
   }
   for(const node of main.querySelectorAll('[data-fragment]')){const f=fragments[Number(node.dataset.fragment)];renderPassage(node,f.passage,f.book,f.hit);}
-  if(route.view==='read'&&activeBook)editionNotice(activeBook);
+  const noticeBook=route.view==='read'?activeBook:route.view==='companion'?bookById(experience?.bookId):null;
+  if(noticeBook)editionNotice(noticeBook);
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
 let disposePassageCard=()=>{};
@@ -169,7 +170,7 @@ function pushDialogSurface(label='Back'){if(dialog.open&&!dirtyNote())dialogHist
 function openDialog(title,html) {
   dialog.classList.remove('image-dialog','study-dialog');
   disposePassageCard();disposePassageCard=()=>{};
-  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,position:positionForAction()};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header">${dialogHistory.length?`<button class="dialog-back" data-action="dialog-back">${arrow('left')} ${esc(dialogHistory.at(-1).label)}</button>`:''}<h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialogHeaderObserver.disconnect();dialogHeaderObserver.observe(dialog.querySelector('.dialog-header'));
@@ -189,7 +190,17 @@ function closeDialog(saved=false) {
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
-function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
+function fail(error) {
+  const alert=dialog.open && $('#dialog-error');
+  if(!alert){say(error.message || 'This action could not be saved.');return;}
+  alert.textContent=error.message || 'Could not save on this device. Your draft is still here.';
+  const bounds=dialog.getBoundingClientRect(),message=alert.getBoundingClientRect();
+  const top=Math.max(bounds.top+dialog.clientTop,dialog.querySelector('.dialog-header')?.getBoundingClientRect().bottom||0)+8;
+  const bottom=bounds.top+dialog.clientTop+dialog.clientHeight-8;
+  // Scroll only the modal, retaining the draft, keyboard focus and reading place.
+  if(message.height>bottom-top || message.top<top)dialog.scrollTop+=message.top-top;
+  else if(message.bottom>bottom)dialog.scrollTop+=message.bottom-bottom;
+}
 function download(value,name,compact=false) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,compact?undefined:2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
@@ -432,7 +443,7 @@ async function act(target) {
       state=await recoverState(recoveryCandidate);stateDamaged=false;recoveryCandidate=null;closeDialog(true);await render();$('#storage-warning').textContent='Reader state repaired. The original damaged state is retained in recovery data; local books were kept.';say('Recovery saved. Reading records are writable again.');break;
     }
     case 'preset': {
-      const pos=positionForAction();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
+      const pos=dialogOrigin?.position||positionForAction();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
     }
     case 'persist': {const granted=await navigator.storage?.persist?.();say(granted?'Browser storage retention granted. Keep backups too.':'The browser did not grant retention. Keep original files and backups.');break;}
     case 'check-offline':await offline();$('#offline-detail').textContent=offlineReady?'The reader, built-in edition and plates are verified in this browser’s offline cache. Local books remain in browser storage.':'The offline copy is not verified. Stay connected and try again.';break;
@@ -495,7 +506,7 @@ document.addEventListener('input',event=>{
   }
 });
 document.addEventListener('submit',async event=>{
-  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
+  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]'),focused=document.activeElement;if(button)button.disabled=true;
   try {
     if(form.id==='import-form') {
       const file=$('#book-file').files[0];if(!file)throw new Error('Choose a book file first.');if(file.size>(file.name.toLowerCase().endsWith('.json')?EDITION_FILE_LIMIT:LIMIT))throw new Error('This file exceeds the import limit: 48 MB for illustrated editions, 8 MB for text.');
@@ -517,13 +528,13 @@ document.addEventListener('submit',async event=>{
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
       await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
-      const pos=currentPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
+      const pos=dialogOrigin?.position||positionForAction(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
       await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
     } else if(form.id==='boundaries-form') {
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Companion boundaries saved. Your reading place is unchanged.');
     }
-  } catch(error) {fail(error);}finally{if(button?.isConnected)button.disabled=false;}
+  } catch(error) {fail(error);}finally{if(button?.isConnected){button.disabled=false;if(dialog.open&&focused===button&&document.activeElement===document.body)button.focus({preventScroll:true});}}
 });
 document.addEventListener('change',async event=>{
   if(event.target.id==='plate-chapter'){plateChapter=event.target.value;await render({keepScroll:true});return;}

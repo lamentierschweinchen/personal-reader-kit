@@ -14,7 +14,7 @@ New reading measures the hosted catalogue and its fourteen public readers throug
 | `kit_link` | The kit repository link was activated | A clone, download or contribution |
 | `reading_visible_30s` | A public book route had restored text visible for thirty accumulated seconds in this page visit | Attention, comprehension or a finished chapter |
 
-Custom events carry at most two fixed labels: page type, public edition slug or copy outcome. Each combination is counted once per page visit. Book and section identifiers are not sent. The read signal checks the generated public-book inventory locally; imported book routes do not produce it. Companions and game completion are not measured in this version.
+Custom events carry at most two fixed labels: page type, public edition slug or copy outcome. Each combination is counted once per page visit. Book and section identifiers are not sent. The read signal requires a public-book ID and a boolean marker from the mounted reader’s exact canonical edition check. Exact restored public editions qualify; modified same-ID editions and other imported books do not. Analytics sees only the marker, never the book, fingerprint or saved records. If the optional admission module is unavailable, page views can still be counted but the read signal is suppressed. Companions and game completion are not measured in this version.
 
 ## Data boundary
 
@@ -24,7 +24,7 @@ Vercel's script handles aggregate visitor, device, approximate location and refe
 
 Do Not Track, Global Privacy Control, automated browsers, preview hosts, unknown paths and offline starts are excluded. A failed or slow provider script stops collection. Events wait only in bounded page memory during startup; nothing is persisted or retried after failure, leaving the page or disconnection. Ad blockers and these exclusions make the counts incomplete.
 
-The analytics module is an independent optional script added only during the combined catalogue build. Reader application modules do not import it, and workers do not require it for their offline copy. Edition bytes, local database names, cache prefixes and installed addresses are unchanged. The public [privacy notice](https://newreading.app/privacy/) is linked from the catalogue and all fourteen mounted reader footers; the reusable reader's [storage guidance](PRIVACY.md) remains separate.
+The combined catalogue build adds inert analytics configuration and an optional import to the existing page modules. It schedules that import after document loading has finished and catches failure; reading, font readiness and game controls do not wait for it. Workers do not cache or require analytics. Edition bytes, local database names, cache prefixes and installed addresses are unchanged. The public [privacy notice](https://newreading.app/privacy/) is linked from the catalogue and all fourteen mounted reader footers; the reusable reader's [storage guidance](PRIVACY.md) remains separate.
 
 ## Maintenance
 

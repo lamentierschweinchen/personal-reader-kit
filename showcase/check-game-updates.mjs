@@ -2,11 +2,23 @@
 import {createServer} from 'node:http';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
+import path from 'node:path';
 import assert from 'node:assert/strict';
 import {buildShowcase} from './build.mjs';
-if(!process.argv.includes('--skip-build'))await buildShowcase();
+if(!process.env.SHOWCASE_FIXTURE_ROOT&&!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const out=new URL('../test-results/showcase/game-updates/',import.meta.url);await mkdir(out,{recursive:true});
+const fixtureRoot=process.env.SHOWCASE_FIXTURE_ROOT?pathToFileURL(path.resolve(process.env.SHOWCASE_FIXTURE_ROOT)+path.sep):new URL('./dist/',import.meta.url);
+const sharedModule='/continuation.mjs',sharedBytes=await readFile(new URL(sharedModule.slice(1),fixtureRoot));
+const out=process.env.REVIEW_OUTPUT?pathToFileURL(path.resolve(process.env.REVIEW_OUTPUT)+path.sep):new URL('../test-results/showcase/game-updates/',import.meta.url);await mkdir(out,{recursive:true});
+async function scopedCache(page,slug){
+ const cache=await page.evaluate(async()=>Promise.all((await caches.keys()).map(async name=>({name,paths:(await(await caches.open(name)).keys()).map(r=>new URL(r.url).pathname)}))));
+ assert.equal(cache.length,1,'Only this fixture reader has an offline cache');
+ assert.ok(cache[0].name.startsWith('newreading-'+slug+'-'),'The reader retains its namespaced cache');
+ assert.ok(cache[0].paths.every(file=>file.startsWith('/'+slug+'/')||file===sharedModule),'Only the reader scope and exact shared continuation module are cached');
+ assert.ok(cache[0].paths.includes(sharedModule),'The shared continuation module is available offline');
+ assert.equal(await page.evaluate(async name=>(await(await(await caches.open(name)).match('/continuation.mjs')).text()),cache[0].name),sharedBytes.toString(),'Cached continuation bytes match the built candidate');
+}
 const entries=[
  {slug:'alice',state:'#table',start:'#primary-action',resume:'#primary-action'},
  {slug:'odyssey',state:'#game',start:'#start',resume:'#again'},
@@ -22,9 +34,9 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
   const server=createServer(async(req,res)=>{
    try{
     let name=new URL(req.url,'http://localhost').pathname;
-    if(!name.startsWith('/'+e.slug+'/')||name.includes('..'))throw Error('Outside fixture');
+    if((!name.startsWith('/'+e.slug+'/')&&name!==sharedModule)||name.includes('..'))throw Error('Outside fixture');
     if(name.endsWith('/'))name+='index.html';
-    let bytes=await readFile(new URL('./dist'+name,import.meta.url));
+    let bytes=name===sharedModule?sharedBytes:await readFile(new URL(name.slice(1),fixtureRoot));
     if(name.endsWith('/sw.js')){
      workerRequests++;
      bytes=Buffer.from(bytes.toString().replace(/CACHE=PREFIX\+"[^"]+"/,'CACHE=PREFIX+"update-fixture-'+revision+'"'));
@@ -40,6 +52,8 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
   try{
    await page.goto(base+'/'+e.slug+'/play/');await page.locator(e.start).waitFor();
    await page.waitForFunction(()=>!!navigator.serviceWorker.controller,null,{timeout:60000});
+   await scopedCache(page,e.slug);
+   for(const denied of ['/unreviewed-shared.mjs','/analytics.mjs','/another-reader/index.html'])assert.equal((await context.request.get(base+denied)).status(),404,'Fixture still excludes '+denied);
    assert.equal(await page.locator('#game-update').count(),0,'First offline installation is not an update');
    // Alice stays on its first visit, which becomes controlled after installation.
    // The other two start with an existing controller, like a returning player.
@@ -72,6 +86,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
    await page.waitForFunction(()=>document.documentElement.dataset.updateFixture==='2');
    await page.locator(e.start).waitFor();
    assert.equal(await page.locator('#game-update').count(),0,'Reload consumes the update');
+   await scopedCache(page,e.slug);
    assert.deepEqual(await page.evaluate(()=>({local:{...localStorage},session:{...sessionStorage}})),storage);
    if(e.slug==='dracula'){
     await page.locator(e.start).tap();await page.locator('#pause').tap();
@@ -84,7 +99,7 @@ for(const engine of (process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','
     await page.reload();await page.waitForFunction(()=>document.documentElement.dataset.updateFixture==='3');
    }
    assert.deepEqual(errors,[]);
-   receipts.push({engine,slug:e.slug,workerRequests,ordinaryTabReturnFoundUpdate:true,pausedGameUnchanged:true,playingHidesNotice:true,oneExplicitReloadLoadsNewVersion:true,storageUnchanged:true});
+   receipts.push({engine,slug:e.slug,workerRequests,ordinaryTabReturnFoundUpdate:true,pausedGameUnchanged:true,playingHidesNotice:true,oneExplicitReloadLoadsNewVersion:true,storageUnchanged:true,exactSharedModuleCached:true,otherRootAndReaderPathsExcluded:true});
    console.log(engine+' '+e.slug+': open-tab update and explicit reload passed.');
   }catch(error){await page.screenshot({path:new URL(engine+'-'+e.slug+'-failure.png',out).pathname});throw error;}
   finally{await context.close();server.closeAllConnections();await new Promise(r=>server.close(r));}

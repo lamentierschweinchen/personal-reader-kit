@@ -4,6 +4,8 @@ A personal reader kit for people who carry books into the world—and want to sp
 
 Give your own agent this repository and one or more book files. This is a reusable reader shell plus a supervised editorial workflow: your agent prepares faithful editions, helps you choose useful exploration, and guides your personal site online. The kit includes a working example, an agent guide, and original writing you can freely share.
 
+An exported personal starter contains only the files listed in its `publication.json`. This README and the retained guidance also describe the upstream kit; references to `examples/` and `showcase/` concern the optional collection, which is not included in a starter. Its publication permissions do not apply to your books.
+
 **Giving files to an agent may send their contents to its model provider. Check that processing boundary before supplying books; it is separate from the finished reader’s local storage.**
 
 **Use only material you are entitled to use. Owning a copy does not give permission to publish it.** Public examples need edition-specific public-domain, license or permission evidence, including illustrations and translations. [Books and permissions](docs/RIGHTS.md)
@@ -31,11 +33,15 @@ git clone https://github.com/lamentierschweinchen/personal-reader-kit.git
 cd personal-reader-kit
 ```
 
-With Node.js 22 or later installed, open a terminal in the kit folder:
+With Node.js 22 or later installed, export a separate personal starter from the kit folder, whether cloned or extracted from a ZIP:
 
 ```sh
+npm run export:starter -- ../my-reader
+cd ../my-reader
 npm run dev
 ```
+
+Choose a new destination whose parent folder already exists. The export copies exactly `publication.json.starterFiles`, projects the publication inventory to those files, and retains the original sample and included asset pins. It excludes the optional examples, catalogue, private preparation and Git history. It refuses an existing destination, unsafe paths, symlink inputs or incomplete files; it creates no repository, remote or deployment. To try or maintain the full kit itself, run `npm run dev` in the kit folder instead.
 
 Open **http://127.0.0.1:4173**. No package installation is needed for the application. You can read two original miniature works, select words to keep, share or copy a passage, add a comment, change the type, enter focus mode, and try three companion sketches. In focus mode, tap the reading surface to recall controls; scrolling hides them again. Keyboard users can reveal controls with C or the Show reading controls action, and leave with Escape. Your place and notes survive a reload. Stay online until **Available offline** is confirmed; Settings → **Check offline copy** verifies the download before travel.
 
@@ -99,7 +105,7 @@ npm run check:examples # Optional collection: each reader's tests and exact buil
 npm run editorial:check -- .reader/editorial/review.json # Review coverage and file integrity
 ```
 
-The public audit expects the final file set to be staged and a complete clone. Shallow/partial history, replacement refs, grafts and inspection errors cannot pass. The receipt identifies HEAD and all locally present refs; it cannot inspect unfetched remote refs or unreachable objects. For a safely retired or renamed public file, keep its reviewed old path, SHA-256 and reason in `publication.json.reviewedHistoricalFiles`. This list does not admit the file into the current build or weaken private-path checks. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, unreviewed binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. The fourteen optional example editions have separate path/hash/provenance entries; their source-specific build gates also validate decoded images. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.
+The public audit expects the final file set to be staged and a complete Git history with an initial commit. An exported starter has no Git history yet; follow the [starter verification steps](docs/AGENT-GUIDE.md#4-a-personal-website) before its first audit. Shallow/partial history, replacement refs, grafts and inspection errors cannot pass. The receipt identifies HEAD and all locally present refs; it cannot inspect unfetched remote refs or unreachable objects. For a safely retired or renamed public file, keep its reviewed old path, SHA-256 and reason in `publication.json.reviewedHistoricalFiles`. This list does not admit the file into the current build or weaken private-path checks. It writes its receipt to ignored `.reader/publication-review.json`. It rejects unexpected paths, recognized credentials, unreviewed binary files and differences between the index and working copy; commit and annotated-tag metadata are scanned too. The fourteen optional example editions have separate path/hash/provenance entries; their source-specific build gates also validate decoded images. Human review remains required: a scanner cannot establish rights or detect every secret. The Vercel CLI upload exceptions also enumerate the exact build inputs, rather than allowing every file in an application directory.
 
 Optional browser verification:
 

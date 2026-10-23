@@ -95,3 +95,6 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-war-and-peace img{position:absolute;left:27%;top:48%;width:46%;height:34%;object-fit:contain;mix-blend-mode:multiply}
 .cover-war-and-peace .cover-meta{font-size:4cqw;letter-spacing:.17em}
 .cover-war-and-peace .cover-bottom{font-size:3cqw;letter-spacing:.05em}
+
+/* A saved public book offers a quiet route back, only in this browser. */
+.continuation{margin-top:12px;max-width:38rem}.continuation a{display:inline-flex;align-items:center;min-height:44px;padding-block:8px;font:1rem/1.4 var(--body);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}.edition-version{font:0.8125rem/1.5 var(--body);color:var(--muted);margin-top:8px}

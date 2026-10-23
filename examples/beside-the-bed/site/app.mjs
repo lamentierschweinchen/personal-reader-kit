@@ -197,9 +197,28 @@ async function render({keepScroll=false}={}) {
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
 let disposePassageCard=()=>{};
+function dialogReadingLayout() {
+  const text=route.view==='read'&&$('#reading-text');
+  if(!text)return null;
+  const rect=text.getBoundingClientRect();return [rect.width,rect.height,readingEdge()].join(':');
+}
+function restoreDialogScroll(origin) {
+  if(location.hash!==origin.hash)return;
+  const pos=origin.position;
+  if(pos&&(route.view!=='read'||origin.bookId!==activeBook?.id||pos.revision!==activeBook?.source.sha256||pos.sectionId!==activeSection?.id))return;
+  if(pos?.blockId&&origin.layout!==dialogReadingLayout()){
+    const el=[...main.querySelectorAll('#reading-text [data-block]')].find(node=>node.dataset.block===pos.blockId);
+    if(!el)return;
+    // Reflow changes pixels; keep the existing source block and ratio instead.
+    for(let pass=0;pass<2;pass++){
+      const rect=el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY+rect.top+pos.ratio*rect.height-readingEdge()));
+    }
+  }else scrollTo(0,origin.scroll);
+}
+const dialogPosition=()=>dialogOrigin?.hash===location.hash&&dialogOrigin.position?dialogOrigin.position:currentPosition();
 function openDialog(title,html) {
   disposePassageCard();disposePassageCard=()=>{};
-  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,hash:location.hash,bookId:activeBook?.id,position:currentPosition(),layout:dialogReadingLayout()};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
@@ -209,7 +228,7 @@ function finishDialog() {
   disposePassageCard();disposePassageCard=()=>{};
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
-  if(origin)scrollTo(0,origin.scroll);
+  if(origin)restoreDialogScroll(origin);
   editing=null;selection=null;selectionChoice=null;editingRangeChanged=false;bundleCandidate=null;
 }
 function closeDialog(saved=false) {
@@ -218,7 +237,17 @@ function closeDialog(saved=false) {
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
-function fail(error) {if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
+function fail(error) {
+  const alert=dialog.open && $('#dialog-error');
+  if(!alert){say(error.message || 'This action could not be saved.');return;}
+  alert.textContent=error.message || 'Could not save on this device. Your draft is still here.';
+  const bounds=dialog.getBoundingClientRect(),message=alert.getBoundingClientRect();
+  const top=Math.max(bounds.top+dialog.clientTop,dialog.querySelector('.dialog-header')?.getBoundingClientRect().bottom||0)+8;
+  const bottom=bounds.top+dialog.clientTop+dialog.clientHeight-8;
+  // Scroll only the modal, retaining the draft, keyboard focus and reading place.
+  if(message.height>bottom-top || message.top<top)dialog.scrollTop+=message.top-top;
+  else if(message.bottom>bottom)dialog.scrollTop+=message.bottom-bottom;
+}
 function download(value,name,compact=false) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,compact?undefined:2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
@@ -306,6 +335,14 @@ function boundaries() {
 // Display copy is separate from immutable sample editions so old full-book
 // bundles remain byte-compatible. Personal/imported contexts are not rewritten.
 const sampleContextCopy={
+  "nightingale-1898":{revision:"301054cb2f5038f876d1a495969c18f563ee10db46d3d15924aac5b76391c21a",edition:"015e79a0bdb42ae09a47cdbaf40c7af92ff38dc1ac80f12d0752a944ecb35e40",texts:[
+    null,
+    "Produced by Carol David and PG Distributed Proofreaders. Project Gutenberg identifies this digital edition as public domain in the USA. Other territories require separate assessment. Source and full Gutenberg terms are available from the linked record."
+  ]},
+  "whitman-specimen":{revision:"4b6e31c67bfd49a1372c7f5ccadc0547fee822bef1cc3117cb5c43a8b0670725",edition:"d41ed1fa2805098834a086d41739df797a2d8e95f1862d1ec493489bfbb621b3",texts:[
+    null,
+    "Text produced by Jonathan Ingram, Marc D’Hooghe and the Project Gutenberg Online Distributed Proofreading Team. HTML produced by David Widger. Project Gutenberg identifies this digital edition as public domain in the USA. Other territories require separate assessment. Source and full Gutenberg terms are available from the linked record."
+  ]},
   bell:{revision:'29cd14b715090846f13c849cccae225fb1e4c0a416ce6b0a2572c4323d9c5dfd',edition:'aa76278f65b35cddd62fcb23ba77f538285a78fe48e097e40c7f6feba7179cba',texts:[
     'An original travel miniature in four movements. Its town and route are fictional.',
     'Created with an AI assistant for this kit. The sample writing is free to reuse under the MIT license.',
@@ -353,7 +390,7 @@ async function act(target) {
     case 'collection-about':collectionAbout();break;
     case 'source-note':sourceNote(target.dataset.book,target.dataset.section,target.dataset.number);break;
     case 'study-open':if(currentStudy()){studyLens='plain';studyToolsOpen=false;openedStudies.add(currentStudy().id);await render({keepScroll:true});}break;
-    case 'study-lens':studyToolsOpen=true;studyLens=target.dataset.lens;await render({keepScroll:true});break;
+    case 'study-lens':{const focused=target===document.activeElement;studyToolsOpen=true;studyLens=target.dataset.lens;await render({keepScroll:true});if(focused)main.querySelector(`[data-lens="${CSS.escape(studyLens)}"]`)?.focus({preventScroll:true});break;}
     case 'study-context':await studyContext();break;
     case 'study-related':await studyContext(true);break;
     case 'essay-context': {const part=sourcesData?.parts[Number(target.dataset.part)];if(part)await openSourceRange(target.dataset.related?part.related:part.source);break;}
@@ -417,7 +454,7 @@ async function act(target) {
       state=await recoverState(recoveryCandidate);stateDamaged=false;recoveryCandidate=null;closeDialog(true);await render();$('#storage-warning').textContent='Reader state repaired. The original damaged state is retained in recovery data; local books were kept.';say('Recovery saved. Reading records are writable again.');break;
     }
     case 'preset': {
-      const pos=currentPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
+      const pos=dialogPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin){dialogOrigin.scroll=scrollY;dialogOrigin.layout=dialogReadingLayout();}}break;
     }
     case 'persist': {const granted=await navigator.storage?.persist?.();say(granted?'Browser storage retention granted. Keep backups too.':'The browser did not grant retention. Keep original files and backups.');break;}
     case 'check-offline':await offline();$('#offline-detail').textContent=offlineReady?'The application and original samples are verified in this browser’s offline cache. Local books remain in browser storage.':'The offline copy is not verified. Stay connected and try again.';break;
@@ -473,7 +510,7 @@ document.addEventListener('click',event=>{
   const mark=event.target.closest('mark[data-note]');
   if(mark && getSelection()?.isCollapsed){const note=state.notes.find(n=>n.id===mark.dataset.note);if(note)noteDialog(note);}
 });
-document.addEventListener('change',event=>{if(event.target.matches('[data-study-stage]'))location.hash=`#companion/${event.target.dataset.studyStage}/${event.target.value}`;if(event.target.id==='study-lines'){studyLines=event.target.value;studyToolsOpen=true;void render({keepScroll:true});}});
+document.addEventListener('change',event=>{if(event.target.matches('[data-study-stage]'))location.hash=`#companion/${event.target.dataset.studyStage}/${event.target.value}`;if(event.target.id==='study-lines'){const focused=event.target===document.activeElement;studyLines=event.target.value;studyToolsOpen=true;void render({keepScroll:true}).then(()=>{if(focused)$('#study-lines')?.focus({preventScroll:true});});}});
 document.addEventListener('input',event=>{
   if(event.target.id==='size')$('#size-value').textContent=event.target.value;
   if(event.target.id==='reflection') {
@@ -482,7 +519,7 @@ document.addEventListener('input',event=>{
   }
 });
 document.addEventListener('submit',async event=>{
-  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
+  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]'),focused=document.activeElement;if(button)button.disabled=true;
   try {
     if(form.id==='import-form') {
       const file=$('#book-file').files[0];if(!file)throw new Error('Choose a book file first.');if(file.size>LIMIT)throw new Error('This file is larger than 8 MB. Ask your agent to split it into volumes.');
@@ -504,13 +541,13 @@ document.addEventListener('submit',async event=>{
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
       await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
-      const pos=currentPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value,sourceLines:$('#source-lines').value};
+      const pos=dialogPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value,sourceLines:$('#source-lines').value};
       await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
     } else if(form.id==='boundaries-form') {
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Companion boundaries saved. Your reading place is unchanged.');
     }
-  } catch(error) {fail(error);}finally{if(button?.isConnected)button.disabled=false;}
+  } catch(error) {fail(error);}finally{if(button?.isConnected){button.disabled=false;if(dialog.open&&focused===button&&document.activeElement===document.body)button.focus({preventScroll:true});}}
 });
 document.addEventListener('change',async event=>{
   try {
@@ -582,8 +619,9 @@ selectionButton.addEventListener('click',event=>{
 document.addEventListener('keydown',event=>{if(!inFocus())return;if(event.key==='Escape'){event.preventDefault();act($('#focus-exit')).catch(fail);}else if(event.key.toLowerCase()==='c'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!focusActionTarget(event.target)){event.preventDefault();showFocusControls(true);}});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
 window.addEventListener('hashchange',async event=>{
-  if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
-  await savePosition();const previous=route;route=parseRoute();if(route.view==='companion'&&(previous.view!=='companion'||previous.book!==route.book)){studyLens='plain';studyToolsOpen=false;}await render();main.focus({preventScroll:true});
+  const fromDialog=dialog.open;
+  if(fromDialog&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
+  if(!fromDialog)await savePosition();const previous=route;route=parseRoute();if(route.view==='companion'&&(previous.view!=='companion'||previous.book!==route.book)){studyLens='plain';studyToolsOpen=false;}await render();main.focus({preventScroll:true});
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden)void savePosition();});
 window.addEventListener('pagehide',()=>{void savePosition();});

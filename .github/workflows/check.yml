@@ -18,6 +18,8 @@ jobs:
       - run: npm test
       - run: node --test showcase/analytics.test.mjs
         if: hashFiles('showcase/analytics.test.mjs') != ''
+      - run: node --test showcase/continuation.test.mjs
+        if: hashFiles('showcase/continuation.test.mjs') != ''
       - run: npm run build
       - run: npm run audit:public
   browser:
@@ -51,6 +53,12 @@ jobs:
         if: hashFiles('showcase/check-shelf.mjs') != ''
       - run: node showcase/check-library.mjs --skip-build
         if: hashFiles('showcase/check-library.mjs') != ''
+      - run: node showcase/check-continuation.mjs --skip-build
+        if: hashFiles('showcase/check-continuation.mjs') != ''
+      - run: node showcase/check-save-errors.mjs --skip-build
+        if: hashFiles('showcase/check-save-errors.mjs') != ''
+      - run: node showcase/check-dialog-returns.mjs --skip-build
+        if: hashFiles('showcase/check-dialog-returns.mjs') != ''
       - run: node showcase/check-handoff.mjs --skip-build
         if: hashFiles('showcase/check-handoff.mjs') != ''
       - name: Verify bounded analytics with the reviewed provider script
@@ -66,6 +74,9 @@ jobs:
         if: hashFiles('showcase/check-readers.mjs') != ''
       - run: node showcase/check-new-editions.mjs --skip-build
         if: hashFiles('showcase/check-new-editions.mjs') != ''
+      - name: Verify comparison bundle restoration
+        run: node examples/nietzsche-in-company/tests/browser.mjs
+        if: hashFiles('examples/nietzsche-in-company/tests/browser.mjs') != ''
       - run: node showcase/check-collection-recovery.mjs
         if: hashFiles('showcase/check-collection-recovery.mjs') != ''
       - run: node showcase/check-games.mjs --skip-build

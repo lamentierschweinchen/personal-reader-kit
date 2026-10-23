@@ -94,7 +94,7 @@ try{
      await page.evaluate(()=>{getSelection().removeAllRanges();scrollTo(0,650);});await page.waitForTimeout(650);
      const before=await state(page,e.slug),y=await page.evaluate(()=>scrollY);
      await launchFromReading(page);await page.locator(e.start).waitFor();
-     const back=page.locator('a[href="../'+route+'"]:visible');assert.ok(await back.count());
+     const back=page.locator('a[href="../'+route+'"]:visible');await back.first().waitFor({state:'visible',timeout:10000});assert.ok(await back.count());
      await begin(page,e);await page.locator('#pause').tap();
      await back.last().tap();await ready(page);
      const after=await state(page,e.slug);assert.deepEqual(after.notes,before.notes);assert.deepEqual(after.boundaries,before.boundaries);assert.deepEqual(after.positions,before.positions);

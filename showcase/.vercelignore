@@ -975,3 +975,7 @@
 !showcase/analytics.mjs
 !showcase/privacy/
 !showcase/privacy/index.html
+
+# Public continuation module, root and monorepo upload layouts.
+!continuation.mjs
+!showcase/continuation.mjs

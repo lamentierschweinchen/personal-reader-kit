@@ -10,8 +10,8 @@
       "kind": "Novel",
       "language": "English",
       "edition": "Hugh Thomson illustrated edition, 1894. Preface by George Saintsbury. Project Gutenberg 1342.",
-      "feature": "Follow a word through the novel.",
-      "description": "Choose a word and see where it returns across the chapters, then visit each occurrence in the book.",
+      "feature": "Hugh Thomson’s 1894 illustrations.",
+      "description": "Read the complete novel with Thomson’s drawings. An optional index finds words and phrases in the chapters you choose.",
       "categories": [
         "words"
       ],
@@ -25,7 +25,8 @@
       "rightsPath": "examples/pride-and-prejudice/docs/SOURCE-RIGHTS.md",
       "sourceLabels": [
         "Source edition"
-      ]
+      ],
+      "editionLabel": ""
     },
     {
       "id": "alice",
@@ -52,7 +53,8 @@
       "rightsPath": "examples/alice-in-wonderland/docs/SOURCE-AND-RIGHTS.md",
       "sourceLabels": [
         "Source edition"
-      ]
+      ],
+      "editionLabel": ""
     },
     {
       "id": "walden",
@@ -64,7 +66,7 @@
       "language": "English",
       "edition": "Walden and On the Duty of Civil Disobedience. Project Gutenberg 205; source updated 20 February 2026.",
       "feature": "Keep account with Thoreau.",
-      "description": "Examine the house, food and combined-outgoes accounts with their exclusions, and look at the pond survey beside Thoreau’s claims.",
+      "description": "See what the house and food accounts leave out. Inspect the pond survey beside Thoreau’s claims.",
       "categories": [
         "art",
         "ideas"
@@ -79,7 +81,8 @@
       "rightsPath": "examples/walden/docs/SOURCE-RIGHTS.md",
       "sourceLabels": [
         "Source edition"
-      ]
+      ],
+      "editionLabel": ""
     },
     {
       "id": "two-halls",
@@ -90,8 +93,8 @@
       "kind": "Philosophy",
       "language": "English",
       "edition": "Hegel’s Lectures on the History of Philosophy, complete volume 1 of 3, translated by E. S. Haldane; Schopenhauer’s The Art of Controversy and the other essays in the selected T. Bailey Saunders collection. Project Gutenberg 51635 and 10731. Saunders’s own omissions are retained and disclosed in this edition.",
-      "feature": "Two philosophers, the same hour.",
-      "description": "Read the two arguments with exact landmarks and independent reading places. The shared lecture-hour framing is an editorial companion.",
+      "feature": "Can we borrow another’s judgment?",
+      "description": "Compare their arguments about disagreement, winning and borrowed judgment. The paired readings come from later publications; the lecture halls are an editorial setting.",
       "categories": [
         "words",
         "ideas"
@@ -108,7 +111,8 @@
       "sourceLabels": [
         "Hegel source",
         "Schopenhauer source"
-      ]
+      ],
+      "editionLabel": "Hegel: E. S. Haldane · Schopenhauer: T. Bailey Saunders"
     },
     {
       "id": "odyssey",
@@ -134,7 +138,8 @@
       "rightsPath": "examples/odyssey/docs/SOURCE-RIGHTS.md",
       "sourceLabels": [
         "Source edition"
-      ]
+      ],
+      "editionLabel": "Samuel Butler’s prose translation"
     },
     {
       "id": "dracula",
@@ -146,7 +151,7 @@
       "language": "English",
       "edition": "Complete English novel with source front and back matter, cover and publisher colophon. Project Gutenberg 345.",
       "feature": "Journals, letters. A locked castle.",
-      "description": "Read the novel’s journals and letters, visit the optional Whitby Papers, or try to escape the castle in its accompanying game.",
+      "description": "Compare the Demeter’s log with accounts of its arrival in the Whitby Papers, or try to escape five castle rooms in the game.",
       "categories": [
         "game"
       ],
@@ -160,7 +165,8 @@
       "rightsPath": "examples/dracula/docs/SOURCE-RIGHTS.md",
       "sourceLabels": [
         "Source edition"
-      ]
+      ],
+      "editionLabel": ""
     },
     {
       "language": "English",
@@ -191,7 +197,8 @@
         "Isabella Beeton",
         "Rufus Estes"
       ],
-      "rightsPath": "examples/at-table/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/at-table/docs/SOURCE-RIGHTS.md",
+      "editionLabel": "Brillat-Savarin in Fayette Robinson’s translation"
     },
     {
       "language": "English",
@@ -206,8 +213,8 @@
       "shortAuthor": "Julian / Tagore / James",
       "kind": "Spiritual life & philosophy",
       "edition": "Revelations of Divine Love, Grace Warrack’s 1901 version; Sādhanā, the English witness dated 1916 with its credited collaborators; The Varieties of Religious Experience, twenty-eighth impression, 1917.",
-      "feature": "Three ways in",
-      "description": "Follow questions of experience, love and action through three complete works. A quieter study looks at Warrack’s editing, Tagore’s English collaborators and James’s selected mystical tradition.",
+      "feature": "What makes an experience feel true?",
+      "description": "Put James’s account of mystical states beside Julian’s years of interpretation and Tagore’s daily worship. A second study follows the editing and translation of these English texts.",
       "categories": [
         "words",
         "ideas"
@@ -222,7 +229,8 @@
         "Tagore and collaborators",
         "William James"
       ],
-      "rightsPath": "examples/inward-life/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/inward-life/docs/SOURCE-RIGHTS.md",
+      "editionLabel": "Julian of Norwich in Grace Warrack’s version"
     },
     {
       "language": "English",
@@ -252,7 +260,8 @@
         "Hanslick / Gustav Cohen · dated scan",
         "Tolstoy / Aylmer Maude"
       ],
-      "rightsPath": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/music-and-feeling/docs/SOURCE-RIGHTS.md",
+      "editionLabel": "Hanslick: Gustav Cohen · Tolstoy: Aylmer Maude"
     },
     {
       "language": "English",
@@ -281,7 +290,8 @@
         "John Ruskin",
         "Walter Crane"
       ],
-      "rightsPath": "examples/learning-to-see/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/learning-to-see/docs/SOURCE-RIGHTS.md",
+      "editionLabel": ""
     },
     {
       "language": "English",
@@ -310,7 +320,8 @@
         "Florence Nightingale",
         "Walt Whitman"
       ],
-      "rightsPath": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/beside-the-bed/docs/SOURCE-RIGHTS.md",
+      "editionLabel": ""
     },
     {
       "language": "English",
@@ -326,7 +337,7 @@
       "kind": "Mountains & travel",
       "edition": "The complete 1904 text by Martin Conway, with all seventy colour illustrations by A. D. McCormick. Project Gutenberg 39542 and the University of Toronto scan of the printed volume.",
       "feature": "Snow, rock, and seventy paintings.",
-      "description": "Read Conway’s visitor and climber beside the Jungfrau, or compare two paintings of Pallanza.",
+      "description": "Compare Conway’s visitor and climber looking at the Jungfrau, or examine McCormick’s two paintings of Pallanza.",
       "categories": [
         "art",
         "ideas"
@@ -339,7 +350,8 @@
         "Text edition",
         "Illustrated volume"
       ],
-      "rightsPath": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/mountains-and-heights/docs/SOURCE-RIGHTS.md",
+      "editionLabel": ""
     },
     {
       "language": "English",
@@ -368,7 +380,8 @@
         "Nietzsche source",
         "Epicurus source"
       ],
-      "rightsPath": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/nietzsche-in-company/docs/SOURCE-RIGHTS.md",
+      "editionLabel": "Nietzsche’s prose: Thomas Common · Epicurus: C. D. Yonge"
     },
     {
       "language": "English",
@@ -383,8 +396,8 @@
       "shortAuthor": "Leo Tolstoy",
       "kind": "Novel",
       "edition": "The complete Maude translation: fifteen books and both epilogues. Twelve plates from the illustrated album published for Sever in 1893 accompany the text.",
-      "feature": "The novel and its 1893 illustrations.",
-      "description": "Open the album as you reach each illustrated chapter, with names and historical references at hand.",
+      "feature": "An 1893 album, chapter by chapter.",
+      "description": "Open the pictures as you reach their chapters, with a guide to the opening cast and notes on names and dates.",
       "categories": [
         "art",
         "ideas"
@@ -397,7 +410,8 @@
         "Maude translation",
         "1893 illustrated album"
       ],
-      "rightsPath": "examples/war-and-peace/docs/SOURCE-RIGHTS.md"
+      "rightsPath": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
+      "editionLabel": "Louise and Aylmer Maude’s translation"
     }
   ]
 }

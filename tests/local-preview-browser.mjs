@@ -153,7 +153,10 @@ for(const engine of engines) {
     other.once('dialog',dialog=>dialog.dismiss());await remove.click();assert.deepEqual(await other.evaluate(async()=>(await(await import('/db.mjs')).loadBooks()).books),books);
     let removalPrompt='';other.once('dialog',dialog=>{removalPrompt=dialog.message();return dialog.accept();});await remove.click();await other.locator('#edition-warning').waitFor({state:'hidden'});assert.ok(removalPrompt.includes('different supplied edition'));assert.deepEqual((await state(other)).notes,transfer.bundle.state.notes);
     await other.getByRole('button',{name:books[0].title,exact:true}).click();await other.locator('#reading-text[data-position-ready="true"]').waitFor();assert.equal(await other.locator('#reading-text').textContent(),supplied[0].sections[0].blocks.map(block=>block.text+block.after).join(''));
-    await other.goto(preview.origin+'/#passages');assert.equal(await other.getByRole('button',{name:'Read in context',exact:true}).count(),0);assert.equal(await other.locator('.passage blockquote').count(),2);
+    await other.goto(preview.origin+'/#passages');
+    // Hash navigation saves the reading place before rendering. Count only the completed view.
+    await other.locator('[data-nav="passages"][aria-current="page"]').waitFor();
+    assert.equal(await other.getByRole('button',{name:'Read in context',exact:true}).count(),0);assert.equal(await other.locator('.passage blockquote').count(),2);
     Object.assign(report,{conflictStoredEditionPreserved:true,exactBothEditionExports:true,conflictBundleRetainsNotes:true,matchingBundleRestore:true,divergentBundleRefused:true,explicitRemovalRetainsQuotations:true});
     assert.deepEqual(errors,[]);assert.deepEqual(external,[]);assert.deepEqual(security,[]);
     await writeFile(path.join(output,`${engine}-receipt.json`),JSON.stringify(report,null,2)+'\n');await recovery.close();await context.close();console.log(`${engine}: prepared preview, same-origin update, offline notes and fresh-origin recovery passed.`);

@@ -8,6 +8,8 @@ Read the private EPUB receipt's resources, spine, feature counts and inspection 
 
 Compare the rendered source and its structure. Extracted text can miss an initial drawn inside an image, flatten shaped verse, detach a caption or omit a second work. Preserve the actual edition, including its omissions and apparatus. Identify unsupported features before calling an import complete. Do not delete them to make a validator pass.
 
+A complete download can still contain a truncated speech. Check representative passages against a print witness, then proof the full prepared text. Read the transcriber's correction record: a corrected reading text is not a facsimile. HTML may contain separate hidden branches for different export formats; extract the intended visible branch rather than doubling their text. Keep raw inputs unchanged and record every further witnessed repair.
+
 ## Give an extension an identity
 
 Schema `1` alone does not mean that customized readers understand the same book. The stock validator accepts its exact text contract, with an optional `profile: "personal-reader/text@1"`. Older untagged text editions retain their exact bytes and remain supported. Unknown profiles fail explicitly; declaring the base profile does not permit additional fields.
@@ -31,6 +33,8 @@ Media, linked source notes, table spans and per-line geometry remain unsupported
 Source order and the best entry point differ. A novel can begin at Chapter 1 while its preface, dedication and index remain available in original order. Front matter and captions may reveal later events. A single linear through-section boundary cannot express every permission: gate spoiler-heavy apparatus separately or omit it from the companion index until explicitly allowed. Chapter order and scrolling are not permission.
 
 Source notes are reference excursions. Open the requested note and a return path without replacing the main place or disclosing all notes. Two works need independent positions and permissions. Pair positions and drafts belong to the originating pair, not the current route; a trip to the shelf should not discard a reflection.
+
+Recognize a saved pair by its canonical content, not JSON property order. Export, reserialize and restore a valid bundle in a fresh browser, then recall and edit the same note without creating another record. Keep array order, exact passage anchors and collision checks intact.
 
 For a collection, record the complete boundary of every selected work, including a work extracted from a larger volume. Keep its relevant notes and source terms, and distinguish the first publication date from the actual digital witness. A pairing is the editor's invitation; it does not establish agreement, influence or a historical meeting. Let the source's qualifications remain beside the tempting short quotation.
 

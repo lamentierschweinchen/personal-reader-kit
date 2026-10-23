@@ -62,8 +62,8 @@ function resize(){
  positionCrew();
 }
 function observeBounds(){
- // WebKit may run this module before its stylesheet is applied. Wait for load
- // before observing: an unstyled canvas participates in its parent's height.
+ // Observe after game styles apply, without waiting for unrelated requests.
+ // An unstyled canvas participates in its parent's height.
  resize();
  new ResizeObserver(()=>{resize();render(0);}).observe(game);
 }
@@ -484,6 +484,7 @@ $('#sound').addEventListener('click',()=>{
   tone('crew');
 });
 resetState();resize();setMode('ready');showSaveWarning();
-if(document.readyState==='complete')observeBounds();else window.addEventListener('load',observeBounds,{once:true});
+const gameStyles=$('link[rel=stylesheet][href="./style.css"]');
+if(gameStyles.sheet)observeBounds();else gameStyles.addEventListener('load',observeBounds,{once:true});
 if(progress.day>0||progress.finished){$('#start').textContent=progress.finished?'Sail the final day again':`Continue · day ${numerals[progress.day]}`;$('#replay-opening').hidden=false;}
 requestAnimationFrame(tick);

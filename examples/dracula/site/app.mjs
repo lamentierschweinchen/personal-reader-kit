@@ -100,7 +100,7 @@ function progressLabel(book) {
 }
 function shelf() {
  const b=bookById('dracula'),cover=b?.sections[0].blocks.flatMap(b=>b.images||[])[0];
- return `<section class="dracula-shelf"><div class="shelf-book"><p class="eyebrow">Bram Stoker · the complete novel</p><h1>Dracula<span>1897</span></h1><p class="cover-author">A novel in journals, letters<br>and other papers.</p>${b?`<button class="primary" data-action="resume" data-book="dracula">${state.positions.dracula?'Continue reading':'Begin the novel'} ${arrow('right')}</button><p class="small">${esc(progressLabel(b))} · 27 chapters</p><button class="text" data-action="frontmatter">Title pages & edition</button>`:(editionDownloadFailed?'<p>The edition could not be opened. Restore a reading bundle in Reading & backups, or reconnect and reload.</p>':'<p role="status">Opening the complete edition…</p>')}<div class="cover-rule"></div><p class="small">Select words to keep a passage.<br>Your place and notes stay in this browser.</p></div><div class="shelf-investigation"><p class="eyebrow">A little game</p><div class="file-emblem" aria-hidden="true"><svg viewBox="0 0 200 90"><path d="M30 86V20h35v66m70 0V20h35v66M65 86V42h70v44M40 20V5h15v15M145 20V5h15v15M87 86V60h26v26M20 86h160"/></svg></div><h2>Castle<br><em>escape.</em></h2><p>Find the keys, time your crossings, and escape through three castle rooms.</p><a class="case-entry" href="./play/" data-action="play-game">Play castle escape ${arrow('right')}</a><p class="small">A short, imagined escape from Harker’s predicament.</p></div><div class="shelf-source"><a class="text" href="#companion">The Whitby Papers · Chapter VII</a><button class="text" data-action="edition-about">Source & edition</button><button class="text" data-action="settings">Reading & backups</button>${cover?`<details><summary>View the source cover</summary><img src="${cover.src}" width="${cover.width}" height="${cover.height}" alt="${esc(cover.alt)}"></details>`:''}</div>${books.filter(x=>x.id!=='dracula').map(x=>`<article class="extra-book"><button data-action="resume" data-book="${esc(x.id)}">${esc(x.title)}</button></article>`).join('')}</section>`;
+ return `<section class="dracula-shelf"><div class="shelf-book"><p class="eyebrow">Bram Stoker · the complete novel</p><h1>Dracula<span>1897</span></h1><p class="cover-author">A novel in journals, letters<br>and other papers.</p>${b?`<button class="primary" data-action="resume" data-book="dracula">${state.positions.dracula?'Continue reading':'Begin the novel'} ${arrow('right')}</button><p class="small">${esc(progressLabel(b))} · 27 chapters</p><button class="text" data-action="frontmatter">Title pages & edition</button>`:(editionDownloadFailed?'<p>The edition could not be opened. Restore a reading bundle in Reading & backups, or reconnect and reload.</p>':'<p role="status">Opening the complete edition…</p>')}<div class="cover-rule"></div><p class="small">Select words to keep a passage.<br>Your place and notes stay in this browser.</p></div><div class="shelf-investigation"><p class="eyebrow">A little game</p><div class="file-emblem" aria-hidden="true"><svg viewBox="0 0 200 90"><path d="M30 86V20h35v66m70 0V20h35v66M65 86V42h70v44M40 20V5h15v15M145 20V5h15v15M87 86V60h26v26M20 86h160"/></svg></div><h2>Castle<br><em>escape.</em></h2><p>Find the keys, time your crossings, and escape through five castle rooms.</p><a class="case-entry" href="./play/" data-action="play-game">Play castle escape ${arrow('right')}</a><p class="small">A short, imagined escape from Harker’s predicament.</p></div><div class="shelf-source"><a class="text" href="#companion">The Whitby Papers · Chapter VII</a><button class="text" data-action="edition-about">Source & edition</button><button class="text" data-action="settings">Reading & backups</button>${cover?`<details><summary>View the source cover</summary><img src="${cover.src}" width="${cover.width}" height="${cover.height}" alt="${esc(cover.alt)}"></details>`:''}</div>${books.filter(x=>x.id!=='dracula').map(x=>`<article class="extra-book"><button data-action="resume" data-book="${esc(x.id)}">${esc(x.title)}</button></article>`).join('')}</section>`;
 }
 function reader() {
   activeBook = bookById(route.book);
@@ -212,9 +212,28 @@ async function render({keepScroll=false}={}) {
   if (keepScroll) scrollTo(0,y);else if(route.view!=='read') scrollTo(0,0);
 }
 let disposePassageCard=()=>{};
+function dialogReadingLayout() {
+  const text=route.view==='read'&&$('#reading-text');
+  if(!text)return null;
+  const rect=text.getBoundingClientRect();return [rect.width,rect.height,readingEdge()].join(':');
+}
+function restoreDialogScroll(origin) {
+  if(location.hash!==origin.hash)return;
+  const pos=origin.position;
+  if(pos&&(route.view!=='read'||origin.bookId!==activeBook?.id||pos.revision!==activeBook?.source.sha256||pos.sectionId!==activeSection?.id))return;
+  if(pos?.blockId&&origin.layout!==dialogReadingLayout()){
+    const el=[...main.querySelectorAll('#reading-text [data-block]')].find(node=>node.dataset.block===pos.blockId);
+    if(!el)return;
+    // Reflow changes pixels; keep the existing source block and ratio instead.
+    for(let pass=0;pass<2;pass++){
+      const rect=el.getBoundingClientRect();scrollTo(0,Math.max(0,scrollY+rect.top+pos.ratio*rect.height-readingEdge()));
+    }
+  }else scrollTo(0,origin.scroll);
+}
+const dialogPosition=()=>dialogOrigin?.hash===location.hash&&dialogOrigin.position?dialogOrigin.position:currentPosition();
 function openDialog(title,html) {
   disposePassageCard();disposePassageCard=()=>{};
-  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY};}
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,hash:location.hash,bookId:activeBook?.id,position:currentPosition(),layout:dialogReadingLayout()};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   fitReaderSelects(dialog);
   if (!dialog.open) dialog.showModal();
@@ -225,7 +244,7 @@ function finishDialog() {
   disposePassageCard();disposePassageCard=()=>{};
   const origin=dialogOrigin;dialogOrigin=null;
   if(origin?.element?.isConnected)origin.element.focus({preventScroll:true});
-  if(origin)scrollTo(0,origin.scroll);
+  if(origin)restoreDialogScroll(origin);
   editing=null;selection=null;selectionChoice=null;editingRangeChanged=false;bundleCandidate=null;
 }
 function closeDialog(saved=false) {
@@ -235,7 +254,18 @@ function closeDialog(saved=false) {
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
-function fail(error) {if(route.view==='companion'&&$('#case-save-status')&&!dialog.open){$('#case-save-status').textContent=error.message||'The change could not be saved.';return;}if(dialog.open && $('#dialog-error')) $('#dialog-error').textContent=error.message || 'Could not save on this device. Your draft is still here.';else say(error.message || 'This action could not be saved.');}
+function fail(error) {
+  if(route.view==='companion'&&$('#case-save-status')&&!dialog.open){$('#case-save-status').textContent=error.message||'The change could not be saved.';return;}
+  const alert=dialog.open && $('#dialog-error');
+  if(!alert){say(error.message || 'This action could not be saved.');return;}
+  alert.textContent=error.message || 'Could not save on this device. Your draft is still here.';
+  const bounds=dialog.getBoundingClientRect(),message=alert.getBoundingClientRect();
+  const top=Math.max(bounds.top+dialog.clientTop,dialog.querySelector('.dialog-header')?.getBoundingClientRect().bottom||0)+8;
+  const bottom=bounds.top+dialog.clientTop+dialog.clientHeight-8;
+  // Scroll only the modal, retaining the draft, keyboard focus and reading place.
+  if(message.height>bottom-top || message.top<top)dialog.scrollTop+=message.top-top;
+  else if(message.bottom>bottom)dialog.scrollTop+=message.bottom-bottom;
+}
 function download(value,name,compact=false) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,compact?undefined:2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),20000);}
 function settings() {
   const p=state.prefs;
@@ -411,7 +441,7 @@ async function act(target) {
       state=await recoverState(recoveryCandidate);stateDamaged=false;recoveryCandidate=null;closeDialog(true);await render();$('#storage-warning').textContent='Reader state repaired. The original damaged state is retained in recovery data; local books were kept.';say('Recovery saved. Reading records are writable again.');break;
     }
     case 'preset': {
-      const pos=currentPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin)dialogOrigin.scroll=scrollY;}break;
+      const pos=dialogPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin){dialogOrigin.scroll=scrollY;dialogOrigin.layout=dialogReadingLayout();}}break;
     }
     case 'persist': {const granted=await navigator.storage?.persist?.();say(granted?'Browser storage retention granted. Keep backups too.':'The browser did not grant retention. Keep original files and backups.');break;}
     case 'check-offline':await offline();$('#offline-detail').textContent=offlineReady?'The application, Dracula, source images and investigation are verified in this browser’s offline cache. Local books remain in browser storage.':'The offline copy is not verified. Stay connected and try again.';break;
@@ -474,7 +504,7 @@ document.addEventListener('input',event=>{
   }
 });
 document.addEventListener('submit',async event=>{
-  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]');if(button)button.disabled=true;
+  event.preventDefault();const form=event.target, button=form.querySelector('[type=submit]'),focused=document.activeElement;if(button)button.disabled=true;
   try {
     if(form.id==='case-form'){await testCase();
     } else if(form.id==='chapter-search'){const term=$('#chapter-term').value;const b={...activeBook,sections:[activeSection]},st={...state,boundaries:{...state.boundaries,[b.id]:{index:0,revision:b.source.sha256}}};const {hits}=findOccurrences([b],st,term);$('#chapter-results').innerHTML=hits.map(h=>{const block=activeSection.blocks.find(b=>b.id===h.passage.segments[0].blockId),p=passageAt(activeBook,activeSection,block,h.offset,h.offset+term.length),i=contextPassages.push(p)-1;return `<p><button class="text" data-action="search-hit" data-index="${i}">${esc(h.passage.quote)}</button></p>`;}).join('')||'<p>No matches in this chapter.</p>';
@@ -498,13 +528,13 @@ document.addEventListener('submit',async event=>{
       if(!snapshot.id&&!anchorStatus(note,bookById(note.bookId)).valid)throw new Error('The source has changed. Export this draft before continuing.');
       await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
-      const pos=currentPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
+      const pos=dialogPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
       await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
     } else if(form.id==='boundaries-form') {
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Chapter limits saved. Your reading place is unchanged.');
     }
-  } catch(error) {fail(error);}finally{if(button?.isConnected)button.disabled=false;}
+  } catch(error) {fail(error);}finally{if(button?.isConnected){button.disabled=false;if(dialog.open&&focused===button&&document.activeElement===document.body)button.focus({preventScroll:true});}}
 });
 document.addEventListener('change',async event=>{
   try {
@@ -576,8 +606,9 @@ selectionButton.addEventListener('click',event=>{
 document.addEventListener('keydown',event=>{if(!inFocus())return;if(event.key==='Escape'){event.preventDefault();act($('#focus-exit')).catch(fail);}else if(event.key.toLowerCase()==='c'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!focusActionTarget(event.target)){event.preventDefault();showFocusControls(true);}});
 window.addEventListener('scroll',()=>{if(!restored||route.view!=='read'||dialog.open)return;clearTimeout(pendingScroll);pendingScroll=setTimeout(savePosition,250);},{passive:true});
 window.addEventListener('hashchange',async event=>{
-  if(dialog.open&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
-  await savePosition();route=parseRoute();await render();main.focus({preventScroll:true});
+  const fromDialog=dialog.open;
+  if(fromDialog&&!closeDialog()){history.replaceState(null,'',event.oldURL);requestedPosition=undefined;return;}
+  if(!fromDialog)await savePosition();route=parseRoute();await render();main.focus({preventScroll:true});
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden)void savePosition();});
 window.addEventListener('pagehide',()=>{void savePosition();});

@@ -29,3 +29,6 @@ noscript p{padding-inline:6vw}noscript a{display:inline-flex;align-items:center;
 :root{font-optical-sizing:auto}.masthead .wordmark,.type-button{font-family:var(--sans)}
 /* Native WebKit selects need an explicit text line plus existing padding/borders. */
 .dialog-inner select{min-height:44px;height:calc(1.55em + 26px)}
+/* Permit authored companion prose to wrap at enlarged text sizes. */
+.route-caption,.source-commentary{overflow-wrap:anywhere}
+@media(max-width:760px){.route-reading{grid-template-columns:minmax(0,1fr)}}

@@ -4,7 +4,8 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import {injectAnalytics} from './analytics.mjs';
+import {injectAnalytics,appendAnalyticsLoader} from './analytics.mjs';
+import {createContinuationProfile,injectContinuation,adaptContinuationApp} from './continuation.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -18,7 +19,7 @@ export async function buildReaders(output){
   const catalog=JSON.parse(await readFile(path.join(root,'examples/catalog.json'),'utf8'));
   assert.equal(catalog.schema,1);
   assert.deepEqual(catalog.examples.map(e=>e.id).sort(),Object.keys(readerPaths).sort(),'Only the explicitly reviewed examples may be mounted');
-  const receipt=[];
+  const receipt=[],continuationProfiles=[];
   for(const entry of catalog.examples){
     assert.equal(entry.directory,'examples/'+entry.id);
     const slug=readerPaths[entry.id],base='/'+slug+'/',source=path.join(root,entry.directory),destination=path.join(output,slug);
@@ -32,7 +33,11 @@ export async function buildReaders(output){
     const libraryAsset=entry.reviewedBuild.find(asset=>asset.path==='library.json');
     const libraryBytes=await readFile(path.join(source,'dist/library.json'));
     assert.equal(sha(libraryBytes),libraryAsset.sha256);
-    const publicBooks=JSON.parse(libraryBytes).map(book=>book.id);
+    const {validateBook}=await import(pathToFileURL(path.join(source,'site/core.mjs')));
+    const books=JSON.parse(libraryBytes).map(book=>validateBook(book));
+    const publicBooks=books.map(book=>book.id);
+    const profile=await createContinuationProfile({edition:slug,title:entry.title,books});
+    continuationProfiles.push(profile);
     for(const asset of entry.reviewedBuild){
       assert.match(asset.path,/^(?:play\/)?[a-zA-Z0-9_./-]+$/);
       assert.ok(!asset.path.split('/').some(p=>!p||p==='.'||p==='..'));
@@ -52,6 +57,7 @@ export async function buildReaders(output){
         bytes=Buffer.from(html);
       }
       if(['index.html','play/index.html'].includes(asset.path))bytes=Buffer.from(injectAnalytics(bytes.toString(),{edition:slug,publicBooks}));
+      if(asset.path==='index.html')bytes=Buffer.from(injectContinuation(bytes.toString(),{profiles:[profile],reader:slug}));
       if(asset.path==='app.mjs'){
         let text=replace(original.toString(),"register('/sw.js'",`register('${base}sw.js'`);
         text=replace(text,"fetch('/library.json'",`fetch('${base}library.json'`);
@@ -101,6 +107,8 @@ export async function buildReaders(output){
         for(const icon of manifest.icons)icon.src=base+icon.src.replace(/^\//,'');
         bytes=Buffer.from(JSON.stringify(manifest)+'\n');
       }
+      if(asset.path==='app.mjs')bytes=Buffer.from(adaptContinuationApp(bytes.toString(),profile));
+      if(asset.path==='app.mjs'||asset.path===(slug==='dracula'?'play/app.mjs':'play/game.mjs'))bytes=Buffer.from(appendAnalyticsLoader(bytes.toString()));
       await mkdir(path.dirname(path.join(destination,asset.path)),{recursive:true});
       await writeFile(path.join(destination,asset.path),bytes);
       (bytes.equals(original)?unchanged:changed).push(asset.path);
@@ -110,12 +118,14 @@ export async function buildReaders(output){
     const recoverableShell=slug==='beside-the-bed';
     if(recoverableShell)hash.update('optional-data-cache@3');
     for(const file of files)hash.update(file).update(await readFile(path.join(destination,file)));
+    // The optional pointer also works offline. Each reader keeps its own cached copy.
+    hash.update('/continuation.mjs').update(await readFile(path.join(output,'continuation.mjs')));
     const version=hash.digest('hex').slice(0,16),prefix='newreading-'+slug+'-';
-    const install=recoverableShell?`const SHELL=${JSON.stringify(builder.assets.map(f=>base+f))};
+    const install=recoverableShell?`const SHELL=${JSON.stringify([...builder.assets.map(f=>base+f),'/continuation.mjs'])};
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(async c=>{await c.addAll(SHELL);await Promise.all(FILES.filter(f=>!SHELL.includes(f)).map(async f=>{const r=await fetch(f,{cache:'reload'});if(r.ok)await c.put(f,r);else{await r.arrayBuffer();if(![404,410].includes(r.status))throw new Error('Offline source unavailable: '+f);}}));}).then(()=>self.skipWaiting())));`:`self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));`;
     const network=recoverableShell?"fetch(e.request).catch(error=>{if(!SHELL.includes(key))return new Response('Source data unavailable',{status:503});throw error;})":"fetch(e.request)";
     await writeFile(path.join(destination,'sw.js'),`const PREFIX=${JSON.stringify(prefix)},CACHE=PREFIX+${JSON.stringify(version)},BASE=${JSON.stringify(base)};
-const FILES=${JSON.stringify(files.map(f=>base+f))};
+const FILES=${JSON.stringify([...files.map(f=>base+f),'/continuation.mjs'])};
 ${install}
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith(PREFIX)&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||${network}));});
@@ -124,5 +134,5 @@ self.addEventListener('message',e=>{if(e.data==='CHECK_OFFLINE')e.waitUntil(cach
     assert.ok(unchanged.includes('library.json'),'The complete edition must remain unchanged');
     receipt.push({id:entry.id,path:base,outputs:files.length+1,version,changed:[...changed,'sw.js'],unchanged:unchanged.length,exactEdition:true});
   }
-  return receipt;
+  return {editions:receipt,continuationProfiles};
 }

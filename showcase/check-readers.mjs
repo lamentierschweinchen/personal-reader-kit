@@ -57,8 +57,124 @@ async function sourceDialog(page,button,books,ref,label){
  assert.equal(await context.locator(`[data-block="${ref.first}"]`).textContent(),section.blocks.find(b=>b.id===ref.first).text,label+' target exists');
  await page.locator('#dialog [data-action="close"]').first().click();await page.locator('#dialog').waitFor({state:'hidden'});
 }
+async function inwardCompanionTextResize(page){
+ const viewport=page.viewportSize(),prefs=(await stateFor(page,'inward-life')).prefs,hash=await page.evaluate(()=>location.hash),cases=[];
+ const routes=[['truth','What makes an experience feel true?'],['love','What happens to the self in love?'],['living','How should inward experience change living?'],['voices','Who is speaking?']];
+ const setSize=async size=>{await page.locator('[data-action="settings"]').first().click();await page.locator('#dialog[open] #size').fill(String(size));await page.getByRole('button',{name:'Apply to my reader',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'})};
+ try{
+  for(const width of [320,390])for(const size of [21,36]){
+   await page.setViewportSize({width,height:844});await setSize(size);
+   for(const [key,title]of routes){
+    await page.goto(base+'/inward-life/#companion/'+(key==='voices'?'voices':'doors/'+key));
+    await page.waitForFunction(title=>document.querySelector('.collection-studies>h1')?.textContent===title,title);
+    if(key==='voices'){await page.locator('[data-action="study-control"][data-value="0"]').click();await page.locator('[data-action="study-control"][data-value="0"][aria-pressed="true"]').waitFor()}
+    await page.locator('.study-source .reading-surface [data-block]').first().waitFor();
+    await page.evaluate(async()=>{await document.fonts.ready;await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished))});
+    const text=await page.locator('.study-source .reading-surface').allTextContents();
+    await page.evaluate(()=>{const elements=[...document.querySelectorAll('body,body *')],sizes=elements.map(e=>parseFloat(getComputedStyle(e).fontSize));window.inwardZoomRestore=elements.map(e=>[e,e.style.fontSize]);elements.forEach((e,i)=>e.style.fontSize=sizes[i]*2+'px')});
+    try{
+     await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))});
+     const geometry=await page.evaluate(()=>({viewport:innerWidth,width:document.documentElement.scrollWidth,sourceSize:parseFloat(getComputedStyle(document.querySelector('.study-source .reading-surface .prose')).fontSize)}));
+     assert.equal(geometry.sourceSize,size*2,'Inward Life '+key+' retains doubled source type at '+width+'px');
+     assert.ok(geometry.width<=width,'Inward Life '+key+' companion reflows at 200% text: '+JSON.stringify(geometry));
+     assert.deepEqual(await page.locator('.study-source .reading-surface').allTextContents(),text,'Text enlargement preserves every source word and separator');
+     cases.push({route:key,width,size,textScale:2,sourceSize:geometry.sourceSize,documentWidth:geometry.width});
+    }finally{await page.evaluate(()=>{for(const[e,size]of window.inwardZoomRestore)e.style.fontSize=size;delete window.inwardZoomRestore})}
+   }
+  }
+ }finally{await setSize(prefs.size);await page.setViewportSize(viewport);await page.goto(base+'/inward-life/'+hash);await page.locator('.collection-studies').waitFor()}
+ return cases;
+}
+async function besideGuardedAbout(browser,books){
+ // Separate fresh contexts keep customized import fixtures out of the main
+ // reader's saved-place, note and offline-cache checks.
+ for(const customized of [false,true]){
+  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  const fixtures=structuredClone(books);
+  if(customized)for(const book of fixtures)book.context[1].text+=' Original customized import fixture.';
+  try{
+   if(customized){
+    await page.goto(base+'/beside-the-bed/robots.txt');
+    await page.evaluate(async records=>{const {saveBook}=await import('/beside-the-bed/db.mjs');for(const book of records)await saveBook(book);},fixtures);
+   }
+   for(const [i,book]of fixtures.entries()){
+    // Worker registration is blocked only for these presentation fixtures.
+    // Await the actual source response rather than its offline-ready promise.
+    const notices=i===0?page.waitForResponse(r=>new URL(r.url()).pathname==='/beside-the-bed/notices.json'):null;
+    const section=book.id==='nightingale-1898'?'id00004':'w001';
+    await page.goto(base+'/beside-the-bed/#read/'+book.id+'/'+section);await ready(page,book.id,section);
+    if(notices){await (await notices).finished();await page.waitForTimeout(100)}
+    await page.locator('[data-action="background"]').click();
+    const contexts=page.locator('#dialog[open] .context-item .companion-reading');await contexts.first().waitFor();
+    assert.equal(await contexts.nth(0).textContent(),book.context[0].text,'About retains exact edition identity/limitations');
+    const supplied=book.context[1].text,expected=customized?supplied:supplied.replace(' This local reader has not been published.','');
+    assert.equal(await contexts.nth(1).textContent(),expected,customized?'Customized imported context is not rewritten':'Known exact edition omits obsolete publication claim');
+    assert.equal(await page.locator('#dialog .context-item').nth(1).locator('a').getAttribute('href'),book.context[1].url,'Source attribution link is retained');
+    await page.keyboard.press('Escape');await page.locator('#dialog').waitFor({state:'hidden'});
+   }
+   if(customized)assert.deepEqual(await page.evaluate(async()=>(await import('/beside-the-bed/db.mjs')).rawBooks()),fixtures,'Display correction never rewrites imported books');
+   assert.deepEqual(errors,[]);
+  }finally{await context.close()}
+ }
+}
+
+async function musicGuardedAbout(browser,books){
+ for(const customized of [false,true]){
+  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  const book=structuredClone(books.find(book=>book.id==='hanslick'));
+  if(customized)book.context[2].text+=' Customized same-ID import fixture.';
+  try{
+   if(customized){
+    await page.goto(base+'/music-and-feeling/robots.txt');
+    await page.evaluate(async book=>{const {saveBook}=await import('/music-and-feeling/db.mjs');await saveBook(book);},book);
+   }
+   await page.goto(base+'/music-and-feeling/#read/hanslick/preface');await ready(page,'hanslick','preface');
+   await page.locator('[data-action="background"]').click();
+   const contexts=page.locator('#dialog[open] .context-item .companion-reading');await contexts.first().waitFor();
+   const expected=book.context.map((item,i)=>!customized&&i===2?item.text.replace('1891 Novello printing','1891-dated Cohen edition'):item.text);
+   assert.deepEqual(await contexts.allTextContents(),expected,customized?'Customized Hanslick context remains supplied':'Exact Hanslick About uses qualified date and retains other context');
+   assert.equal(await page.locator('#dialog .small').first().textContent(),book.edition,'Hanslick edition identity retained');
+   for(const [i,item]of book.context.entries())if(item.url)assert.equal(await page.locator('#dialog .context-item').nth(i).locator('a').getAttribute('href'),item.url,'Hanslick source URL retained');
+   if(customized)assert.deepEqual(await page.evaluate(async()=>(await import('/music-and-feeling/db.mjs')).rawBooks()),[book],'Display correction never rewrites customized Hanslick');
+   assert.deepEqual(errors,[]);
+  }finally{await context.close()}
+ }
+}
+
+async function learningResetFocus(page){
+ const results=[];
+ for(const key of ['Enter','Space']){
+  await page.locator('#exit-height').fill('160');
+  await page.locator('#exit-height').dispatchEvent('input');
+  await page.locator('#pattern-reset').focus();
+  const before=await page.evaluate(()=>scrollY);
+  await page.keyboard.press(key);
+  await page.waitForFunction(()=>document.querySelector('#exit-height')?.value==='188'&&document.activeElement?.id==='pattern-reset');
+  assert.equal(await page.locator('#stem-bend').inputValue(),'86','Reset restores the original bend');
+  assert.equal(await page.locator('#join-view').getAttribute('aria-pressed'),'false','Reset restores original join placement');
+  assert.equal(await page.locator('#grid-view').getAttribute('aria-pressed'),'true','Reset restores visible boundaries');
+  const after=await page.evaluate(()=>scrollY);
+  assert.ok(Math.abs(after-before)<2,'Reset refocus does not move the workbench');
+  results.push({activation:key,focused:'pattern-reset',scrollBefore:before,scrollAfter:after});
+ }
+ // Model a real pointer click that does not natively focus Reset, as on Safari.
+ // Suppress mousedown focus so the condition is deterministic in both engines.
+ await page.locator('#exit-height').fill('160');
+ await page.locator('#exit-height').dispatchEvent('input');
+ await page.locator('#pattern-reset').scrollIntoViewIfNeeded();
+ await page.locator('.masthead [data-action="settings"]').evaluate(node=>node.focus({preventScroll:true}));
+ await page.locator('#pattern-reset').evaluate(node=>node.addEventListener('mousedown',event=>event.preventDefault(),{once:true}));
+ await page.locator('#pattern-reset').click();
+ await page.waitForFunction(()=>document.querySelector('#exit-height')?.value==='188');
+ assert.equal(await page.evaluate(()=>document.activeElement?.dataset.action),'settings','An unfocused pointer reset must not steal focus');
+ results.push({activation:'pointer without native focus',focused:'settings',focusNotStolen:true});
+ return results;
+}
+
 async function collectionCompanion(page,slug,book,first,offline){
- const books=collectionBooks.get(slug),label=slug+(offline?' offline':' online');let fragments=0,contexts=0,sourceImages=0,workbenchChanges=0;
+ const books=collectionBooks.get(slug),label=slug+(offline?' offline':' online');let fragments=0,contexts=0,sourceImages=0,workbenchChanges=0,companionTextResize=[],resetFocusChecks=[];
  // Establish a real main-book position before the excursion, then await its persisted record.
  await page.evaluate(()=>document.fonts.ready);
  await page.locator('#reading-text [data-block]').evaluateAll(es=>{const candidates=es.filter(e=>e.textContent.length>60),target=candidates[Math.min(2,candidates.length-1)];if(!target)throw Error('No substantial source block');target.scrollIntoView({block:'start'});scrollBy(0,-120)});
@@ -95,6 +211,7 @@ async function collectionCompanion(page,slug,book,first,offline){
   for(const [key,refs]of questions){await page.locator(`a[href="#companion/doors/${key}"]`).click();await page.locator('.doors-reading').waitFor();await checkSources(refs);await page.locator('.study-path a[href="#companion/doors"]').click();await page.locator('.doors-entrance').waitFor()}
   await page.locator('a[href="#companion/voices"]').click();await page.locator('.mediation').waitFor();
   for(const [i,ref]of [['julian','b29','b29'],['tagore','b16','b18'],['james','b1125','b1128']].entries()){await page.locator(`[data-action="study-control"][data-value="${i}"]`).click();assert.equal(await page.locator(`[data-action="study-control"][data-value="${i}"]`).getAttribute('aria-pressed'),'true');await checkSources([ref])}
+  if(!offline)companionTextResize=await inwardCompanionTextResize(page);
  }else if(slug==='learning-to-see'){
   const data=JSON.parse(await readFile(new URL('dist/'+slug+'/study-data.json',import.meta.url)));
   const reference=key=>{const ref=data.sources[key];assert.ok(ref?.blocks?.length,label+' has a source study');const range={book:ref.book,section:ref.section,first:ref.blocks[0],last:ref.blocks.at(-1)};assert.deepEqual(sourceRange(books,range).blocks.map(b=>b.id),ref.blocks);return range};
@@ -121,12 +238,17 @@ async function collectionCompanion(page,slug,book,first,offline){
   await page.locator('#grid-view').click();assert.equal(await page.locator('#grid-view').getAttribute('aria-pressed'),'false');assert.equal(await page.locator('#repeat-preview [stroke-dasharray]').count(),0);workbenchChanges++;
   const repeat=page.locator('details.study-evidence').filter({has:page.locator('[data-study-excerpt="repeat"]')});await repeat.locator('summary').click();await exactFragment(page.locator('[data-study-excerpt="repeat"]'),books,reference('repeat'),label);fragments++;await drawingContext('repeat',repeat.locator('[data-action="study-source"]'));
   const diagram=page.locator('details.study-evidence').filter({has:page.locator('[data-action="plate"]')});await diagram.locator('summary').click();await plate('repeat',diagram.locator('[data-action="plate"]'));
+  resetFocusChecks=await learningResetFocus(page);
  }else if(slug==='music-and-feeling'){
+  if(!offline)await musicGuardedAbout(page.context().browser(),books);
   const {ninth}=JSON.parse(await readFile(new URL('dist/'+slug+'/studies.json',import.meta.url)));
   await page.locator('.ninth-pair').waitFor();assert.equal(await page.locator('#ninth-guide').getAttribute('open'),null,label+' commentary is optional on entry');
   const ranges=ninth.refs.map(ref=>({book:ref.book,section:ref.section,first:ref.blocks[0],last:ref.blocks.at(-1)}));
   for(const [i,annotation]of ninth.annotations.entries()){
-   await page.locator(`[data-action="study-annotation"][data-index="${i}"]`).click();assert.equal(await page.locator(`[data-action="study-annotation"][data-index="${i}"]`).getAttribute('aria-pressed'),'true');
+   const control=page.locator(`[data-action="study-annotation"][data-index="${i}"]`);await control.focus();const scroll=await page.evaluate(()=>scrollY);await control.press('Enter');
+   await page.waitForFunction(i=>document.activeElement?.dataset.action==='study-annotation'&&document.activeElement?.dataset.index===String(i),i);
+   assert.equal(await control.getAttribute('aria-pressed'),'true',label+' selected Ninth criterion remains active');
+   assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,label+' Ninth focus restoration does not scroll');
    for(const [j,ref]of ninth.refs.entries()){
     const {blocks}=sourceRange(books,ranges[j]);assert.deepEqual(blocks.map(b=>b.id),ref.blocks,label+' continuous source range');
     const expected=blocks.map((b,k)=>b.text.slice(k===0?(ref.start||0):0,k===blocks.length-1?(ref.end??b.text.length):b.text.length)+(k<blocks.length-1?b.after:'')).join('');
@@ -139,6 +261,7 @@ async function collectionCompanion(page,slug,book,first,offline){
   }
   for(const details of await page.locator('.study-method').all()){await details.locator('summary').click();assert.ok((await details.textContent()).length>100,label+' optional methodological context');await details.locator('summary').click()}
  }else if(slug==='beside-the-bed'){
+  if(!offline)await besideGuardedAbout(page.context().browser(),books);
   const studies=JSON.parse(await readFile(new URL('dist/'+slug+'/studies.json',import.meta.url))),essay=JSON.parse(await readFile(new URL('dist/'+slug+'/sources.json',import.meta.url)));
   for(const study of studies){
    await page.goto(base+'/'+slug+'/#companion/'+study.id+'/0');await page.locator(`[data-study="${study.id}"]`).waitFor();assert.equal(await page.locator('.study-heading h1').textContent(),study.title);
@@ -146,7 +269,26 @@ async function collectionCompanion(page,slug,book,first,offline){
    for(const [i,step]of study.steps.entries()){
     await page.locator('#study-stage').selectOption(String(i));await page.locator(`[data-study="${study.id}"][data-stage="${i}"][data-open="true"]`).waitFor();
     assert.equal(await page.locator('.study-body h2').textContent(),step.title);await exactFragment(page.locator('[data-study-text]'),books,step.source,label);fragments++;
-    assert.equal(await page.locator('.study-annotation p').textContent(),step.copy,label+' companion explanation loaded');await context(page.locator('[data-action="study-context"]'),step.source);if(step.related)await context(page.locator('[data-action="study-related"]'),step.related);
+    assert.equal(await page.locator('.study-annotation p').textContent(),step.copy,label+' companion explanation loaded');
+    if(study.id==='room'){
+     if(!await page.locator('.rereading-tools').evaluate(e=>e.open))await page.locator('.rereading-tools summary').click();
+     for(const lens of ['visitor','listener','plain']){
+      const control=page.locator(`[data-lens="${lens}"]`);await control.focus();const scroll=await page.evaluate(()=>scrollY);await page.keyboard.press('Enter');
+      await page.waitForFunction(lens=>document.activeElement?.dataset.lens===lens,lens);
+      assert.equal(await control.getAttribute('aria-pressed'),'true',label+' selected Room mark remains active');
+      assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,label+' Room mark focus does not scroll the page');
+      await exactFragment(page.locator('[data-study-text]'),books,step.source,label+' Room mark changes preserve the source');workbenchChanges++;
+     }
+     if(step.verse)for(const mode of ['fixed','wrap']){
+      await page.locator('#study-lines').focus();const scroll=await page.evaluate(()=>scrollY);await page.locator('#study-lines').selectOption(mode);
+      await page.waitForFunction(()=>document.activeElement?.id==='study-lines');
+      assert.equal(await page.locator('#study-lines').inputValue(),mode);
+      assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scroll)<=1,label+' Hymn lines focus does not scroll the page');
+      assert.equal(await page.locator(`[data-block="${step.source.last}"]`).evaluate(e=>getComputedStyle(e).whiteSpace),mode==='fixed'?'pre':'pre-wrap');
+      await exactFragment(page.locator('[data-study-text]'),books,step.source,label+' line layout preserves the source');workbenchChanges++;
+     }
+    }
+    await context(page.locator('[data-action="study-context"]'),step.source);if(step.related)await context(page.locator('[data-action="study-related"]'),step.related);
    }
   }
   await page.locator('.companion-afterword a[href="#sources/record"]').click();await page.locator('[data-source-essay="record"]').waitFor();assert.equal(await page.locator('.sources-page h1').textContent(),essay.title);
@@ -155,14 +297,14 @@ async function collectionCompanion(page,slug,book,first,offline){
  await unchanged();await page.locator(`main [data-action="resume"][data-book="${book}"]`).first().click();await ready(page,book,first);
  if(slug==='music-and-feeling'){
   const hanslick=books.find(b=>b.id==='hanslick'),leaf=hanslick.pages.find(p=>p.id==='leaf-102'),asset=hanslick.assets.find(a=>a.id===leaf.asset);
-  await page.locator('[data-action="background"]').click();await page.locator('#scan-leaf').selectOption('leaf-102');await page.locator('#dialog [data-action="facsimile"]').click();const image=page.locator('#dialog .facsimile-view img');await image.waitFor();
+  await page.locator('[data-action="background"]').click();assert.ok(await page.locator('#scan-leaf').evaluate(el=>el.getBoundingClientRect().height>=48),label+' source scan selector retains a 48px target in both engines');await page.locator('#scan-leaf').selectOption('leaf-102');await page.locator('#dialog [data-action="facsimile"]').click();const image=page.locator('#dialog .facsimile-view img');await image.waitFor();
   await page.waitForFunction(()=>{const i=document.querySelector('#dialog .facsimile-view img');return i?.complete&&i.naturalWidth>0});
   const pixels=await readFile(new URL('dist/'+slug+'/'+asset.file,import.meta.url));assert.equal(await image.getAttribute('src'),'data:image/jpeg;base64,'+pixels.toString('base64'),label+' exact printed source pixels');
   assert.deepEqual(await image.evaluate(i=>[i.naturalWidth,i.naturalHeight]),[asset.width,asset.height]);await page.locator('[data-action="scan-size"]').click();assert.equal(await page.locator('.facsimile-view').getAttribute('class'),'facsimile-view enlarged');
   await page.locator('#dialog [data-action="close"]').click();await page.locator('#dialog').waitFor({state:'hidden'});sourceImages++;
  }
  const after=await stateFor(page,slug);assert.equal(after.positions[book].blockId,before.positions[book].blockId,label+' return restores the original source block');
- return {slug,offline,exactFragments:fragments,completeSourceContexts:contexts,sourceImages,workbenchChanges,mainPlacePreserved:true};
+ return {slug,offline,exactFragments:fragments,completeSourceContexts:contexts,sourceImages,workbenchChanges,companionTextResize,resetFocusChecks,mainPlacePreserved:true};
 }
 
 for(const engine of ['chromium','webkit']){

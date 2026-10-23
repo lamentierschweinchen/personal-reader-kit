@@ -1,8 +1,99 @@
 import assert from 'node:assert/strict';
-import {settledCapture} from './experience-browser.mjs';
+import {settledCapture,settledRender} from './experience-browser.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 
+export async function saveErrorVisibilityChecks({browser,base,engine,output}) {
+  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:390,height:844}}),page=await context.newPage();
+  try {
+    await page.goto(base);await page.getByRole('button',{name:'The distance of a bell',exact:true}).waitFor();
+    const original=await page.evaluate(async()=>{
+      const core=await import('/core.mjs'),db=await import('/db.mjs'),book=(await (await fetch('/library.json')).json())[0],section=book.sections[0];
+      const first=core.passageAt(book,section,section.blocks[0],10),second=core.passageAt(book,section,section.blocks[1],0,35);
+      const note={...first,segments:[...first.segments,...second.segments],quote:first.quote+section.blocks[0].after+second.quote,id:'save-error-visibility',note:'Original saved comment.',updated:1};
+      await db.updateState(s=>{s.notes=[note];s.prefs={...s.prefs,size:28,leading:1.8,theme:'dusk'};return s;});return note;
+    });
+    await page.goto(base+'/#passages');await page.reload();await page.locator('[data-action="edit-note"]').click();
+    const draft='A changed comment retained after a synthetic storage failure.';
+    await page.locator('#note-text').fill(draft);await settledRender(page);
+    const save=page.getByRole('button',{name:'Save on this device',exact:true});await save.focus();
+    const before=await page.evaluate(()=>{window.visibilityFocus=document.activeElement;return {scroll:scrollY};});
+    await page.evaluate(()=>{window.realVisibilityPut=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(value,key){if(this.name==='state'&&key==='reader')throw new DOMException('Synthetic note quota failure','QuotaExceededError');return window.realVisibilityPut.call(this,value,key);};});
+    await page.keyboard.press('Enter');await page.waitForFunction(()=>document.querySelector('#dialog-error').textContent.includes('quota'));
+    const visible=await page.evaluate(()=>{
+      const dialog=document.querySelector('#dialog'),alert=document.querySelector('#dialog-error'),r=alert.getBoundingClientRect(),d=dialog.getBoundingClientRect(),header=dialog.querySelector('.dialog-header').getBoundingClientRect();
+      return {top:r.top,bottom:r.bottom,clipTop:Math.max(d.top+dialog.clientTop,header.bottom),clipBottom:d.top+dialog.clientTop+dialog.clientHeight,scroll:scrollY,focusRetained:document.activeElement===window.visibilityFocus,role:alert.getAttribute('role')};
+    });
+    await settledCapture(page,{path:new URL(`${engine}-phone-note-save-error.png`,output).pathname});
+    assert.ok(visible.top>=visible.clipTop&&visible.bottom<=visible.clipBottom,JSON.stringify(visible));
+    assert.equal(visible.scroll,before.scroll,'A dialog failure must not scroll the reading background');
+    assert.equal(visible.focusRetained,true,'A dialog failure must retain keyboard focus');assert.equal(visible.role,'alert');
+    assert.equal(await page.locator('#note-text').inputValue(),draft);
+    assert.deepEqual(await page.evaluate(async()=> (await (await import('/db.mjs')).loadState()).notes),[original]);
+    await page.evaluate(()=>{IDBObjectStore.prototype.put=window.realVisibilityPut;});
+    await page.keyboard.press('Enter');await page.waitForFunction(()=>!document.querySelector('#dialog').open);
+    assert.equal((await page.evaluate(async()=> (await (await import('/db.mjs')).loadState()).notes))[0].note,draft);
+    return {syntheticFailure:true,visible,draftRetained:true,oldNoteUnchanged:true,focusRetained:true,backgroundUnchanged:true,retrySaved:true};
+  }finally{await context.close();}
+}
+
+export async function dialogReflowChecks({browser,base,engine,output}) {
+  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage(),checks=[];
+  const load=()=>page.evaluate(async()=> (await import('/db.mjs')).loadState());
+  const ready=()=>page.locator('#reading-text[data-position-ready="true"]').waitFor();
+  const close=async()=>{await page.getByRole('button',{name:'Close ×',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'});};
+  try {
+    await page.goto(base);await page.getByRole('button',{name:'The distance of a bell',exact:true}).waitFor();
+    const fixture=await page.evaluate(async()=>{
+      const core=await import('/core.mjs'),db=await import('/db.mjs');
+      const text=Array.from({length:24},(_,i)=>`Paragraph ${String(i+1).padStart(2,'0')}. `+Array.from({length:38},(_,j)=>`Original sentence ${j+1} carries its own ${i+1} reading marker across the page. `).join('')).join('\n\n');
+      const book=await core.fromText(text,{title:'Original dialog reflow fixture'});
+      book.context=[{label:'Original context',kind:'author',through:null,text:'Original context for checking a return to reading.'}];
+      const next=await core.fromText('A separate original section is the intended navigation destination.');
+      book.sections.push({...next.sections[0],id:'next',title:'Next original section'});
+      book.source.sha256=await core.sha256(new TextEncoder().encode(core.bookText(book)));await db.saveBook(book);
+      const note={...core.passageAt(book,book.sections[0],book.sections[0].blocks[11],200,260),id:'dialog-reflow-note',note:'Original saved dialog note.',updated:1};
+      await db.updateState(s=>{s.notes=[note];return s;});return {id:book.id,revision:book.source.sha256};
+    });
+    const landmark=()=>page.evaluate(()=>{
+      const block=document.querySelector('#reading-text [data-block="b12"]'),walker=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let node,offset=221;
+      while((node=walker.nextNode())){if(offset<node.length)break;offset-=node.length;}
+      const range=document.createRange();range.setStart(node,offset);range.setEnd(node,offset+1);const r=range.getBoundingClientRect(),edge=document.querySelector('.reader-tools').getBoundingClientRect().bottom+20;
+      return {character:node.textContent[offset],top:r.top,bottom:r.bottom,edge,height:innerHeight,scroll:scrollY};
+    });
+    const visible=async label=>{const p=await landmark();assert.equal(p.character,'p');assert.ok(p.top>=p.edge&&p.bottom<=p.height,label+': '+JSON.stringify(p));return p;};
+    const prepare=async()=>{
+      await page.setViewportSize({width:390,height:844});
+      await page.evaluate(async()=>{await (await import('/db.mjs')).updateState(s=>{s.prefs={...s.prefs,size:24,leading:1.7,theme:'paper',focus:false};return s;});});
+      await page.goto(`${base}/#read/${fixture.id}/text`);await page.reload();await ready();await settledRender(page);
+      for(let i=0;i<2;i++){const p=await landmark();await page.evaluate(delta=>scrollBy(0,delta),p.top-p.edge-24);}
+      await page.waitForTimeout(350);await visible('Original source letter before dialog');assert.equal((await load()).positions[fixture.id].blockId,'b12');
+    };
+    const rotate=async()=>{await page.setViewportSize({width:844,height:390});await settledRender(page);};
+    const continued=async()=>{await page.evaluate(()=>scrollBy(0,1));await page.waitForTimeout(350);assert.equal((await load()).positions[fixture.id].blockId,'b12');};
+    await prepare();const same=await landmark();await page.getByRole('button',{name:'About this work',exact:true}).click();await close();assert.equal((await landmark()).scroll,same.scroll,'Unchanged layout returns to the exact old pixel');checks.push('same-layout exact scroll');
+    await prepare();const before=await landmark();
+    await page.evaluate(()=>{window.dialogClickScroll=null;document.addEventListener('click',event=>{if(event.target.closest('[data-action="background"]'))window.dialogClickScroll=scrollY;},true);});
+    await page.getByRole('button',{name:'About this work',exact:true}).click();assert.equal(await page.evaluate(()=>window.dialogClickScroll),before.scroll,'Locator did not scroll before opening');
+    await rotate();await close();const returned=await visible('Source letter after dialog rotation');await continued();await settledCapture(page,{path:new URL(`${engine}-dialog-rotation-return.png`,output).pathname});checks.push('rotation source letter and continued save');
+    await prepare();await page.getByRole('button',{name:'Contents',exact:true}).click();await rotate();await page.locator(`#dialog a[href="#read/${fixture.id}/next"]`).click();await page.locator('#reading-text[data-section="next"][data-position-ready="true"]').waitFor();
+    assert.ok(await page.locator('.reader-heading h1').evaluate(el=>el.getBoundingClientRect().top>=document.querySelector('.reader-tools').getBoundingClientRect().bottom),'Contents destination heading is exposed');checks.push('Contents destination wins');
+    await prepare();await page.getByRole('button',{name:'About this work',exact:true}).click();await rotate();await page.evaluate(()=>{location.hash='#read/bell/crossing';});await page.locator('#reading-text[data-book="bell"][data-section="crossing"][data-position-ready="true"]').waitFor();await page.waitForTimeout(350);
+    assert.equal((await load()).positions[fixture.id].blockId,'b12','Navigation does not save the reflowed covered background');assert.equal(await page.locator('#reading-text').getAttribute('data-book'),'bell');checks.push('changed-book destination wins');
+    await prepare();await page.locator('mark[data-note="dialog-reflow-note"]').click();await page.locator('#note-text').fill('Saved after dialog rotation.');await rotate();await page.getByRole('button',{name:'Save on this device',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'});await ready();await visible('Note save and rerender');await continued();assert.equal((await load()).notes[0].note,'Saved after dialog rotation.');checks.push('note save and rerender');
+    // Header locator scrolling would redefine the source place before entry.
+    await prepare();await page.getByRole('button',{name:'Reading settings'}).evaluate(el=>el.click());await page.locator('#settings-form').waitFor();await rotate();await page.getByRole('button',{name:'Large print',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#size')?.value==='29'&&document.querySelector('#reading-text')?.dataset.positionReady==='true');await close();await visible('Preset after rotation');await continued();checks.push('preset after rotation');
+    await prepare();await page.getByRole('button',{name:'Reading settings'}).evaluate(el=>el.click());await page.locator('#settings-form').waitFor();await rotate();await page.locator('#size').fill('28');await page.locator('#measure').selectOption('wide');await page.getByRole('button',{name:'Apply to my reader',exact:true}).click();await page.locator('#dialog').waitFor({state:'hidden'});await ready();await visible('Custom settings after rotation');await continued();checks.push('custom settings after rotation');
+    await prepare();await page.locator('mark[data-note="dialog-reflow-note"]').click();await page.locator('#note-text').fill('An unfinished original dialog draft.');await rotate();page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'Close ×',exact:true}).click();assert.equal(await page.locator('#dialog').evaluate(el=>el.open),true);assert.equal(await page.locator('#note-text').inputValue(),'An unfinished original dialog draft.');assert.equal((await load()).notes[0].note,'Saved after dialog rotation.');page.once('dialog',d=>d.accept());await close();await visible('Discard after cancelled close');checks.push('cancelled draft exit');
+    await page.getByRole('link',{name:'Passages',exact:true}).click();await page.locator('[data-action="edit-note"]').waitFor();await page.evaluate(()=>scrollTo(0,180));const listScroll=await page.evaluate(()=>scrollY);
+    // Dispatch without bringing an offscreen header control into view first.
+    await page.getByRole('button',{name:'Reading settings'}).evaluate(el=>el.click());await page.locator('#settings-form').waitFor();await close();assert.equal(await page.evaluate(()=>scrollY),listScroll,'Nonreading list returns to its exact old pixel');checks.push('nonreading list return');
+    return {checks,returned,sourceRevision:fixture.revision,sourceLetter:'b12/221 p',schemaUnchanged:true};
+  }finally{await context.close();}
+}
+
 export async function reviewChecks({browser,base,engine,output}) {
+  const saveErrorVisibility=await saveErrorVisibilityChecks({browser,base,engine,output});
+  const dialogReflow=await dialogReflowChecks({browser,base,engine,output});
   const context=await browser.newContext({serviceWorkers:'block',viewport:{width:402,height:874}}),page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   const download=async(page,action,name)=>{const pending=page.waitForEvent('download');await action();const item=await pending;const file=new URL(`${engine}-${name}.json`,output);await item.saveAs(file.pathname);return JSON.parse(await readFile(file,'utf8'));};
@@ -82,7 +173,7 @@ export async function reviewChecks({browser,base,engine,output}) {
     console.log(`${engine}: transactional recovery and exact-edition origin migration passed`);
     const lifecycle=await lifecycleChecks({browser,base});
     assert.deepEqual(errors,[]);
-    return {lifecycle,optionalSamplesFailure:true,visibleGapGeometry:true,companionEmphasis:true,allLiteralOccurrences:true,chosenPassageConnections:true,recoveryRollback:true,recoveryWritable:true,quarantinePreserved:true,staleRepairRejected:true,exactEditionExport:true,freshBrowserNewOriginRestore:true,spoilersNotExpanded:true};
+    return {saveErrorVisibility,dialogReflow,lifecycle,optionalSamplesFailure:true,visibleGapGeometry:true,companionEmphasis:true,allLiteralOccurrences:true,chosenPassageConnections:true,recoveryRollback:true,recoveryWritable:true,quarantinePreserved:true,staleRepairRejected:true,exactEditionExport:true,freshBrowserNewOriginRestore:true,spoilersNotExpanded:true};
   }finally{await context.close();}
 }
 

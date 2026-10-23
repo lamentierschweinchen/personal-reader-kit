@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 83599,
-          "sha256": "588faeb0de7a8766de3be9f274f2432cb84c8255cb5208279b19534fae66bb08"
+          "bytes": 85533,
+          "sha256": "14c89784cc3f30b5ff9281b1ded3cacee29dfac1c4554350e13b618c3086972f"
         },
         {
           "path": "apple-touch-icon.png",
@@ -926,7 +926,7 @@
         {
           "path": "sw.js",
           "bytes": 4753,
-          "sha256": "b59516e4cc289b37fb1a7fe2e767dcfaca22f0ae4db77e02782782add96db333"
+          "sha256": "5b6098056d2ceecd1d2bd9e2fb85ad11c7c52c16f3dd8314cf54df567232986f"
         },
         {
           "path": "text.mjs",
@@ -936,26 +936,26 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         "README.md",
         "VERSION-HISTORY.md",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "tests/austen-browser.mjs",
-        "tests/publication.test.mjs",
-        "tests/share-browser.mjs",
-        "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
-        "scripts/build.mjs",
-        "site/share-card.css",
-        "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/build.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
         "site/icon.svg",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "tests/austen-browser.mjs",
+        "tests/publication.test.mjs",
+        "tests/share-browser.mjs",
+        "vercel.json"
       ]
     },
     {
@@ -982,8 +982,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 83297,
-          "sha256": "086069bd17640754720766e6f6bfd15f1dd1aa4915fa4151033340bd99d83760"
+          "bytes": 85231,
+          "sha256": "94a62e9bf33852377b36ead9a404141cbaeaf75ee5033238a0170b4db54709f6"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1052,8 +1052,8 @@
         },
         {
           "path": "play/index.html",
-          "bytes": 6248,
-          "sha256": "048d4f22653dd160851007b369583d41312edf7b0a40e260c2dfc9a831f6943e"
+          "bytes": 6242,
+          "sha256": "83e9450812033941877a80a4cd7951f637a6977cab4f6cc1c8ebbdd3e682d42c"
         },
         {
           "path": "play/reader-return.mjs",
@@ -1093,7 +1093,7 @@
         {
           "path": "sw.js",
           "bytes": 1409,
-          "sha256": "8722579cb3438f249ae1fadd5fbd15bfd26f66928abbecae3dd92291be147bef"
+          "sha256": "7c78d280636a6ab321aa189240cda3def40021383b14ce464caa68b16dba0a36"
         },
         {
           "path": "text.mjs",
@@ -1103,30 +1103,32 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         "README.md",
         "VERSION-HISTORY.md",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/text.mjs",
-        "tests/alice-browser.mjs",
-        "tests/share-browser.mjs",
-        "tests/publication.test.mjs",
-        "vercel.json",
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
         "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
-        "scripts/build.mjs",
-        "site/share-card.css",
-        "site/share-card.mjs",
         "publication.json",
         "scripts/audit-edition.mjs",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "site/text.mjs",
+        "tests/alice-browser.mjs",
+        "tests/publication.test.mjs",
+        "tests/share-browser.mjs",
+        "vercel.json",
+        "game.json",
+        "play/index.html"
       ],
       "game": {
         "title": "Tea at Six",
@@ -1158,8 +1160,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 72546,
-          "sha256": "861b3c6306b97b341ced16fdc083040eaef4771dc42aaed7ebb9e37b24a72957"
+          "bytes": 74480,
+          "sha256": "309aab18034152263ac43ce65beec73f3c96e32740ef510c5a2ac132c33c6149"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1244,7 +1246,7 @@
         {
           "path": "sw.js",
           "bytes": 1240,
-          "sha256": "373215c400bd3e02505c1a13f506a85953732f65235e3995ddeac29325627085"
+          "sha256": "02b135cf3a32935873037e2c1d5d3206461044a349973d30bf183f81fc2cbaf0"
         },
         {
           "path": "text.mjs",
@@ -1254,27 +1256,27 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         "README.md",
         "VERSION-HISTORY.md",
+        "publication.json",
+        "scripts/build.mjs",
+        "scripts/serve.mjs",
         "site/app.mjs",
+        "site/apple-touch-icon.png",
         "site/companion.mjs",
+        "site/icon-192.png",
+        "site/icon-512.png",
         "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
         "site/style.css",
         "tests/publication.test.mjs",
         "tests/sharing-browser.mjs",
         "tests/walden-design-browser.mjs",
-        "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
-        "scripts/build.mjs",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
-        "scripts/serve.mjs",
-        "site/apple-touch-icon.png",
-        "site/icon-192.png",
-        "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "vercel.json"
       ]
     },
     {
@@ -1301,8 +1303,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 76927,
-          "sha256": "1985f234ae4a20b46d9d78666fc1cf52cb4a727cbca007dccab0376c5ac85c04"
+          "bytes": 78871,
+          "sha256": "2e13e0a008d1e82234245e4b223894bfc111f297ae7cda9415744b7947ed33bb"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1392,7 +1394,7 @@
         {
           "path": "sw.js",
           "bytes": 1256,
-          "sha256": "938a6d374973c72a2ed8da6d172bceb4c638c64381d3507388544d967d5b393a"
+          "sha256": "826109d7050468a18a26792c6a998a9c0f1734014d25c30ca56edf7bf84d198f"
         },
         {
           "path": "text.mjs",
@@ -1402,26 +1404,26 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
+        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         "README.md",
         "VERSION-HISTORY.md",
-        "site/app.mjs",
-        "site/index.html",
-        "site/lectures.mjs",
-        "site/style.css",
-        "tests/publication.test.mjs",
-        "tests/trial-browser.mjs",
-        "vercel.json",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
-        "scripts/build.mjs",
-        "site/share-card.css",
-        "site/share-card.mjs",
         "publication.json",
-        "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/lectures.mjs",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "tests/publication.test.mjs",
+        "tests/trial-browser.mjs",
+        "vercel.json"
       ]
     },
     {
@@ -1444,8 +1446,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 80636,
-          "sha256": "55952fe8f7f0654b53bcdc10c2fa11f5995c2acaab8d9a87e4cafef3456cb4a2"
+          "bytes": 82570,
+          "sha256": "a898d3216eee3220503f7a5b869683112782e2fcfdc78f7abb86624fc825a925"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1499,8 +1501,8 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 37769,
-          "sha256": "2390fa5383f8a2ef3e0c7a292ba48228b07de547a3cc021fcb8356a39137fcad"
+          "bytes": 37801,
+          "sha256": "9638e527e39c09a699c0e78d6f07518ffe7834b64beae455223cc4ca52cfd73d"
         },
         {
           "path": "play/icon.svg",
@@ -1550,7 +1552,7 @@
         {
           "path": "sw.js",
           "bytes": 1396,
-          "sha256": "2bb491e54182c986b95f9d00a1233a74614d2ddac3aaa0ffc3f5e2b615531f30"
+          "sha256": "71b1cedd5a1109931da5ba51f6a08dddc515567854b65fe51754fcffc8c3141b"
         },
         {
           "path": "text.mjs",
@@ -1565,22 +1567,25 @@
         "provenance": "examples/odyssey/docs/GAME.md"
       },
       "maintenanceChanges": [
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
-        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "Visible game updates with explicit reload, preserving the paused stage and reader records (18 October 2026).",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "docs/GAME.md",
+        "game.json",
+        "play/game.mjs"
       ]
     },
     {
@@ -1603,8 +1608,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74396,
-          "sha256": "550871e4d76e43e2b0058d577afc47bbf43b6dde9a3d56c1f3ca355cd2bd071b"
+          "bytes": 76332,
+          "sha256": "077f03ceec8b66bf7dbcfa98b96bcfa2627302ff793a01d292c9be9fa5e047c6"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1754,7 +1759,7 @@
         {
           "path": "sw.js",
           "bytes": 1533,
-          "sha256": "4d269d85fef712c61b1bb78d4deea68703fd0ab3d59ed6d87d2f34448af787bb"
+          "sha256": "7d9f6188c326c10038ae44ec2c08af7f221b36275050fbad4dcbe08247702956"
         },
         {
           "path": "text.mjs",
@@ -1769,23 +1774,23 @@
         "provenance": "examples/dracula/docs/GAME.md"
       },
       "maintenanceChanges": [
-        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
-        "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026).",
-        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
+        "Larger connected castle floors, following camera, crowbar and paused floor plan; visible game updates with explicit reload (18 October 2026).",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "Optional visual game, reader return, scoped offline packaging and mobile verification (17 October 2026).",
+        "Phone and enlarged-text review: stable rendered navigation, full-height settings selects, and a clear no-JavaScript return to the catalogue; exact edition bytes retained.",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
         "site/icon.svg",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css"
       ]
     },
     {
@@ -1815,8 +1820,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 68742,
-          "sha256": "a8f8c7f1b6874cc2075014ebea37cc3648a8fdc6f7b55cb3c959492f2fb1d707"
+          "bytes": 70676,
+          "sha256": "2f10d8424285bb60a1ad75dc92f5e21d3f5462f5c6208d587a2272ef04046f4b"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1916,7 +1921,7 @@
         {
           "path": "sw.js",
           "bytes": 1333,
-          "sha256": "322bfd1e6e7b28cf4e4845708a3b51b2d681b4594461cc26ebd8f79fb95d3a54"
+          "sha256": "d401b49a116f1e3b051de3c4765a5058698940cbfbf30444200582377f1db778"
         },
         {
           "path": "table.mjs",
@@ -1936,19 +1941,19 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "publication.json",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css"
       ]
     },
     {
@@ -1980,8 +1985,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 69900,
-          "sha256": "7d6d650bfe97704f7c96aaf20647af8f8f8bccaeaf3812e00d36653867109243"
+          "bytes": 71834,
+          "sha256": "8c9f61570b614dedbd35541d21a326178190794ae70b9325bccf9992e88b94c5"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2000,8 +2005,8 @@
         },
         {
           "path": "collection.css",
-          "bytes": 13764,
-          "sha256": "69e91811f771415a275711206871b2862da7203827a63ec306c80d84dfb4ad00"
+          "bytes": 13969,
+          "sha256": "0a8a7f2bf3d5a002d0d748945f96c21d8e418a81853ccae9284aae43f40fd06d"
         },
         {
           "path": "collection.mjs",
@@ -2091,7 +2096,7 @@
         {
           "path": "sw.js",
           "bytes": 1351,
-          "sha256": "5e7c073b4457d38a4ff424ef6dba2acad25554bfa9d7cf8b35beb24b15c80470"
+          "sha256": "065210fa1520ac75d3764385d47a7253c5b397aee14d61b6f536aaf18a2c5eb5"
         },
         {
           "path": "text.mjs",
@@ -2101,19 +2106,20 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "publication.json",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "site/collection.css"
       ]
     },
     {
@@ -2150,8 +2156,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 78920,
-          "sha256": "28013963001111b4ab6c68fd2d13362a61e364a0b51ed42e80da79c86e909727"
+          "bytes": 82126,
+          "sha256": "f4478ba244daec1461cf077cb102eafc9f12918d1106d56e31775d09453c30f0"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2276,7 +2282,7 @@
         {
           "path": "sw.js",
           "bytes": 2402,
-          "sha256": "8a930db57753a4e92521c3b45a88bd7010a7d31b2799f5d436b0ef4a9503117c"
+          "sha256": "38614fcd1e8d142cf863d5d15fc30dd81c298f7c54865344e0a5aeedc70e3568"
         },
         {
           "path": "text.mjs",
@@ -2286,20 +2292,20 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "publication.json",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
         "site/icon.svg",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css"
       ]
     },
     {
@@ -2346,8 +2352,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 65077,
-          "sha256": "f7fe331bac53a49472df15d573ff762f738e7f22ef0caceff86aa81b5fe51f47"
+          "bytes": 67011,
+          "sha256": "e9b7eeb039fa03177bf80ea3385627304f042bf4391c6515340b67e6268fa559"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2436,8 +2442,8 @@
         },
         {
           "path": "studio.mjs",
-          "bytes": 11801,
-          "sha256": "2105e638408305af5ec8382f6319e63d3f7fc849f8b0ddf72dcfc4577c48e4ba"
+          "bytes": 11966,
+          "sha256": "680273a1f7acb977c20c9a15fb7908fe503ef43a5a40e368d23bbd49c4d1ff41"
         },
         {
           "path": "study-data.json",
@@ -2452,7 +2458,7 @@
         {
           "path": "sw.js",
           "bytes": 1373,
-          "sha256": "62a29c5078f9524e1dbee14ba3567405e48b73cdb7cbb1118382ec8c89ee017d"
+          "sha256": "3b43316602b9666c24b6cfa7e752db653a104a62cdc8804faced1d8ec9f33617"
         },
         {
           "path": "text.mjs",
@@ -2462,20 +2468,21 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "publication.json",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
         "site/icon.svg",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css",
+        "site/studio.mjs"
       ]
     },
     {
@@ -2511,8 +2518,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 71665,
-          "sha256": "b4baaae46f105c42e67748ebde32976ceff4da2d558f49f3bfe9bff4f127e926"
+          "bytes": 74352,
+          "sha256": "3a10b437328e1f3945ef3e46eb88af67f4fe35757d416760923de4f8e92ab5da"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3571,13 +3578,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 38252,
-          "sha256": "0484eaad17b19f93d02290d1a8cbb1ab270e16ae9d8e4c1aa68fb27778aa7b79"
+          "bytes": 38553,
+          "sha256": "994923eddb253efdfeed3ddc8110f1926ee8d35ce4cd9abb393e53ee1e8d308d"
         },
         {
           "path": "sw.js",
           "bytes": 5244,
-          "sha256": "551f8eabb51a2e51c38f7af59ea4ff13acf8331fcac26e8481da87a9f03b7325"
+          "sha256": "339bcd33e2fe3809259a601d1f37684db4dd42ef5a4ab2ced406b7af71216b7d"
         },
         {
           "path": "text.mjs",
@@ -3592,19 +3599,19 @@
       ],
       "maintenanceChanges": [
         ".vercelignore",
-        "scripts/build.mjs",
-        "site/app.mjs",
-        "site/index.html",
-        "site/style.css",
-        "site/share-card.css",
-        "site/share-card.mjs",
-        "publication.json",
         "Local quotation-card PNGs with exact source attribution, book typography and colours, explicit save/share, draft preservation, and production-CSP/offline checks (20 October 2026). Source editions, local reading records and games are unchanged.",
+        "publication.json",
+        "scripts/build.mjs",
         "scripts/serve.mjs",
+        "site/app.mjs",
         "site/apple-touch-icon.png",
         "site/icon-192.png",
         "site/icon-512.png",
-        "site/manifest.webmanifest"
+        "site/index.html",
+        "site/manifest.webmanifest",
+        "site/share-card.css",
+        "site/share-card.mjs",
+        "site/style.css"
       ]
     },
     {
@@ -3649,8 +3656,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 80085,
-          "sha256": "745f73516133dcd0bd3d3eef72cb78333632790cfb944922c5130b42772b6640"
+          "bytes": 80932,
+          "sha256": "cfeb25681217a0ef26a655ceb3dfaf1523e611ebb490072c23f63ba4aacf7e13"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3660,7 +3667,7 @@
         {
           "path": "build.json",
           "bytes": 567,
-          "sha256": "f13cb58e6bcda07753a8c8025592d9053b0a42635f555717f1c2020ff5966840"
+          "sha256": "33c6ebb94c091ccdd7bac4613ccadc65a32d6ae0c5b1934f7b1d02313507c615"
         },
         {
           "path": "bundle.mjs",
@@ -3760,13 +3767,16 @@
         {
           "path": "sw.js",
           "bytes": 1318,
-          "sha256": "c7cef1443cc68e3993a9b0e21aeab8437d3adb0bcd27cbddd0c6b7cdfea1864f"
+          "sha256": "82707c3f5ceaeac84c0e1b8d47150d74daa1c531048b2f28f8735a9d2b5674d5"
         },
         {
           "path": "text.mjs",
           "bytes": 4677,
           "sha256": "9d34ed995c19446fac5b8b3450339f65834d8b9424342e6cf2a78cffaace3ddd"
         }
+      ],
+      "maintenanceChanges": [
+        "site/app.mjs"
       ]
     },
     {
@@ -3807,8 +3817,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 64900,
-          "sha256": "5970d45b3a41a9620f1fe146cdad56d5acce38d5fd48c5be1abc2bcd607ec23c"
+          "bytes": 66710,
+          "sha256": "b3283ea9027a81ef69d954e3110e378ad6ca1f7470e4b21017e94f0b8e9ef8ff"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3913,7 +3923,7 @@
         {
           "path": "sw.js",
           "bytes": 1321,
-          "sha256": "bc150a91af682debbf3e81b9d6f98c9f604b41594e6a4f7414ef0fa7373995f8"
+          "sha256": "2d4b41acbaa444be1af9ba7d8706f888129099baa716c6ab72e288ceef1703e3"
         },
         {
           "path": "text.mjs",
@@ -3921,7 +3931,10 @@
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "site/app.mjs",
+        "tests/browser.mjs"
+      ]
     },
     {
       "id": "war-and-peace",
@@ -3976,8 +3989,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 76216,
-          "sha256": "c452967ffacaedd8ea2ade1b13d655cf04f203db02fb895d9fa408271f3cc3f9"
+          "bytes": 76895,
+          "sha256": "7afbc4ce2152f80b6a0d018a18493259509afb4984ea50b4e4cd8e1fc96f80f2"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3987,7 +4000,7 @@
         {
           "path": "build.json",
           "bytes": 867,
-          "sha256": "efa012c0fab3839b1f68a364acf2c45b99ae84236a68b9e22987d715f2304011"
+          "sha256": "a06f32fda4be1c73b00665fbba087ea348b930bbba8391dfb76d4cfee9f5b8b0"
         },
         {
           "path": "bundle.mjs",
@@ -4142,13 +4155,16 @@
         {
           "path": "sw.js",
           "bytes": 1621,
-          "sha256": "cf5a082c078534ce856a5582d7627aa8773e08f5b8162004b45b2062b8394ede"
+          "sha256": "c640faf021253c79d4199b668acc2027cf39010fbb2f28204ecb9ccacf839dcd"
         },
         {
           "path": "text.mjs",
           "bytes": 3489,
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
+      ],
+      "maintenanceChanges": [
+        "site/app.mjs"
       ]
     }
   ],

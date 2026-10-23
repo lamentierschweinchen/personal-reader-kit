@@ -8,6 +8,20 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Return to reading and a usable starter · 23 October 2026
+
+The library offers a quiet Continue link to the exact public work and saved place in this browser. A small local pointer follows a successful save; exact edition checks, ordered cross-tab writes and a second check on arrival protect against stale or conflicting records. The reader module is cached offline. The catalogue itself does not become an offline app, and no reading records enter analytics. Library previews name selected translators and describe their actual companions more precisely.
+
+A fresh-agent trial exposed a starter export that retained the full repository manifest and clipped errors in long selection dialogs. The new `export:starter` command produces the exact standalone inventory and a matching manifest without optional examples or private material. Save failures now reveal the error without losing the draft, focus or background place; this repair reaches all fourteen packaged readers.
+
+Rotation while a dialog is open now restores the source anchor in affected readers, while ordinary close keeps the exact scroll position and deliberate chapter navigation takes precedence. The existing stronger return paths are retained where they pass. Companion controls keep keyboard focus after redrawing, enlarged Inward Life text fits narrow screens, and Music’s scan selector has a usable touch target. Nietzsche’s saved comparisons survive JSON key reordering on bundle restoration. Exact-edition About corrections remove an obsolete publication claim and qualify an uncertain printing date without rewriting source data or customized imports. Dracula’s shelf states its current five-room game scope.
+
+Optional modules start after essential page loading, with caught failures. Homeward sizes itself when its own stylesheet is ready, so unrelated network delays cannot stretch the game. The default starter and standalone examples remain free of the catalogue’s analytics integration.
+
+Reading analytics requires exact current-edition admission, so a changed import with a public book's ID cannot qualify. A missing optional proof leaves reading and saving usable and suppresses the reading event.
+
+The hosted preview failure was reproduced with a delayed state write. Its test now waits for the rendered destination before asserting contents. The existing guide records these observed lessons and keeps agent trials separate from human or physical-device acceptance. Sources, illustrations, edition identities, record schemas and the fourteen-reader publication scope remain unchanged. Verification and publication status are recorded in STATUS.md.
+
 ## Library footer touch target · 22 October 2026
 
 The hosted library check found that the new Privacy link measured 42 pixels wide with the Linux runner’s font metrics. Footer links now have an explicit 44-pixel minimum width as well as height. The existing browser check retains its full touch-target assertion.

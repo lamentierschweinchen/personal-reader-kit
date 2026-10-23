@@ -3,15 +3,17 @@ import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
 import {createServer} from 'node:http';
 import {createRequire} from 'node:module';
 import {createHash} from 'node:crypto';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const engines=process.env.RECOVERY_ENGINES?.split(',')||['chromium','webkit'];
 assert.ok(engines.length&&engines.every(e=>['chromium','webkit'].includes(e)),'Unknown recovery browser');
-const slug='beside-the-bed',mount='/'+slug+'/',directory=new URL('./dist/'+slug+'/',import.meta.url);
-const out=new URL('../test-results/showcase/collection-recovery/',import.meta.url);await mkdir(out,{recursive:true});
+const fixtureRoot=process.env.SHOWCASE_FIXTURE_ROOT?pathToFileURL(path.resolve(process.env.SHOWCASE_FIXTURE_ROOT)+path.sep):new URL('./dist/',import.meta.url);
+const slug='beside-the-bed',mount='/'+slug+'/',directory=new URL(slug+'/',fixtureRoot);
+const sharedModule='/continuation.mjs',sharedBytes=await readFile(new URL(sharedModule.slice(1),fixtureRoot));
+const out=process.env.REVIEW_OUTPUT?pathToFileURL(path.resolve(process.env.REVIEW_OUTPUT)+path.sep):new URL('../test-results/showcase/collection-recovery/',import.meta.url);await mkdir(out,{recursive:true});
 const canonical=value=>JSON.stringify(value,(_key,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.keys(item).sort().map(key=>[key,item[key]])):item);
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const books=JSON.parse(await readFile(new URL('library.json',directory))),notices=JSON.parse(await readFile(new URL('notices.json',directory)));
@@ -31,11 +33,12 @@ async function fixture(blockOptional){
   let pathname,status=404;const arrival={path:new URL(req.url,'http://localhost').pathname,status:null,destination:req.headers['sec-fetch-dest']||''};requests.push(arrival);
   try{
    pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
+   const shared=pathname===sharedModule;
    const file=pathname===mount?'index.html':pathname.startsWith(mount)?pathname.slice(mount.length):'';
    // This is an HTTP response rule, including requests made by the service worker.
-   if(req.method==='GET'&&allowed.has(file)&&(!blockOptional||!missing.includes(file))){
-    const bytes=payloads.get(file);status=200;
-    res.writeHead(status,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Content-Length':bytes.length,'Cache-Control':'no-store',...security});res.end(bytes);
+   if(req.method==='GET'&&(shared||allowed.has(file)&&(!blockOptional||!missing.includes(file)))){
+    const bytes=shared?sharedBytes:payloads.get(file);status=200;
+    res.writeHead(status,{'Content-Type':types[path.extname(shared?sharedModule:file)]||'application/octet-stream','Content-Length':bytes.length,'Cache-Control':'no-store',...security});res.end(bytes);
    }else{res.writeHead(status,{'Content-Type':'text/plain','Content-Length':9,'Cache-Control':'no-store'});res.end('Not found');}
   }catch{if(!res.headersSent){res.writeHead(404);res.end('Not found');}}
   finally{Object.assign(arrival,{path:pathname,status});}
@@ -102,7 +105,9 @@ async function actualReading(page,origin,book){
 for(const engine of engines){
  let healthy,browser;const report={engine,exports:[],restores:[]};result.inProgress=report;
  try{
-  healthy=await fixture(false);browser=await launch(engine);const source=await trackedPage(browser,healthy.origin),page=source.page;
+  healthy=await fixture(false);
+  for(const denied of ['/unreviewed-shared.mjs','/analytics.mjs','/another-reader/index.html'])assert.equal((await fetch(healthy.origin+denied)).status,404,'Fixture still excludes '+denied);
+  browser=await launch(engine);const source=await trackedPage(browser,healthy.origin),page=source.page;
   await page.goto(healthy.origin+mount+'#read/nightingale-1898/id00210');await ready(page,'nightingale-1898','id00210');
   await controlled(page);await page.waitForFunction(()=>document.querySelector('#offline-status')?.textContent.includes('Available offline'),{},{timeout:60000});assert.equal((await workerReadiness(page)).ready,true);
   await fontLoaded(page);
@@ -135,7 +140,8 @@ for(const engine of engines){
     for(const book of bundle.books){lastBook=book;lastSection=await actualReading(p,target.origin,book)}
     const fonts=await fontLoaded(p);await controlled(p);
     const cache=await p.evaluate(async()=>{const names=await caches.keys();return Promise.all(names.map(async name=>({name,paths:(await (await caches.open(name)).keys()).map(r=>new URL(r.url).pathname)})))});
-    assert.equal(cache.length,1);assert.match(cache[0].name,/^newreading-beside-the-bed-[a-f0-9]{16}$/);assert.ok(cache[0].paths.every(p=>p.startsWith(mount)));for(const file of missing)assert.ok(!cache[0].paths.includes(mount+file),'Absent data never enters the worker cache');
+    assert.equal(cache.length,1);assert.match(cache[0].name,/^newreading-beside-the-bed-[a-f0-9]{16}$/);assert.ok(cache[0].paths.every(p=>p.startsWith(mount)||p===sharedModule),'Only this reader and the exact shared continuation module enter its cache');assert.ok(cache[0].paths.includes(sharedModule),'The recovery shell includes continuation offline');
+    assert.equal(await p.evaluate(async name=>(await(await(await caches.open(name)).match('/continuation.mjs')).text()),cache[0].name),sharedBytes.toString(),'Cached shared module matches this built candidate');for(const file of missing)assert.ok(!cache[0].paths.includes(mount+file),'Absent data never enters the worker cache');
     for(const file of ['index.html','app.mjs','bitter-normal.woff2','bitter-italic.woff2'])assert.ok(cache[0].paths.includes(mount+file),'Recovery shell caches '+file);
     assert.equal((await workerReadiness(p)).ready,false,'A book bundle cannot certify unavailable companions');assert.equal(await p.locator('#offline-status').textContent(),'Offline copy incomplete');
     await target.stop();await p.reload();await ready(p,lastBook.id,lastSection);
@@ -144,7 +150,7 @@ for(const engine of engines){
     await p.goto(target.origin+mount+'#companion');await p.getByRole('heading',{name:'Companion unavailable',exact:true}).waitFor();assert.equal(await p.locator('[data-study-text]').count(),0);assert.equal((await workerReadiness(p)).ready,false);assert.equal(await p.locator('#offline-status').textContent(),'Offline copy incomplete');
     await p.screenshot({path:fileURLToPath(new URL(kind+'-offline.png',engineOut))});assert.deepEqual(recovery.errors,[]);assert.deepEqual(recovery.external,[]);
     const failures=Object.fromEntries(missing.map(file=>[file,target.requests.filter(r=>r.path===mount+file&&r.status===404).length]));for(const file of missing)assert.ok(failures[file]>=2,'HTTP fixture blocks both initial page fetches and worker-install optional fetches: '+file);
-    report.restores.push({kind,...stored,freshOrigin:true,separateBrowser:true,serverLevel404s:failures,scope:mount,cachePrefix:'newreading-'+slug+'-',loadedFonts:fonts,stoppedOriginReload:true,uncachedNetworkControlFailed:true,exactOfflineReading:true,fullNoticesRecoveredOffline:true,completeCollectionReady:false,missingCompanionReported:true,externalRequests:0});await save();
+    report.restores.push({kind,...stored,freshOrigin:true,separateBrowser:true,serverLevel404s:failures,scope:mount,cachePrefix:'newreading-'+slug+'-',loadedFonts:fonts,stoppedOriginReload:true,uncachedNetworkControlFailed:true,exactOfflineReading:true,fullNoticesRecoveredOffline:true,completeCollectionReady:false,missingCompanionReported:true,exactSharedModuleCached:true,otherRootAndReaderPathsExcluded:true,externalRequests:0});await save();
    }catch(error){
     const diagnostic={engine,kind,error:error.stack,requests:target?.requests,errors:recovery?.errors};
     if(recovery?.page){await recovery.page.screenshot({path:fileURLToPath(new URL(kind+'-failure.png',engineOut))}).catch(()=>{});diagnostic.page=await recovery.page.evaluate(async()=>({text:document.body.innerText.slice(0,3000),controller:navigator.serviceWorker.controller?.scriptURL,registrations:(await navigator.serviceWorker.getRegistrations()).map(r=>({scope:r.scope,active:r.active?.state,waiting:r.waiting?.state,installing:r.installing?.state})),caches:await caches.keys()})).catch(e=>({error:e.message}))}
