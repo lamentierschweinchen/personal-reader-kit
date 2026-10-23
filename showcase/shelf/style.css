@@ -11,7 +11,7 @@
 .mixed-library .shelf-hand{font:1.9375rem/1.05 var(--hand);color:var(--red);transform:rotate(-3deg)}
 .mixed-library a:hover{color:var(--red)}
 .mixed-library .shelf-room{padding-top:36px;position:relative}
-.mixed-library .bookcase{--front-w:clamp(150px,calc(30vw - 235px),200px);display:flex;align-items:flex-end;justify-content:center;gap:6px;list-style:none;margin:0;padding:0 8px;height:356px;isolation:isolate}
+.mixed-library .bookcase{--front-w:clamp(118px,calc(33.33vw - 320px),180px);display:flex;align-items:flex-end;justify-content:center;gap:6px;list-style:none;margin:0;padding:0 8px;height:356px;isolation:isolate}
 .mixed-library .shelf-volume{--spine-paper:#f3efe3;--spine-ink:#2a2a25;--spine-face:var(--display);--spine-size:23px;flex:0 0 var(--thickness);width:var(--thickness);height:var(--book-height);position:relative;z-index:1;transform:translateZ(0)}
 .mixed-library .shelf-volume.is-faceout{flex-basis:calc(var(--front-w) + var(--thickness)/2 - 6px);width:calc(var(--front-w) + var(--thickness)/2 - 6px)}
 .mixed-library .shelf-volume.is-selected{z-index:3}
@@ -76,7 +76,7 @@
 @media(min-width:1281px) and (prefers-reduced-motion:no-preference){
  .mixed-library.shelf-interacted .shelf-volume{transition:flex-basis .54s var(--shelf-ease),width .54s var(--shelf-ease)}
 }
-@media(min-width:1500px){.mixed-library .bookcase{gap:12px}}
+@media(min-width:1500px){.mixed-library .bookcase{gap:8px}}
 @media(max-width:1280px){
  .mixed-library .shelf-controls{display:flex;gap:6px;align-items:center}
  .mixed-library .shelf-controls button{display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink)}
@@ -130,3 +130,6 @@
  .mixed-library .book-spine{background:Canvas;color:CanvasText}
  .mixed-library .shelf-controls button:disabled{opacity:1;color:GrayText}
 }
+
+.mixed-library .volume-douglass{--spine-paper:#e5ddc6;--spine-ink:#413b2e;--spine-size:21px}
+.mixed-library .volume-poe{--spine-paper:#282625;--spine-ink:#ece5d3;--spine-size:22px}

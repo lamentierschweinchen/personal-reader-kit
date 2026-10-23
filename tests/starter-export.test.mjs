@@ -61,7 +61,9 @@ test('real starter export is exact, sample-identical, and recursively usable wit
   assert.deepEqual(projected.starterFiles, original.starterFiles);
   assert.equal(projected.originalSampleSha256, original.originalSampleSha256);
   assert.equal(projected.sampleProvenance, original.sampleProvenance);
-  assert.deepEqual(projected.reviewedIconFiles, original.reviewedIconFiles.filter(entry => original.starterFiles.includes(entry.path)));
+  const currentIcons=[];
+  for(const entry of original.reviewedIconFiles)if(original.starterFiles.includes(entry.path)&&sha(await readFile(path.join(root,entry.path)))===entry.sha256)currentIcons.push(entry);
+  assert.deepEqual(projected.reviewedIconFiles, currentIcons);
   for (const file of original.starterFiles.filter(file => file !== 'publication.json')) {
     assert.deepEqual(await readFile(path.join(destination, file)), await readFile(path.join(root, file)), file);
   }
@@ -81,6 +83,46 @@ test('projection retains included asset pins and full notices, excludes optional
   for (const key of ['reviewedEditionFiles', 'reviewedSiteAssets', 'reviewedHistoricalFiles', 'reviewedIconFiles']) assert.deepEqual(projected[key], []);
   assert.deepEqual(await listFiles(f.destination), [...f.manifest.starterFiles].sort());
   assert.equal(await readFile(path.join(f.destination, 'site/fixture-OFL.txt'), 'utf8'), 'Original test license fixture.');
+});
+
+test('history-free export keeps current pins while preserving the source historical icon and font reviews',async t=>{
+  const f=await fixture(t),file='site/icon-192.png';
+  // Synthetic binary audit fixture; actual PNG decoding is covered by home-screen tests.
+  const old=Buffer.from([137,80,78,71,0,1]),current=Buffer.from([137,80,78,71,0,2]);
+  await writeFile(path.join(f.source,file),current);f.manifest.files.push(file);f.manifest.starterFiles.push(file);
+  const oldPin={path:file,sha256:sha(old),provenance:'README.md',reason:'Original synthetic historical icon.'};
+  const currentPin={...oldPin,sha256:sha(current),reason:'Original synthetic current icon.'};
+  f.manifest.reviewedIconFiles.push(oldPin,currentPin);
+  const currentFont=f.manifest.reviewedFontFiles[0],oldFont={...currentFont,sha256:sha(Buffer.from('older synthetic font')),licenseSha256:sha(Buffer.from('older synthetic notice'))};
+  f.manifest.reviewedFontFiles.unshift(oldFont);
+  const historical={path:'README.md',sha256:sha(Buffer.from('historical original readme')),reason:'Separate historical-path behavior is unchanged.'};
+  f.manifest.reviewedHistoricalFiles.push(historical);await f.save();
+  const original=await readFile(path.join(f.source,'publication.json'));
+  await exportStarter(f);
+  const projected=JSON.parse(await readFile(path.join(f.destination,'publication.json'),'utf8'));
+  assert.deepEqual(projected.reviewedIconFiles,[currentPin]);assert.deepEqual(projected.reviewedFontFiles,[currentFont]);
+  assert.deepEqual(projected.reviewedHistoricalFiles,[historical]);
+  assert.deepEqual(await readFile(path.join(f.destination,file)),current);
+  assert.deepEqual(await readFile(path.join(f.source,'publication.json')),original,'export does not remove reachable-history pins from source');
+});
+
+test('historical pins cannot admit changed bytes, unknown binary paths or missing provenance',async t=>{
+  for(const kind of ['old-only','changed','missing-provenance','invalid-old-provenance','invalid-old-hash','unknown-path','license']){
+    const f=await fixture(t),file=kind==='unknown-path'?'site/arbitrary.png':'site/icon-192.png';
+    const current=Buffer.from([137,80,78,71,0,2]),old=Buffer.from([137,80,78,71,0,1]);
+    await writeFile(path.join(f.source,file),current);f.manifest.files.push(file);f.manifest.starterFiles.push(file);
+    const oldPin={path:file,sha256:sha(old),provenance:'README.md',reason:'Synthetic old icon.'};
+    const currentPin={...oldPin,sha256:sha(current),reason:'Synthetic current icon.'};
+    f.manifest.reviewedIconFiles.push(oldPin,...(kind==='old-only'?[]:[currentPin]));
+    if(kind==='changed')await writeFile(path.join(f.source,file),Buffer.concat([current,Buffer.from('unreviewed')]));
+    if(kind==='missing-provenance')delete currentPin.provenance;
+    if(kind==='invalid-old-provenance')oldPin.provenance='examples/excluded.md';
+    if(kind==='invalid-old-hash')oldPin.sha256='not-a-sha';
+    if(kind==='license')f.manifest.reviewedFontFiles[0].licenseSha256='a'.repeat(64);
+    await f.save();
+    await assert.rejects(exportStarter(f),/reviewed hash|excluded provenance|Invalid included asset pin|binary data/);
+    await assert.rejects(access(f.destination),{code:'ENOENT'});
+  }
 });
 
 test('missing input, altered sample, altered assets and excluded provenance fail before destination creation', async t => {

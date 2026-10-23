@@ -7,7 +7,7 @@ import {cover} from './covers.mjs';
 const root=new URL('../../',import.meta.url);
 const GH='https://github.com/lamentierschweinchen/personal-reader-kit';
 const hanslickScan='https://commons.wikimedia.org/wiki/File:The_beautiful_in_music_-_a_contribution_to_the_revisal_of_musical_aesthetics_(IA_beautifulinmusichans).pdf';
-const reviewedScans={'music-and-feeling':hanslickScan,'mountains-and-heights':'https://archive.org/details/alps00conw','war-and-peace':'https://www.prlib.ru/item/1988888'};
+const reviewedScans={'music-and-feeling':hanslickScan,'mountains-and-heights':'https://archive.org/details/alps00conw','war-and-peace':'https://www.prlib.ru/item/1988888','douglass-narrative':'https://docsouth.unc.edu/neh/douglass/menu.html','fall-of-the-house-of-usher':'https://archive.org/details/tales00poeedgar'};
 const keys=['id','exampleId','title','author','shortAuthor','kind','language','edition','editionLabel','feature','description','categories','preparedBy','sourceUrls','sourceLabels','rightsPath'];
 export const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const arrow='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';

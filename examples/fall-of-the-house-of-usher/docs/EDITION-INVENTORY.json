@@ -1,0 +1,97 @@
+{
+  "sourceCommit": "3dc8c10aff69c9073022637c8f451a0d8c019b3a",
+  "scope": "Exact nine edition, illustration, font, notice and raster-icon inputs. Reader application code is inventoried by scripts/build.mjs; this is not a directory-wide asset permission.",
+  "files": [
+    {
+      "path": "edition/library.json",
+      "name": "library.json",
+      "bytes": 54182,
+      "sha256": "dea3d3bf9de11ee8e271687b9f92c1023e01914c6ef32c0473e52b0734e13488",
+      "kind": "reviewed public-domain edition",
+      "provenance": "Poe, Tales (1845), Poe Society transcription checked against the University of North Carolina copy scanned in Internet Archive; exact source project prepared edition including recoverable credits.",
+      "rights": "Poe source text is public domain in the United States. No modern scholarly commentary is copied. See SOURCES.md and SOURCE-RIGHTS.md."
+    },
+    {
+      "path": "site/im-fell-normal.woff2",
+      "name": "im-fell-normal.woff2",
+      "bytes": 59880,
+      "sha256": "248300df1647bec49155a5cada1d65f719ae633ef48564d1f19b135a8a5b7f5f",
+      "kind": "font",
+      "provenance": "Exact IM Fell English font from source project prepared input.",
+      "rights": "SIL Open Font License 1.1; full notice site/OFL-IMFell.txt retained."
+    },
+    {
+      "path": "site/im-fell-italic.woff2",
+      "name": "im-fell-italic.woff2",
+      "bytes": 57808,
+      "sha256": "8fc678575e83868f82ce5aa6e023f056ea68d480e16dd108b3e14bc375c8fdea",
+      "kind": "font",
+      "provenance": "Exact IM Fell English font from source project prepared input.",
+      "rights": "SIL Open Font License 1.1; full notice site/OFL-IMFell.txt retained."
+    },
+    {
+      "path": "edition/beardsley.jpg",
+      "name": "beardsley.jpg",
+      "bytes": 2781275,
+      "sha256": "746c5ac8ed31a97e16551b53be6e062f0d7059d916acd912d59c110aa4e31d9c",
+      "kind": "historical illustration",
+      "provenance": "The Metropolitan Museum of Art, object 2021.16.16 / API 753521; complete original sheet.",
+      "source": "https://www.metmuseum.org/art/collection/search/753521",
+      "dimensions": [
+        2314,
+        3645
+      ],
+      "rights": "Met Open Access CC0; Beardsley drawing dated 1894."
+    },
+    {
+      "path": "edition/clarke.jpg",
+      "name": "clarke.jpg",
+      "bytes": 2035834,
+      "sha256": "eb6ed7949aa039077dec1c0058f9a798ae89ff6be1d1b0dddb0f66e53b8fb75d",
+      "kind": "historical illustration",
+      "provenance": "Duke University Libraries / Internet Archive talesofmysteryim01poee, leaf 165, plate facing printed page 130; complete JP2 page converted to JPEG in source project.",
+      "source": "https://archive.org/details/talesofmysteryim01poee/page/n165/mode/1up",
+      "dimensions": [
+        2473,
+        3531
+      ],
+      "rights": "Underlying illustration first published 1919; reproduced scan catalogued 1923, title page undated. No item-level CC0 claim. Public Domain Review reports source confirmation of no additional digital-copy rights; see ART-SOURCES.md for limits."
+    },
+    {
+      "path": "site/OFL-IMFell.txt",
+      "name": "OFL-IMFell.txt",
+      "bytes": 4452,
+      "sha256": "2a3ca501fc4d5efcad9798531e3e06962b1e20c60e464f6cbd6c17630112c773",
+      "kind": "font licence",
+      "provenance": "Exact source project licence notice, including original line endings.",
+      "rights": "SIL Open Font License 1.1 notice retained in full."
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "name": "apple-touch-icon.png",
+      "bytes": 2950,
+      "sha256": "3d343410c048b926246ebf2a3666da2e489cc60aa9051d9a03207b1488b91520",
+      "kind": "original home-screen icon",
+      "provenance": "Original Poe reader icon from sourceCommit 3dc8c10aff69c9073022637c8f451a0d8c019b3a.",
+      "rights": "Original project artwork; contains no historical plate or source quotation."
+    },
+    {
+      "path": "site/icon-192.png",
+      "name": "icon-192.png",
+      "bytes": 3059,
+      "sha256": "e35941077c8003597beb40e73d0190a73a6e895c1736c8dc873792b7e05a325a",
+      "kind": "original home-screen icon",
+      "provenance": "Original Poe reader icon from sourceCommit 3dc8c10aff69c9073022637c8f451a0d8c019b3a.",
+      "rights": "Original project artwork; contains no historical plate or source quotation."
+    },
+    {
+      "path": "site/icon-512.png",
+      "name": "icon-512.png",
+      "bytes": 10615,
+      "sha256": "95573ceba3712a5e02d25ae986cd6d67c125550f3e83f5aca88d7c036f8336b6",
+      "kind": "original home-screen icon",
+      "provenance": "Original Poe reader icon from sourceCommit 3dc8c10aff69c9073022637c8f451a0d8c019b3a.",
+      "rights": "Original project artwork; contains no historical plate or source quotation."
+    }
+  ]
+}

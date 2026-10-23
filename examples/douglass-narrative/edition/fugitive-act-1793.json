@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "profile": "personal-reader/text@1",
+  "id": "fugitive-act-1793",
+  "title": "Act of February 12, 1793 — Sections 3 and 4",
+  "author": "United States Congress",
+  "edition": "Second Congress, Session II, Chapter VII. Approved February 12, 1793. United States Statutes at Large, volume 1, pages 302–305; statutory Sections 3 and 4 only.",
+  "language": "en",
+  "source": {
+    "sha256": "3256a99f1c5a47367bbbfe41f79d7fa38f346cd82e3216eee06909c09d300936",
+    "format": "application/pdf",
+    "description": "New transcription from official GovInfo STATUTE-1-Pg302.pdf, four-page scan of 1 Stat. 302–305. Complete statutory Sections 3 and 4; later case annotations and their call marker, marginal summaries, running heads and other statutory sections excluded. Original wording, spelling, punctuation and italic enacting clauses retained; prose line wraps and unambiguous divided-word hyphens joined. Printed north-west hyphen retained. No scan images included."
+  },
+  "sections": [
+    {
+      "id": "section-3",
+      "title": "Section 3.",
+      "blocks": [
+        {
+          "id": "sec-3-label",
+          "kind": "heading",
+          "text": "Sec. 3.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "sec-3-text",
+          "kind": "prose",
+          "text": "And be it also enacted, That when a person held to labour in any of the United States, or in either of the territories on the north-west or south of the river Ohio, under the laws thereof, shall escape into any other of the said states or territory, the person to whom such labour or service may be due, his agent or attorney, is hereby empowered to seize or arrest such fugitive from labour, and to take him or her before any judge of the circuit or district courts of the United States, residing or being within the state, or before any magistrate of a county, city or town corporate, wherein such seizure or arrest shall be made, and upon proof to the satisfaction of such judge or magistrate, either by oral testimony or affidavit taken before and certified by a magistrate of any such state or territory, that the person so seized or arrested, doth, under the laws of the state or territory from which he or she fled, owe service or labour to the person claiming him or her, it shall be the duty of such judge or magistrate to give a certificate thereof to such claimant, his agent or attorney, which shall be sufficient warrant for removing the said fugitive from labour, to the state or territory from which he or she fled.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "title": "Section 4.",
+      "blocks": [
+        {
+          "id": "sec-4-label",
+          "kind": "heading",
+          "text": "Sec. 4.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "sec-4-text",
+          "kind": "prose",
+          "text": "And be it further enacted, That any person who shall knowingly and willingly obstruct or hinder such claimant, his agent or attorney in so seizing or arresting such fugitive from labour, or shall rescue such fugitive from such claimant, his agent or attorney when so arrested pursuant to the authority herein given or declared; or shall harbor or conceal such person after notice that he or she was a fugitive from labour, as aforesaid, shall, for either of the said offences, forfeit and pay the sum of five hundred dollars. Which penalty may be recovered by and for the benefit of such claimant, by action of debt, in any court proper to try the same; saving moreover to the person claiming such labour or service, his right of action for or on account of the said injuries or either of them.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 26
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Source and selection",
+      "kind": "source",
+      "through": null,
+      "url": "https://www.govinfo.gov/link/statute/1/302?link-type=pdf",
+      "text": "An Act respecting fugitives from justice, and persons escaping from the service of their masters. Approved February 12, 1793, Second Congress, Session II, Chapter VII, 1 Stat. 302–305. This selection contains the complete statutory Sections 3 and 4. Sections 1 and 2 concern fugitives from justice and are not included. In this later Statutes at Large printing, lengthy case annotations interrupt Section 3 across pages 302–305; these annotations, including discussion of Prigg, are not part of the enacted 1793 text and are omitted here, along with their call marker and marginal summaries. The approval date appears after Section 4 in the scan."
+    },
+    {
+      "label": "Transcription",
+      "kind": "source",
+      "through": null,
+      "text": "Personally checked against all four scan pages. Source spelling, capitals and punctuation are retained; no words are modernized. Inline small-cap labels Sec. 3. and Sec. 4. become separate headings with the same letters; their small-cap styling is represented in title case. The italic enacting clauses remain italic. Line wraps and typesetting spacing are normalized for continuous prose. The unambiguous breaks testi-/mony, know-/ingly, at-/torney, har-/bor and reco-/vered are joined, including testimony across pages 303–304. The printed north-/west hyphen is retained as north-west because its lexical status cannot be determined from that line break alone. The annotation marker (b), not a statutory word, is omitted after labour; its preceding comma remains. The PDF OCR adds a dot after the in within the state on page 303; the page image does not show that punctuation."
+    },
+    {
+      "label": "Rights and provider",
+      "kind": "source",
+      "through": null,
+      "url": "https://www.govinfo.gov/about/policies",
+      "text": "Historical United States federal statutory text, with a United States public-domain basis. GovInfo, United States Government Publishing Office, provides the official scan. Its policy distinguishes United States Government works from third-party material in government publications and from separately licensed website images. This prepared edition contains newly transcribed statutory text, not GovInfo branding, web imagery or scan pixels. Raw PDF bytes and witness images remain private preparation evidence. No worldwide determination or publication authorization is asserted."
+    }
+  ]
+}

@@ -1,8 +1,8 @@
-// Optional browser-local continuity for the fourteen admitted public readers.
+// Optional browser-local continuity for the sixteen admitted public readers.
 // Existing book/state objects are inspected locally; the pointer contains no text or position.
 export const CONTINUATION_KEY='newreading-continuation-v1';
 export const CONTINUATION_EVENT='newreading:continuation';
-export const PUBLIC_WORKS=Object.freeze(Object.fromEntries(Object.entries({austen:['austen-pride-1894'],alice:['alice-rackham-28885'],walden:['walden','civil-disobedience'],'two-halls':['hegel','schopenhauer'],odyssey:['odyssey-butler-1727'],dracula:['dracula'],'at-table':['savarin','beeton','estes'],'inward-life':['julian','tagore','james'],'music-and-feeling':['hanslick','tolstoy'],'learning-to-see':['ruskin','crane'],'beside-the-bed':['nightingale-1898','whitman-specimen'],nietzsche:['nietzsche','epicurus'],mountains:['conway-alps-1904'],'war-and-peace':['war-and-peace-maude']}).map(([key,value])=>[key,Object.freeze(value)])));
+export const PUBLIC_WORKS=Object.freeze(Object.fromEntries(Object.entries({austen:['austen-pride-1894'],alice:['alice-rackham-28885'],walden:['walden','civil-disobedience'],'two-halls':['hegel','schopenhauer'],odyssey:['odyssey-butler-1727'],dracula:['dracula'],'at-table':['savarin','beeton','estes'],'inward-life':['julian','tagore','james'],'music-and-feeling':['hanslick','tolstoy'],'learning-to-see':['ruskin','crane'],'beside-the-bed':['nightingale-1898','whitman-specimen'],nietzsche:['nietzsche','epicurus'],mountains:['conway-alps-1904'],'war-and-peace':['war-and-peace-maude'],douglass:['douglass-1845','bingham-dialogue-1817','douglass-escape-1881','fugitive-act-1793'],poe:['usher-1845']}).map(([key,value])=>[key,Object.freeze(value)])));
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
 const keys=(value,expected)=>object(value)&&Object.keys(value).sort().join(',')===[...expected].sort().join(',');
 const hash=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
@@ -162,7 +162,7 @@ function supportedLocation(location,reader){
 export function startContinuation(win=window,doc=document){
   const script=doc.querySelector('script[data-newreading-continuation]');if(!script)return;
   let config;try{config=JSON.parse(script.getAttribute('data-newreading-continuation'));}catch{return;}
-  if(!keys(config,['profiles','reader'])||!Array.isArray(config.profiles)||!config.profiles.length||config.profiles.length>14||config.profiles.some(profile=>!validProfile(profile))||!(config.reader===null||config.profiles.some(profile=>profile.edition===config.reader))||!supportedLocation(win.location,config.reader))return;
+  if(!keys(config,['profiles','reader'])||!Array.isArray(config.profiles)||!config.profiles.length||config.profiles.length>Object.keys(PUBLIC_WORKS).length||config.profiles.some(profile=>!validProfile(profile))||!(config.reader===null||config.profiles.some(profile=>profile.edition===config.reader))||!supportedLocation(win.location,config.reader))return;
   const profiles=config.profiles,read=()=>parsePointer(win.localStorage.getItem(CONTINUATION_KEY),config.reader?null:profiles),listeners=[];
   const listen=(target,type,fn)=>{target.addEventListener(type,fn);listeners.push(()=>target.removeEventListener(type,fn));};
   if(config.reader){

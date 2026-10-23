@@ -12,7 +12,7 @@ cd ../my-reader
 npm run dev
 ```
 
-Choose a new directory with an existing parent, outside the source folder. The exporter reads the current files named in `publication.json.starterFiles`, checks them before creating the directory, and sets the exported `files` inventory to that same list. It preserves the original sample and included asset provenance, excluding optional examples, showcase assets, private preparation and Git history. It refuses existing destinations and symlink inputs. The exported README, working agreement and historical guidance retain upstream context; optional collection references do not mean those applications are present or authorized for this personal reader. Reuse an existing personal project when it already fits.
+Choose a new directory with an existing parent, outside the source folder. The exporter reads the current files named in `publication.json.starterFiles`, checks them before creating the directory, and sets the exported `files` inventory to that same list. It preserves the original sample and included asset provenance, excluding optional examples, showcase assets, private preparation and Git history. It refuses existing destinations and symlink inputs. When a personalized icon or font changes, keep its earlier exact pins for the source repository’s history audit. The history-free export retains the pins matching the current bytes; deleting old pins is not a repair. The exported README, working agreement and historical guidance retain upstream context; optional collection references do not mean those applications are present or authorized for this personal reader. Reuse an existing personal project when it already fits.
 
 ## 1. Meet the books
 

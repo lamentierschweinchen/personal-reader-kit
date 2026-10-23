@@ -1,6 +1,6 @@
 # Contributing an edition to the library
 
-The [New reading library](https://newreading.app/library/) collects prepared editions: a particular source, a useful reading experience and any companion its maker has built. Fourteen editions prepared by New reading form the current shelf, including six meetings of writers. Community proposals are reviewed before joining it.
+The [New reading library](https://newreading.app/library/) collects prepared editions: a particular source, a useful reading experience and any companion its maker has built. Sixteen editions prepared by New reading form the current shelf, including six meetings of writers. Community proposals are reviewed before joining it.
 
 ## Propose a reader
 
@@ -18,9 +18,9 @@ Link acceptance is specific to the reviewed revision and destination. Recheck ch
 
 ## Maintaining the catalogue
 
-`showcase/library/entries.json` contains public discovery metadata only. It references the existing examples and their source reviews; it is not a list of arbitrary applications to execute or deploy. The current validator admits exactly the fourteen reviewed hosted examples. Accepting an external contribution requires a deliberate schema and review change, including a clear maker-hosted label, approved local thumbnail, revision and maintenance record. Do not weaken that validator merely to make a submission pass.
+`showcase/library/entries.json` contains public discovery metadata only. It references the existing examples and their source reviews; it is not a list of arbitrary applications to execute or deploy. The current validator admits exactly the sixteen reviewed hosted examples. Accepting an external contribution requires a deliberate schema and review change, including a clear maker-hosted label, approved local thumbnail, revision and maintenance record. Do not weaken that validator merely to make a submission pass.
 
-The generator renders all fourteen read links and edition disclosures into static HTML. Search, filtering, sorting and modal previews enhance it without an account or upload endpoint. A quiet Continue link appears after this browser saves a place in an exact admitted public edition, including an exact restored copy. Unrecognized or modified editions are excluded.
+The generator renders all sixteen read links and edition disclosures into static HTML. Search, filtering, sorting and modal previews enhance it without an account or upload endpoint. A quiet Continue link appears after this browser saves a place in an exact admitted public edition, including an exact restored copy. Unrecognized or modified editions are excluded.
 
 The local pointer contains only the edition, public work ID and timestamp. The library reads that pointed reader’s existing state and any stored edition locally, then hides the link if the saved place is unavailable. It does not scan other readers, create a missing database, migrate records or send them to analytics. The reader validates the place again on arrival. Companion and game locations never replace the main reading place.
 

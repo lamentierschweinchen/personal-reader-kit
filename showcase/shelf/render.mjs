@@ -5,7 +5,7 @@ import {escape, validateEntries} from '../library/render.mjs';
 
 const arrow = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const back = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5m6-6-6 6 6 6"/></svg>';
-const short = {alice:'Alice in Wonderland', walden:'Walden', 'two-halls':'Two lecture halls', 'music-and-feeling':'What can music say?'};
+const short = {douglass:'Douglass · Narrative',poe:'The House of Usher',alice:'Alice in Wonderland', walden:'Walden', 'two-halls':'Two lecture halls', 'music-and-feeling':'What can music say?'};
 const lines = {
   'at-table':'Asparagus, stock and coffee, compared.',
   'inward-life':'Three accounts of spiritual experience.',
@@ -17,7 +17,7 @@ const lines = {
 const dimensions = {
   'at-table':[318,48], 'inward-life':[337,53], 'music-and-feeling':[296,45],
   'learning-to-see':[328,45], 'beside-the-bed':[306,51], austen:[330,47],
-  mountains:[326,48], nietzsche:[315,47], 'war-and-peace':[342,54], alice:[306,46], walden:[318,52], 'two-halls':[293,46], odyssey:[332,52], dracula:[314,48],
+  douglass:[325,48],poe:[307,44],mountains:[326,48], nietzsche:[315,47], 'war-and-peace':[342,54], alice:[306,46], walden:[318,52], 'two-halls':[293,46], odyssey:[332,52], dracula:[314,48],
 };
 const faceout = new Set(['alice','at-table','walden']);
 const sortTitle = b => b.title.replace(/^(a|an|the)\s+/i, '');

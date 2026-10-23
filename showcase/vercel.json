@@ -61,14 +61,14 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace))/sw\\.js$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe))/sw\\.js$",
       "headers": {
         "Cache-Control": "no-cache, no-store, must-revalidate"
       },
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

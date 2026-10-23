@@ -210,6 +210,56 @@
     "examples/beside-the-bed/tests/ui-icons.test.mjs",
     "examples/beside-the-bed/vercel.json",
     "examples/catalog.json",
+    "examples/douglass-narrative/.gitignore",
+    "examples/douglass-narrative/.vercelignore",
+    "examples/douglass-narrative/AGENTS.md",
+    "examples/douglass-narrative/LICENSE",
+    "examples/douglass-narrative/README.md",
+    "examples/douglass-narrative/docs/EDITION-INVENTORY.json",
+    "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+    "examples/douglass-narrative/edition-lock.json",
+    "examples/douglass-narrative/edition/bingham-dialogue-1817.json",
+    "examples/douglass-narrative/edition/douglass-1845.json",
+    "examples/douglass-narrative/edition/douglass-escape-1881.json",
+    "examples/douglass-narrative/edition/escape-editorial.json",
+    "examples/douglass-narrative/edition/fugitive-act-1793.json",
+    "examples/douglass-narrative/edition/portrait.jpg",
+    "examples/douglass-narrative/package.json",
+    "examples/douglass-narrative/samples/library.json",
+    "examples/douglass-narrative/scripts/build.mjs",
+    "examples/douglass-narrative/scripts/serve.mjs",
+    "examples/douglass-narrative/site/app.mjs",
+    "examples/douglass-narrative/site/apple-touch-icon.png",
+    "examples/douglass-narrative/site/bundle.mjs",
+    "examples/douglass-narrative/site/core.mjs",
+    "examples/douglass-narrative/site/db.mjs",
+    "examples/douglass-narrative/site/document-profile.mjs",
+    "examples/douglass-narrative/site/edition-binding.mjs",
+    "examples/douglass-narrative/site/edition.css",
+    "examples/douglass-narrative/site/icon-192.png",
+    "examples/douglass-narrative/site/icon-512.png",
+    "examples/douglass-narrative/site/icon.svg",
+    "examples/douglass-narrative/site/index.html",
+    "examples/douglass-narrative/site/library.mjs",
+    "examples/douglass-narrative/site/manifest.webmanifest",
+    "examples/douglass-narrative/site/robots.txt",
+    "examples/douglass-narrative/site/share-card.css",
+    "examples/douglass-narrative/site/share-card.mjs",
+    "examples/douglass-narrative/site/share.mjs",
+    "examples/douglass-narrative/site/style.css",
+    "examples/douglass-narrative/site/text.mjs",
+    "examples/douglass-narrative/tests/bundle.test.mjs",
+    "examples/douglass-narrative/tests/core.test.mjs",
+    "examples/douglass-narrative/tests/document-browser.mjs",
+    "examples/douglass-narrative/tests/document-fixture.mjs",
+    "examples/douglass-narrative/tests/document-profile.test.mjs",
+    "examples/douglass-narrative/tests/douglass-browser.mjs",
+    "examples/douglass-narrative/tests/edition-integration.test.mjs",
+    "examples/douglass-narrative/tests/package.test.mjs",
+    "examples/douglass-narrative/tests/share-card.test.mjs",
+    "examples/douglass-narrative/tests/share.test.mjs",
+    "examples/douglass-narrative/tests/ui-icons.test.mjs",
+    "examples/douglass-narrative/vercel.json",
     "examples/dracula/.vercelignore",
     "examples/dracula/AGENTS.md",
     "examples/dracula/LICENSE",
@@ -262,6 +312,50 @@
     "examples/dracula/tests/share.test.mjs",
     "examples/dracula/tests/ui-icons.test.mjs",
     "examples/dracula/vercel.json",
+    "examples/fall-of-the-house-of-usher/.gitignore",
+    "examples/fall-of-the-house-of-usher/.vercelignore",
+    "examples/fall-of-the-house-of-usher/LICENSE",
+    "examples/fall-of-the-house-of-usher/README.md",
+    "examples/fall-of-the-house-of-usher/docs/ART-SOURCES.md",
+    "examples/fall-of-the-house-of-usher/docs/EDITION-INVENTORY.json",
+    "examples/fall-of-the-house-of-usher/docs/HOME-SCREEN.md",
+    "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+    "examples/fall-of-the-house-of-usher/docs/SOURCES.md",
+    "examples/fall-of-the-house-of-usher/edition-lock.json",
+    "examples/fall-of-the-house-of-usher/edition/beardsley.jpg",
+    "examples/fall-of-the-house-of-usher/edition/clarke.jpg",
+    "examples/fall-of-the-house-of-usher/edition/library.json",
+    "examples/fall-of-the-house-of-usher/package.json",
+    "examples/fall-of-the-house-of-usher/scripts/build.mjs",
+    "examples/fall-of-the-house-of-usher/scripts/serve.mjs",
+    "examples/fall-of-the-house-of-usher/site/OFL-IMFell.txt",
+    "examples/fall-of-the-house-of-usher/site/app.mjs",
+    "examples/fall-of-the-house-of-usher/site/apple-touch-icon.png",
+    "examples/fall-of-the-house-of-usher/site/bundle.mjs",
+    "examples/fall-of-the-house-of-usher/site/core.mjs",
+    "examples/fall-of-the-house-of-usher/site/db.mjs",
+    "examples/fall-of-the-house-of-usher/site/icon-192.png",
+    "examples/fall-of-the-house-of-usher/site/icon-512.png",
+    "examples/fall-of-the-house-of-usher/site/icon.svg",
+    "examples/fall-of-the-house-of-usher/site/im-fell-italic.woff2",
+    "examples/fall-of-the-house-of-usher/site/im-fell-normal.woff2",
+    "examples/fall-of-the-house-of-usher/site/index.html",
+    "examples/fall-of-the-house-of-usher/site/manifest.webmanifest",
+    "examples/fall-of-the-house-of-usher/site/robots.txt",
+    "examples/fall-of-the-house-of-usher/site/share-card.css",
+    "examples/fall-of-the-house-of-usher/site/share-card.mjs",
+    "examples/fall-of-the-house-of-usher/site/share.mjs",
+    "examples/fall-of-the-house-of-usher/site/style.css",
+    "examples/fall-of-the-house-of-usher/site/text.mjs",
+    "examples/fall-of-the-house-of-usher/site/usher.css",
+    "examples/fall-of-the-house-of-usher/site/usher.mjs",
+    "examples/fall-of-the-house-of-usher/tests/bundle.test.mjs",
+    "examples/fall-of-the-house-of-usher/tests/edition.test.mjs",
+    "examples/fall-of-the-house-of-usher/tests/poe-browser.mjs",
+    "examples/fall-of-the-house-of-usher/tests/share-card-browser.mjs",
+    "examples/fall-of-the-house-of-usher/tests/share-card.test.mjs",
+    "examples/fall-of-the-house-of-usher/tests/share.test.mjs",
+    "examples/fall-of-the-house-of-usher/vercel.json",
     "examples/inward-life/.gitignore",
     "examples/inward-life/.vercelignore",
     "examples/inward-life/AGENTS.md",
@@ -1241,6 +1335,7 @@
     "showcase/check-collection-recovery.mjs",
     "showcase/check-continuation.mjs",
     "showcase/check-dialog-returns.mjs",
+    "showcase/check-douglass-poe.mjs",
     "showcase/check-dracula-game.mjs",
     "showcase/check-game-updates.mjs",
     "showcase/check-gameplay.mjs",
@@ -3834,6 +3929,60 @@
       "sha256": "5d51c04f94a6d958c4e8f0203209c6365dab18a8af7e4d1b3856e37d50408a2c",
       "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
       "reason": "Exact complete reviewed Maude novel or chapter structure from source 40ce940; source notices retained and edition fingerprints unchanged."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/bingham-dialogue-1817.json",
+      "sha256": "afcdc28fc5514f5746b9172b89ded89cc66e73d911c0345b1aac6b4a13d1d11a",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/douglass-1845.json",
+      "sha256": "2458cac18a6aaa9fee06dd013d311853b22f548234e40565d80009914635691a",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/douglass-escape-1881.json",
+      "sha256": "5161e8dfd92dacb00a59e392ca250b338463038de001c64db27cb19f7160748c",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/escape-editorial.json",
+      "sha256": "6d23cc6a9e11aa5982ab58821da51fdc13c025f730024cf5dc1d4baab3983192",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/fugitive-act-1793.json",
+      "sha256": "5ba03f213c5fdf30ef4d7325fe5ea0f2ce72819b003529bc7669e9f23de571bc",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/douglass-narrative/edition/portrait.jpg",
+      "sha256": "805733a734c1b5b34f17f4aa073bf6947138153454d9205179a1df720f74a2be",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/edition/beardsley.jpg",
+      "sha256": "746c5ac8ed31a97e16551b53be6e062f0d7059d916acd912d59c110aa4e31d9c",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/edition/clarke.jpg",
+      "sha256": "eb6ed7949aa039077dec1c0058f9a798ae89ff6be1d1b0dddb0f66e53b8fb75d",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/edition/library.json",
+      "sha256": "dea3d3bf9de11ee8e271687b9f92c1023e01914c6ef32c0473e52b0734e13488",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
     }
   ],
   "reviewedSiteAssets": [
@@ -4178,6 +4327,22 @@
       "license": "examples/war-and-peace/site/Literata-OFL.txt",
       "licenseSha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
       "reason": "Unmodified complete Literata variable TTF from Google Fonts; exact source URLs and bytes recorded, full SIL OFL 1.1 retained locally. No subsetting, conversion or renaming of font internals."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/site/im-fell-italic.woff2",
+      "sha256": "8fc678575e83868f82ce5aa6e023f056ea68d480e16dd108b3e14bc375c8fdea",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "license": "examples/fall-of-the-house-of-usher/site/OFL-IMFell.txt",
+      "licenseSha256": "2a3ca501fc4d5efcad9798531e3e06962b1e20c60e464f6cbd6c17630112c773",
+      "reason": "Exact IM Fell English face under the complete SIL Open Font License; no book data."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/site/im-fell-normal.woff2",
+      "sha256": "248300df1647bec49155a5cada1d65f719ae633ef48564d1f19b135a8a5b7f5f",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "license": "examples/fall-of-the-house-of-usher/site/OFL-IMFell.txt",
+      "licenseSha256": "2a3ca501fc4d5efcad9798531e3e06962b1e20c60e464f6cbd6c17630112c773",
+      "reason": "Exact IM Fell English face under the complete SIL Open Font License; no book data."
     }
   ],
   "reviewedIconFiles": [
@@ -4450,6 +4615,42 @@
       "sha256": "ea8fe92c2cbfcf7d2d035cc2d1abac981ce4dcabedf73428b203bceb1f5b15b2",
       "provenance": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
       "reason": "Original WP vector monogram rasterized as an opaque PNG, unchanged reviewed bytes under normalized public filenames; MIT software artwork. No historical image or literary text."
+    },
+    {
+      "path": "examples/douglass-narrative/site/apple-touch-icon.png",
+      "sha256": "fb900b88da183f4a0c5c36271612cdbb4ea70994e658b735fcbd5412e06451af",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/douglass-narrative/site/icon-192.png",
+      "sha256": "3a7f8a9c1439b2e3b4a74d70f2e6aa6213d184f9f737dac48e7e0d3a54374b76",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/douglass-narrative/site/icon-512.png",
+      "sha256": "910311ef2756b7f96ca66c0d4710934228382f8402d32b5b4afb9a7ab83ae8a3",
+      "provenance": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/site/apple-touch-icon.png",
+      "sha256": "3d343410c048b926246ebf2a3666da2e489cc60aa9051d9a03207b1488b91520",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/site/icon-192.png",
+      "sha256": "e35941077c8003597beb40e73d0190a73a6e895c1736c8dc873792b7e05a325a",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/fall-of-the-house-of-usher/site/icon-512.png",
+      "sha256": "95573ceba3712a5e02d25ae986cd6d67c125550f3e83f5aca88d7c036f8336b6",
+      "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
     }
   ]
 }

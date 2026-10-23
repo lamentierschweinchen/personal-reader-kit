@@ -2,7 +2,20 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with fourteen reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The fourteen specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with sixteen reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The sixteen specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+
+## Douglass, Poe and the starter export · 23 October 2026
+
+The owner approved Douglass for publication and delegated Poe’s final acceptance. The coordinator and an independent reader reviewed Poe’s complete story, six studies, source witnesses and illustration rights; the accepted public copy adds both readers to the existing catalogue, bringing it to sixteen editions.
+
+- **Douglass** (`/douglass/`) preserves the complete 1845 Narrative, source notes and five figures. Its optional documents place Bingham’s schoolbook dialogue beside Chapter VII, and the 1793 law and Douglass’s later escape account beside Chapter XI. All four supplied book objects remain exact.
+- **Poe** (`/poe/`) preserves the complete 1845 story, verse, emphasis and original note. Two historical illustrations and four film/music studies compare specific passages with later works. Modern media are linked, not copied. The public copy adds quotation cards, a quiet maker credit and reliable focus through ending controls. Its source note retains the distinction between the Met’s CC0 image and the separate historical basis for the Clarke reproduction.
+
+The demonstrated starter-export fix retains old icon/font review pins in source history while projecting only pins matching the current bytes into a history-free export. Changed or unreviewed assets still fail. The existing guide records this rule; no reader text or storage identity changes with the exporter.
+
+Local verification covers 81 kit tests, the original-sample build, 527 example tests, sixteen exact independent example builds, the isolated deployment inventory, both readers’ source/rendering and recovery journeys, and quotation cards in Chromium and WebKit. The combined site has 802 outputs from 894 declared inputs. All fourteen previous reader applications, databases, manifests, source editions and artwork remain byte-identical; their workers change only to cache the expanded shared continuation module. The coordinator inspected the mounted phone/desktop experiences and the sixteen-book shelf. Exact source, asset, font and icon provenance remains separately pinned in `publication.json` and `examples/catalog.json`.
+
+The current revision’s [Reader checks run](https://github.com/lamentierschweinchen/personal-reader-kit/actions/workflows/check.yml) is the authority for hosted CI. Browser emulation is not physical-device installation, native-share delivery or assistive-technology acceptance. Raw archives, local review captures, private readers and independent source histories stay outside this release.
 
 ## Return to reading and maker trial · 23 October 2026
 

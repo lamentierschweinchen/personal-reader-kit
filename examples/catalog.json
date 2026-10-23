@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Fourteen owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
+  "status": "Sixteen owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -4166,6 +4166,300 @@
       "maintenanceChanges": [
         "site/app.mjs"
       ]
+    },
+    {
+      "id": "douglass-narrative",
+      "title": "Narrative of the Life of Frederick Douglass",
+      "description": "The complete 1845 Narrative with three historical documents.",
+      "directory": "examples/douglass-narrative",
+      "sourceCommit": "f33475ec50181f05193661a1f7d38ff3a7f7c64b",
+      "sourceFileCount": 50,
+      "packagingChanges": [
+        "Selected public application and tests; individually pinned historical inputs replace ignored local preparation.",
+        "Public source/rights and exact inventory records; no raw source archive or private evidence.",
+        "Byte-identical reviewed application, four-book library and context bindings; exact frontispiece also available to catalogue cover."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:reader",
+        "test:document"
+      ],
+      "url": "https://newreading.app/douglass/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 82969,
+          "sha256": "f4f1df217cfd9c4d1f093a134230b62dd075d05cb6969aaa72423f864191077b"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 2921,
+          "sha256": "fb900b88da183f4a0c5c36271612cdbb4ea70994e658b735fcbd5412e06451af"
+        },
+        {
+          "path": "build.json",
+          "bytes": 576,
+          "sha256": "681fff85be80f0839d8d2210ac1df430d41fd896506bd923a2de3912b7359d32"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 18780,
+          "sha256": "1e03fde418d68a3e8aca5b9d8ad9984e5d8f3b5151364251f8353f415b525766"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7269,
+          "sha256": "ddaed86882207a5f59c206a6fbbf55bc94950a25f14a57ad94882d85918295f5"
+        },
+        {
+          "path": "document-profile.mjs",
+          "bytes": 7898,
+          "sha256": "e2bbae38456d7b9775f786543291e4a95f96308b8f5a7654e2deb62d90a6d614"
+        },
+        {
+          "path": "edition-binding.mjs",
+          "bytes": 1046,
+          "sha256": "9c66b673e10c223b89fb919cbf9538f9aa3c3df5d9eccd743b6ea21a86328f02"
+        },
+        {
+          "path": "edition.css",
+          "bytes": 10387,
+          "sha256": "0bdcb3483845fe5ed6edddc72e053a18bb95dbb282a9f7f9b151a115d3db0a58"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 3024,
+          "sha256": "3a7f8a9c1439b2e3b4a74d70f2e6aa6213d184f9f737dac48e7e0d3a54374b76"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 10369,
+          "sha256": "910311ef2756b7f96ca66c0d4710934228382f8402d32b5b4afb9a7ab83ae8a3"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 604,
+          "sha256": "186db9acb54e6c51e1be7111b175ac2b4c179d07b46be9b6bbbce55f788cce76"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2951,
+          "sha256": "cb28ebd4796ed3c47cb75085e0b2ce9dc6f2c19c749a14b385ad868ce8856a1c"
+        },
+        {
+          "path": "library.json",
+          "bytes": 454844,
+          "sha256": "a7431ad1cb82238a98cfe9f64a7733d9c26efa928b3085de2897fe6e9beb32e6"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 407,
+          "sha256": "97e391e18f04b449f7a74151394e29b665032e78aab96f2d52653be61d63e357"
+        },
+        {
+          "path": "portrait.jpg",
+          "bytes": 17736,
+          "sha256": "805733a734c1b5b34f17f4aa073bf6947138153454d9205179a1df720f74a2be"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23644,
+          "sha256": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1330,
+          "sha256": "60a26752bacf97dfc719187978229eb29b503bc8566fd47758e466db961167eb"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 5798,
+          "sha256": "4646408c2ee6aabb2f6722114d3970af9c7c4f9538dcd6b24404a058c12fc6bf"
+        }
+      ],
+      "maintenanceChanges": []
+    },
+    {
+      "id": "fall-of-the-house-of-usher",
+      "title": "The Fall of the House of Usher",
+      "description": "The complete 1845 story with two historical illustration studies and four film/music comparisons.",
+      "directory": "examples/fall-of-the-house-of-usher",
+      "sourceCommit": "3dc8c10aff69c9073022637c8f451a0d8c019b3a",
+      "sourceFileCount": 44,
+      "packagingChanges": [
+        "Selected public application and tests; individually pinned historical inputs replace ignored local preparation.",
+        "Public source/rights and exact inventory records; no raw source archive or private evidence.",
+        "Quotation cards, removable maker credit, dialog and ending-toggle focus repairs, a 320px cover fit and shorter redundant copy."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [
+        "test:reader",
+        "test:cards"
+      ],
+      "url": "https://newreading.app/poe/",
+      "reviewedBuild": [
+        {
+          "path": "OFL-IMFell.txt",
+          "bytes": 4452,
+          "sha256": "2a3ca501fc4d5efcad9798531e3e06962b1e20c60e464f6cbd6c17630112c773"
+        },
+        {
+          "path": "app.mjs",
+          "bytes": 74081,
+          "sha256": "54553bc7a27b71271d7c0d91a48727700a09f2af7475e0fc16efcf27c5ddc0df"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 2950,
+          "sha256": "3d343410c048b926246ebf2a3666da2e489cc60aa9051d9a03207b1488b91520"
+        },
+        {
+          "path": "beardsley.jpg",
+          "bytes": 2781275,
+          "sha256": "746c5ac8ed31a97e16551b53be6e062f0d7059d916acd912d59c110aa4e31d9c"
+        },
+        {
+          "path": "build.json",
+          "bytes": 590,
+          "sha256": "dabe15277942f796e0f95c4bb8f7b8e9402a346cc5cd9ea2bd3c96a5cf0d7b51"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "clarke.jpg",
+          "bytes": 2035834,
+          "sha256": "eb6ed7949aa039077dec1c0058f9a798ae89ff6be1d1b0dddb0f66e53b8fb75d"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7263,
+          "sha256": "36c8a9d6c91b2d375cdd3fe16c45900461491f7a25901f34df989db28dc26e5a"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 3059,
+          "sha256": "e35941077c8003597beb40e73d0190a73a6e895c1736c8dc873792b7e05a325a"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 10615,
+          "sha256": "95573ceba3712a5e02d25ae986cd6d67c125550f3e83f5aca88d7c036f8336b6"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 418,
+          "sha256": "9c14f78a8436d9acff8ecfd5ef7cb4693b94e388fca78c2c045b50d59d5309e3"
+        },
+        {
+          "path": "im-fell-italic.woff2",
+          "bytes": 57808,
+          "sha256": "8fc678575e83868f82ce5aa6e023f056ea68d480e16dd108b3e14bc375c8fdea"
+        },
+        {
+          "path": "im-fell-normal.woff2",
+          "bytes": 59880,
+          "sha256": "248300df1647bec49155a5cada1d65f719ae633ef48564d1f19b135a8a5b7f5f"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3217,
+          "sha256": "2bffdb8620b7c48a08c45573ca16f4128fa5f60bcb99ead4b02e3b73da6da9ce"
+        },
+        {
+          "path": "library.json",
+          "bytes": 54182,
+          "sha256": "dea3d3bf9de11ee8e271687b9f92c1023e01914c6ef32c0473e52b0734e13488"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 591,
+          "sha256": "c914c24ce09a6ce90a644ed74155ce3d938cac5e858343868e74db5b4bfcdb20"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 23448,
+          "sha256": "3bf46fa86a714d67aa7180ce1e197a1ebd3a2b7290cea1a48329f459e0ba0abe"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1474,
+          "sha256": "98b06a4ba4652991508ef9310cb98e58b8258597717469463062551b68ebb29f"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        },
+        {
+          "path": "usher.css",
+          "bytes": 18237,
+          "sha256": "5a5b8d9f360b088afaef23df247ff8ef19fa8589232f8ebd7bf83cb06b026103"
+        },
+        {
+          "path": "usher.mjs",
+          "bytes": 16287,
+          "sha256": "422a7561e728a1e96295f6384d6a33e88bc55efe82f14779508b297018f40d47"
+        }
+      ],
+      "maintenanceChanges": []
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"

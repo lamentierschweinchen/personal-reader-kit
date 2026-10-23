@@ -1,0 +1,12 @@
+# Sources and rights
+
+The exact text, two images, two fonts, font notice and three original icons are pinned in `../edition-lock.json` and `EDITION-INVENTORY.json`. They derive from the independently reviewed local source reader at commit `3dc8c10aff69c9073022637c8f451a0d8c019b3a`; no personal records or raw source archive is included.
+
+- **Poe’s story:** the 1845 Wiley & Putnam *Tales*, printed pp.64–82. Prepared from the Poe Society’s historical transcription and checked against the complete period scan. Modern correction apparatus is excluded. One witnessed capital-ligature correction is recorded in [SOURCES.md](SOURCES.md). The historical text has a United States public-domain basis; this is not a licence to reproduce the Society’s modern editorial matter.
+- **Beardsley:** the Met’s unmodified full-sheet image of its 1894 drawing, accession 2021.16.16. The museum identifies the image as public domain and provides it under CC0/Open Access. Museum credit remains visible.
+- **Clarke:** the complete plate facing p.130 from Duke’s scan of the edition catalogued 1923, with the original illustration independently witnessed in 1919. The derivative is a faithful JPEG conversion, retaining borders, signature and caption. Source-specific scan evidence and its limits are documented in [ART-SOURCES.md](ART-SOURCES.md); it is not labelled CC0.
+- **Type:** IM Fell English regular and italic under SIL OFL 1.1; the full unchanged notice is `site/OFL-IMFell.txt`, served by the reader. Font creation is distinct from the historical sources.
+- **Application icons:** original geometric artwork, documented in [HOME-SCREEN.md](HOME-SCREEN.md); no source illustration is used as an app icon.
+- **Companion:** original editorial observations with linked institutional and artist references. Film, recordings, modern restorations, scores, libretti and performances have separate rights. Only outward links are supplied. No claim of complete film viewing or full-score analysis follows from those links.
+
+The underlying historical terms, provider statements and exact reproduced contributions remain distinct. Rights statements and the present evidence do not establish worldwide clearance. The coordinator’s final release review must retain these qualifications and the exact inventory; later assets or audiences need their own review. The software’s MIT licence does not relicense third-party material.

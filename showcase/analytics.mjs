@@ -1,7 +1,7 @@
 // Optional measurement for the owner-approved public catalogue only.
 // This module never reads reader storage, quotations, form values or clipboard data.
 // The provider-reserved attribution key is checked for presence only; it is never parsed.
-export const PUBLIC_EDITIONS=Object.freeze(['austen','alice','walden','two-halls','odyssey','dracula','at-table','inward-life','music-and-feeling','learning-to-see','beside-the-bed','nietzsche','mountains','war-and-peace']);
+export const PUBLIC_EDITIONS=Object.freeze(['austen','alice','walden','two-halls','odyssey','dracula','at-table','inward-life','music-and-feeling','learning-to-see','beside-the-bed','nietzsche','mountains','war-and-peace','douglass','poe']);
 // Fail closed if the provider changes before its client receives another privacy review.
 export const PROVIDER_INTEGRITY='sha256-BQ41v35ullkPKp3hFMFP95KAbtKEV7Mkh2KUQ1DAukw=';
 const games=new Set(['alice','odyssey','dracula']);

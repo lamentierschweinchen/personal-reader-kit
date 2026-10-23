@@ -1,5 +1,13 @@
 # History boundary
 
+## Douglass, Poe and exact starter exports · 23 October 2026
+
+Two owner-approved additions bring the catalogue to sixteen editions: Douglass’s complete 1845 Narrative with three historical documents, and Poe’s complete Usher with illustrated comparisons and links to later film and music. The final Poe review removes obsolete local-review wording, adds quotation cards and repairs focus through ending controls. Exact texts, illustrations, licenses and edition notices are preserved. The selected public copies have their own inventories; source-project histories and private preparation are not imported.
+
+The remaining maker-trial fix now handles superseded icon and font pins when exporting the starter. Source history retains every reviewed pin; a new history-free starter receives only pins matching its current files. Unknown bytes and missing provenance still refuse export. Verification and limits are in [STATUS.md](docs/STATUS.md).
+
+## Repository origin
+
 This directory is the independent public kit repository; any surrounding workspace and personal readers have separate histories. Work began on `codex/reader-kit` with a local reviewed checkpoint. On 15 October 2026, after the 36-file / one-commit audit, the user explicitly selected **Publish as lamentierschweinchen/personal-reader-kit**.
 
 The approved public destination is `https://github.com/lamentierschweinchen/personal-reader-kit`, remote `origin`, published branch `main`. It is a GitHub template repository. The initial implementation commit is `eb363c2e9b7c53be6b6b06959ef580d2b5b8a179`; its remote SHA, public visibility and template setting were verified after publication. Subsequent documentation records the now-established destination. Routine reviewed kit updates are authorized for this repository; no Vercel project was created or deployed as part of the kit publication.

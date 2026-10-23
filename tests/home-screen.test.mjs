@@ -17,7 +17,10 @@ test('starter has portable PNG icons and keeps its previous installed identity',
  for(const file of ['docs/HOME-SCREEN.md','scripts/check-home-screen.mjs','tests/home-screen.test.mjs','site/apple-touch-icon.png','site/icon-192.png','site/icon-512.png'])assert.ok(manifest.starterFiles.includes(file),'Missing portable starter input: '+file);
  for(const icon of manifest.reviewedIconFiles.filter(f=>f.path.startsWith('site/'))){
   assert.ok(manifest.starterFiles.includes(icon.path));assert.ok(manifest.starterFiles.includes(icon.provenance));
-  assert.equal(sha(await readFile(path.join(root,icon.path))),icon.sha256);
+ }
+ for(const file of ['site/apple-touch-icon.png','site/icon-192.png','site/icon-512.png']){
+  const current=sha(await readFile(path.join(root,file)));
+  assert.ok(manifest.reviewedIconFiles.some(icon=>icon.path===file&&icon.sha256===current),'Missing current icon provenance: '+file);
  }
 });
 
@@ -65,13 +68,13 @@ test('optional public readers have distinct icons and retain standalone IDs; cat
  let catalog;try{catalog=JSON.parse(await readFile(path.join(root,'examples/catalog.json'),'utf8'));}catch(e){if(e.code==='ENOENT'&&!publication.files.includes('examples/catalog.json'))return;throw e;}
  const identities=new Set();
  for(const entry of catalog.examples){
-  const id=entry.id==='odyssey'?'/odyssey-reader':entry.id==='beside-the-bed'?'/beside-the-bed':'/';
+  const id=entry.id==='odyssey'?'/odyssey-reader':entry.id==='beside-the-bed'?'/beside-the-bed':entry.id==='fall-of-the-house-of-usher'?'/usher-reader':'/';
   const result=await checkHomeScreen(path.join(root,entry.directory,'site'),{id});
   assert.ok(!identities.has(result.apple.sha256),'Public readers share a generic home-screen icon');identities.add(result.apple.sha256);
   const names=['apple-touch-icon.png','icon-192.png','icon-512.png'];
   for(const name of names){
-   const file=entry.directory+'/site/'+name,pin=publication.reviewedIconFiles.find(f=>f.path===file);
-   assert.ok(pin,'Missing icon provenance: '+file);assert.equal(sha(await readFile(path.join(root,file))),pin.sha256);
+   const file=entry.directory+'/site/'+name,current=sha(await readFile(path.join(root,file)));
+   assert.ok(publication.reviewedIconFiles.some(pin=>pin.path===file&&pin.sha256===current),'Missing current icon provenance: '+file);
   }
  }
  const icon=await readFile(path.join(root,'showcase/assets/apple-touch-icon.png'));inspectPng(icon,{size:180});

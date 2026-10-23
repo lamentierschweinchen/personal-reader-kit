@@ -17,7 +17,7 @@ const metadata=JSON.parse(await readFile(new URL('./library/entries.json',import
 const runtimeFiles=['index.html','home.mjs','style.css','shelf/app.mjs','shelf/style.css','shelf/covers.css'];
 const buildHashes=()=>Promise.all(runtimeFiles.map(async file=>({file,sha256:createHash('sha256').update(await readFile(new URL('./dist/'+file,import.meta.url))).digest('hex')})));
 const testedFiles=await buildHashes();
-const order=['alice','mountains','at-table','beside-the-bed','dracula','inward-life','learning-to-see','nietzsche','odyssey','austen','two-halls','walden','war-and-peace','music-and-feeling'];
+const order=['alice','mountains','at-table','beside-the-bed','dracula','poe','inward-life','learning-to-see','douglass','nietzsche','odyssey','austen','two-halls','walden','war-and-peace','music-and-feeling'];
 const titles=new Map(metadata.editions.map(b=>[b.id,b.title]));
 const sizes=[{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:768,height:1024},{width:1024,height:768},{width:1280,height:900},{width:1281,height:900},{width:1366,height:900},{width:1440,height:1000}];
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
@@ -97,7 +97,7 @@ async function keyboardJourney(page){
  await pick(page,'dracula').focus();await settled(page);
  await state(page,'alice','Plain focus preserves selection');
  await page.keyboard.press('Space');await settled(page);await state(page,'dracula','Space activates');
- await page.keyboard.press('ArrowRight');await settled(page);await state(page,'inward-life','Right arrow');
+ await page.keyboard.press('ArrowRight');await settled(page);await state(page,'poe','Right arrow');
  await page.keyboard.press('Home');await settled(page);await state(page,'alice','Home');
  await page.keyboard.press('End');await settled(page);await state(page,'music-and-feeling','End');
  await page.keyboard.press('ArrowLeft');await settled(page);await state(page,'war-and-peace','Left arrow');

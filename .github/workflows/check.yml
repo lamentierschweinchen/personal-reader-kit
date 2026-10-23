@@ -74,6 +74,8 @@ jobs:
         if: hashFiles('showcase/check-readers.mjs') != ''
       - run: node showcase/check-new-editions.mjs --skip-build
         if: hashFiles('showcase/check-new-editions.mjs') != ''
+      - run: node showcase/check-douglass-poe.mjs --skip-build
+        if: hashFiles('showcase/check-douglass-poe.mjs') != ''
       - name: Verify comparison bundle restoration
         run: node examples/nietzsche-in-company/tests/browser.mjs
         if: hashFiles('examples/nietzsche-in-company/tests/browser.mjs') != ''

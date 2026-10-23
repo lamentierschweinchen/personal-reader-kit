@@ -1,5 +1,7 @@
 // Cover compositions around the exact reviewed reader artwork.
 export const cover=(b,mini=false)=>`<div class="cover cover-${b.id}${mini?' mini':''}" aria-hidden="true">${{
+ douglass:'<span class="cover-meta">FREDERICK DOUGLASS</span><strong><em>Narrative</em><span>of the Life</span></strong><img src="/douglass/portrait.jpg" alt=""><span class="cover-bottom">WRITTEN BY HIMSELF · 1845</span>',
+ poe:'<span class="cover-meta">EDGAR ALLAN POE</span><strong>The Fall<br>of the House<br>of <em>Usher</em></strong><img src="/poe/beardsley.jpg" alt=""><span class="cover-bottom">TALES · 1845</span>',
  mountains:'<span class="cover-meta">MARTIN CONWAY</span><strong>The<br><em>Alps</em></strong><img src="/mountains/cover-plate.jpg" alt=""><span class="cover-bottom">PAINTED BY A. D. McCORMICK</span>',
  nietzsche:'<span class="cover-meta">THE JOYFUL WISDOM</span><strong>Nietzsche<br><em>in company</em></strong><svg aria-hidden="true" focusable="false" class="cover-art" viewBox="0 0 480 400"><circle cx="240" cy="200" r="145" fill="#d6aa49"/><g stroke="currentColor" fill="none" stroke-width="1.8"><path d="M350 77a166 166 0 1 0 48 181M36 170h300M143 211h302M66 252h252"/><g fill="#f4f0e5"><circle cx="336" cy="170" r="5"/><circle cx="143" cy="211" r="5"/><circle cx="318" cy="252" r="5"/></g></g></svg><span class="cover-bottom">WITH EPICURUS</span>',
  'war-and-peace':'<span class="cover-meta">LEO TOLSTOY</span><strong>War<br><em>and</em> Peace</strong><img src="/war-and-peace/plate-portrait.webp" alt=""><span class="cover-bottom">LOUISE &amp; AYLMER MAUDE</span>',

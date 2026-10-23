@@ -9,7 +9,7 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe'});
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
@@ -65,10 +65,26 @@ export async function buildReaders(output){
         bytes=Buffer.from(text);
       }
       if(asset.path==='db.mjs'){
-        const prior=slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
+        const prior=slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
         bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
       }
       if(asset.path==='app.mjs'&&slug==='nietzsche')bytes=Buffer.from(replace(bytes.toString(),"fetch('/company.json'",`fetch('${base}company.json'`));
+      if(slug==='poe'){
+        if(asset.path==='app.mjs'){
+          let text=replace(bytes.toString(),"fetch('/build.json?network=1'",`fetch('${base}build.json?network=1'`);
+          text=replace(text,'src="/${work.image}"','src="'+base+'${work.image}"');bytes=Buffer.from(text);
+        }
+        if(asset.path==='usher.mjs'){
+          let text=replace(original.toString(),'src="/beardsley.jpg"',`src="${base}beardsley.jpg"`);
+          text=replace(text,'src="/${w.image}"','src="'+base+'${w.image}"');
+          text=replace(text,'href="/OFL-IMFell.txt"',`href="${base}OFL-IMFell.txt"`);bytes=Buffer.from(text);
+        }
+        if(asset.path==='usher.css'){
+          let text=original.toString();
+          for(const font of ['im-fell-normal.woff2','im-fell-italic.woff2'])text=replace(text,`url('/${font}')`,`url('${base}${font}')`);
+          bytes=Buffer.from(text);
+        }
+      }
       if(asset.path==='app.mjs'&&slug==='mountains')bytes=Buffer.from(replace(bytes.toString(),"fetch('/experience.json')",`fetch('${base}experience.json')`));
       if(asset.path==='edition.mjs'&&slug==='war-and-peace'){
         let text=replace(original.toString(),"['/structure.json','/companion.json']",`['${base}structure.json','${base}companion.json']`);
@@ -121,6 +137,13 @@ export async function buildReaders(output){
     // The optional pointer also works offline. Each reader keeps its own cached copy.
     hash.update('/continuation.mjs').update(await readFile(path.join(output,'continuation.mjs')));
     const version=hash.digest('hex').slice(0,16),prefix='newreading-'+slug+'-';
+    // Poe compares the live receipt with its cached worker version. Both must
+    // describe the mounted application, rather than its standalone input build.
+    if(slug==='poe'){
+      const receiptPath=path.join(destination,'build.json'),buildReceipt=JSON.parse(await readFile(receiptPath));
+      buildReceipt.version=version;await writeFile(receiptPath,JSON.stringify(buildReceipt)+'\n');
+      unchanged.splice(unchanged.indexOf('build.json'),1);changed.push('build.json');
+    }
     const install=recoverableShell?`const SHELL=${JSON.stringify([...builder.assets.map(f=>base+f),'/continuation.mjs'])};
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(async c=>{await c.addAll(SHELL);await Promise.all(FILES.filter(f=>!SHELL.includes(f)).map(async f=>{const r=await fetch(f,{cache:'reload'});if(r.ok)await c.put(f,r);else{await r.arrayBuffer();if(![404,410].includes(r.status))throw new Error('Offline source unavailable: '+f);}}));}).then(()=>self.skipWaiting())));`:`self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));`;
     const network=recoverableShell?"fetch(e.request).catch(error=>{if(!SHELL.includes(key))return new Response('Source data unavailable',{status:503});throw error;})":"fetch(e.request)";
@@ -128,7 +151,7 @@ self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(async c=>
 const FILES=${JSON.stringify([...files.map(f=>base+f),'/continuation.mjs'])};
 ${install}
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith(PREFIX)&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||${network}));});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;${slug==='poe'?"if(u.pathname===BASE+'build.json'&&u.searchParams.has('network')){e.respondWith(fetch(e.request).catch(()=>new Response('Network unavailable',{status:503})));return;}":''}const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||${network}));});
 self.addEventListener('message',e=>{if(e.data==='CHECK_OFFLINE')e.waitUntil(caches.open(CACHE).then(async c=>e.ports[0]?.postMessage({ready:(await Promise.all(FILES.map(f=>c.match(f)))).every(Boolean),version:${JSON.stringify(version)}})));});
 `);
     assert.ok(unchanged.includes('library.json'),'The complete edition must remain unchanged');

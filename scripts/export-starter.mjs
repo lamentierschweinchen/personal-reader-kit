@@ -90,10 +90,17 @@ export async function exportStarter({source = root, destination} = {}) {
   for (const file of files) contents.set(file, file === 'publication.json' ? manifestBytes : await readRegular(sourceRoot, file));
   if (digest(contents.get('samples/library.json')) !== manifest.originalSampleSha256) throw Error('Original sample bytes differ from their reviewed hash.');
   for (const key of reviewKeys.filter(key => key !== 'reviewedHistoricalFiles')) {
-    for (const entry of projected[key]) {
-      if (digest(contents.get(entry.path)) !== entry.sha256) throw Error('Included asset differs from its reviewed hash: ' + entry.path);
+    // A checkout's provenance also admits exact reachable historical versions.
+    // A history-free export carries only pins matching its current file bytes.
+    const current = new Map([...new Set(projected[key].map(entry => entry.path))].map(file => [file, digest(contents.get(file))]));
+    const matching = projected[key].filter(entry => current.get(entry.path) === entry.sha256);
+    for (const file of current.keys()) {
+      if (!matching.some(entry => entry.path === file)) throw Error('Included asset differs from its reviewed hash: ' + file);
+    }
+    for (const entry of matching) {
       if (entry.license && digest(contents.get(entry.license)) !== entry.licenseSha256) throw Error('Included font license differs from its reviewed hash: ' + entry.license);
     }
+    projected[key] = matching;
   }
   contents.set('publication.json', Buffer.from(JSON.stringify(projected, null, 2) + '\n'));
   for (const [file, bytes] of contents) {

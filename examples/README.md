@@ -1,4 +1,4 @@
-# Fourteen readers and three small games
+# Sixteen readers and three small games
 
 These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not presets for the stock importer.
 
@@ -39,7 +39,7 @@ From a selected or saved passage, **Make card** creates a quotation image in tha
 
 ## What is public
 
-The user selected these fourteen reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these sixteen reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. The catalogue declarations establish **public domain in the USA**, not worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -64,11 +64,18 @@ Before shipping authored UI or companion prose, follow the enclosing [reader-cop
 
 Maintain the published examples here. The source trial commits identify their starting point; do not continually copy entire working directories from a personal project. If accepting a later trial change, review that diff, rerun its journeys, and update only the selected files and evidence. New personal projects use `publication.json.starterFiles`, which excludes this optional collection.
 
-## One catalogue, fourteen reader paths
+## Two further editions · 23 October 2026
+
+The owner approved the complete Douglass Narrative and its three historical documents, and delegated final acceptance of Poe’s Usher reader. These separate packages retain their exact prepared books, original notes, images and contribution-specific rights records. Douglass pairs Chapters VII and XI with the schoolbook dialogue, the later escape account and the 1793 law; Poe pairs passages with two historical illustrations and four linked adaptations. Raw scans and private preparation are excluded.
+
+- [Douglass](https://newreading.app/douglass/): [source and rights](douglass-narrative/docs/SOURCE-RIGHTS.md).
+- [Poe](https://newreading.app/poe/): [source and rights](fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md).
+
+## One catalogue, sixteen reader paths
 
 [newreading.app](https://newreading.app/) is built by the [showcase](../showcase/README.md) with the founding readers at `/austen/`, `/alice/`, `/walden/`, `/two-halls/`, `/odyssey/` and `/dracula/`. The five meetings have their own paths at `/at-table/`, `/inward-life/`, `/music-and-feeling/`, `/learning-to-see/` and `/beside-the-bed/`. It uses one Vercel project with `showcase` as the Root Directory. The existing `read.lookatseel.com` address remains available. The earlier book subdomains redirect network requests to the corresponding new paths.
 
-The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All fourteen applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
+The combined builder checks each complete standalone output against this catalogue before adapting explicit asset URLs, database names, worker/cache scopes and install identities. Edition JSON and illustrations stay byte-identical. These namespaces prevent accidental collisions, not access by other code on the same origin. All sixteen applications share the same trusted publisher. Do not generalize this packaging to arbitrary readers without reviewing and testing their adapters.
 
 Each example can still be built independently with `npm run build` and output `dist`. Unmodified standalone builds need separate origins: their root URLs, database names and cache prefixes collide if their folders are simply copied under one address. The old-host redirect rules apply only to the four named `lookatseel.com` book hosts, so a new owner's deployment is unaffected. See [hosting and migration guidance](../docs/DEPLOYMENT.md#hosting-several-customized-readers).
 

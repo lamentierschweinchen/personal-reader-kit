@@ -1,0 +1,30 @@
+{
+  "name": "The Fall of the House of Usher",
+  "short_name": "Usher",
+  "id": "/usher-reader",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2eee5",
+  "theme_color": "#f2eee5",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "scope": "/"
+}

@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "canonicalUrl": "https://newreading.app/douglass/",
+  "approvedSourceCommit": "f33475ec50181f05193661a1f7d38ff3a7f7c64b",
+  "authorization": "Owner approved public publication on 2026-10-23; provider statements are separate from that authorization.",
+  "rightsScope": "Historical US public-domain basis; no worldwide clearance. See SOURCE-RIGHTS.md.",
+  "librarySha256": "a7431ad1cb82238a98cfe9f64a7733d9c26efa928b3085de2897fe6e9beb32e6",
+  "bindingSha256": "9c66b673e10c223b89fb919cbf9538f9aa3c3df5d9eccd743b6ea21a86328f02",
+  "editions": [
+    {
+      "id": "douglass-1845",
+      "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+      "author": "Frederick Douglass",
+      "source": {
+        "sha256": "52299d9ee84c926d562905a76962dd62c8a78df09912fd5fb934aa12d6c454ce",
+        "format": "application/vnd.douglass.document+json",
+        "description": "Prepared editorial revision. UNC DocSouth transcription of the Murrey Atkins Library, UNC Charlotte copy, Boston 1845. OCR: Sarah Reuning; images: Carlene Hempel; encoding: Carlene Hempel and Natalia Smith. XML wrapping whitespace reflowed; original notes at chapter ends; page boundaries retained. No running heads or indentation were encoded by this witness. Prepared-source revision includes the recorded witnessed repairs and layout apparatus; original XML SHA-256: 41856e46f9f15c3862c2b5669e20d386533e28e62e18eb304e135b7e3f79c5ce."
+      },
+      "preparedFile": {
+        "path": "edition/douglass-1845.json",
+        "bytes": 461942,
+        "sha256": "2458cac18a6aaa9fee06dd013d311853b22f548234e40565d80009914635691a"
+      },
+      "canonicalSha256": "5b2c3df435b5d49de3a56ba7d68fa17e4a86d32e221ff0a85f1e33af9e9a338e",
+      "sections": 20,
+      "blocks": 230
+    },
+    {
+      "id": "bingham-dialogue-1817",
+      "title": "Dialogue between a Master and Slave.",
+      "author": "Aikin (credited in the contents); compiled by Caleb Bingham",
+      "source": {
+        "sha256": "be9f6051e30547c989ca5bc2b5661764f1c26e591afb90655371cffaeec40683",
+        "format": "application/pdf",
+        "description": "New transcription of the complete dialogue from the 1817 scan, printed pp. 240–242 (PDF pages 246–248). Internet Archive, columbianorator00inbing; Lincoln Financial Foundation Collection. Source hash identifies the full downloaded PDF. Speaker labels and emphasis retained; prose reflowed, line-end hyphenation joined, typesetting spaces normalized. No scan images included."
+      },
+      "preparedFile": {
+        "path": "edition/bingham-dialogue-1817.json",
+        "bytes": 15169,
+        "sha256": "afcdc28fc5514f5746b9172b89ded89cc66e73d911c0345b1aac6b4a13d1d11a"
+      },
+      "canonicalSha256": "d55db0ba3c4f2600f38360c7d741f673ae02e5f85c70a9e35fedeef091d9e521",
+      "sections": 1,
+      "blocks": 25
+    },
+    {
+      "id": "douglass-escape-1881",
+      "title": "Escape from Slavery",
+      "author": "Frederick Douglass",
+      "source": {
+        "sha256": "87eacc4414f436fea542156df00c499ef61c7d692a7d66622c552977527d9900",
+        "format": "application/xml",
+        "description": "Complete chapter text, headings and argument from UNC DocSouth’s 1999 electronic edition of the 1881 Park Publishing book, compared throughout with Princeton University Library’s 1881 print scan, N-002898. Six witnessed transcription repairs; printed apostrophes represented by U+2019. Prose reflowed, line-end hyphenation joined and typesetting spaces normalized. The interleaved home illustration is described in the source note, not reproduced. Source hash identifies the complete downloaded UNC XML."
+      },
+      "preparedFile": {
+        "path": "edition/douglass-escape-1881.json",
+        "bytes": 16388,
+        "sha256": "5161e8dfd92dacb00a59e392ca250b338463038de001c64db27cb19f7160748c"
+      },
+      "canonicalSha256": "7e85173bbad7d55d77669449239d5e2f915461dd3c20cda81ecf0ef36d02209b",
+      "sections": 1,
+      "blocks": 7
+    },
+    {
+      "id": "fugitive-act-1793",
+      "title": "Act of February 12, 1793 — Sections 3 and 4",
+      "author": "United States Congress",
+      "source": {
+        "sha256": "3256a99f1c5a47367bbbfe41f79d7fa38f346cd82e3216eee06909c09d300936",
+        "format": "application/pdf",
+        "description": "New transcription from official GovInfo STATUTE-1-Pg302.pdf, four-page scan of 1 Stat. 302–305. Complete statutory Sections 3 and 4; later case annotations and their call marker, marginal summaries, running heads and other statutory sections excluded. Original wording, spelling, punctuation and italic enacting clauses retained; prose line wraps and unambiguous divided-word hyphens joined. Printed north-west hyphen retained. No scan images included."
+      },
+      "preparedFile": {
+        "path": "edition/fugitive-act-1793.json",
+        "bytes": 6667,
+        "sha256": "5ba03f213c5fdf30ef4d7325fe5ea0f2ce72819b003529bc7669e9f23de571bc"
+      },
+      "canonicalSha256": "712ca71e6db092c9024e171eccd6611e64be38d1939c848253f6de176588e872",
+      "sections": 2,
+      "blocks": 4
+    }
+  ],
+  "mainAssets": [
+    {
+      "id": "douglcv",
+      "type": "image/jpeg",
+      "sha256": "75e0b58cdd690a8d6bf487c10d33e62d4d1bcdf77cf3ce9464b192184afce333",
+      "width": 362,
+      "height": 563,
+      "alt": "Dark embossed front binding with ornamental borders and the title in gold lettering.",
+      "credit": "Boston 1845 source figure, UNC Charlotte copy. Scanned by Carlene Hempel for UNC DocSouth, 1999. Maker not identified in this source.",
+      "providerUrl": "https://docsouth.unc.edu/neh/douglass/douglcv.jpg"
+    },
+    {
+      "id": "douglfp",
+      "type": "image/jpeg",
+      "sha256": "805733a734c1b5b34f17f4aa073bf6947138153454d9205179a1df720f74a2be",
+      "width": 364,
+      "height": 563,
+      "alt": "Seated Frederick Douglass facing forward with arms folded; his engraved name appears below.",
+      "credit": "Boston 1845 source figure, UNC Charlotte copy. Scanned by Carlene Hempel for UNC DocSouth, 1999. Maker not identified in this source.",
+      "providerUrl": "https://docsouth.unc.edu/neh/douglass/douglfp.jpg"
+    },
+    {
+      "id": "dougltp",
+      "type": "image/jpeg",
+      "sha256": "4c9eb5e9a34246402a2fc6031b0c8bbdf7d2b132e45f937d141c237d46a25b24",
+      "width": 354,
+      "height": 563,
+      "alt": "Boston 1845 title page naming Frederick Douglass and the Anti-Slavery Office at No. 25 Cornhill.",
+      "credit": "Boston 1845 source figure, UNC Charlotte copy. Scanned by Carlene Hempel for UNC DocSouth, 1999. Maker not identified in this source.",
+      "providerUrl": "https://docsouth.unc.edu/neh/douglass/dougltp.jpg"
+    },
+    {
+      "id": "douglvs",
+      "type": "image/jpeg",
+      "sha256": "2df397a6d4114397286ab9a1bdd18991142e2f8e2266e818d7de470ddd330f47",
+      "width": 334,
+      "height": 563,
+      "alt": "Copyright verso recording the 1845 entry by Frederick Douglass in the District Court of Massachusetts.",
+      "credit": "Boston 1845 source figure, UNC Charlotte copy. Scanned by Carlene Hempel for UNC DocSouth, 1999. Maker not identified in this source.",
+      "providerUrl": "https://docsouth.unc.edu/neh/douglass/douglvs.jpg"
+    },
+    {
+      "id": "douglbk",
+      "type": "image/jpeg",
+      "sha256": "73e84f1b0ac445cdd67ef7ed81fe79da39e6866c26f799bdca7cefda8788704b",
+      "width": 359,
+      "height": 563,
+      "alt": "Dark embossed back binding with ornamental borders and no title lettering.",
+      "credit": "Boston 1845 source figure, UNC Charlotte copy. Scanned by Carlene Hempel for UNC DocSouth, 1999. Maker not identified in this source.",
+      "providerUrl": "https://docsouth.unc.edu/neh/douglass/douglbk.jpg"
+    }
+  ],
+  "buildInputs": [
+    "package.json",
+    "vercel.json",
+    "edition-lock.json",
+    "scripts/build.mjs",
+    "site/index.html",
+    "site/app.mjs",
+    "site/core.mjs",
+    "site/db.mjs",
+    "site/bundle.mjs",
+    "site/library.mjs",
+    "site/text.mjs",
+    "site/share.mjs",
+    "site/share-card.mjs",
+    "site/share-card.css",
+    "site/style.css",
+    "site/edition.css",
+    "site/manifest.webmanifest",
+    "site/icon.svg",
+    "site/apple-touch-icon.png",
+    "site/icon-192.png",
+    "site/icon-512.png",
+    "site/robots.txt",
+    "site/document-profile.mjs",
+    "site/edition-binding.mjs",
+    "edition/douglass-1845.json",
+    "edition/bingham-dialogue-1817.json",
+    "edition/douglass-escape-1881.json",
+    "edition/fugitive-act-1793.json",
+    "edition/escape-editorial.json",
+    "edition/portrait.jpg"
+  ],
+  "outputs": [
+    "index.html",
+    "app.mjs",
+    "core.mjs",
+    "db.mjs",
+    "bundle.mjs",
+    "library.mjs",
+    "text.mjs",
+    "share.mjs",
+    "share-card.mjs",
+    "share-card.css",
+    "style.css",
+    "edition.css",
+    "manifest.webmanifest",
+    "icon.svg",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "robots.txt",
+    "document-profile.mjs",
+    "edition-binding.mjs",
+    "library.json",
+    "portrait.jpg",
+    "sw.js",
+    "build.json"
+  ],
+  "excluded": [
+    "raw XML/PDF source archives",
+    "private preparation tools and evidence",
+    "owner browser records",
+    "modern editorial essays",
+    "1881 house plate",
+    "GovInfo and other provider scan images except the five expressly reviewed UNC 1845 JPEGs"
+  ],
+  "outputSha256": {
+    "index.html": "cb28ebd4796ed3c47cb75085e0b2ce9dc6f2c19c749a14b385ad868ce8856a1c",
+    "app.mjs": "f4f1df217cfd9c4d1f093a134230b62dd075d05cb6969aaa72423f864191077b",
+    "core.mjs": "1e03fde418d68a3e8aca5b9d8ad9984e5d8f3b5151364251f8353f415b525766",
+    "db.mjs": "ddaed86882207a5f59c206a6fbbf55bc94950a25f14a57ad94882d85918295f5",
+    "bundle.mjs": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea",
+    "library.mjs": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186",
+    "text.mjs": "4646408c2ee6aabb2f6722114d3970af9c7c4f9538dcd6b24404a058c12fc6bf",
+    "share.mjs": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f",
+    "share-card.mjs": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b",
+    "share-card.css": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188",
+    "style.css": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6",
+    "edition.css": "0bdcb3483845fe5ed6edddc72e053a18bb95dbb282a9f7f9b151a115d3db0a58",
+    "manifest.webmanifest": "97e391e18f04b449f7a74151394e29b665032e78aab96f2d52653be61d63e357",
+    "icon.svg": "186db9acb54e6c51e1be7111b175ac2b4c179d07b46be9b6bbbce55f788cce76",
+    "apple-touch-icon.png": "fb900b88da183f4a0c5c36271612cdbb4ea70994e658b735fcbd5412e06451af",
+    "icon-192.png": "3a7f8a9c1439b2e3b4a74d70f2e6aa6213d184f9f737dac48e7e0d3a54374b76",
+    "icon-512.png": "910311ef2756b7f96ca66c0d4710934228382f8402d32b5b4afb9a7ab83ae8a3",
+    "robots.txt": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+    "document-profile.mjs": "e2bbae38456d7b9775f786543291e4a95f96308b8f5a7654e2deb62d90a6d614",
+    "edition-binding.mjs": "9c66b673e10c223b89fb919cbf9538f9aa3c3df5d9eccd743b6ea21a86328f02",
+    "library.json": "a7431ad1cb82238a98cfe9f64a7733d9c26efa928b3085de2897fe6e9beb32e6",
+    "portrait.jpg": "805733a734c1b5b34f17f4aa073bf6947138153454d9205179a1df720f74a2be",
+    "sw.js": "60a26752bacf97dfc719187978229eb29b503bc8566fd47758e466db961167eb",
+    "build.json": "681fff85be80f0839d8d2210ac1df430d41fd896506bd923a2de3912b7359d32"
+  }
+}

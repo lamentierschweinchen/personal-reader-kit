@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "sourceCommit": "f33475ec50181f05193661a1f7d38ff3a7f7c64b",
+  "files": [
+    {
+      "path": "site/index.html",
+      "bytes": 2951,
+      "sha256": "cb28ebd4796ed3c47cb75085e0b2ce9dc6f2c19c749a14b385ad868ce8856a1c"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 82969,
+      "sha256": "f4f1df217cfd9c4d1f093a134230b62dd075d05cb6969aaa72423f864191077b"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 18780,
+      "sha256": "1e03fde418d68a3e8aca5b9d8ad9984e5d8f3b5151364251f8353f415b525766"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7269,
+      "sha256": "ddaed86882207a5f59c206a6fbbf55bc94950a25f14a57ad94882d85918295f5"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 5798,
+      "sha256": "4646408c2ee6aabb2f6722114d3970af9c7c4f9538dcd6b24404a058c12fc6bf"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1342,
+      "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 23644,
+      "sha256": "804a408e1d70405f617cc7ee8d0ae2db2863cde8eadc96ae0e52929834d08de6"
+    },
+    {
+      "path": "site/edition.css",
+      "bytes": 10387,
+      "sha256": "0bdcb3483845fe5ed6edddc72e053a18bb95dbb282a9f7f9b151a115d3db0a58"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 407,
+      "sha256": "97e391e18f04b449f7a74151394e29b665032e78aab96f2d52653be61d63e357"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 604,
+      "sha256": "186db9acb54e6c51e1be7111b175ac2b4c179d07b46be9b6bbbce55f788cce76"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 2921,
+      "sha256": "fb900b88da183f4a0c5c36271612cdbb4ea70994e658b735fcbd5412e06451af"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 3024,
+      "sha256": "3a7f8a9c1439b2e3b4a74d70f2e6aa6213d184f9f737dac48e7e0d3a54374b76"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 10369,
+      "sha256": "910311ef2756b7f96ca66c0d4710934228382f8402d32b5b4afb9a7ab83ae8a3"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "site/document-profile.mjs",
+      "bytes": 7898,
+      "sha256": "e2bbae38456d7b9775f786543291e4a95f96308b8f5a7654e2deb62d90a6d614"
+    },
+    {
+      "path": "site/edition-binding.mjs",
+      "bytes": 1046,
+      "sha256": "9c66b673e10c223b89fb919cbf9538f9aa3c3df5d9eccd743b6ea21a86328f02"
+    },
+    {
+      "path": "edition/douglass-1845.json",
+      "bytes": 461942,
+      "sha256": "2458cac18a6aaa9fee06dd013d311853b22f548234e40565d80009914635691a"
+    },
+    {
+      "path": "edition/bingham-dialogue-1817.json",
+      "bytes": 15169,
+      "sha256": "afcdc28fc5514f5746b9172b89ded89cc66e73d911c0345b1aac6b4a13d1d11a"
+    },
+    {
+      "path": "edition/douglass-escape-1881.json",
+      "bytes": 16388,
+      "sha256": "5161e8dfd92dacb00a59e392ca250b338463038de001c64db27cb19f7160748c"
+    },
+    {
+      "path": "edition/fugitive-act-1793.json",
+      "bytes": 6667,
+      "sha256": "5ba03f213c5fdf30ef4d7325fe5ea0f2ce72819b003529bc7669e9f23de571bc"
+    },
+    {
+      "path": "edition/escape-editorial.json",
+      "bytes": 4807,
+      "sha256": "6d23cc6a9e11aa5982ab58821da51fdc13c025f730024cf5dc1d4baab3983192"
+    },
+    {
+      "path": "edition/portrait.jpg",
+      "bytes": 17736,
+      "sha256": "805733a734c1b5b34f17f4aa073bf6947138153454d9205179a1df720f74a2be"
+    }
+  ],
+  "librarySha256": "a7431ad1cb82238a98cfe9f64a7733d9c26efa928b3085de2897fe6e9beb32e6",
+  "bindingSha256": "9c66b673e10c223b89fb919cbf9538f9aa3c3df5d9eccd743b6ea21a86328f02",
+  "bookIds": [
+    "douglass-1845",
+    "bingham-dialogue-1817",
+    "douglass-escape-1881",
+    "fugitive-act-1793"
+  ]
+}

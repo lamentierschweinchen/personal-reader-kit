@@ -1,0 +1,39 @@
+{
+  "bookId": "douglass-escape-1881",
+  "sectionId": "escape-from-slavery",
+  "intro": "In 1845 Douglass leaves the means of escape unexplained. In 1881 he describes borrowing a sailor’s protection and the danger such loans placed on both borrower and lender. The later account recalls the escape of 1838; it is not testimony recorded at the time.",
+  "excerptLabel": "Excerpt from the opening paragraph",
+  "excerpt": {
+    "label": "Borrowed papers and their danger",
+    "bookId": "douglass-escape-1881",
+    "sectionId": "escape-from-slavery",
+    "blockId": "escape-p01",
+    "start": 2046,
+    "end": 4166,
+    "text": "It was the custom in the State of Maryland to require of the free colored people to have what were called free papers. This instrument they were required to renew very often, and by charging a fee for this writing, considerable sums from time to time were collected by the State. In these papers the name, age, color, height, and form of the free man were described, together with any scars or other marks upon his person, which could assist in his identification. This device of slaveholding ingenuity, like other devices of wickedness, in some measure defeated itself—since more than one man could be found to answer the same general description. Hence many slaves could escape by personating the owner of one set of papers; and this was often done as follows: A slave nearly or sufficiently answering the description set forth in the papers, would borrow or hire them till he could by their means escape to a free State, and then, by mail or otherwise, return them to the owner. The operation was a hazardous one for the lender as well as the borrower. A failure on the part of the fugitive to send back the papers would imperil his benefactor, and the discovery of the papers in possession of the wrong man would imperil both the fugitive and his friend. It was therefore an act of supreme trust on the part of a freeman of color thus to put in jeopardy his own liberty that another might be free. It was, however, not unfrequently bravely done, and was seldom discovered. I was not so fortunate as to sufficiently resemble any of my free acquaintances as to answer the description of their papers. But I had one friend—a sailor—who owned a sailor’s protection, which answered somewhat the purpose of free papers—describing his person, and certifying to the fact that he was a free American sailor. The instrument had at its head the American eagle, which gave it the appearance at once of an authorized document. This protection did not, when in my hands, describe its bearer very accurately. Indeed, it called for a man much darker than myself, and close examination of it would have caused my arrest at the start.",
+    "omittedStart": true,
+    "omittedEnd": true,
+    "sha256": "b7525e269db066900ecc4d971fd4125897bfc501f2b7a201e7cfba542fc4c756"
+  },
+  "openingExplanation": {
+    "label": "Why the method was withheld",
+    "bookId": "douglass-escape-1881",
+    "sectionId": "escape-from-slavery",
+    "blockId": "escape-p01",
+    "start": 0,
+    "end": 1048,
+    "text": "IN the first narrative of my experience in slavery, written nearly forty years ago, and in various writings since, I have given the public what I considered very good reasons for withholding the manner of my escape. In substance these reasons were, first, that such publication at any time during the existence of slavery might be used by the master against the slave, and prevent the future escape of any who might adopt the same means that I did. The second reason was, if possible, still more binding to silence—for publication of details would certainly have put in peril the persons and property of those who assisted. Murder itself was not more sternly and certainly punished in the State of Maryland, than that of aiding and abetting the escape of a slave. Many colored men, for no other crime than that of giving aid to a fugitive slave, have, like Charles T. Torrey, perished in prison. The abolition of slavery in my native State and throughout the country, and the lapse of time, render the caution hitherto observed no longer necessary.",
+    "omittedStart": false,
+    "omittedEnd": true
+  },
+  "comparison1845": {
+    "bookId": "douglass-1845",
+    "sectionId": "chapter-xi",
+    "blockId": "b0184",
+    "start": 1565,
+    "end": 1721,
+    "text": "How I did so,— what means I adopted,—what direction I travelled, and by what mode of conveyance,—I must leave unexplained, for the reasons before mentioned."
+  },
+  "completeLabel": "Read the complete chapter",
+  "scope": "Complete chapter text, with the interleaved home plate omitted and acknowledged in source context. No new paragraph divisions within escape-p01. Excerpt omissions must be visibly signalled."
+}

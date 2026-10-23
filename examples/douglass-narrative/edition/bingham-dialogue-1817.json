@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "profile": "personal-reader/text@1",
+  "id": "bingham-dialogue-1817",
+  "title": "Dialogue between a Master and Slave.",
+  "author": "Aikin (credited in the contents); compiled by Caleb Bingham",
+  "edition": "The Columbian Orator, stereotype edition. Boston: Printed for Caleb Bingham and Co., 1817, pp. 240–242.",
+  "language": "en",
+  "source": {
+    "sha256": "be9f6051e30547c989ca5bc2b5661764f1c26e591afb90655371cffaeec40683",
+    "format": "application/pdf",
+    "description": "New transcription of the complete dialogue from the 1817 scan, printed pp. 240–242 (PDF pages 246–248). Internet Archive, columbianorator00inbing; Lincoln Financial Foundation Collection. Source hash identifies the full downloaded PDF. Speaker labels and emphasis retained; prose reflowed, line-end hyphenation joined, typesetting spaces normalized. No scan images included."
+  },
+  "sections": [
+    {
+      "id": "dialogue",
+      "title": "Dialogue between a Master and Slave.",
+      "blocks": [
+        {
+          "id": "dialogue-title",
+          "kind": "heading",
+          "text": "Dialogue between a Master and Slave.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "turn-01",
+          "kind": "prose",
+          "text": "Master. NOW, villain! what have you to say for this second attempt to run away? Is there any punishment that you do not deserve?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 7
+            }
+          ]
+        },
+        {
+          "id": "turn-02",
+          "kind": "prose",
+          "text": "Slave. I well know that nothing I can say will avail. I submit to my fate.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "kind": "prose",
+          "text": "Mast. But are you not a base fellow, a hardened and ungrateful rascal?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "kind": "prose",
+          "text": "Slave. I am a slave. That is answer enough.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "kind": "prose",
+          "text": "Mast. I am not content with that answer. I thought I discerned in you some tokens of a mind superiour to your condition. I treated you accordingly. You have been comfortably fed and lodged, not over-worked, and attended with the most humane care when you were sick. And is this the return?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "kind": "prose",
+          "text": "Slave. Since you condescend to talk with me, as man to man, I will reply. What have you done, what can you do for me, that will compensate for the liberty which you have taken away?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "kind": "prose",
+          "text": "Mast. I did not take it away. You were a slave when I fairly purchased you.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-08",
+          "kind": "prose",
+          "text": "Slave. Did I give my consent to the purchase?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-09",
+          "kind": "prose",
+          "text": "Mast. You had no consent to give. You had already lost the right of disposing of yourself.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-10",
+          "kind": "prose",
+          "text": "Slave. I had lost the power, but how the right? I was treacherously kidnapped in my own country, when following an honest occupation. I was put in chains, sold to one of your countrymen, carried by force on board his ship, brought hither, and exposed to sale like a beast in the market, where you bought me. What step in all this progress of violence and injustice can give a right? Was it in the villain who stole me, in the slave-merchant who tempted him to do so, or in you who encouraged the slave-merchant to bring his cargo of human cattle to cultivate your lands?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            },
+            {
+              "kind": "em",
+              "start": 376,
+              "end": 381
+            }
+          ]
+        },
+        {
+          "id": "turn-11",
+          "kind": "prose",
+          "text": "Mast. It is in the order of Providence that one man should become subservient to another. It ever has been so, and ever will be. I found the custom, and did not make it.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-12",
+          "kind": "prose",
+          "text": "Slave. You cannot but be sensible, that the robber who puts a pistol to your breast may make just the same plea. Providence gives him a power over your life and property; it gave my enemies a power over my liberty. But it has also given me legs to escape with; and what should prevent me from using them? Nay, what should restrain me from retaliating the wrongs I have suffered, if a favourable occasion should offer?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-13",
+          "kind": "prose",
+          "text": "Mast. Gratitude! I repeat, gratitude! Have I not endeavoured ever since I possessed you to alleviate your misfortunes by kind treatment; and does that confer no obligation? Consider how much worse your condition might have been under another master.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-14",
+          "kind": "prose",
+          "text": "Slave. You have done nothing for me more than for your working cattle. Are they not well fed and tended? do you work them harder than your slaves? is not the rule of treating both designed only for your own advantage? You treat both your men and beast slaves better than some of your neighbours, because you are more prudent and wealthy than they.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-15",
+          "kind": "prose",
+          "text": "Mast. You might add, more humane too.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-16",
+          "kind": "prose",
+          "text": "Slave. Humane! Does it deserve that appellation to keep your fellow-men in forced subjection, deprived of all exercise of their free will, liable to all the injuries that your own caprice, or the brutality of your overseers, may heap on them, and devoted, soul and body, only to your pleasure and emolument? Can gratitude take place between creatures in such a state, and the tyrant who holds them in it? Look a these limbs; are they not those of a man? Think that I have the spirit of a man too.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-17",
+          "kind": "prose",
+          "text": "Mast. But it was my intention not only to make your life tolerably comfortable at present, but to provide for you in your old age.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-18",
+          "kind": "prose",
+          "text": "Slave. Alas! is a life like mine, torn from country, friends, and all I held dear, and compelled to toil under the burning sun for a master, worth thinking about for old age? No; the sooner it ends, the sooner I shall obtain that relief for which my soul pants.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-19",
+          "kind": "prose",
+          "text": "Mast. Is it impossible, then, to hold you by any ties but those of constraint and severity?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-20",
+          "kind": "prose",
+          "text": "Slave. It is impossible to make one, who has felt the value of freedom, acquiesce in being a slave.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-21",
+          "kind": "prose",
+          "text": "Mast. Suppose I were to restore you to your liberty, would you reckon that a favour?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-22",
+          "kind": "prose",
+          "text": "Slave. The greatest; for although it would only be undoing a wrong, I know too well how few among mankind are capable of sacrificing interest to justice not to prize the exertion when it is made.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "id": "turn-23",
+          "kind": "prose",
+          "text": "Mast. I do it, then; be free.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            }
+          ]
+        },
+        {
+          "id": "turn-24",
+          "kind": "prose",
+          "text": "Slave. Now I am indeed your servant, though not your slave. And as the first return I can make for your kindness, I will tell you freely the condition in which you live. You are surrounded with implacable foes, who long for a safe opportunity to revenge upon you and the other planters all the miseries they have endured. The more generous their natures, the more indignant they feel against that cruel injustice which has dragged them hither, and doomed them to perpetual servitude. You can rely on no kindness on your part, to soften the obduracy of their resentment. You have reduced them to the state of brute beasts; and if they have not the stupidity of beasts of burden, they must have the ferocity of beasts of prey. Superior force alone can give you security. As soon as that fails, you are at the mercy of the merciless. Such is the social bond between master and slave!",
+          "after": "",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Source and attribution",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/columbianorator00inbing",
+      "text": "“Dialogue between a Master and Slave,” in Caleb Bingham, The Columbian Orator (Boston: Printed for Caleb Bingham and Co., 1817), pp. 240–242. The printed contents credits “Aikin”; no fuller name is supplied here. Scan: Internet Archive, Lincoln Financial Foundation Collection; digitization sponsored by the Institute of Museum and Library Services through an Indiana State Library LSTA Grant. This is a new transcription of the historical dialogue, not a reproduction of modern commentary or scan images."
+    },
+    {
+      "label": "The printing and Douglass’s account",
+      "kind": "source",
+      "through": null,
+      "url": "https://docsouth.unc.edu/neh/douglass/douglass.html",
+      "text": "In Chapter VII of the 1845 Narrative, Douglass recalls a dialogue after a third escape attempt. This 1817 printing opens with a second attempt. It is a comparison witness; it has not been identified as the printing Douglass owned. His account remains unchanged."
+    },
+    {
+      "label": "Transcription decisions",
+      "kind": "source",
+      "through": null,
+      "text": "The dialogue is complete, including the warning after the grant of freedom. Running heads, page numbers, catchwords and the sheet signature are omitted; paragraph order, speaker labels, punctuation and italics are retained. Unambiguous line-end hyphenation and typesetting spaces are normalized for continuous prose; over-worked retains its printed hyphen because its lexical status is uncertain. Small-cap heading letters are represented in title case and the opening NOW in capitals. Page 241 visibly reads “Look a these limbs”; that reading is retained. Two damaged letters are read as a in “such a state” (p. 241) and n in “or in you” (p. 240). These readings remain open to review against a clearer copy."
+    },
+    {
+      "label": "Rights and source credit",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/about/terms",
+      "text": "Historical text published in 1817; the preparation uses the documented US public-domain basis. Internet Archive research access does not grant a blanket licence for scan redistribution. The source credit above accompanies this transcription. No worldwide rights determination or publication authorization is claimed."
+    }
+  ]
+}

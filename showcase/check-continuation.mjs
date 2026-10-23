@@ -71,6 +71,9 @@ for(const engine of engines){
   await page.goto(base+'/alice/play/');assert.equal(await page.evaluate(key=>localStorage.getItem(key),CONTINUATION_KEY),before);
   // Inject an exact restored object, then a same-ID changed object, as storage fault fixtures.
   await page.goto(base+'/library/');await page.locator('[data-continuation-link]').waitFor({state:'visible'});
+  // The mutation fixture targets War and Peace, independent of catalogue order.
+  // Its actual reading position was established in the complete journey above.
+  await page.evaluate(key=>localStorage.setItem(key,JSON.stringify({v:1,edition:'war-and-peace',work:'war-and-peace-maude',at:Date.now()})),CONTINUATION_KEY);
   const alter=async changed=>page.evaluate(async changed=>{const raw=(await (await fetch('/war-and-peace/library.json')).json())[0];if(changed)raw.title='Original adversarial changed title';const {saveBook}=await import('/war-and-peace/db.mjs');await saveBook(raw);},changed);
   await alter(false);await page.reload();await page.locator('[data-continuation-link]').waitFor({state:'visible'});
   await alter(true);await page.reload();await page.waitForTimeout(300);assert.equal(await page.locator('[data-continuation]').isVisible(),false);

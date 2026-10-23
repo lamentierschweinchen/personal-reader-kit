@@ -98,3 +98,15 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 
 /* A saved public book offers a quiet route back, only in this browser. */
 .continuation{margin-top:12px;max-width:38rem}.continuation a{display:inline-flex;align-items:center;min-height:44px;padding-block:8px;font:1rem/1.4 var(--body);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}.edition-version{font:0.8125rem/1.5 var(--body);color:var(--muted);margin-top:8px}
+
+.cover-douglass{background:#e5ddc6;color:#413b2e}
+.cover-douglass strong{top:16%;font-family:Baskerville,Georgia,serif;font-size:20cqw;line-height:1.1}
+.cover-douglass strong span{display:block;font-size:.45em;letter-spacing:.08em;margin-top:6%}
+.cover-douglass img{position:absolute;left:24%;top:40%;width:52%;height:42%;object-fit:contain;mix-blend-mode:multiply}
+.cover-douglass .cover-meta{font-size:3.8cqw;letter-spacing:.12em}
+.cover-douglass .cover-bottom{font-size:3.1cqw}
+.cover-poe{background:#282625;color:#ece5d3}
+.cover-poe strong{top:14%;font-family:Fell,Georgia,serif;font-size:16cqw;line-height:1.02}
+.cover-poe img{position:absolute;left:25%;top:43%;width:50%;height:40%;object-fit:contain}
+.cover-poe .cover-meta{font-size:3.7cqw;letter-spacing:.15em}
+.cover-poe .cover-bottom{font-size:3.3cqw;letter-spacing:.16em}

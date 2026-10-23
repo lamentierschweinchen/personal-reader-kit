@@ -5,14 +5,14 @@ This repository is a reusable, public-intended kit. The user's books are data, n
 ## Boundaries
 
 - Inspect Git status before edits. Preserve unrelated work and existing readers. Do not copy a personal reader's library, notes, URLs, credentials, configuration or Git history into this repository.
-- Only original sample writing belongs in `samples/`. The fourteen specifically reviewed public-domain readers in `examples/` are an explicit user-authorized exception, with separate exact edition inventories. Personal input, conversions, intake notes and QA captures belong under ignored `.reader/` or `test-results/`. Never put personal books in `site/`, `samples/`, examples, docs, tests or commits. `.gitignore` cannot remove data from history.
+- Only original sample writing belongs in `samples/`. The sixteen specifically reviewed public-domain readers in `examples/` are an explicit user-authorized exception, with separate exact edition inventories. Personal input, conversions, intake notes and QA captures belong under ignored `.reader/` or `test-results/`. Never put personal books in `site/`, `samples/`, examples, docs, tests or commits. `.gitignore` cannot remove data from history.
 - The default build is a public shell plus reviewed original samples. Browser imports use IndexedDB and never upload the book. Changing that boundary requires an explicit user choice and verified access control on every book URL.
 - An unlisted URL, noindex, a private Git repository or a client-side password is not private hosting. Never upload a personal book to an unprotected preview to test whether protection works.
 - Never ask for a password or token in chat. Let the user authenticate with the provider. Do not send book passages to external AI, OCR, image, analytics or map services without specific informed authorization. Do not bypass DRM.
 
 ## Fidelity and product
 
-Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The default build remains original-samples-only. The [fourteen packaged examples](examples/README.md) are separate applications; their authorization does not admit another book or personal project into this repository. New personal readers use `publication.json.starterFiles` rather than copying the optional collection.
+Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The default build remains original-samples-only. The [sixteen packaged examples](examples/README.md) are separate applications; their authorization does not admit another book or personal project into this repository. New personal readers use `publication.json.starterFiles` rather than copying the optional collection.
 
 Keep exact source characters, emphasis, lineation, stanzas, meaningful spaces, notes and sequence. Preserve source defects and uncertainty; report them. Edition hashes and quoted evidence anchor annotations. Changed-source notes must remain recoverable and must not silently move.
 

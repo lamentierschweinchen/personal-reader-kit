@@ -412,6 +412,60 @@
       ],
       "rightsPath": "examples/war-and-peace/docs/SOURCE-RIGHTS.md",
       "editionLabel": "Louise and Aylmer Maude’s translation"
+    },
+    {
+      "id": "douglass",
+      "exampleId": "douglass-narrative",
+      "title": "Narrative of the Life of Frederick Douglass",
+      "author": "Frederick Douglass",
+      "shortAuthor": "Frederick Douglass",
+      "kind": "Memoir",
+      "language": "English",
+      "edition": "Boston, Anti-Slavery Office, 1845. Complete Narrative with original front matter and Appendix; UNC Documenting the American South. Three separately identified historical documents accompany Chapters VII and XI.",
+      "feature": "The escape he withheld.",
+      "description": "Read the 1845 Narrative beside the schoolbook Douglass recalled, the 1793 law and his later account of escape.",
+      "categories": [
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://docsouth.unc.edu/neh/douglass/menu.html"
+      ],
+      "rightsPath": "examples/douglass-narrative/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ],
+      "editionLabel": ""
+    },
+    {
+      "id": "poe",
+      "exampleId": "fall-of-the-house-of-usher",
+      "title": "The Fall of the House of Usher",
+      "author": "Edgar Allan Poe",
+      "shortAuthor": "Edgar Allan Poe",
+      "kind": "Story",
+      "language": "English",
+      "edition": "Tales, Wiley & Putnam, 1845, pp. 64–82. Beardsley’s 1894 drawing and Clarke’s 1919 illustration, reproduced from a Duke copy catalogued 1923.",
+      "feature": "Two artists, two moments.",
+      "description": "Compare Beardsley and Clarke with Poe’s words. Follow the story into film and music, with the ending kept behind a reveal.",
+      "categories": [
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://archive.org/details/tales00poeedgar"
+      ],
+      "rightsPath": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
+      "sourceLabels": [
+        "Source edition"
+      ],
+      "editionLabel": ""
     }
   ]
 }

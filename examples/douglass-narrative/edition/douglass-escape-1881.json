@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "profile": "personal-reader/text@1",
+  "id": "douglass-escape-1881",
+  "title": "Escape from Slavery",
+  "author": "Frederick Douglass",
+  "edition": "Life and Times of Frederick Douglass. Hartford, Conn.: Park Publishing Co., 1881. Second Part, Chapter I, pp. 196–201.",
+  "language": "en",
+  "source": {
+    "sha256": "87eacc4414f436fea542156df00c499ef61c7d692a7d66622c552977527d9900",
+    "format": "application/xml",
+    "description": "Complete chapter text, headings and argument from UNC DocSouth’s 1999 electronic edition of the 1881 Park Publishing book, compared throughout with Princeton University Library’s 1881 print scan, N-002898. Six witnessed transcription repairs; printed apostrophes represented by U+2019. Prose reflowed, line-end hyphenation joined and typesetting spaces normalized. The interleaved home illustration is described in the source note, not reproduced. Source hash identifies the complete downloaded UNC XML."
+  },
+  "sections": [
+    {
+      "id": "escape-from-slavery",
+      "title": "Escape from Slavery",
+      "blocks": [
+        {
+          "id": "part-title",
+          "kind": "heading",
+          "text": "SECOND PART",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "chapter-number",
+          "kind": "heading",
+          "text": "CHAPTER I.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "chapter-title",
+          "kind": "heading",
+          "text": "ESCAPE FROM SLAVERY.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "chapter-argument",
+          "kind": "prose",
+          "text": "Reasons for not having revealed the manner of escape—Nothing of romance in the method—Danger—Free Papers—Unjust tax—Protection papers—“Free trade and sailors’ rights”—American eagle—Railroad train—Unobserving conductor—Capt. McGowan—Honest German—Fears—Safe arrival in Philadelphia—Ditto in New York.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "escape-p01",
+          "kind": "prose",
+          "text": "IN the first narrative of my experience in slavery, written nearly forty years ago, and in various writings since, I have given the public what I considered very good reasons for withholding the manner of my escape. In substance these reasons were, first, that such publication at any time during the existence of slavery might be used by the master against the slave, and prevent the future escape of any who might adopt the same means that I did. The second reason was, if possible, still more binding to silence—for publication of details would certainly have put in peril the persons and property of those who assisted. Murder itself was not more sternly and certainly punished in the State of Maryland, than that of aiding and abetting the escape of a slave. Many colored men, for no other crime than that of giving aid to a fugitive slave, have, like Charles T. Torrey, perished in prison. The abolition of slavery in my native State and throughout the country, and the lapse of time, render the caution hitherto observed no longer necessary. But even since the abolition of slavery, I have sometimes thought it well enough to baffle curiosity by saying that while slavery existed there were good reasons for not telling the manner of my escape, and since slavery had ceased to exist there was no reason for telling it. I shall now, however, cease to avail myself of this formula, and, as far as I can, endeavor to satisfy this very natural curiosity. I should perhaps have yielded to that feeling sooner, had there been anything very heroic or thrilling in the incidents connected with my escape, for I am sorry to say I have nothing of that sort to tell; and yet the courage that could risk betrayal and the bravery which was ready to encounter death if need be, in pursuit of freedom, were essential features in the undertaking. My success was due to address rather than courage; to good luck rather than bravery. My means of escape were provided for me by the very men who were making laws to hold and bind me more securely in slavery. It was the custom in the State of Maryland to require of the free colored people to have what were called free papers. This instrument they were required to renew very often, and by charging a fee for this writing, considerable sums from time to time were collected by the State. In these papers the name, age, color, height, and form of the free man were described, together with any scars or other marks upon his person, which could assist in his identification. This device of slaveholding ingenuity, like other devices of wickedness, in some measure defeated itself—since more than one man could be found to answer the same general description. Hence many slaves could escape by personating the owner of one set of papers; and this was often done as follows: A slave nearly or sufficiently answering the description set forth in the papers, would borrow or hire them till he could by their means escape to a free State, and then, by mail or otherwise, return them to the owner. The operation was a hazardous one for the lender as well as the borrower. A failure on the part of the fugitive to send back the papers would imperil his benefactor, and the discovery of the papers in possession of the wrong man would imperil both the fugitive and his friend. It was therefore an act of supreme trust on the part of a freeman of color thus to put in jeopardy his own liberty that another might be free. It was, however, not unfrequently bravely done, and was seldom discovered. I was not so fortunate as to sufficiently resemble any of my free acquaintances as to answer the description of their papers. But I had one friend—a sailor—who owned a sailor’s protection, which answered somewhat the purpose of free papers—describing his person, and certifying to the fact that he was a free American sailor. The instrument had at its head the American eagle, which gave it the appearance at once of an authorized document. This protection did not, when in my hands, describe its bearer very accurately. Indeed, it called for a man much darker than myself, and close examination of it would have caused my arrest at the start. In order to avoid this fatal scrutiny on the part of the railroad official, I had arranged with Isaac Rolls, a hackman, to bring my baggage to the train just on the moment of its starting, and jumped upon the car myself when the train was already in motion. Had I gone into the station and offered to purchase a ticket, I should have been instantly and carefully examined, and undoubtedly arrested. In choosing this plan upon which to act, I considered the jostle of the train, and the natural haste of the conductor, in a train crowded with passengers, and relied upon my skill and address in playing the sailor as described in my protection, to do the rest. One element in my favor was the kind feeling which prevailed in Baltimore and other seaports at the time, towards “those who go down to the sea in ships.” “Free trade and sailors’ rights” expressed the sentiment of the country just then. In my clothing I was rigged out in sailor style. I had on a red shirt and a tarpaulin hat and black cravat, tied in sailor fashion, carelessly and loosely about my neck. My knowledge of ships and sailor’s talk came much to my assistance, for I knew a ship from stem to stern, and from keelson to cross-trees, and could talk sailor like an “old salt.” On sped the train, and I was well on the way to Havre de Grace before the conductor came into the negro car to collect tickets and examine the papers of his black passengers. This was a critical moment in the drama. My whole future depended upon the decision of this conductor. Agitated I was while this ceremony was proceeding, but still externally, at least, I was apparently calm and self-possessed. He went on with his duty—examining several colored passengers before reaching me. He was somewhat harsh in tone, and peremptory in manner until he reached me, when, strangely enough, and to my surprise and relief, his whole manner changed. Seeing that I did not readily produce my free papers, as the other colored persons in the car had done, he said to me in a friendly contrast with that observed towards the others: “I suppose you have your free papers?” To which I answered: “No, sir; I never carry my free papers to sea with me.” “But you have something to show that you are a free man, have you not?” “Yes, sir,” I answered; “I have a paper with the American eagle on it, and that will carry me round the world.” With this I drew from my deep sailor’s pocket my seaman’s protection, as before described. The merest glance at the paper satisfied him, and he took my fare and went on about his business. This moment of time was one of the most anxious I ever experienced. Had the conductor looked closely at the paper, he could not have failed to discover that it called for a very different looking person from myself, and in that case it would have been his duty to arrest me on the instant, and send me back to Baltimore from the first station. When he left me with the assurance that I was all right, though much relieved, I realized that I was still in great danger: I was still in Maryland, and subject to arrest at any moment. I saw on the train several persons who would have known me in any other clothes, and I feared they might recognize me, even in my sailor “rig,” and report me to the conductor, who would then subject me to a closer examination, which I knew well would be fatal to me.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "escape-p02",
+          "kind": "prose",
+          "text": "Though I was not a murderer fleeing from justice I felt perhaps quite as miserable as such a criminal. The train was moving at a very high rate of speed for that time of railroad travel, but to my anxious mind, it was moving far too slowly. Minutes were hours, and hours were days during this part of my flight. After Maryland I was to pass through Delaware—another slave State, where slave catchers generally awaited their prey, for it was not in the interior of the State, but on its borders, that these human hounds were most vigilant and active. The border lines between slavery and freedom were the dangerous ones, for the fugitives. The heart of no fox or deer, with hungry hounds on his trail, in full chase, could have beaten more anxiously or noisily than did mine, from the time I left Baltimore till I reached Philadelphia. The passage of the Susquehanna river at Havre de Grace was made by ferry boat at that time, on board of which I met a young colored man by the name of Nichols, who came very near betraying me. He was a “hand” on the boat, but instead of minding his business, he insisted upon knowing me, and asking me dangerous questions as to where I was going, and when I was coming back, etc. I got away from my old and inconvenient acquaintance as soon as I could decently do so, and went to another part of the boat. Once across the river I encountered a new danger. Only a few days before I had been at work on a revenue cutter, in Mr. Price’s ship-yard, under the care of Captain McGowan. On the meeting at this point of the two trains, the one going south stopped on the track just opposite to the one going north, and it so happened that this Captain McGowan sat at a window where he could see me very distinctly, and would certainly have recognized me had he looked at me but for a second. Fortunately, in the hurry of the moment, he did not see me; and the trains soon passed each other on their respective ways. But this was not my only hair-breadth escape. A German blacksmith whom I knew well, was on the train with me, and looked at me very intently as if he thought he had seen me somewhere before in his travels. I really believe he knew me, but had no heart to betray me. At any rate he saw me escaping and held his peace.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "escape-p03",
+          "kind": "prose",
+          "text": "The last point of imminent danger, and the one I dreaded most, was Wilmington. Here we left the train and took the steamboat for Philadelphia. In making the change here I again apprehended arrest, but no one disturbed me, and I was soon on the broad and beautiful Delaware, speeding away to the Quaker City. On reaching Philadelphia in the afternoon I inquired of a colored man how I could get on to New York? He directed me to the William street depot, and thither I went, taking the train that night. I reached New York Tuesday morning, having completed the journey in less than twenty-four hours. Such is briefly the manner of my escape from slavery—and the end of my experience as a slave. Other chapters will tell the story of my life as a freeman.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "The later account",
+      "kind": "editorial",
+      "through": null,
+      "text": "Douglass published this account in 1881, looking back to his escape in September 1838. In Chapter XI of the 1845 Narrative he withholds the method to protect helpers and future fugitives. Here he says abolition and the passage of time have removed the need for that caution. This is his later autobiographical testimony, not a document written during the escape."
+    },
+    {
+      "label": "Text and print witness",
+      "kind": "source",
+      "through": null,
+      "text": "Frederick Douglass, Life and Times of Frederick Douglass (Hartford, Conn.: Park Publishing Co., 1881), Second Part, Chapter I, printed pp. 196–201. This is the complete chapter’s prose, headings and opening argument, preserving its three prose paragraphs and embedded dialogue. No italic emphasis occurs in these six pages. The printed drop capital is represented as IN. Running heads, pagination and ornamental rules are omitted. The plate between pp. 196 and 197, captioned HIS PRESENT HOME IN WASHINGTON., is not included. Princeton University Library, call number N-002898, supplied the independently inspected print witness; its title page reads 1881.",
+      "url": "https://digital-collections.princeton.edu/i/life-times-frederick-douglass-writt/item/0856e7d1-e7f5-4151-bdc6-30cb4a51baba"
+    },
+    {
+      "label": "Electronic edition credit",
+      "kind": "source",
+      "through": null,
+      "text": "Documenting the American South, Academic Affairs Library, University of North Carolina at Chapel Hill, 1999; funded by the National Endowment for the Humanities. OCR: Aletha Andrew and Susan Huffman; text encoding: Carlene Hempel and Natalia Smith. UNC’s source copy was borrowed from J. Murrey Atkins Library, UNC Charlotte. UNC image scanning is credited to Ingrid Pohl; no UNC images are embedded here.",
+      "url": "https://docsouth.unc.edu/neh/douglasslife/menu.html"
+    },
+    {
+      "label": "Transcription decisions",
+      "kind": "editorial",
+      "through": null,
+      "text": "Compared with the Princeton print, this text removes two stray commas, restores a comma after “Many colored men”, and corrects “stern to stern” to “stem to stern”, “area” to “are a”, and “be could” to “he could”. Original wording, spelling and sentence punctuation otherwise remain; printed apostrophes use a curved character, prose is reflowed, and line-end word divisions and typesetting spaces are normalized. These repairs are not changes to the 1845 Narrative."
+    },
+    {
+      "label": "Rights and source limits",
+      "kind": "source",
+      "through": null,
+      "text": "UNC identifies this item as No Copyright — United States. That statement does not establish copyright status in other countries. Princeton labels its scan Copyright Not Evaluated. The scans remain private verification material and are not part of this text edition. Neither provider’s statement is a worldwide licence or publication approval; source conditions and the intended audience require review before wider distribution.",
+      "url": "https://rightsstatements.org/vocab/NoC-US/1.0/"
+    }
+  ]
+}
