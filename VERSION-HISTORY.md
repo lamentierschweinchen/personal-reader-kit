@@ -8,6 +8,10 @@ Existing personal readers were inspected read-only. Their site-specific hosting 
 
 Ignored `.reader/` and `test-results/` can contain private intake, recovery data and local verification captures. They are not backed up by Git. Browser books, annotations, progress and preferences live in IndexedDB. Export private reading bundles, retain raw originals, and keep separate draft/recovery exports where needed. Browser storage can be evicted, and a second device does not automatically synchronize.
 
+## Dialog visibility check · 23 October 2026
+
+The hosted WebKit check confused a preferred reading margin with the usable viewport. It now verifies the source glyph against actual visible toolbar/header bounds. Exact character, source block, revision, saved place and deliberate navigation checks remain. Negative controls still reject hidden text and the original lost-position bug. Reader applications and deployed output bytes are unchanged.
+
 ## Return to reading and a usable starter · 23 October 2026
 
 The library offers a quiet Continue link to the exact public work and saved place in this browser. A small local pointer follows a successful save; exact edition checks, ordered cross-tab writes and a second check on arrival protect against stale or conflicting records. The reader module is cached offline. The catalogue itself does not become an offline app, and no reading records enter analytics. Library previews name selected translators and describe their actual companions more precisely.
