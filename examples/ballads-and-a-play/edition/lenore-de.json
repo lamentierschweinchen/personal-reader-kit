@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "id": "lenore-de",
+  "title": "Lenore",
+  "author": "Gottfried August Bürger",
+  "edition": "Karl Reinhard (ed.) · Gedichte · Göttingen: Dieterich, 1817, pp.68–83 · Wikisource",
+  "language": "de",
+  "source": {
+    "sha256": "97c3744b154c3dd4fe65c40f4ec537d4a98ce95090892042f868a36fa90fb776",
+    "format": "historical-source-adapter",
+    "description": "Karl Reinhard (ed.) · Gedichte · Göttingen: Dieterich, 1817, pp.68–83 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Lenore",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Lenore fuhr um’s Morgenroth\nEmpor aus schweren Träumen:\n„Bist untreu, Wilhelm oder todt?\nWie lange willst du säumen?“ –\nEr war mit König Friedrich’s Macht\nGezogen in die Prager Schlacht,\nUnd hatte nicht geschrieben,\nOb er gesund geblieben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Der König und die Kaiserinn,\nDes langen Haders müde,\nErweichten ihren harten Sinn,\nUnd machten endlich Friede;\nUnd jedes Heer, mit Sing und Sang,\nMit Paukenschlag und Kling und Klang,\nGeschmückt mit grünen Reisern,\nZog heim zu seinen Häusern.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": " Und überall all überall,\nAuf Wegen und auf Stegen,\nZog Alt und Jung dem Jubelschall\nDer Kommenden entgegen.\nGottlob! rief Kind und Gattinn laut,\nWillkommen! manche frohe Braut.\nAch! aber für Lenore’n\nWar Gruß und Kuß verloren.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "Sie frug den Zug wohl auf und ab,\nUnd frug nach allen Namen;\nDoch keiner war, der Kundschaft gab,\nVon Allen, so da kamen.\nAls nun das Heer vorüber war,\nZerraufte sie ihr Rabenhaar,\nUnd warf sich hin zur Erde,\nMit wüthiger Geberde.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": " Die Mutter lief wohl hin zu ihr: –\n„Ach, daß sich Gott erbarme!\nDu trautes Kind, was ist mit dir?“ –\nUnd schloß sie in die Arme.\n„O Mutter, Mutter! hin ist hin!\nNun fahre Welt und Alles hin!\nBei Gott ist kein Erbarmen.\nO weh, o weh mir Armen!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "„Hilf Gott, hilf! Sieh uns gnädig an!\nKind, bet’ ein Vaterunser!\nWas Gott thut, das ist wohl gethan.\nGott, Gott erbarmt sich unser!“ –\n„O Mutter, Mutter! Eitler Wahn!\nGott hat an mir nicht wohl gethan!\nWas half, was half mein Beten?\nNun ist’s nicht mehr vonnöthen.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": " „Hilf Gott, hilf! Wer den Vater kennt,\nDer weiß, er hilft den Kindern.\nDas hochgelobte Sakrament\nWird deinen Jammer lindern.“ –\n„O Mutter, Mutter! was mich brennt,\nDas lindert mir kein Sakrament!\nKein Sakrament mag Leben\nDen Todten wiedergeben.“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "„Hör’, Kind! wie, wenn der falsche Mann,\nIm fernen Ungerlande,\nSich seines Glaubens abgethan,\nZum neuen Ehebande?\nLaß fahren, Kind, sein Herz dahin!\nEr hat es nimmermehr Gewinn!\nWann Seel’ und Leib sich trennen,\nWird ihn sein Meineid brennen.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": " „O Mutter, Mutter! Hin ist hin!\nVerloren ist verloren!\nDer Tod, der Tod ist mein Gewinn!\nO wär ich nie geboren!\nLisch aus, mein Licht, auf ewig aus!\nStirb hin, stirb hin in Nacht und Graus!\nBei Gott ist kein Erbarmen.\nO weh, o weh mir Armen!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "„Hilf Gott, hilf! Geh’ nicht in’s Gericht\nMit deinem armen Kinde!\nSie weiß nicht, was die Zunge spricht.\nBehalt’ ihr nicht die Sünde!\nAch, Kind, vergiß dein irdisch Leid,\nUnd denk’ an Gott und Seligkeit!\nSo wird doch deiner Seelen\nDer Bräutigam nicht fehlen.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": " „O Mutter! was ist Seligkeit?\nO Mutter! Was ist Hölle?\nBei ihm, bei ihm ist Seligkeit,\nUnd ohne Wilhelm Hölle! –\nLisch aus, mein Licht, auf ewig aus!\nStirb hin, stirb hin in Nacht und Graus!\nOhn’ ihn mag ich auf Erden,\nMag dort nicht selig werden.“ – –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "So wüthete Verzweifelung\nIhr in Gehirn und Adern.\nSie fuhr mit Gottes Vorsehung\nVermessen fort zu hadern;\nZerschlug den Busen, und zerrang\nDie Hand, bis Sonnenuntergang,\nBis auf am Himmelsbogen\nDie goldnen Sterne zogen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": " Und außen, horch! ging’s trap trap trap,\nAls wie von Rosseshufen;\nUnd klirrend stieg ein Ritter ab,\nAn des Geländers Stufen;\nUnd horch! und horch! den Pfortenring\nGanz lose, leise, klinglingling!\nDann kamen durch die Pforte\nVornehmlich diese Worte:",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "„Holla, Holla! Thu’ auf, mein Kind!\nSchläfst, Liebchen, oder wachst du?\nWie bist noch gegen mich gesinnt?\nUnd weinest oder lachst du?\n„Ach, Wilhelm, du? .. So spät bei Nacht? ..\nGeweinet hab’ ich und gewacht;\nAch, großes Leid erlitten!\nWo kommst du her geritten?“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": " „Wir satteln nur um Mitternacht.\nWeit ritt ich her von Böhmen.\nIch habe spät mich aufgemacht,\nUnd will dich mit mir nehmen.“ –\n„Ach, Wilhelm, erst herein geschwind’!\nDen Hagedorn durchsaust der Wind,\nHerein, in meinen Armen,\nHerzliebster, zu erwarmen!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "„Laß sausen durch den Hagedorn,\nLaß sausen, Kind, laß sausen!\nDer Rappe scharrt; es klirrt der Sporn.\nIch darf allhier nicht hausen.\nKomm, schürze, spring’ und schwinge dich\nAuf meinen Rappen hinter mich!\nMuß heut noch hundert Meilen\nMit dir in’s Brautbett eilen.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": " „Ach! wolltest hundert Meilen noch\nMich heut in’s Brautbett tragen?\nUnd horch! es brummt die Glocke noch,\nDie elf schon angeschlagen.“ –\n„Sieh hin, sieh her! der Mond scheint hell.\nWir und die Todten reiten schnell.\nIch bringe dich, zur Wette,\nNoch heut in’s Hochzeitbette.“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "„Sag’ an, wo ist dein Kämmerlein?\nWo? wie dein Hochzeitbettchen?“ –\n„Weit, weit von hier! .. Still, kühl und klein! ..\nSechs Bretter und zwei Brettchen!“ –\n„Hat’s Raum für mich?“ – „Für dich und mich!\nKomm, schürze, spring’ und schwinge dich!\nDie Hochzeitgäste hoffen;\nDie Kammer steht uns offen.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": " Schön Liebchen schürzte, sprang und schwang\nSich auf das Roß behende;\nWohl um den trauten Reiter schlang\nSie ihre Lilienhände;\nUnd hurre hurre, hop hop hop!\nGing’s fort in sausendem Galopp,\nDaß Roß und Reiter schnoben,\nUnd Kies und Funken stoben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "Zur rechten und zur linken Hand,\nVorbei vor ihren Blicken,\nWie flogen Anger, Heid’ und Land!\nWie donnerten die Brücken! –\n„Graut Liebchen auch? .. Der Mond scheint hell!\nHurrah! die Todten reiten schnell!\nGraut Liebchen auch vor Todten?“ –\n„Ach nein! .. Doch laß die Todten!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": " Was klang dort für Gesang und Klang?\nWas flatterten die Raben? ..\nHorch Glockenklang! horch Todtensang:\n„Laßt uns den Leib begraben!“\nUnd näher zog ein Leichenzug,\nDer Sarg und Todtenbahre trug.\nDas Lied war zu vergleichen\nDem Unkenruf in Teichen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "„Nach Mitternacht begrabt den Leib,\nMit Klang und Sang und Klage!\nJetzt führ’ ich heim mein junges Weib.\nMit, mit zum Brautgelage!\nKomm, Küster, hier! Komm mit dem Chor,\nUnd gurgle mir das Brautlied vor!\nKomm, Pfaff’, und sprich den Segen,\nEh’ wir zu Bett uns legen!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": " Still Klang und Sang. .. Die Bahre schwand. ..\nGehorsam seinem Rufen,\nKam’s, hurre hurre! nachgerannt,\nHart hinter’s Rappen Hufen.\nUnd immer weiter, hop hop hop!\nGing’s fort in sausendem Galopp,\nDaß Roß und Reiter schnoben,\nUnd Kies und Funken stoben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-024",
+          "kind": "verse",
+          "text": "Wie flogen rechts, wie flogen links\nGebirge, Bäum’ und Hecken!\nWie flogen links, und rechts, und links\nDie Dörfer, Städt’ und Flecken! –\n„Graut Liebchen auch? .. Der Mond scheint hell!\nHurrah! die Todten reiten schnell!\nGraut Liebchen auch vor Todten?“ –\n„Ach! Laß sie ruhn, die Todten.“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-025",
+          "kind": "verse",
+          "text": " Sieh da! sieh da! Am Hochgericht\nTanzt’ um des Rades Spindel,\nHalb sichtbarlich bei Mondenlicht,\nEin luftiges Gesindel. –\n„Sasa! Gesindel, hier! Komm hier!\nGesindel, komm und folge mir!\nTanz’ uns den Hochzeitreigen,\nWann wir zu Bette steigen!“ –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-026",
+          "kind": "verse",
+          "text": "Und das Gesindel, husch husch husch!\nKam hinten nachgeprasselt,\nWie Wirbelwind am Haselbusch\nDurch dürre Blätter rasselt.\nUnd weiter, weiter, hop hop hop!\nGing’s fort in sausendem Galopp,\nDaß Roß und Reiter schnoben,\nUnd Kies und Funken stoben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-027",
+          "kind": "verse",
+          "text": " Wie flog, was rund der Mond beschien,\nWie flog es in die Ferne!\nWie flogen oben über hin\nDer Himmel und die Sterne! –\n„Graut Liebchen auch? .. Der Mond scheint hell!\nHurrah! die Todten reiten schnell!\nGraut Liebchen auch vor Todten!“ –\n„O weh! Laß ruhn die Todten!“ – –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-028",
+          "kind": "verse",
+          "text": "„Rapp’! Rapp’! Mich dünkt der Hahn schon ruft. ..\nBald wird der Sand verrinnen ..\nRapp’! Rapp’! Ich wittre Morgenluft ..\nRapp’! Tummle dich von hinnen! –\nVollbracht, vollbracht ist unser Lauf!\nDas Hochzeitbette thut sich auf.\nDie Todten reiten schnelle!\nWir sind, wir sind zur Stelle.“ – –",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-029",
+          "kind": "verse",
+          "text": " Rasch auf ein eisern Gitternthor\nGing’s mit verhängtem Zügel.\nMit schwanker Gert’ ein Schlag davor\nZersprengte Schloß und Riegel.\nDie Flügel flogen klirrend auf,\nUnd über Gräber ging der Lauf.\nEs blinkten Leichensteine\nRund um im Mondenscheine.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-030",
+          "kind": "verse",
+          "text": "Ha sieh! Ha sieh! im Augenblick,\nHuhu, ein gräßlich Wunder!\nDes Reiters Koller, Stück für Stück,\nFiel ab, wie mürber Zunder.\nZum Schädel, ohne Zopf und Schopf,\nZum nackten Schädel ward sein Kopf;\nSein Körper zum Gerippe,\nMit Stundenglas und Hippe.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-031",
+          "kind": "verse",
+          "text": " Hoch bäumte sich, wild schnob der Rapp’,\nUnd sprühte Feuerfunken;\nUnd hui! war’s unter ihr hinab\nVerschwunden und versunken.\nGeheul! Geheul aus hoher Luft,\nGewinsel kam aus tiefer Gruft.\nLenore’ns Herz, mit Beben,\nRang zwischen Tod und Leben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-032",
+          "kind": "verse",
+          "text": "Nun tanzten wohl bei Mondenglanz,\nRund um herum im Kreise,\nDie Geister einen Kettentanz,\nUnd heulten diese Weise:\n„Geduld! Geduld! Wenn’s Herz auch bricht!\nMit Gott im Himmel hadre nicht!\nDes Leibes bist du ledig;\nGott sey der Seele gnädig!“",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "German transcription",
+      "text": "Wikisource transcription of the historical witness named in the source record. Modern transcription contributions are attributed to Wikisource contributors under CC BY-SA 4.0; the underlying historical work is public domain. No modern explanatory commentary is imported.",
+      "kind": "source",
+      "through": null,
+      "url": "https://de.wikisource.org/wiki/Lenore"
+    },
+    {
+      "label": "German witness",
+      "text": "Leonore, in Gedichte, edited by Karl Reinhard. Göttingen: Dieterichsche Buchhandlung, 1817, pp.68–83. This is the checked Wikisource witness, distinct from the German facing pages in Spencer’s1796 edition. The whole eight-line stanza is the comparison unit; typography and punctuation differ.",
+      "kind": "source",
+      "through": null,
+      "url": "https://de.wikisource.org/w/index.php?oldid=4220259"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "sourceCommit": "e5d909ade3d28ef84bf5c359291596b243dee163",
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 285,
+      "sha256": "6adcec22ed4e786ce3e35c5fb34523b56185d7446e598610b6dc90fa1396b681"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 870,
+      "sha256": "1f5218d5ea825485aa2719177326ba7b250d4eb46ef84b5f99d92e6a851c3815"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 5510,
+      "sha256": "e98d5590b8fff3972b2fb9ce94126fa670b7802793a75d4a02a560f8a054c770"
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "bytes": 2781,
+      "sha256": "bed7f0a4b1222168abaeffc5d6ad5a500e5af2632d204883dbd1cc967decdd9f"
+    },
+    {
+      "path": "docs/SOURCE-RIGHTS.md",
+      "bytes": 9525,
+      "sha256": "b2545d930a10447be80d08dcc530038583ccf879e2f38d5bccae362cebc19be6"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 3189,
+      "sha256": "71dfe7e42448436dd918e87e8dc418d9a0eb7a009c0caff530a25fef5a4c5751"
+    },
+    {
+      "path": "site/edition-rights.mjs",
+      "bytes": 6394,
+      "sha256": "6b9677d0b996c69dc33118d2195c90c0e69784ce7a5552f164a7759e05090ae3"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 79327,
+      "sha256": "c3d0d8b4e63f81c5ce303811bd3819ad7a14b2cc22f66884dc078d26fc6c9fc5"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 17935,
+      "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7262,
+      "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 3489,
+      "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1435,
+      "sha256": "a3326520a35c4e1062c6dfa9f56259dd1204bed36e7f5274cd2e8ec7c97f3566"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 29118,
+      "sha256": "e8b4fdb80da3350b58a48ced135de643a1300aeb5d44aedb62f441c96739f5fd"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 443,
+      "sha256": "8ad4f52ccca6f3a9864a2f41c341e991fe31ed3d50b7431d2875841c32ec60bf"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 296,
+      "sha256": "55941e99894e520a9527f2bd68aa92d6ccafec85b667649efd81248327fc9c7c"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 1664,
+      "sha256": "0473e2fe3b1261dfbd53f1d1ed66db215ef4d0d3546c92891c4c64324e60f93a"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 1727,
+      "sha256": "cf050ff5bcdc1fcf2c2e1fc17d9499c4ba7e90f6af34cdef7820dae6b17d6aca"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 3842,
+      "sha256": "d02f8c52d8a1e46190df483dcae05403725ed6ba8f2253a74aecb87eaaf29514"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "site/sources/index.html",
+      "bytes": 33196,
+      "sha256": "007c2ef4fb8a9aa3500a3a8279a985c15c7bbe576180c5afe6a58d2e34b307d2"
+    },
+    {
+      "path": "edition/erlkoenig-de.json",
+      "bytes": 4002,
+      "sha256": "c1997c889a9684bab1575d90cf2010be43b307d063560f245a0d9be725f5410e"
+    },
+    {
+      "path": "edition/erlkoenig-en.json",
+      "bytes": 4119,
+      "sha256": "4d63fd74fbeefe9681cac43075d070f9fa097af2a75cc8e839a563f9923ea59c"
+    },
+    {
+      "path": "edition/lenore-de.json",
+      "bytes": 15428,
+      "sha256": "67d7680611e96ece7dc437b5d7121d54863ae46c7e668d5e83f16f673bed29cb"
+    },
+    {
+      "path": "edition/lenore-en.json",
+      "bytes": 16697,
+      "sha256": "7ee245b22b46794b53a71826641022d1e1cb261ad35af497a27197482bee0efb"
+    },
+    {
+      "path": "edition/handschuh-de.json",
+      "bytes": 4851,
+      "sha256": "1e8c98a7cc89ff675dfa51e80cb5316bf02a8480978003eb2d2419fd01ff1546"
+    },
+    {
+      "path": "edition/handschuh-en.json",
+      "bytes": 6875,
+      "sha256": "ecbcbbe2ade5e700d9e59112df9fabdedcc252113e20eaab7d22fa828254b629"
+    },
+    {
+      "path": "edition/taucher-de.json",
+      "bytes": 12395,
+      "sha256": "2549fed1644ef83f315cd410484278b5198450193629fe0b68fc11f9a5e7c09c"
+    },
+    {
+      "path": "edition/taucher-en.json",
+      "bytes": 20730,
+      "sha256": "d2eb2a7115c4179df67ba1c6a40e30fd8f4b2c315d2dda7da70e3205d3c7927f"
+    },
+    {
+      "path": "edition/kraniche-de.json",
+      "bytes": 11998,
+      "sha256": "fa44f7a957707595be3e2720c2111b84ce920fb20bd5105f434c7c975ad03d82"
+    },
+    {
+      "path": "edition/kraniche-en.json",
+      "bytes": 19611,
+      "sha256": "3763b3b30d3d560b54183f58b8b6a9bc6a37df31023930721bcf2ea9b7faf2f1"
+    },
+    {
+      "path": "edition/iphigenie-de.json",
+      "bytes": 204991,
+      "sha256": "d8ca515f7050085a7dfdb479ea0d745f8d83c1f8a300a5a0bb77131e4ecd1882"
+    },
+    {
+      "path": "edition/iphigenie-en.json",
+      "bytes": 213838,
+      "sha256": "a6cd89a4a4c26b14e817156d9c7fcd9f1e478a648c81571dad0c8afba3fc2748"
+    }
+  ],
+  "bookIds": [
+    "erlkoenig-de",
+    "erlkoenig-en",
+    "lenore-de",
+    "lenore-en",
+    "handschuh-de",
+    "handschuh-en",
+    "taucher-de",
+    "taucher-en",
+    "kraniche-de",
+    "kraniche-en",
+    "iphigenie-de",
+    "iphigenie-en"
+  ],
+  "canonicalBookSha256": [
+    "26fbc1466de8b9fb8d3ef0c386b894b49662ee71ea56ec7173518d58ca1ca6c8",
+    "3338870c6c7b54756dfdbb835b5d58011b3e30bec3b6a518ee2de65bb00f06b3",
+    "ca89cca43b36539f86531e52428f5e8dfd0208972f7fa757047e4268c21679cb",
+    "4772ed5549f4db86ed331149014a65dfcdb099d7f94253640c53da05e9be8761",
+    "1ab6898d5b6aacbfe78c142949255e64a184b14802484899c28cf34f90192617",
+    "c01bec63256223375c357477002d2bc27a5471bba8a2eb7b5fac0265c47ea464",
+    "256cce89ce7bca5283be946f2d0b408eba6c9f0034dcd0f87f72609ed433aeaf",
+    "99c8c783422b54d151d465b7b7d6377ca0cc74a2a7b6aab217d8fd600eec0df9",
+    "81afa9b70392e4cc67b825343de4c89c4ee607c3dab89fc2a149cd641e5ee007",
+    "e27566c9fb10142b2381464e924b7625836e7fb0e4221a37bfe640c9d630bedf",
+    "d6eed21d05b9a7681b1bb953f4a9b7b73526c35a6cf5ed6ee1fce6c173a39696",
+    "478e9acbff61858058418e963aacaea1c8030deca6b631b1ff9dd583d0e3403c"
+  ],
+  "librarySha256": "3b4ecf2a7e4e914cfc77fe0fdeb6adfe2cc91a4a2607ba4cb790dca76e915bb6"
+}

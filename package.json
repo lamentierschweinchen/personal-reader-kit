@@ -11,7 +11,7 @@
     "preview:local": "node scripts/preview-local.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "test:browser": "node tests/browser.mjs",
+    "test:browser": "node tests/browser.mjs && node tests/dialog-return-browser.mjs",
     "audit:public": "node scripts/audit.mjs",
     "import:text": "node scripts/import-text.mjs",
     "check": "npm test && npm run build && npm run audit:public",

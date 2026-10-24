@@ -1425,7 +1425,208 @@
     "tests/starter-export.test.mjs",
     "tests/ui-icons.test.mjs",
     "tests/upgrade.test.mjs",
-    "vercel.json"
+    "vercel.json",
+    "examples/ballads-and-a-play/.gitignore",
+    "examples/ballads-and-a-play/.vercelignore",
+    "examples/ballads-and-a-play/AGENTS.md",
+    "examples/ballads-and-a-play/LICENSE",
+    "examples/ballads-and-a-play/README.md",
+    "examples/ballads-and-a-play/docs/EDITION-INVENTORY.json",
+    "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+    "examples/ballads-and-a-play/edition-lock.json",
+    "examples/ballads-and-a-play/edition/erlkoenig-de.json",
+    "examples/ballads-and-a-play/edition/erlkoenig-en.json",
+    "examples/ballads-and-a-play/edition/handschuh-de.json",
+    "examples/ballads-and-a-play/edition/handschuh-en.json",
+    "examples/ballads-and-a-play/edition/iphigenie-de.json",
+    "examples/ballads-and-a-play/edition/iphigenie-en.json",
+    "examples/ballads-and-a-play/edition/kraniche-de.json",
+    "examples/ballads-and-a-play/edition/kraniche-en.json",
+    "examples/ballads-and-a-play/edition/lenore-de.json",
+    "examples/ballads-and-a-play/edition/lenore-en.json",
+    "examples/ballads-and-a-play/edition/taucher-de.json",
+    "examples/ballads-and-a-play/edition/taucher-en.json",
+    "examples/ballads-and-a-play/package.json",
+    "examples/ballads-and-a-play/samples/library.json",
+    "examples/ballads-and-a-play/scripts/build.mjs",
+    "examples/ballads-and-a-play/scripts/serve.mjs",
+    "examples/ballads-and-a-play/site/app.mjs",
+    "examples/ballads-and-a-play/site/apple-touch-icon.png",
+    "examples/ballads-and-a-play/site/bundle.mjs",
+    "examples/ballads-and-a-play/site/core.mjs",
+    "examples/ballads-and-a-play/site/db.mjs",
+    "examples/ballads-and-a-play/site/edition-rights.mjs",
+    "examples/ballads-and-a-play/site/icon-192.png",
+    "examples/ballads-and-a-play/site/icon-512.png",
+    "examples/ballads-and-a-play/site/icon.svg",
+    "examples/ballads-and-a-play/site/index.html",
+    "examples/ballads-and-a-play/site/library.mjs",
+    "examples/ballads-and-a-play/site/manifest.webmanifest",
+    "examples/ballads-and-a-play/site/robots.txt",
+    "examples/ballads-and-a-play/site/share-card.css",
+    "examples/ballads-and-a-play/site/share-card.mjs",
+    "examples/ballads-and-a-play/site/share.mjs",
+    "examples/ballads-and-a-play/site/sources/index.html",
+    "examples/ballads-and-a-play/site/style.css",
+    "examples/ballads-and-a-play/site/text.mjs",
+    "examples/ballads-and-a-play/tests/bundle.test.mjs",
+    "examples/ballads-and-a-play/tests/core.test.mjs",
+    "examples/ballads-and-a-play/tests/package.test.mjs",
+    "examples/ballads-and-a-play/tests/share-card.test.mjs",
+    "examples/ballads-and-a-play/tests/share.test.mjs",
+    "examples/ballads-and-a-play/tests/ui-icons.test.mjs",
+    "examples/ballads-and-a-play/vercel.json",
+    "examples/caesar-and-the-emperors/.gitignore",
+    "examples/caesar-and-the-emperors/.vercelignore",
+    "examples/caesar-and-the-emperors/AGENTS.md",
+    "examples/caesar-and-the-emperors/LICENSE",
+    "examples/caesar-and-the-emperors/README.md",
+    "examples/caesar-and-the-emperors/docs/EDITION-INVENTORY.json",
+    "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+    "examples/caesar-and-the-emperors/edition-lock.json",
+    "examples/caesar-and-the-emperors/edition/augustus-en.json",
+    "examples/caesar-and-the-emperors/edition/augustus-la.json",
+    "examples/caesar-and-the-emperors/edition/caesar-vii-en.json",
+    "examples/caesar-and-the-emperors/edition/caesar-vii-la.json",
+    "examples/caesar-and-the-emperors/edition/marcus-ii-iii-en.json",
+    "examples/caesar-and-the-emperors/edition/marcus-ii-iii-grc.json",
+    "examples/caesar-and-the-emperors/edition/pliny-trajan.json",
+    "examples/caesar-and-the-emperors/edition/sallust-51.json",
+    "examples/caesar-and-the-emperors/edition/tacitus-annals-1.json",
+    "examples/caesar-and-the-emperors/package.json",
+    "examples/caesar-and-the-emperors/scripts/build.mjs",
+    "examples/caesar-and-the-emperors/scripts/serve.mjs",
+    "examples/caesar-and-the-emperors/site/app.mjs",
+    "examples/caesar-and-the-emperors/site/apple-touch-icon.png",
+    "examples/caesar-and-the-emperors/site/bundle.mjs",
+    "examples/caesar-and-the-emperors/site/core.mjs",
+    "examples/caesar-and-the-emperors/site/db.mjs",
+    "examples/caesar-and-the-emperors/site/icon-192.png",
+    "examples/caesar-and-the-emperors/site/icon-512.png",
+    "examples/caesar-and-the-emperors/site/icon.svg",
+    "examples/caesar-and-the-emperors/site/index.html",
+    "examples/caesar-and-the-emperors/site/library.mjs",
+    "examples/caesar-and-the-emperors/site/manifest.webmanifest",
+    "examples/caesar-and-the-emperors/site/media.mjs",
+    "examples/caesar-and-the-emperors/site/robots.txt",
+    "examples/caesar-and-the-emperors/site/roman.mjs",
+    "examples/caesar-and-the-emperors/site/share-card.css",
+    "examples/caesar-and-the-emperors/site/share-card.mjs",
+    "examples/caesar-and-the-emperors/site/share.mjs",
+    "examples/caesar-and-the-emperors/site/sources/index.html",
+    "examples/caesar-and-the-emperors/site/style.css",
+    "examples/caesar-and-the-emperors/site/text.mjs",
+    "examples/caesar-and-the-emperors/tests/bundle.test.mjs",
+    "examples/caesar-and-the-emperors/tests/core.test.mjs",
+    "examples/caesar-and-the-emperors/tests/fixtures/original-samples.json",
+    "examples/caesar-and-the-emperors/tests/package.test.mjs",
+    "examples/caesar-and-the-emperors/tests/roman-browser.mjs",
+    "examples/caesar-and-the-emperors/tests/roman.test.mjs",
+    "examples/caesar-and-the-emperors/tests/share-card.test.mjs",
+    "examples/caesar-and-the-emperors/tests/share.test.mjs",
+    "examples/caesar-and-the-emperors/tests/ui-icons.test.mjs",
+    "examples/caesar-and-the-emperors/vercel.json",
+    "examples/kingdom-for-a-stage/.gitignore",
+    "examples/kingdom-for-a-stage/.vercelignore",
+    "examples/kingdom-for-a-stage/AGENTS.md",
+    "examples/kingdom-for-a-stage/LICENSE",
+    "examples/kingdom-for-a-stage/README.md",
+    "examples/kingdom-for-a-stage/docs/EDITION-INVENTORY.json",
+    "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+    "examples/kingdom-for-a-stage/edition-lock.json",
+    "examples/kingdom-for-a-stage/edition/henry-v.json",
+    "examples/kingdom-for-a-stage/edition/julius-caesar.json",
+    "examples/kingdom-for-a-stage/edition/the-tempest.json",
+    "examples/kingdom-for-a-stage/package.json",
+    "examples/kingdom-for-a-stage/samples/README.md",
+    "examples/kingdom-for-a-stage/samples/library.json",
+    "examples/kingdom-for-a-stage/scripts/build.mjs",
+    "examples/kingdom-for-a-stage/scripts/serve.mjs",
+    "examples/kingdom-for-a-stage/site/app.mjs",
+    "examples/kingdom-for-a-stage/site/apple-touch-icon.png",
+    "examples/kingdom-for-a-stage/site/bundle.mjs",
+    "examples/kingdom-for-a-stage/site/core.mjs",
+    "examples/kingdom-for-a-stage/site/db.mjs",
+    "examples/kingdom-for-a-stage/site/icon-192.png",
+    "examples/kingdom-for-a-stage/site/icon-512.png",
+    "examples/kingdom-for-a-stage/site/icon.svg",
+    "examples/kingdom-for-a-stage/site/index.html",
+    "examples/kingdom-for-a-stage/site/library.mjs",
+    "examples/kingdom-for-a-stage/site/manifest.webmanifest",
+    "examples/kingdom-for-a-stage/site/media.mjs",
+    "examples/kingdom-for-a-stage/site/robots.txt",
+    "examples/kingdom-for-a-stage/site/share-card.css",
+    "examples/kingdom-for-a-stage/site/share-card.mjs",
+    "examples/kingdom-for-a-stage/site/share.mjs",
+    "examples/kingdom-for-a-stage/site/style.css",
+    "examples/kingdom-for-a-stage/site/text.mjs",
+    "examples/kingdom-for-a-stage/sources/index.html",
+    "examples/kingdom-for-a-stage/tests/bundle.test.mjs",
+    "examples/kingdom-for-a-stage/tests/core.test.mjs",
+    "examples/kingdom-for-a-stage/tests/drama.test.mjs",
+    "examples/kingdom-for-a-stage/tests/package.test.mjs",
+    "examples/kingdom-for-a-stage/tests/shakespeare-browser.mjs",
+    "examples/kingdom-for-a-stage/tests/share-card.test.mjs",
+    "examples/kingdom-for-a-stage/tests/share.test.mjs",
+    "examples/kingdom-for-a-stage/tests/ui-icons.test.mjs",
+    "examples/kingdom-for-a-stage/vercel.json",
+    "examples/pictures-after-dark/.gitignore",
+    "examples/pictures-after-dark/.vercelignore",
+    "examples/pictures-after-dark/AGENTS.md",
+    "examples/pictures-after-dark/LICENSE",
+    "examples/pictures-after-dark/README.md",
+    "examples/pictures-after-dark/VERSION-HISTORY.md",
+    "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+    "examples/pictures-after-dark/edition-lock.json",
+    "examples/pictures-after-dark/edition/callot.jpg",
+    "examples/pictures-after-dark/edition/en.json",
+    "examples/pictures-after-dark/edition/folio.json",
+    "examples/pictures-after-dark/edition/fr.json",
+    "examples/pictures-after-dark/edition/hugo-burg.jpg",
+    "examples/pictures-after-dark/edition/merrill-10.jpg",
+    "examples/pictures-after-dark/edition/merrill-15.jpg",
+    "examples/pictures-after-dark/edition/merrill-16.jpg",
+    "examples/pictures-after-dark/edition/merrill-17.jpg",
+    "examples/pictures-after-dark/edition/merrill-18.jpg",
+    "examples/pictures-after-dark/edition/merrill-21.jpg",
+    "examples/pictures-after-dark/edition/merrill-22.jpg",
+    "examples/pictures-after-dark/edition/merrill-28.jpg",
+    "examples/pictures-after-dark/edition/merrill-29.jpg",
+    "examples/pictures-after-dark/edition/merrill-7.jpg",
+    "examples/pictures-after-dark/edition/merrill-8.jpg",
+    "examples/pictures-after-dark/edition/merrill-9.jpg",
+    "examples/pictures-after-dark/package.json",
+    "examples/pictures-after-dark/samples/library.json",
+    "examples/pictures-after-dark/scripts/build.mjs",
+    "examples/pictures-after-dark/scripts/serve.mjs",
+    "examples/pictures-after-dark/site/app.mjs",
+    "examples/pictures-after-dark/site/apple-touch-icon.png",
+    "examples/pictures-after-dark/site/bundle.mjs",
+    "examples/pictures-after-dark/site/core.mjs",
+    "examples/pictures-after-dark/site/db.mjs",
+    "examples/pictures-after-dark/site/folio-assets.mjs",
+    "examples/pictures-after-dark/site/folio-rights.mjs",
+    "examples/pictures-after-dark/site/folio.mjs",
+    "examples/pictures-after-dark/site/icon-192.png",
+    "examples/pictures-after-dark/site/icon-512.png",
+    "examples/pictures-after-dark/site/icon.svg",
+    "examples/pictures-after-dark/site/index.html",
+    "examples/pictures-after-dark/site/library.mjs",
+    "examples/pictures-after-dark/site/manifest.webmanifest",
+    "examples/pictures-after-dark/site/robots.txt",
+    "examples/pictures-after-dark/site/share-card.css",
+    "examples/pictures-after-dark/site/share-card.mjs",
+    "examples/pictures-after-dark/site/share.mjs",
+    "examples/pictures-after-dark/site/sources/index.html",
+    "examples/pictures-after-dark/site/style.css",
+    "examples/pictures-after-dark/site/text.mjs",
+    "examples/pictures-after-dark/tests/bundle.test.mjs",
+    "examples/pictures-after-dark/tests/core.test.mjs",
+    "examples/pictures-after-dark/tests/edition.test.mjs",
+    "examples/pictures-after-dark/tests/folio-rights.test.mjs",
+    "examples/pictures-after-dark/vercel.json",
+    "showcase/check-themed-readers.mjs",
+    "tests/dialog-return-browser.mjs"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -1503,7 +1704,8 @@
     "tests/starter-export.test.mjs",
     "tests/ui-icons.test.mjs",
     "tests/upgrade.test.mjs",
-    "vercel.json"
+    "vercel.json",
+    "tests/dialog-return-browser.mjs"
   ],
   "reviewedEditionFiles": [
     {
@@ -3983,6 +4185,252 @@
       "sha256": "dea3d3bf9de11ee8e271687b9f92c1023e01914c6ef32c0473e52b0734e13488",
       "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-approved historical contribution or excerpt binding; source edition, contributor, provider and territorial scope in the package rights record."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/erlkoenig-de.json",
+      "sha256": "c1997c889a9684bab1575d90cf2010be43b307d063560f245a0d9be725f5410e",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/erlkoenig-en.json",
+      "sha256": "4d63fd74fbeefe9681cac43075d070f9fa097af2a75cc8e839a563f9923ea59c",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/handschuh-de.json",
+      "sha256": "1e8c98a7cc89ff675dfa51e80cb5316bf02a8480978003eb2d2419fd01ff1546",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/handschuh-en.json",
+      "sha256": "ecbcbbe2ade5e700d9e59112df9fabdedcc252113e20eaab7d22fa828254b629",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/iphigenie-de.json",
+      "sha256": "d8ca515f7050085a7dfdb479ea0d745f8d83c1f8a300a5a0bb77131e4ecd1882",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/iphigenie-en.json",
+      "sha256": "a6cd89a4a4c26b14e817156d9c7fcd9f1e478a648c81571dad0c8afba3fc2748",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/kraniche-de.json",
+      "sha256": "fa44f7a957707595be3e2720c2111b84ce920fb20bd5105f434c7c975ad03d82",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/kraniche-en.json",
+      "sha256": "3763b3b30d3d560b54183f58b8b6a9bc6a37df31023930721bcf2ea9b7faf2f1",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/lenore-de.json",
+      "sha256": "67d7680611e96ece7dc437b5d7121d54863ae46c7e668d5e83f16f673bed29cb",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/lenore-en.json",
+      "sha256": "7ee245b22b46794b53a71826641022d1e1cb261ad35af497a27197482bee0efb",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/taucher-de.json",
+      "sha256": "2549fed1644ef83f315cd410484278b5198450193629fe0b68fc11f9a5e7c09c",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/ballads-and-a-play/edition/taucher-en.json",
+      "sha256": "d2eb2a7115c4179df67ba1c6a40e30fd8f4b2c315d2dda7da70e3205d3c7927f",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved historical German/English edition, retained apparatus and notices. Wikisource adaptations retain CC BY-SA 4.0; DTA TEI CC0 and historical English/Gutenberg terms are separately documented."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/augustus-en.json",
+      "sha256": "29c6de47c686911e320226400f3ec57b0d53a05dbfe5f38e6a3952f04fa844fb",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/augustus-la.json",
+      "sha256": "297a90cc1ce80f9dabcbb6af1d1e07076a9a9e57597510243a44d22a10773f36",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/caesar-vii-en.json",
+      "sha256": "f0723f3db5a7f62c21e74f618d20b535c3a073d2c61acceae3e67fe40a676250",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/caesar-vii-la.json",
+      "sha256": "dc89d606a73ed11eeacbc2b3260b71000f24ed9c8aec86e6b801db1b0ac3d005",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/marcus-ii-iii-en.json",
+      "sha256": "f18911d651793288edbfdc1ed647db7d9b5da9b53019161f30c65d9e3d7bd80e",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/marcus-ii-iii-grc.json",
+      "sha256": "d6b266b42fd411e14a0edd79d79dcf79b03368c0555420390e03fba2203fe643",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/pliny-trajan.json",
+      "sha256": "91df0e04451844d0bc614e25b64d956b00e3fdd246369bd23106068a6f3fa805",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/sallust-51.json",
+      "sha256": "729ebee8bc5b74cfde237e599e76c05cd1f74ac0a6b9d4fbb161234251e97a35",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/edition/tacitus-annals-1.json",
+      "sha256": "7096371ea49a8384be91bc060baa4980612dbc1abb3830fd21623134d8459f78",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved bounded Roman edition with source apparatus and five credited embedded images. Perseus Latin/Greek transcriptions retain CC BY-SA 4.0; historical contributions retain separate source-specific evidence. No private records."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/edition/henry-v.json",
+      "sha256": "ec1023b91b6eb4f664d52df16756dc85f28400e09932bf3f5b374be31345ae03",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved Folger CC BY-NC 3.0 edited/encoded text, complete notices and changes; Tempest embeds separately credited Met CC0 image. This content is excluded from MIT."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/edition/julius-caesar.json",
+      "sha256": "bf2241a7e8ac812992665ec9db7794cfd737103a430d31ac0aaef0a76fcd6b7b",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved Folger CC BY-NC 3.0 edited/encoded text, complete notices and changes; Tempest embeds separately credited Met CC0 image. This content is excluded from MIT."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/edition/the-tempest.json",
+      "sha256": "a624dcefedcfff94540e28b29ca6f4e688c97f4ba49c40da38a4a6b22be47758",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved Folger CC BY-NC 3.0 edited/encoded text, complete notices and changes; Tempest embeds separately credited Met CC0 image. This content is excluded from MIT."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/callot.jpg",
+      "sha256": "cd6f5d5c2ae756f3c4edc4746d64b6b466720c2299c6db7df083b00a72295697",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/en.json",
+      "sha256": "744f44605ef58cb4fcfe05a1896001c97062a5c549e4aee2c099d63e70a79cd3",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/folio.json",
+      "sha256": "127f8c73b5793ef34d8882f2c5ff8ad72091c3ea3392d6e209d960ea5b327333",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/fr.json",
+      "sha256": "3db9338a37af73fd840c0a9aa25a3850d7e7781456f4588c6cfc522e52be8ad5",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/hugo-burg.jpg",
+      "sha256": "e6a5387a1dee8d2f25b5db3269db5b095a8a97ac23d27af9cb4958b2d037a390",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-10.jpg",
+      "sha256": "9cf841726be62830bc75a4ec04b9cf7061d84be232a9e59e18111e9221364ad3",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-15.jpg",
+      "sha256": "925ab3cc0bd93ca93351f31c47e5ed0ddc759d94ac3c5e31cba8bb1ccb36a574",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-16.jpg",
+      "sha256": "dd865ce21098dd661c81dea026f1d6b2970f1a3dfb093077122bf002ff2c00ff",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-17.jpg",
+      "sha256": "bc111f41ba1d4745f39a31e366c898b48fa6846f2b71f578b2e5fe21955ccd41",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-18.jpg",
+      "sha256": "bdc10bbc832ab92241f3b6bc5694d1fbc60ed2eb6950fd423751d3a6ec5aab88",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-21.jpg",
+      "sha256": "ce62c0e2af5cb3ed1ed1266f5f1ccc69364ac0b04b70a3a97ff5ab171196303a",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-22.jpg",
+      "sha256": "e3a2c1ed20dae08ba02e4c8d729e750c438ae867e7c4507e07af96cf86542e30",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-28.jpg",
+      "sha256": "c16d69c1510d772031e8b88b19042b495d52ff982d405c86ef53c1e76b740faf",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-29.jpg",
+      "sha256": "6ea0135ba35973395eae6b49a04e3536787f9ec0edb39756615f038e19f84084",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-7.jpg",
+      "sha256": "e7426a42f553e2c24b548eedb0806c3093e795fd9c7388d77bd398f962e5aff1",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-8.jpg",
+      "sha256": "ee8e54fed7c9890b249dda63d6bd89a5b427ba190ebe7d66b1fb61687c40e228",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/pictures-after-dark/edition/merrill-9.jpg",
+      "sha256": "ad1c3cfdc777e69daa1fde1077bbabee8c287d3ef7b7744e894fbcd9e1d78912",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
     }
   ],
   "reviewedSiteAssets": [
@@ -4651,6 +5099,78 @@
       "sha256": "95573ceba3712a5e02d25ae986cd6d67c125550f3e83f5aca88d7c036f8336b6",
       "provenance": "examples/fall-of-the-house-of-usher/docs/SOURCE-RIGHTS.md",
       "reason": "Original bespoke reader mark, opaque Home Screen PNG; no source illustration or private data."
+    },
+    {
+      "path": "examples/ballads-and-a-play/site/apple-touch-icon.png",
+      "sha256": "0473e2fe3b1261dfbd53f1d1ed66db215ef4d0d3546c92891c4c64324e60f93a",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/ballads-and-a-play/site/icon-192.png",
+      "sha256": "cf050ff5bcdc1fcf2c2e1fc17d9499c4ba7e90f6af34cdef7820dae6b17d6aca",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/ballads-and-a-play/site/icon-512.png",
+      "sha256": "d02f8c52d8a1e46190df483dcae05403725ed6ba8f2253a74aecb87eaaf29514",
+      "provenance": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/site/apple-touch-icon.png",
+      "sha256": "44232ceb8bf1262bb9c94723991e5b5a17393f481f3bb615100720326c6fc603",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/site/icon-192.png",
+      "sha256": "47d6d157f26cfc3c5847641717e1e576f6ca8aba80bb1920781ea2e7f4209c69",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/caesar-and-the-emperors/site/icon-512.png",
+      "sha256": "7dcd67fdf1537600d2733ca254de149288396f62f0a08002043e4f63f6da7c75",
+      "provenance": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/site/apple-touch-icon.png",
+      "sha256": "076daaca2b55bf49873cd4582814f83feee06ed95a694f9e0b772c67b88b8d5e",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/site/icon-192.png",
+      "sha256": "4f2c4123df12985524d43bd5981c81617c92eea2b3c07c2528d85cb271b695fa",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/kingdom-for-a-stage/site/icon-512.png",
+      "sha256": "c9f12a5b18a24afa7cf61eece65be4634027c5da912369333fe6ad4ac465a6e0",
+      "provenance": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/pictures-after-dark/site/apple-touch-icon.png",
+      "sha256": "8580531d65e8450c6ff98b446d22c654aef5cc601d1e6922faf1b0039372b12a",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/pictures-after-dark/site/icon-192.png",
+      "sha256": "c2eef720250885e50972122c2c75d1f7cd122212824709b429e279b512cfe421",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/pictures-after-dark/site/icon-512.png",
+      "sha256": "142f436deb51bc66db5b7c1b5e0e3f19229456d34a1e7a92cd9fa790e782da93",
+      "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
     }
   ]
 }

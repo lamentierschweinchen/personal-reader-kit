@@ -1,5 +1,15 @@
 # History boundary
 
+## Four themed readers and source-character return · October 24, 2026
+
+Four owner-approved collections bring the library to twenty: German ballads and Goethe’s Iphigenie in German and English; Julius Caesar, Henry V and The Tempest with historical context; illustrated French prose and poetry with English translations; and Caesar, Augustus and Marcus Aurelius with related Roman witnesses. Each has its own source and license page. The selected Folger, Wikisource and Perseus texts retain their license terms; the kit’s MIT license covers the code, not those editions.
+
+Final source review corrected witnessed transcription, stage-cue, emphasis and epigraph defects while preserving the original research files. Exact edition objects, source apparatus, images and required notices have separate publication pins. German parallel reading keeps an opening stage direction in source order even when the other witness has no corresponding block. The expanded shelf preserves its desktop face-outs and phone selection while keeping the selected cover reachable at intermediate widths.
+
+A long original verse fixture reproduced a dialog-return defect in the starter: rotating or changing type could move the visible words offscreen. A transient source-character anchor now restores the same text after reflow without changing saved-record schemas. Same-layout scroll and deliberate chapter navigation remain intact. The new regression runs with the existing browser suite. The guide records the demonstrated source, sharing and return lessons.
+
+Verification and limits are in [STATUS.md](docs/STATUS.md). Independent source histories, raw archives and private review material remain outside the public repository.
+
 ## Douglass, Poe and exact starter exports · 23 October 2026
 
 Two owner-approved additions bring the catalogue to sixteen editions: Douglass’s complete 1845 Narrative with three historical documents, and Poe’s complete Usher with illustrated comparisons and links to later film and music. The final Poe review removes obsolete local-review wording, adds quotation cards and repairs focus through ending controls. Exact texts, illustrations, licenses and edition notices are preserved. The selected public copies have their own inventories; source-project histories and private preparation are not imported.

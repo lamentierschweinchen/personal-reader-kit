@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "taucher-de",
+  "title": "Der Taucher",
+  "author": "Friedrich Schiller",
+  "edition": "Musen-Almanach für 1798, pp.119–130 · Wikisource",
+  "language": "de",
+  "source": {
+    "sha256": "9cac09269a70b47fbf2a7a5ce9558d91c946215c43c283a5e348b79addf5699a",
+    "format": "historical-source-adapter",
+    "description": "Musen-Almanach für 1798, pp.119–130 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Der Taucher",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Wer wagt es, Rittersmann oder Knapp,\nZu tauchen in diesen Schlund?\nEinen goldnen Becher werf ich hinab,\nVerschlungen schon hat ihn der schwarze Mund.\nWer mir den Becher kann wieder zeigen,\nEr mag ihn behalten, er ist sein eigen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Der König sprach es, und wirft von der Höh\nDer Klippe, die schroff und steil\nHinaus hängt in die unendliche See,\nDen Becher in der Charybde Geheul.\nWer ist der Beherzte, ich frage wieder,\nZu tauchen in diese Tiefe nieder?",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 131,
+              "end": 139
+            }
+          ]
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "Und die Ritter, die Knappen um ihn her,\nVernehmens und schweigen still,\nSehen hinab in das wilde Meer,\nUnd keiner den Becher gewinnen will.\nUnd der König zum drittenmal wieder fraget:\nIst keiner, der sich hinunter waget?",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "Doch alles noch stumm bleibt wie zuvor,\nUnd ein Edelknecht, sanft und keck,\nTritt aus der Knappen zagendem Chor,\nUnd den Gürtel wirft er, den Mantel weg,\nUnd alle die Männer umher und Frauen\nAuf den herrlichen Jüngling verwundert schauen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "Und wie er tritt an des Felsen Hang,\nUnd blickt in den Schlund hinab,\nDie Wasser, die sie hinunter schlang,\nDie Charybde jetzt brüllend wiedergab,\nUnd wie mit des fernen Donners Getose\nEntstürzen sie schäumend dem finstern Schoose.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Und es wallet und siedet und brauset und zischt,\nWie wenn Wasser mit Feuer sich mengt,\nBis zum Himmel sprützet der dampfende Gischt,\nUnd Flut auf Flut sich ohn Ende drängt,\nUnd will sich nimmer erschöpfen und leeren,\nAls wollte das Meer noch ein Meer gebähren.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "Doch endlich, da legt sich die wilde Gewalt,\nUnd schwarz aus dem weißen Schaum\nKlafft hinunter ein gähnender Spalt,\nGrundlos als giengs in den Höllenraum,\nUnd reissend sieht man die brandenden Wogen\nHinab in den strudelnden Trichter gezogen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "Jetzt schnell, eh die Brandung zurückekehrt,\nDer Jüngling sich Gott befiehlt,\nUnd – ein Schrey des Entsetzens wird rings gehört,\nUnd schon hat ihn der Wirbel hinweggespült,\nUnd geheimnißvoll über dem kühnen Schwimmer\nSchließt sich der Rachen, er zeigt sich nimmer.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": "Und stille wirds über dem Wasserschlund,\nIn der Tiefe nur brauset es hohl,\nUnd bebend hört man von Mund zu Mund:\nHochherziger Jüngling, fahre wohl!\nUnd hohler und hohler hört mans heulen,\nUnd es harrt noch mit bangem, mit schrecklichem Weilen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "Und wärfst du die Krone selber hinein,\nUnd sprächst: wer mir bringet die Kron’,\nEr soll sie tragen und König seyn,\nMich gelüstete nicht nach dem theuren Lohn,\nWas die heulende Tiefe da unten verhehle,\nDas erzählt keine lebende glückliche Seele.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": "Wohl manches Fahrzeug, vom Strudel gefaßt,\nSchoß gäh in die Tiefe hinab,\nDoch zerschmettert nur rangen sich Kiel und Mast,\nHervor aus dem alles verschlingenden Grab.\nUnd heller und heller wie Sturmes Sausen\nHört mans näher und immer näher brausen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "Und es wallet und siedet und brauset und zischt,\nWie wenn Wasser mit Feuer sich mengt,\nBis zum Himmel sprützet der dampfende Gischt,\nUnd Well’ auf Well’ sich ohn Ende drängt,\nUnd wie mit des fernen Donners Getose\nEntstürzt es brüllend dem finstern Schoose.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": "Und sieh! aus dem finster flutenden Schooß\nDa hebet sichs schwanenweiß,\nUnd ein Arm und ein glänzender Nacken wird bloß\nUnd es rudert mit Kraft und mit emsigem Fleiß,\nUnd er ists, und hoch in seiner Linken\nSchwingt er den Becher mit freudigem Winken.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "Und athmete lang und athmete tief,\nUnd begrüßte das himmlische Licht.\nMit Frohlocken es einer dem andern rief,\nEr lebt! Er ist da! Es behielt ihn nicht.\nAus dem Grab, aus der strudelnden Wasserhöhle\nHat der Brave gerettet die lebende Seele.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": "Und er kommt, es umringt ihn die jubelnde Schaar,\nZu des Königs Füßen er sinkt,\nDen Becher reicht er ihm knieend dar,\nUnd der König der lieblichen Tochter winkt,\nDie füllt ihn mit funkelndem Wein bis zum Rande,\nUnd der Jüngling sich also zum König wandte:",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "Lang lebe der König! Es freue sich,\nWer da athmet im rosigten Licht.\nDa unten aber ists fürchterlich,\nUnd der Mensch versuche die Götter nicht,\nUnd begehre nimmer und nimmer zu schauen\nWas sie gnädig bedecken mit Nacht und Grauen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": "Es riß mich hinunter Blitzesschnell,\nDa stürzt’ mir aus felsigtem Schacht,\nWildflutend entgegen ein reissender Quell,\nMich pakte des Doppelstroms wüthende Macht,\nUnd wie einen Kreisel mit schwindelndem Drehen,\nTrieb michs um, ich konnte nicht widerstehen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "Da zeigte mir Gott, zu dem ich rief,\nIn der höchsten schrecklichen Noth,\nAus der Tiefe ragend ein Felsenrif,\nDas erfaßt’ ich behend und entrann dem Tod,\nUnd da hieng auch der Becher an spitzen Korallen,\nSonst wär er ins Bodenlose gefallen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": "Denn unter mir lags noch, Bergetief,\nIn purpurner Finsterniß da,\nUnd obs hier dem Ohre gleich ewig schlief,\nDas Auge mit Schaudern hinunter sah,\nWies von Salamandern und Molchen und Drachen\nSich regte in dem furchtbaren Höllenrachen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "Schwarz wimmelten da, in grausem Gemisch\nZu scheußlichen Klumpen geballt,\nDer stachlichte Roche, der Klippenfisch,\nDes Hammers gräuliche Ungestalt,\nUnd dräuend wies mir die grimmigen Zähne\nDer entsetzliche Hay, des Meeres Hyäne.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": "Und da hieng ich und war mirs mit Grausen bewußt,\nVon der menschlichen Hülfe so weit.\nUnter Larven die einzige fühlende Brust,\nAllein in der gräßlichen Einsamkeit,\nTief unter dem Schall der menschlichen Rede\nBey den Ungeheuern der traurigen Oede.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "Und schaudernd dacht ichs, da krochs heran,\nRegte hundert Gelenke zugleich,\nWill schnappen nach mir, in des Schreckens Wahn\nLaß ich los der Koralle umklammerten Zweig,\nGleich faßt mich der Strudel mit rasendem Toben,\nDoch es war mir zum Heil, er riß mich nach oben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": "Der König darob sich verwundert schier,\nUnd spricht: Der Becher ist dein,\nUnd diesen Ring noch bestimm ich dir,\nGeschmückt mit dem köstlichsten Edelgestein,\nVersuchst dus noch einmal und bringst mir Kunde,\nWas du sahst auf des Meers tiefunterstem Grunde?",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-024",
+          "kind": "verse",
+          "text": "Das hörte die Tochter mit weichem Gefühl,\nUnd mit schmeichelndem Munde sie fleht:\nLaßt Vater genug seyn das grausame Spiel,\nEr hat euch bestanden, was keiner besteht,\nUnd könnt ihr des Herzens Gelüsten nicht zähmen,\nSo mögen die Ritter den Knappen beschämen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-025",
+          "kind": "verse",
+          "text": "Drauf der König greift nach dem Becher schnell,\nIn den Strudel ihn schleudert hinein,\nUnd schaffst du den Becher mir wieder zur Stell,\nSo sollst du der treflichste Ritter mir seyn,\nUnd sollst sie als Ehgemahl heut noch umarmen,\nDie jetzt für dich bittet mit zartem Erbarmen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-026",
+          "kind": "verse",
+          "text": "Da ergreifts ihm die Seele mit Himmelsgewalt,\nUnd es blitzt aus den Augen ihm kühn,\nUnd er siehet erröthen die schöne Gestalt,\nUnd sieht sie erbleichen und sinken hin,\nDa treibts ihn, den köstlichen Preiß zu erwerben,\nUnd stürzt hinunter auf Leben und Sterben.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-027",
+          "kind": "verse",
+          "text": "Wohl hört man die Brandung, wohl kehrt sie zurück,\nSie verkündigt der donnernde Schall,\nDa bückt sichs hinunter mit liebendem Blick\nEs kommen, es kommen die Wasser all,\nSie rauschen herauf, sie rauschen nieder,\nDen Jüngling bringt keines wieder.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "German transcription",
+      "text": "Wikisource transcription of the historical witness named in the source record. Modern transcription contributions are attributed to Wikisource contributors under CC BY-SA 4.0; the underlying historical work is public domain. No modern explanatory commentary is imported.",
+      "kind": "source",
+      "through": null,
+      "url": "https://de.wikisource.org/wiki/Der_Taucher"
+    }
+  ]
+}

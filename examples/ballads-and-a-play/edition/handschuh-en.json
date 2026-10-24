@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "id": "handschuh-en",
+  "title": "The Glove",
+  "author": "Friedrich Schiller",
+  "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+  "language": "en",
+  "source": {
+    "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+    "format": "historical-source-adapter",
+    "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "The Glove",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Before his lion-court,\nTo see the griesly sport,\n    Sate the King;\nBeside him group'd his princely peers,\nAnd dames aloft, in circling tiers,\n    Wreathed round their blooming ring.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "King Francis, where he sate,\nRaised a finger—yawned the gate,\nAnd, slow from his repose,\nA lion goes!\nDumbly he gazed around\nThe foe-encircled ground;\nAnd, with a lazy gape,\nHe stretch'd his lordly shape,\nAnd shook his careless mane,\nAnd—laid him down again!",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 91,
+              "end": 95
+            }
+          ]
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "A finger raised the King—\nAnd nimbly have the guard\nA second gate unbarr'd:\nForth, with a rushing spring,\n    A tiger sprung!\nWildly the wild one yell'd\nWhen the lion he beheld;\nAnd, bristling at the look,\nWith his tail his sides he strook,\n    And roll'd his rabid tongue.\nIn many a wary ring\nHe swept round the forest-king,\nWith a fell and rattling sound;—\nAnd laid him on the ground,\n    Grommelling!",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 112,
+              "end": 117
+            }
+          ]
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "The King raised his finger; then\nLeap'd two leopards from the den\n    With a bound:\nAnd boldly bounded they\nWhere the crouching tiger lay\n    Terrible!\nAnd he griped the beasts in his deadly hold!\nIn the grim embrace they grappled and rolled.\n    Rose the lion with a roar!\n    And stood the strife before;\n    And the wild-cats on the spot,\n    From the blood-thirst, wroth and hot,\n        Halted still!",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 44,
+              "end": 52
+            }
+          ]
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "From the gallery raised above,\nA fair hand dropp'd a glove:—\nMidway between the beasts of prey,\nLion and tiger; there it lay,\nThe winsome lady's glove!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Fair Cunigonde said, with a lip of scorn,\nTo the knight Delorges—“If the love you have sworn\nWere as gallant and leal as you boast it to be,\nI might ask you to bring back that glove to me!”",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 56,
+              "end": 64
+            }
+          ]
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "The Knight left the place where the lady sate;\nThe Knight he has passed through the fearful gate;\nThe lion and tiger he stoop'd above,\nAnd his fingers have closed on the lady's glove!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "All shuddering and stunn'd, they beheld him there—\nThe noble knights and the ladies fair;\nBut loud was the joy and the praise the while\nHe bore back the glove with his tranquil smile!\n\nWith a tender look in her softening eyes,\nThat promised reward to his warmest sighs,\nFair Cunigonde rose her knight to grace—\nHe tossed the glove in the lady's face!\n“Nay, spare me the guerdon, at least,” quoth he;\nAnd he left for ever that fair ladye!\n",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "translator-notes",
+      "title": "Historical translator notes",
+      "blocks": [
+        {
+          "id": "note-1",
+          "kind": "note",
+          "text": "The original of this well-known story is in St Foix — Essai sur Paris : date, the reign of Francis I.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 54,
+              "end": 69
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "Sir Edward Bulwer-Lytton",
+      "text": "The Poems and Ballads of Schiller, second edition. Edinburgh and London: William Blackwood and Sons, 1852. Historical translator notes remain separate from the poems and are historical claims, not present editorial authority.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    },
+    {
+      "label": "The manner of refusal",
+      "text": "In the first printing, Delorges bows before refusing Kunigunde’s thanks. In the later text used here, he throws back the glove. The refusal survives; its manner changes.",
+      "kind": "editorial",
+      "through": "poem",
+      "url": "https://www.wallstein-open-library.de/openaccess/9783835305243-005.pdf"
+    },
+    {
+      "label": "1852 print collation",
+      "text": "The selected poem and its included historical apparatus were collated against the complete 1852 printed pages. Witnessed OCR and punctuation errors were corrected; source italics are retained, and meaningful small capitals are represented by strong emphasis. Prose paragraphs divided by page breaks are rejoined. The Glove’s closing source stanza break remains within its final comparison unit. This is agent collation, not independent human proofreading.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    }
+  ]
+}

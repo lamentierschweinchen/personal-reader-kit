@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "id": "kraniche-de",
+  "title": "Die Kraniche des Ibycus",
+  "author": "Friedrich Schiller",
+  "edition": "Musen-Almanach für 1798, pp.267–277 · Wikisource",
+  "language": "de",
+  "source": {
+    "sha256": "b7974d65856bc391d28f04ebe98ade690796bd01d40ab12823f2e57aa44b63e0",
+    "format": "historical-source-adapter",
+    "description": "Musen-Almanach für 1798, pp.267–277 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Die Kraniche des Ibycus",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Zum Kampf der Wagen und Gesänge,\nDer auf Corinthus Landesenge\nDer Griechen Stämme froh vereint,\nZog Ibycus, der Götterfreund.\nIhm schenkte des Gesanges Gabe,\nDer Lieder süßen Mund Apoll,\nSo wandert er, an leichtem Stabe,\nAus Rhegium, des Gottes voll.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Schon winkt auf hohem Bergesrücken\nAcrocorinth des Wandrers Blicken,\nUnd in Poseidons Fichtenhayn\nTritt er mit frommem Schauder ein.\nNichts regt sich um ihn her, nur Schwärme\nVon Kranichen begleiten ihn,\nDie fernhin nach des Südens Wärme\nIn graulichtem Geschwader ziehn.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "Seid mir gegrüßt, befreundte Schaaren!\nDie mir zur See Begleiter waren.\nZum guten Zeichen nehm ich euch,\nMein Loos, es ist dem euren gleich.\nVon fernher kommen wir gezogen,\nUnd flehen um ein wirthlich Dach.\nSei uns der Gastliche gewogen,\nDer von dem Fremdling wehrt die Schmach!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "Und munter fördert er die Schritte,\nUnd sieht sich in des Waldes Mitte,\nDa sperren, auf gedrangem Steg,\nZwey Mörder plötzlich seinen Weg.\nZum Kampfe muß er sich bereiten,\nDoch bald ermattet sinkt die Hand,\nSie hat der Leyer zarte Saiten,\nDoch nie des Bogens Kraft gespannt.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "Er ruft die Menschen an, die Götter,\nSein Flehen dringt zu keinem Retter,\nWie weit er auch die Stimme schickt,\nNichts lebendes wird hier erblickt.\n„So muß ich hier verlassen sterben,\nAuf fremdem Boden, unbeweint,\nDurch böser Buben Hand verderben,\nWo auch kein Rächer mir erscheint!“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Und schwer getroffen sinkt er nieder,\nDa rauscht der Kraniche Gefieder,\nEr hört, schon kann er nicht mehr sehn,\nDie nahen Stimmen furchtbar krähn.\n„Von euch, ihr Kraniche dort oben!\nWenn keine andre Stimme spricht,\nSey meines Mordes Klag’ erhoben!“\nEr ruft es, und sein Auge bricht.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "Der nakte Leichnam wird gefunden,\nUnd bald, obgleich entstellt von Wunden,\nErkennt der Gastfreund in Corinth\nDie Züge, die ihm theuer sind.\n„Und muß ich so dich wiederfinden,\nUnd hoffte mit der Fichte Kranz\nDes Sängers Schläfe zu umwinden,\nBestrahlt von seines Ruhmes Glanz!“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "Und jammernd hörens alle Gäste,\nVersammelt bey Neptunus Feste,\nGanz Griechenland ergreift der Schmerz,\nVerloren hat ihn jedes Herz,\nUnd stürmend drängt sich zum Prytanen\nDas Volk, es fodert seine Wut\nZu rächen des Erschlagnen Manen,\nZu sühnen mit des Mörders Blut.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": "Doch wo die Spur, die aus der Menge,\nDer Völker flutendem Gedränge,\nGelocket von der Spiele Pracht,\nDen schwarzen Thäter kenntlich macht?\nSinds Räuber, die ihn feig erschlagen?\nThats neidisch ein verborgner Feind?\nNur Helios vermags zu sagen,\nDer alles Irrdische bescheint!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "Er geht vielleicht, mit frechem Schritte\nJetzt eben durch der Griechen Mitte,\nUnd während ihn die Rache sucht,\nGenießt er seines Frevels Frucht.\nAuf ihres eignen Tempels Schwelle\nTrotzt er vielleicht den Göttern, mengt\nSich dreist in jene Menschenwelle,\nDie dort sich zum Theater drängt.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 272,
+              "end": 279
+            }
+          ]
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": "Denn Bank an Bank gedränget sitzen,\nEs brechen fast der Bühne Stützen,\nHerbeygeströmt von Fern und Nah,\nDer Griechen Völker wartend da,\nDumpfbrausend wie des Meeres Wogen,\nVon Menschen wimmelnd wächst der Bau\nIn weiter stets geschweiftem Bogen\nHinauf bis in des Himmels Blau.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "Wer zählt die Völker, nennt die Nahmen,\nDie gastlich hier zusammen kamen?\nVon Theseus Stadt, von Aulis Strand,\nVon Phocis, vom Spartanerland,\nVon Asiens entlegner Küste,\nVon allen Inseln kamen sie,\nUnd horchen von dem Schaugerüste\nDes Chores grauser Melodie –",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 235,
+              "end": 241
+            }
+          ]
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": "Der streng und ernst, nach alter Sitte,\nMit langsam abgemeßnem Schritte,\nHervortritt aus dem Hintergrund,\nUmwandelnd des Theaters Rund.\nSo schreiten keine irrdschen Weiber,\nDie zeugete kein sterblich Haus!\nEs steigt das Riesenmaß der Leiber\nHoch über menschliches hinaus.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 3
+            }
+          ]
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "Ein schwarzer Mantel schlägt die Lenden,\nSie schwingen in entfleischten Händen\nDer Fackel düsterrothe Glut,\nIn ihren Wangen fließt kein Blut.\nUnd wo die Haare lieblich flattern,\nUm Menschenstirnen freundlich wehn,\nDa sieht man Schlangen hier und Nattern\nDie giftgeschwollnen Bäuche blähn.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": "Und schauerlich gedreht im Kreise,\nBeginnen sie des Hymnus Weise,\nDer durch das Herz zerreissend dringt,\nDie Bande um den Sünder schlingt.\nBesinnungraubend, Herzbethörend\nSchallt der Erinnyen Gesang,\nEr schallt, des Hörers Mark verzehrend,\nUnd duldet nicht der Leier Klang.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 52,
+              "end": 58
+            }
+          ]
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "Wohl dem, der frei von Schuld und Fehle\nBewahrt die kindlich reine Seele!\nIhm dürfen wir nicht rächend nahn,\nEr wandelt frei des Lebens Bahn.\nDoch wehe wehe, wer verstohlen\nDes Mordes schwere That vollbracht,\nWir heften uns an seine Sohlen,\nDas furchtbare Geschlecht der Nacht!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": "Und glaubt er fliehend zu entspringen,\nGeflügelt sind wir da, die Schlingen\nIhm werfend um den flüchtgen Fuß,\nDaß er zu Boden fallen muß.\nSo jagen wir ihn, ohn Ermatten,\nVersöhnen kann uns keine Reu,\nIhn fort und fort bis zu den Schatten,\nUnd geben ihn auch dort nicht frei.“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "So singend tanzen sie den Reigen,\nUnd Stille wie des Todes Schweigen\nLiegt überm ganzen Hause schwer,\nAls ob die Gottheit nahe wär’.\nUnd feierlich, nach alter Sitte\nUmwandelnd des Theaters Rund,\nMit langsam abgemeßnem Schritte,\nVerschwinden sie im Hintergrund.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": "Und zwischen Trug und Wahrheit schwebet\nNoch zweifelnd jede Brust und bebet,\nUnd huldiget der furchtbarn Macht,\nDie richtend im Verborgnen wacht,\nDie unerforschlich, unergründet\nDes Schicksals dunkeln Knäuel flicht,\nDem tiefen Herzen sich verkündet,\nDoch fliehet vor dem Sonnenlicht.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "Da hört man auf den höchsten Stufen\nAuf einmal eine Stimme rufen:\n„Sieh da! Sieh da, Timotheus,\nDie Kraniche des Ibycus!“ –\nUnd finster plötzlich wird der Himmel,\nUnd über dem Theater hin,\nSieht man, in schwärzlichtem Gewimmel,\nEin Kranichheer vorüberziehn.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": "„Des Ibycus!“ Der theure Nahme\nRührt jede Brust mit neuem Grame,\nUnd, wie im Meere Well auf Well,\nSo läufts von Mund zu Munde schnell.\n„Des Ibycus, den wir beweinen,\nDen eine Mörderhand erschlug!\nWas ists mit dem? Was kann er meinen?\nWas ists mit diesem Kranichzug?“ –",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 1,
+              "end": 12
+            }
+          ]
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "Und lauter immer wird die Frage,\nUnd ahnend fliegts, mit Blitzesschlage,\nDurch alle Herzen „Gebet acht!\nDas ist der Eumeniden Macht!\nDer fromme Dichter wird gerochen,\nDer Mörder bietet selbst sich dar.\nErgreift ihn, der das Wort gesprochen,\nUnd ihn, an den’s gerichtet war.“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": "Doch dem war kaum das Wort entfahren,\nMöcht’ ers im Busen gern bewahren;\nUmsonst, der schreckenbleiche Mund\nMacht schnell die Schuldbewußten kund.\nMan reißt und schleppt sie vor den Richter,\nDie Scene wird zum Tribunal,\nUnd es gestehn die Bösewichter,\nGetroffen von der Rache Strahl.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "German transcription",
+      "text": "Wikisource transcription of the historical witness named in the source record. Modern transcription contributions are attributed to Wikisource contributors under CC BY-SA 4.0; the underlying historical work is public domain. No modern explanatory commentary is imported.",
+      "kind": "source",
+      "through": null,
+      "url": "https://de.wikisource.org/wiki/Die_Kraniche_des_Ibycus"
+    }
+  ]
+}

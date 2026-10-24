@@ -31,10 +31,22 @@ function enhanceShelf(root) {
   }
 
   function revealSelected(animate=true) {
-    if (!narrow.matches) { bookcase.scrollLeft = 0; return; }
-    const selected = volumes.find(v=>v.dataset.volume === chosen);
-    const left = bookcase.scrollLeft + selected.getBoundingClientRect().left - bookcase.getBoundingClientRect().left - parseFloat(getComputedStyle(bookcase).paddingLeft);
+    const selected = volumes.find(v=>v.dataset.volume === chosen).querySelector('.book-front');
+    const box = bookcase.getBoundingClientRect(), book = selected.getBoundingClientRect(), style = getComputedStyle(bookcase);
+    const start = box.left + parseFloat(style.paddingLeft), end = box.right - parseFloat(style.paddingRight);
+    let left = bookcase.scrollLeft;
+    if (narrow.matches || book.left < start) left += book.left - start;
+    else if (book.right > end) left += book.right - end;
     bookcase.scrollTo({left:Math.max(0,Math.min(left,bookcase.scrollWidth-bookcase.clientWidth)), behavior:reduced.matches || !animate ? 'instant' : 'smooth'});
+  }
+
+  function revealAfterTurn() {
+    const id = chosen;
+    revealSelected();
+    // Desktop face-outs change neighboring widths while turning. Recheck the
+    // actual cover after that motion, without changing its angle or the focus.
+    const motion = bookcase.getAnimations({subtree:true}).filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime));
+    void Promise.allSettled(motion.map(a=>a.finished)).then(()=>{if(id===chosen)revealSelected(false);});
   }
 
   function choose(index) {
@@ -49,7 +61,7 @@ function enhanceShelf(root) {
     status.textContent = details.querySelector('h3').textContent + ' selected. Read this edition below the shelf.';
     fade?.cancel();
     if (!reduced.matches) fade = details.animate([{opacity:.5},{opacity:1}],{duration:200,easing:'ease-out'});
-    revealSelected();
+    revealAfterTurn();
   }
 
   picks.forEach((p,i) => {
@@ -74,6 +86,7 @@ function enhanceShelf(root) {
     revealSelected(false);
   });
   reduced.addEventListener('change',()=>{ if (reduced.matches) { fade?.cancel(); revealSelected(false); } });
+  new ResizeObserver(()=>revealSelected(false)).observe(bookcase);
 
   // The static reading links remain available if this module fails to load.
   // Reveal controls only after all their data and handlers are ready.

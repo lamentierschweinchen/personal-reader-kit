@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "sourceCommit": "6a10bd6d126422b46a7fdad709bacda531c0a9f4",
+  "bookIds": [
+    "folger-julius-caesar",
+    "folger-henry-v",
+    "folger-the-tempest"
+  ],
+  "files": [
+    {
+      "path": "site/media.mjs",
+      "bytes": 4204,
+      "sha256": "12f41852230f4068e218042c021105ba4b88b76fe5379436762717c7ccc863ac"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 3153,
+      "sha256": "097a0283711a2704882e89a4db22768e9256bd0fd7500cede50ee734d918a2b9"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 79284,
+      "sha256": "444a871a6206803ecb71278a0e0aa584189f851be3a558314944ae57f051e1e4"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 19306,
+      "sha256": "874c9ca314667ffb75205cb5ae55aee24f5b3c09eacd53117c85857393203071"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7262,
+      "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 4202,
+      "sha256": "305172c9b390ab8976cff77e880435cff96382c12c5c09df1b893f6f73487d31"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1716,
+      "sha256": "803bb7d5a14b8814133ea9cb5756f1c2887e2b2f2317a40345c87eb37ca2bb17"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 17133,
+      "sha256": "2aca8aa30b9328c99a9e2a6d5f495d6dfc0410f43692eb853a5e58172611431d"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 29050,
+      "sha256": "f6e2918ae59af8dad5fb6aff63072926c08ca91bc46118a5113e8dea04558cc4"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 408,
+      "sha256": "f8998bf350cc1a9108f66c948b1c0d5f13a5640b84f291c4ba3600fa5e3e0385"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 359,
+      "sha256": "c1f450741453936efd396f6f251a4bd3f7cacb2d0fa53cd8daec03a5b859f883"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 2421,
+      "sha256": "076daaca2b55bf49873cd4582814f83feee06ed95a694f9e0b772c67b88b8d5e"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 2462,
+      "sha256": "4f2c4123df12985524d43bd5981c81617c92eea2b3c07c2528d85cb271b695fa"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 5145,
+      "sha256": "c9f12a5b18a24afa7cf61eece65be4634027c5da912369333fe6ad4ac465a6e0"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "edition/julius-caesar.json",
+      "bytes": 439441,
+      "sha256": "bf2241a7e8ac812992665ec9db7794cfd737103a430d31ac0aaef0a76fcd6b7b"
+    },
+    {
+      "path": "edition/henry-v.json",
+      "bytes": 467417,
+      "sha256": "ec1023b91b6eb4f664d52df16756dc85f28400e09932bf3f5b374be31345ae03"
+    },
+    {
+      "path": "edition/the-tempest.json",
+      "bytes": 1864076,
+      "sha256": "a624dcefedcfff94540e28b29ca6f4e688c97f4ba49c40da38a4a6b22be47758"
+    },
+    {
+      "path": "sources/index.html",
+      "bytes": 10216,
+      "sha256": "8fedf7215ed8c0705303ebe76adc563d5840f6fca2544a1692262ee73fda4a88"
+    },
+    {
+      "path": "package.json",
+      "bytes": 331,
+      "sha256": "1e2bc61666fdafd1e9c78cd3939a83c6dbead2b3f7d440e478231d1b6b76e5f6"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 942,
+      "sha256": "8140d0781b21ec3bc0af927f8c73d2265de8939edc2083beaadc9fbaab104cc7"
+    }
+  ],
+  "editions": [
+    {
+      "id": "folger-julius-caesar",
+      "sourceSha256": "e8e5d6a330a5ef3e591d1b44b0e4321f740dbc70c196bdb821a699a213bef7f6",
+      "canonicalSha256": "118203385f2cbc3514256035c21e4d12bf14bccd26af61359f9c6d2d8be30d5f"
+    },
+    {
+      "id": "folger-henry-v",
+      "sourceSha256": "3748fcd088d8c2df4568886ed9be86a9c1523043f26e3433a5b00da1d5269678",
+      "canonicalSha256": "1fb54331d346f279e1a316754660e521aa91b1f3d50d1df2ad914fdab16991e0"
+    },
+    {
+      "id": "folger-the-tempest",
+      "sourceSha256": "434ec14b29b298e17d976b5d99c7efeb746e076b6fb51bc8359b37022364af66",
+      "canonicalSha256": "79898aa6494015f47a44701aae67f11212e14e126b37ecfb54646e7e81b21f11"
+    }
+  ],
+  "librarySha256": "5ce1e75141883d3d562a061b5bc5bdce7ba0ab2472b91ec3ad7c9e3495e2b80a",
+  "mirandaSha256": "cc946ce4c5eb1bc48e64760a89f6ef22fe94723da0431e0ffe2def7671a9fd8c"
+}

@@ -86,3 +86,24 @@
 .mixed-library .cover-poe img{position:absolute;left:25%;top:43%;width:50%;height:40%;object-fit:contain}
 .mixed-library .cover-poe .cover-meta{font-size:3.7cqw;letter-spacing:.15em}
 .mixed-library .cover-poe .cover-bottom{font-size:3.3cqw;letter-spacing:.16em}
+.mixed-library .cover-ballads{background:#f0eee4;color:#2c5040}
+.mixed-library .cover-ballads strong{top:19%;font-family:Baskerville,Georgia,serif;font-size:19cqw;line-height:1.06}
+.mixed-library .cover-ballads .cover-art{position:absolute;left:18%;top:49%;width:64%;height:36%}
+.mixed-library .cover-ballads .cover-meta{font-size:3.35cqw;letter-spacing:.1em}
+.mixed-library .cover-ballads .cover-bottom{font-size:3.5cqw}
+.mixed-library .cover-shakespeare{background:#702d35;color:#efdfbc}
+.mixed-library .cover-shakespeare strong{top:17%;font-family:Baskerville,Georgia,serif;font-size:17cqw;line-height:1.1}
+.mixed-library .cover-shakespeare .cover-art{position:absolute;left:12%;top:48%;width:76%;height:35%}
+.mixed-library .cover-shakespeare .cover-meta{font-size:3.6cqw}
+.mixed-library .cover-shakespeare .cover-bottom{font-size:2.8cqw;letter-spacing:.07em}
+.mixed-library .cover-pictures-after-dark{background:#e9e3df;color:#423644}
+.mixed-library .cover-pictures-after-dark strong{top:16%;font-family:Baskerville,Georgia,serif;font-size:20cqw;line-height:1}
+.mixed-library .cover-pictures-after-dark img{position:absolute;left:13%;top:55%;width:74%;height:29%;object-fit:contain;mix-blend-mode:multiply}
+.mixed-library .cover-pictures-after-dark .cover-meta{font-size:2.9cqw;letter-spacing:.09em}
+.mixed-library .cover-pictures-after-dark .cover-bottom{font-size:3.5cqw}
+.mixed-library .cover-rome{background:#cfc5ad;color:#703d2d}
+.mixed-library .cover-rome strong{top:16%;font-family:Baskerville,Georgia,serif;font-size:18cqw;line-height:1.05}
+.mixed-library .cover-rome strong em{font-size:.7em}
+.mixed-library .cover-rome .cover-art{position:absolute;left:13%;top:62%;width:74%;height:21%}
+.mixed-library .cover-rome .cover-meta{font-size:2.9cqw;letter-spacing:.08em}
+.mixed-library .cover-rome .cover-bottom{font-size:2.8cqw;letter-spacing:.06em}

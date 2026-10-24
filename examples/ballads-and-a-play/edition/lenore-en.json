@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "id": "lenore-en",
+  "title": "Leonora",
+  "author": "Gottfried August Bürger",
+  "edition": "William Robert Spencer · London, 1796 · pp.3–35",
+  "language": "en",
+  "source": {
+    "sha256": "eff3f42935453285ed192dc09eb967c558af84ef6d2ccb4ab017620622ab1c61",
+    "format": "historical-source-adapter",
+    "description": "William Robert Spencer · London, 1796 · pp.3–35 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Leonora",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "From visions of disastrous love\nLeonora starts at dawn of day;\n“How long, my Wilhelm, wilt thou rove?\nDoes death or falsehood cause thy stay?”\nSince he with godlike Frederick's pow'rs\nAt Prague had foremost dar'd the foe,\nNo tidings cheer'd her lonely hours,\nNo rumour told his weal or woe.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Empress, and King, alike fatigued,\nNow bade the storm of battle cease;\nTheir arms relenting friendship leagued,\nAnd heal'd the bleeding world with Peace.\nThey sing, they shout, their cymbals clang,\nTheir green wreaths wave, they come, they come;\nEach war-worn Hero comes to hang\nWith trophies his long wept for home.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "While from each bastion, tower, and shed,\nTheir country's general blessing showers;\nLove twines for every laurel'd head,\nHis garland of domestic flowers.\nHow welcome husbands, sons, return'd!\nWhat tears, what kisses greet the brave!\nAlone poor Leonora mourn'd,\nNor tear, nor kiss, nor welcome gave.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "From rank to rank, from name to name,\nThe fond inquirer trembling flew;\nBut none by person or by fame,\nAught of her gallant Wilhelm knew.\nWhen all the joyous bands were gone,\nAghast she tore her raven hair;\nOn the cold earth she cast her down,\nConvuls'd with frenzy and despair.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "In haste th' affrighted mother flew,\nAnd round her clasp'd her aged arms:\n“Oh, God! her griefs with mercy view,\n“Oh, calm her constant heart's alarms!”\n“Oh, mother! past is past; 'tis o'er;\n“Nor joy, nor world, nor hope I see;\n“Thy God my anguish hears no more,\n“Alas, alas! Oh, woe is me!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "“Oh, hear, great God! with pity hear!\n“My child, thy prayer to Heaven address;\n“God does all well; 'tis ours to bear;\n“God gives, but God relieves distress.”\n“All trust in Heaven is weak and frail;\n“God ill, not well, by me has done;\n“I pray'd, while prayers could yet avail;\n“Now prayers are vain, for Wilhelm's gone.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "“Oh, ever in affliction's hour\n“The Father hears his children's cry;\n“His blessed sacraments shall pour\n“True comfort o'er thy misery.”\n“Oh, mother, pangs like mine that burn,\n“What sacrament can e'er allay?\n“What sacrament can bid return\n“Life's spirit to the mouldering clay?”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "“But if, my child, in distant lands,\n“Unmindful of his plighted vows,\n“Thy false one courts another's bands,\n“Fresh kisses, and a newer spouse,\n“Why let the perjured rover go;\n“No blessings shall his new love bring,\n“And when death lays his body low,\n“Thy wrongs his guilty soul shall sting.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": "“My pangs no cure nor comfort crave;\n“Joy, hope, and life, alike I scorn;\n“My hope is death, my joy the grave,\n“Curs'd be the day that saw me born!\n“Sink, sink, detested vital flame,\n“Sink in the starless night of death:\n“Not God's, but Wilhelm's, darling name\n“Shall faulter from my parting breath!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "“Judge not, great God! this erring child,\n“No guilt her bosom dwells within;\n“Her thoughts are craz'd, her words are wild;\n“Arm not for her the death of sin!\n“Oh, child! forget thy mortal love,\n“Think of God's bliss and mercies sweet;\n“So shall thy soul, in realms above,\n“A bright eternal Bridegroom meet.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": "“Oh, mother! what is God's sweet bliss?\n“Oh, mother, mother! what is hell?\n“With Wilhelm there is only bliss,\n“And without Wilhelm only Hell!\n“O'er this torn heart, o'er these sad eyes,\n“Let the still grave's long midnight reign;\n“Unless my love that bliss supplies,\n“Nor earth, nor heaven can bliss contain.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "Thus did the demons of despair\nHer wildered sense to madness strain,\nThus did her impious clamours dare\nEternal Wisdom to arraign.\nShe beat her breast, her hands she wrung,\nTill westward sunk the car of light,\nAnd countless stars in air were hung\nTo gem the matron weeds of night.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": "Hark! with high tread, and prancings proud,\nA war horse shakes the rattling gate:\nClattering his clanking armour loud,\nAlights a horseman at the grate:\nAnd, hark! the door bell gently rings,\nWhat sounds are those we faintly hear?\nThe night breeze in low murmur brings\nThese words to Leonora's ear.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "“Holla, holla! my life, my love!\n“Does Leonora watch or sleep?\n“Still does her heart my vows approve?\n“Does Leonora smile or weep?”\n“O Wilhelm, thou! these eyes for thee\n“Fever'd with tearful vigils burn;\n“Aye fear, and woe, have dealt with me,\n“Oh! why so late thy wish'd return?”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": "“At dead of night alone we ride,\n“From Prague's far distant field I come;\n“'Twas late ere I could 'gin bestride\n“This coal black barb, to bear thee home.”\n“Oh, rest thee first, my Wilhelm, here!\n“Bleak roars the blast through vale and grove;\n“Oh come, thy war-worn limbs to cheer\n“On the soft couch of joy and love!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "“Let the bleak blast, my child, roar on,\n“Let it roar on; we dare not stay:\n“My fierce steed maddens to be gone,\n“My spurs are set; away, away.\n“Mount by thy true love's guardian side;\n“We should ere this full far have sped;\n“Five hundred destined miles we ride\n“This night, to reach our nuptial bed.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": "“Our nuptial bed, this night so dark,\n“So late, five hundred miles to roam?\n“Yet sounds the bell, which struck, to mark\n“That in one hour would midnight come.”\n“See there, see here, the moon shines clear,\n“We and the dead ride fast away;\n“I gage, though long our way, and drear,\n“We reach our nuptial bed to-day.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "“Say where the bed, and bridal hall?\n“What guests our blissful union greet?”\n“Low lies the bed, still, cold, and small;\n“Six dark boards, and one milk white sheet.”\n“Hast room for me?” “Room, room enow:\n“Come mount; strange hands our feast prepare;\n“To grace the solemn rite, e'en now\n“No common bridesmen wait us there.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": "Loose was her zone, her breast unveil'd,\nAll wild her shadowy tresses hung;\nO'er fear confiding love prevail'd,\nAs lightly on the barb she sprung.\nLike wind the bounding courser flies,\nEarth shakes his thundering hoofs beneath;\nDust, stones, and sparks, in whirlwind rise,\nAnd horse and horseman pant for breath.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "How swift, how swift from left and right\nThe racing fields and hills recede;\nBourns, bridges, rocks, that cross their flight,\nIn thunders echo to their speed.\n“Fear'st thou, my love? the moon shines clear;\n“Hurrah! how swiftly speed the dead!\n“The dead does Leonora fear?”\n“Ah, no; but talk not of the dead.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": "What accents slow, of wail and woe,\nHave made yon shrieking raven soar?\nThe death bell beats! the dirge repeats,\n“This dust to parent dust restore.”\nBlackening the night, a funeral train\nOn a cold bier a coffin brings;\nTheir slow pace measur'd to a strain\nSad as the saddest night-bird sings.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "“This dust to dust restore, what time\n“The midnight dews o'er graves are shed;\n“Meanwhile of brides the flower and prime\n“I carry to our nuptial bed.\n“Sexton, thy sable minstrels bring!\n“Come, priest, the eternal bonds to bless!\n“All in deep groans our spousals sing,\n“Ere we the genial pillow press.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": "The bier, the coffin, disappear'd,\nThe dirge in distant echoes died,\nQuick sounds of viewless steps are heard\nHurrying the coal-black barb beside.\nLike wind the bounding courser flies,\nEarth shakes his thundering hoofs beneath;\nDust, stones, and sparks in whirlwind rise,\nAnd horse and horseman pant for breath.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-024",
+          "kind": "verse",
+          "text": "Mountains and trees, on left and right,\nSwam backward from their aching view;\nWith speed that mock'd the labouring sight\nTowns, villages, and castles flew.\n“Fear'st thou, my love? the moon shines clear;\n“Hurrah! how swiftly speed the dead!\n“The dead does Leonora fear?”\n“Oh leave, oh leave in peace the dead!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-025",
+          "kind": "verse",
+          "text": "See, where fresh blood-gouts mat the green,\nYon wheel its reeking points advance;\nThere, by the moon's wan light half seen,\nGrim ghosts of tombless murderers dance.\n“Come, spectres of the guilty dead,\n“With us your goblin morris ply,\n“Come all in festive dance to tread,\n“Ere on the bridal couch we lie.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-026",
+          "kind": "verse",
+          "text": "Forward th' obedient phantoms push,\nTheir trackless footsteps rustle near,\nIn sound like autumn winds that rush\nThrough withering oak or beech-wood sere.\nWith lightning's force the courser flies,\nEarth shakes his thund'ring hoofs beneath,\nDust, stones, and sparks, in whirlwind rise,\nAnd horse and horseman pant for breath.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-027",
+          "kind": "verse",
+          "text": "Swift roll the moonlight scenes away,\nHills chasing hills successive fly;\nE'en stars that pave th' eternal way,\nSeem shooting to a backward sky.\n“Fear'st thou, my love? the moon shines clear;\n“Hurrah! how swiftly speed the dead!\n“The dead does Leonora fear?”\n“Oh God! oh leave, oh leave the dead!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-028",
+          "kind": "verse",
+          "text": "“Barb! barb! methinks the cock's shrill horn\n“Warns that our sand is nearly run:\n“Barb! barb! I scent the gales of morn,\n“Haste, that our course be timely done.\n“Our course is done! our sand is run!\n“The nuptial bed the bride attends;\n“This night the dead have swiftly sped;\n“Here, here, our midnight travel ends!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-029",
+          "kind": "verse",
+          "text": "Full at a portal's massy grate\nThe plunging steed impetuous dash'd:\nAt the dread shock, wall, bars, and gate,\nHurl'd down with headlong ruin crash'd.\nThin, sheeted phantoms gibbering glide\nO'er paths, with bones and fresh skulls strewn,\nCharnels and tombs on every side\nGleam dimly to the blood red moon.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-030",
+          "kind": "verse",
+          "text": "Lo, while the night's dread glooms increase,\nAll chang'd the wond'rous horseman stood,\nHis crumbling flesh fell piece by piece,\nLike ashes from consuming wood.\nShrunk to a skull his pale head glares,\nHigh ridg'd his eyeless sockets stand,\nAll bone his length'ning form appears;\nA dart gleams deadly from his hand.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-031",
+          "kind": "verse",
+          "text": "The fiend horse snorts; blue fiery flakes\nCollected roll his nostrils round;\nHigh rear'd, his bristling mane he shakes,\nAnd sinks beneath the rending ground.\nDemons the thundering clouds bestride,\nGhosts yell the yawning tombs beneath;\nLeonora's heart, its life-blood dried,\nHangs quiv'ring on the dart of death.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-032",
+          "kind": "verse",
+          "text": "Throng'd in the moon's eclipsing shade,\nOf fiends and shapes a spectre crowd\nDance featly round th' expiring maid,\nAnd howl this awful lesson loud:\n“Learn patience, though thy heart should break,\n“Nor seek God's mandates to controul!\n“Now this cold earth thy dust shall take,\n“And Heav'n relenting take thy soul!”",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "William Robert Spencer",
+      "text": "Leonora. London: T. Bensley for J. Edwards and E. & S. Harding, 1796. English text on odd pages 3–35; German text on even pages 2–34. The original illustrations are not reproduced in this reader.",
+      "kind": "source",
+      "through": null,
+      "url": "https://www.gottfried-august-buerger-molmerswende.de/spencer_leonora_beauclerc_1796.pdf"
+    },
+    {
+      "label": "Transcription",
+      "text": "Long s is rendered as ordinary s. The poem retains its thirty-two eight-line stanzas and repeated line-opening quotation marks. Illustrations, dedication and preface from the larger source volume are outside this selection.",
+      "kind": "source",
+      "through": null
+    }
+  ]
+}

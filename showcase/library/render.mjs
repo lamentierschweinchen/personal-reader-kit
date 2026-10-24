@@ -8,6 +8,7 @@ const root=new URL('../../',import.meta.url);
 const GH='https://github.com/lamentierschweinchen/personal-reader-kit';
 const hanslickScan='https://commons.wikimedia.org/wiki/File:The_beautiful_in_music_-_a_contribution_to_the_revisal_of_musical_aesthetics_(IA_beautifulinmusichans).pdf';
 const reviewedScans={'music-and-feeling':hanslickScan,'mountains-and-heights':'https://archive.org/details/alps00conw','war-and-peace':'https://www.prlib.ru/item/1988888','douglass-narrative':'https://docsouth.unc.edu/neh/douglass/menu.html','fall-of-the-house-of-usher':'https://archive.org/details/tales00poeedgar'};
+const reviewedThemedSources={"ballads-and-a-play": ["https://de.wikisource.org/wiki/Erlkönig"], "kingdom-for-a-stage": ["https://www.folger.edu/explore/shakespeares-works/download/"], "pictures-after-dark": ["https://archive.org/details/pastelsinprose00merriala"], "caesar-and-the-emperors": ["https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Caesar/Gallic_War/home.html"]};
 const keys=['id','exampleId','title','author','shortAuthor','kind','language','edition','editionLabel','feature','description','categories','preparedBy','sourceUrls','sourceLabels','rightsPath'];
 export const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const arrow='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
@@ -31,7 +32,7 @@ export function validateEntries(data){
   assert.ok(Array.isArray(b.sourceUrls)&&b.sourceUrls.length>=1&&b.sourceUrls.length<=3);
   assert.ok(Array.isArray(b.sourceLabels)&&b.sourceLabels.length===b.sourceUrls.length,'Each source needs its own label');
   assert.ok(b.sourceLabels.every(label=>typeof label==='string'&&label.trim()&&label.length<=80),'Invalid source label');
-  for(const url of b.sourceUrls)assert.ok(/^https:\/\/www\.gutenberg\.org\/ebooks\/[0-9]+$/.test(url)||url===reviewedScans[b.exampleId],'Source must be a Gutenberg record or the edition’s exact reviewed scan');
+  for(const url of b.sourceUrls)assert.ok(/^https:\/\/www\.gutenberg\.org\/ebooks\/[0-9]+$/.test(url)||url===reviewedScans[b.exampleId]||reviewedThemedSources[b.exampleId]?.includes(url),'Source must be an exact reviewed edition record');
   assert.match(b.rightsPath,new RegExp('^examples/'+b.exampleId+'/docs/SOURCE-(?:AND-)?RIGHTS\\.md$'));
  }
  return data.editions;

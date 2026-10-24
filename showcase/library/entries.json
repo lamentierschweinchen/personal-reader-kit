@@ -466,6 +466,117 @@
         "Source edition"
       ],
       "editionLabel": ""
+    },
+    {
+      "id": "ballads",
+      "exampleId": "ballads-and-a-play",
+      "title": "Ballads and a play",
+      "author": "Johann Wolfgang von Goethe · Friedrich Schiller · Gottfried August Bürger",
+      "shortAuthor": "Goethe · Schiller · Bürger",
+      "kind": "Poetry & drama",
+      "language": "German / English",
+      "edition": "Five complete ballads and Goethe’s complete Iphigenie auf Tauris. Original German with separate historical English translations; each witness and transcription license is identified.",
+      "editionLabel": "Historical English translations",
+      "feature": "One stanza, two languages.",
+      "description": "Read Goethe, Schiller and Bürger in German and English. Compare stanzas and speaker turns; follow two close readings of refusal and gesture.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://de.wikisource.org/wiki/Erlkönig"
+      ],
+      "sourceLabels": [
+        "German witness"
+      ],
+      "rightsPath": "examples/ballads-and-a-play/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "shakespeare",
+      "exampleId": "kingdom-for-a-stage",
+      "title": "A kingdom for a stage",
+      "author": "William Shakespeare",
+      "shortAuthor": "William Shakespeare",
+      "kind": "Drama",
+      "language": "English",
+      "edition": "Complete Julius Caesar, Henry V and The Tempest. Folger editions, edited by Barbara Mowat and Paul Werstine, licensed CC BY-NC 3.0; source matter and apparatus retained.",
+      "editionLabel": "Folger editions · noncommercial reuse",
+      "feature": "Three plays, and the world around them.",
+      "description": "Read with notes on Rome, kingship and the playhouse. Inspect stage directions and a later picture of Miranda.",
+      "categories": [
+        "words",
+        "ideas",
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.folger.edu/explore/shakespeares-works/download/"
+      ],
+      "sourceLabels": [
+        "Folger editions"
+      ],
+      "rightsPath": "examples/kingdom-for-a-stage/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "pictures-after-dark",
+      "exampleId": "pictures-after-dark",
+      "title": "Pictures after dark",
+      "author": "Victor Hugo · Aloysius Bertrand",
+      "shortAuthor": "Hugo · Bertrand",
+      "kind": "Poetry & prose",
+      "language": "French / English",
+      "edition": "Eight complete works, in French and historical English. Selected 1890 illustrations by Henry W. McVickar; optional Baudelaire comparison and separately credited Hugo and Callot images.",
+      "editionLabel": "French with O’Sullivan, Merrill and Lang",
+      "feature": "An open window. A closed one.",
+      "description": "Compare French and English, inspect the illustrated pages, and read Bertrand beside Baudelaire.",
+      "categories": [
+        "words",
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://archive.org/details/pastelsinprose00merriala"
+      ],
+      "sourceLabels": [
+        "Illustrated English witness"
+      ],
+      "rightsPath": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "rome",
+      "exampleId": "caesar-and-the-emperors",
+      "title": "Caesar and the emperors",
+      "author": "Caesar · Augustus · Marcus Aurelius",
+      "shortAuthor": "Caesar · Augustus · Marcus Aurelius",
+      "kind": "History & philosophy",
+      "language": "English / Latin / Greek",
+      "edition": "Caesar’s Gallic War VII, all of Augustus’s Res Gestae with its later Summary, and Meditations II–III. Selected Sallust, Tacitus and Pliny–Trajan correspondence provide other accounts.",
+      "editionLabel": "Latin and Greek witnesses included",
+      "feature": "Who gets to describe power?",
+      "description": "Read a campaign, a public record and an emperor’s private reflections. Compare rival accounts and inspect historical siege plans.",
+      "categories": [
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Caesar/Gallic_War/home.html"
+      ],
+      "sourceLabels": [
+        "Caesar’s source edition"
+      ],
+      "rightsPath": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

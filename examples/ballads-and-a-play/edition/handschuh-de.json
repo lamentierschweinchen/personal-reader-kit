@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "id": "handschuh-de",
+  "title": "Der Handschuh",
+  "author": "Friedrich Schiller",
+  "edition": "Gedichte · Leipzig: Crusius, 1800, pp.139–142",
+  "language": "de",
+  "source": {
+    "sha256": "cf95d4ed558d91a3a4b9ea8d85470f476755bfe6d3c132bad093e8d764d9d294",
+    "format": "historical-source-adapter",
+    "description": "Gedichte · Leipzig: Crusius, 1800, pp.139–142 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Der Handschuh",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Vor seinem Löwengarten,\nDas Kampfspiel zu erwarten,\nSaß König Franz,\nUnd um ihn die Großen der Krone,\nUnd rings auf hohem Balkone\nDie Damen in schönem Kranz.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Und wie er winkt mit dem Finger,\nAufthut sich der weite Zwinger,\nUnd hinein mit bedächtigem Schritt\nEin Löwe tritt,\nUnd sieht sich stumm\nRings um,\nMit langem Gähnen,\nUnd schüttelt die Mähnen,\nUnd streckt die Glieder,\nUnd legt sich nieder.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "Und der König winkt wieder,\nDa öfnet sich behend\nEin zweites Thor,\nDaraus rennt\nMit wildem Sprunge\nEin Tiger hervor,\nWie der den Löwen erschaut,\nBrüllt er laut,\nSchlägt mit dem Schweif\nEinen furchtbaren Reif,\nUnd recket die Zunge,\nUnd im Kreise scheu\nUmgeht er den Leu\nGrimmig schnurrend,\nDrauf streckt er sich murrend\nZur Seite nieder.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "Und der König winkt wieder,\nDa speit das doppelt geöfnete Haus\nZwey Leoparden auf einmal aus,\nDie stürzen mit muthiger Kampfbegier\nAuf das Tigerthier,\nDas packt sie mit seinen grimmigen Tatzen,\nUnd der Leu mit Gebrüll\nRichtet sich auf, da wird’s still,\nUnd herum im Kreis,\nVon Mordsucht heiß,\nLagern sich die greulichen Katzen.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "Da fällt von des Altans Rand\nEin Handschuh von schöner Hand\nZwischen den Tiger und den Leu’n\nMitten hinein.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Und zu Ritter Delorges spottender Weis’\nWendet sich Fräulein Kunigund:\n„Herr Ritter, ist eure Lieb so heiß\nWie ihr mir’s schwört zu jeder Stund,\nEy so hebt mir den Handschuh auf.“",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "Und der Ritter in schnellem Lauf\nSteigt hinab in den furchtbar’n Zwinger\nMit festem Schritte,\nUnd aus der Ungeheuer Mitte\nNimmt er den Handschuh mit keckem Finger.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "Und mit Erstaunen und mit Grauen\nSehens die Ritter und Edelfrauen,\nUnd gelassen bringt er den Handschuh zurück,\nDa schallt ihm sein Lob aus jedem Munde,\nAber mit zärtlichem Liebesblick —\nEr verheißt ihm sein nahes Glück —\nEmpfängt ihn Fräulein Kunigunde.\nUnd er wirft ihr den Handschuh ins Gesicht:\n„Den Dank, Dame, begehr’ ich nicht,“\nUnd verläßt sie zur selben Stunde.\n",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "The 1800 text",
+      "text": "Gedichte von Friederich Schiller. Erster Theil. Leipzig: S. L. Crusius, 1800, pp.139–142. This is the glove-throwing ending corresponding to Lytton’s English.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/dlibra.bibliotekaelblaska.pl.92252m.48809386"
+    },
+    {
+      "label": "The manner of refusal",
+      "text": "In the first printing, Delorges bows before refusing Kunigunde’s thanks. In the later text used here, he throws back the glove. The refusal survives; its manner changes.",
+      "kind": "editorial",
+      "through": "poem",
+      "url": "https://www.wallstein-open-library.de/openaccess/9783835305243-005.pdf"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "profile": "caesar-and-the-emperors/edition@1",
+  "id": "tacitus-annals-1",
+  "title": "After Augustus · Annals I.2–4",
+  "author": "Tacitus",
+  "edition": "Church and Brodribb · MIT transcription · 1906 scan comparison",
+  "language": "en",
+  "source": {
+    "sha256": "66141ec303a0964e6cd02387b722ddd5a331a4997b2e3af6c844556d9af44982",
+    "format": "historical-transcription",
+    "description": "Complete Annals I.2–4. MIT Church/Brodribb transcription with two scan-witnessed repairs from Macmillan 1906, printed pp.1–3. Not a full facsimile transcription."
+  },
+  "sections": [
+    {
+      "id": "annals-1-2",
+      "title": "Annals I.2–4 · complete chapters",
+      "blocks": [
+        {
+          "id": "h2",
+          "kind": "heading",
+          "text": "I · 2",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "When after the destruction of Brutus and Cassius there was no longer any army of the Commonwealth, when Pompeius was crushed in Sicily, and when, with Lepidus pushed aside and Antonius slain, even the Julian faction had only Caesar left to lead it, then, dropping the title of triumvir, and giving out that he was a Consul, and was satisfied with a tribune's authority for the protection of the people, Augustus won over the soldiers with gifts, the populace with cheap corn, and all men with the sweets of repose, and so grew greater by degrees, while he concentrated in himself the functions of the Senate, the magistrates, and the laws. He was wholly unopposed, for the boldest spirits had fallen in battle, or in the proscription, while the remaining nobles, the readier they were to be slaves, were raised the higher by wealth and promotion, so that, aggrandised by revolution, they preferred the safety of the present to the dangerous past. Nor did the provinces dislike that condition of affairs, for they distrusted the government of the Senate and the people, because of the rivalries between the leading men and the rapacity of the officials, while the protection of the laws was unavailing, as they were continually deranged by violence, intrigue, and finally by corruption.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "h3",
+          "kind": "heading",
+          "text": "I · 3",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b2",
+          "kind": "prose",
+          "text": "Augustus meanwhile, as supports to his despotism, raised to the pontificate and curule aedileship Claudius Marcellus, his sister's son, while a mere stripling, and Marcus Agrippa, of humble birth, a good soldier, and one who had shared his victory, to two consecutive consulships, and as Marcellus soon afterwards died, he also accepted him as his son-in-law. Tiberius Nero and Claudius Drusus, his stepsons, he honoured with imperial titles, although his own family was as yet undiminished. For he had admitted the children of Agrippa, Caius and Lucius, into the house of the Caesars; and before they had yet laid aside the dress of boyhood he had most fervently desired, with an outward show of reluctance, that they should be entitled \"princes of the youth,\" and be consuls-elect. When Agrippa died, and Lucius Caesar as he was on his way to our armies in Spain, and Caius while returning from Armenia, still suffering from a wound, were prematurely cut off by destiny, or by their step-mother Livia's treachery, Drusus too having long been dead, Nero remained alone of the stepsons, and in him everything tended to centre. He was adopted as a son, as a colleague in empire and a partner in the tribunitian power, and paraded through all the armies, no longer through his mother's secret intrigues, but at her open suggestion. For she had gained such a hold on the aged Augustus that he drove out as an exile into the island of Planasia, his only grandson, Agrippa Postumus, who, though devoid of worthy qualities, and having only the brute courage of physical strength, had not been convicted of any gross offence. And yet Augustus had appointed Germanicus, Drusus's offspring, to the command of eight legions on the Rhine, and required Tiberius to adopt him, although Tiberius had a son, now a young man, in his house; but he did it that he might have several safeguards to rest on. He had no war at the time on his hands except against the Germans, which was rather to wipe out the disgrace of the loss of Quintilius Varus and his army than out of an ambition to extend the empire, or for any adequate recompense. At home all was tranquil, and there were magistrates with the same titles; there was a younger generation, sprung up since the victory of Actium, and even many of the older men had been born during the civil wars. How few were left who had seen the republic!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "h4",
+          "kind": "heading",
+          "text": "I · 4",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b3",
+          "kind": "prose",
+          "text": "Thus the State had been revolutionised, and there was not a vestige left of the old sound morality. Stript of equality, all looked up to the commands of a sovereign without the least apprehension for the present, while Augustus in the vigour of life, could maintain his own position, that of his house, and the general tranquillity. When in advanced old age, he was worn out by a sickly frame, and the end was near and new prospects opened, a few spoke in vain of the blessings of freedom, but most people dreaded and some longed for war. The popular gossip of the large majority fastened itself variously on their future masters. \"Agrippa was savage, and had been exasperated by insult, and neither from age nor experience in affairs was equal to so great a burden. Tiberius Nero was of mature years, and had established his fame in war, but he had the old arrogance inbred in the Claudian family, and many symptoms of a cruel temper, though they were repressed, now and then broke out. He had also from earliest infancy been reared in an imperial house; consulships and triumphs had been heaped on him in his younger days; even in the years which, on the pretext of seclusion he spent in exile at Rhodes, he had had no thoughts but of wrath, hypocrisy, and secret sensuality. There was his mother too with a woman’s caprice. They must, it seemed, be subject to a female and to two striplings besides, who for a while would burden, and some day rend asunder the State.\"",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edition and source",
+      "text": "Tacitus, Annals I.2–4, translated by Alfred John Church (1836–1912) and William Jackson Brodribb (1829–1905). MIT Internet Classics Archive digital witness, compared with The Annals of Tacitus, Macmillan, London and New York, 1906, printed pp.1–3. The 1906 title and these pages were inspected. Two apparent MIT transcription errors are replaced with readings supported by that scan; the private preparation receipt records them. The scan has stamps and weak type, so this is not a claim of perfect print collation. Paragraph sequence, historical spelling and the reported gossip in I.4 are retained. Margin headings from print are available separately. Historical text is public domain in the United States; no broader publication decision is made.",
+      "kind": "source",
+      "through": null,
+      "url": "https://classics.mit.edu/Tacitus/annals.1.i.html"
+    },
+    {
+      "label": "1906 marginal headings",
+      "text": "Policy of Augustus.\n\nAttempts of Augustus to establish his power and determine his succession. / Planasia.\n\nState of public opinion. Speculations as to the future.",
+      "kind": "source",
+      "through": "annals-1-2",
+      "url": "https://archive.org/details/annalstacitustr00brodgoog"
+    }
+  ],
+  "assets": []
+}

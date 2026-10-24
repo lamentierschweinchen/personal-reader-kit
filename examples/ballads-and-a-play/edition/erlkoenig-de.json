@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "erlkoenig-de",
+  "title": "Erlkönig",
+  "author": "Johann Wolfgang von Goethe",
+  "edition": "Goethes Werke, vol.1 · Gütersloh: Bertelsmann, undated, p.104 · Wikisource",
+  "language": "de",
+  "source": {
+    "sha256": "d553c3cb787b8305791a4b9164c69990709666678ccba1615bba7d3509306ad3",
+    "format": "historical-source-adapter",
+    "description": "Goethes Werke, vol.1 · Gütersloh: Bertelsmann, undated, p.104 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "Erlkönig",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Wer reitet so spät durch Nacht und Wind?\nEs ist der Vater mit seinem Kind;\nEr hat den Knaben wohl in dem Arm,\nEr faßt ihn sicher, er hält ihn warm.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Mein Sohn, was birgst du so bang dein Gesicht? —\nSiehst, Vater, du den Erlkönig nicht?\nDen Erlenkönig mit Kron’ und Schweif? —\nMein Sohn, es ist ein Nebelstreif. —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "„Du liebes Kind, komm, geh mit mir!\nGar schöne Spiele spiel’ ich mit dir;\nManch’ bunte Blumen sind an dem Strand,\nMeine Mutter hat manch gülden Gewand.“ —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "Mein Vater, mein Vater, und hörest du nicht,\nWas Erlenkönig mir leise verspricht? —\nSei ruhig, bleibe ruhig, mein Kind;\nIn dürren Blättern säuselt der Wind. —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "„Willst, feiner Knabe, du mit mir gehn?\nMeine Töchter sollen dich warten schön;\nMeine Töchter führen den nächtlichen Reihn\nUnd wiegen und tanzen und singen dich ein.“ —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Mein Vater, mein Vater, und siehst du nicht dort\nErlkönigs Töchter am düstern Ort? —\nMein Sohn, mein Sohn, ich seh’ es genau:\nEs scheinen die alten Weiden so grau. —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "„Ich liebe dich, mich reizt deine schöne Gestalt;\nUnd bist du nicht willig, so brauch’ ich Gewalt.“ —\nMein Vater, mein Vater, jetzt faßt er mich an!\nErlkönig hat mir ein Leids getan! —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "Dem Vater grauset’s; er reitet geschwind,\nEr hält in Armen das ächzende Kind,\nErreicht den Hof mit Mühe und Not;\nIn seinen Armen das Kind war tot.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "German transcription",
+      "text": "Wikisource transcription of the historical witness named in the source record. Modern transcription contributions are attributed to Wikisource contributors under CC BY-SA 4.0; the underlying historical work is public domain. No modern explanatory commentary is imported.",
+      "kind": "source",
+      "through": null,
+      "url": "https://de.wikisource.org/wiki/Erlk%C3%B6nig"
+    }
+  ]
+}

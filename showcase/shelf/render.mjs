@@ -5,7 +5,7 @@ import {escape, validateEntries} from '../library/render.mjs';
 
 const arrow = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const back = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5m6-6-6 6 6 6"/></svg>';
-const short = {douglass:'Douglass · Narrative',poe:'The House of Usher',alice:'Alice in Wonderland', walden:'Walden', 'two-halls':'Two lecture halls', 'music-and-feeling':'What can music say?'};
+const short = {ballads:'Ballads and a play',shakespeare:'A kingdom for a stage',rome:'Caesar and the emperors',douglass:'Douglass · Narrative',poe:'The House of Usher',alice:'Alice in Wonderland', walden:'Walden', 'two-halls':'Two lecture halls', 'music-and-feeling':'What can music say?'};
 const lines = {
   'at-table':'Asparagus, stock and coffee, compared.',
   'inward-life':'Three accounts of spiritual experience.',
@@ -14,7 +14,7 @@ const lines = {
   'beside-the-bed':'What does useful company require?',
 };
 // These dimensions compose the shelf; they do not represent page counts.
-const dimensions = {
+const dimensions = {ballads:[318,50],shakespeare:[338,51],'pictures-after-dark':[306,47],rome:[334,54],
   'at-table':[318,48], 'inward-life':[337,53], 'music-and-feeling':[296,45],
   'learning-to-see':[328,45], 'beside-the-bed':[306,51], austen:[330,47],
   douglass:[325,48],poe:[307,44],mountains:[326,48], nietzsche:[315,47], 'war-and-peace':[342,54], alice:[306,46], walden:[318,52], 'two-halls':[293,46], odyssey:[332,52], dracula:[314,48],

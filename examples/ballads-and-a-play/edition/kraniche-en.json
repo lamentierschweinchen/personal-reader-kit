@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "id": "kraniche-en",
+  "title": "The Cranes of Ibycus",
+  "author": "Friedrich Schiller",
+  "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+  "language": "en",
+  "source": {
+    "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+    "format": "historical-source-adapter",
+    "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "The Cranes of Ibycus",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "From Rhegium to the Isthmus, long\nHallow’d to steeds and glorious song,\nWhere, link'd awhile in holy peace,\nMeet all the sons of martial Greece—\nWends Ibycus — whose lips the sweet\n  And ever-young Apollo fires ;\nThe staff supports the wanderer's feet —\n  The God the Poet's soul inspires !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "Soon from the mountain-ridges high,\nThe tower-crown'd Corinth greets his eye ;\nIn Neptune's groves of darksome pine,\nHe treads with shuddering awe divine;\nNought lives around him, save a swarm\n  Of Cranes, that still attend his way —\nLured by the South, they wheel and form\n  In lengthened files their squadrons grey.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 198,
+              "end": 204
+            }
+          ]
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "And \" Hail ! beloved Birds ! \" he cried ;\n\" My comrades on the ocean tide,\nSure signs of good ye bode to me ;\nAlike our lots would seem to be ;\nFrom far, together borne, we greet\n  A shelter now from toil and danger ;\nAnd may the friendly hearts we meet\n  Preserve from every ill — the Stranger ! \"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "His step more light, his heart more gay,\nAlong the mid-wood winds his way,\nWhen, where the path the thickets close,¹\nBurst sudden forth two ruffian foes ;\nNow strife to strife, and foot to foot !\n  The hand soon sinks before the foe ;\nThat hand so mighty with the lute,\n  Alas ! is powerless with the bow.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "He calls on men and Gods—in vain!\nHis cries no blest deliverer gain ;\nFeebler and fainter grows the sound,\nAnd still the deaf life slumbers round—\n\" In the far land I fall forsaken,\n  Unwept and unregarded here ;\nBy death from caitiff hands o'ertaken,\n  Nor ev’n one late avenger near!”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "Down to the earth the death-stroke bore him—\nHark, where the Cranes wheel rustling o'er him !\nHe hears, as darkness veils his eyes,\nNear, in hoarse croak, their dirge-like cries.\n\" By you, wild birds, since yours alone\n  The voices that can right the dead,\nBe borne the tale of murder done\n  To Heaven ! \" — And so the spirit fled.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "Naked and maim’d the corpse was found—\nAnd still through many a mangling wound,\nThe sad Corinthian Host could trace\nThe loved — too well-remember'd face.\n\" And must I meet thee thus once more ?\n  Who hoped the singer's brows to crown\nWith wreaths of pine—the victory o’er—\n  And radiant with a new renown ! \"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "And loud lamented every guest\nWho held the Sea-God’s solemn feast—\nAs in a single heart prevailing,\nThroughout all Hellas went the wailing.\nWild to the Council Hall they ran —\nIn thunder rush'd the human Flood —\n“Revenge shall right the murder’d man,\nThe last atonement — blood for blood !\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": "Yet 'mid the throng the Isthmus claims,\nLured by the Sea-God's glorious games —\nThe mighty many-nation’d throng—\nHow track the hand that wrought the wrong? —\nHow guess if that dread deed were done\n  By ruffian hands, or secret foes?\nHe who sees all on earth—the Sun—\n  Alone the gloomy secret knows.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 262,
+              "end": 265
+            }
+          ]
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "Perchance he treads in careless peace,\nAmidst your Sons, assembled Greece —\nHears with a smile revenge decreed —\nGloats with fell joy upon the deed —\nHis steps the avenging gods may mock\n  Within the very Temple's wall,\nOr mingle with the crowds that flock\n  To yonder solemn scenic¹ hall.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": "Wedg'd close, and serried, swarms the crowd—\nBeneath the weight the walls are bow'd—\nThitherwards streaming far, and wide,\nBroad Hellas flows in mingled tide—\nA tide like that which heaves the deep\n  When hollow-sounding, shoreward driven ;—\nOn, wave on wave, the thousands sweep\n  Till arching, tier on tier, to heaven !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "The tribes, the nations, who shall name,\nThat, guest-like, there assembled came ?\nFrom Theseus’ town, from Aulis’ strand—\nFrom Phocis, from the Spartans’ land—\nFrom Asia's wave-divided clime,\n  The Isles that gem Ionian seas,\nTo hearken on that Stage Sublime,\n  The Dark Choir's dismal melodies !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": "True to the awful rites of old,\nIn long and measured strides, behold\nThe Chorus from the hinder ground,\nPace the vast circle's solemn round.\nSo this World's women never strode,\n  Their race from Mortals ne'er began ;\nGigantic, from their grim abode,\n  They tower above the Sons of Man !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "Across their loins the dark robe clinging,\nIn fleshless hands the torches swinging,\nNow to and fro, with dark red glow—\nNo blood that lives the dead cheeks know!\nWhere flow the locks that woo to love\n  On human temples, ghastly dwell\nThe serpents, coil'd the brows above,\n  And the green asps with poison swell.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 205,
+              "end": 210
+            }
+          ]
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": "Thus circling, horrible, within\nThat space, doth their dark hymn begin ;\nThe hymn that cleaves the heart in twain,\nAnd round the sinner coils the chain ;\nThe sense it robb’d, the soul it chill’d,\n  Enduring no accordant string ;\nOn through the very marrow thrill'd\n  The chaunt which choral Furies sing ! —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "\" And weal to him — from crime secure —\nWho keeps his soul as childhood's pure ;\nLife's path he roves, a wanderer free —\nWe near him not — The Avengers, We !\nBut woe to him for whom we weave\n  The doom for deeds that shun the light;\nFast to the murderer's feet we cleave,\n  The fearful Daughters of the Night.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 139,
+              "end": 155
+            }
+          ]
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": "\" And deems he flight from us can hide him?\nStill on dark wings we sail beside him !\nThe murderer's feet the snare enthralls —\nOr soon or late, to earth he falls !\nUntiring, hounding on, we go;\n  For blood can no remorse atone !\nOn, ever — to the Shades below,\n  And there — we grasp him, still our own !\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "So singing, their slow dance they wreathe,\nAnd stillness, like the hush of death,\nHeavily there lay cold and drear,\nAs if the Godhead’s self were near.\nThen, true to those dread rites of old,\n  Pacing the circle's solemn round,\nIn long and measur'd strides — behold,\n  They vanish in the hinder ground !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": "Confused, and poised in doubt between\nThe solemn truth and mimic scene,\nThe crowd revere the Power, presiding\nO’er secret deeds, to justice guiding—\nThe never-fathom'd, all-confest\n  By whom the web of doom is spun ;\nThat drags to light the darkest breast,\n  Yet flies in darkness from the sun !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "Just then, amidst the highest tier,\nBreaks forth a voice that starts the ear ;\n“See there—see there, Timotheus;\nBehold the Cranes of Ibycus !\"\nA sudden darkness wraps the sky;\n  As sailing slow on solemn wing,\nAbove that roofless hall on high,\n  The Cranes sweep, hoarsely murmuring !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": "“Of Ibycus?”—that name so dear\nRe-wakes the grief in those who hear !\nLike wave on wave on eager seas,\nFrom mouth to mouth the murmur flees —\n\"Of Ibycus, whom we bewail ?\n  The murder’d one! What mean those words?\nWho is the man — knows he the tale ?\n  Why link that name with those wild birds?”",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 237,
+              "end": 239
+            }
+          ]
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "Questions on questions louder press —\nLike lightning flies the inspiring guess —\nLeaps every heart — \" The truth we seize ;\nYour might is here, Eumenides !\nThe murderer yields himself confest —\n  Vengeance is near — that voice the token ! —\nHo ! — him who yonder spoke, arrest ! —\n  And him to whom the words were spoken ! \"",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 144,
+              "end": 153
+            }
+          ]
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": "Scarce had the wretch the words let fall,\nThan fain their sense he would recall.\nIn vain ; those whitening lips, behold !\nThe secret have already told.\nThe judge is there, the court array’d;\nThe scene becomes the tribunal. —\nSo lightning pierced the guilty shade,\nAnd with it fell the thunder-ball.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "translator-notes",
+      "title": "Historical translator notes",
+      "blocks": [
+        {
+          "id": "note-1",
+          "kind": "note",
+          "text": "1 \"Auf gedrangem Steg.\" I apprehend that Steg here means path, not bridge. There seems no necessity for a bridge, and it would be contrary to Schiller's concise art in narrative to employ any topographical description without purpose. If he had intended to make a bridge the place on which murder occurred, it would have been that the corpse might be thrown into the stream below. And, indeed, murderers would scarcely leave the dead body on the bridge when they had means of disposing of it close at hand.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 41,
+              "end": 45
+            }
+          ]
+        },
+        {
+          "id": "note-2",
+          "kind": "note",
+          "text": "1 The theatre.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-3",
+          "kind": "note",
+          "text": "The principal sources whence Schiller has taken the story of Ibycus (which was well known to the ancients, and indeed gave rise to a proverb) are Suidas and Plutarch. Ibycus is said by some to have been the Inventor of the Sambuca or triangular Cithera. We must observe, however, (though erudite investigation on such a subject were misplaced here,) that Athenæus and Strabo consider the Sambuca to have originated with the Syrians; and this supposition is rendered the more probable by the similarity of the Greek word with the Hebrew, which in our received translation of the Bible is rendered by the word \" Sackbut.\" The tale, in its leading incidents, is told very faithfully by Schiller : it is the moral, or interior meaning, which he has heightened and identified. Plutarch is contented to draw from the story a moral against loquacity. \" It was not,\" says he, \" the Cranes that betrayed the Murderers, but their own garrulity.\" With Schiller the garrulity is produced by the surprise of the Conscience, which has been awakened by the Apparition and Song of the Furies. His own conceptions as to the effect he desired to create are admirable. \" It is not precisely that the Hymn of the Furies\" (remarks the poet) \"has roused the remorse of the murderer, whose exclamation betrays himself and his accomplice ; that was not my meaning — but it has reminded him of his deed : his sense is struck with it. In this moment the appearance of the Cranes must take him by surprise ; he is a rude, dull churl, over whom the impulse of the moment has all power. His loud exclamation is natural in such circumstances.\" \" That he feels no great remorse, in his thoughtless exclamation, is evident by the quick, snappish nature of it: — 'See there, see there!' &c.\" — \"In any other state of mind,\" observes Hoffmeister, \" perhaps the Audience might not have attended to this ejaculation — but at that moment of deep inward emotion, produced by the representation of the fearful Goddesses, and an excited belief in their might, the name of the newly-murdered man must have struck them as the very voice of Fate, in which the speaker betrays himself.\" — In fact, the poem is an illustration of Schiller's own lines in \" The Artists,\" written eight years before : —",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-4",
+          "kind": "verse",
+          "text": "\" Vom Eumenidenchor geschrecket\nZieht sich der Mord,\" &c.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-5",
+          "kind": "note",
+          "text": "In the foregoing ballad Poetry (that is, the Dirge and dramatic representation of the Furies) acts doubly — first on the Murderer, next on the Audience ; it surprises the one into self-betrayal, it prepares in the other that state of mind in which, as by a divine instinct, the quick perception seizes upon the truth. In this double effect is nobly typified the power of Poetry on the individual and on the multitude. Rightly did Schiller resolve to discard from his design whatever might seem to partake of marvellous or supernatural interposition. The appearance of the Cranes is purely accidental. . . . Whatever is of diviner agency in the punishment of crime is found not in the outer circumstances, but in the heart within — the true realm in which the gods work their miracles. As it has been finely said — \"The bad conscience (in the Criminal) is its own Nemesis, the good conscience in the Many — the Audience — drags at once the bad before its forum and judges it.\" The history of the composition of this Poem affords an instance of the exquisite art of Goethe, to which it is largely indebted. In the first sketch of the ballad, it was only one Crane that flew over Ibycus at the time he was murdered, and was reintroduced at the end of the piece. But Goethe suggested the enlargement of this leading incident — into \" the long and broad phenomenon \" of the swarm of Cranes, corresponding in some degree with the long and ample pageant of the Furies. Schiller at once perceived how not only the truthfulness, but the grandeur, of his picture was heightened by this simple alteration. . . . According to Goethe's suggestion, the swarm of Cranes was now introduced as accompanying Ibycus in his voyage. .... The fine analogy between the human wanderer and his winged companions, each seeking a foreign land, was dimly outlined. . . . And the generous criticism of the one Poet finally gave its present fulness and beauty to the masterpiece of the other. — See Goethe's Correspondence with Schiller. Hofmeister. Heinrichs.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 24,
+              "end": 30
+            },
+            {
+              "kind": "strong",
+              "start": 1969,
+              "end": 2030
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "Sir Edward Bulwer-Lytton",
+      "text": "The Poems and Ballads of Schiller, second edition. Edinburgh and London: William Blackwood and Sons, 1852. Historical translator notes remain separate from the poems and are historical claims, not present editorial authority.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    },
+    {
+      "label": "1852 print collation",
+      "text": "The selected poem and its included historical apparatus were collated against the complete 1852 printed pages. Witnessed OCR and punctuation errors were corrected; source italics are retained, and meaningful small capitals are represented by strong emphasis. Prose paragraphs divided by page breaks are rejoined. The Glove’s closing source stanza break remains within its final comparison unit. This is agent collation, not independent human proofreading.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    }
+  ]
+}

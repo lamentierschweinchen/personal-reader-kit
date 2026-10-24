@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.reader/
+test-results/
+.env
+.env.*
+*.reader.json
+*.reader-backup.json
+*.reader-bundle.json
+.DS_Store

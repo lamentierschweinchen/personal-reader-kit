@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "id": "taucher-en",
+  "title": "The Diver",
+  "author": "Friedrich Schiller",
+  "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+  "language": "en",
+  "source": {
+    "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+    "format": "historical-source-adapter",
+    "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "The Diver",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "“Oh, where is the knight or the squire so bold,\n  As to dive to the howling charybdis below?—\nI cast in the whirlpool a goblet of gold,\n  And o'er it already the dark waters flow ;\nWhoever to me may the goblet bring,\n  Shall have for his guerdon that gift of his King.\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "He spoke, and the cup from the terrible steep,\n  That, rugged and hoary, hung over the verge\nOf the endless and measureless world of the deep,\n  Swirl'd into the maëlstrom that madden'd the surge.\n\" And where is the diver so stout to go—\n  I ask ye again — to the deep below ? \"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "And the knights and the squires that gather'd around,\n  Stood silent — and fix'd on the ocean their eyes ;\nThey look'd on the dismal and savage Profound,\n  And the peril chill'd back every thought of the prize.\nAnd thrice spoke the Monarch — \" The cup to win,\n  Is there never a wight who will venture in?”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "And all as before heard in silence the King—\n  Till a youth with an aspect unfearing but gentle,\n'Mid the tremulous squires — stept out from the ring,\n  Unbuckling his girdle, and doffing his mantle ;\nAnd the murmuring crowd, as they parted asunder,\n  On the stately boy cast their looks of wonder.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "As he strode to the marge of the summit, and gave\n  One glance on the gulf of that merciless main,\nLo ! the wave that for ever devours the wave,\n  Casts roaringly up the charybdis again;\nAnd as with the swell of the far thunder-boom,\n  Rushes foamingly forth from the heart of the gloom.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "And it bubbles and seethes, and it hisses and roars,¹\n  As when fire is with water commix'd and contending,\nAnd the spray of its wrath to the welkin up-soars,\n  And flood upon flood hurries on, never ending ;\nAnd it never will rest, nor from travail be free,\n  Like a sea that is labouring the birth of a sea.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 222,
+              "end": 226
+            }
+          ]
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "Yet, at length, comes a lull o'er the mighty commotion,\n  And dark through the whiteness, and still thro’ the swell,\nThe whirlpool cleaves downward and downward in ocean\n  A yawning abyss, like the pathway to hell ;\nThe stiller and darker the farther it goes,\n  Suck'd into that smoothness the breakers repose.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "The youth gave his trust to his Maker ! Before\n  That path through the riven abyss closed again,\nHark ! a shriek from the gazers that circle the shore—\n  And, behold! he is whirl'd in the grasp of the main!\nAnd o'er him the breakers mysteriously roll'd,\n  And the giant-mouth closed on the swimmer so bold.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-009",
+          "kind": "verse",
+          "text": "All was still on the height, save the murmur that went\n  From the grave of the deep, sounding hollow and fell,\nOr save when the tremulous sighing lament\n  Thrill’d from lip unto lip, “Gallant youth, fare-thee-well!”\nMore hollow and more wails the deep on the ear—\n  More dread and more dread grows suspense in its fear.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-010",
+          "kind": "verse",
+          "text": "If thou shouldst in those waters thy diadem fling,\n  And cry, “Who may find it shall win it and wear;”\nGod wot, though the prize were the crown of a king —\n  A crown at such hazard were valued too dear.\nFor never shall lips of the living reveal\n  What the deeps that howl yonder in terror conceal.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-011",
+          "kind": "verse",
+          "text": "Oh, many a bark, to that breast grappled fast,\n  Has gone down to the fearful and fathomless grave ;\nAgain, crash'd together the keel and the mast,\n  To be seen tost aloft in the glee of the wave !\nLike the growth of a storm ever louder and clearer,\n  Grows the roar of the gulf rising nearer and nearer.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-012",
+          "kind": "verse",
+          "text": "And it bubbles and seethes, and it hisses and roars,\n  As when fire is with water commix'd and contending ;\nAnd the spray of its wrath to the welkin up-soars,\n  And flood upon flood hurries on, never ending,\nAnd as with the swell of the far thunder-boom,\n  Rushes roaringly forth from the heart of the gloom.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-013",
+          "kind": "verse",
+          "text": "And, lo! from the heart of that far-floating gloom,\n  Like the wing of the cygnet — what gleams on the sea ?\nLo ! an arm and a neck glancing up from the tomb ! —\n  Steering stalwart and shoreward: O joy, it is he!\nThe left hand is lifted in triumph ; behold,\n  It waves as a trophy the goblet of gold !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-014",
+          "kind": "verse",
+          "text": "And he breathèd deep, and he breathèd long,\n  And he greeted the heavenly delight of the day.\nThey gaze on each other—they shout as they throng—\n  “He lives—lo, the ocean has render’d its prey!\nAnd safe from the whirlpool and free from the grave,\n  Comes back to the daylight the soul of the brave ! \"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-015",
+          "kind": "verse",
+          "text": "And he comes, with the crowd in their clamour and glee ;\n  And the goblet his daring has won from the water,\nHe lifts to the King as he sinks on his knee ; —\n  And the King from her maidens has beckon'd his daughter.\nShe pours to the boy the bright wine which they bring,\n  And thus spoke the Diver — \" Long life to the King !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-016",
+          "kind": "verse",
+          "text": "\" Happy they whom the rose-hues of daylight rejoice,\n  The air and the sky that to mortals are given !\nMay the horror below nevermore find a voice —\n  Nor Man stretch too far the wide mercy of Heaven !\nNevermore — nevermore may he lift from the sight\n  The veil which is woven with Terror and Night !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-017",
+          "kind": "verse",
+          "text": "“Quick bright’ning like lightning, the ocean rush’d o’er me,\n  Wild floating, borne down fathom-deep from the day ;\nTill a torrent rush'd out on the torrents that bore me,\n  And doubled the tempest that whirl’d me away.\nVain, vain was my struggle — the circle had won me,\n  Round and round in its dance the mad element spun me.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-018",
+          "kind": "verse",
+          "text": "\" From the deep, then I call'd upon God — and He heard me.\n  In the dread of my need, He vouchsafed to mine eye\nA rock jutting out from the grave that interr'd me ;\n  I sprung there, I clung there — and Death pass'd me by.\nAnd, lo ! where the goblet gleam'd through the abyss,\n  By a coral reef saved from the far Fathomless :",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-019",
+          "kind": "verse",
+          "text": "\" Below, at the foot of that precipice drear,\n  Spread the gloomy and purple and pathless Obscure !\nA silence of Horror that slept on the ear,\n  That the eye more appall’d might the Horror endure!\nSalamander, snake, dragon — vast reptiles that dwell\n  In the deep — coil'd about the grim jaws of their hell.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-020",
+          "kind": "verse",
+          "text": "“Dark crawl’d, glided dark the unspeakable swarms,\n  Clump'd together in masses, misshapen and vast ;\nHere clung and here bristled the fashionless forms ;\n  Here the dark-moving bulk of the Hammer-fish pass'd ;\nAnd, with teeth grinning white and a menacing motion,\n  Went the terrible Shark — the Hyaena of Ocean.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-021",
+          "kind": "verse",
+          "text": "\" There I hung, and the awe gather'd icily o'er me,\n  So far from the earth, where man's help there was none !\nThe One Human Thing, with the Goblins before me —\n  Alone — in a loneness so ghastly — alone !\nDeep under the reach of the sweet living breath,\n  And begirt with the broods of the desert of Death.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 198,
+              "end": 203
+            }
+          ]
+        },
+        {
+          "id": "stanza-022",
+          "kind": "verse",
+          "text": "“Methought, as I gazed thro’ the darkness, that now\n  It² saw—a dread hundred-limb’d creature—its prey!\nAnd darted, devouring ; I sprang from the bough\n  Of the coral, and swept on the horrible way ;\nAnd the whirl of the mighty wave seized me once more, —\n  It seized me to save me, and dash to the shore.\"",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "strong",
+              "start": 54,
+              "end": 56
+            }
+          ]
+        },
+        {
+          "id": "stanza-023",
+          "kind": "verse",
+          "text": "On the youth gazed the Monarch, and marvel'd : quoth he,\n  “Bold Diver, the goblet I promised is thine;\nAnd this ring will I give, a fresh guerdon to thee —\n  Never jewels more precious shone up from the mine —\nIf thou’lt bring me fresh tidings, and venture again,\n  To say what lies hid in the innermost main?”",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 295,
+              "end": 304
+            }
+          ]
+        },
+        {
+          "id": "stanza-024",
+          "kind": "verse",
+          "text": "Then outspake the daughter in tender emotion —\n  “Ah! father, my father, what more can there rest?\nEnough of this sport with the pitiless ocean —\n  He has served thee as none would, thyself hast confest.\nIf nothing can slake thy wild thirst of desire,\n  Let thy knights put to shame the exploit of the squire !\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-025",
+          "kind": "verse",
+          "text": "The King seized the goblet, he swung it on high,\n  And whirling, it fell in the roar of the tide :\n\" But bring back that goblet again to my eye,\n  And I'll hold thee the dearest that rides by my side ;\nAnd thine arms shall embrace as thy bride, I decree,\n  The maiden whose pity now pleadeth for thee.\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-026",
+          "kind": "verse",
+          "text": "And heaven, as he listened, spoke out from the space,\n  And the hope that makes heroes shot flame from his eyes ;\nHe gazed on the blush in that beautiful face —\n  It pales — at the feet of her father she lies !\nHow priceless the guerdon ! — a moment, a breath,\n  And headlong he plunges to life and to death !",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-027",
+          "kind": "verse",
+          "text": "They hear the loud surges sweep back in their swell,\n  Their coming the thunder-sound heralds along !\nFond eyes yet are tracking the spot where he fell.\n  They come, the wild waters, in tumult and throng,\nRoaring up to the cliff—roaring back as before,\n  But no wave ever brings the lost youth to the shore !",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "translator-notes",
+      "title": "Historical translator notes",
+      "blocks": [
+        {
+          "id": "note-1",
+          "kind": "note",
+          "text": "The original of the story on which Schiller has founded this ballad, matchless perhaps for the power and grandeur of its descriptions, is to be found in Kircher. According to the true principles of imitative art, Schiller has preserved all that is striking in the legend, and ennobled all that is commonplace. The name of the Diver was Nicholas, surnamed the Fish. The King appears, according to Hoffmeister's probable conjectures, to have been either Frederic I. or Frederic II. of Sicily. Date from 1295 to 1377.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-2",
+          "kind": "note",
+          "text": "1 \" Und es wallet, und siedet, und brauset, und zischt\" &c. Goethe was particularly struck with the truthfulness of these lines, of which his personal observation at the Falls of the Rhine enabled him to judge. Schiller modestly owns his obligations to Homer's description of Charybdis, Odyss. lib. 12. The property of the higher order of imagination to reflect truth, though not familiar to experience, is singularly illustrated in this description. Schiller had never seen even a Waterfall.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 4,
+              "end": 54
+            }
+          ]
+        },
+        {
+          "id": "note-3",
+          "kind": "note",
+          "text": "2 \" Da koch's heran,\" &c. The It in the original has been greatly admired. The poet thus vaguely represents the fabulous misshapen monster, the Polypus of the ancients.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 4,
+              "end": 20
+            },
+            {
+              "kind": "em",
+              "start": 30,
+              "end": 32
+            }
+          ]
+        },
+        {
+          "id": "note-4",
+          "kind": "note",
+          "text": "NOTE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-5",
+          "kind": "note",
+          "text": "This Ballad is the first composed by Schiller, if we except his early and ruder lay of \" Count Eberhard, the Quarreller,\" which really, however, has more of the true old ballad spirit about it than those grand and artistical tales elaborated by his riper genius, and belonging to a school of poetry to which the ancient Balladsinger certainly never pretended to aspire. The old Ballad is but a simple narrative, without any symbolical or interior meaning; but in most of the performances to which Schiller has given the name of Ballad, a certain purpose, not to say philosophy, in conception, raises the Narrative into Dramatic dignity. Rightly, for instance, has \" The Diver \" been called a Lyrical Tragedy in two Acts — the first Act ending with the disappearance of the hero amidst the whirlpool : and the conception of the contest of Man's will with physical nature, together with the darkly hinted moral not to stretch too far the mercy of heaven, belong in themselves to the design and the ethics of Tragedy.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-8",
+          "kind": "note",
+          "text": "There is another peculiarity in the art which Schiller employs upon his narrative poems. Though he usually enters at once on the interest of his story, and adopts for the most part the simple and level style of recital, he selects a subject admitting naturally of some striking picture, upon which he lavishes those resources of description that are only at the command of a great poet ; thus elevating the ancient ballad, not only into something of the Drama by conception, but into something of the Epic by execution. The reader will recognise this peculiarity in the description of the Charybdis and the Abyss in the Ballad he has just concluded, in that of the Storm in \" Hero and Leander,\" of the Forge and the Catholic Ritual in \" Fridolin,\" of the Furies in the \"Cranes of Ibycus,\" &c. We have the more drawn the reader's notice to these distinctions between the simple ballad of the ancient minstrels and the artistical narratives of Schiller, because it seems to us that our English critics are too much inclined to consider that modern Ballad-writing succeeds or fails in proportion as it seizes merely the spirit of the ancient. But this would lower genius to an exercise of the same imitative ingenuity which a schoolboy or a college prizeman displays upon Latin lyrics — in which the merit consists in the avoidance of originality. The great poet cannot be content with only imitating what he studies ; and he succeeds really in proportion, not to his fidelity, but to his innovations — that is, in proportion as he improves upon what serves him as a model.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "note-9",
+          "kind": "note",
+          "text": "In the ballad of \" The Diver \" Schiller sought not only the simple but the sublime. According to his own just theory — \" The main Ingredient of Terror is the Unknown.\" He here seeks to accomplish as a poet what he had before perceived as a critic ; and certainly the picture of his lonely Diver amidst the horrors of the Abyss dwells upon the memory amongst the sublimest conceptions of modern Poetry.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Local edition",
+      "text": "This collection is prepared for local reading. Historical spelling, translation and source uncertainties remain part of the edition. Public release requires a separate source and audience review.",
+      "kind": "source",
+      "through": null
+    },
+    {
+      "label": "Sir Edward Bulwer-Lytton",
+      "text": "The Poems and Ballads of Schiller, second edition. Edinburgh and London: William Blackwood and Sons, 1852. Historical translator notes remain separate from the poems and are historical claims, not present editorial authority.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    },
+    {
+      "label": "1852 print collation",
+      "text": "The selected poem and its included historical apparatus were collated against the complete 1852 printed pages. Witnessed OCR and punctuation errors were corrected; source italics are retained, and meaningful small capitals are represented by strong emphasis. Prose paragraphs divided by page breaks are rejoined. The Glove’s closing source stanza break remains within its final comparison unit. This is agent collation, not independent human proofreading.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsballadsofsc00schi"
+    }
+  ]
+}

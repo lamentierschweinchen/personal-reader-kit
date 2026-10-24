@@ -9,7 +9,7 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome'});
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
@@ -62,11 +62,18 @@ export async function buildReaders(output){
         let text=replace(original.toString(),"register('/sw.js'",`register('${base}sw.js'`);
         text=replace(text,"fetch('/library.json'",`fetch('${base}library.json'`);
         if(slug==='austen')text=replace(text,'src="/austen-peacock-1894.png"',`src="${base}austen-peacock-1894.png"`);
+        if(slug==='ballads')text=replace(text,'href="/sources/#iphigenie-en"',`href="${base}sources/#iphigenie-en"`);
         bytes=Buffer.from(text);
       }
       if(asset.path==='db.mjs'){
         const prior=slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
         bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
+      }
+      if(asset.path==='folio.mjs'&&slug==='pictures-after-dark'){
+        let text=replace(original.toString(),"fetch('/folio.json'",`fetch('${base}folio.json'`);
+        text=replace(text,'src="/${esc(folio.cover.src)}"','src="'+base+'${esc(folio.cover.src)}"');
+        text=replace(text,'src="/${esc(folio.callot.src)}"','src="'+base+'${esc(folio.callot.src)}"');
+        text=replace(text,"'/'+button.dataset.folioImage",JSON.stringify(base)+"+button.dataset.folioImage");bytes=Buffer.from(text);
       }
       if(asset.path==='app.mjs'&&slug==='nietzsche')bytes=Buffer.from(replace(bytes.toString(),"fetch('/company.json'",`fetch('${base}company.json'`));
       if(slug==='poe'){
@@ -151,7 +158,7 @@ self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(async c=>
 const FILES=${JSON.stringify([...files.map(f=>base+f),'/continuation.mjs'])};
 ${install}
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith(PREFIX)&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;${slug==='poe'?"if(u.pathname===BASE+'build.json'&&u.searchParams.has('network')){e.respondWith(fetch(e.request).catch(()=>new Response('Network unavailable',{status:503})));return;}":''}const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||${network}));});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;${slug==='poe'?"if(u.pathname===BASE+'build.json'&&u.searchParams.has('network')){e.respondWith(fetch(e.request).catch(()=>new Response('Network unavailable',{status:503})));return;}":''}const key=e.request.mode==='navigate'&&[BASE,BASE+'index.html'].includes(u.pathname)?BASE+'index.html':e.request.mode==='navigate'&&u.pathname===BASE+'play/'?BASE+'play/index.html':e.request.mode==='navigate'&&u.pathname===BASE+'sources/'?BASE+'sources/index.html':u.pathname;if(FILES.includes(key))e.respondWith(caches.open(CACHE).then(async c=>(await c.match(key))||${network}));});
 self.addEventListener('message',e=>{if(e.data==='CHECK_OFFLINE')e.waitUntil(caches.open(CACHE).then(async c=>e.ports[0]?.postMessage({ready:(await Promise.all(FILES.map(f=>c.match(f)))).every(Boolean),version:${JSON.stringify(version)}})));});
 `);
     assert.ok(unchanged.includes('library.json'),'The complete edition must remain unchanged');

@@ -1,0 +1,1878 @@
+{
+  "schema": 1,
+  "profile": "caesar-and-the-emperors/edition@1",
+  "id": "augustus-en",
+  "title": "Res Gestae",
+  "author": "Augustus",
+  "edition": "F. W. Shipley · Loeb 1924 · LacusCurtius",
+  "language": "en",
+  "source": {
+    "sha256": "75ded54fc4c630000b34f161bae15f7aec4d7b24851205f6711412e01906eaba",
+    "format": "historical-transcription",
+    "description": "Complete 35 sections with inscribed preamble and separate later Summary, Shipley 1924 witness. Latin reconstructions and lacunae are retained; dignitate at 34 is not modernized."
+  },
+  "sections": [
+    {
+      "id": "rg-preamble",
+      "title": "Inscribed preamble",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Below is a copy of the acts of the Deified Augustus by which he placed the whole world under the sovereignty of the Roman people, and of the amounts which he expended upon the state and the Roman people, as engraved upon two bronze columns which have been set up in Rome.⁠1",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 272,
+              "end": 273
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-1",
+      "title": "Res Gestae · 1",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "At the age of nineteen,⁠2 on my own initiative and at my own expense, I raised an army⁠3 by means of which I restored liberty⁠4 to the republic, which had been oppressed by the tyranny of a faction.⁠5 For which service the senate, with complimentary resolutions, enrolled me in its order, in the consulship of Gaius Pansa and Aulus Hirtius, giving me at the same time consular precedence in voting; it also gave me the imperium.⁠6 As propraetor it ordered me, along with the consuls, \"to see that the republic suffered no harm.\" In the same year, moreover, as both consuls had fallen in war,⁠7 the people elected me consul and a triumvir for settling the constitution.⁠8",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 24,
+              "end": 25
+            },
+            {
+              "kind": "sup",
+              "start": 87,
+              "end": 88
+            },
+            {
+              "kind": "sup",
+              "start": 126,
+              "end": 127
+            },
+            {
+              "kind": "sup",
+              "start": 199,
+              "end": 200
+            },
+            {
+              "kind": "sup",
+              "start": 429,
+              "end": 430
+            },
+            {
+              "kind": "sup",
+              "start": 592,
+              "end": 593
+            },
+            {
+              "kind": "sup",
+              "start": 669,
+              "end": 670
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-2",
+      "title": "Res Gestae · 2",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Those who slew my father⁠9 I drove into exile, punishing their deed by due process of law,⁠10 and afterwards when they waged war upon the republic I twice⁠11 defeated them in battle.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "kind": "sup",
+              "start": 91,
+              "end": 93
+            },
+            {
+              "kind": "sup",
+              "start": 155,
+              "end": 157
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-3",
+      "title": "Res Gestae · 3",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Wars, both civil and foreign, I undertook throughout the world, on sea and land, and when victorious I spared all citizens who sued for pardon.⁠12 The foreign nations which could with safety be pardoned I preferred to save rather than to destroy. The number of Roman citizens who bound themselves to me by military oath was about 500,000. Of these I settled in colonies or sent back into their own towns, after their term of service, something more than 300,000, and to all I assigned lands, or gave money as a reward for military service.⁠13 I captured six hundred ships,⁠14 over and above those which were smaller than triremes.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 144,
+              "end": 146
+            },
+            {
+              "kind": "sup",
+              "start": 540,
+              "end": 542
+            },
+            {
+              "kind": "sup",
+              "start": 573,
+              "end": 575
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-4",
+      "title": "Res Gestae · 4",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Twice I triumphed with an ovation,⁠15 thrice I celebrated curule triumphs,⁠16 and was saluted as imperator twenty-one times.⁠17 Although the Senate decreed me additional triumphs I set them aside. When I had performed the vows which I had undertaken in each war I deposited upon the Capitol the laurels which adorned my fasces.⁠18 For successful operations on land and sea, conducted either by myself or by my lieutenants under my auspices, the senate on fifty-five occasions decreed that thanks should be rendered to the immortal gods. The days on which such thanks were rendered by decree of the senate numbered 890. In my triumphs there were led before my chariot nine kings or children of kings.⁠19 At the time of writing these words I had been thirteen times consul, and was in the thirty-seventh year of my tribunician power.⁠20",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 35,
+              "end": 37
+            },
+            {
+              "kind": "sup",
+              "start": 75,
+              "end": 77
+            },
+            {
+              "kind": "sup",
+              "start": 125,
+              "end": 127
+            },
+            {
+              "kind": "sup",
+              "start": 328,
+              "end": 330
+            },
+            {
+              "kind": "sup",
+              "start": 700,
+              "end": 702
+            },
+            {
+              "kind": "sup",
+              "start": 832,
+              "end": 834
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-5",
+      "title": "Res Gestae · 5",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The dictatorship⁠21 offered me by the people and the Roman Senate, in my absence and later when present, in the consulship of Marcus Marcellus and Lucius Arruntius⁠22 I did not accept. I did not decline at a time of the greatest scarcity of grain the charge of the grain-supply, which I so administered that, within a few days, I freed the entire people, at my own expense, from the fear and danger in which they were.⁠23 The consulship, either yearly or for life, then offered me I did not accept.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 17,
+              "end": 19
+            },
+            {
+              "kind": "sup",
+              "start": 164,
+              "end": 166
+            },
+            {
+              "kind": "sup",
+              "start": 419,
+              "end": 421
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-6",
+      "title": "Res Gestae · 6",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In the consulship of Marcus Vinucius and Quintus Lucretius,⁠24 and afterwards in that of Publius and Gnaeus Lentulus,⁠25 and a third time in that of Paullus Fabius Maximus and Quintus Tubero,26 when the Senate and the Roman people unanimously agreed that I should be elected overseer of laws and morals, without a colleague and with the fullest power, I refused to accept any power offered me which was contrary to the traditions of our ancestors.⁠27 Those things which at that time the senate wished me to administer I carried out by virtue of my tribunician power. And even in this office I five times received from the senate a colleague at my own request.⁠28",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 60,
+              "end": 62
+            },
+            {
+              "kind": "sup",
+              "start": 118,
+              "end": 120
+            },
+            {
+              "kind": "sup",
+              "start": 191,
+              "end": 193
+            },
+            {
+              "kind": "em",
+              "start": 250,
+              "end": 659
+            },
+            {
+              "kind": "sup",
+              "start": 448,
+              "end": 450
+            },
+            {
+              "kind": "sup",
+              "start": 660,
+              "end": 662
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-7",
+      "title": "Res Gestae · 7",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "For ten years in succession I was one of the triumvirs for the re-establishment of the constitution.⁠29 To the day of writing this I have been princeps senatus⁠30 for forty years. I have been pontifex maximus, augur, a member of the fifteen commissioners for performing sacred rites, one of the seven for sacred feasts, an arval brother, a sodalis Titius, a fetial priest.⁠31",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 100
+            },
+            {
+              "kind": "sup",
+              "start": 101,
+              "end": 103
+            },
+            {
+              "kind": "sup",
+              "start": 160,
+              "end": 162
+            },
+            {
+              "kind": "sup",
+              "start": 373,
+              "end": 375
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-8",
+      "title": "Res Gestae · 8",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "As consul for the fifth time,⁠32 by order of the people and the senate I increased the number of the patricians. Three times I revised the roll of the senate.⁠33 In my sixth consulship, with Marcus Agrippa as my colleague, I made a census of the people.⁠34 I performed the lustrum⁠35 after an interval of forty-one years. In this •lustration 4,063,000 Roman citizens were entered on the census roll. A second time,⁠36 in the consulship of Gaius Censorinus and Gaius Asinius, I again performed the lustrum alone, with the consular imperium. In this lustrum 4,233,000 Roman citizens were entered on the census roll. A third time, with the consular imperium, and with my son Tiberius Caesar as my colleague, I performed the lustrum in the consulship of Sextus Pompeius and Sextus Apuleius.⁠37 In this lustrum 4,937,000 Roman citizens were entered on the census roll. By the passage of new laws I restored many traditions of our ancestors which were then falling into disuse, and I myself set precedents in many things for posterity to imitate.⁠38",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 30,
+              "end": 32
+            },
+            {
+              "kind": "sup",
+              "start": 159,
+              "end": 161
+            },
+            {
+              "kind": "sup",
+              "start": 254,
+              "end": 256
+            },
+            {
+              "kind": "sup",
+              "start": 281,
+              "end": 283
+            },
+            {
+              "kind": "sup",
+              "start": 415,
+              "end": 417
+            },
+            {
+              "kind": "sup",
+              "start": 787,
+              "end": 789
+            },
+            {
+              "kind": "sup",
+              "start": 1041,
+              "end": 1043
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-9",
+      "title": "Res Gestae · 9",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The senate decreed that every fifth year⁠39 vows should be undertaken for my health by the consuls and the priests. In fulfilment of these vows games were often held in my lifetime, sometimes by the four chief colleges of priests, sometimes by the consuls.⁠40 In addition the entire body of citizens with one accord,⁠41 both individually and by municipalities, performed continued sacrifices for my health at all the couches of the gods.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 41,
+              "end": 43
+            },
+            {
+              "kind": "sup",
+              "start": 257,
+              "end": 259
+            },
+            {
+              "kind": "sup",
+              "start": 317,
+              "end": 319
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-10",
+      "title": "Res Gestae · 10",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "By decree of the senate my name was included in the Salian hymn,⁠42 and it was enacted by law that my person should be sacred in perpetuity and that so long as I lived I should hold the tribunician power.⁠43 I declined to be made Pontifex Maximus in succession to a colleague still living, when the people tendered me that priesthood which my father had held. Several years later I accepted that sacred office when he at last was dead who, taking advantage of a time of civil disturbance, had seized it for himself, such a multitude from all Italy assembling for my election, in the consulship of Publius Sulpicius and Gaius Valgius, as is never recorded to have been in Rome before.⁠44",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 65,
+              "end": 67
+            },
+            {
+              "kind": "sup",
+              "start": 205,
+              "end": 207
+            },
+            {
+              "kind": "sup",
+              "start": 684,
+              "end": 686
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-11",
+      "title": "Res Gestae · 11",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The Senate consecrated in honour of my return an altar to Fortuna Redux at the Porta Capena, near the temple of Honour and Virtue, on which it ordered the pontiffs and the Vestal virgins to perform a yearly sacrifice on the anniversary of the day on which I returned to the city from Syria, in the consulship of Quintus Lucretius and Marcus Vinucius, and named the day, after my cognomen, the Augustalia.⁠45",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 405,
+              "end": 407
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-12",
+      "title": "Res Gestae · 12",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "At the same time, by decree of the senate, part of the praetors and of the tribunes of the people, together with the consul Quintus Lucretius⁠46 and the leading men of the state, were sent to Campania to meet me, an honour which up to the present time has been decreed to no one except myself. When I returned from Spain and Gaul, in the consulship of Tiberius Nero and Publius Quintilius, after successful operations in those provinces, the senate voted in honour of my return the consecration of an altar to Pax Augusta in the Campus Martius, and on this altar it ordered the magistrates and priests and Vestal virgins to make annual sacrifice.⁠47",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 142,
+              "end": 144
+            },
+            {
+              "kind": "sup",
+              "start": 647,
+              "end": 649
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-13",
+      "title": "Res Gestae · 13",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Janus Quirinus, which our ancestors ordered to be closed whenever there was peace, secured by victory, throughout the whole domain of the Roman people on land and sea, and which, before my birth is recorded to have been closed but twice in all since the foundation of the city, the senate ordered to be closed thrice while I was princeps.⁠48",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 339,
+              "end": 341
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-14",
+      "title": "Res Gestae · 14",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "My sons Gaius and Lucius Caesar,⁠49 whom fortune snatched away from me in their youth, the senate and the Roman people to do me honour made consuls designate, each in his fifteenth year,⁠50 providing that each should enter upon that office after a period of five years.⁠51 The senate decreed that from the day on which they were introduced to the forum⁠52 they should take part in the counsels of state. Moreover, the entire body of Roman knights gave each of them the title of princeps iuventutis⁠50 and presented them with silver shields and spears.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 33,
+              "end": 35
+            },
+            {
+              "kind": "sup",
+              "start": 187,
+              "end": 189
+            },
+            {
+              "kind": "sup",
+              "start": 270,
+              "end": 272
+            },
+            {
+              "kind": "sup",
+              "start": 353,
+              "end": 355
+            },
+            {
+              "kind": "sup",
+              "start": 498,
+              "end": 500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-15",
+      "title": "Res Gestae · 15",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "To the Roman plebs I paid out three hundred sesterces per man in accordance with the will of my father,⁠53 and in my own name in my fifth consulship I gave four hundred sesterces apiece from the spoils of war;⁠54 a second time, moreover, in my tenth consulship I paid out of my own patrimony four hundred sesterces per man by way of bounty,⁠55 and in my eleventh consulship I made twelve distributions of food from grain bought at my own expense,⁠56 and in the twelfth year of my tribunician power I gave for the third time four hundred sesterces to each man.⁠57 These largesses of mine reached a number of persons never less than two hundred and fifty thousand.⁠58 In the eighteenth year of my tribunician power, as consul for the twelfth time, I gave to three hundred and twenty thousand of the city plebs sixty denarii apiece.⁠59 In the colonies of my soldiers, as consul for the fifth time, I gave one thousand sesterces to each man from the spoils of war; about one hundred and twenty thousand men in the colonies received this triumphal largesse.⁠60 When consul for the thirteenth time I gave sixty denarii apiece to the plebs who were then receiving public grain; these were a little more than two hundred thousand persons.⁠61",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 104,
+              "end": 106
+            },
+            {
+              "kind": "sup",
+              "start": 210,
+              "end": 212
+            },
+            {
+              "kind": "sup",
+              "start": 341,
+              "end": 343
+            },
+            {
+              "kind": "sup",
+              "start": 447,
+              "end": 449
+            },
+            {
+              "kind": "sup",
+              "start": 560,
+              "end": 562
+            },
+            {
+              "kind": "sup",
+              "start": 663,
+              "end": 665
+            },
+            {
+              "kind": "sup",
+              "start": 830,
+              "end": 832
+            },
+            {
+              "kind": "sup",
+              "start": 1053,
+              "end": 1055
+            },
+            {
+              "kind": "sup",
+              "start": 1231,
+              "end": 1233
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-16",
+      "title": "Res Gestae · 16",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "To the municipal towns I paid money for the lands which I assigned to soldiers in my own fourth consulship⁠62 and afterwards in the consulship of Marcus Crassus and Gnaeus Lentulus the augur.⁠63 The sum which I paid for estates in Italy was about six hundred million sesterces, and the amount which I paid for lands in the provinces was about two hundred and sixty million.⁠64 I was the first and only one to do this of all those who up to my time settled colonies of soldiers in Italy or in the provinces. And later, in the consulship of Tiberius Nero and Gnaeus Piso, likewise in the consulship of Gaius Antistius and Decimus Laelius, and of Gaius Calvisius and Lucius Pasienus, and of Lucius Lentulus and Marcus Messalla, and of Lucius Caninius and Quintus Fabricius, I paid cash gratuities to the soldiers whom I settled in their own towns at the expiration of their service, and for this purpose I expended four hundred million sesterces as an act of grace.⁠65",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 107,
+              "end": 109
+            },
+            {
+              "kind": "sup",
+              "start": 192,
+              "end": 194
+            },
+            {
+              "kind": "sup",
+              "start": 374,
+              "end": 376
+            },
+            {
+              "kind": "sup",
+              "start": 963,
+              "end": 965
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-17",
+      "title": "Res Gestae · 17",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Four times I aided the public treasury with my own money, paying out in this manner to those in charge of the treasury one hundred and fifty million sesterces.⁠66 And in the consulship of Marcus Lepidus and Lucius Arruntius I contributed one hundred and seventy million sesterces out of my own patrimony to the military treasury, which was established on my advice that from it gratuities might be paid to soldiers who had seen twenty or more years of service.⁠67",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 160,
+              "end": 162
+            },
+            {
+              "kind": "sup",
+              "start": 461,
+              "end": 463
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-18",
+      "title": "Res Gestae · 18",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Beginning with the year in which Gnaeus and Publius Lentulus were consuls,⁠68 whenever taxes were in arrears, I furnished from my own purse and my own patrimony tickets for grain and money, sometimes to a hundred thousand persons, sometimes to many more.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 75,
+              "end": 77
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-19",
+      "title": "Res Gestae · 19",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "I built the curia⁠69 and the Chalcidicum adjoining it, the temple of Apollo on the Palatine with its porticoes,⁠70 the temple of the deified Julius,⁠71 the Lupercal,⁠72 the portico at the Circus Flaminius which I allowed to be called Octavia⁠73 after the name of him who had constructed an earlier one on the same site, the state box at the Circus Maximus, the temples on the capitol of Jupiter Feretrius⁠74 and Jupiter Tonans,⁠75 the temple of Quirinus,⁠76 the temples of Minerva, of Juno the Queen, and of Jupiter Libertas, on the Aventine,⁠77 the temple of the Lares at the highest point of the Sacra Via, the temple of the Di Penates on the Velia,⁠78 the temple of Youth,⁠79 and the temple of the Great Mother on the Palatine.⁠80",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 18,
+              "end": 20
+            },
+            {
+              "kind": "sup",
+              "start": 112,
+              "end": 114
+            },
+            {
+              "kind": "sup",
+              "start": 149,
+              "end": 151
+            },
+            {
+              "kind": "sup",
+              "start": 166,
+              "end": 168
+            },
+            {
+              "kind": "sup",
+              "start": 242,
+              "end": 244
+            },
+            {
+              "kind": "sup",
+              "start": 405,
+              "end": 407
+            },
+            {
+              "kind": "sup",
+              "start": 428,
+              "end": 430
+            },
+            {
+              "kind": "sup",
+              "start": 455,
+              "end": 457
+            },
+            {
+              "kind": "sup",
+              "start": 543,
+              "end": 545
+            },
+            {
+              "kind": "sup",
+              "start": 652,
+              "end": 654
+            },
+            {
+              "kind": "sup",
+              "start": 676,
+              "end": 678
+            },
+            {
+              "kind": "sup",
+              "start": 731,
+              "end": 733
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-20",
+      "title": "Res Gestae · 20",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The Capitolium⁠81 and the theatre of Pompey,⁠82 both works involving great expense, I rebuilt without any inscription of my own name. I restored the channels of the aqueducts which in several places were falling into disrepair through age, and doubled the capacity of the aqueduct called the Marcia by turning a new spring into its channel.⁠83 I completed the Julian Forum⁠84 and the basilica which was between the temple of Castor and the temple of Saturn, works begun and far advanced by my father, and when the same basilica was destroyed by fire I began its reconstruction on an enlarged site, to be inscribed with the names of my sons, and ordered that in case I should not live to complete it, it should be completed by my heirs.⁠85 In my sixth consulship,⁠86 in accordance with a decree of the senate, I rebuilt in the city eighty-two temples of the gods, omitting none which at that time stood in need of repair. As consul for the seventh time⁠87 I constructed the Via Flaminia from the city to Ariminum, and all the bridges except the Mulvian and the Minucian.⁠88",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 15,
+              "end": 17
+            },
+            {
+              "kind": "sup",
+              "start": 45,
+              "end": 47
+            },
+            {
+              "kind": "sup",
+              "start": 341,
+              "end": 343
+            },
+            {
+              "kind": "sup",
+              "start": 373,
+              "end": 375
+            },
+            {
+              "kind": "sup",
+              "start": 736,
+              "end": 738
+            },
+            {
+              "kind": "sup",
+              "start": 763,
+              "end": 765
+            },
+            {
+              "kind": "sup",
+              "start": 952,
+              "end": 954
+            },
+            {
+              "kind": "sup",
+              "start": 1070,
+              "end": 1072
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-21",
+      "title": "Res Gestae · 21",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "On my own ground I built the temple of Mars Ultor and the Augustan Forum from the spoils of war.⁠89 On ground purchased for the most part from private owners I built the theatre near the temple of Apollo which was to bear the name of my son-in‑law Marcus Marcellus.⁠90 From the spoils of war I consecrated offerings on the Capitol, and in the temple of the divine Julius, and in the temple of Apollo, and in the temple of Vesta, and in the temple of Mars Ultor, which cost me about one hundred million sesterces.⁠91 In my fifth consulship I remitted thirty-five thousand pounds weight of coronary gold⁠92 contributed by the municipia and the colonies of Italy, and thereafter, whenever I was saluted as imperator, I did not accept the coronary gold, although the municipia and colonies voted it in the same kindly spirit as before.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 97,
+              "end": 99
+            },
+            {
+              "kind": "sup",
+              "start": 266,
+              "end": 268
+            },
+            {
+              "kind": "sup",
+              "start": 513,
+              "end": 515
+            },
+            {
+              "kind": "sup",
+              "start": 602,
+              "end": 604
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-22",
+      "title": "Res Gestae · 22",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Three times in my own name I gave a show of gladiators, and five times in the name of my sons or grandsons; in these shows there fought about ten thousand men.⁠93 Twice in my own name I furnished for the people an exhibition of athletes gathered from all parts of the world, and a third time in the name of my grandson.⁠94 Four times I gave games in my own name; as representing other magistrates twenty-three times.⁠95 For the college of quindecemvirs, as master of that college and with Marcus Agrippa as my colleague, I conducted the Secular Games in the consulship of Gaius Furnius and Marcus Silanus.⁠96 In my thirteenth consulship I gave, for the first time, the games of Mars, which, since that time, the consuls by decree of the senate have given in successive years in conjunction with me.⁠97 In my own name, or that of my sons or grandsons, on twenty-six occasions I gave to the people, in the circus, in the forum, or in the amphitheatre, hunts of African wild beasts, in which about three thousand five hundred beasts were slain.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 160,
+              "end": 162
+            },
+            {
+              "kind": "sup",
+              "start": 320,
+              "end": 322
+            },
+            {
+              "kind": "sup",
+              "start": 417,
+              "end": 419
+            },
+            {
+              "kind": "sup",
+              "start": 606,
+              "end": 608
+            },
+            {
+              "kind": "sup",
+              "start": 799,
+              "end": 801
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-23",
+      "title": "Res Gestae · 23",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "I gave the people the spectacle of a naval battle beyond the Tiber, at the place where now stands the grove of the Caesars, the ground having been excavated for a length of eighteen hundred and a breadth of twelve hundred feet.⁠98 In this spectacle thirty beaked ships, triremes or biremes, and a large number of smaller vessels met in conflict. In these fleets there fought about three thousand men exclusive of the rowers.⁠99",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 228,
+              "end": 230
+            },
+            {
+              "kind": "sup",
+              "start": 425,
+              "end": 427
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-24",
+      "title": "Res Gestae · 24",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "After my victory⁠100 I replaced in the temples in all the cities of the province of Asia the ornaments which my antagonist in the war,⁠101 when he despoiled the temples, had appropriated to his private use. Silver statues of me, on foot, on horseback, and in chariots were erected in the city to the number of about eighty; these I myself removed, and from the money thus obtained I placed in the temple of Apollo golden offerings in my own name and in the name of those who had paid me the honour of a statue.⁠102",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 17,
+              "end": 20
+            },
+            {
+              "kind": "sup",
+              "start": 135,
+              "end": 138
+            },
+            {
+              "kind": "sup",
+              "start": 511,
+              "end": 514
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-25",
+      "title": "Res Gestae · 25",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "I freed the sea from pirates. About thirty thousand slaves, captured in that war, who had run away from their masters and had taken up arms against the republic, I delivered to their masters for punishment.⁠103 The whole of Italy voluntarily took oath of allegiance to me and demanded me as its leader in the war in which I was victorious at Actium. The provinces of the Spains, the Gauls, Africa, Sicily, and Sardinia took the same oath of allegiance.⁠104 Those who served under my standards at that time included more than 700 senators,⁠105 and among them eighty-three who had previously or have since been consuls up to the day on which these words were written, and about 170 have been priests.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 207,
+              "end": 210
+            },
+            {
+              "kind": "sup",
+              "start": 453,
+              "end": 456
+            },
+            {
+              "kind": "sup",
+              "start": 539,
+              "end": 542
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-26",
+      "title": "Res Gestae · 26",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "I extended the boundaries⁠106 of all the provinces which were bordered by races not yet subject to our empire. The provinces of the Gauls, the Spains, and Germany, bounded by the ocean from Gades to the mouth of the Elbe, I reduced to a state of peace.⁠107 The Alps, from the region which lies nearest to the Adriatic as far as the Tuscan Sea, I brought to a state of peace without waging on any tribe an unjust war.⁠108 My fleet sailed from the mouth of the Rhine eastward as far as the lands of the Cimbri to which, up to that time, no Roman had ever penetrated either by land or by sea, and the Cimbri and Charydes and Semnones and other peoples of the Germans of that same region through their envoys sought my friendship and that of the Roman people.⁠109 On my order and under my auspices two armies were led, at almost the same time, into Ethiopia and into Arabia which is called the \"Happy,\" and very large forces of the enemy of both races were cut to pieces in battle and many towns were captured.⁠110 Ethiopia was penetrated as far as the town of Nabata,⁠111 which is next to Meroë. In Arabia the army advanced into the territories of the Sabaei⁠112 to the town of Mariba.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 26,
+              "end": 29
+            },
+            {
+              "kind": "sup",
+              "start": 253,
+              "end": 256
+            },
+            {
+              "kind": "sup",
+              "start": 417,
+              "end": 420
+            },
+            {
+              "kind": "sup",
+              "start": 756,
+              "end": 759
+            },
+            {
+              "kind": "sup",
+              "start": 1007,
+              "end": 1010
+            },
+            {
+              "kind": "sup",
+              "start": 1065,
+              "end": 1068
+            },
+            {
+              "kind": "sup",
+              "start": 1156,
+              "end": 1159
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-27",
+      "title": "Res Gestae · 27",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Egypt I added to the empire of the Roman people.⁠113 In the case of Greater Armenia, though I might have made it a province after the assassination of its King Artaxes, I preferred, following the precedent of our fathers, to hand that kingdom over to Tigranes, the son of King Artavasdes, and grandson of King Tigranes, through Tiberius Nero who was then my stepson.⁠114 And later, when the same people revolted and rebelled, and was subdued by my son Gaius,⁠115 I gave it over to King Ariobarzanes the son of Artabazus, King of the Medes, to rule, and after his death to his son Artavasdes. When he was murdered I sent into that kingdom Tigranes, who was sprung from the royal family of the Armenians.⁠116 I recovered all the provinces extending eastward beyond the Adriatic Sea, and Cyrenae, which were then for the most part in possession of kings,⁠117 and, at an earlier time,⁠118 Sicily and Sardinia, which had been seized in the servile war.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 49,
+              "end": 52
+            },
+            {
+              "kind": "sup",
+              "start": 367,
+              "end": 370
+            },
+            {
+              "kind": "sup",
+              "start": 459,
+              "end": 462
+            },
+            {
+              "kind": "sup",
+              "start": 703,
+              "end": 706
+            },
+            {
+              "kind": "sup",
+              "start": 852,
+              "end": 855
+            },
+            {
+              "kind": "sup",
+              "start": 881,
+              "end": 884
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-28",
+      "title": "Res Gestae · 28",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "I settled colonies of soldiers in Africa, Sicily, Macedonia, both Spains, Achaea, Asia, Syria, Gallia Narbonensis, Pisidia. Moreover, Italy has twenty-eight colonies founded under my auspices which have grown to be famous and populous during my lifetime.⁠119",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 255,
+              "end": 258
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-29",
+      "title": "Res Gestae · 29",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "From Spain, Gaul, and the Dalmatians,⁠120 I recovered, after conquering the enemy, many military standards which had been lost by other generals. The Parthians I compelled to restore to me the spoils and standards of three Roman armies,⁠121 and to seek as suppliants the friendship of the Roman people. These standards I deposited in the inner shrine which is in the Temple of Mars Ultor.⁠122",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 38,
+              "end": 41
+            },
+            {
+              "kind": "sup",
+              "start": 237,
+              "end": 240
+            },
+            {
+              "kind": "sup",
+              "start": 389,
+              "end": 392
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-30",
+      "title": "Res Gestae · 30",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The tribes of the Pannonians, to which no army of the Roman people had ever penetrated before my principate,⁠123 having been subdued by Tiberius Nero who was then my stepson and my legate,⁠124 I brought under the sovereignty of the Roman people, and I pushed forward the frontier of Illyricum as far as the bank of the river Danube. An army of Dacians which crossed to the south of that river was, under my auspices, defeated and crushed, and afterwards my own army was led across the Danube and compelled the tribes of the Dacians to submit to the orders of the Roman people.⁠125",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 109,
+              "end": 112
+            },
+            {
+              "kind": "sup",
+              "start": 189,
+              "end": 192
+            },
+            {
+              "kind": "sup",
+              "start": 577,
+              "end": 580
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-31",
+      "title": "Res Gestae · 31",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Embassies were often sent to me from the kings of India,⁠126 a thing never seen before in the camp of any general of the Romans. Our friendship was sought, through ambassadors, by the Bastarnae and Scythians,⁠127 and by the kings of the Sarmatians who live on either side of the river Tanais,⁠128 and by the king of the Albani⁠129 and of the Hiberi⁠130 and of the Medes.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 57,
+              "end": 60
+            },
+            {
+              "kind": "sup",
+              "start": 209,
+              "end": 212
+            },
+            {
+              "kind": "sup",
+              "start": 293,
+              "end": 296
+            },
+            {
+              "kind": "sup",
+              "start": 327,
+              "end": 330
+            },
+            {
+              "kind": "sup",
+              "start": 349,
+              "end": 352
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-32",
+      "title": "Res Gestae · 32",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Kings of the Parthians, Tiridates,⁠131 and later Phrates,⁠132 the son of King Phrates, took refuge with me as suppliants; of the Medes, Artavasdes;⁠133 of the Adiabeni,⁠134 Artaxares; of the Britons, Dumnobellaunus⁠135 and Tim . . . . . .; of the Sugambri,⁠136 Maelo; of the Marcomanni and Suevi . . . . .rus. Phrates, son of Orodes, king of the Parthians, sent all his sons and grandsons to me in Italy, not because he had been conquered in war, but rather seeking our friendship by means of his own children as pledges.⁠137 And a large number of other nations experienced the good faith of the Roman people during my principate who never before had had any interchange of embassies or of friendship with the Roman people.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 35,
+              "end": 38
+            },
+            {
+              "kind": "sup",
+              "start": 58,
+              "end": 61
+            },
+            {
+              "kind": "sup",
+              "start": 148,
+              "end": 151
+            },
+            {
+              "kind": "sup",
+              "start": 169,
+              "end": 172
+            },
+            {
+              "kind": "sup",
+              "start": 215,
+              "end": 218
+            },
+            {
+              "kind": "sup",
+              "start": 257,
+              "end": 260
+            },
+            {
+              "kind": "sup",
+              "start": 522,
+              "end": 525
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-33",
+      "title": "Res Gestae · 33",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "From me the peoples of the Parthians and of the Medes received the kings for whom they asked⁠138 through ambassadors, the chief men of those peoples; the Parthians Vonones, son of King Phrates, grandson of King Orodes; the Medes Ariobarzanes, the son of King Atavazdes, grandson of King Ariobarzanes.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 93,
+              "end": 96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-34",
+      "title": "Res Gestae · 34",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In my sixth and seventh consulships,⁠139 when I had extinguished the flames of civil war, after receiving by universal consent the absolute control of affairs, I transferred the republic from my own control to the will of the senate and the Roman people. For this service on my part I was given the title of Augustus⁠140 by decree of the senate, and the doorposts of my house were covered with laurels by public act, and a civic crown was fixed above my door,⁠141 and a golden shield was placed in the Curia Julia whose inscription testified that the senate and the Roman people gave me this in recognition of my valour, my clemency, my justice, and my piety.⁠142 After that time I took precedence of all in rank, but of power I possessed no more than those who were my colleagues in any magistracy.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 37,
+              "end": 40
+            },
+            {
+              "kind": "sup",
+              "start": 317,
+              "end": 320
+            },
+            {
+              "kind": "sup",
+              "start": 460,
+              "end": 463
+            },
+            {
+              "kind": "sup",
+              "start": 660,
+              "end": 663
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-35",
+      "title": "Res Gestae · 35",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "While I was administering my thirteenth consulship the senate and the equestrian order and the entire Roman people gave me the title of Father of my Country,⁠143 and decreed that this title should be inscribed upon the vestibule of my house and in the senate-house and in the Forum Augustum beneath the quadriga erected in my honour by decree of the senate. At the time of writing this I was in my seventy-sixth year.⁠144",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 158,
+              "end": 161
+            },
+            {
+              "kind": "sup",
+              "start": 418,
+              "end": 421
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-summary",
+      "title": "Later Summary · separate addition",
+      "blocks": [
+        {
+          "id": "summary-1",
+          "kind": "prose",
+          "text": "The sum total of the money which he contributed to the treasury or to the Roman plebs or to discharged soldiers was 600,000,000 denarii.⁠146",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 137,
+              "end": 140
+            }
+          ]
+        },
+        {
+          "id": "summary-2",
+          "kind": "prose",
+          "text": "The new works which he built were: the temple of Mars, of Jupiter Tonans and Feretrius, of Apollo, of the Deified Julius, of Quirinus, of Minerva, of Juno the queen, of Jupiter Libertas, of the Lares, of the Di Penates, of Youth, of the Mother of the gods, the Lupercal, the state box at the circus, the senate-house with the Chalcidicum, the Augustan Forum, the Basilica Julia, the theatre of Marcellus, . . . . . . . . the grove of the Caesars beyond the Tiber.⁠147",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 464,
+              "end": 467
+            }
+          ]
+        },
+        {
+          "id": "summary-3",
+          "kind": "prose",
+          "text": "He restored the Capitol and sacred buildings to the number of eighty-two, the theatre of Pompey, the aqueducts, the Flaminian Way.⁠148",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 131,
+              "end": 134
+            }
+          ]
+        },
+        {
+          "id": "summary-4",
+          "kind": "prose",
+          "text": "The expenditures provided for theatrical shows, gladiatorial sports, for exhibitions of athletes, for hunts of wild beasts, and the naval combat,⁠149 and his gifts to colonies in Italy, to cities in the provinces which had been destroyed by earthquake or conflagration, or to individual friends and senators, whose property he raised to the required rating, are too numerous to be reckoned.⁠150",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 146,
+              "end": 149
+            },
+            {
+              "kind": "em",
+              "start": 164,
+              "end": 212
+            },
+            {
+              "kind": "sup",
+              "start": 391,
+              "end": 394
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edition and source",
+      "text": "All 35 sections of Augustus’s Res Gestae, preceded by its inscribed title and followed by a separately identified later Summary in the third person. Frederick W. Shipley (1859–1930), Loeb Classical Library, 1924, transcribed by Bill Thayer, LacusCurtius. Historical text is public domain in the United States; broader publication remains unreviewed. Latin follows this witness, including dignitate in section 34; it is not silently replaced by auctoritate. Italic Latin letters here denote reconstructed text, marked by color in the digital source; lacuna dots and paragraph signs are retained. Stone line numbers, web page numbers and modern hover annotations are omitted. Shipley’s historical notes and textual apparatus are preserved at the corresponding section. Modern website commentary is outside this selection except for Bill Thayer’s explicitly identified note at Latin section 32, whose original and onward-reference links are retained. English and Latin use the same 1924 witness.",
+      "kind": "source",
+      "through": null,
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/home.html"
+    },
+    {
+      "label": "Source notes · Preamble",
+      "text": "1. The title Res Gestae Divi Augusti is that assigned by Mommsen.",
+      "kind": "source",
+      "through": "rg-preamble",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 13,
+          "end": 36
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 1",
+      "text": "2. Octavian was nineteen on September 23, 44 B.C.\n\n3. During October, by offering a bounty of 500 denarii, he induced Caesar's veterans at Casilinum and Calatia to enlist, and in November the legions named Martia and Quarta repudiated Antony and went over to him. This activity of Octavian, on his own initiative, was ratified by the Senate on December 20, on the motion of Cicero.\n\n4. In the battle of Mutina, April 43. Augustus may also have had Philippi in mind.\n\n5. By \"faction\" he means Antony, whom he never mentions by name.\n\n6. On January 2, 43 B.C., the Senate decreed that Octavian should be classed as a quaestorius (Dio, XLVI.29, 41), should be a member of the Senate (Livy, Epit. cxviii), should have the consularia ornamenta, and for that reason should give his opinion along with the consuls (App. B. C. III.51); he was also given the rank of propraetor with imperium, i.e. the constitutional right to command soldiers.\n\n7. Pansa died of his wounds, and Hirtius was killed in action in the operations about Mutina.\n\n8. Octavian became consul August 19, 43 B.C., after marching his army from Cisalpine Gaul to intimidate the Senate. On November the appointment of Octavian, Antony, and Lepidus as triumvirs was brought about by their arrival in the city with armed forces.",
+      "kind": "source",
+      "through": "rg-1",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 640,
+          "end": 641
+        },
+        {
+          "kind": "em",
+          "start": 687,
+          "end": 692
+        },
+        {
+          "kind": "em",
+          "start": 813,
+          "end": 818
+        },
+        {
+          "kind": "em",
+          "start": 884,
+          "end": 888
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 2",
+      "text": "9. Julius Caesar.\n\n10. By the lex Pedia.\n\n11. The two battles at Philippi.",
+      "kind": "source",
+      "through": "rg-2",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html"
+    },
+    {
+      "label": "Source notes · 3",
+      "text": "12. He is referring in particular to the clemency which he showed after the battle of Actium, for which he received a crown of oak leaves in 27 B.C. ob cives servatos.\n\n13. Of the 300,000 soldiers who received honourable dismissal from the service, 120,000 had been settled in colonies by the year 29 B.C. (see chap. 15); the remaining 180,000 must consequently have been mustered out in the succeeding 42 years of his reign. They were in service at the death of Augustus 25 legions (Tac. Ann. IV.5), or about 150,000 men, exclusive of the praetorian and urban cohorts. Those who were killed in battle or died in service therefore numbered about 50,000.\n\n14. From Sextus Pompeius at Mylae 30 ships (Appian v.108), and at Naulochus 283 (ib. 108); from Antony at Actium 300 (Plutarch, Ant. 68).",
+      "kind": "source",
+      "through": "rg-3",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 736,
+          "end": 739
+        },
+        {
+          "kind": "em",
+          "start": 783,
+          "end": 787
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 4",
+      "text": "15. \"Bis ovans ingressus est urbem, post Philippense (40 B.C.) et rursus post Siculum bellum\" (Nov. 13, 36 B.C.), Suet. Aug. 22. An ovation was a minor triumph. In this the conqueror entered the city on foot or on horseback instead of in the four-horse chariot, as in the case of the curule triumph.\n\n16. \"Curulis triumphos tris egit Delmaticum, Actiacum, Alexandrinum continuo triduo omnes\" (Aug. 13, 14, 15 of the year 29), Suet. Aug. 22. \"Tres triumphos egit, unum ex Illyrico, alterum ex Achaica victoria, tertium de Cleopatra\" (Liv. Epit. 133).\n\n17. These acclamations as imperator, for military successes, must not be confused with the title of imperator prefixed to the name of Augustus and succeeding emperors. Mommsen gives the list, Res gestae Divi Augusti, p11.\n\n18. Under the Republic the consul or praetor when starting on an expedition took his vows on the Capital; if acclaimed imperator by his troops he decked his fasces with laurel, and on his return deposited the wreath upon the Capitol.\n\n19. In the three triumphs of the year 29 B.C. the following names are known: Alexander of Emesa, Adiatorix the Galatian prince with his wife and sons, and Alexander and Cleopatra, children of Cleopatra, whose statue was borne in the procession of the Egyptian triumph (Gardthausen, Aug. i.473).\n\n20. Augustus held his thirteenth consulship in 2 B.C. He held his thirty-seventh tribunicia potestas in A.D. 14.",
+      "kind": "source",
+      "through": "rg-4",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 120,
+          "end": 124
+        },
+        {
+          "kind": "em",
+          "start": 432,
+          "end": 436
+        },
+        {
+          "kind": "em",
+          "start": 538,
+          "end": 543
+        },
+        {
+          "kind": "em",
+          "start": 743,
+          "end": 766
+        },
+        {
+          "kind": "em",
+          "start": 1291,
+          "end": 1295
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 5",
+      "text": "21. Dio (LIV.1.4) says in this connexion: \"As for the dictatorship, however, he did not accept the office, but went so far as to rend his garments when he found himself unable to restrain the people in any other way either by argument or enemy; for, since he was superior to dictators in the power and honours he already possessed, he properly guarded against the jealousy and hatred which the title would arouse\" (Cary's trans.). See also Vell. II.89.5.\n\n22. 22 B.C.\n\n23. According to Dio (liv.1) the offer of the dictatorship and the request that Augustus become commissioner of the grain-supply were made at the same time. The crisis was caused by the conjunction of an overflow of the Tiber, a pestilence which interfered with agriculture in Italy, and consequent famine.",
+      "kind": "source",
+      "through": "rg-5",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html"
+    },
+    {
+      "label": "Source notes · 6",
+      "text": "24. 19 B.C.\n\n25. 18 B.C.\n\n26. 11 B.C.\n\n27. There seems to be a conflict here between the statement of Augustus and that of Suetonius (Aug. 27), who states that he received the morum legumque regimen in perpetuum, and of Dio (LIV.10.5) that \"he accepted an election . . . to the position of supervisor of morals for five years.\" It is probable that the two writers had in mind the decrees of the Senate offering him the title of praefectus moribus and his subsequent legislation, while Augustus has in mind his refusal of a new and extraordinary title, although he carried out the intent by virtue of his tribunician power.\n\n28. Agrippa for five years in 18 B.C., and again for five years in 13 B.C., Tiberius for five years in 12 B.C., after the death of Agrippa, and again for five years in 6 B.C. His tribunate was apparently twice extended after that, each time for a period of ten years.",
+      "kind": "source",
+      "through": "rg-6",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 134,
+          "end": 138
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 7",
+      "text": "29. Neither the words \"ten years\" or \"in succession\" are quite exact. The triumvirate began November 27, 43 B.C. The first quinquennium should have ended at the latest December 31, 38 B.C. The triumvirs functioned de facto, but not de iure, during the year 37. The formal five-year renewal began January 1, 36 B.C., and should have ended December 31, 32. Their de facto tenure was therefore eleven years; their de iure tenure was ten, but was not consecutive. See Gardthausen, ii.175.\n\n30. Augustus became princeps senatus in 28 B.C. In the summer of A.D. 14 he had held the title for forty years not counting fractions. By it he became the ranking Senator with the right of speaking first in debate.\n\n31. Augustus became pontifex maximus in 12 B.C., quindecimvir between 37 and 34, augur in 41 or 40, septemvir epulonum before 15, fetialis in 32. It is not known when he became a frater arvalis, or a sodalis Titius. The last three colleges had fallen into abeyance in the last days of the republic and were apparently revived by Augustus.",
+      "kind": "source",
+      "through": "rg-7",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 214,
+          "end": 222
+        },
+        {
+          "kind": "em",
+          "start": 232,
+          "end": 239
+        },
+        {
+          "kind": "em",
+          "start": 361,
+          "end": 369
+        },
+        {
+          "kind": "em",
+          "start": 411,
+          "end": 418
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 8",
+      "text": "32. 29 B.C.\n\n33. The three revisions of which he speaks apparently correspond to the taking of the census in 28 and 8 B.C., and in A.D. 14, but the Senate was also revised in 18 B.C. and A.D. 4, that is to say, about every ten years. See Gardthausen, ii.311. The first of these revisions is described by Dio, LII.42; Suet. Aug. 35. At that time the Senate had reached the unwieldy number of 1000, and contained many undesirables.\n\n34. 28 B.C.\n\n35. The lustrum was the expiatory sacrifice made at the close of the census; in the sentences which follow it is synonymous with the census. The census had not been taken since 69 B.C. At that time the number of citizens of military age was only 450,000. The increase in the census of 28 B.C. is probably due to the exact enumeration of citizens throughout the empire.\n\n36. 8 B.C.\n\n37. A.D. 14, three months before the death of Augustus. The gain in the number of citizens in the twenty-two years since the census of 8 B.C. was 704,000.\n\n38. Cf. Suetonius, Aug. 34 and 89. Among such laws Suetonius specifically mentions the sumptuary law, the law concerning adultery and chastity, the law concerning bribery, and that concerning the marriage of the orders.",
+      "kind": "source",
+      "through": "rg-8",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 323,
+          "end": 327
+        },
+        {
+          "kind": "em",
+          "start": 986,
+          "end": 989
+        },
+        {
+          "kind": "em",
+          "start": 1001,
+          "end": 1005
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 9",
+      "text": "39. That is to say \"every four years.\"\n\n40. According to Suetonius, Suet. Aug. 81, Augustus suffered from chronic ill-health. The divinity invoked in these vows was the Actian Apollo. These games were held for the first time in 28 B.C., and celebrated thereafter at four-year intervals. Dio (liii.4) states that they were in charge of the following four priesthoods in succession: the pontiffs, the augurs, the septemviri epulonum, the quindecimviri sacris faciundis.\n\n41. An interesting coin, struck by L. Mescinius Rufus IIIvir, has on the reverse a cippus or altar with the words IMP · CAES · AUGU · COMM · CONS · (Imperatori Caesari Augusto communi consensu), and on the obverse, with initial abbreviations, the following legend: Iovi Optimo Maximo Senatus Populusque Romanus votum susceptum pro salute Imperatoris Caesaris quod per eum respublica in ampliore atque tranquilliore statu est.",
+      "kind": "source",
+      "through": "rg-9",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 74,
+          "end": 78
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 10",
+      "text": "42. Mentioned by Dio, LI.20: \"When the letter came concerning the Parthians (29 B.C.), they further arranged that his name should be included in their hymns equally with gods.\"\n\n43. On the overthrow of Lepidus in 36 B.C., the tribunician power was given to Octavian, as it had been to Julius, for life. One of the privileges of the tribunate was that the person of the tribune should be inviolate. In 23 B.C. it was made annual as well as perpetual, and from that time on the years of his principate were reckoned by it.\n\n44. M. Lepidus (like Antony never mentioned by name in the Mon. Anc.) had seized upon the office of pontifex maximus at Caesar's death, (Livy, Epit. cxvii); Vell. II.63. Lepidus died in 13 B.C. and Caesar's election, as we are informed by the fasti Praenestini, took place March 6, 12 B.C.",
+      "kind": "source",
+      "through": "rg-10",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 581,
+          "end": 590
+        },
+        {
+          "kind": "em",
+          "start": 665,
+          "end": 670
+        },
+        {
+          "kind": "em",
+          "start": 765,
+          "end": 782
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 11",
+      "text": "45. On the return of Augustus in 19 B.C. after settling the affairs of Sicily, Greece, Asia, and Syria, many honours, according to Dio, LIV.10, were decreed to Augustus, but he accepted none except those here mentioned. The Altar of Fortuna Redux was dedicated October 12, and its dedication was celebrated on coins struck in that year. The Porta Capena is the gate by which Augustus entered the city, coming from the south by the Appian Way.",
+      "kind": "source",
+      "through": "rg-11",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html"
+    },
+    {
+      "label": "Source notes · 12",
+      "text": "46. Quintus Lucretius Vespillo was not consul when he started out with the deputation. The year had been one of tumults in the consular comitia and the second consul had not been elected, Dio, LIV.10. One of the purposes of the deputation was to ask Augustus either to accept the consulship, or to name some one to it. His choice fell upon Lucretius, who was one of the delegates.\n\n47. Augustus was absent for three years in Spain and Gaul, 16 to 13 B.C. The altar was built on the Via Flaminia, by which Augustus returned to the city, and formally dedicated on January 30, 9 B.C. The site was systematically excavated in 1903. For the now famous sculptures see Strong, Rom. Sculpture, pp39‑58.",
+      "kind": "source",
+      "through": "rg-12",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 670,
+          "end": 684
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 13",
+      "text": "48. Tradition records that the Arch of Janus was closed for the first time under Numa. It was closed again after the First Punic War in 235. It was closed again by Augustus after the Battle of Actium in 31 B.C., again in 25 B.C. after the Cantabrian War. The year of the third closing of the arch is not known. It stood on the Forum where the Argiletum entered it. See Virg. Aen. VII.607, xii.198.",
+      "kind": "source",
+      "through": "rg-13",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 375,
+          "end": 379
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 14",
+      "text": "49. Gaius (born in 20 B.C.) and Lucius (born in 17 B.C.) the sons of Agrippa and Julia, the daughter of Augustus. They were adopted by their grandfather in 17 B.C. at the time when Agrippa was associated with Augustus in the tribunicia potestas, thus securing the succession. But Agrippa died 12 B.C., Lucius in A.D. 2, and Gaius in A.D. 4.\n\n50. In the year in which they assumed the toga virilis, Gaius in 5 B.C. and Lucius in 2 B.C. Augustus assumed the consulship in each of these years in order to introduce them to public life.\n\n51. Lucius died before reaching the consulship. Gaius was consul A.D. 1.\n\n52. As their adopted father was princeps senatus, so each of his adopted sons was called princeps iuventutis, or first among the young men in the class of knights. It seems to have been an honour rather than an official title.",
+      "kind": "source",
+      "through": "rg-14",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html"
+    },
+    {
+      "label": "Source notes · 15",
+      "text": "53. This first donation was in 44 B.C. The amount was $12.00, or £2, 8s. per man, distributed to at least 250,000 people.\n\n54. In 29 B.C., on the occasion of his triple triumph. The amount was about $16.00, or £3, 6s. per man.\n\n55. 24 B.C., on his return from the war in Spain. The amount per man was the same as in 29 B.C.\n\n56. 23 B.C.\n\n57. 12 B.C., on the occasion of his assumption of the office of Pontifex Maximus.\n\n58. It will be noted that the number of the city plebs is here a quarter of a million. In the donation of 5 B.C. the number had reached 320,000. The donation of 2 B.C. is to those receiving public grain. That this number had been reduced to 200,000 is attested by Dio, LV.10.1.\n\n59. 5 B.C., on the occasion of introducing Gaius to the forum. The amount per man is about $9.60, or about £2 apiece.\n\n60. 29 B.C. The amount is about $40.000 or £8, 5s.\n\n61. 2 B.C., on the occasion of introducing Lucius to the forum. $9.60 or £2 per man. The donation to the soldiers breaks the chronological narration of donations to the plebs. This donation therefore looks like a later addition. For a discussion of the problem see Introduction. The total of these donations amounts to something over $27,000,000 or about £5,550,000.",
+      "kind": "source",
+      "through": "rg-15",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html"
+    },
+    {
+      "label": "Source notes · 16",
+      "text": "62. 30 B.C. After Actium he had sent back to Italy a detachment of veterans of his own army and that of Antony. These soldiers mutinied at Brundisium and he was obliged to return from Samos to settle this mutiny, by assigning to the oldest veterans towns in Italy which had favored Antony and by giving money to the rest. Those who were thus dispossessed were in part reimbursed by lands at Dyrrachium and at Philippi and in part by the moneys here referred to. See Dio, LI.3.4; Suet. Aug. 17.\n\n63. 14 B.C.\n\n64. $24,000,000 (about £4,980,000), and $10,400,000 (£2,140,000) respectively.\n\n65. The years were 7, 6, 4, 3, 2 B.C. The amount is about $16,000,000 (£3,329,000).",
+      "kind": "source",
+      "through": "rg-16",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 485,
+          "end": 489
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 17",
+      "text": "66. Two of these four occasions are known from other evidence. Dio Cassius, LIII.2, mentions that of 28 B.C. and a coin of 16 B.C. (cf. Eckhel, VII.105) has the inscription, \"The Senate and the Roman people to Imperator Caesar because the roads have been paved with money which he contributed to the treasury.\" The amount is about $6,000,000 (£1,234,000). Up to 28 B.C. the treasury was in charge of the quaestors. From then to 23 B.C. it was in charge of two ex-praetors. From that time until the reign of Claudius two praetors had charge of it.\n\n67. Augustus founded the aerarium militare in A.D. 6. In addition to his own subvention, amounting to $6,809,000 (about £1,400,000), it was also supported by a five per cent tax on inheritance and a one per cent tax on sales. From 13 B.C. the length of service had been 12 years for praetorians and 16 for legionaries. It was now increased to 16 and 20 years respectively.",
+      "kind": "source",
+      "through": "rg-17",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 132,
+          "end": 135
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 18",
+      "text": "68. 18 B.C.",
+      "kind": "source",
+      "through": "rg-18",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html"
+    },
+    {
+      "label": "Source notes · 19",
+      "text": "69. This is the Curia Iulia dedicated in 29 B.C. on the site of the old Curia Hostilia.\n\n70. The Temple of Apollo was begun soon after 36 B.C. (Vell. II.81) and dedicated 28 B.C.\n\n71. At the eastern end of the forum, on the site where Caesar's body was burned. Dedicated August 18, 29 B.C.\n\n72. Formerly a cave in the rock on the south-west of the Palatine, where the she-wolf was supposed to have suckled the twins. It was now converted into a nymphaeum.\n\n73. Near the theatre of Pompey. For the original portico built by Octavius, who defeated the fleet of Perses in 168, see Vell. II.1.\n\n74. A restoration at the suggestion of Atticus, in 31 B.C., of the chapel near the large temple of Iupiter Optimus Maximus, in which Roman generals hung the arms taken from their enemies slain in single combat.\n\n75. Dedicated September 1, 22 B.C., to commemorate his miraculous escape from a bolt of lightning when on his Cantabrian expedition, 26‑25 B.C. It was at the entrance to Area Capitolina.\n\n76. On the Quirinal, dedicated in 16 B.C.\n\n77. These three temples on the Aventine were restorations of earlier temples.\n\n78. These two temples in the neighbourhood of the later arch of Titus apparently disappeared to make room for the colossal constructions of Hadrian and Constantine.\n\n79. On the Palatine facing the Circus Maximus, destroyed by fire 16 B.C.\n\n80. Dedicated in 191 B.C.; destroyed by fire, 3 A.D.",
+      "kind": "source",
+      "through": "rg-19",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html"
+    },
+    {
+      "label": "Source notes · 20",
+      "text": "81. The temple of Iupiter Optimus Maximus, built according to tradition by Tarquinius Superbus, burned to the ground in 83; the rebuilding was begun by Sulla and completed by Catulus in 69 B.C.\n\n82. The first stone theatre in Rome, built in 55 B.C. It continued to be the most important theatre in the city.\n\n83. For these restorations of the aqueducts, see Frontinus, De Aquis, 125, translated by Herschel.\n\n84. Dedicated along with the Basilica Iulia on the occasion of the triumph after the battle of Thapsus.\n\n85. The basilica was soon destroyed by fire. The rebuilding was begun in 12 B.C. The later name, basilica Gai et Luci, never gained general acceptance.\n\n86. Augustus was consul for the sixth time in 28 B.C.\n\n87. 27 B.C.\n\n88. Now the Ponte Molle over the Tiber. The location of the Minucian Bridge is not known. In the Greek version these two bridges are not named but simply referred to as \"two bridges not in need of repair.\"",
+      "kind": "source",
+      "through": "rg-20",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 369,
+          "end": 377
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 21",
+      "text": "89. This temple was vowed before the battle of Philippi, but only completed and dedicated in 2 B.C. Part of the temple still stands, as also part of the surrounding wall of the Forum.\n\n90. The theatre of Marcellus on the Campus Martius was dedicated May 4, 11 B.C. Marcellus died in 23. Part of the outer wall still stands.\n\n91. Suet. Aug. 30, states that at one single donation he presented to the temple of Iupiter Capitolinus 16,000 pounds of gold (64,000,000 sesterces) and in addition gems and pearls amounting to 50,000,000 sesterces. That such statements were grossly exaggerated is shown by the fact that his total donations, 100,000,000 sesterces ($4,000,000 or £800,000) fell short of the amount reported for this one gift.\n\n92. The custom had grown up for cities affected by a victory to give crowns of gold to a triumphing imperator. These crowns seem later to have been commuted for cash which was called coronarium aurum. The amount named here, 35,000 pounds, corresponds to the number of the tribes and would seem to have come from them. The occasion was his triumph in 29 B.C.",
+      "kind": "source",
+      "through": "rg-21",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 335,
+          "end": 339
+        },
+        {
+          "kind": "em",
+          "start": 732,
+          "end": 733
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 22",
+      "text": "93. Of these eight gladiatorial shows, seven are mentioned in other sources: 29 B.C., on the occasion of the dedication of the temple of Julius; 28 B.C.; 16 B.C.; 12 B.C., in honour of Gaius and Lucius; 7 B.C.; 2 B.C., at the dedication of the temple of Mars Ultor; A.D. 6, in honour of the elder Drusus.\n\n94. Suet. Aug. 43, states that on one occasion (probably 28 B.C., cf. Dio, LIII.1) wooden seats for the spectators were erected in the Campus Martius. Which grandson, whether Germanicus or Drusus, is referred to in connexion with the third exhibition is not known.\n\n95. These were the usual games of the circus and theatre given by magistrates when entering upon their offices.\n\n96. The fifth celebration of the secular games, June 1‑3, 17 B.C. An inscription reporting this celebration of the end of the century was found in 1890, CIL VI.32, 323. For an interesting account of it see Lanciani, Pagan and Christian Rome, p73.\n\n97. The Ludi Martiales, celebrated for the first time in 2 B.C., on the occasion of the dedication of the temple of Mars Ultor.",
+      "kind": "source",
+      "through": "rg-22",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 316,
+          "end": 320
+        },
+        {
+          "kind": "em",
+          "start": 372,
+          "end": 375
+        },
+        {
+          "kind": "em",
+          "start": 901,
+          "end": 925
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 23",
+      "text": "98. The Naumachia Augusti was directly across the Tiber from the lower corner of the Aventine. The present church of S. Francesco a Ripa is located near one focus of the ellipse and that of S. Cosimato near the other. Remains have been found of the pavement and the travertine walls. The water was supplied by the Aqua Alsietina, 33 kilometres long, built by Augustus expressly for this purpose.\n\n99. For this spectacle see Vell. II.100. The date was 2 B.C., on the occasion of the dedication of the temple of Mars Ultor. Dio, LV.10, states that the fight represented a battle of Athenians and Persians, and that the former were victorious.",
+      "kind": "source",
+      "through": "rg-23",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html"
+    },
+    {
+      "label": "Source notes · 24",
+      "text": "100. At Actium in 31 B.C.\n\n101. Antony is never mentioned by name. He had robbed of their statues and ornaments various temples at Samos, Ephesus, Pergamos, and Rhoeteum in the province of Asia and had given them to Cleopatra. Cf. Dio, LI.17.\n\n102. For the melting up of these statues see Suet. Aug. 52, and Dio, LIII.52. Suetonius says that these golden offerings were tripods.",
+      "kind": "source",
+      "through": "rg-24",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 227,
+          "end": 230
+        },
+        {
+          "kind": "em",
+          "start": 295,
+          "end": 299
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 25",
+      "text": "103. He is referring to the war with Sextus Pompey, terminated in 36 B.C. Pompey's following was made up largely of runaway slaves, and his fleet, so manned, had cut off the grain fleets on their way to Rome. See Vell. II.73.\n\n104. In other words, all the provinces in the half of the Empire ruled by Octavianus.\n\n105. The number of senators at that time was about 1000.",
+      "kind": "source",
+      "through": "rg-25",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html"
+    },
+    {
+      "label": "Source notes · 26",
+      "text": "106. The extensions included: the temporary pushing forward of the German frontier from the Rhine to the Elbe; the creation of the new provinces of Pannonia and Moesia; the addition of the new provinces of Galatia and Paphlagonia in Asia Minor; the expedition of Ælius Gallus to Arabia Felix; and in Africa, in addition to the formal annexation of Egypt, some minor expeditions by the various pro-consuls.\n\n107. In the Gallic and Cantabrian expeditions of Augustus himself, 27‑25 B.C., in that of Carrinas against the Morini, of Messala against the Aquitani, 27 B.C., and the numerous campaigns in Germany, particularly of Drusus and Tiberius. Pacavi could apply to Germany for a very brief period only.\n\n108. At Torbia (Tropaea Augusti), near Monaco, stood a monument, of which only fragments now exist, commemorating the subjugation of the Alpine peoples. Pliny, N. H. III.20.136, has preserved the inscription: \"The Senate and the Roman people to Caesar . . . Augustus . . . because under his leadership and auspices all the Alpine nations from the upper to the lower sea have been brought into subjection to the Roman people.\" There follows a list of forty-six peoples.\n\n109. For this naval expedition to the Elbe in A.D. 5 see Vell. II.106. The Cimbri inhabited the coast of Schleswig and Jutland, the Charudes (the Greek text gives \"Chalybes\") were their close neighbours, and the Semnones were located between the Elbe and Weser.\n\n110. The Arabian expedition of Ælius Gallus, 25‑24 B.C. The two other portions were called Arabia petraea and Arabia deserta.\n\n111. Queen Candace, taking advantage of the withdrawal of Egyptian garrisons for the Arabian expedition, captured some towns in upper Egypt. They were retaken by C. Petronius, 24‑22 B.C. His punitive expedition penetrated Aethiopia.\n\n112. In southern Arabia.",
+      "kind": "source",
+      "through": "rg-26",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 865,
+          "end": 870
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 27",
+      "text": "113. In 30 B.C., after Actium. Before that time Egypt had been a nominally independent kingdom, though, in a sense, a Roman protectorate. Since 57 B.C., when Ptolemy Auletes was restored, a considerable Roman force had been maintained there. After Actium, Egypt, unlike other provinces, was treated as the personal domain of the emperor. For the peculiar status of Egypt as a part of the empire see Arnold, Roman Provincial Administration, p113.\n\n114. In 20 B.C. See Vell. II.94.\n\n115. It was in the factional struggle which followed the setting up of Artavasdes that Gaius received the wound from which he died in February, 4 A.D.\n\n116. For the complicated question of the Armenian succession see Mommsen, Res Gestae, pp109‑117.\n\n117. Antony had received by the treaty of Brundisium in 40 B.C. Macedonia, Achaia, Asia, Pontus, Bithynia, Cilicia, Cyprus, Syria, Crete, the Cyrenaica. The last five he had given over to foreign kings. These alienations of foreign territory were the occasion of the civil war which ended at Actium.\n\n118. By the defeat of Sextus Pompey in 36 B.C.",
+      "kind": "source",
+      "through": "rg-27",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 407,
+          "end": 438
+        },
+        {
+          "kind": "em",
+          "start": 707,
+          "end": 717
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 28",
+      "text": "119. For these colonies of Augustus see Mommsen, Res Gestae, pp119‑222; also Hermes, xviii.161 ff.",
+      "kind": "source",
+      "through": "rg-28",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 49,
+          "end": 59
+        },
+        {
+          "kind": "em",
+          "start": 77,
+          "end": 83
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 29",
+      "text": "120. The standards lost to the Dalmatians during the civil wars by Gabinius in 48 B.C., and Vatinius in 44 B.C., were restored to Augustus in 23 B.C. We have no account of the standards lost in Gaul. The loss of standards in Spain was during the wars with Pompey's sons, and the recovery must have occurred in the Cantabrian campaign of 25 B.C.\n\n121. Of Crassus at Carrhae in 53, of Antony in 40 and 36 B.C. The standards were restored by Phraates, the Parthian king, in 20 B.C.\n\n122. Only after its completion in A.D. 2. They were temporarily placed on the Capitol.",
+      "kind": "source",
+      "through": "rg-29",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html"
+    },
+    {
+      "label": "Source notes · 30",
+      "text": "123. Augustus had himself fought the Pannonians in 35‑34 B.C. See Dio, XLIX.36‑38.\n\n124. 12‑9 B.C.\n\n125. The Dacians had invaded Roman territory many times during the late republic. Julius Caesar was about to make an expedition against them. Augustus, in 35 B.C., occupied Segesta on the Save as an outpost against their invasions. They figure in the civil war as allies of Antony. He is here referring probably to an invasion in 10 B.C. See Dio, LIV.36.",
+      "kind": "source",
+      "through": "rg-30",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html"
+    },
+    {
+      "label": "Source notes · 31",
+      "text": "126. Two such embassies are mentioned: the first, frequently referred to in Augustan literature, while Augustus was in Spain, 26‑25 B.C.; the second visited him at Samos, 20 B.C.\n\n127. The Bastarnae were a Teutonic people then settled at the mouth of the Danube. The Scythians lived in Southern Russia.\n\n128. The Don.\n\n129. On the Caspian Sea.\n\n130. In what is now Georgia.",
+      "kind": "source",
+      "through": "rg-31",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html"
+    },
+    {
+      "label": "Source notes · 32",
+      "text": "131. 26 B.C.\n\n132. 20 B.C.\n\n133. 31‑30 B.C.\n\n134. An Assyrian people, mentioned here for the first time.\n\n135. Probably the same Dumnobellaunus whose coins have been found in England. Cf. J. Evans, Coins of the Ancient Britons.\n\n136. The Sugambri, a German tribe living to the east of the Rhine, were finally defeated in 8 B.C., and transferred to the west bank.\n\n137. It was really in order to get his legitimate sons out of the way, so as to secure the succession for his illegitimate son, Phraataces, whose mother was an Italian slave, a present from Augustus. The date was 10 B.C.",
+      "kind": "source",
+      "through": "rg-32",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 184,
+          "end": 187
+        },
+        {
+          "kind": "em",
+          "start": 198,
+          "end": 227
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 33",
+      "text": "138. In 4‑5 B.C. the Parthians asked that the throne, vacated by the flight of Phraataces (see last note), be filled by Vonones, the legitimate son of Phraates, then a hostage in Rome. For Ariobarzanes see Chap. 27.",
+      "kind": "source",
+      "through": "rg-33",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html"
+    },
+    {
+      "label": "Source notes · 34",
+      "text": "139. 28 and 27 B.C. In these and the following years he gradually divested himself of his extraordinary powers and contented himself with ordinary offices, but held in an extraordinary way, such as the tribunicia potestas, and the imperium. In form he restored the republic; in substance the real power rested with him, perhaps, in view of the circumstances, unavoidably. The statement which he makes here is clearly the one which he wishes to be the view of posterity. At any rate, the revolutionary and extraordinary acts of the triumviral period ceased, by his own edict (Dio, LIII.2), with the expiration of 28 B.C.\n\n140. January 16, 27 B.C. The title was suggested by Munatius Plancus.\n\n141. This crown, or the laurels, or both, are represented upon coins. See Cohen, Nos. 43‑48, 50, 207‑212, 301, 356, 385, 426, 476‑478, 482. Most of them have the inscription Ob cives servatos. The civic crown was the reward of the soldier who had saved the life of a citizen. It was given to Augustus because, by putting an end to the civil wars, and by his clemency, he had saved the lives of many citizens.\n\n142. Not mentioned by ancient writers, but represented upon coins and inscriptions. Cf. CIL IX.5811, with two Victories supporting a shield and the words, \"The Senate and Roman people have given to Augustus a shield on account of his valour, clemency, justice, and piety.\" Kornemann in Klio, vol. XV, points out that virtus, iustitia, clementia, and pietas are the subjects of the first four chapters of the Mon. Anc.",
+      "kind": "source",
+      "through": "rg-34",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 1186,
+          "end": 1189
+        },
+        {
+          "kind": "em",
+          "start": 1388,
+          "end": 1392
+        },
+        {
+          "kind": "em",
+          "start": 1510,
+          "end": 1519
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 35",
+      "text": "143. Formally bestowed February 5, 2 B.C. Before that he had often been called pater, or parens patriae informally. Suetonius, Augustus, 58, gives part of the address of Messala including the actual salutation, \"senatus te consentiens cum populo Romano consalutat patriae patrem.\"\n\n144. Augustus was seventy-six on September 23, A.D. 13. Chap. 8 of the Mon. Anc. refers to his third census which was completed one hundred days before his death. This would bring the date of writing to between May 11, A.D. 14, and his departure for Campania. Augustus died at Nola, August 19, in that year.",
+      "kind": "source",
+      "through": "rg-35",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 127,
+          "end": 135
+        },
+        {
+          "kind": "em",
+          "start": 353,
+          "end": 362
+        }
+      ]
+    },
+    {
+      "label": "Source notes · Later Summary",
+      "text": "146. The total of the expenditures mentioned by Augustus in this connexion was 2,199,800,000 sesterces. The 600,000,000 denarii — 2,400,000,000 sesterces — is accordingly a round sum. See Mommsen, Res Gestae, p157.\n\n147. A summary of Chapter 19 and part of 20. Temples are mentioned first to simplify grammatical construction, the other buildings at random. The Greek does not correspond with the Latin: there is no equivalent in the Greek version for pulvinar ad circum, nor exact equivalent in the Latin text for στοαὶ ἐν Παλατίῳ, στοὰ ἐν ἱπποδρόμῳ Φλαμινίῳ.\n\n148. A summary of Chap. 20.\n\n149. Summarizes Chaps. 22, 23.\n\n150. These donations to cities and to individuals are not covered by Augustus in his account. The names of some of the cities aided are supplied by the authors and inscriptions: in Italy, Venafrum in Campania (CIL X.4842), and Naples (Dio, LV.10); in the provinces, Paphos in Cyprus, 15 B.C. (Dio, LIV.23), and several cities in Asia in 12 B.C. (Dio, LIV.30), and lastly Laodicea and Tralles (Strabo, XII.8.18; Suet. Tib. 8).",
+      "kind": "source",
+      "through": "rg-summary",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html"
+    }
+  ],
+  "assets": []
+}

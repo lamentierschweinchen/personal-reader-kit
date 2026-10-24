@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "sourceCommit": "4d1820346a3cf1e135a16dcdc0814b0978e87493",
+  "bookIds": [
+    "pictures-fr",
+    "pictures-en"
+  ],
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 282,
+      "sha256": "3a4a365af1e88dc25851c394f0c6713b7af5f9ad843bce2922a176955152d746"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 942,
+      "sha256": "8140d0781b21ec3bc0af927f8c73d2265de8939edc2083beaadc9fbaab104cc7"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 3140,
+      "sha256": "c28510d9e4758da5adc1b0b986fb9228ed894ace438707f1bfc7e4879a0d27ed"
+    },
+    {
+      "path": "site/folio-rights.mjs",
+      "bytes": 2619,
+      "sha256": "f2cce40f0995a17c0ff9aabf7722fc4b74ccdf29830151c7badd1eae2f197fcf"
+    },
+    {
+      "path": "site/folio-assets.mjs",
+      "bytes": 3946,
+      "sha256": "420da823bb03b1ae44e96f4cbce06376dc3ed7e04ed88572d569fa18f927757e"
+    },
+    {
+      "path": "site/folio.mjs",
+      "bytes": 9666,
+      "sha256": "b9a0ccb7493008c0fa44dbebdad69071f45517355c954eac03184b6065b46b2b"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 74411,
+      "sha256": "366a4015bfade374af2004133edafb6e41f9adb557c40ca7b49b7a35ad77d056"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 18210,
+      "sha256": "c024bb1a088d3ab88ec342e67b013f724c2dd118d9252dec163bffbc1e482f1a"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7262,
+      "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 3489,
+      "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1523,
+      "sha256": "d815bcf6b6a8adbb0e45108e3b7fa064dac754e5ffda7160b7986319b0f3e76f"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 28905,
+      "sha256": "811b04b2677a36c47c050fd03099b88c4ae0eccc2d7c0d969f251746a8c1497a"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 447,
+      "sha256": "40e9b292046f0f3e0a14c17be94206d924c0af77be8eb621f2af179050b16c55"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 367,
+      "sha256": "c3394d1f7341ef931c4b46e5d71806f1fcb67808fd7dd8d850e6abbbebd2b6c9"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 6972,
+      "sha256": "8580531d65e8450c6ff98b446d22c654aef5cc601d1e6922faf1b0039372b12a"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 7654,
+      "sha256": "c2eef720250885e50972122c2c75d1f7cd122212824709b429e279b512cfe421"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 21205,
+      "sha256": "142f436deb51bc66db5b7c1b5e0e3f19229456d34a1e7a92cd9fa790e782da93"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "site/sources/index.html",
+      "bytes": 6787,
+      "sha256": "1c4eb7ed67b285a76a1fad2d61cc2506b30fcdb5524fce02370b3583b7929b1d"
+    },
+    {
+      "path": "edition/fr.json",
+      "bytes": 2709913,
+      "sha256": "3db9338a37af73fd840c0a9aa25a3850d7e7781456f4588c6cfc522e52be8ad5"
+    },
+    {
+      "path": "edition/en.json",
+      "bytes": 2703434,
+      "sha256": "744f44605ef58cb4fcfe05a1896001c97062a5c549e4aee2c099d63e70a79cd3"
+    },
+    {
+      "path": "edition/folio.json",
+      "bytes": 7716,
+      "sha256": "127f8c73b5793ef34d8882f2c5ff8ad72091c3ea3392d6e209d960ea5b327333"
+    },
+    {
+      "path": "edition/callot.jpg",
+      "bytes": 4760817,
+      "sha256": "cd6f5d5c2ae756f3c4edc4746d64b6b466720c2299c6db7df083b00a72295697"
+    },
+    {
+      "path": "edition/hugo-burg.jpg",
+      "bytes": 16224,
+      "sha256": "e6a5387a1dee8d2f25b5db3269db5b095a8a97ac23d27af9cb4958b2d037a390"
+    },
+    {
+      "path": "edition/merrill-10.jpg",
+      "bytes": 114764,
+      "sha256": "9cf841726be62830bc75a4ec04b9cf7061d84be232a9e59e18111e9221364ad3"
+    },
+    {
+      "path": "edition/merrill-15.jpg",
+      "bytes": 193050,
+      "sha256": "925ab3cc0bd93ca93351f31c47e5ed0ddc759d94ac3c5e31cba8bb1ccb36a574"
+    },
+    {
+      "path": "edition/merrill-16.jpg",
+      "bytes": 196331,
+      "sha256": "dd865ce21098dd661c81dea026f1d6b2970f1a3dfb093077122bf002ff2c00ff"
+    },
+    {
+      "path": "edition/merrill-17.jpg",
+      "bytes": 170031,
+      "sha256": "bc111f41ba1d4745f39a31e366c898b48fa6846f2b71f578b2e5fe21955ccd41"
+    },
+    {
+      "path": "edition/merrill-18.jpg",
+      "bytes": 97027,
+      "sha256": "bdc10bbc832ab92241f3b6bc5694d1fbc60ed2eb6950fd423751d3a6ec5aab88"
+    },
+    {
+      "path": "edition/merrill-21.jpg",
+      "bytes": 166172,
+      "sha256": "ce62c0e2af5cb3ed1ed1266f5f1ccc69364ac0b04b70a3a97ff5ab171196303a"
+    },
+    {
+      "path": "edition/merrill-22.jpg",
+      "bytes": 212450,
+      "sha256": "e3a2c1ed20dae08ba02e4c8d729e750c438ae867e7c4507e07af96cf86542e30"
+    },
+    {
+      "path": "edition/merrill-28.jpg",
+      "bytes": 181512,
+      "sha256": "c16d69c1510d772031e8b88b19042b495d52ff982d405c86ef53c1e76b740faf"
+    },
+    {
+      "path": "edition/merrill-29.jpg",
+      "bytes": 127830,
+      "sha256": "6ea0135ba35973395eae6b49a04e3536787f9ec0edb39756615f038e19f84084"
+    },
+    {
+      "path": "edition/merrill-7.jpg",
+      "bytes": 173664,
+      "sha256": "e7426a42f553e2c24b548eedb0806c3093e795fd9c7388d77bd398f962e5aff1"
+    },
+    {
+      "path": "edition/merrill-8.jpg",
+      "bytes": 206604,
+      "sha256": "ee8e54fed7c9890b249dda63d6bd89a5b427ba190ebe7d66b1fb61687c40e228"
+    },
+    {
+      "path": "edition/merrill-9.jpg",
+      "bytes": 161464,
+      "sha256": "ad1c3cfdc777e69daa1fde1077bbabee8c287d3ef7b7744e894fbcd9e1d78912"
+    }
+  ],
+  "librarySha256": "1990588e076ddc5673dc02ec7a387e1e98b2f8c82735493564f58ed744d36e66"
+}

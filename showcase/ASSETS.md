@@ -109,3 +109,7 @@ The five collection covers share their readers’ self-hosted fonts: [Newsreader
 ## Three reader jackets · 21 October 2026
 
 The Alps jacket uses `/mountains/cover-plate.jpg`, the unchanged JPEG embedded as plate 53 in the reviewed 1904 illustrated edition: A. D. McCormick’s Kranzberg—Rotthalhorn—and Jungfrau: Sunset. War and Peace uses `/war-and-peace/plate-portrait.webp`, the reviewed reproduction of Ilya Repin’s portrait in the 1893 album. These assets are pinned with the reader editions and credited in their SOURCE-RIGHTS documents; they are not new showcase asset exceptions. The Nietzsche jacket reuses the reader’s original ochre circle and fine-line vector composition. The three titles and typography follow their reader entrances. The source paintings and portrait are not generated images.
+
+## Four themed jackets · October 24, 2026
+
+Ballads uses three original strokes; Shakespeare uses an original stage frame and crown; Rome uses an original inscription frame. Their vector compositions and lettering are new MIT artwork. Pictures after dark uses the exact 300×216 Hugo *Burg en ruines* reproduction already reviewed in its folio, within its native resolution. Paris Musées / Maisons de Victor Hugo, inv. 46, 1857; CC0. No new historical image or literary text is introduced by these covers. See [the folio source record](../examples/pictures-after-dark/docs/SOURCE-RIGHTS.md).

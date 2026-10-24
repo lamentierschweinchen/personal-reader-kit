@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "sourceCommit": "1739dcae5c975ac3297f3f8cbcc7b43f0ac53a88",
+  "books": [
+    {
+      "id": "caesar-vii-en",
+      "canonicalSha256": "d5ef8db3d0f91b5db59efa233153027c4a959f5c8fbd7d16df996bd8b18d673d",
+      "sourceSha256": "e4bfac096d331a101aada74a8089aa3424205725ba1024547308e8b06e735b31",
+      "sections": 90,
+      "blocks": 90
+    },
+    {
+      "id": "caesar-vii-la",
+      "canonicalSha256": "55c85c1840e1764c07db8851307dad6c832044d00a0bcb8410f25cb957008102",
+      "sourceSha256": "15ec3ef2a36352742ddb75d4f7da23a143899b6b60ee3a7ca3192d4917ca1568",
+      "sections": 90,
+      "blocks": 523
+    },
+    {
+      "id": "augustus-en",
+      "canonicalSha256": "d6dcc282b062ae0d9c807be809a09003f2b880d501923c177388dda635c53081",
+      "sourceSha256": "75ded54fc4c630000b34f161bae15f7aec4d7b24851205f6711412e01906eaba",
+      "sections": 37,
+      "blocks": 40
+    },
+    {
+      "id": "augustus-la",
+      "canonicalSha256": "6c846f81066dfa2cbf3fd520d581fd8218403d4cd6c8647b4afb99d49dbc84e0",
+      "sourceSha256": "75ded54fc4c630000b34f161bae15f7aec4d7b24851205f6711412e01906eaba",
+      "sections": 37,
+      "blocks": 40
+    },
+    {
+      "id": "marcus-ii-iii-en",
+      "canonicalSha256": "c3917dc34b50962b867c21194d05cbb73b9dec08c201c0dbf90b9052897d769e",
+      "sourceSha256": "dd142807b1f8b230ff5bf14f6bb1f605abd9b5734ef46fb313c46223be546ad8",
+      "sections": 33,
+      "blocks": 33
+    },
+    {
+      "id": "marcus-ii-iii-grc",
+      "canonicalSha256": "2264359c379a7cdead612790a18a7bf8ee9f340f0c031421cbe90a9c6612fa85",
+      "sourceSha256": "9752103971dbbfcee8d483e926c4e926f78e8304abdff795f88e9f8766c178dc",
+      "sections": 33,
+      "blocks": 49
+    },
+    {
+      "id": "sallust-51",
+      "canonicalSha256": "2dc336f2a8efb4757851951410c5a6b8df80dac258576a5a77629de2d7702e64",
+      "sourceSha256": "dcc6c8443db12c9974b3cea07f1e965bd405f405daaa369078b056a855af6b68",
+      "sections": 1,
+      "blocks": 12
+    },
+    {
+      "id": "tacitus-annals-1",
+      "canonicalSha256": "b843e066ff32c18e63555f9201cbe1b36a7af2e0dd9947c41ef0eda75660a155",
+      "sourceSha256": "66141ec303a0964e6cd02387b722ddd5a331a4997b2e3af6c844556d9af44982",
+      "sections": 1,
+      "blocks": 6
+    },
+    {
+      "id": "pliny-trajan",
+      "canonicalSha256": "96603b5fbf375893f24bac5cabcf213861c4f3d2803bf04fe0a4826ff8b8ec17",
+      "sourceSha256": "68120db28f9de79cdec580d48b96d2c98f997cdb2d5f4f2a649ddab7e74de351",
+      "sections": 4,
+      "blocks": 4
+    }
+  ],
+  "preparedFiles": [
+    {
+      "path": "edition/caesar-vii-en.json",
+      "bytes": 841641,
+      "sha256": "f0723f3db5a7f62c21e74f618d20b535c3a073d2c61acceae3e67fe40a676250"
+    },
+    {
+      "path": "edition/caesar-vii-la.json",
+      "bytes": 168813,
+      "sha256": "dc89d606a73ed11eeacbc2b3260b71000f24ed9c8aec86e6b801db1b0ac3d005"
+    },
+    {
+      "path": "edition/augustus-en.json",
+      "bytes": 94002,
+      "sha256": "29c6de47c686911e320226400f3ec57b0d53a05dbfe5f38e6a3952f04fa844fb"
+    },
+    {
+      "path": "edition/augustus-la.json",
+      "bytes": 105496,
+      "sha256": "297a90cc1ce80f9dabcbb6af1d1e07076a9a9e57597510243a44d22a10773f36"
+    },
+    {
+      "path": "edition/marcus-ii-iii-en.json",
+      "bytes": 33813,
+      "sha256": "f18911d651793288edbfdc1ed647db7d9b5da9b53019161f30c65d9e3d7bd80e"
+    },
+    {
+      "path": "edition/marcus-ii-iii-grc.json",
+      "bytes": 53514,
+      "sha256": "d6b266b42fd411e14a0edd79d79dcf79b03368c0555420390e03fba2203fe643"
+    },
+    {
+      "path": "edition/sallust-51.json",
+      "bytes": 17982,
+      "sha256": "729ebee8bc5b74cfde237e599e76c05cd1f74ac0a6b9d4fbb161234251e97a35"
+    },
+    {
+      "path": "edition/tacitus-annals-1.json",
+      "bytes": 8078,
+      "sha256": "7096371ea49a8384be91bc060baa4980612dbc1abb3830fd21623134d8459f78"
+    },
+    {
+      "path": "edition/pliny-trajan.json",
+      "bytes": 1057052,
+      "sha256": "91df0e04451844d0bc614e25b64d956b00e3fdd246369bd23106068a6f3fa805"
+    }
+  ],
+  "embeddedAssets": [
+    {
+      "bookId": "caesar-vii-en",
+      "id": "gergovia",
+      "type": "image/png",
+      "sha256": "07ca84b62444154333f0040d689c68d1064e5a17cb7da8e4a2602951ae54a9be",
+      "bytes": 287954,
+      "width": 800,
+      "height": 461,
+      "alt": "Historical plan of Gergovia with black terrain lines, red tactical markings, elevation contours, Roman camps and the positions labeled in the source edition.",
+      "credit": "Plan of Gergovia (after Colonel Stoffel). Edwards, Gallic War, 1917, p. 445; LacusCurtius. Historical plan; not a current archaeological reconstruction."
+    },
+    {
+      "bookId": "caesar-vii-en",
+      "id": "alesia",
+      "type": "image/png",
+      "sha256": "dd70b6602605295f68bff05fab77de8fce5bf4b7d5dc89e2237d1cefe0714c0d",
+      "bytes": 227400,
+      "width": 800,
+      "height": 479,
+      "alt": "Historical plan of Alesia with black terrain lines and red tactical markings, showing the town, hills, rivers and the inner and outer Roman siege works labeled in the source.",
+      "credit": "Plan of Alesia (after Colonel Stoffel). Edwards, Gallic War, 1917, p. 479; LacusCurtius. Historical plan; not a current archaeological reconstruction."
+    },
+    {
+      "bookId": "pliny-trajan",
+      "id": "pliny-385",
+      "type": "image/png",
+      "sha256": "3f54edeea89c801cf0e925fb1d8eb19694d86e3e8565b3a1ad12708b62bd938e",
+      "bytes": 278099,
+      "width": 1376,
+      "height": 1800,
+      "alt": "Source facsimile of the 1905 Pliny volume, printed page 364, including selected letters and their original notes. Adjoining letters are visible on this full source page.",
+      "credit": "William Melmoth, revised F. C. T. Bosanquet. The Letters of Pliny, George Bell and Sons, 1905, p. 364. Internet Archive letterscaiuspli01bosagoog / Google digitization. Historical reference page."
+    },
+    {
+      "bookId": "pliny-trajan",
+      "id": "pliny-386",
+      "type": "image/png",
+      "sha256": "e7d3a41dbb4239be6180aa47f2668e090afaef99e4cd7607b4f5cb6d39329b9f",
+      "bytes": 233140,
+      "width": 1376,
+      "height": 1800,
+      "alt": "Source facsimile of the 1905 Pliny volume, printed page 365, including selected letters and their original notes. Adjoining letters are visible on this full source page.",
+      "credit": "William Melmoth, revised F. C. T. Bosanquet. The Letters of Pliny, George Bell and Sons, 1905, p. 365. Internet Archive letterscaiuspli01bosagoog / Google digitization. Historical reference page."
+    },
+    {
+      "bookId": "pliny-trajan",
+      "id": "pliny-387",
+      "type": "image/png",
+      "sha256": "1c244f3207a25e63f8895d8cb629a78f21b96349995ad6c2113b73854e10e2b6",
+      "bytes": 273812,
+      "width": 1376,
+      "height": 1800,
+      "alt": "Source facsimile of the 1905 Pliny volume, printed page 366, including selected letters and their original notes. Adjoining letters are visible on this full source page.",
+      "credit": "William Melmoth, revised F. C. T. Bosanquet. The Letters of Pliny, George Bell and Sons, 1905, p. 366. Internet Archive letterscaiuspli01bosagoog / Google digitization. Historical reference page."
+    }
+  ],
+  "buildInputs": [
+    "package.json",
+    "vercel.json",
+    "edition-lock.json",
+    "scripts/build.mjs",
+    "site/media.mjs",
+    "site/roman.mjs",
+    "site/index.html",
+    "site/app.mjs",
+    "site/core.mjs",
+    "site/db.mjs",
+    "site/bundle.mjs",
+    "site/library.mjs",
+    "site/text.mjs",
+    "site/share.mjs",
+    "site/share-card.mjs",
+    "site/share-card.css",
+    "site/style.css",
+    "site/manifest.webmanifest",
+    "site/icon.svg",
+    "site/apple-touch-icon.png",
+    "site/icon-192.png",
+    "site/icon-512.png",
+    "site/robots.txt",
+    "site/sources/index.html",
+    "edition/caesar-vii-en.json",
+    "edition/caesar-vii-la.json",
+    "edition/augustus-en.json",
+    "edition/augustus-la.json",
+    "edition/marcus-ii-iii-en.json",
+    "edition/marcus-ii-iii-grc.json",
+    "edition/sallust-51.json",
+    "edition/tacitus-annals-1.json",
+    "edition/pliny-trajan.json"
+  ],
+  "outputs": [
+    "media.mjs",
+    "roman.mjs",
+    "index.html",
+    "app.mjs",
+    "core.mjs",
+    "db.mjs",
+    "bundle.mjs",
+    "library.mjs",
+    "text.mjs",
+    "share.mjs",
+    "share-card.mjs",
+    "share-card.css",
+    "style.css",
+    "manifest.webmanifest",
+    "icon.svg",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "robots.txt",
+    "sources/index.html",
+    "library.json",
+    "sw.js",
+    "build.json"
+  ],
+  "excluded": [
+    "Raw HTML/XML/PDF archives",
+    "Private preparation, proofs, captures and browser records",
+    "Independent source Git history",
+    "Redundant external copies of embedded source images"
+  ],
+  "outputSha256": {
+    "media.mjs": "b181817c8698173cca3b69e56cf361ac4ee768c2774755f90fd880f533a1fd5e",
+    "roman.mjs": "e4284569e74e5cd02077772e75c4a82ae9bb5c600576a217445d16867b3fcee6",
+    "index.html": "4a7a0f6d0c681fb51dec26ab51389e649160486141c9abf248676234f4653025",
+    "app.mjs": "612158be1f60b5b31c8be69689928da12f2a7bf0d7452e3a99fe0cc265400565",
+    "core.mjs": "6d8525a6c83b0078ddf7d766fce64d17415d47ce2f93f988f19795d2b8341910",
+    "db.mjs": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4",
+    "bundle.mjs": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea",
+    "library.mjs": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186",
+    "text.mjs": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5",
+    "share.mjs": "6dd4fce6de7725aa01b73149fa96df29c5b55a4fcc8c2589dea40b482747b2f7",
+    "share-card.mjs": "967dc03667bdcd96ccd1be1dc2f5e55ba87d0b458f20a80769457e07d4e0ad93",
+    "share-card.css": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188",
+    "style.css": "ee1ea222a1613b94f3c5cf35f8be135f40225ed64b5dd2d1cac9a83367593129",
+    "manifest.webmanifest": "17061f6fd335be4f517d59718dc2bf708ba29f03a393c6e51ec3ccf8c3ce091c",
+    "icon.svg": "dde1c757995db134d5eb0044b6c13392874e7bd897de5d50d144de0cb76e9bc1",
+    "apple-touch-icon.png": "44232ceb8bf1262bb9c94723991e5b5a17393f481f3bb615100720326c6fc603",
+    "icon-192.png": "47d6d157f26cfc3c5847641717e1e576f6ca8aba80bb1920781ea2e7f4209c69",
+    "icon-512.png": "7dcd67fdf1537600d2733ca254de149288396f62f0a08002043e4f63f6da7c75",
+    "robots.txt": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+    "sources/index.html": "33513de9b0f748694dc864107c92594b079b785977090724113249f93424f6cd",
+    "library.json": "3878f91a44a43ed543fd6f7838206f0f6a083744a0d4ed49f2bd14b2ff7c3528",
+    "sw.js": "2d891baae6d931dbd2e038b715c4800fb5bc0d88b5587b541eaeec230996a8b6",
+    "build.json": "0df27b894e8a39c76780146c7dbcdd7f6527af1a52741173c66f65b936d0eee6"
+  }
+}

@@ -72,7 +72,7 @@ try{
     const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);
     await page.locator('[data-filter="all"]').click();await page.locator('#search').fill('Haldane');assert.equal(await page.locator('.book:not([hidden])').getAttribute('data-edition'),'two-halls');
     await page.locator('#search').fill('not on this shelf');assert.equal(await page.locator('.empty').isVisible(),true);await page.locator('#reset').click();assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true);
-    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'alice');await page.locator('#sort').selectOption('shelf');
+    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'shakespeare');await page.locator('#sort').selectOption('shelf');
     // Native selection keeps a visible keyboard baseline without a large focus box.
     await page.locator('[data-filter="game"]').focus();await page.keyboard.press('Tab');
     assert.equal(await page.locator('#sort').evaluate(e=>document.activeElement===e),true);

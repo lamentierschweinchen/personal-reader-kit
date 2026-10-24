@@ -1,0 +1,338 @@
+{
+  "schema": 1,
+  "sourceCommit": "e5d909ade3d28ef84bf5c359291596b243dee163",
+  "buildInputs": [
+    "edition-lock.json",
+    "package.json",
+    "vercel.json",
+    "scripts/build.mjs",
+    "scripts/serve.mjs",
+    "docs/SOURCE-RIGHTS.md",
+    "site/index.html",
+    "site/edition-rights.mjs",
+    "site/app.mjs",
+    "site/core.mjs",
+    "site/db.mjs",
+    "site/bundle.mjs",
+    "site/library.mjs",
+    "site/text.mjs",
+    "site/share.mjs",
+    "site/share-card.mjs",
+    "site/share-card.css",
+    "site/style.css",
+    "site/manifest.webmanifest",
+    "site/icon.svg",
+    "site/apple-touch-icon.png",
+    "site/icon-192.png",
+    "site/icon-512.png",
+    "site/robots.txt",
+    "site/sources/index.html",
+    "edition/erlkoenig-de.json",
+    "edition/erlkoenig-en.json",
+    "edition/lenore-de.json",
+    "edition/lenore-en.json",
+    "edition/handschuh-de.json",
+    "edition/handschuh-en.json",
+    "edition/taucher-de.json",
+    "edition/taucher-en.json",
+    "edition/kraniche-de.json",
+    "edition/kraniche-en.json",
+    "edition/iphigenie-de.json",
+    "edition/iphigenie-en.json"
+  ],
+  "outputs": [
+    "index.html",
+    "edition-rights.mjs",
+    "app.mjs",
+    "core.mjs",
+    "db.mjs",
+    "bundle.mjs",
+    "library.mjs",
+    "text.mjs",
+    "share.mjs",
+    "share-card.mjs",
+    "share-card.css",
+    "style.css",
+    "manifest.webmanifest",
+    "icon.svg",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "robots.txt",
+    "sources/index.html",
+    "library.json",
+    "sw.js",
+    "build.json"
+  ],
+  "editions": [
+    {
+      "path": "edition/erlkoenig-de.json",
+      "bytes": 4002,
+      "sha256": "c1997c889a9684bab1575d90cf2010be43b307d063560f245a0d9be725f5410e",
+      "canonicalSha256": "26fbc1466de8b9fb8d3ef0c386b894b49662ee71ea56ec7173518d58ca1ca6c8",
+      "id": "erlkoenig-de",
+      "author": "Johann Wolfgang von Goethe",
+      "title": "Erlkönig",
+      "language": "de",
+      "edition": "Goethes Werke, vol.1 · Gütersloh: Bertelsmann, undated, p.104 · Wikisource",
+      "source": {
+        "sha256": "d553c3cb787b8305791a4b9164c69990709666678ccba1615bba7d3509306ad3",
+        "format": "historical-source-adapter",
+        "description": "Goethes Werke, vol.1 · Gütersloh: Bertelsmann, undated, p.104 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 8,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Wikisource contributors; adapted transcription; CC BY-SA 4.0; historical underlying public-domain work"
+    },
+    {
+      "path": "edition/erlkoenig-en.json",
+      "bytes": 4119,
+      "sha256": "4d63fd74fbeefe9681cac43075d070f9fa097af2a75cc8e839a563f9923ea59c",
+      "canonicalSha256": "3338870c6c7b54756dfdbb835b5d58011b3e30bec3b6a518ee2de65bb00f06b3",
+      "id": "erlkoenig-en",
+      "author": "Johann Wolfgang von Goethe",
+      "title": "The Erl-King",
+      "language": "en",
+      "edition": "Edgar Alfred Bowring · Cambridge Edition, Hedge and Noa (eds.) · Boston: S.E. Cassino, 1882, p.99",
+      "source": {
+        "sha256": "448a0b109eab3cc7afaa9364a5bc394c85e888c25c7194c4bfbe88a462a437df",
+        "format": "historical-source-adapter",
+        "description": "Edgar Alfred Bowring · Cambridge Edition, Hedge and Noa (eds.) · Boston: S.E. Cassino, 1882, p.99 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 8,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/lenore-de.json",
+      "bytes": 15428,
+      "sha256": "67d7680611e96ece7dc437b5d7121d54863ae46c7e668d5e83f16f673bed29cb",
+      "canonicalSha256": "ca89cca43b36539f86531e52428f5e8dfd0208972f7fa757047e4268c21679cb",
+      "id": "lenore-de",
+      "author": "Gottfried August Bürger",
+      "title": "Lenore",
+      "language": "de",
+      "edition": "Karl Reinhard (ed.) · Gedichte · Göttingen: Dieterich, 1817, pp.68–83 · Wikisource",
+      "source": {
+        "sha256": "97c3744b154c3dd4fe65c40f4ec537d4a98ce95090892042f868a36fa90fb776",
+        "format": "historical-source-adapter",
+        "description": "Karl Reinhard (ed.) · Gedichte · Göttingen: Dieterich, 1817, pp.68–83 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 32,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Wikisource contributors; adapted transcription; CC BY-SA 4.0; historical underlying public-domain work"
+    },
+    {
+      "path": "edition/lenore-en.json",
+      "bytes": 16697,
+      "sha256": "7ee245b22b46794b53a71826641022d1e1cb261ad35af497a27197482bee0efb",
+      "canonicalSha256": "4772ed5549f4db86ed331149014a65dfcdb099d7f94253640c53da05e9be8761",
+      "id": "lenore-en",
+      "author": "Gottfried August Bürger",
+      "title": "Leonora",
+      "language": "en",
+      "edition": "William Robert Spencer · London, 1796 · pp.3–35",
+      "source": {
+        "sha256": "eff3f42935453285ed192dc09eb967c558af84ef6d2ccb4ab017620622ab1c61",
+        "format": "historical-source-adapter",
+        "description": "William Robert Spencer · London, 1796 · pp.3–35 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 32,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/handschuh-de.json",
+      "bytes": 4851,
+      "sha256": "1e8c98a7cc89ff675dfa51e80cb5316bf02a8480978003eb2d2419fd01ff1546",
+      "canonicalSha256": "1ab6898d5b6aacbfe78c142949255e64a184b14802484899c28cf34f90192617",
+      "id": "handschuh-de",
+      "author": "Friedrich Schiller",
+      "title": "Der Handschuh",
+      "language": "de",
+      "edition": "Gedichte · Leipzig: Crusius, 1800, pp.139–142",
+      "source": {
+        "sha256": "cf95d4ed558d91a3a4b9ea8d85470f476755bfe6d3c132bad093e8d764d9d294",
+        "format": "historical-source-adapter",
+        "description": "Gedichte · Leipzig: Crusius, 1800, pp.139–142 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 8,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/handschuh-en.json",
+      "bytes": 6875,
+      "sha256": "ecbcbbe2ade5e700d9e59112df9fabdedcc252113e20eaab7d22fa828254b629",
+      "canonicalSha256": "c01bec63256223375c357477002d2bc27a5471bba8a2eb7b5fac0265c47ea464",
+      "id": "handschuh-en",
+      "author": "Friedrich Schiller",
+      "title": "The Glove",
+      "language": "en",
+      "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+      "source": {
+        "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+        "format": "historical-source-adapter",
+        "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 2,
+      "blocks": 9,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/taucher-de.json",
+      "bytes": 12395,
+      "sha256": "2549fed1644ef83f315cd410484278b5198450193629fe0b68fc11f9a5e7c09c",
+      "canonicalSha256": "256cce89ce7bca5283be946f2d0b408eba6c9f0034dcd0f87f72609ed433aeaf",
+      "id": "taucher-de",
+      "author": "Friedrich Schiller",
+      "title": "Der Taucher",
+      "language": "de",
+      "edition": "Musen-Almanach für 1798, pp.119–130 · Wikisource",
+      "source": {
+        "sha256": "9cac09269a70b47fbf2a7a5ce9558d91c946215c43c283a5e348b79addf5699a",
+        "format": "historical-source-adapter",
+        "description": "Musen-Almanach für 1798, pp.119–130 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 27,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Wikisource contributors; adapted transcription; CC BY-SA 4.0; historical underlying public-domain work"
+    },
+    {
+      "path": "edition/taucher-en.json",
+      "bytes": 20730,
+      "sha256": "d2eb2a7115c4179df67ba1c6a40e30fd8f4b2c315d2dda7da70e3205d3c7927f",
+      "canonicalSha256": "99c8c783422b54d151d465b7b7d6377ca0cc74a2a7b6aab217d8fd600eec0df9",
+      "id": "taucher-en",
+      "author": "Friedrich Schiller",
+      "title": "The Diver",
+      "language": "en",
+      "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+      "source": {
+        "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+        "format": "historical-source-adapter",
+        "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 2,
+      "blocks": 34,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/kraniche-de.json",
+      "bytes": 11998,
+      "sha256": "fa44f7a957707595be3e2720c2111b84ce920fb20bd5105f434c7c975ad03d82",
+      "canonicalSha256": "81afa9b70392e4cc67b825343de4c89c4ee607c3dab89fc2a149cd641e5ee007",
+      "id": "kraniche-de",
+      "author": "Friedrich Schiller",
+      "title": "Die Kraniche des Ibycus",
+      "language": "de",
+      "edition": "Musen-Almanach für 1798, pp.267–277 · Wikisource",
+      "source": {
+        "sha256": "b7974d65856bc391d28f04ebe98ade690796bd01d40ab12823f2e57aa44b63e0",
+        "format": "historical-source-adapter",
+        "description": "Musen-Almanach für 1798, pp.267–277 · Wikisource · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 1,
+      "blocks": 23,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Wikisource contributors; adapted transcription; CC BY-SA 4.0; historical underlying public-domain work"
+    },
+    {
+      "path": "edition/kraniche-en.json",
+      "bytes": 19611,
+      "sha256": "3763b3b30d3d560b54183f58b8b6a9bc6a37df31023930721bcf2ea9b7faf2f1",
+      "canonicalSha256": "e27566c9fb10142b2381464e924b7625836e7fb0e4221a37bfe640c9d630bedf",
+      "id": "kraniche-en",
+      "author": "Friedrich Schiller",
+      "title": "The Cranes of Ibycus",
+      "language": "en",
+      "edition": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852",
+      "source": {
+        "sha256": "b87a217ebcbfd017810c8918def16362434f4ef8580d782b39974c2ce0953795",
+        "format": "historical-source-adapter",
+        "description": "Sir Edward Bulwer-Lytton · The Poems and Ballads of Schiller, second edition, 1852 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 2,
+      "blocks": 28,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical public-domain print contribution; see territorial limits"
+    },
+    {
+      "path": "edition/iphigenie-de.json",
+      "bytes": 204991,
+      "sha256": "d8ca515f7050085a7dfdb479ea0d745f8d83c1f8a300a5a0bb77131e4ecd1882",
+      "canonicalSha256": "d6eed21d05b9a7681b1bb953f4a9b7b73526c35a6cf5ed6ee1fce6c173a39696",
+      "id": "iphigenie-de",
+      "author": "Johann Wolfgang von Goethe",
+      "title": "Iphigenie auf Tauris",
+      "language": "de",
+      "edition": "Goethe · Leipzig, Göschen, 1787 · DTA/TextGrid CC0 transcription",
+      "source": {
+        "sha256": "2b20693f34e6a8869d700cd10f4f0cbe9111797859a174ab10fe3c41a5d329a2",
+        "format": "historical-source-adapter",
+        "description": "Goethe · Leipzig, Göschen, 1787 · DTA/TextGrid CC0 transcription · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 21,
+      "blocks": 668,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "CC0 TEI, with witnessed print reading; no scan images"
+    },
+    {
+      "path": "edition/iphigenie-en.json",
+      "bytes": 213838,
+      "sha256": "a6cd89a4a4c26b14e817156d9c7fcd9f1e478a648c81571dad0c8afba3fc2748",
+      "canonicalSha256": "478e9acbff61858058418e963aacaea1c8030deca6b631b1ff9dd583d0e3403c",
+      "id": "iphigenie-en",
+      "author": "Johann Wolfgang von Goethe",
+      "title": "Iphigenia in Tauris",
+      "language": "en",
+      "edition": "Anna Swanwick · Arthur Hinds & Co., undated printing · PG15850; compared with Bohn 1850",
+      "source": {
+        "sha256": "9a763196d921884d8bb6867df55cf9cc6e158642834815a6ea15cb6fef9987d7",
+        "format": "historical-source-adapter",
+        "description": "Anna Swanwick · Arthur Hinds & Co., undated printing · PG15850; compared with Bohn 1850 · Prepared locally from the pinned source. See edition notes for transcription limits."
+      },
+      "sections": 21,
+      "blocks": 644,
+      "provenance": "docs/SOURCE-RIGHTS.md",
+      "licenseScope": "Historical Swanwick text; retained Project Gutenberg license and source notices"
+    }
+  ],
+  "icons": [
+    {
+      "path": "site/icon.svg",
+      "bytes": 296,
+      "sha256": "55941e99894e520a9527f2bd68aa92d6ccafec85b667649efd81248327fc9c7c",
+      "provenance": "Original contemporary three-stroke code artwork; MIT; unchanged source checkpoint bytes"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 1664,
+      "sha256": "0473e2fe3b1261dfbd53f1d1ed66db215ef4d0d3546c92891c4c64324e60f93a",
+      "provenance": "Original contemporary three-stroke code artwork; MIT; unchanged source checkpoint bytes"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 1727,
+      "sha256": "cf050ff5bcdc1fcf2c2e1fc17d9499c4ba7e90f6af34cdef7820dae6b17d6aca",
+      "provenance": "Original contemporary three-stroke code artwork; MIT; unchanged source checkpoint bytes"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 3842,
+      "sha256": "d02f8c52d8a1e46190df483dcae05403725ed6ba8f2253a74aecb87eaaf29514",
+      "provenance": "Original contemporary three-stroke code artwork; MIT; unchanged source checkpoint bytes"
+    }
+  ],
+  "publicRuntimeChanges": [
+    "Public runtime follow-up: modal excursions retain a transient exact source-character offset across rotation and type reflow; occupied reading chrome is bounded to the viewport. Saved block/ratio records, edition bytes, notes and deliberate navigation keep their existing contracts."
+  ]
+}

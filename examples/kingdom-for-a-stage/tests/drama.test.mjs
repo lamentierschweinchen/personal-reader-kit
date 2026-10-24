@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validateBook} from '../site/core.mjs';
+import {createBundle,validateBundle} from '../site/bundle.mjs';
+import {newState} from '../site/core.mjs';
+import {digest,ILLUSTRATED_PROFILE} from '../site/media.mjs';
+import {passageAt} from '../site/core.mjs';
+import {passageShareData} from '../site/share.mjs';
+import {passageCardData} from '../site/share-card.mjs';
+const original={schema:1,id:'original-stage-fixture',title:'An original stage fixture',author:'Reader test',edition:'Original writing for tests',language:'en',source:{sha256:'0'.repeat(64),format:'original',description:'Original fixture'},sections:[{id:'one',title:'One',blocks:[{id:'speech',kind:'verse',text:'A door opens.\nSomeone waits.',after:'\n\n',marks:[],lineInsets:[{line:1,em:3}]}]}],context:[{label:'Source',text:'Original fixture; retain this notice.',kind:'source',through:null}],assets:[],profile:ILLUSTRATED_PROFILE};
+test('drama profile keeps bounded line geometry and exact notices through a bundle',async()=>{const book=validateBook(original);assert.deepEqual(book.sections[0].blocks[0].lineInsets,[{line:1,em:3}]);const bundle=await createBundle({books:[book],state:newState()});const restored=await validateBundle(bundle);assert.deepEqual(restored.books[0],book);});
+test('drama rejects unknown fields, unsafe geometry and absent raster payloads',()=>{assert.throws(()=>validateBook({...original,html:'<script>'}),/Unsupported book/);assert.throws(()=>validateBook({...original,sections:[{...original.sections[0],blocks:[{...original.sections[0].blocks[0],lineInsets:[{line:9,em:3}]}]}]}),/indentation/);assert.throws(()=>validateBook({...original,assets:[{id:'bad',type:'image/svg+xml'}]}),/Invalid asset/);assert.throws(()=>validateBook({...original,profile:'personal-reader/text@1'}),/Unsupported book/);});
+test('portable raster digest is SHA-256',()=>{assert.equal(digest(new TextEncoder().encode('abc')),'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');});
+test('drama standalone sharing retains the source license and refuses notice-free cards',()=>{
+ const notice='Original fixture edition; source https://example.invalid/edition; Creative Commons Attribution-NonCommercial 3.0 Unported: https://creativecommons.org/licenses/by-nc/3.0/ . Changes: reflowed into speech blocks.';
+ const book=validateBook({...original,context:[{label:'Edition, license and changes',text:notice,kind:'source',through:null}]}),section=book.sections[0],passage=passageAt(book,section,section.blocks[0]);
+ const data=passageShareData({...passage,note:'PRIVATE NOTE'},book);
+ assert.equal(data.text,passage.quote+'\n\n— '+book.author+' · '+book.title+'\n'+section.title+'\n'+book.edition+'\n\n'+notice);
+ assert.doesNotMatch(data.text,/PRIVATE NOTE/);
+ assert.throws(()=>passageCardData(passage,book),/full source notice/);
+ assert.throws(()=>passageShareData(passage,{...book,context:[]}),/source notice is missing/);
+});

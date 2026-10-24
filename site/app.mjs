@@ -44,7 +44,7 @@ function parseRoute() {
   try {const [view='shelf',book,section] = location.hash.slice(1).split('/').map(decodeURIComponent);return ['shelf','read','companion','passages'].includes(view) ? {view,book,section} : {view:'shelf'};}
   catch {return {view:'shelf'};}
 }
-function readingEdge() {return state.prefs.focus ? 12 : ($('.reader-tools')?.getBoundingClientRect().bottom || $('.masthead').getBoundingClientRect().height) + 20;}
+function readingEdge() {return state.prefs.focus ? 12 : Math.max(0,...[...document.querySelectorAll('.masthead,.reader-tools')].map(node=>node.getBoundingClientRect()).filter(rect=>rect.width>0&&rect.height>0&&rect.top<innerHeight&&rect.bottom>0).map(rect=>Math.min(innerHeight,rect.bottom))) + 20;}
 function currentPosition() {
   if (route.view !== 'read' || !activeBook || !activeSection || !restored) return null;
   const nodes = [...main.querySelectorAll('.reading-surface [data-block]')], edge = readingEdge();
@@ -158,11 +158,46 @@ function dialogReadingLayout() {
   if(!text)return null;
   const rect=text.getBoundingClientRect();return [rect.width,rect.height,readingEdge()].join(':');
 }
+// A modal keeps a transient source character, without changing saved progress records.
+function sourceCharacterRect(block,offset) {
+  const walker=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let node,left=offset;
+  while((node=walker.nextNode())){
+    if(left<node.length){const range=document.createRange();range.setStart(node,left);range.setEnd(node,left+1);return range.getBoundingClientRect();}
+    left-=node.length;
+  }
+  return null;
+}
+function dialogTextAnchor(position) {
+  if(!position?.blockId)return null;
+  const block=[...main.querySelectorAll('#reading-text [data-block]')].find(node=>node.dataset.block===position.blockId);
+  const source=activeSection?.blocks.find(item=>item.id===position.blockId);
+  if(!block||!source||block.textContent!==source.text)return null;
+  const offsets=[];for(let i=0;i<source.text.length;i++)if(!/\s/u.test(source.text[i]))offsets.push(i);
+  if(!offsets.length)return null;
+  const edge=readingEdge();let lo=0,hi=offsets.length-1;
+  while(lo<hi){const mid=Math.floor((lo+hi)/2),rect=sourceCharacterRect(block,offsets[mid]);if(rect&&rect.top>=edge)hi=mid;else lo=mid+1;}
+  const offset=offsets[lo],rect=sourceCharacterRect(block,offset);
+  if(!rect||rect.bottom<=edge||rect.top>=innerHeight)return null;
+  return {blockId:position.blockId,offset,character:source.text[offset],inset:Math.max(0,rect.top-edge)};
+}
+function restoreDialogTextAnchor(origin) {
+  const anchor=origin.textAnchor;if(!anchor)return false;
+  const block=[...main.querySelectorAll('#reading-text [data-block]')].find(node=>node.dataset.block===anchor.blockId);
+  const source=activeSection?.blocks.find(item=>item.id===anchor.blockId);
+  if(!block||!source||block.textContent!==source.text||source.text[anchor.offset]!==anchor.character)return false;
+  for(let pass=0;pass<2;pass++){
+    const rect=sourceCharacterRect(block,anchor.offset);if(!rect)return false;
+    const edge=readingEdge(),inset=Math.min(anchor.inset,Math.max(0,innerHeight-edge-rect.height));
+    scrollTo(0,Math.max(0,scrollY+rect.top-edge-inset));
+  }
+  return true;
+}
 function restoreDialogScroll(origin) {
   if(location.hash!==origin.hash)return;
   const pos=origin.position;
   if(pos&&(route.view!=='read'||origin.bookId!==activeBook?.id||pos.revision!==activeBook?.source.sha256||pos.sectionId!==activeSection?.id))return;
   if(pos?.blockId&&origin.layout!==dialogReadingLayout()){
+    if(restoreDialogTextAnchor(origin))return;
     const el=[...main.querySelectorAll('#reading-text [data-block]')].find(node=>node.dataset.block===pos.blockId);
     if(!el)return;
     // Reflow changes pixels; keep the existing source block and ratio instead.
@@ -174,7 +209,7 @@ function restoreDialogScroll(origin) {
 const dialogPosition=()=>dialogOrigin?.hash===location.hash&&dialogOrigin.position?dialogOrigin.position:currentPosition();
 function openDialog(title,html) {
   disposePassageCard();disposePassageCard=()=>{};
-  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,hash:location.hash,bookId:activeBook?.id,position:currentPosition(),layout:dialogReadingLayout()};}
+  if (!dialog.open) {void savePosition();dialogOrigin = {element:document.activeElement,scroll:scrollY,hash:location.hash,bookId:activeBook?.id,position:currentPosition(),textAnchor:dialogTextAnchor(currentPosition()),layout:dialogReadingLayout()};}
   $('#dialog-content').innerHTML = `<div class="dialog-inner"><header class="dialog-header"><h2 id="dialog-title">${esc(title)}</h2><button class="close-dialog" data-action="close">Close ×</button></header>${html}<p id="dialog-error" class="dialog-error" role="alert"></p></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop=0;
@@ -402,7 +437,7 @@ async function act(target) {
       state=await recoverState(recoveryCandidate);stateDamaged=false;recoveryCandidate=null;closeDialog(true);await render();$('#storage-warning').textContent='Reader state repaired. The original damaged state is retained in recovery data; local books were kept.';say('Recovery saved. Reading records are writable again.');break;
     }
     case 'preset': {
-      const pos=dialogPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin){dialogOrigin.scroll=scrollY;dialogOrigin.layout=dialogReadingLayout();}}break;
+      const pos=dialogPosition();await commit(s=>{const presets={paper:{theme:'paper',size:21,leading:1.7,measure:'book'},dusk:{theme:'dusk',size:22,leading:1.8,measure:'book'},large:{theme:'ink',size:29,leading:1.8,measure:'book'}};s.prefs={...s.prefs,...presets[target.dataset.preset]};return s;});settings();if(pos){await restorePosition(pos);if(dialogOrigin){restoreDialogScroll(dialogOrigin);dialogOrigin.scroll=scrollY;dialogOrigin.layout=dialogReadingLayout();}}break;
     }
     case 'persist': {const granted=await navigator.storage?.persist?.();say(granted?'Browser storage retention granted. Keep backups too.':'The browser did not grant retention. Keep original files and backups.');break;}
     case 'check-offline':await offline();$('#offline-detail').textContent=offlineReady?'The application and supplied library are verified in this browser’s offline cache. Local books remain in browser storage.':'The offline copy is not verified. Stay connected and try again.';break;
@@ -489,7 +524,7 @@ document.addEventListener('submit',async event=>{
       await commit(s=>{const old=s.notes.find(n=>n.id===note.id);if(snapshot.id&&(!old||old.updated!==snapshot.updated))throw new Error('This note changed in another tab. Export your draft, then reopen the note.');note.updated=Math.max(Date.now(),(old?.updated||0)+1);s.notes=[...s.notes.filter(n=>n.id!==note.id),note];return s;});closeDialog(true);await render({keepScroll:true});say('Passage saved on this device.');
     } else if(form.id==='settings-form') {
       const pos=dialogPosition(),prefs={size:Number($('#size').value),leading:Number($('#leading').value),theme:$('#theme').value,measure:$('#measure').value};
-      await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});closeDialog();if(pos)await restorePosition(pos);
+      await commit(s=>{s.prefs={...s.prefs,...prefs};return s;});if(pos)await restorePosition(pos);closeDialog();
     } else if(form.id==='boundaries-form') {
       const values=new FormData(form);
       await commit(s=>{for(const b of books)s.boundaries[b.id]={index:Number(values.get(b.id)),revision:b.source.sha256};return s;});closeDialog();await render({keepScroll:true});say('Companion boundaries saved. Your reading place is unchanged.');

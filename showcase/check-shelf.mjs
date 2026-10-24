@@ -17,7 +17,7 @@ const metadata=JSON.parse(await readFile(new URL('./library/entries.json',import
 const runtimeFiles=['index.html','home.mjs','style.css','shelf/app.mjs','shelf/style.css','shelf/covers.css'];
 const buildHashes=()=>Promise.all(runtimeFiles.map(async file=>({file,sha256:createHash('sha256').update(await readFile(new URL('./dist/'+file,import.meta.url))).digest('hex')})));
 const testedFiles=await buildHashes();
-const order=['alice','mountains','at-table','beside-the-bed','dracula','poe','inward-life','learning-to-see','douglass','nietzsche','odyssey','austen','two-halls','walden','war-and-peace','music-and-feeling'];
+const order=["alice", "mountains", "at-table", "ballads", "beside-the-bed", "rome", "dracula", "poe", "inward-life", "shakespeare", "learning-to-see", "douglass", "nietzsche", "odyssey", "pictures-after-dark", "austen", "two-halls", "walden", "war-and-peace", "music-and-feeling"];
 const titles=new Map(metadata.editions.map(b=>[b.id,b.title]));
 const sizes=[{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:768,height:1024},{width:1024,height:768},{width:1280,height:900},{width:1281,height:900},{width:1366,height:900},{width:1440,height:1000}];
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
@@ -138,7 +138,8 @@ try{
       await pick(page,id).click();await settled(page);await state(page,id,id);await layout(page,engine+' '+viewport.width+' '+id);
       assert.equal(await page.locator('.hero').getAttribute('data-thread'),'money','Shelf leaves hero alone');
      }
-     if(viewport.width<=1280){
+     {
+      assert.equal(await page.locator('[data-shelf-step="1"]').isVisible(),true,'Shelf navigation stays available at every width');
       assert.equal(await page.locator('[data-shelf-step="1"]').isDisabled(),true,'Last book disables Next');
       await page.locator('[data-shelf-step="-1"]').click();await settled(page);await state(page,'war-and-peace','Previous control');
       await pick(page,'alice').focus();await page.keyboard.press('Home');await settled(page);

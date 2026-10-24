@@ -1,0 +1,106 @@
+{
+  "kind": "pictures-after-dark@1",
+  "cover": {
+    "src": "hugo-burg.jpg",
+    "caption": "Victor Hugo · Burg en ruines, 1857. Paris Musées / Maisons de Victor Hugo · CC0. A later drawing, not an illustration of these poems.",
+    "detail": "Victor Hugo · Burg en ruines, 1857. Paris Musées / Maisons de Victor Hugo, inv.46 · CC0. A later drawing, not an illustration of these poems. The available reproduction is 300 × 216."
+  },
+  "callot": {
+    "src": "callot.jpg",
+    "caption": "Jacques Callot · The Temptation of St. Anthony, 1635. Published by Israël Henriet; third state of five. The Metropolitan Museum of Art, 57.650.600 · Public Domain."
+  },
+  "notes": {
+    "macon": "In Merrill’s printed third paragraph, the comma and “and” after “dries” leave the sentence broken. The French says the sun dries the fountains in the palace courts. The historical English is retained. A tiercelet is a male hawk; the faubourg is the district outside the town’s old limits; aiguillettes are braided cords on a uniform.",
+    "padre": "The actual 1920 French print has bells and angels quarreling in the cloud (“dans la nue”); Merrill has bells quarreling in the clouds, omitting the angels. The online French transcription’s “nuit” does not match the retained scan. Neither translation has been repaired to agree with the other. An Ave is an Ave Maria; a billet-doux is a love letter. The devotional and financial calculations occupy the same staircase.",
+    "tulipes": "Merrill’s print reads “hunted sphere”, where the French describes the wet sides of the fishbowl. That awkward historical wording is retained, rather than quietly replaced with “humid”. The tulip and passion-flower belong to Doctor Huylten’s argument about permitted admiration.",
+    "salamandre": "Inanition means exhaustion through lack of nourishment. The salamander belongs to the old association between this creature and fire; the poem gives that association a life that can fail.",
+    "djinns": "Fifteen stanzas grow from short lines to a central eight-line surge and contract again. The French witness carries Dante’s epigraph and a French gloss. O’Sullivan’s selected printing gives a French incipit and date instead. English and French align by stanza, not by individual line.",
+    "ronde": "The French dedication to painter Louis Boulanger and the Fenimore Cooper epigraph are retained in the French text. Merrill’s pages omit them. McVickar’s 1890 tower and reclining reader are a later illustrated interpretation, not Bertrand’s own image.",
+    "soir": "Bravo here means a hired killer, rather than an exclamation of praise. The first and last similes make the gondola resemble a man going to and returning from a night’s work.",
+    "tombe": "Hugo’s twelve lines become sixteen in Lang’s 1892 printing. The question and answer belong to the whole dialogue; a line-by-line counterpart would suggest an agreement the translations do not have."
+  },
+  "pages": {
+    "ronde": [
+      {
+        "src": "merrill-7.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.7."
+      },
+      {
+        "src": "merrill-8.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.8."
+      }
+    ],
+    "soir": [
+      {
+        "src": "merrill-9.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.9."
+      },
+      {
+        "src": "merrill-10.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.10."
+      }
+    ],
+    "macon": [
+      {
+        "src": "merrill-15.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.15."
+      },
+      {
+        "src": "merrill-16.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.16."
+      }
+    ],
+    "salamandre": [
+      {
+        "src": "merrill-17.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.17."
+      },
+      {
+        "src": "merrill-18.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.18."
+      }
+    ],
+    "tulipes": [
+      {
+        "src": "merrill-21.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.21."
+      },
+      {
+        "src": "merrill-22.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.22."
+      }
+    ],
+    "padre": [
+      {
+        "src": "merrill-28.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.28."
+      },
+      {
+        "src": "merrill-29.jpg",
+        "caption": "McVickar / Merrill, Pastels in Prose (1890), printed p.29."
+      }
+    ]
+  },
+  "windows": {
+    "fr": {
+      "bertrand": "Les girouettes se rouillèrent ; la lune fondit les nuées gris de perles ; la pluie ne tomba plus que goutte à goutte des bords du toit, et la brise, ouvrant ma fenêtre mal close, jeta sur mon oreiller les fleurs de mon jasmin secoué par l’orage.",
+      "baudelaire": [
+        "Celui qui regarde du dehors à travers une fenêtre ouverte, ne voit jamais autant de choses que celui qui regarde une fenêtre fermée. Il n’est pas d’objet plus profond, plus mystérieux, plus fécond, plus ténébreux, plus éblouissant qu’une fenêtre éclairée d’une chandelle. Ce qu’on peut voir au soleil est toujours moins intéressant que ce qui se passe derrière une vitre. Dans ce trou noir ou lumineux vit la vie, rêve la vie, souffre la vie.",
+        "Par delà des vagues de toits, j’aperçois une femme mûre, ridée déjà, pauvre, toujours penchée sur quelque chose, et qui ne sort jamais. Avec son visage, avec son vêtement, avec son geste, avec presque rien, j’ai refait l’histoire de cette femme, ou plutôt sa légende, et quelquefois je me la raconte à moi-même en pleurant.",
+        "Si c’eût été un pauvre vieux homme, j’aurais refait la sienne tout aussi aisément.",
+        "Et je me couche, fier d’avoir vécu et souffert dans d’autres que moi-même.",
+        "Peut-être me direz-vous : « Es-tu sûr que cette légende soit la vraie ? » Qu’importe ce que peut être la réalité placée hors de moi, si elle m’a aidé à vivre, à sentir que je suis et ce que je suis ?"
+      ]
+    },
+    "en": {
+      "bertrand": "The vanes became rusty; the moon melted the pearly clouds; the rain only fell drop by drop from the edge of the roof, and the breeze, opening my ill-closed window, threw upon my pillow the flowers of my jasmine bush shaken by the storm.",
+      "baudelaire": [
+        "He who looks from the outside into an open window never sees as many things as he who looks at a closed window. There is no object more deep, more mysterious, more dreamful, more tenebrous, more dazzling, than a window lighted by a candle. What one can see in full sunlight is always less interesting than what passes behind a pane. In that black and luminous hole life lives, life dreams, life suffers.",
+        "Beyond the billowy roofs I see a woman of middle age, already wrinkled, poor, always leaning over something, and never going out. From her features, from her dress, from her gestures, from a mere nothing, I have imagined the story of that woman, or rather her legend, and sometimes I recite it to myself and weep.",
+        "If it had been a poor old man, I would have imagined his legend quite as easily.",
+        "And I retire, proud of having lived and suffered in others than myself.",
+        "Perhaps you will tell me: “Art thou sure that thy legend is the true one?” What matters the reality outside of me, if it has helped me to live, to feel that I am and what I am!"
+      ]
+    }
+  }
+}

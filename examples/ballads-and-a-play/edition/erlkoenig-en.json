@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "erlkoenig-en",
+  "title": "The Erl-King",
+  "author": "Johann Wolfgang von Goethe",
+  "edition": "Edgar Alfred Bowring · Cambridge Edition, Hedge and Noa (eds.) · Boston: S.E. Cassino, 1882, p.99",
+  "language": "en",
+  "source": {
+    "sha256": "448a0b109eab3cc7afaa9364a5bc394c85e888c25c7194c4bfbe88a462a437df",
+    "format": "historical-source-adapter",
+    "description": "Edgar Alfred Bowring · Cambridge Edition, Hedge and Noa (eds.) · Boston: S.E. Cassino, 1882, p.99 · Prepared locally from the pinned source. See edition notes for transcription limits."
+  },
+  "sections": [
+    {
+      "id": "poem",
+      "title": "The Erl-King",
+      "blocks": [
+        {
+          "id": "stanza-001",
+          "kind": "verse",
+          "text": "Who rides there so late through the night dark and drear?\nThe father it is, with his infant so dear;\nHe holdeth the boy tightly clasped in his arm,\nHe holdeth him safely, he keepeth him warm.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-002",
+          "kind": "verse",
+          "text": "“My son, wherefore seek'st thou thy face thus to hide?”\n“Look, father, the Erl-King is close by our side!\nDost see not the Erl-King, with crown and with train?”\n“My son, 'tis the mist rising over the plain.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-003",
+          "kind": "verse",
+          "text": "“Oh come, thou dear infant! oh come thou with me!\nFull many a game I will play there with thee;\nOn my strand, lovely flowers their blossoms unfold,\nMy mother shall grace thee with garments of gold.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-004",
+          "kind": "verse",
+          "text": "“My father, my father, and dost thou not hear\nThe words that the Erl-King now breathes in mine ear?”\n“Be calm, dearest child, 'tis thy fancy deceives;\n'Tis the sad wind that sighs through the withering leaves.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-005",
+          "kind": "verse",
+          "text": "“Wilt go, then, dear infant, wilt go with me there?\nMy daughters shall tend thee with sisterly care;\nMy daughters by night their glad festival keep,\nThey'll dance thee, and rock thee, and sing thee to sleep.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-006",
+          "kind": "verse",
+          "text": "“My father, my father, and dost thou not see,\nHow the Erl-King his daughters has brought here for me?”\n“My darling, my darling, I see it aright,\n'Tis the aged gray willows deceiving thy sight.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-007",
+          "kind": "verse",
+          "text": "“I love thee, I'm charmed by thy beauty, dear boy!\nAnd if thou'rt unwilling, then force I'll employ.”\n“My father, my father, he seizes me fast,\nFull sorely the Erl-King has hurt me at last.”",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-008",
+          "kind": "verse",
+          "text": "The father now gallops, with terror half wild,\nHe grasps in his arms the poor shuddering child:\nHe reaches his courtyard with toil and with dread,—\nThe child in his arms finds he motionless, dead.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edgar Alfred Bowring · checked print witness",
+      "text": "The Poems of Goethe. Cambridge Edition, edited and revised by F. H. Hedge and Leopold Noa. Boston: S. E. Cassino, 1882, p.99. The complete poem was transcribed against this page. Archive metadata describes the item as1874, but the inspected titlepage is1882. The historical poem has no imported modern commentary or illustration.",
+      "kind": "source",
+      "through": null,
+      "url": "https://archive.org/details/poemsgoethe00goetgoog"
+    }
+  ]
+}

@@ -10,6 +10,8 @@ Compare the rendered source and its structure. Extracted text can miss an initia
 
 A complete download can still contain a truncated speech. Check representative passages against a print witness, then proof the full prepared text. Read the transcriber's correction record: a corrected reading text is not a facsimile. HTML may contain separate hidden branches for different export formats; extract the intended visible branch rather than doubling their text. Keep raw inputs unchanged and record every further witnessed repair.
 
+For TEI, inventory and collate every meaningful alternative or uncertainty construct, including `choice`, apparatus readings, corrections, abbreviations, supplied or unclear text, gaps, additions and deletions. Do not concatenate alternatives into one reading. Record which branch supplies the reading text, what its signs mean and where the alternatives remain available. Check every occurrence of the constructs actually present; token counts alone cannot establish that their interpretation is faithful.
+
 ## Give an extension an identity
 
 Schema `1` alone does not mean that customized readers understand the same book. The stock validator accepts its exact text contract, with an optional `profile: "personal-reader/text@1"`. Older untagged text editions retain their exact bytes and remain supported. Unknown profiles fail explicitly; declaring the base profile does not permit additional fields.
@@ -32,7 +34,9 @@ Media, linked source notes, table spans and per-line geometry remain unsupported
 
 Source order and the best entry point differ. A novel can begin at Chapter 1 while its preface, dedication and index remain available in original order. Front matter and captions may reveal later events. A single linear through-section boundary cannot express every permission: gate spoiler-heavy apparatus separately or omit it from the companion index until explicitly allowed. Chapter order and scrolling are not permission.
 
-Source notes are reference excursions. Open the requested note and a return path without replacing the main place or disclosing all notes. Two works need independent positions and permissions. Pair positions and drafts belong to the originating pair, not the current route; a trip to the shelf should not discard a reflection.
+Nested wrappers do not erase editorial boundaries: keep an epigraph's quotation and attribution distinct even when both sit inside one citation element. In drama, distinguish speaker suffixes, independent stage directions and song blocks from their source placement and layout, rather than relying on a direction's type alone. Collate the complete inventory, including embedded cues. Preserve characters, explicit separators, emphasis and shared-line/song geometry when splitting blocks; retain earlier exact editions and their annotations.
+
+Source notes are reference excursions. Open the requested note and a return path without replacing the main place or disclosing all notes. Two works need independent positions and permissions. Paired views must preserve each witness’s own block order, including an opening direction or epigraph present in only one language. Check the complete paired-unit inventory; aligned IDs alone do not establish order. Pair positions and drafts belong to the originating pair, not the current route; a trip to the shelf should not discard a reflection.
 
 Recognize a saved pair by its canonical content, not JSON property order. Export, reserialize and restore a valid bundle in a fresh browser, then recall and edit the same note without creating another record. Keep array order, exact passage anchors and collision checks intact.
 
@@ -43,6 +47,8 @@ Keep original demonstration IDs separate from supplied historical collection IDs
 Proofread the final transformed text. A corrected paragraph can be damaged by a later cleanup step: a quotation beginning at a printed line boundary may look like a repeated continuation mark. Enumerate destructive removals, compare their actual quotation scope with the witness, and preserve verified paragraph corrections through the remaining pipeline. Reflow joins, emphasis offsets and note boundaries need a separate final check. A proof pass over an earlier intermediate file does not establish fidelity of the delivered edition.
 
 Shaped verse may need a documented source-layout mode and readable alternate. Both preserve characters, breaks and anchors. Check visible spacing separately from character equality. Image initials must remain whole when highlights cross their characters. Enlargement cannot create detail missing from a low-resolution source.
+
+Test source marks on complete first and last lines as well as across wraps. A drama-only line wrapper lost ancestor emphasis when `Range.cloneContents()` copied a range wholly inside one text node; the stock text renderer was unaffected. An extension must preserve source emphasis and saved highlights through its own line construction, selection and reload, not merely conserve `textContent`.
 
 ## Test the adapted reader
 

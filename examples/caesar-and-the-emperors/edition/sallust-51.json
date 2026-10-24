@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "profile": "caesar-and-the-emperors/edition@1",
+  "id": "sallust-51",
+  "title": "Caesar in the Senate · Catiline 51",
+  "author": "Sallust",
+  "edition": "John Selby Watson · 1852 · Project Gutenberg 7990",
+  "language": "en",
+  "source": {
+    "sha256": "dcc6c8443db12c9974b3cea07f1e965bd405f405daaa369078b056a855af6b68",
+    "format": "historical-transcription",
+    "description": "Complete Catiline 51, a speech composed by Sallust, not a Senate transcript. Watson historical translation; explanatory notes retained."
+  },
+  "sections": [
+    {
+      "id": "catiline-51",
+      "title": "Catiline · 51 · complete speech",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "LI. \"It becomes all men,[239] Conscript Fathers, who deliberate on dubious matters, to be influenced neither by hatred, affection, anger, nor pity. The mind, when such feelings obstruct its view, can not easily see what is right; nor has any human being consulted, at the same moment, his passion and his interest. When the mind is freely exerted, its reasoning is sound; but passion, if it gain possession of it, becomes its tyrant, and reason is powerless.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b2",
+          "kind": "prose",
+          "text": "I could easily mention, Conscript Fathers, numerous examples of kings and nations, who, swayed by resentment or compassion, have adopted injudicious courses of conduct; but I had rather speak of these instances in which our ancestors, in opposition, to the impulse of passion, acted with wisdom and sound policy.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b3",
+          "kind": "prose",
+          "text": "In the Macedonian war, which we carried on against king Perses, the great and powerful state of Rhodes, which had risen by the aid of the Roman people, was faithless and hostile to us; yet, when the war was ended, and the conduct of the Rhodians was taken into consideration, our forefathers left them unmolested lest any should say that war was made upon them for the sake of seizing their wealth, rather than of punishing their faithlessness. Throughout the Punic war, too, though the Carthaginians, both during peace and in suspension of arms, were guilty of many acts of injustice, yet our ancestors never took occasion to retaliate, but considered rather what was worthy of themselves, than what might be justly inflicted on their enemies.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b4",
+          "kind": "prose",
+          "text": "Similar caution, Conscript Fathers, is to be observed by yourselves, that the guilt of Lentulus, and the other conspirators, may not have greater weight with you than your own dignity, and that you may not regard your indignation more than your character. If, indeed, a punishment adequate to their crimes be discovered, I consent to extraordinary measures;[240] but if the enormity of their crime exceeds whatever can be devised,[241] I think that we should inflict only such penalties as the laws have provided.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b5",
+          "kind": "prose",
+          "text": "Most of those, who have given their opinions before me, have deplored, in studied and impressive language,[242] the sad fate that threatens the republic; they have recounted the barbarities of war, and the afflictions that would fall on the vanquished; they have told us that maidens would be dishonored, and youths abused; that children would be torn from the embraces of their parents; that matrons would be subjected to the pleasure of the conquerors; that temples and dwelling-houses would be plundered; that massacres and fires would follow; and that every place would be filled with arms, corpses, blood, and lamentation. But to what end, in the name of the eternal gods! was such eloquence directed? Was it intended to render you indignant at the conspiracy? A speech, no doubt, will inflame him whom so frightful and monstrous a reality has not provoked! Far from it: for to no man does evil, directed against himself, appear a light matter; many, on the contrary, have felt it more seriously than was right.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b6",
+          "kind": "prose",
+          "text": "But to different persons, Conscript Fathers, different degrees of license are allowed. If those who pass a life sunk in obscurity, commit any error, through excessive anger, few become aware of it, for their fame is as limited as their fortune; but of those who live invested with extensive power, and in an exalted station, the whole world knows the proceedings. Thus in the highest position there is the least liberty of action; and it becomes us to indulge neither partiality nor aversion, but least of all animosity; for what in others is called resentment, is in the powerful termed violence and cruelty.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b7",
+          "kind": "prose",
+          "text": "I am indeed of opinion, Conscript Fathers, that the utmost degree of torture is inadequate to punish their crime; but the generality of mankind dwell on that which happens last, and, in the case of malefactors, forget their guilt, and talk only of their punishment, should that punishment have been inordinately severe. I feel assured, too, that Decimus Silanus, a man of spirit and resolution, made the suggestions which he offered, from zeal for the state, and that he had no view, in so important a matter, to favor or to enmity; such I know to be his character, and such his discretion.[243] Yet his proposal appears to me, I will not say cruel (for what can be cruel that is directed against such characters?), but foreign to our policy. For assuredly, Silanus, either your fears, or their treason, must have induced you, a consul elect, to propose this new kind of punishment. Of fear it is unnecessary to speak, when by the prompt activity of that distinguished man our consul, such numerous forces are under arms; and as to the punishment, we may say, what is indeed the truth, that in trouble and distress, death is a relief from suffering, and not a torment;[244] that it puts an end to all human woes; and that, beyond it, there is no place either for sorrow or joy.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b8",
+          "kind": "prose",
+          "text": "But why, in the name of the immortal gods, did you not add to your proposal, Silanus, that, before they were put to death, they should be punished with the scourge? Was it because the Porcian law[245] forbids it? But other laws[246] forbid condemned citizens to be deprived of life, and allow them to go into exile. Or was it because scourging is a severer penalty than death? Yet what can be too severe, or too harsh, toward men convicted of such an offense? But if scourging be a milder punishment than death, how is it consistent to observe the law as to the smaller point, when you disregard it as to the greater?",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b9",
+          "kind": "prose",
+          "text": "But who it may be asked, will blame any severity that shall be decreed against these parricides[247] of their country? I answer that time, the course of events,[248] and fortune, whose caprice governs nations, may blame it. Whatever shall fall on the traitors, will fall on them justly; but it is for you, Conscript Fathers, to consider well what you resolve to inflict on others. All precedents productive of evil effects,[249] have had their origin from what was good; but when a government passes into the hands of the ignorant or unprincipled, any new example of severity,[250] inflicted on deserving and suitable objects, is extended to those that are improper and undeserving of it. The Lacedaemonians, when they had conquered the Athenians,[251] appointed thirty men to govern their state. These thirty began their administration by putting to death, even without a trial, all who were notoriously wicked, or publicly detestable; acts at which the people rejoiced, and extolled their justice. But afterward, when their lawless power gradually increased, they proceeded, at their pleasure, to kill the good and the bad indiscriminately, and to strike terror into all; and thus the state, overpowered and enslaved, paid a heavy penalty for its imprudent exultation.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b10",
+          "kind": "prose",
+          "text": "Within our own memory, too, when the victorious Sylla ordered Damasippus,[252] and others of similar character, who had risen by distressing their country, to be put to death, who did not commend the proceeding? All exclaimed that wicked and factious men, who had troubled the state with their seditious practices, had justly forfeited their lives. Yet this proceeding was the commencement of great bloodshed. For whenever anyone coveted the mansion or villa, or even the plate or apparel of another, he exerted his influence to have him numbered among the proscribed. Thus they, to whom the death of Damasippus had been a subject of joy, were soon after dragged to death themselves; nor was there any cessation of slaughter, until Sylla had glutted all his partisans with riches.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b11",
+          "kind": "prose",
+          "text": "Such excesses, indeed, I do not fear from Marcus Tullius, or in these times. But in a large state there arise many men of various dispositions. At some other period, and under another consul, who, like the present, may have an army at his command, some false accusation may be credited as true; and when, with our example for a precedent, the consul shall have drawn the sword on the authority of the senate, who shall stay its progress, or moderate its fury?",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "b12",
+          "kind": "prose",
+          "text": "Our ancestors, Conscript Fathers, were never deficient in conduct or courage; nor did pride prevent them from imitating the customs of other nations, if they appeared deserving of regard. Their armor, and weapons of war, they borrowed from the Samnites; their ensigns of authority,[253] for the most part, from the Etrurians; and, in short, whatever appeared eligible to them, whether among allies or among enemies, they adopted at home with the greatest readiness, being more inclined to emulate merit than to be jealous of it. But at the same time, adopting a practice from Greece, they punished their citizens with the scourge, and inflicted capital punishment on such as were condemned. When the republic, however, became powerful, and faction grew strong from the vast number of citizens, men began to involve the innocent in condemnation, and other like abuses were practiced; and it was then that the Porcian and other laws were provided, by which condemned citizens were allowed to go into exile. This lenity of our ancestors, Conscript Fathers, I regard as a very strong reason why we should not adopt any new measures of severity. For assuredly there was greater merit and wisdom in those, who raised so mighty an empire from humble means, than in us, who can scarcely preserve what they so honorably acquired. Am I of opinion, then, you will ask, that the conspirators should be set free, and that the army of Catiline should thus be increased? Far from it; my recommendation is, that their property be confiscated, and that they themselves be kept in custody in such of the municipal towns as are best able to bear the expense;[254] that no one hereafter bring their case before the senate, or speak on it to the people; and that the senate now give their opinion, that he who shall act contrary to this, will act against the republic and the general safety.\"",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edition and source",
+      "text": "Sallust, The Conspiracy of Catiline, chapter 51 in full; John Selby Watson (1804–1884), historical Bohn translation (1852), digital witness Project Gutenberg 7990. The full volume and other chapters are outside this selection. This is Sallust’s literary account of Caesar speaking in the crisis of 63 BCE, not a stenographic Senate record. Source paragraphing, quotation marks and bracketed note numbers are retained; HTML wrapping whitespace is reflowed. Historical text is public domain in the United States; no print-scan proofreading or broader publication clearance is claimed.",
+      "kind": "source",
+      "through": null,
+      "url": "https://www.gutenberg.org/ebooks/7990"
+    },
+    {
+      "label": "Watson’s notes · Catiline 51",
+      "text": "[239] LI. It becomes all men, etc.—The beginning of this speech, attributed to Caesar, is imitated from Demosthenes, [Greek: Peri ton hen Chersonaeso pragmaton: Edei men, o andres Athaenaioi, tous legontas apantas en umin maete pros echthran poieisthai logon maedena, maete pros charin]. \"It should be incumbent on all who speak before you, O Athenians, to advance no sentiment with any view either to enmity or to favor.\"\n\n[240] I consent to extraordinary measures—Novum consilium adprobo. \"That is, I consent that you depart from the usage of your ancestors, by which Roman citizens were protected from death.\" Bernouf.\n\n[241] Whatever can be devised—Omnium ingenia.\n\n[242] Studied and impressive language—Compositè atque magnificè. Compositè, in language nicely put together; elegantly. Magnificè, in striking or imposing terms. Compositè is applied to the speech of Caesar, by Cato, in the following chapter.\n\n[243] Such I know to be his character, such his discretion—Eos mores, eam modestiam viri cognovi. I have translated modestiam, discretion, which seems to be the proper meaning of the word. Beauzée renders it prudence, and adds a note upon it, which may be worth transcription. \"I translate modestia,\" says he, \"by prudence, and think myself authorized to do so. Sic definitur a Stoicis, says Cicero (De Off. i. 40), ut modestia sit sicentia earum rerum, quae agentur, aut dicentur, loco suo collocandarum; and shortly afterward, Sic fit ut modestia scientia sit opportunitatis idoneorum ad agendum temporum. And what is understood in French by prudence? It is, according to the Dictionary of the Academy, 'a virtue by which we discern and practice what is proper in the conduct of life.' This is almost a translation of the words of Cicero\".\n\n[244] That—death is a relief from suffering, not a torment, etc. —This Epicurean doctrine prevailed very much at Rome in Caesar's, and afterward. We may very well suppose Caesar to have been a sincere convert to it. Cato alludes to this passage in the speech which follows; as also Cicero, in his fourth Oration against Catiline, c. 4. See, for opinions on this point, the first book of Cicero's Tusculan Questions.\n\n[245] The Porcian Law—Lex Porcia. A law proposed by P. Porcius Loeca, one of the tribunes, A.U.O. 454, which enacted that no one should bind, scourge or kill a Roman citizen. See Liv., x. 9; Cic. pro. Rabir., 3, 4: Verr., v 63; de Rep., ii, 31.\n\n[246] Other laws—Aliae leges. So Caesar says below, \"Tum lex Porcia aliaeque paratae, quibus legibus auxilium damnatis permissum;\" what other laws these were is uncertain. One of them, however, was the Sempronian law, proposed by Caius Gracchus, which ordained that sentence should not be passed on the life of a Roman citizen without the order of the people. See Cic. pro Rabir. 4. So \"O lex Porcia legesque Semproniae!\" Cic. in. Verr., v. 63.\n\n[247] Parricides—See c. 14, 32.\n\n[248] The course of events—Dies. \"Id est, temporis momentum (der veränderte Zeitpunkt).\" Dietsch. Things change, and that which is approved at one period, is blamed at another. Tempus and dies are sometimes joined (Liv., xxii. 39, ii. 45), as if not only time in general, but particular periods, as from day to day, were intended.\n\n[249] All precedents productive of evil effects—Omnia mala exempla. Examples of severe punishments are meant.\n\n[250] Any new example of severity, etc.—Novum illud exemplum ab dignis et idoneis ad indignos et non idoneos transferetur. Gerlach, Kritzius, Dietsch, and Bernouf, agree to giving to this passage the sense which is given in the translation. Digni and idonei are here used in a bad sense, for digni et idonei qui poena afficiantur, deserving and fit objects for punishment.\n\n[251] When they had conquered the Athenians—At the conclusion of the Peloponnesian war.\n\n[252] Damasippus—\"He, in the consulship of Caius Marius, the younger, and Cneius Carbo, was city praetor, and put to death some of the most eminent senators, a short time before the victory of Sylla. See Vell. Paterc. ii. 26.\" Bernouf.\n\n[253] Ensigns of authority—Insignia magistratum. \"The fasces and axes of the twelve lictors, the robe adorned with purple, the curule chair, and the ivory scepter. For the Etrurians, as Dionysius Halicarnassensis relates, having been subdued, in a nine years' war, by Tarquinius Priscus, and having obtained peace on condition of submitting to him as their sovereign, presented him with the insignia of their own monarchs. See Strabo, lib. V.; Florus, i. 5,\" Kuhnhardt.\n\n[254] Best able to bear the expense—Maxime opibus valent. Are possessed of most resources.",
+      "kind": "source",
+      "through": "catiline-51",
+      "url": "https://www.gutenberg.org/ebooks/7990"
+    }
+  ],
+  "assets": []
+}

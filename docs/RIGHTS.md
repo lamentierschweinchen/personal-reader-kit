@@ -33,9 +33,11 @@ For each proposed public reader, record:
 
 Do not treat an automated file audit as a rights decision. It can check an inventory and detect some mistakes; it cannot establish copyright status. A disclaimer cannot repair an unauthorized upload.
 
-## Public-domain examples
+Review outward copies as well as the hosted reader: a standalone text quotation or image card may need credits, license links and change notices that an exact-edition bundle already retains. Follow the actual source terms for each format and bind its provenance to the verified complete edition, not just a reused title, ID or source-file hash. Preserve meaningful addition, deletion and reconstruction signs too. If an output cannot carry required notices or source meaning, refuse that format and offer an exact-edition export that retains them; do not silently simplify the quotation or attach another edition's notice.
 
-Real books make valuable trials because they expose structures that convenient samples miss. Keep their source archives and preparation separate from the reusable kit. This kit's default build continues to include only its original samples. A public-domain example needs its own reviewed asset manifest and explicit build inputs; do not relabel an imported work as “original” to satisfy a check or broadly permit an entire source directory.
+## Public examples
+
+Real books make valuable trials because they expose structures that convenient samples miss. Keep their source archives and preparation separate from the reusable kit. This kit's default build continues to include only its original samples. Each public example, whether public domain or separately licensed, needs its own reviewed asset manifest and explicit build inputs; do not relabel an imported work as “original” to satisfy a check or broadly permit an entire source directory. Keep a licensed modern edition's terms separate from the status of the underlying historical work and from the kit's MIT code license.
 
 Use the actual source text, not a catalogue's generated synopsis. Preserve the chosen digital edition accurately, and do not describe that as a verified facsimile of a historical printing without comparison. Retain a source-edition e-reader link where useful, clearly distinguished from any future kit-generated export. Public-domain books do not make a reader's personal notes public.
 

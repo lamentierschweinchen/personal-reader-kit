@@ -110,3 +110,9 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-poe img{position:absolute;left:25%;top:43%;width:50%;height:40%;object-fit:contain}
 .cover-poe .cover-meta{font-size:3.7cqw;letter-spacing:.15em}
 .cover-poe .cover-bottom{font-size:3.3cqw;letter-spacing:.16em}
+
+/* Four contextual collections, each following its reader’s own jacket. */
+.cover-ballads{background:#f0eee4;color:#2c5040}.cover-ballads strong{top:19%;font-family:Baskerville,Georgia,serif;font-size:19cqw;line-height:1.06}.cover-ballads .cover-art{position:absolute;left:18%;top:49%;width:64%;height:36%}.cover-ballads .cover-meta{font-size:3.35cqw;letter-spacing:.1em}.cover-ballads .cover-bottom{font-size:3.5cqw}
+.cover-shakespeare{background:#702d35;color:#efdfbc}.cover-shakespeare strong{top:17%;font-family:Baskerville,Georgia,serif;font-size:17cqw;line-height:1.1}.cover-shakespeare .cover-art{position:absolute;left:12%;top:48%;width:76%;height:35%}.cover-shakespeare .cover-meta{font-size:3.6cqw}.cover-shakespeare .cover-bottom{font-size:2.8cqw;letter-spacing:.07em}
+.cover-pictures-after-dark{background:#e9e3df;color:#423644}.cover-pictures-after-dark strong{top:16%;font-family:Baskerville,Georgia,serif;font-size:20cqw;line-height:1}.cover-pictures-after-dark img{position:absolute;left:13%;top:55%;width:74%;height:29%;object-fit:contain;mix-blend-mode:multiply}.cover-pictures-after-dark .cover-meta{font-size:2.9cqw;letter-spacing:.09em}.cover-pictures-after-dark .cover-bottom{font-size:3.5cqw}
+.cover-rome{background:#cfc5ad;color:#703d2d}.cover-rome strong{top:16%;font-family:Baskerville,Georgia,serif;font-size:18cqw;line-height:1.05}.cover-rome strong em{font-size:.7em}.cover-rome .cover-art{position:absolute;left:13%;top:62%;width:74%;height:21%}.cover-rome .cover-meta{font-size:2.9cqw;letter-spacing:.08em}.cover-rome .cover-bottom{font-size:2.8cqw;letter-spacing:.06em}

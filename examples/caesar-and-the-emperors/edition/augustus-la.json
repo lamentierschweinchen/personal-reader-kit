@@ -1,0 +1,3957 @@
+{
+  "schema": 1,
+  "profile": "caesar-and-the-emperors/edition@1",
+  "id": "augustus-la",
+  "title": "Res Gestae",
+  "author": "Augustus",
+  "edition": "F. W. Shipley · Loeb 1924 · LacusCurtius",
+  "language": "la",
+  "source": {
+    "sha256": "75ded54fc4c630000b34f161bae15f7aec4d7b24851205f6711412e01906eaba",
+    "format": "historical-transcription",
+    "description": "Complete 35 sections with inscribed preamble and separate later Summary, Shipley 1924 witness. Latin reconstructions and lacunae are retained; dignitate at 34 is not modernized."
+  },
+  "sections": [
+    {
+      "id": "rg-preamble",
+      "title": "Inscribed preamble",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Rérum gestárum díví Augusti, quibus orbem terrarum ímperio populi Rom. subiécit, § et inpensarum, quas in rem publicam populumque Romanum fecit, incísarum in duabus aheneís pílís, quae sunt Romae positae, exemplar subiectum.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 47,
+              "end": 50
+            },
+            {
+              "kind": "em",
+              "start": 132,
+              "end": 134
+            },
+            {
+              "kind": "em",
+              "start": 187,
+              "end": 188
+            },
+            {
+              "kind": "em",
+              "start": 217,
+              "end": 218
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-1",
+      "title": "Res Gestae · 1",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Annós undéviginti natus exercitum priváto consilio et privatá impensá comparávi, § per quem rem publicam dominatione factionis oppressam in libertátem vindicávi. Quas ob res⁠1 senatus decretís honorificís in ordinem suum me adlegit C. Pansa A. Hirtio consulibus, consularem locum sententiae dicendae simul dans,⁠2 et imperium mihi dedit. § Rés publica ne quid detrimenti caperet, me pro praetore simul cum consulibus providere iussit. § Populus autem eódem anno mé consulem, cum cos. uterque bello cecidisset, et trium virum reí publicae constituendae creavit.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 81,
+              "end": 82
+            },
+            {
+              "kind": "em",
+              "start": 105,
+              "end": 107
+            },
+            {
+              "kind": "em",
+              "start": 158,
+              "end": 179
+            },
+            {
+              "kind": "sup",
+              "start": 174,
+              "end": 175
+            },
+            {
+              "kind": "em",
+              "start": 198,
+              "end": 201
+            },
+            {
+              "kind": "em",
+              "start": 222,
+              "end": 249
+            },
+            {
+              "kind": "em",
+              "start": 260,
+              "end": 264
+            },
+            {
+              "kind": "em",
+              "start": 266,
+              "end": 270
+            },
+            {
+              "kind": "em",
+              "start": 281,
+              "end": 319
+            },
+            {
+              "kind": "sup",
+              "start": 312,
+              "end": 313
+            },
+            {
+              "kind": "em",
+              "start": 338,
+              "end": 339
+            },
+            {
+              "kind": "em",
+              "start": 353,
+              "end": 382
+            },
+            {
+              "kind": "em",
+              "start": 420,
+              "end": 444
+            },
+            {
+              "kind": "em",
+              "start": 479,
+              "end": 502
+            },
+            {
+              "kind": "em",
+              "start": 549,
+              "end": 560
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-2",
+      "title": "Res Gestae · 2",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Quí parentem meum interfecerunt, eós in exilium expulí iudiciís legitimís ultus eórum facinus, § et posteá bellum inferentís reí publicae víci bis acie.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 18,
+              "end": 28
+            },
+            {
+              "kind": "em",
+              "start": 30,
+              "end": 35
+            },
+            {
+              "kind": "em",
+              "start": 86,
+              "end": 88
+            },
+            {
+              "kind": "em",
+              "start": 91,
+              "end": 98
+            },
+            {
+              "kind": "em",
+              "start": 144,
+              "end": 148
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-3",
+      "title": "Res Gestae · 3",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Bella terra et mari civilia externaque tóto in orbe terrarum suscepi⁠3 victorque omnibus veniam petentibus⁠4 cívibus pepercí. § Externas gentés, quibus túto ignosci potuit, conserváre quam excídere malui. § Míllia civium Rómanorum adacta sacrámento meo fuerunt circiter quingenta. § Ex quibus dedúxi in coloniás aut remísi in municipia sua stipendis emeritis millia aliquanto plura quam trecenta et iís omnibus agrós adsignavi⁠5 aut pecuniam pro praemis militiae⁠6 dedí. § Naves cépi sescentas praeter eás, si quae minóres quam triremes fuerunt. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 1
+            },
+            {
+              "kind": "em",
+              "start": 21,
+              "end": 33
+            },
+            {
+              "kind": "em",
+              "start": 62,
+              "end": 68
+            },
+            {
+              "kind": "sup",
+              "start": 69,
+              "end": 70
+            },
+            {
+              "kind": "em",
+              "start": 89,
+              "end": 104
+            },
+            {
+              "kind": "sup",
+              "start": 107,
+              "end": 108
+            },
+            {
+              "kind": "em",
+              "start": 132,
+              "end": 136
+            },
+            {
+              "kind": "em",
+              "start": 157,
+              "end": 168
+            },
+            {
+              "kind": "em",
+              "start": 170,
+              "end": 175
+            },
+            {
+              "kind": "em",
+              "start": 199,
+              "end": 206
+            },
+            {
+              "kind": "em",
+              "start": 225,
+              "end": 237
+            },
+            {
+              "kind": "em",
+              "start": 270,
+              "end": 277
+            },
+            {
+              "kind": "em",
+              "start": 297,
+              "end": 309
+            },
+            {
+              "kind": "em",
+              "start": 346,
+              "end": 355
+            },
+            {
+              "kind": "em",
+              "start": 374,
+              "end": 384
+            },
+            {
+              "kind": "em",
+              "start": 418,
+              "end": 426
+            },
+            {
+              "kind": "sup",
+              "start": 427,
+              "end": 428
+            },
+            {
+              "kind": "em",
+              "start": 447,
+              "end": 457
+            },
+            {
+              "kind": "sup",
+              "start": 463,
+              "end": 464
+            },
+            {
+              "kind": "em",
+              "start": 490,
+              "end": 501
+            },
+            {
+              "kind": "em",
+              "start": 521,
+              "end": 532
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-4",
+      "title": "Res Gestae · 4",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Bis ováns triumphavi, tris egi curulís triumphós et appellátus sum viciens semel imperátor. Cum autem⁠7 plúris triumphos mihi senatus decrevisset, iis supersedi. § Laurum de fascibus⁠8 deposuí § in Capitolio votis, quae quóque bello nuncupaveram, solutís. § Ob res á me aut per legatos meós auspicís meis terra marique prospere gestás quinquagiens et quinquiens decrevit senátus supplicandum esse dís immortalibus. Dies autem, per quós ex senátús consulto supplicátum est, fuere DCCCLXXXX. In triumphis meis ducti sunt ante currum meum regés aut regum liberi novem. Consul fueram terdeciens, cum scribebam haec, et agebam⁠9 septimum et trigensimum annum tribuniciae potestatis.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 3
+            },
+            {
+              "kind": "em",
+              "start": 18,
+              "end": 32
+            },
+            {
+              "kind": "em",
+              "start": 59,
+              "end": 77
+            },
+            {
+              "kind": "em",
+              "start": 92,
+              "end": 107
+            },
+            {
+              "kind": "sup",
+              "start": 102,
+              "end": 103
+            },
+            {
+              "kind": "em",
+              "start": 128,
+              "end": 153
+            },
+            {
+              "kind": "em",
+              "start": 162,
+              "end": 163
+            },
+            {
+              "kind": "em",
+              "start": 165,
+              "end": 180
+            },
+            {
+              "kind": "sup",
+              "start": 183,
+              "end": 184
+            },
+            {
+              "kind": "em",
+              "start": 202,
+              "end": 219
+            },
+            {
+              "kind": "em",
+              "start": 238,
+              "end": 251
+            },
+            {
+              "kind": "em",
+              "start": 267,
+              "end": 285
+            },
+            {
+              "kind": "em",
+              "start": 312,
+              "end": 317
+            },
+            {
+              "kind": "em",
+              "start": 321,
+              "end": 322
+            },
+            {
+              "kind": "em",
+              "start": 337,
+              "end": 355
+            },
+            {
+              "kind": "em",
+              "start": 383,
+              "end": 387
+            },
+            {
+              "kind": "em",
+              "start": 405,
+              "end": 429
+            },
+            {
+              "kind": "em",
+              "start": 456,
+              "end": 457
+            },
+            {
+              "kind": "em",
+              "start": 481,
+              "end": 507
+            },
+            {
+              "kind": "em",
+              "start": 532,
+              "end": 533
+            },
+            {
+              "kind": "em",
+              "start": 547,
+              "end": 549
+            },
+            {
+              "kind": "em",
+              "start": 555,
+              "end": 577
+            },
+            {
+              "kind": "em",
+              "start": 593,
+              "end": 594
+            },
+            {
+              "kind": "em",
+              "start": 596,
+              "end": 603
+            },
+            {
+              "kind": "em",
+              "start": 604,
+              "end": 605
+            },
+            {
+              "kind": "em",
+              "start": 612,
+              "end": 626
+            },
+            {
+              "kind": "sup",
+              "start": 622,
+              "end": 623
+            },
+            {
+              "kind": "em",
+              "start": 627,
+              "end": 653
+            },
+            {
+              "kind": "em",
+              "start": 654,
+              "end": 659
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-5",
+      "title": "Res Gestae · 5",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Dictaturam et apsenti et praesenti a populo et senatu Romano mihi oblatam⁠10 M. Marcello et L. Arruntio consulibus non accepi. Non recusavi in summa frumenti penuria curationem annonae, quam ita administravi, ut intra paucos dies⁠11 metu et periclo praesenti populum universum meis impensis liberarem. § Consulatum tum datum annuum et perpetuum non accepi.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 9
+            },
+            {
+              "kind": "em",
+              "start": 20,
+              "end": 73
+            },
+            {
+              "kind": "sup",
+              "start": 74,
+              "end": 76
+            },
+            {
+              "kind": "em",
+              "start": 77,
+              "end": 85
+            },
+            {
+              "kind": "em",
+              "start": 90,
+              "end": 91
+            },
+            {
+              "kind": "em",
+              "start": 97,
+              "end": 159
+            },
+            {
+              "kind": "em",
+              "start": 164,
+              "end": 167
+            },
+            {
+              "kind": "em",
+              "start": 173,
+              "end": 175
+            },
+            {
+              "kind": "em",
+              "start": 179,
+              "end": 188
+            },
+            {
+              "kind": "em",
+              "start": 197,
+              "end": 228
+            },
+            {
+              "kind": "sup",
+              "start": 230,
+              "end": 232
+            },
+            {
+              "kind": "em",
+              "start": 244,
+              "end": 245
+            },
+            {
+              "kind": "em",
+              "start": 246,
+              "end": 265
+            },
+            {
+              "kind": "em",
+              "start": 271,
+              "end": 300
+            },
+            {
+              "kind": "em",
+              "start": 307,
+              "end": 322
+            },
+            {
+              "kind": "em",
+              "start": 333,
+              "end": 356
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-6",
+      "title": "Res Gestae · 6",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Consulibus M. Vinucio et Q. Lucretio et postea P. et Cn. Lentulis et tertium Paullo Fabio Maximo et Q. Tuberone senatu populoque Romano consentientibus. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 49
+            },
+            {
+              "kind": "em",
+              "start": 58,
+              "end": 126
+            },
+            {
+              "kind": "em",
+              "start": 127,
+              "end": 362
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-7",
+      "title": "Res Gestae · 7",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": ". . . . . . . . . . . . . . . . . . . . . . . . .⁠12 Princeps senatus fui usque ad eum diem, quo scripseram haec, per annos quadraginta. Pontifex maximus, augur, quindecimvirum sacris faciundis, septemvirum epulonum, frater arvalis, sodalis Titius, fetialis fuí.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 102
+            },
+            {
+              "kind": "sup",
+              "start": 50,
+              "end": 52
+            },
+            {
+              "kind": "em",
+              "start": 108,
+              "end": 175
+            },
+            {
+              "kind": "em",
+              "start": 184,
+              "end": 256
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-8",
+      "title": "Res Gestae · 8",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Patriciórum numerum auxí consul quintum iussu populi et senátús. § Senatum ter légi. Et⁠13 In consulátú sexto cénsum populi conlegá M. Agrippá égí. § Lústrum post annum alterum et quadragensimum féci. § Quó lústro cívium Románórum censa sunt capita quadragiens centum millia et sexaginta tria millia. § Iterum consulari cum imperio lústrum sólus féci C. Censorino et C. Asinio cos. § Quó lústro censa sunt cívium Romanórum capita quadragiens centum millia et ducenta triginta tria millia. Tertium consulári cum imperio lústrum conlegá Tib. Caesare filio meo⁠14 feci § Sex. Pompeio et Sex. Appuleio cos. Quó lústro censa sunt civium Románórum capitum quadragiens centum millia et nongenta triginta et septem millia. § Legibus novis latis complura⁠15 exempla maiorum exolescentia iam ex nostro usu revocavi⁠16 et ipse multárum rérum exempla imitanda posteris tradidi.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "sup",
+              "start": 88,
+              "end": 90
+            },
+            {
+              "kind": "em",
+              "start": 198,
+              "end": 199
+            },
+            {
+              "kind": "em",
+              "start": 283,
+              "end": 284
+            },
+            {
+              "kind": "em",
+              "start": 301,
+              "end": 308
+            },
+            {
+              "kind": "em",
+              "start": 340,
+              "end": 341
+            },
+            {
+              "kind": "em",
+              "start": 362,
+              "end": 369
+            },
+            {
+              "kind": "em",
+              "start": 421,
+              "end": 429
+            },
+            {
+              "kind": "em",
+              "start": 482,
+              "end": 495
+            },
+            {
+              "kind": "em",
+              "start": 543,
+              "end": 565
+            },
+            {
+              "kind": "sup",
+              "start": 558,
+              "end": 560
+            },
+            {
+              "kind": "em",
+              "start": 616,
+              "end": 634
+            },
+            {
+              "kind": "em",
+              "start": 673,
+              "end": 690
+            },
+            {
+              "kind": "em",
+              "start": 729,
+              "end": 750
+            },
+            {
+              "kind": "sup",
+              "start": 746,
+              "end": 748
+            },
+            {
+              "kind": "em",
+              "start": 789,
+              "end": 815
+            },
+            {
+              "kind": "sup",
+              "start": 805,
+              "end": 807
+            },
+            {
+              "kind": "em",
+              "start": 828,
+              "end": 834
+            },
+            {
+              "kind": "em",
+              "start": 851,
+              "end": 864
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-9",
+      "title": "Res Gestae · 9",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Vota pro valetudine mea suscipi⁠17 per consulés et sacerdotes quinto quoque anno senatus decrevit. Ex iis votís saepe fecerunt vívo me ludos aliquotiens sacerdotum quattuor amplissima collégia, aliquotiens consules. Privatim etiam et múnicipatim úniversi cives uno animo continenter⁠18 apud omnia pulvínária pró valetudine mea sacrificaverunt.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 43
+            },
+            {
+              "kind": "sup",
+              "start": 32,
+              "end": 34
+            },
+            {
+              "kind": "em",
+              "start": 64,
+              "end": 68
+            },
+            {
+              "kind": "em",
+              "start": 71,
+              "end": 105
+            },
+            {
+              "kind": "em",
+              "start": 113,
+              "end": 115
+            },
+            {
+              "kind": "em",
+              "start": 132,
+              "end": 162
+            },
+            {
+              "kind": "em",
+              "start": 189,
+              "end": 223
+            },
+            {
+              "kind": "em",
+              "start": 252,
+              "end": 281
+            },
+            {
+              "kind": "sup",
+              "start": 283,
+              "end": 285
+            },
+            {
+              "kind": "em",
+              "start": 316,
+              "end": 342
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-10",
+      "title": "Res Gestae · 10",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Nomen meum senatus consulto inclusum est ín saliáre carmen et sacrosanctus ut essem in perpetuum⁠19 et quoad víverem, tribúnicia potestás mihí esset, per legem⁠20 sanctum est. Pontifex maximus ne fierem in víví conlegae locum, populo id sacerdotium deferente mihi, quod pater meus habuerat,⁠21 recusavi.⁠22 Cepi id⁠23 sacerdotium aliquod post annós eó mortuo demum,⁠24 qui id tumultus occasione occupaverat §, cuncta ex Italia ad comitia mea coeunte tanta multitudine, quanta Romae nunquam ante fuisse narratur⁠25 § P. Sulpicio C. Valgio consulibus §.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 31
+            },
+            {
+              "kind": "em",
+              "start": 70,
+              "end": 104
+            },
+            {
+              "kind": "sup",
+              "start": 97,
+              "end": 99
+            },
+            {
+              "kind": "em",
+              "start": 107,
+              "end": 108
+            },
+            {
+              "kind": "em",
+              "start": 143,
+              "end": 182
+            },
+            {
+              "kind": "sup",
+              "start": 160,
+              "end": 162
+            },
+            {
+              "kind": "em",
+              "start": 211,
+              "end": 212
+            },
+            {
+              "kind": "em",
+              "start": 216,
+              "end": 241
+            },
+            {
+              "kind": "em",
+              "start": 279,
+              "end": 314
+            },
+            {
+              "kind": "sup",
+              "start": 291,
+              "end": 293
+            },
+            {
+              "kind": "sup",
+              "start": 304,
+              "end": 306
+            },
+            {
+              "kind": "sup",
+              "start": 315,
+              "end": 317
+            },
+            {
+              "kind": "em",
+              "start": 355,
+              "end": 386
+            },
+            {
+              "kind": "sup",
+              "start": 366,
+              "end": 368
+            },
+            {
+              "kind": "em",
+              "start": 407,
+              "end": 408
+            },
+            {
+              "kind": "em",
+              "start": 427,
+              "end": 458
+            },
+            {
+              "kind": "em",
+              "start": 485,
+              "end": 486
+            },
+            {
+              "kind": "em",
+              "start": 490,
+              "end": 515
+            },
+            {
+              "kind": "sup",
+              "start": 511,
+              "end": 513
+            },
+            {
+              "kind": "em",
+              "start": 547,
+              "end": 548
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-11",
+      "title": "Res Gestae · 11",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Aram Fortunae Reducis⁠26 iuxta aedés Honoris et Virtutis ad portam Capenam pro reditu meo senátus consacravit, in qua pontifices et virgines Vestales anniversárium sacrificium facere iussit eo⁠27 die, quo consulibus Q. Lucretio et M. Vinucio in urbem ex Syria redi, et diem Augustalia ex cognomine nostro appellavit.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 33
+            },
+            {
+              "kind": "sup",
+              "start": 22,
+              "end": 24
+            },
+            {
+              "kind": "em",
+              "start": 67,
+              "end": 92
+            },
+            {
+              "kind": "em",
+              "start": 123,
+              "end": 154
+            },
+            {
+              "kind": "em",
+              "start": 183,
+              "end": 222
+            },
+            {
+              "kind": "sup",
+              "start": 193,
+              "end": 195
+            },
+            {
+              "kind": "em",
+              "start": 231,
+              "end": 240
+            },
+            {
+              "kind": "em",
+              "start": 254,
+              "end": 283
+            },
+            {
+              "kind": "em",
+              "start": 288,
+              "end": 289
+            },
+            {
+              "kind": "em",
+              "start": 290,
+              "end": 302
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-12",
+      "title": "Res Gestae · 12",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Senatus consulto eodem tempore pars praetorum et tribunorum plebis cum consule Q. Lucretio et principibus viris obviam mihi missa est in Campaniam, qui honos ad hoc tempus nemini praeter me est decretus. Cum ex Hispaniá Galliaque, rebus in his provincís prospere gestis, Romam redi Ti. Nerone P. Quintilio consulibus §, áram Pacis Augustae senatus pro reditú meó consacrari censuit ad campum Martium, in qua magistratús et sacerdotes et virgines Vestáles anniversarium sacrificium facere iussit.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 29
+            },
+            {
+              "kind": "em",
+              "start": 36,
+              "end": 52
+            },
+            {
+              "kind": "em",
+              "start": 60,
+              "end": 88
+            },
+            {
+              "kind": "em",
+              "start": 100,
+              "end": 102
+            },
+            {
+              "kind": "em",
+              "start": 106,
+              "end": 114
+            },
+            {
+              "kind": "em",
+              "start": 127,
+              "end": 128
+            },
+            {
+              "kind": "em",
+              "start": 131,
+              "end": 143
+            },
+            {
+              "kind": "em",
+              "start": 145,
+              "end": 151
+            },
+            {
+              "kind": "em",
+              "start": 158,
+              "end": 171
+            },
+            {
+              "kind": "em",
+              "start": 187,
+              "end": 188
+            },
+            {
+              "kind": "em",
+              "start": 191,
+              "end": 206
+            },
+            {
+              "kind": "em",
+              "start": 212,
+              "end": 216
+            },
+            {
+              "kind": "em",
+              "start": 223,
+              "end": 245
+            },
+            {
+              "kind": "em",
+              "start": 259,
+              "end": 260
+            },
+            {
+              "kind": "em",
+              "start": 263,
+              "end": 267
+            },
+            {
+              "kind": "em",
+              "start": 268,
+              "end": 269
+            },
+            {
+              "kind": "em",
+              "start": 272,
+              "end": 281
+            },
+            {
+              "kind": "em",
+              "start": 288,
+              "end": 289
+            },
+            {
+              "kind": "em",
+              "start": 299,
+              "end": 315
+            },
+            {
+              "kind": "em",
+              "start": 317,
+              "end": 318
+            },
+            {
+              "kind": "em",
+              "start": 325,
+              "end": 332
+            },
+            {
+              "kind": "em",
+              "start": 333,
+              "end": 334
+            },
+            {
+              "kind": "em",
+              "start": 337,
+              "end": 351
+            },
+            {
+              "kind": "em",
+              "start": 356,
+              "end": 357
+            },
+            {
+              "kind": "em",
+              "start": 365,
+              "end": 381
+            },
+            {
+              "kind": "em",
+              "start": 388,
+              "end": 410
+            },
+            {
+              "kind": "em",
+              "start": 426,
+              "end": 445
+            },
+            {
+              "kind": "em",
+              "start": 447,
+              "end": 450
+            },
+            {
+              "kind": "em",
+              "start": 451,
+              "end": 477
+            },
+            {
+              "kind": "em",
+              "start": 486,
+              "end": 495
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-13",
+      "title": "Res Gestae · 13",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Ianum Quirinum, quem claussum esse maiores nostri voluerunt, cum per totum imperium populi Romani terra marique esset parta victoriis pax, cum prius, quam náscerer, a condita urbe bis omnino clausum fuisse prodátur memoriae, ter me principe senatus claudendum esse censuit.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 5
+            },
+            {
+              "kind": "em",
+              "start": 12,
+              "end": 23
+            },
+            {
+              "kind": "em",
+              "start": 33,
+              "end": 56
+            },
+            {
+              "kind": "em",
+              "start": 61,
+              "end": 66
+            },
+            {
+              "kind": "em",
+              "start": 76,
+              "end": 86
+            },
+            {
+              "kind": "em",
+              "start": 95,
+              "end": 114
+            },
+            {
+              "kind": "em",
+              "start": 127,
+              "end": 132
+            },
+            {
+              "kind": "em",
+              "start": 145,
+              "end": 154
+            },
+            {
+              "kind": "em",
+              "start": 165,
+              "end": 174
+            },
+            {
+              "kind": "em",
+              "start": 176,
+              "end": 178
+            },
+            {
+              "kind": "em",
+              "start": 199,
+              "end": 200
+            },
+            {
+              "kind": "em",
+              "start": 216,
+              "end": 221
+            },
+            {
+              "kind": "em",
+              "start": 238,
+              "end": 246
+            },
+            {
+              "kind": "em",
+              "start": 271,
+              "end": 272
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-14",
+      "title": "Res Gestae · 14",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Filios meos, quós iuvenes mihi eripuit fortuna, Gaium et Lucium Caesares honoris mei caussá senatus populusque Romanus annum quíntum et decimum agentís consulés designávit, ut eum magistrátum inírent post quinquennium. Et ex eó die, quó deducti sunt in forum, ut interessent consiliís publicís decrevit senatus. Equites autem Románi universi principem iuventútis utrumque eórum parmis et hastís argenteís donátum appelláverunt. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 3
+            },
+            {
+              "kind": "em",
+              "start": 21,
+              "end": 28
+            },
+            {
+              "kind": "em",
+              "start": 42,
+              "end": 47
+            },
+            {
+              "kind": "em",
+              "start": 176,
+              "end": 177
+            },
+            {
+              "kind": "em",
+              "start": 245,
+              "end": 246
+            },
+            {
+              "kind": "em",
+              "start": 307,
+              "end": 308
+            },
+            {
+              "kind": "em",
+              "start": 320,
+              "end": 321
+            },
+            {
+              "kind": "em",
+              "start": 382,
+              "end": 384
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-15",
+      "title": "Res Gestae · 15",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Plebei Románae viritim HS trecenos numeravi ex testámento patris meí, § et nomine meo HS quadringenos ex bellórum manibiís consul quintum dedí, iterum autem in consulátú decimo ex patrimonio meo HS quadringenos congiári viritim pernumeraví, § et consul undecimum duodecim frúmentátiónes frúmento privatim coémpto emensus sum, § et tribuniciá potestáte duodecimum quadringenósnummós tertium viritim dedí. Quae mea congiaria pervenerunt ad hominum millia nunquam minus quinquáginta et ducenta. § Tribuniciae potestátis duodevicensimum consul XII trecentís et viginti millibus plebís urbánae sexagenós denariós viritim dedí. § In colonis militum meórum consul quintum ex manibiís viritim millia nummum singula dedi; acceperunt id triumphale congiárium in colonís hominum circiter centum et viginti millia. § Consul tertium decimum sexagenós denáriós plebeí, quae tum frúmentum publicum accipiebat, dedi; ea millia hominum paullo plúra quam ducenta fuerunt.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 180,
+              "end": 181
+            },
+            {
+              "kind": "em",
+              "start": 236,
+              "end": 237
+            },
+            {
+              "kind": "em",
+              "start": 298,
+              "end": 299
+            },
+            {
+              "kind": "em",
+              "start": 326,
+              "end": 327
+            },
+            {
+              "kind": "em",
+              "start": 424,
+              "end": 425
+            },
+            {
+              "kind": "em",
+              "start": 438,
+              "end": 442
+            },
+            {
+              "kind": "em",
+              "start": 494,
+              "end": 495
+            },
+            {
+              "kind": "em",
+              "start": 499,
+              "end": 502
+            },
+            {
+              "kind": "em",
+              "start": 563,
+              "end": 564
+            },
+            {
+              "kind": "em",
+              "start": 632,
+              "end": 633
+            },
+            {
+              "kind": "em",
+              "start": 756,
+              "end": 757
+            },
+            {
+              "kind": "em",
+              "start": 823,
+              "end": 824
+            },
+            {
+              "kind": "em",
+              "start": 892,
+              "end": 893
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-16",
+      "title": "Res Gestae · 16",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Pecuniam pro agrís, quós in consulátú meó quárto et posteá consulibus M. Crasso et Cn. Lentulo augure adsignávi militibus, solví múnicipís. Ea summa sestertium circiter sexsiens milliens fuit, quam pró Italicís praedis numeravi, § et circiter bis milliens et sescentiens, quod pro agrís próvincialibus solví. § Id primus et solus omnium, qui dedúxerunt colonias militum in Italiá aut in provincís, ad memoriam aetátis meae feci. Et postea Ti. Nerone et Cn. Pisone consulibus, § itemque C. Antistio et D. Laelio cos., et C. Calvisio et L. Pasieno consulibus, et L. Lentulo et M. Messalla consulibus, § et L. Cánínio § et Q. Fabricio cos. militibus, quós emeriteis stipendís in sua municipia deduxi,⁠27 praemia numerato persolví, § quam in rem sestertium quater milliens libenter impendi.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 9,
+              "end": 12
+            },
+            {
+              "kind": "em",
+              "start": 75,
+              "end": 81
+            },
+            {
+              "kind": "em",
+              "start": 143,
+              "end": 144
+            },
+            {
+              "kind": "em",
+              "start": 145,
+              "end": 153
+            },
+            {
+              "kind": "em",
+              "start": 198,
+              "end": 199
+            },
+            {
+              "kind": "em",
+              "start": 216,
+              "end": 218
+            },
+            {
+              "kind": "em",
+              "start": 236,
+              "end": 237
+            },
+            {
+              "kind": "em",
+              "start": 251,
+              "end": 253
+            },
+            {
+              "kind": "em",
+              "start": 293,
+              "end": 294
+            },
+            {
+              "kind": "em",
+              "start": 324,
+              "end": 325
+            },
+            {
+              "kind": "em",
+              "start": 342,
+              "end": 343
+            },
+            {
+              "kind": "em",
+              "start": 406,
+              "end": 407
+            },
+            {
+              "kind": "em",
+              "start": 476,
+              "end": 477
+            },
+            {
+              "kind": "em",
+              "start": 482,
+              "end": 483
+            },
+            {
+              "kind": "em",
+              "start": 566,
+              "end": 574
+            },
+            {
+              "kind": "em",
+              "start": 615,
+              "end": 616
+            },
+            {
+              "kind": "em",
+              "start": 634,
+              "end": 636
+            },
+            {
+              "kind": "em",
+              "start": 642,
+              "end": 650
+            },
+            {
+              "kind": "em",
+              "start": 688,
+              "end": 695
+            },
+            {
+              "kind": "sup",
+              "start": 698,
+              "end": 700
+            },
+            {
+              "kind": "em",
+              "start": 706,
+              "end": 710
+            },
+            {
+              "kind": "em",
+              "start": 728,
+              "end": 729
+            },
+            {
+              "kind": "em",
+              "start": 747,
+              "end": 752
+            },
+            {
+              "kind": "em",
+              "start": 754,
+              "end": 761
+            },
+            {
+              "kind": "em",
+              "start": 767,
+              "end": 771
+            },
+            {
+              "kind": "em",
+              "start": 772,
+              "end": 776
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-17",
+      "title": "Res Gestae · 17",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Quater pecuniá meá iuví aerárium, ita ut sestertium mílliens et quingentiens ad eos quí praerant aerário detulerim. Et M. Lepido et L. Arruntio cos. in aerarium militare, quod ex consilio meo constitutum est, ex quo praemia darentur militibus, qui vicena aut plura stipendia emeruissent, § HS milliens et septingentiens ex patrimonio meo detuli. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 7,
+              "end": 9
+            },
+            {
+              "kind": "em",
+              "start": 59,
+              "end": 60
+            },
+            {
+              "kind": "em",
+              "start": 69,
+              "end": 71
+            },
+            {
+              "kind": "em",
+              "start": 72,
+              "end": 75
+            },
+            {
+              "kind": "em",
+              "start": 125,
+              "end": 126
+            },
+            {
+              "kind": "em",
+              "start": 137,
+              "end": 138
+            },
+            {
+              "kind": "em",
+              "start": 141,
+              "end": 142
+            },
+            {
+              "kind": "em",
+              "start": 150,
+              "end": 151
+            },
+            {
+              "kind": "em",
+              "start": 189,
+              "end": 191
+            },
+            {
+              "kind": "em",
+              "start": 194,
+              "end": 201
+            },
+            {
+              "kind": "em",
+              "start": 212,
+              "end": 213
+            },
+            {
+              "kind": "em",
+              "start": 255,
+              "end": 262
+            },
+            {
+              "kind": "em",
+              "start": 268,
+              "end": 273
+            },
+            {
+              "kind": "em",
+              "start": 288,
+              "end": 289
+            },
+            {
+              "kind": "em",
+              "start": 312,
+              "end": 313
+            },
+            {
+              "kind": "em",
+              "start": 316,
+              "end": 325
+            },
+            {
+              "kind": "em",
+              "start": 326,
+              "end": 329
+            },
+            {
+              "kind": "em",
+              "start": 334,
+              "end": 335
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-18",
+      "title": "Res Gestae · 18",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Inde ab eo anno, quo Cn. et P. Lentuli consules fuerunt, cum deficerent vectigalia, tum centum millibus hominum tum pluribus multo frumentarias et nummariás tesseras ex aere⁠28 et patrimonio meo dedi.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 18
+            },
+            {
+              "kind": "em",
+              "start": 40,
+              "end": 43
+            },
+            {
+              "kind": "em",
+              "start": 62,
+              "end": 63
+            },
+            {
+              "kind": "em",
+              "start": 72,
+              "end": 77
+            },
+            {
+              "kind": "em",
+              "start": 78,
+              "end": 87
+            },
+            {
+              "kind": "em",
+              "start": 105,
+              "end": 108
+            },
+            {
+              "kind": "em",
+              "start": 114,
+              "end": 118
+            },
+            {
+              "kind": "em",
+              "start": 125,
+              "end": 128
+            },
+            {
+              "kind": "em",
+              "start": 134,
+              "end": 148
+            },
+            {
+              "kind": "em",
+              "start": 152,
+              "end": 155
+            },
+            {
+              "kind": "em",
+              "start": 158,
+              "end": 173
+            },
+            {
+              "kind": "sup",
+              "start": 174,
+              "end": 176
+            },
+            {
+              "kind": "em",
+              "start": 183,
+              "end": 190
+            },
+            {
+              "kind": "em",
+              "start": 192,
+              "end": 193
+            },
+            {
+              "kind": "em",
+              "start": 195,
+              "end": 199
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-19",
+      "title": "Res Gestae · 19",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Cúriam et continens eí chalcidicum, templumque Apollinis in Palatio cum porticibus, aedem dívi Iulí, Lupercal, porticum ad circum Fláminium, quam sum appellári passus ex nómine eius quí priórem eódem in solo fecerat Octaviam, pulvinar ad circum maximum, aedés in Capitolio Iovis Feretrí et Iovis Tonantis, § aedem Quiriní, § aedés Minervae § et Iúnonis Reginae § et Iovis Libertatis in Aventíno, § aedem Larum in summá sacrá viá, § aedem deum Penátium in Velia, § aedem Iuventátis, § aedem Mátris Magnae in Palátio fécí. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 306,
+              "end": 307
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-20",
+      "title": "Res Gestae · 20",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Capitolium et Pompeium theatrum utrumque opus impensá grandí reféci sine ullá inscriptione nominis meí. § Rívos aquarum complúribus locís vetustáte labentés refécí, § et aquam quae Márcia appellátur duplicavi fonte novo in rivum eius inmisso. § Forum Iúlium et basilicam, quae fuit inter aedem Castoris et aedem Saturni, § coepta profligataque opera á patre meó perféci § et eandem basilicam consumptam incendio ampliáto eius solo sub titulo nominis filiórum meorum incohavi § et, si vivus nón perfecissem, perfici ab heredibus iussi. Duo et octoginta templa deum in urbe consul sextum ex decreto senatus reféci, nullo praetermisso quod eo tempore refici debebat. Consul septimum viam Flaminiam ab urbe Ariminum feci et pontes omnes praeter Mulvium et Minucium.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 165,
+              "end": 166
+            },
+            {
+              "kind": "em",
+              "start": 321,
+              "end": 322
+            },
+            {
+              "kind": "em",
+              "start": 460,
+              "end": 467
+            },
+            {
+              "kind": "em",
+              "start": 475,
+              "end": 476
+            },
+            {
+              "kind": "em",
+              "start": 525,
+              "end": 534
+            },
+            {
+              "kind": "em",
+              "start": 582,
+              "end": 596
+            },
+            {
+              "kind": "em",
+              "start": 638,
+              "end": 639
+            },
+            {
+              "kind": "em",
+              "start": 644,
+              "end": 663
+            },
+            {
+              "kind": "em",
+              "start": 667,
+              "end": 668
+            },
+            {
+              "kind": "em",
+              "start": 696,
+              "end": 702
+            },
+            {
+              "kind": "em",
+              "start": 706,
+              "end": 726
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-21",
+      "title": "Res Gestae · 21",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In privato solo Mártis Vltoris templum forumque Augustum ex manibiís fecí. § Theatrum ad aede⁠29 Apollinis in solo magná ex parte á privatis empto féci, quod sub nomine M. Marcelli generi mei esset. § Dona ex manibiís in Capitolio et in aede dívi Iúlí et in aede Apollinis et in aede Vestae et in templo Martis Vltoris consacrávi, § quae mihi constiterunt HS circiter milliens. § Aurí coronárí pondo triginta et quinque millia múnicipiís et colonís Italiae conferentibus ad triumphós meós quintum consul remisi, et posteá, quotienscumque imperátor appellátus sum, aurum coronárium nón accepi decernentibus municipiis et colonis aeque benigne adquo antea decreverant.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 39,
+              "end": 40
+            },
+            {
+              "kind": "em",
+              "start": 57,
+              "end": 64
+            },
+            {
+              "kind": "sup",
+              "start": 94,
+              "end": 96
+            },
+            {
+              "kind": "em",
+              "start": 133,
+              "end": 134
+            },
+            {
+              "kind": "em",
+              "start": 135,
+              "end": 136
+            },
+            {
+              "kind": "em",
+              "start": 179,
+              "end": 180
+            },
+            {
+              "kind": "em",
+              "start": 204,
+              "end": 207
+            },
+            {
+              "kind": "em",
+              "start": 249,
+              "end": 250
+            },
+            {
+              "kind": "em",
+              "start": 482,
+              "end": 483
+            },
+            {
+              "kind": "em",
+              "start": 549,
+              "end": 552
+            },
+            {
+              "kind": "em",
+              "start": 615,
+              "end": 616
+            },
+            {
+              "kind": "em",
+              "start": 626,
+              "end": 627
+            },
+            {
+              "kind": "em",
+              "start": 632,
+              "end": 633
+            },
+            {
+              "kind": "em",
+              "start": 638,
+              "end": 639
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-22",
+      "title": "Res Gestae · 22",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Ter munus gladiátorium dedí meo nomine et quinquens⁠30 filiórum meorum aut nepótum nomine; quibus muneribus depugnaverunt hominum circiter decem millia. § Bis athletarum undique accitorum spectaclum populo praebui meo nómine et tertium nepotis meí nomine. § Ludos fecí meo nomine quater, § aliorum autem magistrátuum vicem ter et viciens. § Pro conlegio XV virorum magister conlegií collega M. Agrippa § ludos saeclares C. Furnio C. Silano cos. feci. Consul XIII ludos Martiales primus feci, quos post id tempus deinceps insequentibus annis s. c. mecum⁠31 fecerunt consules. § Venationes bestiarum Africanárum meo nómine aut filiorum meórum et nepotum in circo aut in foro aut in amphitheatris populo dedi sexiens et viciens, quibus confecta sunt bestiarum circiter tria millia et quingentae.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 1,
+              "end": 2
+            },
+            {
+              "kind": "sup",
+              "start": 52,
+              "end": 54
+            },
+            {
+              "kind": "em",
+              "start": 66,
+              "end": 67
+            },
+            {
+              "kind": "em",
+              "start": 76,
+              "end": 77
+            },
+            {
+              "kind": "em",
+              "start": 128,
+              "end": 129
+            },
+            {
+              "kind": "em",
+              "start": 132,
+              "end": 134
+            },
+            {
+              "kind": "em",
+              "start": 153,
+              "end": 154
+            },
+            {
+              "kind": "em",
+              "start": 159,
+              "end": 161
+            },
+            {
+              "kind": "em",
+              "start": 192,
+              "end": 194
+            },
+            {
+              "kind": "em",
+              "start": 195,
+              "end": 201
+            },
+            {
+              "kind": "em",
+              "start": 209,
+              "end": 217
+            },
+            {
+              "kind": "em",
+              "start": 240,
+              "end": 243
+            },
+            {
+              "kind": "em",
+              "start": 259,
+              "end": 260
+            },
+            {
+              "kind": "em",
+              "start": 270,
+              "end": 275
+            },
+            {
+              "kind": "em",
+              "start": 276,
+              "end": 279
+            },
+            {
+              "kind": "em",
+              "start": 288,
+              "end": 289
+            },
+            {
+              "kind": "em",
+              "start": 305,
+              "end": 310
+            },
+            {
+              "kind": "em",
+              "start": 314,
+              "end": 316
+            },
+            {
+              "kind": "em",
+              "start": 335,
+              "end": 337
+            },
+            {
+              "kind": "em",
+              "start": 339,
+              "end": 340
+            },
+            {
+              "kind": "em",
+              "start": 341,
+              "end": 343
+            },
+            {
+              "kind": "em",
+              "start": 370,
+              "end": 378
+            },
+            {
+              "kind": "em",
+              "start": 379,
+              "end": 381
+            },
+            {
+              "kind": "em",
+              "start": 389,
+              "end": 390
+            },
+            {
+              "kind": "em",
+              "start": 402,
+              "end": 403
+            },
+            {
+              "kind": "em",
+              "start": 407,
+              "end": 411
+            },
+            {
+              "kind": "em",
+              "start": 415,
+              "end": 418
+            },
+            {
+              "kind": "em",
+              "start": 433,
+              "end": 434
+            },
+            {
+              "kind": "em",
+              "start": 445,
+              "end": 452
+            },
+            {
+              "kind": "em",
+              "start": 454,
+              "end": 462
+            },
+            {
+              "kind": "em",
+              "start": 472,
+              "end": 475
+            },
+            {
+              "kind": "em",
+              "start": 481,
+              "end": 490
+            },
+            {
+              "kind": "em",
+              "start": 494,
+              "end": 496
+            },
+            {
+              "kind": "em",
+              "start": 498,
+              "end": 503
+            },
+            {
+              "kind": "em",
+              "start": 519,
+              "end": 520
+            },
+            {
+              "kind": "em",
+              "start": 524,
+              "end": 529
+            },
+            {
+              "kind": "em",
+              "start": 531,
+              "end": 538
+            },
+            {
+              "kind": "em",
+              "start": 541,
+              "end": 567
+            },
+            {
+              "kind": "sup",
+              "start": 553,
+              "end": 555
+            },
+            {
+              "kind": "em",
+              "start": 568,
+              "end": 570
+            },
+            {
+              "kind": "em",
+              "start": 575,
+              "end": 576
+            },
+            {
+              "kind": "em",
+              "start": 577,
+              "end": 580
+            },
+            {
+              "kind": "em",
+              "start": 583,
+              "end": 584
+            },
+            {
+              "kind": "em",
+              "start": 585,
+              "end": 587
+            },
+            {
+              "kind": "em",
+              "start": 592,
+              "end": 594
+            },
+            {
+              "kind": "em",
+              "start": 630,
+              "end": 632
+            },
+            {
+              "kind": "em",
+              "start": 657,
+              "end": 658
+            },
+            {
+              "kind": "em",
+              "start": 665,
+              "end": 666
+            },
+            {
+              "kind": "em",
+              "start": 699,
+              "end": 702
+            },
+            {
+              "kind": "em",
+              "start": 772,
+              "end": 775
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-23",
+      "title": "Res Gestae · 23",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Navalis proelí spectaclum populo dedi trans Tiberim, in quo loco nunc nemus est Caesarum, cavato solo in longitudinem mille et octingentós pedés, § in látitudinem mille et ducenti.⁠32 In quo triginta rostrátae náves trirémes aut biremés, § plures autem minóres inter se conflixérunt. Quibus in classibus pugnaverunt praeter rémigés millia hominum tria circiter. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 35,
+              "end": 40
+            },
+            {
+              "kind": "em",
+              "start": 97,
+              "end": 101
+            },
+            {
+              "kind": "em",
+              "start": 146,
+              "end": 147
+            },
+            {
+              "kind": "em",
+              "start": 161,
+              "end": 168
+            },
+            {
+              "kind": "em",
+              "start": 170,
+              "end": 171
+            },
+            {
+              "kind": "sup",
+              "start": 181,
+              "end": 183
+            },
+            {
+              "kind": "em",
+              "start": 226,
+              "end": 234
+            },
+            {
+              "kind": "em",
+              "start": 238,
+              "end": 239
+            },
+            {
+              "kind": "em",
+              "start": 285,
+              "end": 293
+            },
+            {
+              "kind": "em",
+              "start": 341,
+              "end": 349
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-24",
+      "title": "Res Gestae · 24",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In templís omnium civitátium provinciae Asiae victor ornamenta reposui, quae spoliátis templis is cum quó bellum gesseram privátim possederat. § Statuae meae pedestrés et equestres et in quadrigeis argenteae steterunt in urbe XXC circiter, quas ipse sustuli § exque eá pecuniá dona aurea in áede Apollinis meó nomine et illórum, qui mihi statuárum honórem habuerunt, posui. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 31,
+              "end": 37
+            },
+            {
+              "kind": "em",
+              "start": 90,
+              "end": 97
+            },
+            {
+              "kind": "em",
+              "start": 153,
+              "end": 156
+            },
+            {
+              "kind": "em",
+              "start": 258,
+              "end": 259
+            },
+            {
+              "kind": "em",
+              "start": 300,
+              "end": 302
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-25",
+      "title": "Res Gestae · 25",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Mare pacávi á praedonibus. Eó bello servórum, qui fugerant á dominis suis et arma contrá rem publicam céperant, triginta fere millia capta § dominis ad supplicium sumendum tradidi. § Iuravit in mea verba tóta Italia sponte suá et me belli, quó víci ad Actium, ducem depoposcit. § Iuraverunt in eadem verba próvinciae Galliae Hispaniae Africa Sicilia Sardinia. § Qui sub signis meis tum militaverint, fuerunt senátóres plúres quam DCC, in iís qui vel antea vel posteá consules factí sunt ad eum diem quó scripta sunt haec, LXXXIII, sacerdotés circiter CLXX. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 235,
+              "end": 238
+            },
+            {
+              "kind": "em",
+              "start": 303,
+              "end": 311
+            },
+            {
+              "kind": "em",
+              "start": 370,
+              "end": 385
+            },
+            {
+              "kind": "em",
+              "start": 440,
+              "end": 463
+            },
+            {
+              "kind": "em",
+              "start": 513,
+              "end": 538
+            },
+            {
+              "kind": "em",
+              "start": 544,
+              "end": 546
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-26",
+      "title": "Res Gestae · 26",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Omnium próvinciarum populi Romani, quibus finitimae fuerunt gentés quae non parerent imperio nostro, fines auxi. Gallias et Hispaniás próviciás⁠33 et Germaniam qua includit Óceanus a Gádibus ad óstium Albis flúminis pacavi. Alpes a regióne eá, quae proxima est Hadriánó mari, ad Tuscum pacari feci nullí gentí bello per iniúriam inláto. Classis mea per Oceanum ab óstio Rhéni ad sólis orientis regionem usque ad fines Cimbrorum navigavit, § quó neque terra neque mari quisquam Romanus ante ide tempus adít, § Cimbrique et Charydes et Semnones et eiusdem tractús alií Germánórum populi per legátós amicitiam meam et populi Románi petierunt. § Meo iussú et auspicio ducti sunt duo exercitus eódem fere tempore in Aethiopiam et in Arabiam, quae appellatur eudaemón, maximaeque hostium gentís utriusque copiae caesae sunt in acie et complura oppida capta. In Aethiopiam usque ad oppidum Nabata perventum est, cuí proxima est Meroé. In Arabiam usque ín fínés Sabaeorum processit exercitus ad oppidum Mariba. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 11,
+              "end": 33
+            },
+            {
+              "kind": "em",
+              "start": 73,
+              "end": 96
+            },
+            {
+              "kind": "em",
+              "start": 142,
+              "end": 169
+            },
+            {
+              "kind": "sup",
+              "start": 144,
+              "end": 146
+            },
+            {
+              "kind": "em",
+              "start": 211,
+              "end": 234
+            },
+            {
+              "kind": "em",
+              "start": 276,
+              "end": 296
+            },
+            {
+              "kind": "em",
+              "start": 340,
+              "end": 360
+            },
+            {
+              "kind": "em",
+              "start": 414,
+              "end": 426
+            },
+            {
+              "kind": "em",
+              "start": 439,
+              "end": 440
+            },
+            {
+              "kind": "em",
+              "start": 582,
+              "end": 583
+            },
+            {
+              "kind": "em",
+              "start": 675,
+              "end": 678
+            },
+            {
+              "kind": "em",
+              "start": 730,
+              "end": 731
+            },
+            {
+              "kind": "em",
+              "start": 747,
+              "end": 752
+            },
+            {
+              "kind": "em",
+              "start": 763,
+              "end": 768
+            },
+            {
+              "kind": "em",
+              "start": 777,
+              "end": 778
+            },
+            {
+              "kind": "em",
+              "start": 792,
+              "end": 794
+            },
+            {
+              "kind": "em",
+              "start": 802,
+              "end": 805
+            },
+            {
+              "kind": "em",
+              "start": 829,
+              "end": 830
+            },
+            {
+              "kind": "em",
+              "start": 832,
+              "end": 836
+            },
+            {
+              "kind": "em",
+              "start": 897,
+              "end": 899
+            },
+            {
+              "kind": "em",
+              "start": 967,
+              "end": 971
+            },
+            {
+              "kind": "em",
+              "start": 979,
+              "end": 981
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-27",
+      "title": "Res Gestae · 27",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Aegyptum imperio populi Romani adieci. § Armeniam maiorem interfecto rége eius Artaxe § cum possem facere provinciam, málui maiórum nostrórum exemplo regnum id Tigrani regis Artavasdis filio, nepoti autem Tigránis regis, per Ti. Neronem tradere, qui tum mihi privignus erat. Et eandem gentem posteá descíscentem et rebellantem domitam per Gaium filium meum regi Ariobarzani regis Medorum Artabazi filio regendam tradidi § et post eius mortem filio eius Artavasdi. § Quo interfecto Tigrane,⁠34 qui erat ex régió genere Armeniorum oriundus, in id regnum mísí. § Provincias omnís, quae trans Hadrianum mare vergunt ad orientem, Cyrenásque, iam ex parte magná regibus eas possidentibus, et antea Siciliam et Sardiniam occupatás bello servili reciperáví. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 24,
+              "end": 26
+            },
+            {
+              "kind": "em",
+              "start": 89,
+              "end": 90
+            },
+            {
+              "kind": "em",
+              "start": 154,
+              "end": 155
+            },
+            {
+              "kind": "em",
+              "start": 226,
+              "end": 231
+            },
+            {
+              "kind": "em",
+              "start": 241,
+              "end": 243
+            },
+            {
+              "kind": "em",
+              "start": 263,
+              "end": 265
+            },
+            {
+              "kind": "em",
+              "start": 300,
+              "end": 303
+            },
+            {
+              "kind": "em",
+              "start": 332,
+              "end": 333
+            },
+            {
+              "kind": "em",
+              "start": 366,
+              "end": 370
+            },
+            {
+              "kind": "em",
+              "start": 394,
+              "end": 396
+            },
+            {
+              "kind": "em",
+              "start": 420,
+              "end": 421
+            },
+            {
+              "kind": "em",
+              "start": 431,
+              "end": 434
+            },
+            {
+              "kind": "em",
+              "start": 464,
+              "end": 465
+            },
+            {
+              "kind": "em",
+              "start": 470,
+              "end": 474
+            },
+            {
+              "kind": "em",
+              "start": 481,
+              "end": 486
+            },
+            {
+              "kind": "sup",
+              "start": 490,
+              "end": 492
+            },
+            {
+              "kind": "em",
+              "start": 547,
+              "end": 551
+            },
+            {
+              "kind": "em",
+              "start": 610,
+              "end": 613
+            },
+            {
+              "kind": "em",
+              "start": 620,
+              "end": 622
+            },
+            {
+              "kind": "em",
+              "start": 684,
+              "end": 685
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-28",
+      "title": "Res Gestae · 28",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Colonias in África Sicilia Macedoniá utráque Hispániá Achaia Asia Syria Galliá Narbonensi Pisidia militum dedúxí. § Italia autem XXVIII coloniás, quae vívo me celeberrimae et frequentissimae fuerunt, meis auspicis deductas habet.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 27,
+              "end": 28
+            },
+            {
+              "kind": "em",
+              "start": 59,
+              "end": 60
+            },
+            {
+              "kind": "em",
+              "start": 67,
+              "end": 68
+            },
+            {
+              "kind": "em",
+              "start": 92,
+              "end": 94
+            },
+            {
+              "kind": "em",
+              "start": 136,
+              "end": 140
+            },
+            {
+              "kind": "em",
+              "start": 202,
+              "end": 213
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-29",
+      "title": "Res Gestae · 29",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Signa mílitaria complura per aliós ducés ámissa devictís hostibus reciperaví ex Hispania et Gallia et a Dalmateis. § Parthos trium exercitum Romanorum spolia et signa reddere mihi supplicesque amicitiam populí Romaní petere coegi. § Ea autem signa in penetrálí, quod est in templo Martis Vltoris,reposui.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 23,
+              "end": 28
+            },
+            {
+              "kind": "em",
+              "start": 36,
+              "end": 37
+            },
+            {
+              "kind": "em",
+              "start": 43,
+              "end": 47
+            },
+            {
+              "kind": "em",
+              "start": 55,
+              "end": 64
+            },
+            {
+              "kind": "em",
+              "start": 68,
+              "end": 72
+            },
+            {
+              "kind": "em",
+              "start": 92,
+              "end": 108
+            },
+            {
+              "kind": "em",
+              "start": 146,
+              "end": 147
+            },
+            {
+              "kind": "em",
+              "start": 169,
+              "end": 174
+            },
+            {
+              "kind": "em",
+              "start": 244,
+              "end": 246
+            },
+            {
+              "kind": "em",
+              "start": 268,
+              "end": 269
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-30",
+      "title": "Res Gestae · 30",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Pannoniorum gentes, quas ante me principem populi Romaní exercitus nunquam adít, devictas per Ti. Neronem, qui tum erat privignus et legátus meus, ímperio populi Romani subieci protulique finés Illyrici ad ripam flúminis Danui. Citra quod Dacorum transgressus exercitus meis auspicis victus profligatusque est, et posteá trans Danuvium ductus exercitus meus Dacorum gentes imperia populi Romani perferre coegit.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 23,
+              "end": 26
+            },
+            {
+              "kind": "em",
+              "start": 77,
+              "end": 78
+            },
+            {
+              "kind": "em",
+              "start": 98,
+              "end": 100
+            },
+            {
+              "kind": "em",
+              "start": 170,
+              "end": 174
+            },
+            {
+              "kind": "em",
+              "start": 207,
+              "end": 209
+            },
+            {
+              "kind": "em",
+              "start": 224,
+              "end": 225
+            },
+            {
+              "kind": "em",
+              "start": 232,
+              "end": 233
+            },
+            {
+              "kind": "em",
+              "start": 239,
+              "end": 240
+            },
+            {
+              "kind": "em",
+              "start": 241,
+              "end": 244
+            },
+            {
+              "kind": "em",
+              "start": 245,
+              "end": 249
+            },
+            {
+              "kind": "em",
+              "start": 251,
+              "end": 252
+            },
+            {
+              "kind": "em",
+              "start": 276,
+              "end": 277
+            },
+            {
+              "kind": "em",
+              "start": 279,
+              "end": 288
+            },
+            {
+              "kind": "em",
+              "start": 306,
+              "end": 313
+            },
+            {
+              "kind": "em",
+              "start": 317,
+              "end": 325
+            },
+            {
+              "kind": "em",
+              "start": 330,
+              "end": 331
+            },
+            {
+              "kind": "em",
+              "start": 345,
+              "end": 355
+            },
+            {
+              "kind": "em",
+              "start": 356,
+              "end": 357
+            },
+            {
+              "kind": "em",
+              "start": 360,
+              "end": 363
+            },
+            {
+              "kind": "em",
+              "start": 375,
+              "end": 411
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-31",
+      "title": "Res Gestae · 31",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Ad me ex India regum legationes saepe missae sunt, nunquam antea visae apud quemquam Romanorum ducem. § Nostram amicitiam petierunt per legatos Bastarnae Scythaeque et Sarmatarum qui sunt citra flumen Tanaim et ultrá reges, Albanorumque réx et Hibérorum et Medorum.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 11,
+              "end": 70
+            },
+            {
+              "kind": "em",
+              "start": 78,
+              "end": 80
+            },
+            {
+              "kind": "em",
+              "start": 81,
+              "end": 84
+            },
+            {
+              "kind": "em",
+              "start": 86,
+              "end": 97
+            },
+            {
+              "kind": "em",
+              "start": 114,
+              "end": 131
+            },
+            {
+              "kind": "em",
+              "start": 141,
+              "end": 143
+            },
+            {
+              "kind": "em",
+              "start": 145,
+              "end": 146
+            },
+            {
+              "kind": "em",
+              "start": 151,
+              "end": 161
+            },
+            {
+              "kind": "em",
+              "start": 180,
+              "end": 197
+            },
+            {
+              "kind": "em",
+              "start": 208,
+              "end": 210
+            },
+            {
+              "kind": "em",
+              "start": 220,
+              "end": 228
+            },
+            {
+              "kind": "em",
+              "start": 249,
+              "end": 264
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-32",
+      "title": "Res Gestae · 32",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Ad mé supplices confugerunt regés Parthorum Tíridates et postea Phrátes regis Phratis filius; § Medorum Artavasdes; Adiabenorum Artaxares; § Britannorum Dumnobellaunus et Tim⁠a. . . . . .; Sugambrorum Maelo; § Marcomanórum Sueborum . . . . .rus. Ad me rex Parthorum Phrates Orodis filius filiós suós nepotesque omnes misit in Italiam, non bello superátus, sed amicitiam nostram per liberorum suorum pignora petens. § Plúrimaeque aliae gentes expertae sunt p. R. fidem me principe, quibus anteá cum populo Romano nullum extiterat legationum et amícitiae commercium. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 22,
+              "end": 27
+            },
+            {
+              "kind": "em",
+              "start": 50,
+              "end": 63
+            },
+            {
+              "kind": "em",
+              "start": 69,
+              "end": 71
+            },
+            {
+              "kind": "em",
+              "start": 84,
+              "end": 92
+            },
+            {
+              "kind": "em",
+              "start": 94,
+              "end": 95
+            },
+            {
+              "kind": "em",
+              "start": 104,
+              "end": 129
+            },
+            {
+              "kind": "em",
+              "start": 148,
+              "end": 149
+            },
+            {
+              "kind": "em",
+              "start": 164,
+              "end": 167
+            },
+            {
+              "kind": "sup",
+              "start": 175,
+              "end": 176
+            },
+            {
+              "kind": "em",
+              "start": 189,
+              "end": 196
+            },
+            {
+              "kind": "em",
+              "start": 213,
+              "end": 214
+            },
+            {
+              "kind": "em",
+              "start": 230,
+              "end": 244
+            },
+            {
+              "kind": "em",
+              "start": 246,
+              "end": 255
+            },
+            {
+              "kind": "em",
+              "start": 278,
+              "end": 279
+            },
+            {
+              "kind": "em",
+              "start": 305,
+              "end": 322
+            },
+            {
+              "kind": "em",
+              "start": 353,
+              "end": 354
+            },
+            {
+              "kind": "em",
+              "start": 382,
+              "end": 391
+            },
+            {
+              "kind": "em",
+              "start": 447,
+              "end": 461
+            },
+            {
+              "kind": "em",
+              "start": 510,
+              "end": 527
+            },
+            {
+              "kind": "em",
+              "start": 553,
+              "end": 554
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-33",
+      "title": "Res Gestae · 33",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "A me gentés Parthórum et Médórum per legatos principes eárum gentium régés petitós accéperunt: Parthi Vononem regis Phrátis fílium, régis Oródis nepótem, § Médí Ariobarzanem, regis Artavazdis filium, regis Ariobarzanis nepotem.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 31,
+              "end": 44
+            },
+            {
+              "kind": "em",
+              "start": 78,
+              "end": 79
+            },
+            {
+              "kind": "em",
+              "start": 98,
+              "end": 119
+            },
+            {
+              "kind": "em",
+              "start": 163,
+              "end": 173
+            },
+            {
+              "kind": "em",
+              "start": 222,
+              "end": 226
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-34",
+      "title": "Res Gestae · 34",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Ín consulátú sexto et septimo, bella ubi civilia exstinxeram per consénsum úniversórum potitus rerum omnium, rem publicam ex meá potestáte § in senátus populique Romani arbitrium transtulí. Quó pro merito meó senatus consulto Augustus appellátus sum et laureís postés aedium meárum vestiti publice coronaque civíca super iánuam meam fíxa est § clupeusque aureus in cúriá Iúliá positus, quem mihi senatum populumque Romanum dare virtutis clementiae iustitiae pietatis caussa testatum est per eius clúpei inscriptionem. § Post id tempus praestiti omnibus dignitate, potestatis autem nihilo amplius habui quam qui fuerunt mihi quoque in magistratu conlegae.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 32,
+              "end": 46
+            },
+            {
+              "kind": "em",
+              "start": 87,
+              "end": 104
+            },
+            {
+              "kind": "em",
+              "start": 139,
+              "end": 140
+            },
+            {
+              "kind": "em",
+              "start": 149,
+              "end": 170
+            },
+            {
+              "kind": "em",
+              "start": 215,
+              "end": 239
+            },
+            {
+              "kind": "em",
+              "start": 283,
+              "end": 305
+            },
+            {
+              "kind": "em",
+              "start": 342,
+              "end": 360
+            },
+            {
+              "kind": "em",
+              "start": 404,
+              "end": 421
+            },
+            {
+              "kind": "em",
+              "start": 441,
+              "end": 446
+            },
+            {
+              "kind": "em",
+              "start": 456,
+              "end": 482
+            },
+            {
+              "kind": "em",
+              "start": 489,
+              "end": 492
+            },
+            {
+              "kind": "em",
+              "start": 503,
+              "end": 514
+            },
+            {
+              "kind": "em",
+              "start": 531,
+              "end": 570
+            },
+            {
+              "kind": "em",
+              "start": 577,
+              "end": 582
+            },
+            {
+              "kind": "em",
+              "start": 594,
+              "end": 620
+            },
+            {
+              "kind": "em",
+              "start": 636,
+              "end": 639
+            },
+            {
+              "kind": "em",
+              "start": 642,
+              "end": 643
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-35",
+      "title": "Res Gestae · 35",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Tertium decimum consulátum cum gerebam, senatus et equester ordo populusque Románus úniversus appellavit me patrem patriae idque in vestibulo aedium meárum inscribendum esse atque⁠35 in curia et in foró Aug. sub quadrigis, quae mihi ex s. c. positae sunt, decrevit. Cum scripsi haec, annum agebam septuagensumum sextum.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 11,
+              "end": 12
+            },
+            {
+              "kind": "em",
+              "start": 25,
+              "end": 54
+            },
+            {
+              "kind": "em",
+              "start": 73,
+              "end": 75
+            },
+            {
+              "kind": "em",
+              "start": 94,
+              "end": 116
+            },
+            {
+              "kind": "em",
+              "start": 139,
+              "end": 143
+            },
+            {
+              "kind": "em",
+              "start": 165,
+              "end": 193
+            },
+            {
+              "kind": "sup",
+              "start": 180,
+              "end": 182
+            },
+            {
+              "kind": "em",
+              "start": 219,
+              "end": 220
+            },
+            {
+              "kind": "em",
+              "start": 233,
+              "end": 235
+            },
+            {
+              "kind": "em",
+              "start": 245,
+              "end": 274
+            },
+            {
+              "kind": "em",
+              "start": 308,
+              "end": 318
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rg-summary",
+      "title": "Later Summary · separate addition",
+      "blocks": [
+        {
+          "id": "summary-1",
+          "kind": "prose",
+          "text": "Summá pecúniae, quam dedit in aerarium vel plebei Romanae vel dimissis militibus: denarium sexiens milliens.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 11,
+              "end": 12
+            },
+            {
+              "kind": "em",
+              "start": 24,
+              "end": 64
+            },
+            {
+              "kind": "em",
+              "start": 93,
+              "end": 95
+            },
+            {
+              "kind": "em",
+              "start": 96,
+              "end": 107
+            }
+          ]
+        },
+        {
+          "id": "summary-2",
+          "kind": "prose",
+          "text": "Opera fecit nova § aedem Martis, Iovis Tonantis et Feretri, Apollinis, díví Iúli, § Quirini, § Minervae, Iunonis Reginae, Iovis Libertatis, Larum, deum Penátium, § Iuventatis, Matris deum, Lupercal, pulvinar ad circum, § cúriam cum chalcidico, forum Augustum, basilicam Iuliam, theatrum Marcelli, § porticus . . . . . . . . . . , nemus trans Tiberím Caesarum. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 33,
+              "end": 70
+            },
+            {
+              "kind": "em",
+              "start": 105,
+              "end": 139
+            },
+            {
+              "kind": "em",
+              "start": 162,
+              "end": 163
+            },
+            {
+              "kind": "em",
+              "start": 167,
+              "end": 206
+            },
+            {
+              "kind": "em",
+              "start": 219,
+              "end": 220
+            },
+            {
+              "kind": "em",
+              "start": 234,
+              "end": 268
+            },
+            {
+              "kind": "em",
+              "start": 297,
+              "end": 300
+            },
+            {
+              "kind": "em",
+              "start": 302,
+              "end": 343
+            }
+          ]
+        },
+        {
+          "id": "summary-3",
+          "kind": "prose",
+          "text": "Refécit Capitolium sacrasque aedes numero octoginta duas, theatrum Pompeí, aquarum rivos, viam Flaminiam.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 14,
+              "end": 24
+            },
+            {
+              "kind": "em",
+              "start": 35,
+              "end": 37
+            },
+            {
+              "kind": "em",
+              "start": 38,
+              "end": 51
+            },
+            {
+              "kind": "em",
+              "start": 62,
+              "end": 63
+            },
+            {
+              "kind": "em",
+              "start": 78,
+              "end": 92
+            },
+            {
+              "kind": "em",
+              "start": 101,
+              "end": 104
+            }
+          ]
+        },
+        {
+          "id": "summary-4",
+          "kind": "prose",
+          "text": "Impensa praestita in spectacula scaenica et munera gladiatorum atque athletas et venationes et naumachiam et donata pecunia a (?) . . . . . . . . . . . . . . . . . . . . . . . . . terrae motu § incendioque consumptis aut viritim amicis senatoribusque, quórum census explevit, ínnumerabilis. §",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 9,
+              "end": 26
+            },
+            {
+              "kind": "em",
+              "start": 30,
+              "end": 50
+            },
+            {
+              "kind": "em",
+              "start": 65,
+              "end": 99
+            },
+            {
+              "kind": "em",
+              "start": 102,
+              "end": 105
+            },
+            {
+              "kind": "em",
+              "start": 118,
+              "end": 119
+            },
+            {
+              "kind": "em",
+              "start": 214,
+              "end": 216
+            },
+            {
+              "kind": "em",
+              "start": 218,
+              "end": 228
+            },
+            {
+              "kind": "em",
+              "start": 230,
+              "end": 241
+            },
+            {
+              "kind": "em",
+              "start": 278,
+              "end": 279
+            },
+            {
+              "kind": "em",
+              "start": 284,
+              "end": 288
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edition and source",
+      "text": "All 35 sections of Augustus’s Res Gestae, preceded by its inscribed title and followed by a separately identified later Summary in the third person. Frederick W. Shipley (1859–1930), Loeb Classical Library, 1924, transcribed by Bill Thayer, LacusCurtius. Historical text is public domain in the United States; broader publication remains unreviewed. Latin follows this witness, including dignitate in section 34; it is not silently replaced by auctoritate. Italic Latin letters here denote reconstructed text, marked by color in the digital source; lacuna dots and paragraph signs are retained. Stone line numbers, web page numbers and modern hover annotations are omitted. Shipley’s historical notes and textual apparatus are preserved at the corresponding section. Modern website commentary is outside this selection except for Bill Thayer’s explicitly identified note at Latin section 32, whose original and onward-reference links are retained. English and Latin use the same 1924 witness.",
+      "kind": "source",
+      "through": null,
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/home.html"
+    },
+    {
+      "label": "Source notes · 1",
+      "text": "1. Quas ob res Wölfflin, Ob quae Mommsen, Propter quae Bormann.\n\n2. simul dans sententiae ferendae et imperium Mommsen.",
+      "kind": "source",
+      "through": "rg-1",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 15,
+          "end": 23
+        },
+        {
+          "kind": "em",
+          "start": 33,
+          "end": 40
+        },
+        {
+          "kind": "em",
+          "start": 55,
+          "end": 63
+        },
+        {
+          "kind": "em",
+          "start": 69,
+          "end": 104
+        },
+        {
+          "kind": "em",
+          "start": 111,
+          "end": 119
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 3",
+      "text": "3. suscepi Mommsen, saepe gessi Bormann.\n\n4. superstitibus Mommsen.\n\n5. adsignavi Bormann, a me emptos Mommsen.\n\n6. praemis militiae Bergk and Bormann, praediis a me Mommsen.",
+      "kind": "source",
+      "through": "rg-3",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 10
+        },
+        {
+          "kind": "em",
+          "start": 11,
+          "end": 18
+        },
+        {
+          "kind": "em",
+          "start": 21,
+          "end": 31
+        },
+        {
+          "kind": "em",
+          "start": 32,
+          "end": 40
+        },
+        {
+          "kind": "em",
+          "start": 45,
+          "end": 56
+        },
+        {
+          "kind": "em",
+          "start": 59,
+          "end": 67
+        },
+        {
+          "kind": "em",
+          "start": 73,
+          "end": 81
+        },
+        {
+          "kind": "em",
+          "start": 82,
+          "end": 89
+        },
+        {
+          "kind": "em",
+          "start": 93,
+          "end": 102
+        },
+        {
+          "kind": "em",
+          "start": 103,
+          "end": 111
+        },
+        {
+          "kind": "em",
+          "start": 117,
+          "end": 127
+        },
+        {
+          "kind": "em",
+          "start": 133,
+          "end": 150
+        },
+        {
+          "kind": "em",
+          "start": 153,
+          "end": 162
+        },
+        {
+          "kind": "em",
+          "start": 166,
+          "end": 174
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 4",
+      "text": "7. deinde Mommsen.\n\n8. laurum de fascibus Wehofer, Item saepe laurus Mommsen.\n\n9. et agebam Mommsen, eramque Bergk.",
+      "kind": "source",
+      "through": "rg-4",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 9
+        },
+        {
+          "kind": "em",
+          "start": 10,
+          "end": 18
+        },
+        {
+          "kind": "em",
+          "start": 24,
+          "end": 39
+        },
+        {
+          "kind": "em",
+          "start": 42,
+          "end": 49
+        },
+        {
+          "kind": "em",
+          "start": 52,
+          "end": 66
+        },
+        {
+          "kind": "em",
+          "start": 69,
+          "end": 77
+        },
+        {
+          "kind": "em",
+          "start": 92,
+          "end": 99
+        },
+        {
+          "kind": "em",
+          "start": 109,
+          "end": 115
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 5",
+      "text": "10. a populo . . . oblatam Wölfflin, mihi datam a populo et senatu Mommsen.\n\n11. intra paucos dies Wölfflin and Seeck, paucis diebus Mommsen.",
+      "kind": "source",
+      "through": "rg-5",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 27,
+          "end": 35
+        },
+        {
+          "kind": "em",
+          "start": 67,
+          "end": 75
+        },
+        {
+          "kind": "em",
+          "start": 99,
+          "end": 117
+        },
+        {
+          "kind": "em",
+          "start": 133,
+          "end": 141
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 7",
+      "text": "12. The substance of the lacuna in the Latin text is supplied by the Greek, supplemented by the Greek text of the Fragment of Apollonia.",
+      "kind": "source",
+      "through": "rg-7",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/1*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 136
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 8",
+      "text": "13. Et deleted by Mommsen.\n\n14. meo not in Mommsen.\n\n15. complura, Ramsay, fills the space better than the multa of Mommsen.\n\n16. reduxi Mommsen.",
+      "kind": "source",
+      "through": "rg-8",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 7,
+          "end": 26
+        },
+        {
+          "kind": "em",
+          "start": 32,
+          "end": 35
+        },
+        {
+          "kind": "em",
+          "start": 36,
+          "end": 51
+        },
+        {
+          "kind": "em",
+          "start": 57,
+          "end": 106
+        },
+        {
+          "kind": "em",
+          "start": 107,
+          "end": 112
+        },
+        {
+          "kind": "em",
+          "start": 113,
+          "end": 124
+        },
+        {
+          "kind": "em",
+          "start": 130,
+          "end": 136
+        },
+        {
+          "kind": "em",
+          "start": 137,
+          "end": 145
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 9",
+      "text": "17. suscipi Mommsen, supported by Ramsay. The Greek would seem to demand suscipere.\n\n18. cives . . . continenter Wirtz. Mommsen's cives sacrificaverunt semper did not translate the ὁμοθυμαδὸν συνεχῶς of the Greek.",
+      "kind": "source",
+      "through": "rg-9",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 11
+        },
+        {
+          "kind": "em",
+          "start": 12,
+          "end": 72
+        },
+        {
+          "kind": "em",
+          "start": 73,
+          "end": 82
+        },
+        {
+          "kind": "em",
+          "start": 89,
+          "end": 111
+        },
+        {
+          "kind": "em",
+          "start": 113,
+          "end": 129
+        },
+        {
+          "kind": "em",
+          "start": 130,
+          "end": 157
+        },
+        {
+          "kind": "em",
+          "start": 159,
+          "end": 180
+        },
+        {
+          "kind": "em",
+          "start": 200,
+          "end": 213
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 10",
+      "text": "19. in perpetuum Bergk.\n\n20. per legem Ramsay, Mon. Ant., lege Mommsen.\n\n21. habuerat Bormann, confirmed by Ramsay, Mon. Ant., habuit Mommsen.\n\n22. recusavi Mommsen, confirmed by Mon. Ant.\n\n23. Cepi id Mommsen, Quod Bormann.\n\n24. demum Ramsay, Mon. Ant. Bormann had conjectured suscepi , but the fragment of the Mon. Ant. shows that the letter after mortuo was not S but probably D.\n\n25. coeunte . . . narratur is based upon the conjecture of Seeck.",
+      "kind": "source",
+      "through": "rg-10",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 16
+        },
+        {
+          "kind": "em",
+          "start": 17,
+          "end": 23
+        },
+        {
+          "kind": "em",
+          "start": 29,
+          "end": 38
+        },
+        {
+          "kind": "em",
+          "start": 39,
+          "end": 56
+        },
+        {
+          "kind": "em",
+          "start": 58,
+          "end": 62
+        },
+        {
+          "kind": "em",
+          "start": 63,
+          "end": 71
+        },
+        {
+          "kind": "em",
+          "start": 77,
+          "end": 85
+        },
+        {
+          "kind": "em",
+          "start": 86,
+          "end": 125
+        },
+        {
+          "kind": "em",
+          "start": 127,
+          "end": 133
+        },
+        {
+          "kind": "em",
+          "start": 134,
+          "end": 142
+        },
+        {
+          "kind": "em",
+          "start": 148,
+          "end": 156
+        },
+        {
+          "kind": "em",
+          "start": 157,
+          "end": 188
+        },
+        {
+          "kind": "em",
+          "start": 194,
+          "end": 201
+        },
+        {
+          "kind": "em",
+          "start": 202,
+          "end": 209
+        },
+        {
+          "kind": "em",
+          "start": 211,
+          "end": 215
+        },
+        {
+          "kind": "em",
+          "start": 216,
+          "end": 224
+        },
+        {
+          "kind": "em",
+          "start": 230,
+          "end": 235
+        },
+        {
+          "kind": "em",
+          "start": 236,
+          "end": 277
+        },
+        {
+          "kind": "em",
+          "start": 278,
+          "end": 285
+        },
+        {
+          "kind": "em",
+          "start": 286,
+          "end": 349
+        },
+        {
+          "kind": "em",
+          "start": 357,
+          "end": 364
+        },
+        {
+          "kind": "em",
+          "start": 367,
+          "end": 379
+        },
+        {
+          "kind": "em",
+          "start": 388,
+          "end": 410
+        },
+        {
+          "kind": "em",
+          "start": 411,
+          "end": 449
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 11",
+      "text": "26. reduci Mommsen.\n\n27. eo inserted by Bormann.",
+      "kind": "source",
+      "through": "rg-11",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/2*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 10
+        },
+        {
+          "kind": "em",
+          "start": 11,
+          "end": 19
+        },
+        {
+          "kind": "em",
+          "start": 25,
+          "end": 27
+        },
+        {
+          "kind": "em",
+          "start": 28,
+          "end": 48
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 16",
+      "text": "27. remisi Mommsen.",
+      "kind": "source",
+      "through": "rg-16",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 11,
+          "end": 19
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 18",
+      "text": "28. multo . . . aere Schmidt. Mommsen conjectured: inlato frumento vel ad nummarios tributus ex agro.",
+      "kind": "source",
+      "through": "rg-18",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/3*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 7
+        },
+        {
+          "kind": "em",
+          "start": 10,
+          "end": 20
+        },
+        {
+          "kind": "em",
+          "start": 21,
+          "end": 50
+        },
+        {
+          "kind": "em",
+          "start": 51,
+          "end": 55
+        },
+        {
+          "kind": "em",
+          "start": 61,
+          "end": 75
+        },
+        {
+          "kind": "em",
+          "start": 79,
+          "end": 82
+        },
+        {
+          "kind": "em",
+          "start": 85,
+          "end": 100
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 21",
+      "text": "29. aede (sic).",
+      "kind": "source",
+      "through": "rg-21",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 9,
+          "end": 15
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 22",
+      "text": "30. quinquens (sic), quinquiens Mon. Ant.\n\n31. s. c. mecum supplied by Wirtz.",
+      "kind": "source",
+      "through": "rg-22",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 14,
+          "end": 19
+        },
+        {
+          "kind": "em",
+          "start": 32,
+          "end": 41
+        },
+        {
+          "kind": "em",
+          "start": 47,
+          "end": 58
+        },
+        {
+          "kind": "em",
+          "start": 59,
+          "end": 77
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 23",
+      "text": "32. ducenti (sic).",
+      "kind": "source",
+      "through": "rg-23",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/4*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 12,
+          "end": 18
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 26",
+      "text": "33. provicias (sic).",
+      "kind": "source",
+      "through": "rg-26",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 14,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "label": "Source notes · 27",
+      "text": "34. Read Tigranem.",
+      "kind": "source",
+      "through": "rg-27",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/5*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 8
+        }
+      ]
+    },
+    {
+      "label": "Bill Thayer’s note · 32",
+      "text": "a. Tinc must also be a possible reading according to some; see this note to Strabo, Geog. 4.5.3.",
+      "kind": "source",
+      "through": "rg-32",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html#note:6L2_readings",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 84,
+          "end": 89
+        }
+      ]
+    },
+    {
+      "label": "Reference in Bill Thayer’s note",
+      "text": "Strabo, Geography 4.5.3 · note 150.",
+      "kind": "source",
+      "through": "rg-32",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Strabo/4E*.html#note150"
+    },
+    {
+      "label": "Source notes · 35",
+      "text": "35. atque Wirtz, et Mommsen.",
+      "kind": "source",
+      "through": "rg-35",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Augustus/Res_Gestae/6*.html",
+      "marks": [
+        {
+          "kind": "em",
+          "start": 4,
+          "end": 9
+        },
+        {
+          "kind": "em",
+          "start": 10,
+          "end": 15
+        },
+        {
+          "kind": "em",
+          "start": 17,
+          "end": 19
+        },
+        {
+          "kind": "em",
+          "start": 20,
+          "end": 28
+        }
+      ]
+    }
+  ],
+  "assets": []
+}

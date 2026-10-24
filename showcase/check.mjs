@@ -9,7 +9,7 @@ const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_M
 const output=new URL('../test-results/showcase/',import.meta.url);await mkdir(output,{recursive:true});
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
 const sizes=[{width:320,height:740},{width:375,height:812},{width:390,height:844},{width:430,height:932},{width:402,height:874},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
-const shelfOrder=['alice','mountains','at-table','beside-the-bed','dracula','poe','inward-life','learning-to-see','douglass','nietzsche','odyssey','austen','two-halls','walden','war-and-peace','music-and-feeling'];
+const shelfOrder=["alice", "mountains", "at-table", "ballads", "beside-the-bed", "rome", "dracula", "poe", "inward-life", "shakespeare", "learning-to-see", "douglass", "nietzsche", "odyssey", "pictures-after-dark", "austen", "two-halls", "walden", "war-and-peace", "music-and-feeling"];
 const promptText=(await readFile(new URL('./start.txt',import.meta.url),'utf8')).trim();
 const commandText='Use https://newreading.app/start.txt to help me build a personal reader. Follow the linked kit guide, then help me choose a simple reader or a custom experience.';
 async function settled(page){await page.locator('header [data-copy]:not([hidden])').waitFor();await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}

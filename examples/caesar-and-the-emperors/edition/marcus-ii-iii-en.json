@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "profile": "caesar-and-the-emperors/edition@1",
+  "id": "marcus-ii-iii-en",
+  "title": "Meditations · Books II–III",
+  "author": "Marcus Aurelius",
+  "edition": "George W. Chrystal · 1902 · Project Gutenberg 55317",
+  "language": "en",
+  "source": {
+    "sha256": "dd142807b1f8b230ff5bf14f6bb1f605abd9b5734ef46fb313c46223be546ad8",
+    "format": "historical-transcription",
+    "description": "Complete Books II and III in the Chrystal 1902 translation, based on Foulis 1742. Exact Project Gutenberg transcription, including its unresolved II.14 ears reading."
+  },
+  "sections": [
+    {
+      "id": "ii-1",
+      "title": "II · 1",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Say this to yourself in the morning: Today I shall have to do with meddlers, with the ungrateful, with the insolent, with the crafty, with the envious and the selfish. All these vices have beset them, because they know not what is good and what is evil. But I have considered the nature of the good, and found it beautiful: I have beheld the nature of the bad, and found it ugly. I also understand the nature of the evil-doer, and know that he is my brother, not because he shares with me the same blood or the same seed, but because he is a partaker of the same mind and of the same portion of immortality. I therefore cannot be hurt by any of these, since none of them can involve me in any baseness. I cannot be angry with my brother, or sever myself from him, for we are made by nature for mutual assistance, like the feet, the hands, the eyelids, the upper and lower rows of teeth. It is against nature for men to oppose each other; and what else is anger and aversion?",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-2",
+      "title": "II · 2",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "All that I am is either flesh, breath, or the ruling part. Cast your books from you; distract yourself no more; for you have not the right to do so. Like one at the point of death despise this flesh, this corruptible bone and blood, this network texture of nerves, veins, and arteries. Consider, too, what breath is—mere air, and that always changing, expelled and inhaled again every moment. The third is the ruling part. As to this, take heed, now that you are old, that it remain no longer in servitude; that it be no more dragged hither and thither like a puppet by every selfish impulse. Repine no more at what fate now sends, nor dread what may befall you hereafter.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-3",
+      "title": "II · 3",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Whatever the Gods ordain is full of wise forethought. The workings of chance are not apart from nature, and not without connexion and intertexture with the designs of Providence. Providence is the source of all things; and, besides, there is necessity, and the utility of the Universe, of which you are a part. For, to every part of a being, that is good which springs from the nature of the whole and tends to its preservation. Now, the order of Nature is preserved in the changes of elements, just as it is in the changes of things that are compound. Let this suffice you, and be your creed unchangeable. Put from you the thirst of books, that you may not die murmuring, but meekly, and with true and heartfelt gratitude to the Gods.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-4",
+      "title": "II · 4",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Think of your long procrastination, and of the many opportunities given you by the Gods, but left unused. Surely it is high time to understand the Universe of which you are a part, and the Ruler of that Universe, of whom you are an emanation; that a limit is set to your days, which, if you use them not for your enlightenment, will depart, as you yourself will, and return no more.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-5",
+      "title": "II · 5",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Hourly and earnestly strive, as a Roman and a man, to do what falls to your hand with perfect unaffected dignity, with kindliness, freedom and justice, and free your soul from every other imagination. This you will accomplish if you perform each action as if it were your last, without wilfulness, or any passionate aversion to what reason approves; without hypocrisy or selfishness, or discontent with the decrees of Providence. You see how few things it is necessary to master in order that a man may live a smooth-flowing, God-fearing life. For of him that holds to these principles the Gods require no more.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-6",
+      "title": "II · 6",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Go on, go on, O my soul, to affront and dishonour thyself! The time that remains to honour thyself will not be long. Short is the life of every man; and thine is almost spent; spent, not honouring thyself, but seeking thy happiness in the souls of other men.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-7",
+      "title": "II · 7",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Cares from without distract you: take leisure, then, to add some good thing to your knowledge; have done with vacillation, and avoid the other error. For triflers, too, are they who, by their activities, weary themselves in life, and have no settled aim to which they may direct, once and for all, their every desire and project.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-8",
+      "title": "II · 8",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Seldom are any found unhappy from not observing what is in the minds of others. But such as observe not well the stirrings of their own souls must of necessity be unhappy.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-9",
+      "title": "II · 9",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Remember always what the nature of the Universe is, what your own nature is, and how these are related—the one to the other. Remember what part your qualities are of the qualities of the whole, and that no man can prevent you from speaking and acting always in accordance with that nature of which you are a part.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-10",
+      "title": "II · 10",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In comparing crimes together, as, according to the common idea, they may be compared, Theophrastus makes the true philosophical distinction, that those committed from motives of pleasure are more heinous than those which are due to passion. For he who is a prey to passion is clearly turned away from reason by some spasm and convulsion that takes him unawares. But he who sins from desire is conquered by pleasure, and so seems more incontinent and more effeminate in his vice. Justly then, and in a truly philosophical spirit, he says that sin, for pleasure’s sake, is more wicked than sin which is due to pain. For the latter sinner was sinned against, and so driven to passion by his wrongs, while the former set out to sin of his own motion, and was led into ill-doing by his own lust.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-11",
+      "title": "II · 11",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Do every deed, speak every word, think every thought in the knowledge that you may end your days any moment. To depart from men, if there be really Gods, is nothing terrible. The Gods could bring no evil thing upon you. And if there be no Gods, or if they have no regard to human affairs, why should I desire to live in a world void of Gods and without Providence? But Gods there are, and assuredly they regard human affairs; and they have put it wholly in man’s power that he should not fall into what is truly evil. And of other things, had any been bad, they would have made provision also that man should have the power to avoid them altogether. For how can that make a man’s life worse which does not corrupt the man himself? Presiding Nature could not in ignorance, or in knowledge impotent, have omitted to prevent or rectify these things. She could not fail us so completely that, either from want of power or want of skill, good and evil should happen promiscuously to good men and to bad alike. Now death and life, glory and reproach, pain and pleasure, riches and poverty—all these happen equally to the good and to the bad. But, as they are neither honourable nor shameful, they are therefore neither good nor evil.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-12",
+      "title": "II · 12",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "It is the office of our rational power to apprehend how swiftly all things vanish; how the corporeal forms are swallowed up in the material world, and the memory of them in the tide of ages. Such are all the things of sense, especially those which ensnare us with pleasure or terrify us with pain, or those things which vanity trumpets in our ears. How mean, how despicable, how sordid, how perishable, how dead are they! What are they whose opinions and whose voices bestow renown? What is it to die? Your mind can tell you that, did a man think of it alone, and, by close consideration, strip it of its ghastly trappings, he would no longer deem it anything but a work of Nature. To dread a work of Nature is a childish thing, and this is, indeed, not only Nature’s work, but beneficial to her. Your reason tells you how man reaches God, and through what part, and what is the state of that part, when he has attained unto him.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-13",
+      "title": "II · 13",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Nothing, says the poet, is more miserable than to range over all things, to spy into the depths of the earth, and search, by conjecture, into the souls of those around us, yet not to perceive that it is enough for a man to devote himself to that divinity which is within him, and to pay it genuine worship. And this worship consists in keeping it pure from every passion and folly, and from repining at anything done by Gods or men. The work of the Gods is to be reverenced for its excellence. The works of men should be dear for the sake of the bond of kinship, or pitied, as we must pity them sometimes, for their lack of the knowledge of good and evil. And men are not less maimed by this defect than by their want of power to know white from black.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-14",
+      "title": "II · 14",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Though you should live three thousand ears or as many myriads, yet remember that no man loses any other life than that which now lives, nor lives any other than that which he is now losing. The longest and the shortest lives come to one effect. The present moment is the same for all men, and their loss, therefore, is equal, for it is clear that what they lose in death is but a fleeting instant of time. No man can lose either the past or the future, for how can a man be deprived of what he has not? These two things then are to be remembered: First, that all things recur in cycles, and are the same from everlasting, and that, therefore, it matters nothing whether a man shall contemplate these same things for one hundred years, or for two hundred, or for an infinite stretch of time: and, secondly, that he who lives longest and he who dies soonest have an equal loss in death. The present moment is all of which either is deprived, since that is all he has. No man can be robbed of that which he has not.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-15",
+      "title": "II · 15",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Beyond opinion there is nothing. The objections to this saying of Monimus the Cynic are obvious. But obvious also is the utility of what he said, if one accept his pleasantry as far as truth will warrant it.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-16",
+      "title": "II · 16",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Man’s soul dishonours itself, firstly and chiefly when it does all it can to become an excrescence, and as it were an abscess on the Universe. To fret against any particular event is to revolt against the general law of Nature, which comprehends the order of all events whatsoever. Again it is dishonour for the soul when it has aversion to any man, and opposes him with intention to hurt him, as wrathful men do. Thirdly, it affronts itself when conquered by pleasure or pain; fourthly, when it does or says anything hypocritically, feignedly or falsely; fifthly, when it does not direct to some proper end all its desires and actions, but exerts them inconsiderately and without understanding. For, even the smallest things should be referred to the end, and the end of rational beings is to follow the order and law of the venerable state and polity which comprehends them all.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "ii-17",
+      "title": "II · 17",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "The duration of man’s life is but an instant; his substance is fleeting, his senses dull; the structure of his body corruptible; the soul but a vortex. We cannot reckon with fortune, or lay our account with fame. In fine, the life of the body is but a river, and the life of the soul a misty dream. Existence is a warfare, and a journey in a strange land; and the end of fame is to be forgotten. What then avails to guide us? One thing, and one alone—Philosophy. And this consists in keeping the divinity within inviolate and intact; victorious over pain and pleasure; free from temerity, free from falsehood, free from hypocrisy; independent of what others do or fail to do; submissive to hap and lot, which come from the same source as we; and, above all, with equanimity awaiting death, as nothing else than a resolution of the elements of which every being compounded. And, if in their successive interchanges no harm befall the elements, why should one suspect any in the change and dissolution of the whole? It is natural, and nothing natural can be evil.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-1",
+      "title": "III · 1",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Man must consider, not only that each day part of his life is spent, and that less and less remains to him, but also that, even if he live longer, it is very uncertain whether his intelligence will suffice as heretofore for the understanding of his affairs, and for grasping that knowledge which aims at comprehending things human and divine. When dotage begins, breath, nourishment, fancy, impulse, and so forth will not fail him. But self-command, accurate appreciation of duty, power to scrutinize what strikes his senses, or even to decide whether he should take his departure, all powers, indeed, which demand a well-trained understanding, must be extinguished in him. Let him be up and doing then, not only because death comes nearer every day, but because understanding and intelligence often leave us before we die.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-2",
+      "title": "III · 2",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Observe what grace and charm appear even in the accidents that accompany Nature’s work. Thus some parts of a loaf crack and burst in the baking; and this cracking, though in a manner contrary to the design of the baker, looks well and invites the appetite. Figs, too, gape when at their ripest, and in ripe olives the very approach to rotting adds a special beauty to the fruit. The droop of ears of corn, the bent brows of the lion, the foam at a boar’s mouth, and many other things, are far from comely in themselves, yet, since they accompany the works of Nature, they make part of her adornment, and rejoice the beholder. Thus, if a man be sensitive to such things, and have a more than common penetration into the constitution of the whole, scarce anything connected with Nature will fail to give him pleasure, as he comes to understand it. Such a man will contemplate in the real world the fierce jaws of wild beasts with no less delight than when sculptors or painters set forth for him their presentments. With like pleasure will his chaste eyes behold the maturity and grace of old age in man or woman, and the inviting charms of youth. Many such things will strike him, things not credible to the many, but which come to him alone who is truly familiar with the works of Nature and near to her own heart.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-3",
+      "title": "III · 3",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Hippocrates, who had healed many diseases, himself fell sick, and died. The Chaldeans foretold the fatal hours of multitudes, and afterwards fate carried themselves away. Alexander, Pompey, and Gaius Caesar, who so often razed whole cities, and cut off in battle so many myriads of horse and foot, at last departed from this life themselves. Heraclitus, after his many speculations on the conflagration of the world, died, swollen with water and plastered with cow-dung. Vermin destroyed Democritus; Socrates was killed by vermin of another sort. What of all this? You have gone aboard, made your voyage, come to harbour. Disembark: if into another life, there will God be also; if into nothingness, at least you will have done with bearing pain and pleasure, and with your slavery to this vessel so much meaner than its slave. For the soul is intelligence and deity, the body dust and corruption.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-4",
+      "title": "III · 4",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Waste not what remains of life in consideration about others, when it makes not for the common good. Be sure you are neglecting other work if you busy yourself with what such a one is doing and why, with what he is saying, thinking, or scheming. All such things do but divert you from the steadfast guardianship of your own soul. It behoves you, then, in every train of thought to shun all that is aimless or useless, and, above all, everything officious or malignant. Accustom yourself so, and only so, to think, that, if any one were suddenly to ask you, “Of what are you thinking-now?” you could answer frankly and at once, “Of so and so.” Then it will plainly appear that you are all simplicity and kindliness, as befits a social being who takes little thought for enjoyment or any phantom pleasure; who spurns contentiousness, envy, or suspicion; or any passion the harbouring of which one would blush to own. For such a man, who has finally determined to be henceforth among the best, is, as it were, a priest and minister of the Gods, using the spirit within him, which preserves a man unspotted from pleasure, unwounded by any pain, inaccessible to all insult, innocent of all evil; a champion in the noblest of all contests—the contest for victory over every passion. He is penetrated with justice; he welcomes with all his heart whatever befalls, or is appointed by Providence. He troubles not often, or ever without pressing public need, to consider what another may say, or do, or design. Solely intent upon his own conduct, ever mindful of his own concurrent part in the destiny of the Universe, he orders his conduct well, persuaded that his part is good. For the lot appointed to every man is part of the law of all things as well as a law for him. He forgets not that all rational beings are akin, and that the love of all mankind is part of the nature of man; also that we must not think as all men think, but only as those who live a life accordant with nature. As for those who live otherwise, he remembers always how they act at home and abroad, by night and by day, and how and with whom they are found in company. And so he cannot esteem the praise of such, for they enjoy not their own approbation.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-5",
+      "title": "III · 5",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In action be neither grudging, nor selfish, nor ill-advised, nor constrained. Let not your thought be adorned with overmuch nicety. Be not a babbler or a busybody. Let the God within direct you as a manly being, as an elder, a statesman, a Roman, and a ruler, standing prepared like one who awaits the recall from life, in marching order; requiring neither an oath nor the testimony of any man. And withal, be cheerful, and independent of the assistance and the peace that comes from others; for, it is a man’s duty to stand upright, self-supporting, not supported.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-6",
+      "title": "III · 6",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "If in the life of man you find anything better than justice, truth, sobriety, manliness; and, in sum, anything better than the satisfaction of your soul with itself in that wherein it is given to you to follow right reason; and with fate in that which is determined beyond your control; if, I say, you find aught better than this, then turn thereto with all your heart, and enjoy it as the best that is to be found. But if nothing seems to you better than the divinity seated within you, which has conquered all your impulses, which sifts all your thoughts, which, as Socrates said, has detached itself from the promptings of sense, and devoted itself to God and to the love of mankind; if you find every other thing small and worthless compared with this, see that you give place to no other which might turn, divert, or distract you from holding in highest esteem the good which is especially and properly your own. For it is not permitted to us to substitute for that which is good in reason or in fact anything not agreeable thereto, such as the praise of the many, power, riches, or the pursuit of pleasure. All these things may seem admissible for a moment; but presently they get the upper hand, and lead us astray. But do you, I say, frankly and freely choose the best, and keep to it. The best is what is for your advantage. If now you choose what is for your spiritual advantage, hold it fast; if what is for your bodily advantage, admit that it is so chosen, and keep your choice with all modesty. Only see that you make a sure discrimination.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-7",
+      "title": "III · 7",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Never esteem aught of advantage which will oblige you to break your faith, or to desert your honour; to hate, to suspect, or to execrate any man; to play a part; or to set your mind on anything that needs to be hidden by wall or curtain. He who to all things prefers the soul, the divinity within him, and the sacred cult of its virtues, makes no tragic groan or gesture. He needs neither solitude nor a crowd of spectators; and, best of all, he will live neither seeking nor shunning death. Whether the soul shall use its surrounding body for a longer or shorter space is to him indifferent. Were he to depart this moment he would go as readily as he would do any other seemly and proper action, holding one thing only in life-long avoidance—to find his soul in any case unbefitting an intelligent social being.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-8",
+      "title": "III · 8",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "In the soul of the chastened and purified man you would find nothing putrid, foul, or festering. Fate does not cut off his life before its proper end; as one would say of an actor who left the stage before his part was ended, or he had reached his appointed exit. There remains nothing servile or affected, nothing too conventional or too seclusive, nothing that fears censure or courts concealment.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-9",
+      "title": "III · 9",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Hold in honour the faculty which forms opinions. It depends on this faculty alone that no opinion your soul entertains be inconsistent with the nature and constitution of the rational being. It ensures that we form no rash judgments, that we are kindly to men, and obedient to the Gods.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-10",
+      "title": "III · 10",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Cast from you then all other things, retaining these few. Remember also that every man lives only this present moment, which is a fleeting instant: the rest of time is either spent or quite unknown. Short is the time which each of us has to live, and small the corner of the earth he has to live in. Short is the longest posthumous fame, and this preserved through a succession of poor mortals, soon themselves to die; men who knew not themselves, far less those who died long ago.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-11",
+      "title": "III · 11",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "To these maxims add this other. Accurately define or describe every thing that strikes your imagination, so that you may see and distinguish what it is in naked essence, and what it is in its entirety; that you may tell yourself the proper name of the thing itself, and the names of the parts of which it is compounded, and into which it will be resolved. Nothing makes mind greater than the power to enquire into all things that present themselves in life; and, while you examine them, to consider at the same time of what fashion is the Universe, and what is the function in it of these things, of what importance they are to the whole, of what to man who is a citizen of that highest city of which all other cities are but households. Consider what is this thing that now makes an impression on you, of what it is composed, and how long it is destined to endure. Consider also for what virtue it calls; whether it be gentleness, courage, truthfulness, fidelity, simplicity, independence, or any other. Say, therefore, of each event: “This comes from God:” or “This comes from the conjunction and intertexture of the strands of fate, or from some chance or hazard of that kind:” or “This comes from one of my own tribe, from my kinsman, from my friend. He is, indeed, ignorant of what accords with nature; but I am not, and will therefore use him kindly and justly, according to the natural and social law. As to things indifferent, I strive to appraise them at their proper value.”",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-12",
+      "title": "III · 12",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "If you discharge your present duty with firm and zealous, yet kindly, observance of the laws of reason; if you regard no by-gains, but keep pure within you your immortal part, as if obliged to restore it at once to him who gave it; if you hold to this with no further desires or aversions, and be content with the natural discharge of your present task, and with the heroic sincerity of all you say or utter, you will live well. And herein no man can hinder you.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-13",
+      "title": "III · 13",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "As surgeons have ever their knives and instruments at hand for the sudden emergencies of their art, so do you keep ready the principles requisite for understanding things divine and human, and for doing all things, even the least important, in the remembrance of the bond between the two. For in neglecting this, you will scant your duty both to Gods and men.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-14",
+      "title": "III · 14",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Cease your wandering, for you are not like to read again your own memoirs, or the deeds of the ancient Greeks and Romans, or those collections from the writings of others that you laid up for your old age. Hasten then to your proper end. Fling away vain hopes, and, if you have any care for yourself, fly to your own succour while yet you may.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-15",
+      "title": "III · 15",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "Men understand not all that is signified by the words—to steal, to sow, to buy, to rest, to see what is to be done. For it is not the bodily eye but another sort of sight that must discern these things.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "iii-16",
+      "title": "III · 16",
+      "blocks": [
+        {
+          "id": "b1",
+          "kind": "prose",
+          "text": "We have body, soul, and intelligence. To the body belong the senses, to the soul the passions, to the intelligence principles. To be affected by the imagery of sense belongs to the beasts of the field no less than to us. To be swayed by gusts of passion is common to us with the wild beasts, with the most effeminate wretches, with Nero and with Phalaris. Moreover, the possession of a mind to guide us to what seems fitting is shared by us, with atheists, with traitors to their country, and with such as shut their doors and sin. If, then, all the rest is common as we have seen, there remains to the good man this special excellence; to welcome with pleasure all that happens or is ordained, not to defile the divinity enthroned in his breast, not to perturb it with a crowd of images, but to preserve it in tranquillity, and obey it as a God: to observe truth in all he says, and justice in his every action. And though others may not believe that he lives thus in simplicity, modesty, and contentment, he neither takes this unbelief amiss from any one, nor quits the road which leads to the true end of life, at which he ought to arrive pure, calm, ready to take his departure, and accommodated without compulsion to his fate.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "Edition and source",
+      "text": "The complete second and third books, not the full Meditations. George W. Chrystal (1880–1944), Edinburgh: Otto Schulze; London: S. C. Brown, 1902; based on the Foulis 1742 rendering associated with Francis Hutcheson and James Moor. Exact digital witness: Project Gutenberg 55317, transcribed by E. H. N. No matching print scan was obtained, and no scan proofreading is claimed. II.14 reads “three thousand ears” in that transcription; this apparent defect is preserved, not silently repaired. Historical text is public domain in the United States; other territories and public release remain separate decisions. The Greek is Leopold 1908, an independent critical text, not the Greek used for Chrystal’s translation.",
+      "kind": "source",
+      "through": null,
+      "url": "https://www.gutenberg.org/ebooks/55317"
+    }
+  ],
+  "assets": []
+}
