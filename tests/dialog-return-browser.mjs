@@ -35,15 +35,24 @@ try{
   const executablePath=engine==='chromium'?process.env.CHROME_PATH:process.env.WEBKIT_PATH;browser=await pw[engine].launch({headless:true,...(executablePath?{executablePath}:{})});
   const context=await browser.newContext({serviceWorkers:'block',viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   const ready=async(section='one')=>{await page.locator(`#reading-text[data-book="${book.id}"][data-section="${section}"][data-position-ready="true"]`).waitFor();await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});};
+  const readerURL=base+'/#read/'+book.id+'/one';
+  const navigateReady=async navigate=>{
+    // Complete the supplied library request before any later document navigation.
+    const [response]=await Promise.all([page.waitForResponse(response=>response.url()===base+'/library.json'&&response.request().method()==='GET'),navigate()]);
+    assert.equal(response.status(),200,'The fixture library must load successfully');
+    assert.equal(await response.finished(),null,'The fixture library response must finish');
+    assert.deepEqual(await response.json(),[book],'The complete exact fixture must arrive');
+    await ready();
+  };
   const load=()=>page.evaluate(async()=>(await import('/db.mjs')).loadState());
   const landmark=()=>page.evaluate(source=>{const el=[...document.querySelectorAll('#reading-text [data-block]')].find(el=>el.dataset.block===source.blockId),walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let node,left=source.offset;while((node=walker.nextNode())){if(left<node.length)break;left-=node.length;}const range=document.createRange();range.setStart(node,left);range.setEnd(node,left+1);const r=range.getBoundingClientRect(),occupied=[...document.querySelectorAll('.masthead,.reader-tools')].map(n=>n.getBoundingClientRect()).filter(r=>r.width&&r.height&&r.bottom>0&&r.top<innerHeight),top=Math.max(0,...occupied.map(r=>Math.min(innerHeight,r.bottom)));return{character:node.textContent[left],top:r.top,bottom:r.bottom,usableTop:top,height:innerHeight,scroll:scrollY};},source);
   const visible=async label=>{const r=await landmark();assert.equal(r.character,source.character);assert.ok(r.top>=r.usableTop-1&&r.bottom<=r.height,label+': '+JSON.stringify(r));return r;};
   const close=async()=>{await page.locator('#dialog [data-action="close"]').click();await page.locator('#dialog').waitFor({state:'hidden'});};
   const open=async action=>{await page.locator(`[data-action="${action}"]`).first().evaluate(el=>el.click());await page.locator('#dialog[open]').waitFor();};
   const rotate=()=>page.setViewportSize({width:844,height:390});
-  await page.goto(base+'/#read/'+book.id+'/one');await ready();
+  await navigateReady(()=>page.goto(readerURL));
   await page.evaluate(async note=>{await(await import('/db.mjs')).updateState(s=>{s.notes=[note];return s;});},note);
-  const prepare=async()=>{await page.setViewportSize({width:390,height:844});await page.evaluate(async()=>{await(await import('/db.mjs')).updateState(s=>{s.prefs={...s.prefs,size:24,leading:1.7,measure:'book',focus:false};return s;});});await page.goto(base+'/#read/'+book.id+'/one');await page.reload();await ready();for(let i=0;i<2;i++){const p=await landmark();await page.evaluate(delta=>scrollBy(0,delta),p.top-p.usableTop-85);}await page.waitForTimeout(350);await visible('initial exact character');};
+  const prepare=async()=>{await page.setViewportSize({width:390,height:844});await page.evaluate(async()=>{await(await import('/db.mjs')).updateState(s=>{s.prefs={...s.prefs,size:24,leading:1.7,measure:'book',focus:false};return s;});});assert.equal(page.url(),readerURL,'Preparation stays in the source section');await navigateReady(()=>page.reload());for(let i=0;i<2;i++){const p=await landmark();await page.evaluate(delta=>scrollBy(0,delta),p.top-p.usableTop-85);}await page.waitForTimeout(350);await visible('initial exact character');};
   await prepare();const same=await landmark();await open('background');await close();assert.equal((await landmark()).scroll,same.scroll,'same-layout pixels');
   await prepare();await open('background');await rotate();await close();const rotated=await visible('rotated source return');
   await prepare();await open('settings');await rotate();await page.locator('[data-preset="large"]').click();await page.waitForFunction(()=>document.querySelector('#size')?.value==='29'&&document.querySelector('#reading-text')?.dataset.positionReady==='true');await close();const preset=await visible('preset source return');

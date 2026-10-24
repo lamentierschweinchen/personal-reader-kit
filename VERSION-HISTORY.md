@@ -1,5 +1,9 @@
 # History boundary
 
+## Source-response readiness in the dialog check · October 24, 2026
+
+The standalone starter check exposed two back-to-back document navigations in its fixture setup. The second could cancel the first supplied-library request and intermittently produce a WebKit diagnostic. Each setup now performs one navigation and verifies the complete, successful fixture response before continuing. Exact-character, note, deliberate-navigation and runtime-error assertions remain strict. Both the source checkout and independent starter export pass in Chromium and WebKit, including a delayed-response reproduction. Reader and deployed site bytes are unchanged.
+
 ## Four themed readers and source-character return · October 24, 2026
 
 Four owner-approved collections bring the library to twenty: German ballads and Goethe’s Iphigenie in German and English; Julius Caesar, Henry V and The Tempest with historical context; illustrated French prose and poetry with English translations; and Caesar, Augustus and Marcus Aurelius with related Roman witnesses. Each has its own source and license page. The selected Folger, Wikisource and Perseus texts retain their license terms; the kit’s MIT license covers the code, not those editions.

@@ -18,6 +18,8 @@ Existing shared checks cover forty failed-save/retry journeys, forty Continue jo
 
 Exact publication and deployment inventories cover only the reviewed packages and existing approved scope. The original-sample starter adds one original-fixture test; it receives none of the historical books. Raw sources, private records, preparation evidence and independent project histories stay local.
 
+The independent 77-file starter export passes 72 unit tests and its original-sample build. Its new dialog check also exposed a test-navigation race: a redundant reload could cancel an in-flight library request. The repaired check waits for the complete exact fixture response and uses one navigation per setup. Source and exported copies pass in both engines with unchanged error and source-position assertions, including delayed-response proof. This follow-up changes no reader or deployed output bytes.
+
 ## Douglass, Poe and the starter export · 23 October 2026
 
 The owner approved Douglass for publication and delegated Poe’s final acceptance. The coordinator and an independent reader reviewed Poe’s complete story, six studies, source witnesses and illustration rights; the accepted public copy adds both readers to the existing catalogue, bringing it to sixteen editions.
