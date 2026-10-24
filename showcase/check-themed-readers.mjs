@@ -39,7 +39,18 @@ async function openSection(page,base,e,book,section){await page.goto(`${base}/${
 async function close(page){await page.keyboard.press('Escape');await page.locator('#dialog').waitFor({state:'hidden'});await settledRender(page);}
 async function layout(page,label){
  await settledRender(page);
- assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),label+': page stays inside viewport');
+ const geometry=await page.evaluate(()=>{
+  const width=innerWidth,documentWidth=document.documentElement.scrollWidth;
+  if(documentWidth<=width)return {width,documentWidth};
+  // Keep failure evidence source-free and bounded; do not retry or hide overflow.
+  const offenders=[...document.querySelectorAll('body *')].map(el=>{
+   const r=el.getBoundingClientRect();if(!r.width||r.left>=0&&r.right<=width)return null;
+   const s=getComputedStyle(el);return {element:el.tagName.toLowerCase(),id:el.id,classes:typeof el.className==='string'?el.className:'',left:r.left,right:r.right,width:r.width,clientWidth:el.clientWidth,scrollWidth:el.scrollWidth,font:s.font,fontFamily:s.fontFamily,minWidth:s.minWidth,maxWidth:s.maxWidth,whiteSpace:s.whiteSpace,overflowWrap:s.overflowWrap,overflowX:s.overflowX,display:s.display,excess:Math.max(-r.left,r.right-width)};
+  }).filter(Boolean).sort((a,b)=>b.excess-a.excess).slice(0,8);
+  return {width,documentWidth,bodyWidth:document.body.scrollWidth,viewportWidth:visualViewport?.width,devicePixelRatio,fontsStatus:document.fonts.status,serif:getComputedStyle(document.documentElement).getPropertyValue('--serif'),offenders};
+ });
+ if(geometry.documentWidth>geometry.width){(receipt.layoutFailures??=[]).push({label,url:page.url(),geometry});await save();}
+ assert.ok(geometry.documentWidth<=geometry.width,label+': page stays inside viewport'+(geometry.documentWidth>geometry.width?' '+JSON.stringify(geometry):''));
  const modal=await page.locator('#dialog[open]').count();
  if(modal)assert.ok(await page.locator('#dialog').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=-1&&r.right<=innerWidth+1&&r.top>=-1&&r.bottom<=innerHeight+1&&el.scrollWidth<=el.clientWidth;}),label+': modal and its content inside viewport');
 }

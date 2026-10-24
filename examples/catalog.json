@@ -4969,7 +4969,7 @@
         {
           "path": "build.json",
           "bytes": 610,
-          "sha256": "cd80ea1419064456a20b09ed32fce529e2ddf41d66b6fb739e372c90b03bd3e9"
+          "sha256": "a1c3f119a55b4c0ced81fcb2b1dcb3455fe9461fdcdc804a3bda8512375725ea"
         },
         {
           "path": "bundle.mjs",
@@ -5058,13 +5058,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 28572,
-          "sha256": "ee1ea222a1613b94f3c5cf35f8be135f40225ed64b5dd2d1cac9a83367593129"
+          "bytes": 28589,
+          "sha256": "8a3f1a391216c5657ecb71467cac2e0a5e6787bc7c1e0d61f8da55a77e0b95b0"
         },
         {
           "path": "sw.js",
           "bytes": 1407,
-          "sha256": "b52ddc38b5942ea263c4ad4dc759cf0bd6578ea82a3038e71fd205d98cba1cbc"
+          "sha256": "c65f467f2e97d0336dd28761814c22c91681d34e0eb32edb07127d0553e3bad8"
         },
         {
           "path": "text.mjs",
@@ -5072,7 +5072,9 @@
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "Scale the entrance title on the narrowest phones so wider fallback fonts fit; text, normal phone/desktop size and saved records are unchanged."
+      ]
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"
