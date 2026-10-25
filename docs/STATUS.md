@@ -4,6 +4,10 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Preparation lessons · October 25, 2026
+
+The guide, adapter guidance and reader-copyeditor now distinguish independent bilingual witnesses, alignment units and translation choices from transcription defects. Historical context separates event, composition, edition and reception; examines genre and audience; and retains the complete argument behind a comparison. Images and later notes need their own attribution and evidence. This documentation update changes no reader, source edition, storage format or build output. All 81 kit tests and the original-sample build pass; the exact publication inventory and reachable history are audited before synchronization. These instructions do not claim automatic bilingual import or new physical-device testing.
+
 ## Four themed readers · October 24, 2026
 
 The owner approved the four collections and final publication review. The accepted copies add `/ballads/`, `/shakespeare/`, `/pictures-after-dark/` and `/rome/` to the established site, bringing the library to twenty. The coordinator reviewed their actual reading and contextual experiences, source witnesses, illustrations and license notices, with independent German/French, Shakespeare and Roman reviews.

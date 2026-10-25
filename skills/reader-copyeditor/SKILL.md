@@ -48,7 +48,13 @@ Keep consequential information at the action: spoiler scope, storage failure, pr
 
 Keep author, narrator, translator and editor distinct. Check facts against the relevant evidence; distinguish historical events, later testimony and current conditions. Do not turn a deletion into a stronger unsupported assertion or a later event into the cause of an earlier action. Preserve ambiguity and allow a proposed comparison to fail. Never invent a quotation, authorial intention or scholarly consensus. In a comparison, check who speaks, which narrative level they occupy, and which contributor or edition supplied the passage or image. Do not turn an ambiguous identity into a definite character record. Check spoilers in front matter, indexes and captions as well as chapter prose.
 
+For historical context, ask who addresses whom, in what genre and through whose account. Separate the event, composition, selected edition and later reception. Does the source establish the claim’s truth, or only that its author made it? Read through the next reply, reversal or consequence before approving an excerpt. Keep the qualification that changes its meaning. A rival account is not neutral merely because it disagrees.
+
+For bilingual copy, name the actual translator and witness, and limit any claim of correspondence to the inspected unit. Check a supposed error against that translation’s own source before calling it a mistake. Different wording, unequal lengths and awkward historical English are not instructions to rewrite protected literature.
+
 Check captions and alt text against the full image, then the passage. A picture's title does not establish which moment or figure it depicts. Two views of one place do not establish a fixed viewpoint or a sequence in time.
+
+Check an image’s identity separately from its relation to the writing. A museum record may establish who drew a later scene, while saying nothing about its influence on an earlier author. Label documented influence, later reception and the editor’s present comparison accurately; retain the concrete observation and cut a relationship the evidence cannot support. Illustrators, modern note writers and their reuse terms do not inherit the ancient text’s date or rights status.
 
 Read aloud for cadence and check neighboring paragraphs for repeated openings, conclusions and rhetorical gestures. Keep particularity, humor and deliberate rhythm. Do not impose a universal sentence length, spelling convention, punctuation ban or "AI score". A phrase list can locate candidates; it cannot decide whether prose is good or generated.
 

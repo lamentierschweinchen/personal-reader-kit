@@ -1,5 +1,9 @@
 # History boundary
 
+## Bilingual editions and historical context · October 25, 2026
+
+The guide, adapter guidance and reader-copyeditor now carry the useful distinctions from the four themed readers: independent language witnesses and dates; declared alignment units with unmatched material intact; translation choices distinguished from transcription errors; and historical claims grounded in genre, audience and complete arguments. Image identity, later reception and documented influence need separate evidence. These are additions to the existing preparation and review workflow, not new importer capabilities. Reader code, source editions and storage remain unchanged.
+
 ## Roman cover on narrow screens · October 24, 2026
 
 Hosted WebKit checks exposed a 320-pixel Roman entrance overflow. Wider fallback-font metrics reproduce the clipped final title word. The phone title now scales down on the smallest screens while retaining its former size at ordinary phone and desktop widths. The strict viewport assertion remains; bounded geometry now identifies an overflow without copying source text into diagnostics. No literary text, reading code or saved-record format changes.
