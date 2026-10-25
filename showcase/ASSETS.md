@@ -1,5 +1,13 @@
 # Showcase assets
 
+## Edition social cards · 25 October 2026
+
+The 20 `assets/social-<edition>.jpg` cards and `assets/social-library.jpg` are 1200 × 630 JPEG renderings of the existing public library covers. Each edition keeps its cover artwork and lettering; the surrounding title, author and feature come from the reviewed public `library/entries.json`. The library card shows Austen, Alice, Pictures after dark and Caesar and the emperors. No book passages, annotations, reading positions or private preparation appear.
+
+These are derivative layouts of the cover compositions in `library/covers.mjs` and `library/style.css`. Their historical artwork, generated illustration and original vector credits remain as documented below and in each edition's linked source and rights record. The layouts add no rights claim over those sources. The surrounding type uses the locally licensed IM Fell English, Piazzolla and Martian Mono fonts; all font notices remain available in `assets/` and the edition's source view.
+
+`social-images.mjs` prepares self-contained HTML candidates from a reviewed combined build. Browser captures were reviewed individually and together before their exact bytes were pinned in `social-previews.json` and `publication.json`. Changing a title, author or feature requires reviewing its card again. The build verifies coverage and image hashes, then serves the same edition image at its reader and library item URLs with separate canonical addresses. Candidate HTML, browser captures and review receipts remain local and ignored.
+
 The catalogue first published at `read.lookatseel.com` followed the visual language of [Lukas Seel’s personal website](https://lookatseel.com/), at his explicit request on 16 October 2026. That first release borrowed the warm paper palette, Fraunces typography and the existing book object. That first release did not copy personal-reader material or presentation captures.
 
 ## Personal cover opening · 17 October 2026

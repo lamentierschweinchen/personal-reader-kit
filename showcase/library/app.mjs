@@ -7,7 +7,7 @@ const empty=document.querySelector('.empty');
 const status=document.querySelector('#result-count');
 const dialog=document.querySelector('#edition-dialog');
 const dialogContent=document.querySelector('#edition-content');
-let category='all',returnFocus=null,scrollBefore=0;
+let category='all',returnFocus=null,scrollBefore=0,returnURL=null;
 
 function render(){
  const query=input.value.toLocaleLowerCase().trim();
@@ -32,17 +32,17 @@ document.querySelector('#reset').addEventListener('click',()=>{input.value='';ca
 function preview(id,trigger){
  const source=document.querySelector(`#edition-${id} .edition-layout`);
  if(!source||typeof dialog.showModal!=='function')return false;
- returnFocus=trigger;scrollBefore=scrollY;
+ returnFocus=trigger;scrollBefore=scrollY;returnURL=location.pathname+location.search+location.hash;
  const content=source.cloneNode(true);
  content.querySelector('[data-edition-title]').id='edition-title';
  dialogContent.replaceChildren(content);
- dialog.showModal();document.body.classList.add('dialog-open');dialog.scrollTop=0;
+ dialog.showModal();history.replaceState(history.state,'',`/library/${id}/`);document.body.classList.add('dialog-open');dialog.scrollTop=0;
  document.dispatchEvent(new CustomEvent('newreading:analytics',{detail:{name:'edition_preview',edition:id}}));
  return true;
 }
-document.addEventListener('click',e=>{const trigger=e.target.closest('[data-preview]');if(trigger&&preview(trigger.dataset.preview,trigger))e.preventDefault();});
+document.addEventListener('click',e=>{if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const trigger=e.target.closest('[data-preview]');if(trigger&&preview(trigger.dataset.preview,trigger))e.preventDefault();});
 dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');dialogContent.replaceChildren();if(returnFocus)returnFocus.focus({preventScroll:true});scrollTo({top:scrollBefore,behavior:'instant'});});
+dialog.addEventListener('close',()=>{if(returnURL){history.replaceState(history.state,'',returnURL);returnURL=null;}document.body.classList.remove('dialog-open');dialogContent.replaceChildren();if(returnFocus)returnFocus.focus({preventScroll:true});scrollTo({top:scrollBefore,behavior:'instant'});});
 dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
 
 // Read links and source disclosures are already usable in the static HTML.

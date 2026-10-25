@@ -1,5 +1,9 @@
 # History boundary
 
+## Shareable editions and library items · October 25, 2026
+
+Reader links previously lacked social metadata, and fragment-only library previews could not identify an item to a crawler. Each of the twenty public editions now has a reviewed cover card, shared by its reader URL and new `/library/<id>/` item page. The library has its own card. All metadata is present without JavaScript; images have exact publication pins and versioned URLs. The existing inline preview and legacy source disclosures remain usable. Preview URL changes retain the shelf's bounded analytics events. Source editions, reading layouts, storage and the personal entrance are unchanged.
+
 ## Bilingual editions and historical context · October 25, 2026
 
 The guide, adapter guidance and reader-copyeditor now carry the useful distinctions from the four themed readers: independent language witnesses and dates; declared alignment units with unmatched material intact; translation choices distinguished from transcription errors; and historical claims grounded in genre, audience and complete arguments. Image identity, later reception and documented influence need separate evidence. These are additions to the existing preparation and review workflow, not new importer capabilities. Reader code, source editions and storage remain unchanged.

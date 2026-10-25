@@ -72,3 +72,13 @@ test('dwell requires current canonical admission, observes revocation and never 
   verified=true;notify();advance(20000);assert.equal(events.filter(e=>e.name==='event').length,1,'Only verified intervals accumulate');
   assert.deepEqual(events.find(e=>e.name==='event').payload,{name:'reading_visible_30s',data:{page:'reader',edition:'austen'}});controller.stop();
 });
+
+// Shareable item addresses retain the shelf's bounded events and discard queries/fragments.
+test('library item addresses keep the existing canonical analytics boundary',()=>{
+ for(const id of PUBLIC_EDITIONS){
+  const current=site+`/library/${id}/?private=DO_NOT_SEND#PRIVATE_BOOK`;
+  assert.deepEqual(publicPage(current),{url:site+'/library/',page:'library'});
+  assert.deepEqual(beforeSend({type:'event',url:current,payload:{name:'edition_preview',data:{page:'library',edition:id}}},current),{type:'event',url:site+'/library/',payload:{name:'edition_preview',data:{page:'library',edition:id}}});
+ }
+ assert.equal(publicPage(site+'/library/private-book/'),null);
+});

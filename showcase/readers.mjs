@@ -5,6 +5,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {injectAnalytics,appendAnalyticsLoader} from './analytics.mjs';
+import {injectSocialMetadata,socialMetadata} from './social.mjs';
 import {createContinuationProfile,injectContinuation,adaptContinuationApp} from './continuation.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -55,6 +56,11 @@ export async function buildReaders(output){
         if(html.includes(maker))html=replace(html,maker,'<p class="maker-credit">Made with <a href="https://newreading.app/">newreading.app</a> · <a href="/privacy/">Privacy</a></p>');
         else {assert.equal(html.split('<footer class="site-footer">').length,2);html=replace(html,'</footer>','<a class="catalogue-return" href="/privacy/">Privacy</a></footer>');}
         bytes=Buffer.from(html);
+      }
+      if(asset.path==='index.html')bytes=Buffer.from(injectSocialMetadata(bytes.toString(),socialMetadata(slug)));
+      if(asset.path==='play/index.html'){
+        const metadata=socialMetadata(slug),title=bytes.toString().match(/<title>([^<]+)<\/title>/)?.[1];
+        bytes=Buffer.from(injectSocialMetadata(bytes.toString(),{...metadata,title:title||metadata.title,url:metadata.url+'play/'}));
       }
       if(['index.html','play/index.html'].includes(asset.path))bytes=Buffer.from(injectAnalytics(bytes.toString(),{edition:slug,publicBooks}));
       if(asset.path==='index.html')bytes=Buffer.from(injectContinuation(bytes.toString(),{profiles:[profile],reader:slug}));

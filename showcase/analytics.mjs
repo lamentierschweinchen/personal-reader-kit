@@ -15,6 +15,8 @@ export function publicPage(value){
     const fixed={'/':'home','/learn/':'guide','/library/':'library'};
     if(fixed[url.pathname])return {url:origin+url.pathname,page:fixed[url.pathname]};
     for(const edition of PUBLIC_EDITIONS){
+      // Sharing an inline preview changes its address, not the measured shelf page.
+      if(url.pathname===`/library/${edition}/`)return {url:origin+'/library/',page:'library'};
       if(url.pathname===`/${edition}/`)return {url:origin+url.pathname,page:'reader',edition};
       if(games.has(edition)&&url.pathname===`/${edition}/play/`)return {url:origin+url.pathname,page:'game',edition};
     }

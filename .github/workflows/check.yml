@@ -51,6 +51,8 @@ jobs:
         if: hashFiles('showcase/check.mjs') != ''
       - run: node showcase/check-shelf.mjs --skip-build
         if: hashFiles('showcase/check-shelf.mjs') != ''
+      - run: node showcase/check-social.mjs --skip-build
+        if: hashFiles('showcase/check-social.mjs') != ''
       - run: node showcase/check-library.mjs --skip-build
         if: hashFiles('showcase/check-library.mjs') != ''
       - run: node showcase/check-continuation.mjs --skip-build
