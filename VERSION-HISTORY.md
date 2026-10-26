@@ -4,6 +4,8 @@
 
 The settings title could be cut off at 200% interface text on a narrow phone. It now reads “Reading settings” and wraps in full, with Close remaining reachable. The original-text browser regression covers phone and tablet layouts, a longer heading, pointer and keyboard dismissal, and preserved notes. Book text, reading positions and the twenty packaged readers are unchanged.
 
+The hosted WebKit run exposed a wider-font case in that longer heading. The follow-up allows overlong words to wrap within the dialog and adds a wider-font negative control. The preparation guide also distinguishes whole-file hashes from unchanged literary content when a source provider updates its header.
+
 ## Shareable editions and library items · October 25, 2026
 
 Reader links previously lacked social metadata, and fragment-only library previews could not identify an item to a crawler. Each of the twenty public editions now has a reviewed cover card, shared by its reader URL and new `/library/<id>/` item page. The library has its own card. All metadata is present without JavaScript; images have exact publication pins and versioned URLs. The existing inline preview and legacy source disclosures remain usable. Preview URL changes retain the shelf's bounded analytics events. Source editions, reading layouts, storage and the personal entrance are unchanged.

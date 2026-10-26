@@ -8,6 +8,8 @@ The public destination remains [lamentierschweinchen/personal-reader-kit](https:
 
 A frozen-starter reproduction cut off the settings title at 320 pixels and 200% interface text in Chromium and WebKit. The title is now “Reading settings”; Settings alone allows its header to wrap without clamping. The regression fails against the previous styles and passes in both engines at phone and tablet sizes, including a longer title and a visible 44-pixel Close control. Pointer and Escape dismissal preserve the existing note fixture. All 81 unit tests and the original-sample build pass. This is browser verification, not physical-device testing. The twenty packaged readers and their source editions are unchanged.
 
+The first hosted follow-up failed on Linux WebKit: a word in the longer synthetic title forced the flex item outside the dialog. A wider-font fixture reproduces the failure in both local engines. Explicitly allowing the title to shrink and wrap fixes it without relaxing the geometry assertions; failures now report font metrics and rectangles. The preparation guide also requires handoff hashes to match retained source bytes, separating file identity from content-only equality.
+
 ## Edition and library social previews · October 25, 2026
 
 All twenty public reader entrances, their three optional game entrances, the library and twenty `/library/<id>/` item pages now serve complete social metadata in their initial HTML. Twenty cover-specific cards and one library card reuse the reviewed cover artwork, contributor names and descriptions. Images are 1200 × 630 JPEGs with exact provenance/hash pins and versioned public URLs. The build refuses a missing card or changed title, author or feature awaiting card review.

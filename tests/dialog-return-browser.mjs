@@ -33,14 +33,15 @@ async function settingsTextZoom(page,engine){
  const inspect=()=>page.locator('#dialog-title').evaluate(title=>{
   const box=el=>{const r=el.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
   const text=title.firstChild,rect=box(title),ranges=[...text.textContent].map((character,index)=>{const range=document.createRange();range.setStart(text,index);range.setEnd(text,index+1);const r=range.getBoundingClientRect();return{character,top:r.top,left:r.left,right:r.right};});
-  return{text:title.textContent,title:rect,dialog:box(document.querySelector('#dialog')),close:box(document.querySelector('.close-dialog')),hiddenCharacters:ranges.filter(r=>r.top>=rect.bottom||r.left<rect.left-1||r.right>rect.right+1).map(r=>r.character).join(''),viewport:{width:innerWidth,height:innerHeight}};
+  const style=getComputedStyle(title);
+  return{text:title.textContent,font:{family:style.fontFamily,size:style.fontSize},title:rect,dialog:box(document.querySelector('#dialog')),close:box(document.querySelector('.close-dialog')),hiddenCharacters:ranges.filter(r=>r.top>=rect.bottom||r.left<rect.left-1||r.right>rect.right+1).map(r=>r.character).join(''),viewport:{width:innerWidth,height:innerHeight}};
  });
  const complete=(result,label)=>{
   assert.equal(result.hiddenCharacters,'',label+' clips Settings heading: '+JSON.stringify(result));
-  assert.ok(result.title.left>=result.dialog.left&&result.title.right<=result.dialog.right,label+' title remains within the dialog');
-  assert.ok(result.close.left>=result.dialog.left&&result.close.right<=result.dialog.right&&result.close.top>=Math.max(0,result.dialog.top)&&result.close.bottom<=Math.min(result.viewport.height,result.dialog.bottom),label+' Close stays visible');
-  assert.ok(result.close.width>=44&&result.close.height>=44,label+' Close keeps a 44px target');
-  assert.ok(result.title.right<=result.close.left||result.title.bottom<=result.close.top||result.close.bottom<=result.title.top,label+' title and Close do not overlap');
+  assert.ok(result.title.left>=result.dialog.left&&result.title.right<=result.dialog.right,label+' title remains within the dialog: '+JSON.stringify(result));
+  assert.ok(result.close.left>=result.dialog.left&&result.close.right<=result.dialog.right&&result.close.top>=Math.max(0,result.dialog.top)&&result.close.bottom<=Math.min(result.viewport.height,result.dialog.bottom),label+' Close stays visible: '+JSON.stringify(result));
+  assert.ok(result.close.width>=44&&result.close.height>=44,label+' Close keeps a 44px target: '+JSON.stringify(result));
+  assert.ok(result.title.right<=result.close.left||result.title.bottom<=result.close.top||result.close.bottom<=result.title.top,label+' title and Close do not overlap: '+JSON.stringify(result));
  };
  for(const viewport of [{width:320,height:568},{width:768,height:1024}])for(const fontSize of [16,32]){
   await page.setViewportSize(viewport);await page.evaluate(size=>{document.documentElement.style.fontSize=size+'px';scrollTo(0,0);},fontSize);
@@ -49,9 +50,10 @@ async function settingsTextZoom(page,engine){
   await page.screenshot({path:path.join(output,`${engine}-settings-${viewport.width}-${fontSize}.png`),animations:'disabled'});
   let longer;
   if(viewport.width===320&&fontSize===32){
-   // A longer original interface fixture proves wrapping; a shorter English label alone cannot pass this case.
-   await page.locator('#dialog-title').evaluate(el=>{el.textContent='Reading settings and type preferences';});await settle();longer=await inspect();complete(longer,engine+' longer Settings title');
+   // A wider original interface fixture also covers fallback fonts with words wider than the phone dialog.
+   await page.locator('#dialog-title').evaluate(el=>{el.textContent='Reading settings and type preferences';el.style.fontFamily='monospace';});await settle();longer=await inspect();
    await page.screenshot({path:path.join(output,`${engine}-settings-long-title.png`),animations:'disabled'});
+   complete(longer,engine+' longer Settings title');
   }
   results.push({viewport,fontSize,actual,...(longer?{longer}:{})});
   if(fontSize===32)await page.keyboard.press('Escape');else await page.getByRole('button',{name:'Close ×',exact:true}).click();

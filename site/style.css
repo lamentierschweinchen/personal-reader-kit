@@ -39,7 +39,7 @@
 .dialog-header h2{font-size:1.5rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
 /* Settings keeps its complete title when interface text is enlarged. */
 .dialog-inner:has(#settings-form) .dialog-header{flex-wrap:wrap}
-.dialog-inner:has(#settings-form) .dialog-header h2{flex:1 1 10ch;display:block;-webkit-line-clamp:unset;overflow:visible;overflow-wrap:normal}
+.dialog-inner:has(#settings-form) .dialog-header h2{flex:1 1 10ch;min-width:0;display:block;-webkit-line-clamp:unset;overflow:visible;overflow-wrap:anywhere}
 .dialog-inner:has(#settings-form) .close-dialog{margin-left:auto}
 .close-dialog{min-width:44px;min-height:44px}
 .context-item .companion-reading,.passage-note,.dialog-quote,.fragment-surface,.facing-pages .fragment-surface,.experiment-lead{font-size:var(--size);line-height:var(--leading)}
