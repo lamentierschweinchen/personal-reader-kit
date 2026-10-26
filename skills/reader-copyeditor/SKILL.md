@@ -26,7 +26,9 @@ Some edition JSON mixes protected literature with separately authored context. D
 
 ### 1. Useful words
 
-Every sentence must help the reader act, notice something specific, understand something supported, or consider a worthwhile question. Remove generic claims about attention, memory, journeys, connections or discovery that could accompany almost any book. A short line can still be empty; a long paragraph can be necessary.
+Each sentence should contribute: help the reader act, notice something specific, understand something supported, consider a worthwhile question, or enjoy a deliberate voice, rhythm or joke. Remove generic claims about attention, memory, journeys, connections or discovery that could accompany almost any book. A short line can still be empty; a long paragraph can be necessary.
+
+Edit toward a worthwhile experience, not minimum word count. Preserve wit, cadence, concrete detail and the context a newcomer needs. Write missing accompaniment when the brief calls for it. Removing empty prose must not remove the edition's substance or excuse leaving only a title, contents and source record. Judge what remains as carefully as what you cut.
 
 For commentary, ask: what will the reader know or see afterwards that the book or interface did not already make obvious? Require concrete details and a precise passage relationship. A source link, word count or estimated duration does not answer that question. Delete weak material rather than embellishing it to meet a length target.
 
@@ -74,7 +76,9 @@ The optional `scripts/editorial-review.mjs` command checks receipt coverage, cur
 
 For release, resolve material findings, inspect the resulting rendered experience, run the relevant application checks and the public file/history audit. A documented exception needs a reason; unsupported factual claims or altered source text are release blockers. Report manual editorial judgment separately from automated checks, and do not claim human reader acceptance without it.
 
-The responsible agent must personally endorse the resulting experience within the reviewed scope, including its benefit and attention cost; a favourable delegated report alone is insufficient. If later review rejects an earlier endorsement, mark it superseded and state whether the feature is cut, simplified or retained. Preserve the valid technical evidence and the reader's records, but do not use either as a reason to retain a weak interaction. Existing receipt summaries and limits can record this decision; the receipt checker does not certify it. If the user delegated creative judgment, make and refine that decision before presenting a finished result rather than asking them to rescue unfinished options.
+The responsible agent must personally endorse the resulting experience within the reviewed scope, including its benefit and attention cost; a favorable delegated report alone is insufficient. If later review rejects an earlier endorsement, mark it superseded and state whether the feature is cut, simplified or retained. Preserve the valid technical evidence and the reader's records, but do not use either as a reason to retain a weak interaction. Existing receipt summaries and limits can record this decision; the receipt checker does not certify it. If the user delegated creative judgment, make and refine that decision before presenting a finished result rather than asking them to rescue unfinished options.
+
+Keep editorial acceptance separate from source and technical acceptance. In the existing private review, name the visible entry, the finished prose or action you used, what it adds for this reader, and any part that still falls short of the brief. A list of features, unchanged source hashes or passing checks cannot fill that judgment. Review the opening without the maker's explanation and follow the companion from its actual navigation. Do not call a bibliography accompanying criticism or a context-free word search an exploration. If the reader does not make its value apparent, the report must not supply the missing experience.
 
 ## Before proposing a companion
 

@@ -1626,6 +1626,7 @@
     "examples/pictures-after-dark/tests/folio-rights.test.mjs",
     "examples/pictures-after-dark/vercel.json",
     "showcase/check-themed-readers.mjs",
+    "tests/dialog-backdrop-browser.mjs",
     "tests/dialog-return-browser.mjs",
     "showcase/assets/social-alice.jpg",
     "showcase/assets/social-at-table.jpg",
@@ -1730,6 +1731,7 @@
     "tests/ui-icons.test.mjs",
     "tests/upgrade.test.mjs",
     "vercel.json",
+    "tests/dialog-backdrop-browser.mjs",
     "tests/dialog-return-browser.mjs"
   ],
   "reviewedEditionFiles": [

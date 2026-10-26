@@ -1,5 +1,11 @@
 # History boundary
 
+## Purpose, care and dialog dismissal · October 26, 2026
+
+The preparation guide, design guidance, pilot and reader-copyeditor now separate editorial acceptance from source fidelity and technical checks. A richer reader must make its particular pleasure or benefit apparent in the actual opening, prose, imagery or action. Editing preserves voice and substance; removing a weak companion does not finish a richer brief. Plain reading remains a valid requested outcome.
+
+The starter and twenty public readers now dismiss dialogs through a deliberate click or tap on the backdrop. Existing note guards, reading-place restoration and close behavior remain in charge. Selection drags, scrolling, opening gestures and canceled touches do not dismiss a dialog. The same repair covers the three game source panels and the illustrated reader's nested image view. Exact source, artwork, font, icon and database bytes remain unchanged. Verification and limits are in [STATUS.md](docs/STATUS.md).
+
 ## Settings at enlarged text sizes · October 26, 2026
 
 The settings title could be cut off at 200% interface text on a narrow phone. It now reads “Reading settings” and wraps in full, with Close remaining reachable. The original-text browser regression covers phone and tablet layouts, a longer heading, pointer and keyboard dismissal, and preserved notes. Book text, reading positions and the twenty packaged readers are unchanged.

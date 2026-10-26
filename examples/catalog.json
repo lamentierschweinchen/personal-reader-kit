@@ -25,8 +25,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 85533,
-          "sha256": "14c89784cc3f30b5ff9281b1ded3cacee29dfac1c4554350e13b618c3086972f"
+          "bytes": 88418,
+          "sha256": "c4ae0f49bcf72b0c5817f6a4dcbe359314f128904d83cb08b0c571ffd3d7f856"
         },
         {
           "path": "apple-touch-icon.png",
@@ -926,7 +926,7 @@
         {
           "path": "sw.js",
           "bytes": 4753,
-          "sha256": "5b6098056d2ceecd1d2bd9e2fb85ad11c7c52c16f3dd8314cf54df567232986f"
+          "sha256": "02c870a32f7e6890e46aa0616dd8b6a896da135990e1e35b855d1848dfe3ffe5"
         },
         {
           "path": "text.mjs",
@@ -982,8 +982,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 85231,
-          "sha256": "94a62e9bf33852377b36ead9a404141cbaeaf75ee5033238a0170b4db54709f6"
+          "bytes": 88116,
+          "sha256": "7379353e7e9cb7ee12e1f2e990db424224131b38029b4c3e6f28901840ca0bd8"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1047,8 +1047,8 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 24412,
-          "sha256": "2dec173c7773821deb69caeeb95855f06fea06cb0c67d8cf8572ea70e714a747"
+          "bytes": 27298,
+          "sha256": "801978000c343ecbe29aef711c13d4a82833ab278e7064cb23f1272b8f7ea5d9"
         },
         {
           "path": "play/index.html",
@@ -1093,7 +1093,7 @@
         {
           "path": "sw.js",
           "bytes": 1409,
-          "sha256": "7c78d280636a6ab321aa189240cda3def40021383b14ce464caa68b16dba0a36"
+          "sha256": "1b7562574e37d94d26c59b1c0b9efbeb6d37ad74d901b2fbaf0f3f23cb0b4977"
         },
         {
           "path": "text.mjs",
@@ -1128,7 +1128,8 @@
         "tests/share-browser.mjs",
         "vercel.json",
         "game.json",
-        "play/index.html"
+        "play/index.html",
+        "play/game.mjs"
       ],
       "game": {
         "title": "Tea at Six",
@@ -1160,8 +1161,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74480,
-          "sha256": "309aab18034152263ac43ce65beec73f3c96e32740ef510c5a2ac132c33c6149"
+          "bytes": 77365,
+          "sha256": "52e715c1b540f091cbd913f2e49619dc96bdad6c31868e8efbdaabc3d7e5b18f"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1246,7 +1247,7 @@
         {
           "path": "sw.js",
           "bytes": 1240,
-          "sha256": "02b135cf3a32935873037e2c1d5d3206461044a349973d30bf183f81fc2cbaf0"
+          "sha256": "51a832c92308dad861f386439fa48638ee591c4ba9569380a5e677d17657f513"
         },
         {
           "path": "text.mjs",
@@ -1303,8 +1304,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 78871,
-          "sha256": "2e13e0a008d1e82234245e4b223894bfc111f297ae7cda9415744b7947ed33bb"
+          "bytes": 81756,
+          "sha256": "e4a654cbf9667338b1a89d0613d14e840500c18cb1c4541b1d98cec13646d15e"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1394,7 +1395,7 @@
         {
           "path": "sw.js",
           "bytes": 1256,
-          "sha256": "826109d7050468a18a26792c6a998a9c0f1734014d25c30ca56edf7bf84d198f"
+          "sha256": "992722551e546a6be0b5cf916b3f97ac222f8cc5932a12fc6e2d043d4fc0c8f0"
         },
         {
           "path": "text.mjs",
@@ -1446,8 +1447,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 82570,
-          "sha256": "a898d3216eee3220503f7a5b869683112782e2fcfdc78f7abb86624fc825a925"
+          "bytes": 85455,
+          "sha256": "7f6234c25a0a9d44cccafe7f68b234c1212420d08f3b8a189aa207a5b8ad0378"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1501,8 +1502,8 @@
         },
         {
           "path": "play/game.mjs",
-          "bytes": 37801,
-          "sha256": "9638e527e39c09a699c0e78d6f07518ffe7834b64beae455223cc4ca52cfd73d"
+          "bytes": 40687,
+          "sha256": "b7feab4be4fa24ae2f2c6e57c70298ff66174688a21745ee9a66bc7f8a02c404"
         },
         {
           "path": "play/icon.svg",
@@ -1552,7 +1553,7 @@
         {
           "path": "sw.js",
           "bytes": 1396,
-          "sha256": "71b1cedd5a1109931da5ba51f6a08dddc515567854b65fe51754fcffc8c3141b"
+          "sha256": "7add6603eae99bb8681673fe09838990e69b28453146407099edef7b110bce53"
         },
         {
           "path": "text.mjs",
@@ -1608,8 +1609,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 76332,
-          "sha256": "077f03ceec8b66bf7dbcfa98b96bcfa2627302ff793a01d292c9be9fa5e047c6"
+          "bytes": 79217,
+          "sha256": "0943bba8722c7ce77fe67ed9d062a53af1b75f94a8fc950c3d27bc90248874c5"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1683,8 +1684,8 @@
         },
         {
           "path": "play/app.mjs",
-          "bytes": 27230,
-          "sha256": "bf8a2bc2aca28e9425f0d52fc78eed1a3eebebcea908411c42bcb50f43ebbe4e"
+          "bytes": 30116,
+          "sha256": "746015bdb2ad248df55ea096ea44423a8ca29bad8e76cab2851eca609931ac86"
         },
         {
           "path": "play/art.mjs",
@@ -1759,7 +1760,7 @@
         {
           "path": "sw.js",
           "bytes": 1533,
-          "sha256": "7d9f6188c326c10038ae44ec2c08af7f221b36275050fbad4dcbe08247702956"
+          "sha256": "a00efa8a22561dd456666be2540a7e0038cad79bfccf59c20d2f481c130a0051"
         },
         {
           "path": "text.mjs",
@@ -1790,7 +1791,9 @@
         "site/manifest.webmanifest",
         "site/share-card.css",
         "site/share-card.mjs",
-        "site/style.css"
+        "site/style.css",
+        "play/app.mjs",
+        "game.json"
       ]
     },
     {
@@ -1820,8 +1823,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 70676,
-          "sha256": "2f10d8424285bb60a1ad75dc92f5e21d3f5462f5c6208d587a2272ef04046f4b"
+          "bytes": 73561,
+          "sha256": "0cb03cb8e57fbb1cb177e383913cbee0a1d82a74a6420c3bd7f516561ad93171"
         },
         {
           "path": "apple-touch-icon.png",
@@ -1921,7 +1924,7 @@
         {
           "path": "sw.js",
           "bytes": 1333,
-          "sha256": "d401b49a116f1e3b051de3c4765a5058698940cbfbf30444200582377f1db778"
+          "sha256": "8e713ef93180ac6f8ef6f289c8c936958052827dc33961d84151b841fc41bd3c"
         },
         {
           "path": "table.mjs",
@@ -1985,8 +1988,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 71834,
-          "sha256": "8c9f61570b614dedbd35541d21a326178190794ae70b9325bccf9992e88b94c5"
+          "bytes": 74719,
+          "sha256": "891865aafa4c375d64cceb69cadc895336aa751fbb204201ca4c010e678cb976"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2096,7 +2099,7 @@
         {
           "path": "sw.js",
           "bytes": 1351,
-          "sha256": "065210fa1520ac75d3764385d47a7253c5b397aee14d61b6f536aaf18a2c5eb5"
+          "sha256": "8cbe5eaf65445659b5167253a229aeec6de245620673f4e958434329c6288d52"
         },
         {
           "path": "text.mjs",
@@ -2156,8 +2159,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 82126,
-          "sha256": "f4478ba244daec1461cf077cb102eafc9f12918d1106d56e31775d09453c30f0"
+          "bytes": 85011,
+          "sha256": "1921e14c956e6d6728fd2b766377a456f2c1c63317563396200212b17019412f"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2282,7 +2285,7 @@
         {
           "path": "sw.js",
           "bytes": 2402,
-          "sha256": "38614fcd1e8d142cf863d5d15fc30dd81c298f7c54865344e0a5aeedc70e3568"
+          "sha256": "a6577d817469871962eed7cef3b992b1e25209b0c1ef0a934c692818c744c060"
         },
         {
           "path": "text.mjs",
@@ -2352,8 +2355,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 67011,
-          "sha256": "e9b7eeb039fa03177bf80ea3385627304f042bf4391c6515340b67e6268fa559"
+          "bytes": 69896,
+          "sha256": "e261044bfa48e9777e0c8ba1c54e172d5e1a7a74233b4952486101dccfed8115"
         },
         {
           "path": "apple-touch-icon.png",
@@ -2458,7 +2461,7 @@
         {
           "path": "sw.js",
           "bytes": 1373,
-          "sha256": "3b43316602b9666c24b6cfa7e752db653a104a62cdc8804faced1d8ec9f33617"
+          "sha256": "72e641ce819842b6412c49a7d95d89c6b3cab63b0204ee61424eef0717468efb"
         },
         {
           "path": "text.mjs",
@@ -2518,8 +2521,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 74352,
-          "sha256": "3a10b437328e1f3945ef3e46eb88af67f4fe35757d416760923de4f8e92ab5da"
+          "bytes": 77237,
+          "sha256": "294f92397347b6f7ec606be6142f335bca449b6edd6eb0048e15c18798fda1a3"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3584,7 +3587,7 @@
         {
           "path": "sw.js",
           "bytes": 5244,
-          "sha256": "339bcd33e2fe3809259a601d1f37684db4dd42ef5a4ab2ced406b7af71216b7d"
+          "sha256": "d86287dc8644f68a183692273f1781b7217fa79c468bafd6f5e0b76b226d5613"
         },
         {
           "path": "text.mjs",
@@ -3656,8 +3659,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 80932,
-          "sha256": "cfeb25681217a0ef26a655ceb3dfaf1523e611ebb490072c23f63ba4aacf7e13"
+          "bytes": 83817,
+          "sha256": "6597b11544517b2b48cfa0b4bba60fc28a071074b1034ad45e42efd7444bc91c"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3667,7 +3670,7 @@
         {
           "path": "build.json",
           "bytes": 567,
-          "sha256": "33c6ebb94c091ccdd7bac4613ccadc65a32d6ae0c5b1934f7b1d02313507c615"
+          "sha256": "f100db8ebcbeec458ef5c1e3f88b480147045c2e2f34da7430a4369db292acf2"
         },
         {
           "path": "bundle.mjs",
@@ -3767,7 +3770,7 @@
         {
           "path": "sw.js",
           "bytes": 1318,
-          "sha256": "82707c3f5ceaeac84c0e1b8d47150d74daa1c531048b2f28f8735a9d2b5674d5"
+          "sha256": "6439d863c45fca1c6057c37fddbf2effae02f22a557bfbfaa51e341fe108bcf8"
         },
         {
           "path": "text.mjs",
@@ -3817,8 +3820,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 66710,
-          "sha256": "b3283ea9027a81ef69d954e3110e378ad6ca1f7470e4b21017e94f0b8e9ef8ff"
+          "bytes": 69595,
+          "sha256": "231adbf317a72389aeed735ce7e0d803e706253d96931ad88cc4863ef5d7e50f"
         },
         {
           "path": "apple-touch-icon.png",
@@ -3923,7 +3926,7 @@
         {
           "path": "sw.js",
           "bytes": 1321,
-          "sha256": "2d4b41acbaa444be1af9ba7d8706f888129099baa716c6ab72e288ceef1703e3"
+          "sha256": "643f6daa2d3d1adeb1d8a4437d51969d64cd884aacafd9e5dfc6513253913a38"
         },
         {
           "path": "text.mjs",
@@ -3989,8 +3992,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 76895,
-          "sha256": "7afbc4ce2152f80b6a0d018a18493259509afb4984ea50b4e4cd8e1fc96f80f2"
+          "bytes": 79780,
+          "sha256": "ae996cf52430f0a286db2dbdc96e9612a595956324fb1fa3e1b5538969c09e3f"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4000,7 +4003,7 @@
         {
           "path": "build.json",
           "bytes": 867,
-          "sha256": "a06f32fda4be1c73b00665fbba087ea348b930bbba8391dfb76d4cfee9f5b8b0"
+          "sha256": "440565d2d025d18ab03bfd1a367343cf8a5e6fd64e4f3df18d064b60664fb087"
         },
         {
           "path": "bundle.mjs",
@@ -4155,7 +4158,7 @@
         {
           "path": "sw.js",
           "bytes": 1621,
-          "sha256": "c640faf021253c79d4199b668acc2027cf39010fbb2f28204ecb9ccacf839dcd"
+          "sha256": "526a53b07a35c3c82b7ae8efc3bff49de1dc698e056fb58233cd8ffdda1770f1"
         },
         {
           "path": "text.mjs",
@@ -4188,8 +4191,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 82969,
-          "sha256": "f4f1df217cfd9c4d1f093a134230b62dd075d05cb6969aaa72423f864191077b"
+          "bytes": 85854,
+          "sha256": "ff5d27a875c96d70c7d3abc72182ed87055a1f9530209bacee1133dc493ec613"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4199,7 +4202,7 @@
         {
           "path": "build.json",
           "bytes": 576,
-          "sha256": "681fff85be80f0839d8d2210ac1df430d41fd896506bd923a2de3912b7359d32"
+          "sha256": "949962f527176e46f42df38c9b0325739b0aaef7264ec5512ca96d32547073c4"
         },
         {
           "path": "bundle.mjs",
@@ -4299,7 +4302,7 @@
         {
           "path": "sw.js",
           "bytes": 1330,
-          "sha256": "60a26752bacf97dfc719187978229eb29b503bc8566fd47758e466db961167eb"
+          "sha256": "a8aa502b13603740ca013e9c11323fd2960d0ef348a62e1a20de60acbd2ca50d"
         },
         {
           "path": "text.mjs",
@@ -4307,7 +4310,10 @@
           "sha256": "4646408c2ee6aabb2f6722114d3970af9c7c4f9538dcd6b24404a058c12fc6bf"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "site/app.mjs",
+        "edition-lock.json"
+      ]
     },
     {
       "id": "fall-of-the-house-of-usher",
@@ -4335,8 +4341,8 @@
         },
         {
           "path": "app.mjs",
-          "bytes": 74760,
-          "sha256": "bea821f69d335101184cd493e0f0c041a6bf50163621a168fac0edbd3a7f9c95"
+          "bytes": 77645,
+          "sha256": "aa4db4de824db74469e5f0c7d9bf22a59445b60cadf91b3c92565b7d8453c6b3"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4351,7 +4357,7 @@
         {
           "path": "build.json",
           "bytes": 590,
-          "sha256": "8b791d0a43a5d8f73f22117072f82480770d9330f7d30e81bd4f3d5762a46710"
+          "sha256": "b93d6a55607eaee1ef633729140a93b1be7555f7bac14a904b71462f36d4cd89"
         },
         {
           "path": "bundle.mjs",
@@ -4441,7 +4447,7 @@
         {
           "path": "sw.js",
           "bytes": 1474,
-          "sha256": "6e9fe06d767e3603eb6ab805d9ee2f7d3ceae7be0b62add2c21cd19bf70817a0"
+          "sha256": "59dacee3de27cf6a5d3c3c4574cb395868e138914c6cb090d6f34e59cd58ea0d"
         },
         {
           "path": "text.mjs",
@@ -4460,7 +4466,8 @@
         }
       ],
       "maintenanceChanges": [
-        "23 October 2026: reveal failed-save messages inside the modal and restore the focused submit button; preserve drafts, saved records and background position. Actual-source enlarged-type checks cover both browser engines."
+        "23 October 2026: reveal failed-save messages inside the modal and restore the focused submit button; preserve drafts, saved records and background position. Actual-source enlarged-type checks cover both browser engines.",
+        "site/app.mjs"
       ]
     },
     {
@@ -4482,8 +4489,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 79327,
-          "sha256": "c3d0d8b4e63f81c5ce303811bd3819ad7a14b2cc22f66884dc078d26fc6c9fc5"
+          "bytes": 82212,
+          "sha256": "2a50566d42b5b10a0cb4bee692ecba0cc75fe2081ca1f802256bf9780e83d213"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4493,7 +4500,7 @@
         {
           "path": "build.json",
           "bytes": 629,
-          "sha256": "f2bb900eb247e2b1956b2a43cc81fece1b1cba1913328cbf1ed36ac1b5df9f34"
+          "sha256": "6d22bfd0d18b9a16113be0b0670bd2003ffcaa376fe759c496c7308fe804800c"
         },
         {
           "path": "bundle.mjs",
@@ -4583,7 +4590,7 @@
         {
           "path": "sw.js",
           "bytes": 1364,
-          "sha256": "57b765d205734523d3925931c96d8aaa2839739c52bc8a899a488890cb980954"
+          "sha256": "5b786e9b2f4e3af80e85762211af0256264ee915a41573957fe8aa7b43d2fbde"
         },
         {
           "path": "text.mjs",
@@ -4591,7 +4598,10 @@
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "site/app.mjs",
+        "edition-lock.json"
+      ]
     },
     {
       "id": "kingdom-for-a-stage",
@@ -4613,8 +4623,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 79284,
-          "sha256": "444a871a6206803ecb71278a0e0aa584189f851be3a558314944ae57f051e1e4"
+          "bytes": 82169,
+          "sha256": "9c53db3f0c26c504ed3b180a1750c51aaa6868531b5f7b4dc80f8e38b80a7c9c"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4624,7 +4634,7 @@
         {
           "path": "build.json",
           "bytes": 692,
-          "sha256": "40eb282ee3ef17d8fe07d5fbdf74fedd865f6717c5ed44662987b916696d0d4b"
+          "sha256": "5eb536ca407bbb83f3cfa5bccab6cb0c8f0c2960bfd20a6a0267270023f5d9b4"
         },
         {
           "path": "bundle.mjs",
@@ -4714,7 +4724,7 @@
         {
           "path": "sw.js",
           "bytes": 1357,
-          "sha256": "a388f3d36d61e6fc2dc4107dd02ac73849391f0526873d2caf6926e0ccf25fe7"
+          "sha256": "a6b3397373fc1c719ce220d05ad43a78a65482c409762ee21ae9a3f5de456f1e"
         },
         {
           "path": "text.mjs",
@@ -4722,7 +4732,10 @@
           "sha256": "305172c9b390ab8976cff77e880435cff96382c12c5c09df1b893f6f73487d31"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "site/app.mjs",
+        "edition-lock.json"
+      ]
     },
     {
       "id": "pictures-after-dark",
@@ -4742,8 +4755,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 74411,
-          "sha256": "366a4015bfade374af2004133edafb6e41f9adb557c40ca7b49b7a35ad77d056"
+          "bytes": 77296,
+          "sha256": "c0de6df6a65051c8f9ccd8119b0d490181b409ce6c8b2a7e60f02d486e2e6195"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4753,7 +4766,7 @@
         {
           "path": "build.json",
           "bytes": 761,
-          "sha256": "58f1f8e8e720a2f1599e4d0a3ad3c3759f3349fe879ce66c52634851706b0d7b"
+          "sha256": "d9b8d66bec2ad3aef6b65dc6047e1b9d932964a52e5d06efcd82f31a5ca0cf0c"
         },
         {
           "path": "bundle.mjs",
@@ -4928,7 +4941,7 @@
         {
           "path": "sw.js",
           "bytes": 1664,
-          "sha256": "9747b2c8db206bd1ccdf81ae325d4c62756553d78e697ca83328af589928267b"
+          "sha256": "a3f30a703e9878a358182b7faa6bc08d2722f77c432fed180932821fc2b11397"
         },
         {
           "path": "text.mjs",
@@ -4936,7 +4949,10 @@
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ],
-      "maintenanceChanges": []
+      "maintenanceChanges": [
+        "site/app.mjs",
+        "edition-lock.json"
+      ]
     },
     {
       "id": "caesar-and-the-emperors",
@@ -4958,8 +4974,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 80278,
-          "sha256": "612158be1f60b5b31c8be69689928da12f2a7bf0d7452e3a99fe0cc265400565"
+          "bytes": 83163,
+          "sha256": "372aacf5568bba9283c23ca4bd902c121e67941f1d5cf8e848f7f7eedac25623"
         },
         {
           "path": "apple-touch-icon.png",
@@ -4969,7 +4985,7 @@
         {
           "path": "build.json",
           "bytes": 610,
-          "sha256": "a1c3f119a55b4c0ced81fcb2b1dcb3455fe9461fdcdc804a3bda8512375725ea"
+          "sha256": "6efa3eaf819f2df917449bfa3901d96b1ece547e2a29e16ab33a5314addcb8dc"
         },
         {
           "path": "bundle.mjs",
@@ -5064,7 +5080,7 @@
         {
           "path": "sw.js",
           "bytes": 1407,
-          "sha256": "c65f467f2e97d0336dd28761814c22c91681d34e0eb32edb07127d0553e3bad8"
+          "sha256": "127b886f3099562dce03d80a57422bed2a96ec4fbada885ba65d726eb29aca54"
         },
         {
           "path": "text.mjs",
@@ -5073,7 +5089,9 @@
         }
       ],
       "maintenanceChanges": [
-        "Scale the entrance title on the narrowest phones so wider fallback fonts fit; text, normal phone/desktop size and saved records are unchanged."
+        "Scale the entrance title on the narrowest phones so wider fallback fonts fit; text, normal phone/desktop size and saved records are unchanged.",
+        "site/app.mjs",
+        "edition-lock.json"
       ]
     }
   ],

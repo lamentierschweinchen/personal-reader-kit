@@ -12,6 +12,8 @@ This repository is a reusable, public-intended kit. The user's books are data, n
 
 ## Fidelity and product
 
+A reader must be made with care and purpose. Faithful text and working controls are prerequisites; editorial acceptance also requires an experience worth using. For a richer reader, identify the particular pleasure or benefit it offers, then make that visible in the finished prose, imagery and interaction. Delight can be a well-chosen detail, a useful small tool, humor, a revealing comparison or beautiful reading; it does not require a game or decoration. A simple reader is a valid requested outcome. Do not silently reduce an ambitious brief to a bare reader because stronger accompaniment takes work.
+
 Follow [the rights guidance](docs/RIGHTS.md). Ownership of a copy is not publication permission. Public-domain or licensed examples need edition/contributor evidence, jurisdiction limits, source hashes, required notices and an exact reviewed asset inventory. The default build remains original-samples-only. The [twenty packaged examples](examples/README.md) are separate applications; their authorization does not admit another book or personal project into this repository. New personal readers use `publication.json.starterFiles` rather than copying the optional collection.
 
 Keep exact source characters, emphasis, lineation, stanzas, meaningful spaces, notes and sequence. Preserve source defects and uncertainty; report them. Edition hashes and quoted evidence anchor annotations. Changed-source notes must remain recoverable and must not silently move.

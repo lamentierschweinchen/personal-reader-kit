@@ -58,7 +58,9 @@ The optional `npm run test:preview-local` journey checks an original two-book fi
 
 ## 2. Choose the companion
 
-Deliver a usable baseline first: open a faithful passage, set comfortable type and verify a saved place. Appearance and exploration are independent; presets remain available with any companion. Then, after the inspection, ask: **“Would you like simple presets, or an exploratory reader shaped around these books?”**
+Deliver a usable baseline first: open a faithful passage, set comfortable type and verify a saved place. Appearance and exploration are independent; presets remain available with any companion. If that choice is still unresolved after inspecting the material and the person's request, ask: **“Would you like simple presets, or an exploratory reader shaped around these books?”**
+
+Honor the brief already given. When the person has requested a rich, playful or contextual reader, the baseline is the beginning of the work. Name what makes this edition worth spending time with: something particular to see, understand, enjoy or do. Choose its prose, imagery and behavior around that purpose. Do not substitute accuracy reports, a feature count or absence of clutter for a considered experience.
 
 Simple: show Paper, Dusk and Large print on a real passage. Offer type size, spacing, width and tone within the same reliable reader. Do not make the person design an app to start reading. Provide a compact, sourced author/work introduction without unsolicited plot summary.
 
@@ -83,6 +85,10 @@ Build a small interactive prototype of each in the same project. Use a short aut
 For an open choice, show all three with clear, comparable navigation and ask which they prefer and what should change. If the person delegates creative judgment, make that comparison privately, choose on evidence and refine it before presenting the result. A hybrid is useful only if it stays coherent. Record the decision and its author privately, then build the chosen direction. If the person has already chosen, do not repeatedly ask for approval.
 
 Give the chosen reader a visual identity from its material: a brief thesis and structural choices in composition, type, navigation or genuine source imagery. Use [the design review](DESIGN.md#give-each-reader-a-visual-identity), including settled ordinary-reading and awkward-state views. Do not deliver the sample layout with only a new title and accent. Simple mode should stay restrained and require no additional design interview.
+
+Review the entrance without the production brief. Can a newcomer identify the work, understand the invitation and start reading? An excerpt is not automatically a useful opening; decide what its presence explains or lets the reader do. A search box or word finder is a utility, not an interpretation of the book. Keep it only where its purpose and next action are clear. Source records and licenses must remain accessible, but they do not substitute for accompanying prose or deserve a primary destination merely because the preparation was extensive.
+
+Judge the actual companion at its visible entry point and through one complete use. Read the finished accompanying text and try the action it offers. If the benefit appears only in a handoff, buried source panel or explanation from its maker, revise the reader before endorsing it. Simplicity does not require an empty edition: a short introduction, a precise comparison or a practical tool can be enough when it answers the chosen brief. Cutting a weak feature is a useful revision, but a richer brief still needs a worthwhile result. Do not quietly call the stripped baseline finished or add another feature merely to satisfy a count.
 
 For a meeting of writers, follow the same workflow for each complete source, then test the relationship through actual passages. Use the [collection artwork brief](DESIGN.md#artwork-for-a-meeting-of-writers) for a shared entrance. Keep the chosen experience in production and rejected studies privately; a permanent proposal chooser makes the reader repeat the design decision. Preserve saved reflections and recovery access when retiring a study.
 

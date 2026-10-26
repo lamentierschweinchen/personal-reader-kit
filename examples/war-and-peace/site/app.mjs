@@ -209,6 +209,37 @@ function closeDialog(saved=false) {
   dialog.close();getSelection()?.removeAllRanges();finishDialog();return true;
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
+// Dismiss only a completed gesture that began on an already-open backdrop.
+function enableBackdropDismissal(){
+  let press=null,released=null;const pointers=new Set();
+  const reset=()=>{press=null;released=null;};
+  const outside=(modal,event)=>{const r=modal.getBoundingClientRect();return r.width>0&&r.height>0&&(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom);};
+  const eligible=(modal,event)=>modal.open&&modal.matches(':modal')&&document.elementFromPoint(event.clientX,event.clientY)?.closest('dialog')===modal&&outside(modal,event);
+  document.addEventListener('pointerdown',event=>{
+    reset();pointers.add(event.pointerId);const modal=event.target instanceof Element?event.target.closest('dialog'):null;
+    if(pointers.size===1&&event.isPrimary&&event.button===0&&modal instanceof HTMLDialogElement&&eligible(modal,event))press={modal,id:event.pointerId,type:event.pointerType,x:event.clientX,y:event.clientY};
+  },true);
+  document.addEventListener('pointermove',event=>{if(press&&event.pointerId===press.id&&(Math.hypot(event.clientX-press.x,event.clientY-press.y)>8||!eligible(press.modal,event)))reset();},true);
+  document.addEventListener('pointerup',event=>{
+    const start=press,single=pointers.size===1;reset();pointers.delete(event.pointerId);
+    if(start&&single&&start.id===event.pointerId&&event.button===0&&eligible(start.modal,event)&&Math.hypot(event.clientX-start.x,event.clientY-start.y)<=8)released=start;
+  },true);
+  document.addEventListener('pointercancel',event=>{pointers.delete(event.pointerId);reset();},true);
+  document.addEventListener('lostpointercapture',event=>{if(press?.id===event.pointerId)reset();},true);
+  for(const type of ['scroll','wheel','contextmenu','keydown','close'])document.addEventListener(type,reset,{capture:true,passive:true});
+  window.addEventListener('blur',()=>{pointers.clear();reset();});
+  new MutationObserver(records=>{if(records.some(record=>record.target instanceof HTMLDialogElement))reset();}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
+  document.addEventListener('click',event=>{
+    const start=released;reset();
+    if(!start||event.detail===0||event.button!==0||!start.modal.open||!start.modal.matches(':modal')||event.target.closest?.('dialog')!==start.modal||(event.pointerType===start.type&&event.pointerId!==start.id))return;
+    // Touch hit adjustment may move the click inside; physical down/up already proved the backdrop gesture.
+    event.preventDefault();event.stopImmediatePropagation();
+    // Existing cancel handlers retain draft checks, source anchors and focus return.
+    // A dialog without a cancel override retains its native close-event behavior.
+    if(start.modal.dispatchEvent(new Event('cancel',{cancelable:true}))&&start.modal.open)start.modal.close();
+  },true);
+}
+enableBackdropDismissal();
 dialog.addEventListener('close',()=>{if(!dialog.open&&dialogOrigin)finishDialog();});
 function fail(error) {
   const alert=dialog.open && $('#dialog-error');

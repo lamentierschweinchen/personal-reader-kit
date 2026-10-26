@@ -39,8 +39,8 @@
     },
     {
       "path": "site/app.mjs",
-      "bytes": 79327,
-      "sha256": "c3d0d8b4e63f81c5ce303811bd3819ad7a14b2cc22f66884dc078d26fc6c9fc5"
+      "bytes": 82212,
+      "sha256": "2a50566d42b5b10a0cb4bee692ecba0cc75fe2081ca1f802256bf9780e83d213"
     },
     {
       "path": "site/core.mjs",
