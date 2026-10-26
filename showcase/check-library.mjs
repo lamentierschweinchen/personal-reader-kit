@@ -9,7 +9,7 @@ const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_M
 const out=new URL('../test-results/library/',import.meta.url);await mkdir(out,{recursive:true});
 const server=await serve(),base='http://127.0.0.1:'+server.address().port,receipts=[];
 const editionCount=JSON.parse(await readFile(new URL('./library/entries.json',import.meta.url))).editions.length;
-const sizes=[{width:320,height:740},{width:390,height:844},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1440,height:1000}];
+const sizes=[{width:320,height:740},{width:390,height:844},{width:874,height:402},{width:768,height:1024},{width:1024,height:768},{width:1280,height:900},{width:1440,height:1000}];
 async function settle(page){await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));await Promise.allSettled(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));});}
 async function layout(page,label){
  const result=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,targets:[...document.querySelectorAll('a:not(.skip),button,input,select,summary')].filter(e=>!e.closest('p')&&e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden'&&!e.closest('details:not([open]) :not(summary)')).map(e=>{const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label')||e.textContent.trim().slice(0,40),w:r.width,h:r.height};})}));
@@ -37,8 +37,9 @@ async function collectionTypography(browser,page){
  }finally{await interior.close();}
  return pairs;
 }
-async function jacketFit(page,label){
- const result=await page.locator('.book:nth-child(n+7) .cover').evaluateAll(covers=>covers.map(cover=>{
+// Keep the established lettering-test scope by identity when shelf order changes.
+async function jacketFit(page,label,selector='.book .cover'){
+ const result=await page.locator(selector).evaluateAll(covers=>covers.filter(cover=>!['austen','alice','walden','two-halls','odyssey','dracula'].includes(cover.closest('.book')?.dataset.edition)).map(cover=>{
   const title=cover.querySelector('strong'),box=cover.getBoundingClientRect(),words=[];
   const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT);let node;
   while(node=walker.nextNode())for(const match of node.textContent.matchAll(/\S+/gu)){
@@ -59,6 +60,7 @@ try{
     const context=await browser.newContext({viewport,hasTouch:viewport.width<600,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],unexpected=[];
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url());});
     await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');await jacketFit(page,`${engine}/${viewport.width} normal`);
+    for(const id of ['antigone','a-dolls-house','book-of-tea']){await page.locator(`[data-preview="${id}"]`).click();await page.locator('dialog[open]').waitFor();await settle(page);await jacketFit(page,`${engine}/${viewport.width} ${id} preview`,'#edition-dialog .cover');if(viewport.width===1280)await page.locator('dialog').screenshot({path:fileURLToPath(new URL(`${engine}-${id}-preview-1280.png`,out)),animations:'disabled'});await page.locator('.close-dialog').click();await page.waitForURL(base+'/library/');}
     // A wide system face guards the jacket when the preferred serif is absent.
     // This is a fallback-width control, not a simulation of a particular OS.
     if(viewport.width===320){
@@ -72,10 +74,11 @@ try{
     const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);
     await page.locator('[data-filter="all"]').click();await page.locator('#search').fill('Haldane');assert.equal(await page.locator('.book:not([hidden])').getAttribute('data-edition'),'two-halls');
     await page.locator('#search').fill('not on this shelf');assert.equal(await page.locator('.empty').isVisible(),true);await page.locator('#reset').click();assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true);
-    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'shakespeare');await page.locator('#sort').selectOption('shelf');
+    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'a-dolls-house');await page.locator('#sort').selectOption('shelf');
+    // Native macOS WebKit Tab skips buttons; Option-Tab traversal is checked separately.
     // Native selection keeps a visible keyboard baseline without a large focus box.
     await page.locator('[data-filter="game"]').focus();await page.keyboard.press('Tab');
-    assert.equal(await page.locator('#sort').evaluate(e=>document.activeElement===e),true);
+    const nextFilterTarget=await page.evaluate(()=>document.activeElement.dataset.filter||document.activeElement.id);assert.ok(engine==='webkit'?['stage','sort'].includes(nextFilterTarget):nextFilterTarget==='stage','Native filter navigation');await page.locator('[data-filter=outdoors]').focus();await page.keyboard.press('Tab');assert.equal(await page.locator('#sort').evaluate(e=>document.activeElement===e),true);
     const focus=await page.locator('#sort').evaluate(e=>({outline:getComputedStyle(e).outlineStyle,line:getComputedStyle(e.parentElement).borderBottomColor,width:getComputedStyle(e.parentElement).borderBottomWidth}));
     assert.equal(focus.outline,'none');assert.equal(focus.line,'rgb(173, 53, 37)');assert.equal(focus.width,'2px');
     await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');await page.locator('#sort').selectOption('shelf');

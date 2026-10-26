@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../',import.meta.url));
 const editionPattern=/^(?:examples\/[a-z0-9-]+\/editions?\/[a-zA-Z0-9_.-]+\.(?:json|png|jpg|jpeg|webp)|examples\/learning-to-see\/docs\/EDITION-INVENTORY\.json)$/;
-const fontPattern=/^(?:(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|fall-of-the-house-of-usher)\/site)\/[a-z0-9-]+\.woff2|examples\/war-and-peace\/site\/Literata-(?:Roman|Italic)\.ttf)$/;
+const fontPattern=/^(?:(?:site|examples\/(?:at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|fall-of-the-house-of-usher|book-of-tea)\/site)\/[a-z0-9-]+\.woff2|examples\/war-and-peace\/site\/Literata-(?:Roman|Italic)\.ttf)$/;
 const iconPattern=/^(?:site|examples\/[a-z0-9-]+\/site)\/(?:apple-touch-icon|icon-(?:192|512))\.png$/;
 export function inspectFile(name,bytes,allowed,reviewedEditions=[],reviewedSiteAssets=[],reviewedFonts=[],reviewedIcons=[]) {
   const problems=[];

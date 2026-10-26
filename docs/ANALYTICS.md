@@ -1,6 +1,6 @@
 # Usage on the public site
 
-New reading measures the hosted catalogue and its sixteen public readers through Vercel Web Analytics. The default reader starter, independently built examples, private readers and `read.lookatseel.com` do not load this integration. Hosting a copy of the kit does not enroll it in New reading's analytics.
+New reading measures the hosted catalogue and its twenty-three public readers through Vercel Web Analytics. The default reader starter, independently built examples, private readers and `read.lookatseel.com` do not load this integration. Hosting a copy of the kit does not enroll it in New reading's analytics.
 
 ## What the counts mean
 
@@ -24,7 +24,7 @@ Vercel's script handles aggregate visitor, device, approximate location and refe
 
 Do Not Track, Global Privacy Control, automated browsers, preview hosts, unknown paths and offline starts are excluded. A failed or slow provider script stops collection. Events wait only in bounded page memory during startup; nothing is persisted or retried after failure, leaving the page or disconnection. Ad blockers and these exclusions make the counts incomplete.
 
-The combined catalogue build adds inert analytics configuration and an optional import to the existing page modules. It schedules that import after document loading has finished and catches failure; reading, font readiness and game controls do not wait for it. Workers do not cache or require analytics. Edition bytes, local database names, cache prefixes and installed addresses are unchanged. The public [privacy notice](https://newreading.app/privacy/) is linked from the catalogue and all sixteen mounted reader footers; the reusable reader's [storage guidance](PRIVACY.md) remains separate.
+The combined catalogue build adds inert analytics configuration and an optional import to the existing page modules. It schedules that import after document loading has finished and catches failure; reading, font readiness and game controls do not wait for it. Workers do not cache or require analytics. Edition bytes, local database names, cache prefixes and installed addresses are unchanged. The public [privacy notice](https://newreading.app/privacy/) is linked from the catalogue and all twenty-three mounted reader footers; the reusable reader's [storage guidance](PRIVACY.md) remains separate.
 
 ## Maintenance
 
@@ -36,4 +36,4 @@ Use the existing project's Analytics dashboard. Compare weekly page visits, publ
 
 Vercel's plan controls availability, retention and charges. Check the account before enabling it; do not enable a paid add-on or change spend controls as part of a code update. [Setup](https://vercel.com/docs/analytics/quickstart), [privacy](https://vercel.com/docs/analytics/privacy-policy), [custom events](https://vercel.com/docs/analytics/custom-events), [pricing](https://vercel.com/docs/analytics/limits-and-pricing) (checked 22 October 2026).
 
-Shareable `/library/<public-edition>/` preview addresses normalize to `/library/` for the existing shelf events. Only the twenty explicitly admitted slugs qualify; queries, fragments and unknown library items are excluded. The standalone item pages are static and do not load the optional analytics integration.
+Shareable `/library/<public-edition>/` preview addresses normalize to `/library/` for the existing shelf events. Only the twenty-three explicitly admitted slugs qualify; queries, fragments and unknown library items are excluded. The standalone item pages are static and do not load the optional analytics integration.

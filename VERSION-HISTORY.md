@@ -1,5 +1,11 @@
 # History boundary
 
+## Antigone, Ibsen and Tea · October 26, 2026
+
+The owner authorized three new public editions after final review: Antigone, A Doll’s House and The Book of Tea. Each retains its exact prepared text and distinct reading design. Tea includes three brewing methods and an adjustable timer that preserves its state through navigation and reload. Antigone’s optional comparison holds the burial order beside Teiresias’s warning and Creon’s reversal; Ibsen remains a working script with stage directions and source notes.
+
+The library now includes twenty-three editions and four additional filters: On stage, At the table, After dark and Out of doors. New cover cards, source views, local continuation records, offline caches and install icons use the existing catalogue mechanisms. Two imported Settings headings now wrap at enlarged text sizes. Source files and the previous twenty editions retain their bytes; private readers and Frankenstein are not included. Checks and limits are in [STATUS.md](docs/STATUS.md).
+
 ## Purpose, care and dialog dismissal · October 26, 2026
 
 The preparation guide, design guidance, pilot and reader-copyeditor now separate editorial acceptance from source fidelity and technical checks. A richer reader must make its particular pleasure or benefit apparent in the actual opening, prose, imagery or action. Editing preserves voice and substance; removing a weak companion does not finish a richer brief. Plain reading remains a valid requested outcome.

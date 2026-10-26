@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Sixteen owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
+  "status": "Twenty-three owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -5092,6 +5092,442 @@
         "Scale the entrance title on the narrowest phones so wider fallback fonts fit; text, normal phone/desktop size and saved records are unchanged.",
         "site/app.mjs",
         "edition-lock.json"
+      ]
+    },
+    {
+      "id": "antigone",
+      "title": "Antigone",
+      "description": "Read the play, then hold Creon’s orders beside the prophet’s warning and his attempt to undo the harm. The optional study includes the ending.",
+      "directory": "examples/antigone",
+      "sourceCommit": "acce8dde9056cbd1410f563efc441e9c01a75248",
+      "sourceFileCount": 41,
+      "packagingChanges": [
+        "Exact reviewed edition, selected runtime and original-fixture tests; no private archives, records or project history.",
+        "Explicit source/asset inventory, bounded builder, public release notices and mounted paths.",
+        "Narrow Settings heading wraps fully at 200% interface text, including wider fallback fonts."
+      ],
+      "maintenanceChanges": [
+        "site/style.css"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/antigone/",
+      "reviewedBuild": [
+        {
+          "path": "antigone-assets.mjs",
+          "bytes": 5176,
+          "sha256": "11911298c43305f8f9cd66e8453069df38240a52a103194b60627fff35c84b03"
+        },
+        {
+          "path": "antigone.mjs",
+          "bytes": 4099,
+          "sha256": "b00276cf4b4633ae06a43e49aff855fae63ac4fa0f4746739fa0086a51e3a9cb"
+        },
+        {
+          "path": "app.mjs",
+          "bytes": 93417,
+          "sha256": "14f2cf00b8be204cc255a52cea7e9c4cd41e32a72002e21bc4182e34955588c7"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 1710,
+          "sha256": "160320d237b12a3b111491268d1c958017b5d27946a6b65a70e1f11228463346"
+        },
+        {
+          "path": "build.json",
+          "bytes": 492,
+          "sha256": "39bfe9043780193aaf0c834930084366724bb141d0d5b5af3ba0245f39322596"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 18789,
+          "sha256": "62484dcddc15cab5bd1035020669b9d24e36bcdc4c71a186f79acb22fcfdf576"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 1935,
+          "sha256": "e014b7ed6cb64bf71f28928fdf87ad59873bd347f6e0af7a1052e54ed9db14fa"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 3083,
+          "sha256": "b15336ef99d5a812624e277850f7a588d042679f7121c1cec27e6e962889e631"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 349,
+          "sha256": "796904cfadf8ad42a69248189ad3c27ab6efe62048b5d1be4feb4b93253ae4d6"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3120,
+          "sha256": "12f85a152acc3cda7657bb7b44deb60ba1316ec99b9b08f1233fa7abf8fe547a"
+        },
+        {
+          "path": "lekythos.jpg",
+          "bytes": 1343061,
+          "sha256": "def6f1a9f01e2dec422022c6dc9fb7c3e3a5c21eb32fdc31fac6b378875be1f1"
+        },
+        {
+          "path": "library.json",
+          "bytes": 1963205,
+          "sha256": "f4ab8d08f9e652b49288461fbeb07cb77002a2a485a75970ed08fbd8f35dddb2"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 577,
+          "sha256": "dcd3a66198412b2d61da1244c9ecf28128b00e3fc0763a88f619ce9251c3bcdf"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1785,
+          "sha256": "667e28bdb307988b503a55c59852e842fe43fc020ae017fa50791cd99a0af61c"
+        },
+        {
+          "path": "style.css",
+          "bytes": 38594,
+          "sha256": "3316852e2b268d327c054cfce2fa082dcf59b24e90a76f50cdc748e72864980f"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1291,
+          "sha256": "812a84d0a6fcdb4820b8c908ed673a704d00c7291d0910243f1bb28f713d01ab"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3634,
+          "sha256": "ca56b82abbfa745993a79b7f4dc8f067222553d2d8c4c39093f470f29fba3b65"
+        }
+      ]
+    },
+    {
+      "id": "a-dolls-house",
+      "title": "A Doll’s House",
+      "description": "Read Ibsen as a working script, with speakers beside their lines, clear stage directions and direct routes to each act.",
+      "directory": "examples/a-dolls-house",
+      "sourceCommit": "011efdb414a6bc83dee2fa7b1ac7646adf7b5475",
+      "sourceFileCount": 39,
+      "packagingChanges": [
+        "Exact reviewed edition, selected runtime and original-fixture tests; no private archives, records or project history.",
+        "Explicit source/asset inventory, bounded builder, public release notices and mounted paths.",
+        "Narrow Settings heading wraps fully at 200% interface text, including wider fallback fonts."
+      ],
+      "maintenanceChanges": [
+        "site/style.css",
+        "site/app.mjs"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/a-dolls-house/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 79105,
+          "sha256": "7934547611685e82450652fecb811452702ad77ce5c4cd2722af60a3bf2cc127"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 2173,
+          "sha256": "b0b9f2fa752f121a1a947b8b6499b429dd458731aa7aca6f4451e01636abd3d1"
+        },
+        {
+          "path": "build.json",
+          "bytes": 456,
+          "sha256": "ac542a812fd10d3bc2a18d167cf70315e27e8963d131406fc053291eea540bc2"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 19813,
+          "sha256": "a754dd2c2eacbadeb2f6d5ef0e4565edee9d6019dd071589efa99a483d7e36b2"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7269,
+          "sha256": "3e9f270c07e7beea4ec125518168b595f5589ea9c02e61f6870dc453ae2cb2dd"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 2286,
+          "sha256": "3ecb6d433b8d1d6403f6079022a83a1b259b98e40880304f1bd40d9c5a656fb7"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 8666,
+          "sha256": "1d7f7283911c7963cede8c20f116df761a64c4076d69e7deb545f6b69a75de56"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 348,
+          "sha256": "37fea00625042760333d9442b24922ae34cb377359b0a4ccd6407aaf17fb6e2e"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3158,
+          "sha256": "710c283d8207c23f37e0368fb79a489d02123cf62ca46098cc90dd3205cd7eba"
+        },
+        {
+          "path": "library.json",
+          "bytes": 446365,
+          "sha256": "15b7bb7113900880f33d7f55a905a779a431aa3409315672e91e926ed9188701"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 580,
+          "sha256": "a6e88f4b31535e344eb7552216ba03093ece1a05daf73b6ef3dcfd2394f9acf8"
+        },
+        {
+          "path": "play.mjs",
+          "bytes": 754,
+          "sha256": "6e28d3e70935a26d6e31edca11e5bb8bfd9c11458f2fd8b581d5be1fe6a449d9"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 32689,
+          "sha256": "188893ea39e65e508e6df42f8197fffa1451f956023eb096089e6968e3dd9598"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1253,
+          "sha256": "394db0eaeabef7dd7e0b790e3858360e76ec6a45de410da546ecfa6f8abd706f"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4124,
+          "sha256": "a1720020e4ed9214d51c2d5bad54e31946c87330033a9198706d062b9ba5b2e8"
+        }
+      ]
+    },
+    {
+      "id": "book-of-tea",
+      "title": "The Book of Tea",
+      "description": "Read Okakura on tea, art and hospitality. Make a cup with sourced sencha, black-tea and matcha methods, and an adjustable infusion timer.",
+      "directory": "examples/book-of-tea",
+      "sourceCommit": "64cfa0f867abc2d5597563e3837732e03934caaa",
+      "sourceFileCount": 49,
+      "packagingChanges": [
+        "Exact reviewed edition, selected runtime and original-fixture tests; no private archives, records or project history.",
+        "Explicit source/asset inventory, bounded builder, public release notices and mounted paths."
+      ],
+      "maintenanceChanges": [],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/book-of-tea/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 85833,
+          "sha256": "4c2ad91bb0438995d01c96074d5c4c576b60138114d14a1cd651fae455948eac"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 4120,
+          "sha256": "e5d7ed0c126c83f9a7caa44495ab2a4fb051c5f0151e994db22a6fab22430a91"
+        },
+        {
+          "path": "build.json",
+          "bytes": 687,
+          "sha256": "b1137cd047144205942554b8542f802c3a529a8e17ea371ecff5b653a7ec0847"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "context-harunobu.jpg",
+          "bytes": 111608,
+          "sha256": "695ddb78ee808d4fc3081933a56fc4035e1ca136bdbc666972e5571e75b00baa"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "edition.css",
+          "bytes": 14404,
+          "sha256": "f6ae164d4d7cca02a4bd5b22967c45386e516967a366e6b33b12c19aa597000e"
+        },
+        {
+          "path": "edition.mjs",
+          "bytes": 2738,
+          "sha256": "85aa749fa9deb115db7dcfc61f1a822c4ffe42ec55b27ba37ad7a530bd978490"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 4347,
+          "sha256": "67ceae5ce8f95b7db92dadeb5efc255fc04223b843e6339b1ab39e5aad36b80c"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 14572,
+          "sha256": "c76f8b2a5ff0c4aff79b9d08012dca2b9d445f5761886806fee95488dba36c1c"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 433,
+          "sha256": "d09ba88c5aa883f92b696620985c7a999c6fcbffb92f2830406d30bd3269c957"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3373,
+          "sha256": "3912df30e43bacb04e643465553e3ef29b95ba71c3058d1ce1fd6ba9710fbd38"
+        },
+        {
+          "path": "library.json",
+          "bytes": 144268,
+          "sha256": "a1a8d3327fe12d0730283a0416463b6958d99c348326bb9dc717c3eac0a53033"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 396,
+          "sha256": "38ea7f3a31096857cd771ee5eb9214e4a20ef252d044fef9774d2a15e58b446d"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "source-sans-license.txt",
+          "bytes": 4486,
+          "sha256": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328"
+        },
+        {
+          "path": "source-sans-regular.woff2",
+          "bytes": 153800,
+          "sha256": "63de0da0cc05298e2e9c6e5cef506d8454ca665f6e668a99d94f51174b9256ed"
+        },
+        {
+          "path": "source-sans-semibold.woff2",
+          "bytes": 155624,
+          "sha256": "c248b0a178c362916db7c853ed640db77f184d19a0ed9fa5591fa707d3089635"
+        },
+        {
+          "path": "source-serif-italic.woff2",
+          "bytes": 59716,
+          "sha256": "ca3b17ed1e3e668ffd9e03385cfd46e1b095df783de53710d25d41241496026b"
+        },
+        {
+          "path": "source-serif-license.txt",
+          "bytes": 4491,
+          "sha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464"
+        },
+        {
+          "path": "source-serif-regular.woff2",
+          "bytes": 76260,
+          "sha256": "6b053e98f0838afe81f3e784727be4583a7c13bb42f198dc5202ecffee0aaee0"
+        },
+        {
+          "path": "style.css",
+          "bytes": 24006,
+          "sha256": "c2bb2f52cbf1941d6f92011fee8de60fd529335d29440e7b1b3a52548315a474"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1504,
+          "sha256": "642f7b6fa4f699057f76adc463f3f68ee59f67a363d7a1ef6691010611de37f7"
+        },
+        {
+          "path": "tea-brew-state.mjs",
+          "bytes": 3615,
+          "sha256": "a7dd42ac4b835b8ea7f9d6d5bf0660da44743eb39167c4115266c29bbbce6d93"
+        },
+        {
+          "path": "tea-brew.mjs",
+          "bytes": 18302,
+          "sha256": "62fc20bbc5a1898eef0817d33d124020df07b70f85d9351e77cd919ae03850a9"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
       ]
     }
   ],

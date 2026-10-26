@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "sourceCommit": "64cfa0f867abc2d5597563e3837732e03934caaa",
+  "bookId": "book-of-tea",
+  "sourceSha256": "a62bfd5bcb8254da0314ffff2b59107e4c73964eb990ca19204107eff9969dce",
+  "librarySha256": "a1a8d3327fe12d0730283a0416463b6958d99c348326bb9dc717c3eac0a53033",
+  "files": [
+    {
+      "path": "site/index.html",
+      "bytes": 3373,
+      "sha256": "3912df30e43bacb04e643465553e3ef29b95ba71c3058d1ce1fd6ba9710fbd38"
+    },
+    {
+      "path": "site/edition.mjs",
+      "bytes": 2738,
+      "sha256": "85aa749fa9deb115db7dcfc61f1a822c4ffe42ec55b27ba37ad7a530bd978490"
+    },
+    {
+      "path": "site/edition.css",
+      "bytes": 14404,
+      "sha256": "f6ae164d4d7cca02a4bd5b22967c45386e516967a366e6b33b12c19aa597000e"
+    },
+    {
+      "path": "site/tea-brew.mjs",
+      "bytes": 18302,
+      "sha256": "62fc20bbc5a1898eef0817d33d124020df07b70f85d9351e77cd919ae03850a9"
+    },
+    {
+      "path": "site/tea-brew-state.mjs",
+      "bytes": 3615,
+      "sha256": "a7dd42ac4b835b8ea7f9d6d5bf0660da44743eb39167c4115266c29bbbce6d93"
+    },
+    {
+      "path": "site/source-serif-regular.woff2",
+      "bytes": 76260,
+      "sha256": "6b053e98f0838afe81f3e784727be4583a7c13bb42f198dc5202ecffee0aaee0"
+    },
+    {
+      "path": "site/source-serif-italic.woff2",
+      "bytes": 59716,
+      "sha256": "ca3b17ed1e3e668ffd9e03385cfd46e1b095df783de53710d25d41241496026b"
+    },
+    {
+      "path": "site/source-serif-license.txt",
+      "bytes": 4491,
+      "sha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464"
+    },
+    {
+      "path": "site/source-sans-regular.woff2",
+      "bytes": 153800,
+      "sha256": "63de0da0cc05298e2e9c6e5cef506d8454ca665f6e668a99d94f51174b9256ed"
+    },
+    {
+      "path": "site/source-sans-semibold.woff2",
+      "bytes": 155624,
+      "sha256": "c248b0a178c362916db7c853ed640db77f184d19a0ed9fa5591fa707d3089635"
+    },
+    {
+      "path": "site/source-sans-license.txt",
+      "bytes": 4486,
+      "sha256": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 85833,
+      "sha256": "4c2ad91bb0438995d01c96074d5c4c576b60138114d14a1cd651fae455948eac"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 17935,
+      "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7262,
+      "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 3489,
+      "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1342,
+      "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 24006,
+      "sha256": "c2bb2f52cbf1941d6f92011fee8de60fd529335d29440e7b1b3a52548315a474"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 396,
+      "sha256": "38ea7f3a31096857cd771ee5eb9214e4a20ef252d044fef9774d2a15e58b446d"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 433,
+      "sha256": "d09ba88c5aa883f92b696620985c7a999c6fcbffb92f2830406d30bd3269c957"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 4120,
+      "sha256": "e5d7ed0c126c83f9a7caa44495ab2a4fb051c5f0151e994db22a6fab22430a91"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 4347,
+      "sha256": "67ceae5ce8f95b7db92dadeb5efc255fc04223b843e6339b1ab39e5aad36b80c"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 14572,
+      "sha256": "c76f8b2a5ff0c4aff79b9d08012dca2b9d445f5761886806fee95488dba36c1c"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "edition/book.json",
+      "bytes": 158087,
+      "sha256": "f8d5fbe79735e987ddc5ee7e0c952c7dcb9ec04c7c306f0b004e048c98a5c3c9"
+    },
+    {
+      "path": "edition/context-harunobu.jpg",
+      "bytes": 111608,
+      "sha256": "695ddb78ee808d4fc3081933a56fc4035e1ca136bdbc666972e5571e75b00baa"
+    }
+  ]
+}

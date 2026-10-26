@@ -577,6 +577,93 @@
         "Caesar’s source edition"
       ],
       "rightsPath": "examples/caesar-and-the-emperors/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "antigone",
+      "exampleId": "antigone",
+      "title": "Antigone",
+      "author": "Sophocles",
+      "shortAuthor": "Sophocles",
+      "kind": "Drama",
+      "language": "English",
+      "edition": "The complete play in Richard Claverhouse Jebb’s prose translation: 1904 collection, 1917 reprint. Adapted Wikisource encoding retains its contributor credits and CC BY-SA 4.0 terms.",
+      "editionLabel": "Richard Claverhouse Jebb’s translation",
+      "feature": "Creon forbids the burial. Antigone does it anyway.",
+      "description": "Read Jebb’s complete play. In A public stain, compare Creon’s order with the prophet’s warning. The optional study includes the ending.",
+      "categories": [
+        "words",
+        "ideas",
+        "art"
+      ],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Tragedies_of_Sophocles_(Jebb_1917)/Antigone"
+      ],
+      "sourceLabels": [
+        "Jebb’s translation"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "rightsPath": "examples/antigone/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "a-dolls-house",
+      "exampleId": "a-dolls-house",
+      "title": "A Doll’s House",
+      "author": "Henrik Ibsen",
+      "shortAuthor": "Henrik Ibsen",
+      "kind": "Drama",
+      "language": "English",
+      "edition": "William Archer’s translation in Heinemann’s 1909 printing. Complete cast, setting and three acts, with seven historical notes; the collected volume’s introductions and Ghosts are excluded.",
+      "editionLabel": "William Archer’s translation",
+      "feature": "A play laid out to be spoken.",
+      "description": "Read Ibsen as a working script, with speakers beside their lines, clear stage directions and direct routes to each act.",
+      "categories": [
+        "words"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/70566"
+      ],
+      "sourceLabels": [
+        "Archer’s collected edition"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "rightsPath": "examples/a-dolls-house/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "book-of-tea",
+      "exampleId": "book-of-tea",
+      "title": "The Book of Tea",
+      "author": "Okakura Kakuzō",
+      "shortAuthor": "Okakura Kakuzō",
+      "kind": "Essays",
+      "language": "English",
+      "edition": "Seven essays, original English, checked against the 1906 G. P. Putnam’s Sons witness. Includes the dedication, detailed contents, ten source notes and original verse lineation.",
+      "editionLabel": "Original English · 1906",
+      "feature": "Put the kettle on.",
+      "description": "Read Okakura on tea, art and hospitality. Make a cup with sourced sencha, black-tea and matcha methods, and an adjustable infusion timer.",
+      "categories": [
+        "words",
+        "ideas",
+        "art"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/769",
+        "https://commons.wikimedia.org/wiki/File:The_book_of_tea_(IA_bookoftea00okakrich).pdf"
+      ],
+      "sourceLabels": [
+        "Starting digital text",
+        "1906 print witness"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "rightsPath": "examples/book-of-tea/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

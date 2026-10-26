@@ -14,7 +14,7 @@ function render(){
  const terms=query.split(/\s+/).filter(Boolean);
  let visible=0;
  for(const book of books){
-  const categories=book.dataset.categories.split(' ');
+  const categories=[...book.dataset.categories.split(' '),...(book.dataset.shelves||'').split(' ')];
   const matchedCategory=category==='all'||(category==='words'?categories.includes('words')||categories.includes('ideas'):categories.includes(category));
   book.hidden=!matchedCategory||!terms.every(term=>book.dataset.search.includes(term));
   if(!book.hidden)visible++;

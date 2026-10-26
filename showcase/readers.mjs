@@ -10,7 +10,7 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea'});
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
@@ -72,7 +72,7 @@ export async function buildReaders(output){
         bytes=Buffer.from(text);
       }
       if(asset.path==='db.mjs'){
-        const prior=slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
+        const prior=slug==='a-dolls-house'?'dolls-house-reader-v1':slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
         bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
       }
       if(asset.path==='folio.mjs'&&slug==='pictures-after-dark'){
@@ -81,6 +81,7 @@ export async function buildReaders(output){
         text=replace(text,'src="/${esc(folio.callot.src)}"','src="'+base+'${esc(folio.callot.src)}"');
         text=replace(text,"'/'+button.dataset.folioImage",JSON.stringify(base)+"+button.dataset.folioImage");bytes=Buffer.from(text);
       }
+      if(asset.path==='app.mjs'&&slug==='book-of-tea')bytes=Buffer.from(replace(bytes.toString(),'src="/context-harunobu.jpg"',`src="${base}context-harunobu.jpg"`));
       if(asset.path==='app.mjs'&&slug==='nietzsche')bytes=Buffer.from(replace(bytes.toString(),"fetch('/company.json'",`fetch('${base}company.json'`));
       if(slug==='poe'){
         if(asset.path==='app.mjs'){

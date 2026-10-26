@@ -55,6 +55,8 @@ jobs:
         if: hashFiles('showcase/check-social.mjs') != ''
       - run: node showcase/check-library.mjs --skip-build
         if: hashFiles('showcase/check-library.mjs') != ''
+      - run: node showcase/check-library-filters.mjs --skip-build
+        if: hashFiles('showcase/check-library-filters.mjs') != ''
       - run: node showcase/check-continuation.mjs --skip-build
         if: hashFiles('showcase/check-continuation.mjs') != ''
       - run: node showcase/check-save-errors.mjs --skip-build
@@ -80,6 +82,8 @@ jobs:
         if: hashFiles('showcase/check-douglass-poe.mjs') != ''
       - run: node showcase/check-themed-readers.mjs --skip-build
         if: hashFiles('showcase/check-themed-readers.mjs') != ''
+      - run: node showcase/check-oct26-readers.mjs --skip-build
+        if: hashFiles('showcase/check-oct26-readers.mjs') != ''
       - name: Verify comparison bundle restoration
         run: node examples/nietzsche-in-company/tests/browser.mjs
         if: hashFiles('examples/nietzsche-in-company/tests/browser.mjs') != ''

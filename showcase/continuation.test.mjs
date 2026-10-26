@@ -12,8 +12,8 @@ function database(snapshot,{version=1,upgrade=false,blocked=false,hung=false}={}
   const db={version,close(){audit.closed++;},objectStoreNames:{contains:()=>true},transaction(names,mode){audit.transactions.push({names,mode});const tx={objectStore:name=>({get:key=>({result:name==='state'?snapshot.state:snapshot.book})}),abort(){audit.aborted++;}};queueMicrotask(()=>tx.oncomplete?.());return tx;}};
   return {audit,open(...args){audit.opens.push(args);const request={result:db,transaction:{abort(){audit.aborted++;}}};queueMicrotask(()=>{if(upgrade)request.onupgradeneeded();else if(blocked)request.onblocked();else if(!hung)request.onsuccess();});return request;}};
 }
-test('profiles and tiny pointers admit only twenty declared public editions',()=>{
- assert.equal(Object.keys(PUBLIC_WORKS).length,20);assert.ok(validProfile(profile));assert.deepEqual(parsePointer(JSON.stringify(pointer),[profile]),pointer);
+test('profiles and tiny pointers admit only twenty-three declared public editions',()=>{
+ assert.equal(Object.keys(PUBLIC_WORKS).length,23);assert.ok(validProfile(profile));assert.deepEqual(parsePointer(JSON.stringify(pointer),[profile]),pointer);
  for(const extra of [{text:'private'},{position:pos},{v:2},{edition:'orwell'},{work:'private'},{at:Infinity},{at:Date.now()+120000}])assert.equal(parsePointer(JSON.stringify({...pointer,...extra}),[profile]),null);
  assert.equal(continuationHref(pointer),'/austen/#continue/austen-pride-1894');assert.equal(continuationHref({...pointer,edition:'orwell'}),null);
  for(const change of [{ratio:2},{ratio:NaN},{revision:'b'.repeat(64)},{blockId:undefined},{sectionId:'../first'}])assert.equal(validPosition({...pos,...change},profile.works[0]),false);
@@ -46,7 +46,7 @@ test('sentinel resumes directly, replaces route once, and fails closed for inval
  for(const position of [{...pos,ratio:5},{...pos,blockId:'unknown'},{...pos,sectionId:'missing'}]){const bad=await adapterContext({hash:'#continue/'+book.id,position});assert.equal(bad.actions.length,0);assert.equal(bad.location.hash,'#shelf');}
  assert.throws(()=>adaptContinuationApp(source+source,profile));assert.throws(()=>adaptContinuationApp(source.replace('void offline();',''),profile));
 });
-test('all twenty real application sources satisfy unique strict adapter anchors',async()=>{
+test('all twenty-three real application sources satisfy unique strict adapter anchors',async()=>{
  const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
  const {readerPaths}=await import('./readers.mjs');
  for(const entry of catalog.examples){const edition=readerPaths[entry.id],fixture={edition,title:'Test profile',works:PUBLIC_WORKS[edition].map(id=>({id,title:'Test work',revision:'a'.repeat(64),fingerprint:'b'.repeat(64)}))};const text=await readFile(new URL('../'+entry.directory+'/site/app.mjs',import.meta.url),'utf8');assert.ok(adaptContinuationApp(text,fixture).includes('__nrContinuationProof'));}

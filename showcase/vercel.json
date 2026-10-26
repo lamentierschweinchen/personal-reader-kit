@@ -61,14 +61,14 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome))/sw\\.js$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea))/sw\\.js$",
       "headers": {
         "Cache-Control": "no-cache, no-store, must-revalidate"
       },
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

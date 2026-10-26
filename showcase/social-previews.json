@@ -252,6 +252,42 @@
       "bytes": 52474,
       "sha256": "871282a55b656abdf3bc5dd375f3c5a175e698b0d058209e71a0bcef5203cb34",
       "alt": "The New reading library, with covers for Pride and Prejudice, Alice, Pictures after dark, and Caesar and the emperors."
+    },
+    "antigone": {
+      "id": "antigone",
+      "title": "Antigone",
+      "author": "Sophocles",
+      "feature": "Creon forbids the burial. Antigone does it anyway.",
+      "file": "assets/social-antigone.jpg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 58701,
+      "sha256": "b02d18235a6f6850db2d092abdabf7c58000b2ff92f09899afbb75cbf14b63e4",
+      "alt": "Antigone by Sophocles. Its New reading cover and edition details."
+    },
+    "a-dolls-house": {
+      "id": "a-dolls-house",
+      "title": "A Doll’s House",
+      "author": "Henrik Ibsen",
+      "feature": "A play laid out to be spoken.",
+      "file": "assets/social-a-dolls-house.jpg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 50360,
+      "sha256": "54328516c4bf175a13773f710af40a5e081051ae766fccc01bd512147a51f896",
+      "alt": "A Doll’s House by Henrik Ibsen. Its New reading cover and edition details."
+    },
+    "book-of-tea": {
+      "id": "book-of-tea",
+      "title": "The Book of Tea",
+      "author": "Okakura Kakuzō",
+      "feature": "Put the kettle on.",
+      "file": "assets/social-book-of-tea.jpg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 52208,
+      "sha256": "3db63d12a01366fdc068b425c6d1ac05bd6067f59512d045ecc7a3f891e78508",
+      "alt": "The Book of Tea by Okakura Kakuzō. Its New reading cover and edition details."
     }
   }
 }

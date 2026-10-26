@@ -1652,7 +1652,142 @@
     "showcase/check-social.mjs",
     "showcase/social-images.mjs",
     "showcase/social-previews.json",
-    "showcase/social.mjs"
+    "showcase/social.mjs",
+    "examples/a-dolls-house/.gitignore",
+    "examples/a-dolls-house/.vercelignore",
+    "examples/a-dolls-house/AGENTS.md",
+    "examples/a-dolls-house/LICENSE",
+    "examples/a-dolls-house/README.md",
+    "examples/a-dolls-house/VERSION-HISTORY.md",
+    "examples/a-dolls-house/docs/SOURCE-RIGHTS.md",
+    "examples/a-dolls-house/edition-lock.json",
+    "examples/a-dolls-house/edition/book.json",
+    "examples/a-dolls-house/package.json",
+    "examples/a-dolls-house/samples/README.md",
+    "examples/a-dolls-house/samples/library.json",
+    "examples/a-dolls-house/scripts/build.mjs",
+    "examples/a-dolls-house/scripts/serve.mjs",
+    "examples/a-dolls-house/site/app.mjs",
+    "examples/a-dolls-house/site/apple-touch-icon.png",
+    "examples/a-dolls-house/site/bundle.mjs",
+    "examples/a-dolls-house/site/core.mjs",
+    "examples/a-dolls-house/site/db.mjs",
+    "examples/a-dolls-house/site/icon-192.png",
+    "examples/a-dolls-house/site/icon-512.png",
+    "examples/a-dolls-house/site/icon.svg",
+    "examples/a-dolls-house/site/index.html",
+    "examples/a-dolls-house/site/library.mjs",
+    "examples/a-dolls-house/site/manifest.webmanifest",
+    "examples/a-dolls-house/site/play.mjs",
+    "examples/a-dolls-house/site/robots.txt",
+    "examples/a-dolls-house/site/share-card.css",
+    "examples/a-dolls-house/site/share-card.mjs",
+    "examples/a-dolls-house/site/share.mjs",
+    "examples/a-dolls-house/site/style.css",
+    "examples/a-dolls-house/site/text.mjs",
+    "examples/a-dolls-house/tests/bundle.test.mjs",
+    "examples/a-dolls-house/tests/core.test.mjs",
+    "examples/a-dolls-house/tests/play.test.mjs",
+    "examples/a-dolls-house/tests/share-card.test.mjs",
+    "examples/a-dolls-house/tests/share.test.mjs",
+    "examples/a-dolls-house/tests/ui-icons.test.mjs",
+    "examples/a-dolls-house/vercel.json",
+    "examples/antigone/.gitignore",
+    "examples/antigone/.vercelignore",
+    "examples/antigone/AGENTS.md",
+    "examples/antigone/LICENSE",
+    "examples/antigone/README.md",
+    "examples/antigone/VERSION-HISTORY.md",
+    "examples/antigone/docs/SOURCE-RIGHTS.md",
+    "examples/antigone/edition-lock.json",
+    "examples/antigone/edition/book.json",
+    "examples/antigone/edition/lekythos.jpg",
+    "examples/antigone/package.json",
+    "examples/antigone/samples/README.md",
+    "examples/antigone/samples/library.json",
+    "examples/antigone/scripts/build.mjs",
+    "examples/antigone/scripts/serve.mjs",
+    "examples/antigone/site/antigone-assets.mjs",
+    "examples/antigone/site/antigone.mjs",
+    "examples/antigone/site/app.mjs",
+    "examples/antigone/site/apple-touch-icon.png",
+    "examples/antigone/site/bundle.mjs",
+    "examples/antigone/site/core.mjs",
+    "examples/antigone/site/db.mjs",
+    "examples/antigone/site/icon-192.png",
+    "examples/antigone/site/icon-512.png",
+    "examples/antigone/site/icon.svg",
+    "examples/antigone/site/index.html",
+    "examples/antigone/site/library.mjs",
+    "examples/antigone/site/manifest.webmanifest",
+    "examples/antigone/site/robots.txt",
+    "examples/antigone/site/share-card.css",
+    "examples/antigone/site/share-card.mjs",
+    "examples/antigone/site/share.mjs",
+    "examples/antigone/site/style.css",
+    "examples/antigone/site/text.mjs",
+    "examples/antigone/tests/antigone.test.mjs",
+    "examples/antigone/tests/bundle.test.mjs",
+    "examples/antigone/tests/core.test.mjs",
+    "examples/antigone/tests/share-card.test.mjs",
+    "examples/antigone/tests/share.test.mjs",
+    "examples/antigone/tests/ui-icons.test.mjs",
+    "examples/antigone/vercel.json",
+    "examples/book-of-tea/.gitignore",
+    "examples/book-of-tea/.vercelignore",
+    "examples/book-of-tea/AGENTS.md",
+    "examples/book-of-tea/LICENSE",
+    "examples/book-of-tea/README.md",
+    "examples/book-of-tea/VERSION-HISTORY.md",
+    "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+    "examples/book-of-tea/edition-lock.json",
+    "examples/book-of-tea/edition/book.json",
+    "examples/book-of-tea/edition/context-harunobu.jpg",
+    "examples/book-of-tea/package.json",
+    "examples/book-of-tea/samples/README.md",
+    "examples/book-of-tea/samples/library.json",
+    "examples/book-of-tea/scripts/build.mjs",
+    "examples/book-of-tea/scripts/serve.mjs",
+    "examples/book-of-tea/site/app.mjs",
+    "examples/book-of-tea/site/apple-touch-icon.png",
+    "examples/book-of-tea/site/bundle.mjs",
+    "examples/book-of-tea/site/core.mjs",
+    "examples/book-of-tea/site/db.mjs",
+    "examples/book-of-tea/site/edition.css",
+    "examples/book-of-tea/site/edition.mjs",
+    "examples/book-of-tea/site/icon-192.png",
+    "examples/book-of-tea/site/icon-512.png",
+    "examples/book-of-tea/site/icon.svg",
+    "examples/book-of-tea/site/index.html",
+    "examples/book-of-tea/site/library.mjs",
+    "examples/book-of-tea/site/manifest.webmanifest",
+    "examples/book-of-tea/site/robots.txt",
+    "examples/book-of-tea/site/share-card.css",
+    "examples/book-of-tea/site/share-card.mjs",
+    "examples/book-of-tea/site/share.mjs",
+    "examples/book-of-tea/site/source-sans-license.txt",
+    "examples/book-of-tea/site/source-sans-regular.woff2",
+    "examples/book-of-tea/site/source-sans-semibold.woff2",
+    "examples/book-of-tea/site/source-serif-italic.woff2",
+    "examples/book-of-tea/site/source-serif-license.txt",
+    "examples/book-of-tea/site/source-serif-regular.woff2",
+    "examples/book-of-tea/site/style.css",
+    "examples/book-of-tea/site/tea-brew-state.mjs",
+    "examples/book-of-tea/site/tea-brew.mjs",
+    "examples/book-of-tea/site/text.mjs",
+    "examples/book-of-tea/tests/bundle.test.mjs",
+    "examples/book-of-tea/tests/core.test.mjs",
+    "examples/book-of-tea/tests/share-card.test.mjs",
+    "examples/book-of-tea/tests/share.test.mjs",
+    "examples/book-of-tea/tests/tea-brew.test.mjs",
+    "examples/book-of-tea/tests/ui-icons.test.mjs",
+    "examples/book-of-tea/vercel.json",
+    "showcase/assets/social-a-dolls-house.jpg",
+    "showcase/assets/social-antigone.jpg",
+    "showcase/assets/social-book-of-tea.jpg",
+    "showcase/check-library-filters.mjs",
+    "showcase/check-oct26-readers.mjs",
+    "tests/showcase-library-filters.test.mjs"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4458,6 +4593,36 @@
       "sha256": "ad1c3cfdc777e69daa1fde1077bbabee8c287d3ef7b7744e894fbcd9e1d78912",
       "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
       "reason": "Exact approved French/historical English folio or separately reviewed supplemental comparison/image. Wikisource adaptations retain CC BY-SA 4.0; historical contributions and museum images retain the source-specific terms in provenance. No private annotations."
+    },
+    {
+      "path": "examples/a-dolls-house/edition/book.json",
+      "sha256": "80c978389e5f496ed32a33cdfeb2c194ae7278e0ccfd4898d8602cd900675aae",
+      "provenance": "examples/a-dolls-house/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
+    },
+    {
+      "path": "examples/antigone/edition/book.json",
+      "sha256": "abb64c03dfd11c4457facd42b89d68ca0bd8c99982ca87517f755ce4e35bb41e",
+      "provenance": "examples/antigone/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
+    },
+    {
+      "path": "examples/antigone/edition/lekythos.jpg",
+      "sha256": "def6f1a9f01e2dec422022c6dc9fb7c3e3a5c21eb32fdc31fac6b378875be1f1",
+      "provenance": "examples/antigone/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
+    },
+    {
+      "path": "examples/book-of-tea/edition/book.json",
+      "sha256": "f8d5fbe79735e987ddc5ee7e0c952c7dcb9ec04c7c306f0b004e048c98a5c3c9",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
+    },
+    {
+      "path": "examples/book-of-tea/edition/context-harunobu.jpg",
+      "sha256": "695ddb78ee808d4fc3081933a56fc4035e1ca136bdbc666972e5571e75b00baa",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
     }
   ],
   "reviewedSiteAssets": [
@@ -4784,6 +4949,24 @@
       "sha256": "871282a55b656abdf3bc5dd375f3c5a175e698b0d058209e71a0bcef5203cb34",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed 1200 x 630 social card for The library; existing public cover composition and licensed local type, with no reading records or new source content."
+    },
+    {
+      "path": "showcase/assets/social-a-dolls-house.jpg",
+      "sha256": "54328516c4bf175a13773f710af40a5e081051ae766fccc01bd512147a51f896",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed 1200×630 public edition card, using the approved jacket and edition metadata. Antigone retains its credited Met CC0 photograph; other new jacket art is original."
+    },
+    {
+      "path": "showcase/assets/social-antigone.jpg",
+      "sha256": "b02d18235a6f6850db2d092abdabf7c58000b2ff92f09899afbb75cbf14b63e4",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed 1200×630 public edition card, using the approved jacket and edition metadata. Antigone retains its credited Met CC0 photograph; other new jacket art is original."
+    },
+    {
+      "path": "showcase/assets/social-book-of-tea.jpg",
+      "sha256": "3db63d12a01366fdc068b425c6d1ac05bd6067f59512d045ecc7a3f891e78508",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed 1200×630 public edition card, using the approved jacket and edition metadata. Antigone retains its credited Met CC0 photograph; other new jacket art is original."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -4944,6 +5127,38 @@
       "license": "examples/fall-of-the-house-of-usher/site/OFL-IMFell.txt",
       "licenseSha256": "2a3ca501fc4d5efcad9798531e3e06962b1e20c60e464f6cbd6c17630112c773",
       "reason": "Exact IM Fell English face under the complete SIL Open Font License; no book data."
+    },
+    {
+      "path": "examples/book-of-tea/site/source-sans-regular.woff2",
+      "sha256": "63de0da0cc05298e2e9c6e5cef506d8454ca665f6e668a99d94f51174b9256ed",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Unchanged locally served Source font; complete SIL OFL license included with this reader.",
+      "license": "examples/book-of-tea/site/source-sans-license.txt",
+      "licenseSha256": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328"
+    },
+    {
+      "path": "examples/book-of-tea/site/source-sans-semibold.woff2",
+      "sha256": "c248b0a178c362916db7c853ed640db77f184d19a0ed9fa5591fa707d3089635",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Unchanged locally served Source font; complete SIL OFL license included with this reader.",
+      "license": "examples/book-of-tea/site/source-sans-license.txt",
+      "licenseSha256": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328"
+    },
+    {
+      "path": "examples/book-of-tea/site/source-serif-italic.woff2",
+      "sha256": "ca3b17ed1e3e668ffd9e03385cfd46e1b095df783de53710d25d41241496026b",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Unchanged locally served Source font; complete SIL OFL license included with this reader.",
+      "license": "examples/book-of-tea/site/source-serif-license.txt",
+      "licenseSha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464"
+    },
+    {
+      "path": "examples/book-of-tea/site/source-serif-regular.woff2",
+      "sha256": "6b053e98f0838afe81f3e784727be4583a7c13bb42f198dc5202ecffee0aaee0",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Unchanged locally served Source font; complete SIL OFL license included with this reader.",
+      "license": "examples/book-of-tea/site/source-serif-license.txt",
+      "licenseSha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464"
     }
   ],
   "reviewedIconFiles": [
@@ -5324,6 +5539,60 @@
       "sha256": "142f436deb51bc66db5b7c1b5e0e3f19229456d34a1e7a92cd9fa790e782da93",
       "provenance": "examples/pictures-after-dark/docs/SOURCE-RIGHTS.md",
       "reason": "Exact reviewed opaque Home Screen PNG of this reader’s original contemporary vector motif; MIT software artwork, without historical illustration or literary text."
+    },
+    {
+      "path": "examples/a-dolls-house/site/apple-touch-icon.png",
+      "sha256": "b0b9f2fa752f121a1a947b8b6499b429dd458731aa7aca6f4451e01636abd3d1",
+      "provenance": "examples/a-dolls-house/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/a-dolls-house/site/icon-192.png",
+      "sha256": "3ecb6d433b8d1d6403f6079022a83a1b259b98e40880304f1bd40d9c5a656fb7",
+      "provenance": "examples/a-dolls-house/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/a-dolls-house/site/icon-512.png",
+      "sha256": "1d7f7283911c7963cede8c20f116df761a64c4076d69e7deb545f6b69a75de56",
+      "provenance": "examples/a-dolls-house/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/antigone/site/apple-touch-icon.png",
+      "sha256": "160320d237b12a3b111491268d1c958017b5d27946a6b65a70e1f11228463346",
+      "provenance": "examples/antigone/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/antigone/site/icon-192.png",
+      "sha256": "e014b7ed6cb64bf71f28928fdf87ad59873bd347f6e0af7a1052e54ed9db14fa",
+      "provenance": "examples/antigone/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/antigone/site/icon-512.png",
+      "sha256": "b15336ef99d5a812624e277850f7a588d042679f7121c1cec27e6e962889e631",
+      "provenance": "examples/antigone/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/book-of-tea/site/apple-touch-icon.png",
+      "sha256": "e5d7ed0c126c83f9a7caa44495ab2a4fb051c5f0151e994db22a6fab22430a91",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/book-of-tea/site/icon-192.png",
+      "sha256": "67ceae5ce8f95b7db92dadeb5efc255fc04223b843e6339b1ab39e5aad36b80c",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/book-of-tea/site/icon-512.png",
+      "sha256": "c76f8b2a5ff0c4aff79b9d08012dca2b9d445f5761886806fee95488dba36c1c",
+      "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
     }
   ]
 }

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "sourceCommit": "011efdb414a6bc83dee2fa7b1ac7646adf7b5475",
+  "bookId": "dolls-house-archer-1909",
+  "sourceSha256": "e21a8f5fc7eb82630f95fc17c047ba97df1ea6c4141453ae03cdf26f5e3943c3",
+  "librarySha256": "15b7bb7113900880f33d7f55a905a779a431aa3409315672e91e926ed9188701",
+  "files": [
+    {
+      "path": "site/index.html",
+      "bytes": 3158,
+      "sha256": "710c283d8207c23f37e0368fb79a489d02123cf62ca46098cc90dd3205cd7eba"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 79105,
+      "sha256": "7934547611685e82450652fecb811452702ad77ce5c4cd2722af60a3bf2cc127"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 19813,
+      "sha256": "a754dd2c2eacbadeb2f6d5ef0e4565edee9d6019dd071589efa99a483d7e36b2"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7269,
+      "sha256": "3e9f270c07e7beea4ec125518168b595f5589ea9c02e61f6870dc453ae2cb2dd"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 4124,
+      "sha256": "a1720020e4ed9214d51c2d5bad54e31946c87330033a9198706d062b9ba5b2e8"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1342,
+      "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 32689,
+      "sha256": "188893ea39e65e508e6df42f8197fffa1451f956023eb096089e6968e3dd9598"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 580,
+      "sha256": "a6e88f4b31535e344eb7552216ba03093ece1a05daf73b6ef3dcfd2394f9acf8"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 348,
+      "sha256": "37fea00625042760333d9442b24922ae34cb377359b0a4ccd6407aaf17fb6e2e"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 2173,
+      "sha256": "b0b9f2fa752f121a1a947b8b6499b429dd458731aa7aca6f4451e01636abd3d1"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 2286,
+      "sha256": "3ecb6d433b8d1d6403f6079022a83a1b259b98e40880304f1bd40d9c5a656fb7"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 8666,
+      "sha256": "1d7f7283911c7963cede8c20f116df761a64c4076d69e7deb545f6b69a75de56"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "site/play.mjs",
+      "bytes": 754,
+      "sha256": "6e28d3e70935a26d6e31edca11e5bb8bfd9c11458f2fd8b581d5be1fe6a449d9"
+    },
+    {
+      "path": "edition/book.json",
+      "bytes": 848512,
+      "sha256": "80c978389e5f496ed32a33cdfeb2c194ae7278e0ccfd4898d8602cd900675aae"
+    }
+  ]
+}

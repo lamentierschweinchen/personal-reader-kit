@@ -7,7 +7,8 @@ import {inspectFile} from '../scripts/audit.mjs';
 import {build,assets} from '../scripts/build.mjs';
 import {createHash} from 'node:crypto';
 test('font admission pins bytes, provenance and the complete license without suppressing credential checks',()=>{
-  const name='site/original-fixture.woff2',license='site/OFL-fixture.txt',provenance='docs/FONTS.md';
+  for(const prefix of ['site/','examples/book-of-tea/site/']) {
+  const name=prefix+'original-fixture.woff2',license=prefix+'OFL-fixture.txt',provenance='docs/FONTS.md';
   const bytes=Buffer.from([119,79,70,50,0,1]),notice=Buffer.from('Original test notice; this fixture does not represent a real licensed font.');
   const sha=b=>createHash('sha256').update(b).digest('hex'),allowed=[name,license,provenance];
   const pin={path:name,sha256:sha(bytes),license,licenseSha256:sha(notice),provenance,reason:'Original scanner fixture.'};
@@ -20,6 +21,7 @@ test('font admission pins bytes, provenance and the complete license without sup
   const secret=Buffer.concat([bytes,Buffer.from('ghp_'+'A'.repeat(36))]);
   assert.match(inspectFile(name,secret,allowed,[],[],[{...pin,sha256:sha(secret)}]).join(' '),/credential/);
   assert.match(inspectFile('examples/unreviewed/site/fixture.woff2',bytes,['examples/unreviewed/site/fixture.woff2',license,provenance],[],[],[{...pin,path:'examples/unreviewed/site/fixture.woff2'}]).join(' '),/binary/);
+  }
 });
 test('reviewed plate and TrueType admission stays bound to bytes, paths and notices',()=>{
   const bytes=Buffer.from([82,73,70,70,0,87,69,66,80]),sha=b=>createHash('sha256').update(b).digest('hex');
