@@ -4,11 +4,17 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Settings at enlarged text sizes · October 26, 2026
+
+A frozen-starter reproduction cut off the settings title at 320 pixels and 200% interface text in Chromium and WebKit. The title is now “Reading settings”; Settings alone allows its header to wrap without clamping. The regression fails against the previous styles and passes in both engines at phone and tablet sizes, including a longer title and a visible 44-pixel Close control. Pointer and Escape dismissal preserve the existing note fixture. All 81 unit tests and the original-sample build pass. This is browser verification, not physical-device testing. The twenty packaged readers and their source editions are unchanged.
+
 ## Edition and library social previews · October 25, 2026
 
 All twenty public reader entrances, their three optional game entrances, the library and twenty `/library/<id>/` item pages now serve complete social metadata in their initial HTML. Twenty cover-specific cards and one library card reuse the reviewed cover artwork, contributor names and descriptions. Images are 1200 × 630 JPEGs with exact provenance/hash pins and versioned public URLs. The build refuses a missing card or changed title, author or feature awaiting card review.
 
 About this edition still opens inline; its shareable address loads a complete item page on refresh or without JavaScript. Closing the preview restores the shelf URL, focus and scroll. Existing fragment links still open their source disclosures. Inline item addresses retain the library's existing canonical analytics boundary, stripping queries and fragments. Local checks cover 44 metadata routes, 21 image files, all twenty item pages in Chromium/WebKit at 320 and 768 pixels, and the twelve existing library layouts. All 81 kit tests, ten analytics tests, example checks and the fresh exact-input build pass. The 454 protected edition assets and separate personal entrance remain unchanged. Platform-side card rendering and cache refresh remain external to these checks.
+
+The published revision `568bfb8480398dd113aeadc0db809dd65d8809c3` also passed all four hosted jobs (verify, browser, examples and showcase) in [run 40204490199](https://github.com/lamentierschweinchen/personal-reader-kit/actions/runs/40204490199).
 
 ## Preparation lessons · October 25, 2026
 

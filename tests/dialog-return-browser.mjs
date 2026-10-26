@@ -27,6 +27,40 @@ const assets=['index.html','app.mjs','core.mjs','db.mjs','bundle.mjs','library.m
 const files=new Map(await Promise.all(assets.map(async name=>['/'+name,await readFile(path.join(root,'site',name))])));files.set('/library.json',Buffer.from(JSON.stringify([book])));
 const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'};
 const server=createServer((req,res)=>{const url=new URL(req.url,'http://localhost'),name=url.pathname==='/'?'/index.html':url.pathname,bytes=files.get(name);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':types[path.extname(name)]||'application/octet-stream','Cache-Control':'no-store'});res.end(bytes);});
+async function settingsTextZoom(page,engine){
+ const results=[];
+ const settle=()=>page.evaluate(async()=>{await document.fonts.ready;await Promise.all(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().iterations)).map(a=>a.finished.catch(()=>{})));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
+ const inspect=()=>page.locator('#dialog-title').evaluate(title=>{
+  const box=el=>{const r=el.getBoundingClientRect();return{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
+  const text=title.firstChild,rect=box(title),ranges=[...text.textContent].map((character,index)=>{const range=document.createRange();range.setStart(text,index);range.setEnd(text,index+1);const r=range.getBoundingClientRect();return{character,top:r.top,left:r.left,right:r.right};});
+  return{text:title.textContent,title:rect,dialog:box(document.querySelector('#dialog')),close:box(document.querySelector('.close-dialog')),hiddenCharacters:ranges.filter(r=>r.top>=rect.bottom||r.left<rect.left-1||r.right>rect.right+1).map(r=>r.character).join(''),viewport:{width:innerWidth,height:innerHeight}};
+ });
+ const complete=(result,label)=>{
+  assert.equal(result.hiddenCharacters,'',label+' clips Settings heading: '+JSON.stringify(result));
+  assert.ok(result.title.left>=result.dialog.left&&result.title.right<=result.dialog.right,label+' title remains within the dialog');
+  assert.ok(result.close.left>=result.dialog.left&&result.close.right<=result.dialog.right&&result.close.top>=Math.max(0,result.dialog.top)&&result.close.bottom<=Math.min(result.viewport.height,result.dialog.bottom),label+' Close stays visible');
+  assert.ok(result.close.width>=44&&result.close.height>=44,label+' Close keeps a 44px target');
+  assert.ok(result.title.right<=result.close.left||result.title.bottom<=result.close.top||result.close.bottom<=result.title.top,label+' title and Close do not overlap');
+ };
+ for(const viewport of [{width:320,height:568},{width:768,height:1024}])for(const fontSize of [16,32]){
+  await page.setViewportSize(viewport);await page.evaluate(size=>{document.documentElement.style.fontSize=size+'px';scrollTo(0,0);},fontSize);
+  await page.getByRole('button',{name:'Reading settings',exact:true}).click();await settle();
+  const actual=await inspect();complete(actual,`${engine} ${viewport.width}px ${fontSize}px`);
+  await page.screenshot({path:path.join(output,`${engine}-settings-${viewport.width}-${fontSize}.png`),animations:'disabled'});
+  let longer;
+  if(viewport.width===320&&fontSize===32){
+   // A longer original interface fixture proves wrapping; a shorter English label alone cannot pass this case.
+   await page.locator('#dialog-title').evaluate(el=>{el.textContent='Reading settings and type preferences';});await settle();longer=await inspect();complete(longer,engine+' longer Settings title');
+   await page.screenshot({path:path.join(output,`${engine}-settings-long-title.png`),animations:'disabled'});
+  }
+  results.push({viewport,fontSize,actual,...(longer?{longer}:{})});
+  if(fontSize===32)await page.keyboard.press('Escape');else await page.getByRole('button',{name:'Close ×',exact:true}).click();
+  await page.locator('#dialog').waitFor({state:'hidden'});
+ }
+ assert.ok(results.every(result=>result.actual.text==='Reading settings'),'Settings uses its direct control name');
+ await page.evaluate(()=>document.documentElement.style.removeProperty('font-size'));
+ return results;
+}
 await mkdir(output,{recursive:true});const receipt={passed:false,results:[],fixture:'Original MIT samples plus synthetic original verse; no historical text.'};let browser;
 try{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port;
@@ -59,7 +93,8 @@ try{
   await prepare();await open('settings');await rotate();await page.locator('#size').fill('28');await page.locator('#measure').selectOption('wide');await page.locator('#settings-form [type="submit"]').click();await page.locator('#dialog').waitFor({state:'hidden'});const custom=await visible('custom settings source return');
   await page.evaluate(()=>scrollBy(0,1));await page.waitForTimeout(350);const state=await load();assert.equal(state.positions[book.id].blockId,source.blockId);assert.equal(state.positions[book.id].revision,book.source.sha256);assert.deepEqual(state.notes,[note]);
   await prepare();await open('background');await rotate();await page.evaluate(hash=>location.hash=hash,'#read/'+book.id+'/two');await ready('two');assert.equal(await page.locator('#dialog').evaluate(el=>el.open),false);assert.ok(await page.locator('.reader-heading h1').evaluate(el=>el.getBoundingClientRect().top>=0));assert.deepEqual((await load()).notes,[note]);assert.deepEqual(errors,[]);
-  receipt.results.push({engine,rotated,preset,custom,sameLayoutPixels:true,explicitDestination:true,savedNoteUnchanged:true,existingProgressSchema:true});await context.close();await browser.close();browser=null;
+  const settingsZoom=await settingsTextZoom(page,engine);assert.deepEqual((await load()).notes,[note]);assert.deepEqual(errors,[]);
+  receipt.results.push({engine,engineVersion:browser.version(),rotated,preset,custom,settingsZoom,sameLayoutPixels:true,explicitDestination:true,savedNoteUnchanged:true,existingProgressSchema:true});await context.close();await browser.close();browser=null;
  }
  receipt.passed=true;
 }catch(error){receipt.failure=error.message;throw error;}finally{await browser?.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));await writeFile(path.join(output,'receipt.json'),JSON.stringify(receipt,null,2)+'\n');}
