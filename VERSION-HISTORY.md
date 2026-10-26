@@ -6,6 +6,8 @@ The owner authorized three new public editions after final review: Antigone, A D
 
 The library now includes twenty-three editions and four additional filters: On stage, At the table, After dark and Out of doors. New cover cards, source views, local continuation records, offline caches and install icons use the existing catalogue mechanisms. Two imported Settings headings now wrap at enlarged text sizes. Source files and the previous twenty editions retain their bytes; private readers and Frankenstein are not included. Checks and limits are in [STATUS.md](docs/STATUS.md).
 
+The hosted homepage check exposed an old twenty-book expected shelf. Its explicit order now includes the three admitted editions, covering both the interactive shelf and the no-JavaScript links. A reproduced backdrop-test race also started an independent click before the preceding native close event was delivered. The test now waits for the existing settled-view boundary between gestures and reports the failed stage and event timeline. Drag, reopening and unsaved-note assertions remain intact. These test corrections change no deployed files.
+
 ## Purpose, care and dialog dismissal · October 26, 2026
 
 The preparation guide, design guidance, pilot and reader-copyeditor now separate editorial acceptance from source fidelity and technical checks. A richer reader must make its particular pleasure or benefit apparent in the actual opening, prose, imagery or action. Editing preserves voice and substance; removing a weak companion does not finish a richer brief. Plain reading remains a valid requested outcome.

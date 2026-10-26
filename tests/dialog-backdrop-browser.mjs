@@ -21,7 +21,11 @@ async function outside(page,selector='#dialog'){
  const point=await page.locator(selector).evaluate(modal=>{const r=modal.getBoundingClientRect();if(r.left>2)return{x:r.left/2,y:Math.min(innerHeight-2,Math.max(2,r.top+r.height/2))};if(r.top>2)return{x:innerWidth/2,y:r.top/2};if(r.right<innerWidth-2)return{x:(innerWidth+r.right)/2,y:innerHeight/2};if(r.bottom<innerHeight-2)return{x:innerWidth/2,y:(innerHeight+r.bottom)/2};return null;});
  assert.ok(point,'This dialog must have an actual outside area: '+selector);return point;
 }
-async function backdrop(page,{touch=false,selector='#dialog'}={}){const p=await outside(page,selector);if(touch)await page.touchscreen.tap(p.x,p.y);else await page.mouse.click(p.x,p.y);}
+async function backdrop(page,{touch=false,selector='#dialog'}={}){
+ // Deliver the prior view's queued close/scroll events before a new gesture.
+ // Intentional mutations during pointerdown/up remain part of that gesture.
+ await settle(page);const p=await outside(page,selector);if(touch)await page.touchscreen.tap(p.x,p.y);else await page.mouse.click(p.x,p.y);
+}
 async function serverFor(target,book){
  const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),name=url.pathname==='/'?'index.html':decodeURIComponent(url.pathname).slice(1);if(name.split('/').some(p=>!p||p==='.'||p==='..'))throw Error('Path');
   let bytes;if(name==='backdrop-setup.html')bytes=Buffer.from('<!doctype html><title>Original fixture setup</title><p>Preparing an original local edition.</p>');else if(name==='library.json')bytes=Buffer.from(JSON.stringify([book]));else if(name==='backdrop-fixture.svg')bytes=Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="60"><rect width="80" height="60" fill="#467b84"/></svg>');else bytes=await readFile(name.startsWith('play/')?path.join(target.root,name):path.join(target.root,'site',name));
@@ -36,10 +40,11 @@ async function readerChecks(browser,engine,target){
  const note={...core.passageAt(book,book.sections[0],book.sections[0].blocks[0],0,32),id:'original-backdrop-note',note:'Original saved fixture note.',updated:1};
  const server=await serverFor(target,book),context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'block',reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
  page.setDefaultTimeout(10000);
- await page.addInitScript(()=>{window.__backdropEvents=[];for(const type of ['pointerdown','pointerup','pointercancel','click','scroll','close','cancel'])document.addEventListener(type,e=>{window.__backdropEvents.push({type,target:e.target?.id||e.target?.className||e.target?.nodeName,pointerId:e.pointerId,pointerType:e.pointerType,primary:e.isPrimary,button:e.button,x:e.clientX,y:e.clientY,detail:e.detail,trusted:e.isTrusted});if(window.__backdropEvents.length>100)window.__backdropEvents.shift();},true);});
+ await page.addInitScript(()=>{window.__backdropEvents=[];for(const type of ['pointerdown','pointerup','pointercancel','click','scroll','close','cancel'])document.addEventListener(type,e=>{const modal=document.querySelector('#dialog');window.__backdropEvents.push({type,time:performance.now(),modalOpen:modal?.open,modalScrollTop:modal?.scrollTop,target:e.target?.id||e.target?.className||e.target?.nodeName,pointerId:e.pointerId,pointerType:e.pointerType,primary:e.isPrimary,button:e.button,x:e.clientX,y:e.clientY,detail:e.detail,trusted:e.isTrusted});if(window.__backdropEvents.length>100)window.__backdropEvents.shift();},true);});
  page.on('pageerror',error=>errors.push(error.message));
  const modal=page.locator('#dialog'),open=async()=>{const button=page.locator('[data-action="settings"]').first();await button.focus();await button.click();await modal.waitFor({state:'visible'});await settle(page);};
  const retained=async label=>assert.equal(await modal.evaluate(el=>el.open),true,target.name+' '+label);
+ let stage='load original fixture';
  try{
   // These runtimes correctly refuse a fixture masquerading as their pinned supplied edition.
   // Exercise the same original work through their existing browser-local import contract.
@@ -48,13 +53,17 @@ async function readerChecks(browser,engine,target){
   await page.locator(`#reading-text[data-book="${book.id}"]`).waitFor({timeout:15000});await settle(page);
   await page.evaluate(async note=>{await(await import('/db.mjs')).updateState(s=>{s.notes=[note];return s;});},note);
   const focusState=()=>page.evaluate(()=>({tag:document.activeElement.tagName,id:document.activeElement.id,action:document.activeElement.dataset.action||null}));
+  stage='Settings Close baseline';
   await open();await page.locator('#dialog [data-action="close"]').click();await modal.waitFor({state:'hidden'});await settle(page);const closeFocus=await focusState();
+  stage='Settings mouse backdrop and reading return';
   await open();const origin=await page.evaluate(()=>({hash:location.hash,scroll:scrollY}));
   await backdrop(page);await modal.waitFor({state:'hidden',timeout:2500});await settle(page);
   assert.deepEqual(await page.evaluate(()=>({hash:location.hash,scroll:scrollY})),origin,target.name+' preserves reading place');
   assert.deepEqual(await focusState(),closeFocus,target.name+' preserves the existing Close focus return');
+  stage='Settings touch backdrop';
   await open();await backdrop(page,{touch:true});await modal.waitFor({state:'hidden'});
 
+  stage='interior selection, moved and wheel gestures';
   await open();const p=await outside(page),inner=await page.locator('#dialog .dialog-inner > p').first().boundingBox();assert.ok(inner);
   await page.mouse.move(inner.x+30,inner.y+8);await page.mouse.down();await page.mouse.move(p.x,p.y,{steps:12});await page.mouse.up();await retained('interior selection drag remains open');
   assert.ok(await page.evaluate(()=>getSelection().toString().length>0),'The interior drag must actually select text');
@@ -66,26 +75,34 @@ async function readerChecks(browser,engine,target){
    await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point]});await touch.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});await retained('real canceled touch remains open');
    await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point]});await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[point,{...point,id:2,y:p.y+30}]});await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await retained('real multitouch remains open');await touch.detach();
   }
+  stage='Escape and Close continuity';
   await page.keyboard.press('Escape');await modal.waitFor({state:'hidden'});
   await open();await page.locator('#dialog [data-action="close"]').click();await modal.waitFor({state:'hidden'});
 
   // Release over the newly opened backdrop must not count as a second gesture.
+  stage='opening gesture and subsequent backdrop';
   await page.evaluate(()=>{window.__underlyingClicks=0;const button=document.createElement('button');button.id='backdrop-opening-fixture';button.textContent='Original opener';button.style.cssText='position:fixed;left:0;top:220px;width:12px;height:44px;z-index:10000;padding:0';button.addEventListener('pointerdown',()=>document.querySelector('[data-action="settings"]').click());button.addEventListener('click',()=>window.__underlyingClicks++);document.body.append(button);});
   await page.mouse.move(4,240);await page.mouse.down();await modal.waitFor({state:'visible'});await page.mouse.up();await retained('opening gesture remains open');
   await backdrop(page);await modal.waitFor({state:'hidden'});assert.equal(await page.evaluate(()=>window.__underlyingClicks),0,'Backdrop dismissal does not click through');await page.locator('#backdrop-opening-fixture').evaluate(el=>el.remove());
   if(target.name==='starter'){
+   stage='reopened modal and subsequent backdrop';
    await open();await modal.evaluate(el=>el.addEventListener('pointerup',()=>{el.close();el.showModal();},{once:true}));await backdrop(page);await retained('a reopened modal is not dismissed by the old release');await backdrop(page);await modal.waitFor({state:'hidden'});
+   stage='new top modal and subsequent backdrops';
    await open();await modal.evaluate(el=>el.addEventListener('pointerup',()=>{const next=document.createElement('dialog');next.id='original-next-modal';next.textContent='Original new dialog.';document.body.append(next);next.showModal();},{once:true}));await backdrop(page);assert.equal(await page.locator('#original-next-modal').evaluate(el=>el.open),true,'The releasing gesture cannot dismiss its newly opened modal');await retained('a new top modal retains the original modal');await backdrop(page,{selector:'#original-next-modal'});await page.locator('#original-next-modal').waitFor({state:'hidden'});await backdrop(page);await modal.waitFor({state:'hidden'});
   }
 
   // Use the real guarded note editor; Cancel must preserve the draft and saved note.
+  stage='dirty note backdrop Cancel';
   await page.goto(server.origin+'/#passages');await page.locator('[data-action="edit-note"][data-note="'+note.id+'"]').click();await page.locator('#note-text').fill('Original unsaved draft to retain.');
   let prompt;page.once('dialog',async dialog=>{prompt=dialog.message();await dialog.dismiss();});await backdrop(page);await retained('Cancel retains editor');
   assert.match(prompt,/unsaved|discard/i);assert.equal(await page.locator('#note-text').inputValue(),'Original unsaved draft to retain.');assert.deepEqual((await state(page)).notes,[note]);
+  stage='dirty note touch backdrop confirmation';
   page.once('dialog',dialog=>dialog.accept());await backdrop(page,{touch:true});await modal.waitFor({state:'hidden'});assert.deepEqual((await state(page)).notes,[note]);
 
+  stage='bundle export replacement and backdrop';
   await open();await page.locator('[data-action="bundle-export"]').click();await page.locator('#bundle-export-form').waitFor();await backdrop(page);await modal.waitFor({state:'hidden'});
   if(target.name==='pictures-after-dark'){
+   stage='dynamic folio image Close and touch backdrop';
    await open();await page.evaluate(()=>{const b=document.createElement('button');b.textContent='Original fixture figure';b.dataset.folioImage='backdrop-fixture.svg';b.dataset.folioCaption='Original fixture figure';document.querySelector('.dialog-inner').append(b);});
    const figure=page.getByRole('button',{name:'Original fixture figure',exact:true}),openImage=async()=>{await figure.focus();await figure.click();await page.locator('.folio-image-dialog').waitFor({state:'visible'});await settle(page);};
    await openImage();const image=page.locator('.folio-image-dialog');await page.locator('[data-image-close]').click();await image.waitFor({state:'hidden'});await settle(page);const imageCloseFocus=await focusState(),imageCloseScroll=await modal.evaluate(el=>el.scrollTop);
@@ -93,7 +110,7 @@ async function readerChecks(browser,engine,target){
   }
   assert.deepEqual((await state(page)).notes,[note]);assert.deepEqual(errors,[]);
   return{name:target.name,engine,version:browser.version(),mouseBackdrop:true,touchBackdrop:true,interiorSelection:true,movedAndWheelGesturesRetained:true,openingGestureRetained:true,noClickThrough:true,dirtyNoteCancel:true,confirmedDismissal:true,secondaryDialog:true,readingPlaceAndFocus:true,...(target.name==='starter'?{reopenedAndNewModalRetained:true}:{}),...(engine==='chromium'&&target.name==='starter'?{realCanceledTouch:true,realMultitouch:true}:{}),...(target.name==='pictures-after-dark'?{dynamicFolio:true}:{})};
- }catch(error){await page.screenshot({path:path.join(output,engine+'-'+target.name+'-failure.png'),animations:'disabled'}).catch(()=>{});await writeFile(path.join(output,engine+'-'+target.name+'-events.json'),JSON.stringify(await page.evaluate(()=>window.__backdropEvents),null,2)+'\n');throw new Error(engine+' '+target.name+': '+error.message,{cause:error});}
+ }catch(error){await page.screenshot({path:path.join(output,engine+'-'+target.name+'-failure.png'),animations:'disabled'}).catch(()=>{});const events=await page.evaluate(()=>window.__backdropEvents);await writeFile(path.join(output,engine+'-'+target.name+'-events.json'),JSON.stringify({stage,events},null,2)+'\n');console.error(engine+' '+target.name+' ['+stage+'] recent input events: '+JSON.stringify(events.slice(-16)));throw new Error(engine+' '+target.name+' ['+stage+']: '+error.message,{cause:error});}
  finally{await context.close();await server.stop();}
 }
 async function gameChecks(browser,engine,target){
