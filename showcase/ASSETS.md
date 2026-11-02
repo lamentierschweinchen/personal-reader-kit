@@ -123,3 +123,7 @@ The Alps jacket uses `/mountains/cover-plate.jpg`, the unchanged JPEG embedded a
 ## Four themed jackets · October 24, 2026
 
 Ballads uses three original strokes; Shakespeare uses an original stage frame and crown; Rome uses an original inscription frame. Their vector compositions and lettering are new MIT artwork. Pictures after dark uses the exact 300×216 Hugo *Burg en ruines* reproduction already reviewed in its folio, within its native resolution. Paris Musées / Maisons de Victor Hugo, inv. 46, 1857; CC0. No new historical image or literary text is introduced by these covers. See [the folio source record](../examples/pictures-after-dark/docs/SOURCE-RIGHTS.md).
+
+## How writers write — November 2, 2026
+
+The library cover uses original bold system-sans lettering, a pale background and a red vector underline. `assets/social-writers.jpg` is a reviewed 1200×630 rendering of that cover and public catalog metadata, using this site's existing licensed fonts. It contains no author portrait, source-work image, source passage or reading record. Its exact bytes are pinned in social-previews.json and publication.json.

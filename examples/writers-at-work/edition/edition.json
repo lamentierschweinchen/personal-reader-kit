@@ -1,0 +1,2192 @@
+{
+  "schema": 1,
+  "title": "How writers write",
+  "authors": [
+    {
+      "id": "hemingway",
+      "name": "Ernest Hemingway",
+      "genre": "Fiction",
+      "angle": "Rereading before carrying on",
+      "intro": "A daughter waits outside her father’s apartment, holding his spare key. Stop the scene there, while you still know why she has come. Next morning, read the approach again. Has the key been in her hand long enough to grow warm? Has she rehearsed a greeting she cannot use? A correction can put you back outside that door, ready to open it. This is one use for Hemingway’s daily rereading. If the daughter is still on the doorstep a week later, rereading may be delaying the next scene.",
+      "items": [
+        {
+          "id": "hemingway-1",
+          "number": 1,
+          "title": "Start with something known",
+          "text": "Begin from one plain statement you can stand behind.",
+          "sourceId": "hemingway-oc",
+          "locator": "Item 1",
+          "verification": "secondary",
+          "context": "A Moveable Feast (1964), recollection of working in Paris."
+        },
+        {
+          "id": "hemingway-2",
+          "number": 2,
+          "title": "Leave tomorrow a beginning",
+          "text": "End the session before momentum and the next event disappear.",
+          "sourceId": "hemingway-pr",
+          "locator": "Question on process and work schedule",
+          "verification": "primary",
+          "context": "Selected list cites Monologue to the Maestro (1935); principle corroborated in the 1958 interview."
+        },
+        {
+          "id": "hemingway-3",
+          "number": 3,
+          "title": "Let the work rest",
+          "text": "Put the story aside between sessions instead of worrying it empty.",
+          "sourceId": "hemingway-pr",
+          "locator": "Question on dismissing the project between sessions",
+          "verification": "primary",
+          "context": "Selected list cites the 1935 essay and A Moveable Feast; the 1958 answer corroborates deliberate mental distance, not a proven theory of the subconscious."
+        },
+        {
+          "id": "hemingway-4",
+          "number": 4,
+          "title": "Recover the thread",
+          "text": "Read back and revise before continuing; revise again after finishing.",
+          "sourceId": "hemingway-pr",
+          "locator": "Questions on rewriting and rereading",
+          "verification": "primary",
+          "context": "Selected list cites the 1935 essay; the 1958 interview independently states the daily practice."
+        },
+        {
+          "id": "hemingway-5",
+          "number": 5,
+          "title": "Find what caused feeling",
+          "text": "Reconstruct the action and sensations that produced an emotion.",
+          "sourceId": "hemingway-oc",
+          "locator": "Item 5",
+          "verification": "secondary",
+          "context": "Death in the Afternoon (1932), discussion of learning to write."
+        },
+        {
+          "id": "hemingway-6",
+          "number": 6,
+          "title": "Give revision another pass",
+          "text": "Pencil, typescript, and proofs offer successive chances to reconsider.",
+          "sourceId": "hemingway-pr",
+          "locator": "Opening description of work; answer on rewriting",
+          "verification": "primary",
+          "context": "The selected list’s pencil argument comes from the 1935 essay; the 1958 interview corroborates the practice and successive revisions."
+        },
+        {
+          "id": "hemingway-7",
+          "number": 7,
+          "title": "Make the space count",
+          "text": "Aim for compression rather than length for its own sake.",
+          "sourceId": "hemingway-oc",
+          "locator": "Item 7",
+          "verification": "secondary",
+          "context": "Attributed to a 1945 letter to editor Maxwell Perkins; exact letter not independently inspected."
+        }
+      ],
+      "sources": [
+        {
+          "id": "hemingway-oc",
+          "title": "Open Culture: seven Hemingway tips",
+          "url": "https://www.openculture.com/2013/02/seven_tips_from_ernest_hemingway_on_how_to_write_fiction.html",
+          "kind": "Secondary selection",
+          "date": "2013-02-19",
+          "context": "Mike Springer selects passages through Larry W. Phillips’s Ernest Hemingway on Writing (1984).",
+          "verified": true,
+          "limitation": "The selection’s original headings are editorial. A Moveable Feast, Death in the Afternoon, and the Perkins letter were not independently collated."
+        },
+        {
+          "id": "hemingway-pr",
+          "title": "Hemingway interviewed by George Plimpton",
+          "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway",
+          "kind": "Primary interview, publisher transcription",
+          "date": "Spring 1958",
+          "context": "The Art of Fiction No. 21, The Paris Review, issue 18.",
+          "verified": true,
+          "limitation": "Corroborates the selected advice; it is not the 1935 witness quoted by Open Culture."
+        },
+        {
+          "id": "hemingway-esquire",
+          "title": "Monologue to the Maestro: A High Seas Letter",
+          "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro",
+          "kind": "Original publisher archive record",
+          "date": "1935-10-01",
+          "context": "Hemingway’s advice to a young would-be writer, in Esquire.",
+          "verified": false,
+          "limitation": "Title, author, and date visible; article text requires sign-in. No access barrier was bypassed."
+        }
+      ],
+      "qualification": "A routine can restore a scene or become an elaborate form of delay. The test is whether it gets you writing onward.",
+      "caveatHeading": "When rereading becomes delay"
+    },
+    {
+      "id": "fitzgerald",
+      "name": "F. Scott Fitzgerald",
+      "genre": "Fiction and letters",
+      "angle": "The character and the category",
+      "intro": "A generous landlord replaces a tenant’s broken stove. Then he photographs the receipt beside her eviction notice. The label has lasted one sentence. You now have to decide what his generosity buys him, and whether he knows it. Fitzgerald’s selected advice directs attention to particular people and the verbs that reveal them. An outline can arrange this encounter; it cannot settle the landlord’s character in advance. If he enters only to prove that landlords are generous, or that they are cruel, the stove has become an expensive illustration of something you already decided.",
+      "items": [
+        {
+          "id": "fitzgerald-1",
+          "number": 1,
+          "title": "Catch the observation",
+          "text": "Record thoughts and remembered details while they are fresh.",
+          "sourceId": "fitzgerald-oc",
+          "locator": "Item 1",
+          "verification": "secondary",
+          "context": "Sheilah Graham’s recollection of Fitzgerald’s advice, in Beloved Infidel (1958), written with Gerold Frank."
+        },
+        {
+          "id": "fitzgerald-2",
+          "number": 2,
+          "title": "Plan around the climax",
+          "text": "Develop a detailed outline around the climax.",
+          "sourceId": "fitzgerald-oc",
+          "locator": "Item 2",
+          "verification": "secondary",
+          "context": "Letter to novelist John O’Hara, 1936; original letter not independently collated."
+        },
+        {
+          "id": "fitzgerald-3",
+          "number": 3,
+          "title": "Keep the unfinished mystery",
+          "text": "Avoid explaining an unfinished project until the work can speak.",
+          "sourceId": "fitzgerald-letters",
+          "locator": "Letter 98, December 7, 1940",
+          "verification": "secondary",
+          "context": "Letter to his daughter Scottie; unofficial transcription corroborates the Open Culture extract."
+        },
+        {
+          "id": "fitzgerald-4",
+          "number": 4,
+          "title": "Begin with a person",
+          "text": "Let a particular person complicate the category assigned to them.",
+          "sourceId": "fitzgerald-richboy",
+          "locator": "The Rich Boy, opening three paragraphs",
+          "verification": "primary",
+          "context": "The fictional narrator’s opening proposition, extracted by Open Culture as craft advice."
+        },
+        {
+          "id": "fitzgerald-5",
+          "number": 5,
+          "title": "Spend the unusual word",
+          "text": "Use unfamiliar vocabulary for precision, with room for rhythm and variety.",
+          "sourceId": "fitzgerald-bishop",
+          "locator": "Letter 76, dated March/April 1929? by the transcription",
+          "verification": "secondary",
+          "context": "Letter criticizing John Peale Bishop’s writing; unofficial transcription, not manuscript verification."
+        },
+        {
+          "id": "fitzgerald-6",
+          "number": 6,
+          "title": "Let the verb act",
+          "text": "Give the sentence motion through its verbs, not decorative accumulation.",
+          "sourceId": "fitzgerald-letters",
+          "locator": "Letter 33, editorially dated Spring 1938",
+          "verification": "secondary",
+          "context": "Letter to Scottie; the discussion uses a line by Keats, not a Fitzgerald sentence, as its example."
+        },
+        {
+          "id": "fitzgerald-7",
+          "number": 7,
+          "title": "Abandon the wrong investment",
+          "text": "Cut a failing direction even when good scenes depend on it.",
+          "sourceId": "fitzgerald-oc",
+          "locator": "Item 7",
+          "verification": "secondary",
+          "context": "One Hundred False Starts, The Saturday Evening Post, March 4, 1933; the selected passage was read through Open Culture."
+        }
+      ],
+      "sources": [
+        {
+          "id": "fitzgerald-oc",
+          "title": "Open Culture: seven Fitzgerald tips",
+          "url": "https://www.openculture.com/2013/02/seven_tips_from_f_scott_fitzgerald_on_how_to_write_fiction.html",
+          "kind": "Secondary selection",
+          "date": "2013-02-26",
+          "context": "Mike Springer selects material through Larry W. Phillips’s F. Scott Fitzgerald on Writing (1985).",
+          "verified": true,
+          "limitation": "Open Culture incorrectly calls Beloved Infidel a 1940 memoir; the book appeared in 1958. Several original letters remain uncollated."
+        },
+        {
+          "id": "fitzgerald-richboy",
+          "title": "The Rich Boy in All the Sad Young Men",
+          "url": "https://www.gutenberg.org/cache/epub/68229/pg68229-images.html",
+          "kind": "Primary fiction, digital transcription",
+          "date": "1926; digital revision 2024-10-18",
+          "context": "Scribner’s collection; Project Gutenberg 68229, transcribed by Laura Natal Rodrigues from HathiTrust images.",
+          "verified": true,
+          "limitation": "Opening paragraphs inspected. The narrator’s assertion is not automatically a personal credo."
+        },
+        {
+          "id": "fitzgerald-letters",
+          "title": "Letters to Scottie: unofficial transcription",
+          "url": "https://fitzgerald.narod.ru/letters/02-scottie.html",
+          "kind": "Primary letters in an unofficial transcription",
+          "date": "1938 and 1940",
+          "context": "Letters 33 and 98; editorial dates and source references supplied by the transcription.",
+          "verified": true,
+          "limitation": "Text inspected, but not collated with manuscripts or an authorized print edition; items remain conservatively secondary-verified."
+        },
+        {
+          "id": "fitzgerald-bishop",
+          "title": "Correspondence with John Peale Bishop: unofficial transcription",
+          "url": "https://fitzgerald.narod.ru/letters/06-wilson-bishop.html",
+          "kind": "Primary letter in an unofficial transcription",
+          "date": "1929, exact date uncertain",
+          "context": "Letter 76 to John Peale Bishop; the transcription retains a question mark after its proposed month.",
+          "verified": true,
+          "limitation": "Text inspected, but manuscript and print-edition fidelity unverified."
+        },
+        {
+          "id": "fitzgerald-post",
+          "title": "The Post’s record of One Hundred False Starts",
+          "url": "https://www.saturdayeveningpost.com/2018/11/one-hundred-false-starts/",
+          "kind": "Original publisher retrospective",
+          "date": "2018-11-08; original 1933-03-04",
+          "context": "Confirms the original essay’s title and publication date.",
+          "verified": true,
+          "limitation": "The page’s short extracts do not include the selected cutting passage. Its linked scan did not expose readable text in this review."
+        },
+        {
+          "id": "fitzgerald-graham",
+          "title": "Beloved Infidel: bibliographic record",
+          "url": "https://books.google.com/books/about/Beloved_Infidel.html?id=QeIcAAAAIAAJ",
+          "kind": "Book metadata",
+          "date": "1958",
+          "context": "Sheilah Graham and Gerold Frank, Holt, 338 pages.",
+          "verified": true,
+          "limitation": "Verifies publication metadata, not the reported conversation."
+        }
+      ],
+      "qualification": "These suggestions come from letters, a memoir, an essay, and a fictional narrator. They do not form one manifesto.",
+      "caveatHeading": "Who is speaking?"
+    },
+    {
+      "id": "king",
+      "name": "Stephen King",
+      "genre": "Fiction · memoir of craft",
+      "angle": "The adverb test",
+      "intro": "“I’m pleased for you,” she said bitterly. Remove bitterly and the remark could be sincere. Put it after the speaker tears up an invitation, and the adverb may repeat what we have seen. Put it in an otherwise cordial conversation, and cutting it can erase the grievance. King’s advice makes a useful demand on the surrounding scene: can the speech and action carry the tone? Deleting the modifier is easy. The harder revision gives us a reason to hear the bitterness without being told it is there.",
+      "items": [
+        {
+          "id": "king-1",
+          "number": 1,
+          "title": "Private first",
+          "text": "Draft privately; revise for readers.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 1; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "The quoted lesson is attributed to newspaper editor John Gould in King’s memoir. That attribution is corroborated by Cole Schafer’s quoted account; the complete original memoir passage was not inspected in an authorized publisher excerpt."
+        },
+        {
+          "id": "king-2",
+          "number": 2,
+          "title": "Active verbs",
+          "text": "Make agency clear.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 2; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-3",
+          "number": 3,
+          "title": "Adverb suspicion",
+          "text": "Question redundant modifiers.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 3; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-4",
+          "number": 4,
+          "title": "Dialogue restraint",
+          "text": "Trust speech to convey tone.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 4; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-5",
+          "number": 5,
+          "title": "Grammar flexibility",
+          "text": "Grammar serves fiction’s effect.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 5; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-6",
+          "number": 6,
+          "title": "Less fear",
+          "text": "Trust your storytelling.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 6; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-7",
+          "number": 7,
+          "title": "Read widely",
+          "text": "Reading supplies possibilities and warnings.",
+          "sourceId": "king-npr",
+          "locator": "Excerpt, sections on good writing and time for reading.",
+          "verification": "primary",
+          "context": "King’s own book text is present in this NPR excerpt; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "king-8",
+          "number": 8,
+          "title": "Risk displeasure",
+          "text": "Truth may disturb polite expectations.",
+          "sourceId": "king-npr",
+          "locator": "Excerpt, discussion of reading during meals.",
+          "verification": "primary",
+          "context": "King’s own book text is present in this NPR excerpt, explicitly reprinted by permission of Scribner Press; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "king-9",
+          "number": 9,
+          "title": "Reclaim time",
+          "text": "Swap television for reading.",
+          "sourceId": "king-npr",
+          "locator": "Excerpt, exercise-room television discussion",
+          "verification": "primary",
+          "context": "King’s own book text is present in this NPR excerpt; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "king-10",
+          "number": 10,
+          "title": "Sustain momentum",
+          "text": "Try drafting within three months.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 10; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-11",
+          "number": 11,
+          "title": "Supporting conditions",
+          "text": "He credits health and marriage.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 11; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "Personal retrospective, not a requirement that writers be married or healthy. The longer Barnes & Noble excerpt explicitly presents it as his answer to a question about success."
+        },
+        {
+          "id": "king-12",
+          "number": 12,
+          "title": "Small increments",
+          "text": "Build word by word.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 12; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-13",
+          "number": 13,
+          "title": "Protect concentration",
+          "text": "Remove interruptions.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 13; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-14",
+          "number": 14,
+          "title": "Reject replicas",
+          "text": "Another writer’s formula cannot ensure success.",
+          "sourceId": "king-bn",
+          "locator": "Barnes & Noble, item 14",
+          "verification": "secondary",
+          "context": "On Writing; selected through Barnes & Noble. See the separate NPR excerpt for comparison."
+        },
+        {
+          "id": "king-15",
+          "number": 15,
+          "title": "Discover material",
+          "text": "Discover the story by writing.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 15; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-16",
+          "number": 16,
+          "title": "Gain distance",
+          "text": "Revisit after six weeks.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 16; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-17",
+          "number": 17,
+          "title": "Cut favorites",
+          "text": "Attachment cannot justify a passage.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 17; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing (2000), selected through Open Culture."
+        },
+        {
+          "id": "king-18",
+          "number": 18,
+          "title": "Background knowledge",
+          "text": "Research should serve the story.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 18; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        },
+        {
+          "id": "king-19",
+          "number": 19,
+          "title": "Practice repeatedly",
+          "text": "Keep reading and writing.",
+          "sourceId": "king-npr",
+          "locator": "Excerpt, opening paragraph",
+          "verification": "primary",
+          "context": "King’s own book text is present in this NPR excerpt; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "king-20",
+          "number": 20,
+          "title": "Enjoy doing",
+          "text": "Creative pleasure is a reward.",
+          "sourceId": "king-oc",
+          "locator": "Open Culture, item 20; On Writing (2000), quoted selection",
+          "verification": "secondary",
+          "context": "On Writing is a memoir and craft book; these twenty headings are an editorial selection, not a numbered King manifesto."
+        }
+      ],
+      "sources": [
+        {
+          "id": "king-oc",
+          "title": "Stephen King’s 20 Rules for Writers",
+          "url": "https://www.openculture.com/2023/01/stephen-kings-20-rules-for-writers.html",
+          "kind": "Secondary selection",
+          "date": "2023-01-19; earlier version 2014",
+          "context": "Josh Jones / Open Culture selection from On Writing (2000), drawing on Lauren Passell’s Barnes & Noble list. Sidebar’s 2014 URL redirects here.",
+          "verified": true,
+          "limitation": "Fifteen items remain secondary-attributed; four are checked in an authorized excerpt and one in a fuller secondary quotation. No full book has been imported.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "king-npr",
+          "title": "On Writing — NPR excerpt, by Stephen King",
+          "url": "https://www.vpm.org/npr-news/2010-07-02/excerpt-on-writing/",
+          "kind": "Primary text · authorized book excerpt",
+          "date": "2010-07-02; excerpt copyright 2010; original book 2000",
+          "context": "King’s discussion of reading, learning, imitation, television, and polite expectations, carried by NPR member station VPM. The page explicitly says reprinted by permission of Scribner Press. Supports items 7, 8, 9, 19 and qualifies item 14.",
+          "verified": true,
+          "limitation": "An excerpt from the same book used by the Open Culture selection, not the complete craft section.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "king-bn",
+          "title": "Stephen King’s Top 20 Rules For Writers",
+          "url": "https://www.barnesandnoble.com/blog/stephen-kings-top-20-rules-for-writers/",
+          "kind": "Secondary selection with longer excerpts",
+          "date": "2013-03-22",
+          "context": "Lauren Passell’s selection; longer passages preserve context omitted in Open Culture, especially items 11, 14, 17.",
+          "verified": true,
+          "limitation": "A retailer’s edited list; not an independently inspected original edition.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "king-atlantic",
+          "title": "Why Stephen King Spends “Months and Even Years” Writing Opening Sentences",
+          "url": "https://www.theatlantic.com/entertainment/archive/2013/07/why-stephen-king-spends-months-and-even-years-writing-opening-sentences/278043/",
+          "kind": "Primary interview",
+          "date": "2013-07",
+          "context": "Joe Fassler interviews King. King distinguishes the first draft’s unselfconscious movement from later work on the opening.",
+          "verified": true,
+          "limitation": "Supplementary context, not one of the twenty selected items.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "king-gould",
+          "title": "What this small town newspaper editor taught Stephen King about writing",
+          "url": "https://www.coleschafer.com/blog/stephen-king-writing-lessons",
+          "kind": "Secondary quotation",
+          "date": "2021-06-12",
+          "context": "Attributes the memoir’s draft/rewrite lesson to John Gould, King’s newspaper editor.",
+          "verified": true,
+          "limitation": "Secondary corroboration only; the passage was not independently checked in a publisher’s edition.",
+          "accessed": "2026-10-28"
+        }
+      ],
+      "qualification": "King distinguishes learning by imitation from copying a successful formula.",
+      "listCount": 20,
+      "coverageSourceId": "king-oc",
+      "caveatHeading": "Learning by imitation"
+    },
+    {
+      "id": "bradbury",
+      "name": "Ray Bradbury",
+      "genre": "Fiction · public lecture",
+      "angle": "A short story a week",
+      "intro": "A man waits outside a locked café. If the owner arrives, we may have a story about an appointment. If the man stays after learning that the owner is dead, the waiting means something else. A short story lets you reach that difference before you have spent a year on the opening. Bradbury’s weekly-story challenge encourages this kind of finished attempt. His emphasis on enjoyment needs more care. A difficult second page does not prove that the first was a mistake. Try another ending before deciding you have chosen the wrong story.",
+      "items": [
+        {
+          "id": "bradbury-1",
+          "number": 1,
+          "title": "Short practice",
+          "text": "Practice by completing a short story weekly.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 1 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-2",
+          "number": 2,
+          "title": "Your own voice",
+          "text": "Admiration cannot make you another writer.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 2 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-3",
+          "number": 3,
+          "title": "Study stories",
+          "text": "Read Dahl, Maupassant, Kneale, and Collier.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 3 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-4",
+          "number": 4,
+          "title": "Varied reading",
+          "text": "Read a story, poem, and varied essay nightly.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 4 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-5",
+          "number": 5,
+          "title": "Protect ambition",
+          "text": "Distance yourself from people who ridicule writing.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 5 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-6",
+          "number": 6,
+          "title": "Use libraries",
+          "text": "Make libraries part of your education.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 6 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-7",
+          "number": 7,
+          "title": "Watch films",
+          "text": "Cultivate a taste for older movies.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 7 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-8",
+          "number": 8,
+          "title": "Follow delight",
+          "text": "Choose material that makes writing enjoyable.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 8 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-9",
+          "number": 9,
+          "title": "Uncertain income",
+          "text": "Do not count on immediate financial rewards.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 9 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-10",
+          "number": 10,
+          "title": "Personal lists",
+          "text": "List ten loves, hates, and fears; write from them.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 10 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-11",
+          "number": 11,
+          "title": "Free association",
+          "text": "Let unplanned words suggest possible material.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 11 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        },
+        {
+          "id": "bradbury-12",
+          "number": 12,
+          "title": "One response",
+          "text": "Value a reader’s personal recognition.",
+          "sourceId": "bradbury-oc",
+          "locator": "Open Culture, bullet 12 of 12",
+          "verification": "secondary",
+          "context": "Colin Marshall’s interpretation of Bradbury’s 2001 address; not an author-issued numbered rule."
+        }
+      ],
+      "sources": [
+        {
+          "id": "bradbury-oc",
+          "title": "Ray Bradbury Gives 12 Pieces of Writing Advice to Young Authors (2001)",
+          "url": "https://www.openculture.com/2012/04/ray_bradbury_gives_12_pieces_of_writing_advice_to_young_authors_2001.html",
+          "kind": "Secondary interpretation of a lecture",
+          "date": "2012-04-04",
+          "context": "Colin Marshall explicitly presents twelve bullets as his interpretation of Bradbury’s 2001 keynote at Point Loma Nazarene University.",
+          "verified": true,
+          "limitation": "All twelve selected points were read here. They have not been independently checked against the entire recording.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "bradbury-uctv",
+          "title": "An Evening with Ray Bradbury 2001",
+          "url": "https://www.uctv.tv/shows/An-Evening-with-Ray-Bradbury-2001-5533",
+          "kind": "Primary recording catalog",
+          "date": "Catalog date 2001-04-24",
+          "context": "UCTV show 5533: Telling the Truth, keynote at the Sixth Annual Writer’s Symposium by the Sea, Point Loma Nazarene University; catalog duration 54 minutes.",
+          "verified": true,
+          "limitation": "Event and recording identity verified; the recording was not watched continuously or transcribed in this research pass. This catalog alone does not verify individual advice items.",
+          "accessed": "2026-10-28"
+        }
+      ],
+      "qualification": "These twelve points are an editor’s reading of a digressive talk. The weekly-story challenge is encouragement, not a guarantee of quality.",
+      "listCount": 12,
+      "coverageSourceId": "bradbury-oc",
+      "caveatHeading": "A lecture made into a list"
+    },
+    {
+      "id": "zinsser",
+      "name": "William Zinsser",
+      "genre": "Nonfiction · teaching",
+      "angle": "Clarity and the speaking voice",
+      "intro": "“Service interruptions may be experienced” leaves a tenant wondering what to plan for. “The water will be off from noon to two” gives an answer. But the same briskness may damage a family memory. An aunt who takes three paragraphs to admit that she misses her sister may be telling us something through the delay. Zinsser distinguishes the demands of different kinds of nonfiction. A notice needs to get the water shutoff across. A memoir may need us to hear the person who cannot get to the point. Revise for the reader’s particular need before making every sentence shorter.",
+      "items": [
+        {
+          "id": "zinsser-1",
+          "number": 1,
+          "title": "Exact words",
+          "text": "Choose words for their differences in meaning.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 1",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page."
+        },
+        {
+          "id": "zinsser-2",
+          "number": 2,
+          "title": "Clear thought",
+          "text": "Replace inflated language with intelligible meaning.",
+          "sourceId": "zinsser-excerpt",
+          "locator": "Chapter 2, Simplicity; printed pages 7–9",
+          "verification": "primary",
+          "context": "Checked against the university-hosted excerpt identified as Harper, 1998, chapters 2–4; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "zinsser-3",
+          "number": 3,
+          "title": "Expect revision",
+          "text": "Difficulty is part of making sentences clear.",
+          "sourceId": "zinsser-excerpt",
+          "locator": "Chapter 2, Simplicity; printed page 12",
+          "verification": "primary",
+          "context": "Checked against the university-hosted excerpt identified as Harper, 1998, chapters 2–4; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "zinsser-4",
+          "number": 4,
+          "title": "A speaking person",
+          "text": "Let first person keep the writer present.",
+          "sourceId": "zinsser-excerpt",
+          "locator": "Chapter 4, Style; printed pages 22–24",
+          "verification": "primary",
+          "context": "Checked against the university-hosted excerpt identified as Harper, 1998, chapters 2–4; the Open Culture list remains the coverage index. Zinsser also accepts some restrictions on first person and suggests thinking in first person when the pronoun is inappropriate."
+        },
+        {
+          "id": "zinsser-5",
+          "number": 5,
+          "title": "Own judgments",
+          "text": "Allow your convictions to shape the prose.",
+          "sourceId": "zinsser-excerpt",
+          "locator": "Chapter 4, Style; printed pages 24–25",
+          "verification": "primary",
+          "context": "Checked against the university-hosted excerpt identified as Harper, 1998, chapters 2–4; the Open Culture list remains the coverage index."
+        },
+        {
+          "id": "zinsser-6",
+          "number": 6,
+          "title": "Personal pleasure",
+          "text": "Write what you find worth reading.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 6",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page."
+        },
+        {
+          "id": "zinsser-7",
+          "number": 7,
+          "title": "Study craft",
+          "text": "Learn from earlier writers and contemporaries.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 7",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page. The broader learning-by-imitation principle is also present in his primary essay Visions and Revisions (2009); this is corroboration, not a check of the exact book passage."
+        },
+        {
+          "id": "zinsser-8",
+          "number": 8,
+          "title": "Explore vocabulary",
+          "text": "Use a thesaurus, then check precise meanings.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 8",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page."
+        },
+        {
+          "id": "zinsser-9",
+          "number": 9,
+          "title": "Listen closely",
+          "text": "Read aloud to hear rhythm and sound.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 9",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page. The university excerpt also describes his own final read-aloud revision; it does not contain the exact quoted rhythm passage."
+        },
+        {
+          "id": "zinsser-10",
+          "number": 10,
+          "title": "Bound the subject",
+          "text": "Cover a chosen part well, then stop.",
+          "sourceId": "zinsser-oc",
+          "locator": "Open Culture, item 10",
+          "verification": "secondary",
+          "context": "Selected by Ted Mills from On Writing Well; the article does not identify a specific book edition or page."
+        }
+      ],
+      "sources": [
+        {
+          "id": "zinsser-oc",
+          "title": "10 Writing Tips from Legendary Writing Teacher William Zinsser",
+          "url": "https://www.openculture.com/2015/05/10-writing-tips-from-legendary-writing-teacher-william-zinsser.html",
+          "kind": "Secondary selection",
+          "date": "2015-05-13",
+          "context": "Ted Mills selects ten points from On Writing Well, first published 1976 and repeatedly revised.",
+          "verified": true,
+          "limitation": "The list does not specify its edition or page numbers. Six points remain secondary-attributed; four checked against a 1998 excerpt.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "zinsser-excerpt",
+          "title": "On Writing Well — chapters 2–4, university-hosted excerpt",
+          "url": "https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/c/359/files/2014/08/Zinsser.pdf?bid=359",
+          "kind": "Primary text · university-hosted transcription",
+          "date": "Identified in file as Harper, 1998",
+          "context": "Georgia Tech-hosted eleven-page excerpt of Simplicity, Clutter, and Style, with original printed-page markers 7–25.",
+          "verified": true,
+          "limitation": "A transcription, not a facsimile or full book; it contains OCR defects. Paraphrase only. No permission to reproduce the whole excerpt is inferred.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "zinsser-revisions",
+          "title": "Visions and Revisions",
+          "url": "https://theamericanscholar.org/visions-and-revisions/",
+          "kind": "Primary essay",
+          "date": "2009-03-01",
+          "context": "Zinsser describes writing and revising On Writing Well, his models E. B. White and Alec Wilder, and differences among nonfiction forms.",
+          "verified": true,
+          "limitation": "Supplementary context. The essay’s statement about copyright word counts is not used as legal guidance or a reuse license.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "zinsser-memoir",
+          "title": "How to Write a Memoir",
+          "url": "https://theamericanscholar.org/how-to-write-a-memoir/",
+          "kind": "Primary essay",
+          "date": "Displayed publication date 2015-05-12",
+          "context": "Zinsser discusses family history and remembers his father’s unpolished private writing with growing admiration.",
+          "verified": true,
+          "limitation": "Supplementary reading; a different purpose from professional nonfiction instruction. No full essay imported.",
+          "accessed": "2026-10-28"
+        }
+      ],
+      "qualification": "First person is a tool, not a requirement. Zinsser acknowledges forms where the pronoun is unsuitable; presence need not mean inserting “I.”",
+      "listCount": 10,
+      "coverageSourceId": "zinsser-oc",
+      "caveatHeading": "When first person is unsuitable"
+    },
+    {
+      "id": "vonnegut",
+      "name": "Kurt Vonnegut",
+      "genre": "Short fiction · retrospective advice",
+      "angle": "What the character wants",
+      "intro": "A woman must cross town before the pharmacy closes. Her bus passes without stopping. Now the timetable matters, and the next action will tell us something about her. Does she run, call someone, or turn back? Vonnegut’s advice puts desire under pressure; it does not require a catastrophe. The missed bus is enough if we know what the woman needs. Telling us her destination has not given the story away. We still do not know what she will sacrifice to reach it, or what she will do if she cannot.",
+      "items": [
+        {
+          "id": "vonnegut-1",
+          "number": 1,
+          "title": "Earn the time",
+          "text": "Make a stranger’s reading feel worthwhile.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 1; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-2",
+          "number": 2,
+          "title": "Someone to support",
+          "text": "Offer a character the reader can favor.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 2; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-3",
+          "number": 3,
+          "title": "Something wanted",
+          "text": "Give each character an immediate desire.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 3; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-4",
+          "number": 4,
+          "title": "Useful sentences",
+          "text": "Develop character or move events forward.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 4; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-5",
+          "number": 5,
+          "title": "Enter late",
+          "text": "Begin near the story’s conclusion.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 5; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-6",
+          "number": 6,
+          "title": "Apply pressure",
+          "text": "Trouble reveals what characters will do.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 6; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-7",
+          "number": 7,
+          "title": "One recipient",
+          "text": "Write with one person in mind.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 7; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        },
+        {
+          "id": "vonnegut-8",
+          "number": 8,
+          "title": "Orient early",
+          "text": "Explain enough for readers to anticipate events.",
+          "sourceId": "vonnegut-oc",
+          "locator": "Open Culture, item 8; attributed to Bagombo Snuff Box introduction (1999)",
+          "verification": "secondary",
+          "context": "Advice about short stories; original introduction not independently inspected."
+        }
+      ],
+      "sources": [
+        {
+          "id": "vonnegut-oc",
+          "title": "Kurt Vonnegut’s 8 Tips on How to Write a Good Short Story",
+          "url": "https://www.openculture.com/2015/04/kurt-vonneguts-8-tips-on-how-to-write-a-good-short-story.html",
+          "kind": "Secondary selection",
+          "date": "2015-04-10",
+          "context": "Open Culture attributes the eight rules to the introduction of Bagombo Snuff Box (1999) and includes Vonnegut’s qualification about Flannery O’Connor.",
+          "verified": true,
+          "limitation": "All eight points checked in this secondary witness. Original introduction and embedded recording not independently inspected. Online witnesses differ between “heck” and “hell”; no exact quotation is used.",
+          "accessed": "2026-10-28"
+        },
+        {
+          "id": "vonnegut-publisher",
+          "title": "Bagombo Snuff Box — publisher’s description",
+          "url": "https://www.penguinrandomhouse.com/books/335440/bagombo-snuff-box-by-kurt-vonnegut/",
+          "kind": "Publisher bibliographic record",
+          "date": "Paperback edition 2000-08-01; original collection 1999",
+          "context": "Penguin Random House identifies a collection of early magazine fiction, with venues including Collier’s and The Saturday Evening Post.",
+          "verified": true,
+          "limitation": "Bibliographic and genre context only; the page does not display the introduction or verify the eight rules.",
+          "accessed": "2026-10-28"
+        }
+      ],
+      "qualification": "Vonnegut names Flannery O’Connor as a great writer who broke almost every rule here. Respecting the reader’s time remains his exception.",
+      "listCount": 8,
+      "coverageSourceId": "vonnegut-oc",
+      "caveatHeading": "The O’Connor exception"
+    },
+    {
+      "id": "morrison",
+      "name": "Toni Morrison",
+      "genre": "Fiction",
+      "angle": "How much of the book one character gets",
+      "intro": "The sister who ruins dinner has eleven minutes before her shift. The host wants to eat; the sister needs to ask for money before she goes to work. Giving her that urgency does not excuse her behavior. It gives her something to do besides inconvenience the protagonist. Morrison later regretted an underwritten character while describing the need to restrain another who threatened to dominate a book. Both problems appear in this small scene. The sister needs a purpose of her own, and the writer still has to decide whether her eleven minutes deserve two lines or a chapter.",
+      "introSources": [
+        "morrison-nea"
+      ],
+      "items": [
+        {
+          "id": "morrison-1",
+          "number": 1,
+          "title": "Your useful hours",
+          "text": "Find conditions that help you work; early morning suited her.",
+          "sourceId": "morrison-pr",
+          "locator": "Opening answers on predawn writing and routine",
+          "verification": "primary",
+          "context": "The 1993 interview describes childcare necessity becoming a preference. The 2014 interview records changed habits."
+        },
+        {
+          "id": "morrison-2",
+          "number": 2,
+          "title": "Revision or worry",
+          "text": "Recognize when repeated tinkering cannot rescue an unsuccessful passage.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 2 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-3",
+          "number": 3,
+          "title": "An exacting editor",
+          "text": "Choose criticism that improves the work rather than offers reassurance.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 3 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-4",
+          "number": 4,
+          "title": "Answer to characters",
+          "text": "Test the rendering against characters rather than an imagined audience.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 4 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-5",
+          "number": 5,
+          "title": "Retain authorship",
+          "text": "Give characters life without yielding the whole book to them.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 5 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-6",
+          "number": 6,
+          "title": "Beyond the plot",
+          "text": "A known outcome can still reward variations in its telling.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 6 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-7",
+          "number": 7,
+          "title": "Practiced restraint",
+          "text": "Repeated practice can make invention seem effortless; withholding matters too.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 7 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "morrison-8",
+          "number": 8,
+          "title": "A particular tradition",
+          "text": "Develop an individual voice within African American and literary traditions.",
+          "sourceId": "morrison-oc",
+          "locator": "Open Culture bullet 8 (unnumbered in original)",
+          "verification": "secondary",
+          "context": ""
+        }
+      ],
+      "sources": [
+        {
+          "id": "morrison-oc",
+          "title": "Open Culture: Toni Morrison’s writing advice",
+          "url": "https://www.openculture.com/2012/12/toni_morrison_dispenses_writing_wisdom_in_1993_iparis_reviewi_interview.html",
+          "kind": "secondary",
+          "date": "2012-12-10",
+          "context": "Josh Jones selects eight observations from the 1993 interview.",
+          "verified": true,
+          "limitation": "Seven selected passages were not visible in the primary preview; their original wording was not independently checked."
+        },
+        {
+          "id": "morrison-pr",
+          "title": "The Art of Fiction No. 134",
+          "url": "https://www.theparisreview.org/interviews/1888/the-art-of-fiction-no-134-toni-morrison",
+          "kind": "primary-excerpt",
+          "date": "Fall 1993",
+          "context": "Interview by Elissa Schappell and Claudia Brodsky Lacour, Princeton.",
+          "verified": true,
+          "limitation": "Public preview ends after writing implements; the later selected passages require a subscription."
+        },
+        {
+          "id": "morrison-nea",
+          "title": "Toni Morrison: interview on failure",
+          "url": "https://www.arts.gov/stories/blog/2023/black-history-month-spotlight-toni-morrison",
+          "kind": "primary",
+          "date": "2014; republished 2023-02-15",
+          "context": "NEA interview, republished by Rebecca Sutton. The original issue credits Rebecca Gross.",
+          "verified": true,
+          "limitation": "A later interview corroborates themes, not the exact 1993 excerpts."
+        }
+      ],
+      "qualification": "Her predawn routine changed with age. It was an account of working conditions, not a test of seriousness.",
+      "caveatHeading": "Her working hours changed"
+    },
+    {
+      "id": "poe",
+      "name": "Edgar Allan Poe",
+      "genre": "Poetry and criticism",
+      "angle": "Choosing the ending first",
+      "intro": "A passenger learns that her train will not stop at the town printed on her ticket. To make the scene frightening, let the conductor recognize the town and refuse to discuss it. To make it comic, let every passenger produce the same obsolete ticket. The route is unchanged; the details tell us how to receive the journey. Poe’s account of composition makes the intended effect govern such choices. Try deciding the effect before writing the next exchange. Then notice what you have to suppress to keep it: a laugh, an awkward fact, a passenger who refuses to be frightened.",
+      "items": [
+        {
+          "id": "poe-1",
+          "number": 1,
+          "title": "Choose the destination",
+          "text": "Determine the ending so earlier events can acquire consequences.",
+          "sourceId": "poe-composition",
+          "locator": "Page 163, opening discussion of plotting",
+          "verification": "primary",
+          "context": "The Philosophy of Composition (1846)."
+        },
+        {
+          "id": "poe-2",
+          "number": 2,
+          "title": "Protect one sustained impression",
+          "text": "Fit the intended effect within a continuous sitting where possible.",
+          "sourceId": "poe-composition",
+          "locator": "Pages 163–164, discussion of extent",
+          "verification": "primary",
+          "context": "Poe allows exceptions for some prose."
+        },
+        {
+          "id": "poe-3",
+          "number": 3,
+          "title": "Name the intended effect",
+          "text": "Choose the response that will govern incident and tone.",
+          "sourceId": "poe-composition",
+          "locator": "Pages 163–164, choice of impression",
+          "verification": "primary",
+          "context": "The Philosophy of Composition (1846)."
+        },
+        {
+          "id": "poe-4",
+          "number": 4,
+          "title": "Make sound sustain tone",
+          "text": "Coordinate mood, sound, and recurrence rather than adding atmosphere afterward.",
+          "sourceId": "poe-composition",
+          "locator": "Pages 164–165, melancholy and the refrain",
+          "verification": "primary",
+          "context": "The Philosophy of Composition (1846)."
+        },
+        {
+          "id": "poe-5",
+          "number": 5,
+          "title": "A restrictive choice of subject",
+          "text": "His example makes a woman’s death serve a male speaker’s grief.",
+          "sourceId": "poe-composition",
+          "locator": "Page 165, selection of death and the bereaved lover",
+          "verification": "primary",
+          "context": "The Philosophy of Composition (1846)."
+        },
+        {
+          "id": "poe-6",
+          "number": 6,
+          "title": "Set the strongest moment",
+          "text": "Establish the climax, then calibrate what precedes it.",
+          "sourceId": "poe-composition",
+          "locator": "Page 165, composition of the climactic stanza",
+          "verification": "primary",
+          "context": "The climax is not the final stanza."
+        },
+        {
+          "id": "poe-7",
+          "number": 7,
+          "title": "Give the event a boundary",
+          "text": "Choose a setting that concentrates the encounter and its effect.",
+          "sourceId": "poe-composition",
+          "locator": "Page 166, choice of the chamber",
+          "verification": "primary",
+          "context": "The Philosophy of Composition (1846)."
+        }
+      ],
+      "sources": [
+        {
+          "id": "poe-oc",
+          "title": "Open Culture: seven Poe tips",
+          "url": "https://www.openculture.com/2015/01/seven-tips-from-edgar-allan-poe-on-how-to-write-vivid-stories-and-poems.html",
+          "kind": "Secondary selection",
+          "date": "2015-01-12",
+          "context": "Seven editorial headings extracted from one essay.",
+          "verified": true,
+          "limitation": "The numbered list belongs to Open Culture, not to Poe’s original arrangement."
+        },
+        {
+          "id": "poe-composition",
+          "title": "The Philosophy of Composition, 1846 text",
+          "url": "https://www.eapoe.org/works/essays/philcomp.htm",
+          "kind": "Primary essay, scholarly transcription",
+          "date": "1846-04; transcription updated 2022-09-03",
+          "context": "Graham’s Magazine 28:163–167, Text-02, Edgar Allan Poe Society of Baltimore.",
+          "verified": true,
+          "limitation": "Author’s retrospective explanation of The Raven; it does not independently establish the historical sequence he claims."
+        }
+      ],
+      "qualification": "His retrospective account offers a method to test; it does not independently establish the sequence he describes.",
+      "caveatHeading": "An explanation after the poem"
+    },
+    {
+      "id": "atwood",
+      "name": "Margaret Atwood",
+      "genre": "Fiction",
+      "angle": "A narrator’s assumptions",
+      "intro": "“The guests arrived late.” The host watches the food cool. A visitor is still looking for the address. A child hopes nobody will arrive at all. Late is already somebody’s judgment. In her 1990 interview, Atwood questions the assumption that a powerful country’s experience stands for everyone’s. A narrator can make a smaller version of that mistake, treating one person’s expectations as the natural arrangement of the world. Give the host a confident sentence. Then imagine the guest who would find it peculiar. You may discover a quarrel before anybody reaches the table.",
+      "introSources": [
+        "atwood-pr"
+      ],
+      "items": [
+        {
+          "id": "atwood-1",
+          "number": 1,
+          "title": "Pack spare pencils",
+          "text": "Read rule 1 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 1",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-2",
+          "number": 2,
+          "title": "Improvise repairs",
+          "text": "Read rule 2 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 2",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-3",
+          "number": 3,
+          "title": "Bring paper",
+          "text": "Read rule 3 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 3",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-4",
+          "number": 4,
+          "title": "Back up",
+          "text": "Read rule 4 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 4",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-5",
+          "number": 5,
+          "title": "Protect your back",
+          "text": "Read rule 5 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 5",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-6",
+          "number": 6,
+          "title": "Keep attention",
+          "text": "Read rule 6 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 6",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-7",
+          "number": 7,
+          "title": "Work realistically",
+          "text": "Read rule 7 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 7",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-8",
+          "number": 8,
+          "title": "Ask readers",
+          "text": "Read rule 8 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 8",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-9",
+          "number": 9,
+          "title": "Retrace; reroute",
+          "text": "Read rule 9 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 9",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        },
+        {
+          "id": "atwood-10",
+          "number": 10,
+          "title": "Read; envision completion",
+          "text": "Read rule 10 at the source.",
+          "sourceId": "atwood-guardian",
+          "locator": "Margaret Atwood section, rule 10",
+          "verification": "primary",
+          "context": "Topic index entry.",
+          "displayKind": "source-index"
+        }
+      ],
+      "sources": [
+        {
+          "id": "atwood-guardian",
+          "title": "Ten rules for writing fiction: Margaret Atwood",
+          "url": "https://www.theguardian.com/books/2010/feb/20/ten-rules-for-writing-fiction-part-one",
+          "kind": "primary",
+          "date": "2010-02-20",
+          "context": "Author contribution.",
+          "verified": true,
+          "limitation": "Topic index; full rules at source."
+        },
+        {
+          "id": "atwood-oc",
+          "title": "Open Culture: Writing Tips",
+          "url": "https://www.openculture.com/2012/01/writing_rules.html",
+          "kind": "secondary",
+          "date": "2012-01-31",
+          "context": "The sidebar links a collection; only Atwood’s ten entries are selected.",
+          "verified": true,
+          "limitation": "The anthology also contains other writers outside this commission."
+        },
+        {
+          "id": "atwood-pr",
+          "title": "The Art of Fiction No. 121",
+          "url": "https://www.theparisreview.org/interviews/2262/the-art-of-fiction-no-121-margaret-atwood",
+          "kind": "primary-excerpt",
+          "date": "Winter 1990",
+          "context": "Interview by Mary Morris.",
+          "verified": true,
+          "limitation": "Only the public opening on survival and foreignness was inspected."
+        }
+      ],
+      "qualification": "The linked ten-rule contribution and the 1990 interview are separate works.",
+      "coverageNote": "Topic index: ten brief action cues, with the complete advice at the source.",
+      "displayKind": "source-index",
+      "caveatHeading": "The interview and the rules"
+    },
+    {
+      "id": "ogilvy",
+      "name": "David Ogilvy",
+      "genre": "Business correspondence",
+      "angle": "What a memo asks its reader to do",
+      "intro": "The memo is only three sentences long. Nobody can act on it: “The room is unavailable. Several alternatives were discussed. A decision is needed.” Who must decide? By when? Replace it with “Please choose the library or the studio by noon so I can confirm the booking.” The recipient now has a job. Ogilvy wrote his instructions for colleagues whose prose had to produce decisions. The two-page limit makes sense in that setting. Even a short memo can leave its actual request for the recipient to write.",
+      "introSources": [
+        "ogilvy-oc"
+      ],
+      "items": [
+        {
+          "id": "ogilvy-1",
+          "number": 1,
+          "title": "Study a manual",
+          "text": "Return repeatedly to Roman and Raphaelson’s Writing That Works.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 1",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-2",
+          "number": 2,
+          "title": "Conversational language",
+          "text": "Use a natural speaking manner when composing workplace prose.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 2",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-3",
+          "number": 3,
+          "title": "Small units",
+          "text": "Prefer compact words, sentences, and paragraphs for business writing.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 3",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-4",
+          "number": 4,
+          "title": "Drop the costume",
+          "text": "Avoid inflated jargon that makes the writer seem self-important.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 4",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-5",
+          "number": 5,
+          "title": "A page limit",
+          "text": "Keep the correspondence covered by this memo within two pages.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 5",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-6",
+          "number": 6,
+          "title": "Check the borrowing",
+          "text": "Verify quotations before allowing them to carry your argument.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 6",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-7",
+          "number": 7,
+          "title": "An overnight gap",
+          "text": "Wait until morning, then read aloud and revise before sending.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 7",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-8",
+          "number": 8,
+          "title": "A colleague’s help",
+          "text": "Invite a colleague to improve an especially consequential message.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 8",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-9",
+          "number": 9,
+          "title": "State the request",
+          "text": "Make clear what you want the recipient to do.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 9",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "ogilvy-10",
+          "number": 10,
+          "title": "Choose the channel",
+          "text": "Consider a direct conversation when action is the immediate goal.",
+          "sourceId": "ogilvy-oc",
+          "locator": "Point 10",
+          "verification": "secondary",
+          "context": ""
+        }
+      ],
+      "sources": [
+        {
+          "id": "ogilvy-oc",
+          "title": "Open Culture: David Ogilvy’s How to Write memo",
+          "url": "https://www.openculture.com/2015/04/david-ogilvys-1982-memo-how-to-write-offers-10-pieces-of-timeless-advice.html",
+          "kind": "secondary",
+          "date": "2015-04-23",
+          "context": "Memo dated September 7, 1982, for Ogilvy & Mather staff; via Lists of Note.",
+          "verified": true,
+          "limitation": "The underlying memo’s full archival witness was not inspected."
+        },
+        {
+          "id": "ogilvy-company",
+          "title": "Ogilvy: How to Write memo",
+          "url": "https://www.linkedin.com/posts/ogilvy_tbt-activity-7298338141764046848-fLFd",
+          "kind": "primary-metadata",
+          "date": "Memo: 1982-09-07; company post undated in inspected text",
+          "context": "Company post confirms the date and circulation by management.",
+          "verified": true,
+          "limitation": "Accessible text confirms identity, not all ten points. The memo image was not available in the extracted page."
+        }
+      ],
+      "qualification": "The two-page limit addresses workplace correspondence. It is not a length rule for fiction.",
+      "caveatHeading": "Instructions to colleagues"
+    },
+    {
+      "id": "steinbeck",
+      "name": "John Steinbeck",
+      "genre": "Fiction and letters",
+      "angle": "Finishing before correcting",
+      "intro": "The toothbrush is yellow. Or should it be blue? You can spend an afternoon on this question without deciding who left it in the bathroom. Let someone arrive: a brother with nowhere to sleep, an unfamiliar guest, the woman who lives there and has forgotten buying a spare. Each arrival changes the object. Choosing the color has not yet told you who brought it. Steinbeck’s advice is useful when small corrections keep delaying the rest of a draft. The color may matter later, once someone has entered the room.",
+      "items": [
+        {
+          "id": "steinbeck-1",
+          "number": 1,
+          "title": "Shrink today’s assignment",
+          "text": "Attend to the day’s page rather than the enormous unfinished whole.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 1",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        },
+        {
+          "id": "steinbeck-2",
+          "number": 2,
+          "title": "Draft beyond the corrections",
+          "text": "Get the whole draft down before revision interrupts its momentum.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 2",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        },
+        {
+          "id": "steinbeck-3",
+          "number": 3,
+          "title": "Address one reader",
+          "text": "Imagine a particular reader instead of an intimidating anonymous audience.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 3",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        },
+        {
+          "id": "steinbeck-4",
+          "number": 4,
+          "title": "Leave a gap",
+          "text": "Pass a resistant scene; the completed draft may reveal its purpose.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 4",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        },
+        {
+          "id": "steinbeck-5",
+          "number": 5,
+          "title": "Distrust the favorite scene",
+          "text": "Check whether a cherished passage distorts the surrounding work.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 5",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        },
+        {
+          "id": "steinbeck-6",
+          "number": 6,
+          "title": "Put speech in the mouth",
+          "text": "Speak dialogue while composing it to hear whether it sounds spoken.",
+          "sourceId": "steinbeck-pr",
+          "locator": "On Getting Started, numbered point 6",
+          "verification": "primary",
+          "context": "February 1962 letter to Robert Wallsten."
+        }
+      ],
+      "sources": [
+        {
+          "id": "steinbeck-oc",
+          "title": "Open Culture: Steinbeck’s six tips",
+          "url": "https://www.openculture.com/2012/02/john_steinbecks_nobel_prize_speech_and_his_six_tips_for_the_aspiring_writer.html",
+          "kind": "Discovery index",
+          "date": "2012-02-27",
+          "context": "Selected list of six numbered points.",
+          "verified": true,
+          "limitation": "The unnumbered quotation following the six points is not included in this inventory."
+        },
+        {
+          "id": "steinbeck-pr",
+          "title": "Steinbeck’s letters on fiction, assembled by The Paris Review",
+          "url": "https://www.theparisreview.org/interviews/4156/the-art-of-fiction-no-45-continued-john-steinbeck",
+          "kind": "Primary letters in a publisher’s composite",
+          "date": "Fall 1975; letter February 1962",
+          "context": "The Art of Fiction No. 45 (Continued), issue 63. Six points addressed to Robert Wallsten.",
+          "verified": true,
+          "limitation": "A posthumous arrangement of letters and other material, not a recorded interview. No exact day is supplied for the six-point letter."
+        }
+      ],
+      "qualification": "This is practical advice to a correspondent facing a long draft, not a ban on thinking carefully before writing.",
+      "caveatHeading": "A letter about a long draft"
+    },
+    {
+      "id": "wilder",
+      "name": "Billy Wilder",
+      "genre": "Screenwriting",
+      "angle": "What the audience can infer",
+      "intro": "A woman says she has stopped waiting for her brother. Later, she sets two plates, notices the second, and puts it away. The action contradicts her statement. But we must know whose plate it is; otherwise she could simply be laying too much cutlery. Wilder’s 1996 interview recalls Lubitsch solving a character problem through a hat. The inference depends on preparation. We need a reason to connect the extra place with her brother. After that, an explanation of how much she misses him may merely repeat what the plate has already told us.",
+      "introSources": [
+        "wilder-pr"
+      ],
+      "items": [
+        {
+          "id": "wilder-1",
+          "number": 1,
+          "title": "Uncertain spectators",
+          "text": "Expect an audience’s response to be difficult to predict.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 1",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-2",
+          "number": 2,
+          "title": "Sustain the pressure",
+          "text": "Secure attention early and maintain it throughout the film.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 2",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-3",
+          "number": 3,
+          "title": "A legible pursuit",
+          "text": "Give the protagonist an action the audience can follow.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 3",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-4",
+          "number": 4,
+          "title": "Know the destination",
+          "text": "Understand where the story is headed as you construct it.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 4",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-5",
+          "number": 5,
+          "title": "Conceal the machinery",
+          "text": "Keep necessary plot turns from drawing attention to the story’s structure.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 5",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-6",
+          "number": 6,
+          "title": "Look upstream",
+          "text": "An ending’s weakness may originate in the story’s opening.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 6",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-7",
+          "number": 7,
+          "title": "Room for inference",
+          "text": "Let spectators complete an implication instead of spelling it out.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 7",
+          "verification": "secondary",
+          "context": "Wilder credits this principle to Ernst Lubitsch."
+        },
+        {
+          "id": "wilder-8",
+          "number": 8,
+          "title": "Useful voice-over",
+          "text": "Add information in narration instead of repeating visible action.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 8",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-9",
+          "number": 9,
+          "title": "The decisive turn",
+          "text": "Make the second act’s closing event initiate the final movement.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 9",
+          "verification": "secondary",
+          "context": ""
+        },
+        {
+          "id": "wilder-10",
+          "number": 10,
+          "title": "Finish at the finish",
+          "text": "Accelerate the last act, then stop after the culminating event.",
+          "sourceId": "wilder-oc",
+          "locator": "Point 10",
+          "verification": "secondary",
+          "context": ""
+        }
+      ],
+      "sources": [
+        {
+          "id": "wilder-oc",
+          "title": "Open Culture: ten Billy Wilder screenwriting tips",
+          "url": "https://www.openculture.com/2013/08/10-tips-from-billy-wilder-on-how-to-write-a-good-screenplay.html",
+          "kind": "secondary",
+          "date": "2013-08-06",
+          "context": "Selected from Cameron Crowe’s Conversations with Wilder (1999), via Gotham Writers.",
+          "verified": true,
+          "limitation": "Book pages and the originating interview passage were not inspected. Crowe’s linked NPR transcript returned an error."
+        },
+        {
+          "id": "wilder-pr",
+          "title": "The Art of Screenwriting No. 1",
+          "url": "https://www.theparisreview.org/interviews/1432/the-art-of-screenwriting-no-1-billy-wilder",
+          "kind": "primary-excerpt",
+          "date": "Spring 1996",
+          "context": "Wilder’s account of working with Ernst Lubitsch; Ninotchka hat example.",
+          "verified": true,
+          "limitation": "The public interview corroborates inference through action, not the whole ten-point list."
+        }
+      ],
+      "qualification": "These are principles of dramatic filmmaking, mediated by Crowe. Point seven explicitly credits Lubitsch.",
+      "caveatHeading": "Wilder credits Lubitsch"
+    }
+  ],
+  "arguments": [
+    {
+      "id": "keep-going",
+      "title": "When to revise",
+      "participants": "Hemingway / Steinbeck",
+      "dek": "When correcting a sentence helps the next scene, and when it delays it.",
+      "moment": "sentence",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A correction can improve the first paragraph while leaving the next scene unwritten."
+        },
+        {
+          "type": "p",
+          "text": "Hemingway describes [[hemingway-4|rereading and correcting before continuing]]. Steinbeck’s [[steinbeck-2|letter to Robert Wallsten]] warns that revision can become an excuse for stopping. Both revise their work."
+        },
+        {
+          "type": "example",
+          "label": "A draft",
+          "text": "Mara put the key on the table. It was a strange thing to do. She had waited a long time for this."
+        },
+        {
+          "type": "p",
+          "text": "“Strange” and “a long time” leave the important decisions unwritten. Why has Mara brought the key? Perhaps she is returning it because she will never enter the house again. Change put to slid and have her slide it toward her brother. Now the sentence asks for his response. The correction has given you a reason to go on."
+        },
+        {
+          "type": "h2",
+          "text": "Let him refuse it"
+        },
+        {
+          "type": "p",
+          "text": "Suppose you already know that he refuses the key. Another hour spent on put will not write that refusal. Let him push it back, cover it with his glass, or leave the room. Each action changes the meaning of the sentence you have been polishing. Only after the brother acts will you know whether slid is the right verb."
+        },
+        {
+          "type": "p",
+          "text": "Hemingway’s rereading can restore the scene’s pace and the distance between its people. Steinbeck names the danger of doing it indefinitely. You can recognize that danger without adopting a permanent ban on revision: ask whether the last correction made another sentence possible."
+        },
+        {
+          "type": "h2",
+          "text": "One pass, then six sentences"
+        },
+        {
+          "type": "p",
+          "text": "Make one correction that affects what happens next. Then write six new sentences without returning to the opening. Read it again afterward. If the new scene has made the first sentence unnecessary, you have learned something that polishing could not tell you. If the opening contains a contradiction that makes the next action impossible, fix it now. Leaving a bad adjective is one thing; building a scene on an impossible action is another."
+        }
+      ]
+    },
+    {
+      "id": "know-the-ending",
+      "title": "Must you know how it ends?",
+      "participants": "Poe / King",
+      "dek": "The locksmith may be receiving threats. He may be receiving homework.",
+      "moment": "ending",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "[[poe-1|Poe asks for the ending first]]. [[king-15|King favors discovery while writing]]. Try both approaches on the same locksmith."
+        },
+        {
+          "type": "example",
+          "label": "One invented premise, two endings",
+          "text": "Every Tuesday, a retired locksmith receives an envelope containing a key.",
+          "after": "Ending A: the keys open his own former homes.\nEnding B: none opens anything; he has been teaching his grandson how to make them."
+        },
+        {
+          "type": "p",
+          "text": "Ending A makes the envelopes a puzzle about memory or intrusion. Earlier scenes can plant addresses, altered locks, or the locksmith’s reluctance to visit one house. Ending B changes the envelopes into exercises and the locksmith into an anxious teacher. The same key can measure either a threat or an apprenticeship. Knowing the ending changes what counts as a useful detail."
+        },
+        {
+          "type": "h2",
+          "text": "The grandson sends a bent wire"
+        },
+        {
+          "type": "p",
+          "text": "Now let the grandson send a bent wire. Is it a joke, a refusal, or a tool the locksmith does not recognize? Both outlines have acquired a new problem. If the gesture is more interesting than the planned reveal, follow it for a scene before defending the ending."
+        },
+        {
+          "type": "p",
+          "text": "Try two provisional endings before drafting the middle. For each, list three earlier details it would require. Then draft a scene that could make one ending impossible. If nothing can threaten your plan, the plan may be doing too much of the character’s thinking. If every new detail destroys the plan, decide what promise still holds the work together."
+        },
+        {
+          "type": "h2",
+          "text": "The finished poem and its explanation"
+        },
+        {
+          "type": "p",
+          "text": "Poe explains a finished poem; we cannot independently reconstruct its composition from that account. The locksmith exercise asks a separate question: what does choosing an ending now allow you to prepare, and what does it make you refuse? Treat the ending as a decision you can revise as the scene develops."
+        }
+      ]
+    },
+    {
+      "id": "useful-hours",
+      "title": "When the writing hour disappears",
+      "participants": "Morrison / Hemingway / King",
+      "dek": "Morrison’s early mornings began with childcare. Her hours changed as her life changed.",
+      "moment": "hours",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "In the 1993 interview, [[morrison-1|Morrison describes writing before her children woke]]. Necessity became a preference. In the [[s:morrison-nea|later NEA interview]], her habits have changed with age."
+        },
+        {
+          "type": "p",
+          "text": "Hemingway’s [[hemingway-2|stopping point]] offers another kind of preparation: leave yourself knowing what happens next. You can carry that instruction into a twenty-minute session, a borrowed room, or an evening interrupted by other work. The next action may be easier to preserve than the hour itself."
+        },
+        {
+          "type": "example",
+          "label": "An original schedule experiment",
+          "text": "Tuesday: 25 minutes. Write the brother’s refusal.\nWednesday: read Tuesday’s last paragraph; write the consequence.\nIf interrupted: leave a sentence naming the next action."
+        },
+        {
+          "type": "p",
+          "text": "There is something to resume on Wednesday. If Wednesday becomes Thursday because a child is ill, the consequences of the brother’s refusal are still there to write. The task survives the missed appointment. A routine described only as “write every morning” gives you less help when morning is unavailable."
+        },
+        {
+          "type": "h2",
+          "text": "Who can close the door?"
+        },
+        {
+          "type": "p",
+          "text": "King’s [[king-13|instruction to remove interruptions]] assumes some control over the writing space. If the table will be needed at nine, agree on the twenty minutes before it. If there is no room to close, decide which interruption can wait. You are trying to secure enough time to write the exchange, not reproduce another writer’s household."
+        },
+        {
+          "type": "p",
+          "text": "For three sessions, note what you attempted, how long you had, and where you stopped. Then use the record. If the first ten minutes always disappear into rereading, leave a clearer starting point. If you repeatedly stop just as the scene begins, try one longer session. Change the arrangement that is failing instead of adding another rule to the day."
+        }
+      ]
+    },
+    {
+      "id": "the-reader",
+      "title": "What does the reader need to know?",
+      "participants": "Steinbeck / Vonnegut / Ogilvy / Wilder",
+      "dek": "A missing motive can sustain a scene. A missing address makes a bad invitation.",
+      "moment": "reader",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Steinbeck’s [[steinbeck-3|one imagined reader]] makes an anonymous audience less frightening. [[vonnegut-7|Vonnegut]] chooses a particular recipient too. But choosing someone to write to leaves another question: what must that person know? Ogilvy’s [[ogilvy-9|memo]] demands a clear next action. Wilder’s [[wilder-7|principle, credited to Lubitsch]], asks the audience to complete an implication. Consider what each instruction would do to this sentence."
+        },
+        {
+          "type": "example",
+          "label": "The same original sentence in two places",
+          "text": "The door will be open at seven."
+        },
+        {
+          "type": "p",
+          "text": "In a story, this can be a promise, a warning, or an invitation the recipient dreads accepting. The uncertainty is usable if the scene gives us a reason to care. In an email to a contractor, the sentence may fail. Which door? Who will be there? Is the recipient expected to arrive at seven, or merely allowed to? A reader cannot carry out a request whose missing information has been mistaken for elegance."
+        },
+        {
+          "type": "h2",
+          "text": "The motive and the address"
+        },
+        {
+          "type": "p",
+          "text": "You can conceal why a character wants the visitor to arrive while stating exactly when and where they will meet. You can also explain the character’s feelings at length and still forget to name the street. Does the reader get to anticipate a confrontation, or do they have to ask for the address?"
+        },
+        {
+          "type": "example",
+          "label": "An original practical revision",
+          "text": "Please meet the plumber at the side door of 18 King Street at 7 a.m. The key is under the blue pot."
+        },
+        {
+          "type": "p",
+          "text": "The revision names the place, the person to meet, the time, and how to get in. Why the sender cannot attend may be irrelevant. In a story, that absence might be the thing we most want explained."
+        },
+        {
+          "type": "p",
+          "text": "Write down one thing the reader must know now and one thing they may profitably discover later. Test those decisions on someone who has not seen the draft. Ask what they expect to happen, not whether they understood everything. A mistaken expectation may reveal a missing cue; an interesting expectation may be the pleasure you meant to create."
+        },
+        {
+          "type": "p",
+          "text": "[[s:vonnegut-oc|Vonnegut names Flannery O’Connor as an exception]] to almost all his rules. Keep that admission beside the rules. A short story that withholds its situation may repay the reader later. A plumber left outside the wrong house is unlikely to admire the suspense."
+        }
+      ]
+    },
+    {
+      "id": "borrowed-voice",
+      "title": "Can you learn a voice without keeping it?",
+      "participants": "King / Zinsser / Fitzgerald",
+      "dek": "Borrow a sentence’s rhythm. Check what it makes you invent.",
+      "moment": "voice",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The [[king-14|King list]] warns against imitation; his [[s:king-npr|memoir excerpt]] describes it as part of learning. [[s:zinsser-revisions|Zinsser writes about studying models]] and changing them. A writer can learn the cadence of a sentence before knowing when to resist it. Here is a small reason to resist."
+        },
+        {
+          "type": "example",
+          "label": "An original sentence, three ways",
+          "text": "The committee did not answer my letter.",
+          "after": "They filed it, discussed it, and forgot it.\nFor six weeks, the letter acquired everything except an answer."
+        },
+        {
+          "type": "p",
+          "text": "The first revision gives the committee a sequence of actions. The second gives the delay a joke. But we know only that no answer arrived. Filed, discussed, and forgot may be three inventions added to make the sentence sound finished. Before keeping its rhythm, find out what the verbs claim."
+        },
+        {
+          "type": "h2",
+          "text": "A verb, a pause, a short last word"
+        },
+        {
+          "type": "p",
+          "text": "Choose one decision you can hear in a model: a delayed verb, a long sentence ending on a short word, an explanation replaced by an action. Use it on different material, then write a version without it. What did the borrowed arrangement make you add? What did it make you leave out?"
+        },
+        {
+          "type": "p",
+          "text": "Fitzgerald’s [[fitzgerald-6|letter about verbs]] makes this a concrete place to look. In our example, filed, discussed, and forgot give the institution three actions. They are more vivid than a description of bureaucratic indifference. They also require more knowledge of what happened to the letter."
+        },
+        {
+          "type": "h2",
+          "text": "If they never received the letter"
+        },
+        {
+          "type": "p",
+          "text": "Now imagine the committee never received the letter. The lively verbs have manufactured a story. Elegance cannot repair an unsupported fact. For nonfiction, check the action before strengthening it. A less vivid sentence can be the more exact one. For fiction, decide whether the narrator knows, guesses, or invents what the committee did; the difference can become part of the character."
+        },
+        {
+          "type": "p",
+          "text": "Revise the paragraph once for rhythm and once for accuracy. Then combine what survives. If the joke still works, keep it. If it needs the committee to have done something you cannot know, decide whether the narrator is making an accusation, guessing, or reporting. Those are three different sentences, however similar they sound."
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "title": "Who gets to take over the story?",
+      "participants": "Morrison / Fitzgerald / Atwood",
+      "dek": "The sister has eleven minutes. The host thinks she has ruined dinner.",
+      "moment": "character",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Morrison asks a writer to [[morrison-4|answer to characters]] and to [[morrison-5|control their share of the book]]. Her [[s:morrison-nea|later interview]] describes both an underwritten minor character and a dominant one who needed restraining. You can encounter both problems at the same dinner."
+        },
+        {
+          "type": "example",
+          "label": "An original scene problem",
+          "text": "The sister ruins dinner by asking to borrow money."
+        },
+        {
+          "type": "p",
+          "text": "“Ruins” gives us the host’s verdict. The sister has a bill due in the morning and eleven minutes before her shift. Let her ask while the host is still serving. The interruption now carries two clocks: the meal the host has planned, and the deadline she cannot move."
+        },
+        {
+          "type": "h2",
+          "text": "Before you call her selfish"
+        },
+        {
+          "type": "p",
+          "text": "What happens when you call her “the selfish sister”? You can predict every gesture before she makes it. Open Culture extracts a proposition about persons and types from [[fitzgerald-4|the narrator of The Rich Boy]]. It is a narrator’s statement, not a personal instruction from Fitzgerald, but it gives this scene a test. Let the sister, working up the courage to ask for money, insist that the limping host sit down while she brings the plates. Her request will interrupt dinner; her attention to the host complicates the label."
+        },
+        {
+          "type": "p",
+          "text": "[[s:atwood-pr|Atwood’s 1990 interview]] questions a powerful country’s assumption that its experience is universal. Our dinner scene makes a smaller comparison. The host takes for granted that everyone has an evening to spend at the table. The sister does not. Staying in the host’s viewpoint need not make the host’s assumption a fact."
+        },
+        {
+          "type": "h2",
+          "text": "Eleven minutes, two versions"
+        },
+        {
+          "type": "p",
+          "text": "Write the request once from the host’s position, watching the food cool, and once from the sister’s, watching the clock. Give each a detail the other fails to notice. Then return to the original viewpoint and keep just one change. A single viewpoint can still show what matters to both characters."
+        },
+        {
+          "type": "p",
+          "text": "If the sister now makes every other character dull, reconsider her role. She may belong at the center, or her brief interruption may be enough. A shorter appearance can still show what she wants."
+        }
+      ]
+    }
+  ],
+  "moments": [
+    {
+      "id": "sentence",
+      "short": "The sentence",
+      "title": "An hour on two sentences",
+      "setup": "You have spent an hour on these two sentences. The brother still has not moved.",
+      "example": "Mara put the key on the table. Her brother did not take it.",
+      "argument": "keep-going",
+      "choices": [
+        {
+          "label": "Read back once; change what releases the next action.",
+          "affinity": "hemingway-4",
+          "dissent": "steinbeck-2",
+          "reason": "The key is waiting for a response. One pass backward might expose the detail that makes the brother move.",
+          "counter": "The scene has already supplied its next problem: the refusal. Another polish could postpone the encounter you came to write.",
+          "experimentTitle": "One pass, six sentences",
+          "experiment": "Change one detail in the opening. Then write six new sentences without returning to it. In a second version, leave the opening alone and write six sentences immediately.",
+          "compare": "Which version gives the brother something to do? Keep the action that changes the scene.",
+          "exception": "Resolve a factual or logical contradiction first if continuing would build the scene on it.",
+          "relation": "The objection"
+        },
+        {
+          "label": "Leave the opening alone and write the refusal.",
+          "affinity": "steinbeck-2",
+          "dissent": "hemingway-4",
+          "reason": "There is enough on the page to continue. A refusal can produce new information that the opening cannot supply by itself.",
+          "counter": "If you have lost the scene’s pace or physical arrangement, moving forward may only multiply the confusion.",
+          "experimentTitle": "Continue before correcting",
+          "experiment": "Put brackets around the sentence you dislike. Write until someone changes position, possession, or intention. Then read the opening again.",
+          "compare": "Did the new action tell you what the first sentence needs? Change only what it now makes necessary.",
+          "exception": "A wrong speaker or impossible sequence is worth correcting now.",
+          "relation": "The objection"
+        }
+      ]
+    },
+    {
+      "id": "ending",
+      "short": "The ending",
+      "title": "You have a key. No door.",
+      "setup": "A locksmith keeps receiving keys in the mail. You like the premise, but the story has no destination.",
+      "example": "The seventh envelope contained a key made of soft lead.",
+      "argument": "know-the-ending",
+      "choices": [
+        {
+          "label": "Choose an ending and plant what it will need.",
+          "affinity": "poe-1",
+          "dissent": "king-15",
+          "reason": "The lead key can become a clue once you know what it eventually opens—or why it must never open anything.",
+          "counter": "The object may become interesting only when someone handles it. A plan chosen too soon can dismiss a better consequence discovered in the scene.",
+          "experimentTitle": "Two endings, three clues",
+          "experiment": "Invent two incompatible endings. Give each three details it needs earlier. Draft the scene that would eliminate one ending.",
+          "compare": "Which ending changes the meaning of the lead key? Prefer a consequence to a surprise pasted on at the end.",
+          "exception": "If the character makes an interesting refusal, let that evidence threaten the outline.",
+          "relation": "The objection"
+        },
+        {
+          "label": "Let the locksmith act before deciding the ending.",
+          "affinity": "king-15",
+          "dissent": "poe-1",
+          "reason": "The lead key gives the locksmith a problem. Put it in his hand and discover what he tries before choosing what the event must mean.",
+          "counter": "A series of interesting actions can still fail to arrive anywhere. Test whether the beginning makes a promise the eventual ending can answer.",
+          "experimentTitle": "Let the object cause trouble",
+          "experiment": "Write three things the locksmith tries with the key. Let the third change what he wants. Only then propose an ending and plant one earlier clue.",
+          "compare": "Does the ending grow from the changed desire, or merely close the file?",
+          "exception": "If you are solving an intricate puzzle, an early design may prevent impossible mechanics.",
+          "relation": "The objection"
+        }
+      ]
+    },
+    {
+      "id": "hours",
+      "short": "The hours",
+      "title": "Twenty minutes before someone needs the table.",
+      "setup": "An early shift has taken the quiet hour you used to keep. Tonight you have twenty minutes and an unfinished scene.",
+      "example": "At 8:40, the apartment is finally quiet. At 9:00, someone will need the table.",
+      "argument": "useful-hours",
+      "choices": [
+        {
+          "label": "Give the twenty minutes one small, definite task.",
+          "affinity": "morrison-1",
+          "dissent": "hemingway-2",
+          "reason": "Twenty minutes may be enough to write one exchange.",
+          "counter": "A short session can disappear into rereading. Leave a note naming the next action before the table is needed.",
+          "experimentTitle": "A session with an exit",
+          "experiment": "Write the one thing a character refuses to say. Stop two minutes before the table is needed and name the next action in a separate line.",
+          "compare": "At the next session, does that line save you the work of starting over?",
+          "exception": "If fatigue makes the work unusable, sleep is a practical choice.",
+          "relation": "A useful qualification"
+        },
+        {
+          "label": "End with the next action still clear.",
+          "affinity": "hemingway-2",
+          "dissent": "morrison-1",
+          "reason": "Use some of the interval to enter the scene, then stop before you have exhausted its next move. That gives the next session a starting point.",
+          "counter": "The best stopping point also has to fit the life around it. If the twenty minutes are all you have, a small completed task may matter more than a well-chosen stopping point.",
+          "experimentTitle": "Leave yourself a way in",
+          "experiment": "Write until you know the next action. Stop there and name that action in one plain line. At the next session, write it before revising the note.",
+          "compare": "Does the remaining action make returning easier?",
+          "exception": "If stopping repeatedly keeps you from finishing anything, choose one small task to complete instead.",
+          "relation": "A useful qualification"
+        }
+      ]
+    },
+    {
+      "id": "reader",
+      "short": "The reader",
+      "title": "Is the missing information doing any work?",
+      "setup": "You want the reader to keep going. You have left the central instruction—or perhaps the central motive—unstated.",
+      "example": "The door will be open at seven.",
+      "argument": "the-reader",
+      "choices": [
+        {
+          "label": "Make the intended action unmistakable.",
+          "affinity": "ogilvy-9",
+          "dissent": "wilder-7",
+          "reason": "For an invitation or a request, the reader needs enough information to act without sending three follow-up questions.",
+          "counter": "In a scene, the action can be clear while the character’s motive remains uncertain.",
+          "experimentTitle": "Request, then scene",
+          "experiment": "Rewrite the sentence as a useful message to a plumber. Then use it as the opening of a scene in which someone is afraid to arrive.",
+          "compare": "List what each version must disclose. Are you hiding an address or a motive?",
+          "exception": "Do not manufacture ambiguity in a message that someone must act on.",
+          "relation": "The objection"
+        },
+        {
+          "label": "Leave something for the reader to infer.",
+          "affinity": "wilder-7",
+          "dissent": "ogilvy-9",
+          "reason": "An earlier detail can let the reader infer why the open door matters.",
+          "counter": "A request still needs enough information for someone to act. Keep the uncertainty in the scene, not in the invitation to the plumber.",
+          "experimentTitle": "Give the reader a clue",
+          "experiment": "Add one earlier detail that makes the open door matter. Write the response without explaining the character’s feelings. Then add an explicit explanation and compare.",
+          "compare": "Can a reader tell why the open door matters from the action and the earlier detail?",
+          "exception": "If every reader invents an unrelated reason, the scene may need another cue.",
+          "relation": "The objection"
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "short": "The voice",
+      "title": "What did the committee actually do?",
+      "setup": "The three verbs sound brisk. Only the unanswered letter is certain.",
+      "example": "The committee filed my letter, discussed it, and forgot it.",
+      "argument": "borrowed-voice",
+      "choices": [
+        {
+          "label": "Keep the verbs; test what each one means.",
+          "affinity": "fitzgerald-6",
+          "dissent": "zinsser-1",
+          "reason": "The sequence gives the committee a small drama. It is worth testing whether those actions are known, inferred, or invented.",
+          "counter": "Here, “forgot” may mean that no answer arrived, rather than that the letter left anyone’s memory. The vivid verb could name the wrong event.",
+          "experimentTitle": "Underline the evidence",
+          "experiment": "Underline each action you can support. Replace unsupported actions with what you actually observed. Then make one revision for rhythm without adding a fact.",
+          "compare": "Did the energetic version gain its energy by pretending to know?",
+          "exception": "A fictional narrator may make an unsupported claim deliberately. Give the reader a reason to notice that.",
+          "relation": "A useful check"
+        },
+        {
+          "label": "Choose the exact meaning before choosing a rhythm.",
+          "affinity": "zinsser-1",
+          "dissent": "fitzgerald-6",
+          "reason": "The sentence’s sharpest word may also be its least exact. Decide whether you mean unanswered, misplaced, ignored, or forgotten before arranging the rhythm.",
+          "counter": "Accuracy need not leave the sentence inert. Once the facts are secure, a well-chosen action can do more than a general description.",
+          "experimentTitle": "Fact, action, cadence",
+          "experiment": "Write the known fact in the fewest useful words. Add one observed action. Read both aloud, choosing the version that suits the paragraph’s purpose.",
+          "compare": "What did the extra action teach the reader?",
+          "exception": "Do not trim a necessary qualification just to make a cleaner sentence.",
+          "relation": "A useful check"
+        }
+      ]
+    },
+    {
+      "id": "character",
+      "short": "The character",
+      "title": "The minor character has the best lines.",
+      "setup": "The sister was meant to interrupt dinner. Now she is more interesting than the host, and the scene keeps following her.",
+      "example": "“I have eleven minutes,” she said, taking the chair nearest the door.",
+      "argument": "characters",
+      "choices": [
+        {
+          "label": "Follow her purpose for a page.",
+          "affinity": "morrison-4",
+          "dissent": "morrison-5",
+          "reason": "The interruption may contain a private urgency the original plan ignored. Give it enough room to become an action.",
+          "counter": "A vivid character can take over a scene. Giving her a purpose does not automatically give her the whole story.",
+          "experimentTitle": "Eleven minutes, two versions",
+          "experiment": "Write the scene from the sister’s position, then from the host’s. Give each one detail the other fails to notice. Return to the original viewpoint and keep one change.",
+          "compare": "Does the sister become more specific without making everyone else a prop?",
+          "exception": "If the host is the only narrator, keep that viewpoint; it can still show what the sister needs.",
+          "relation": "The objection"
+        },
+        {
+          "label": "Keep her purpose, but reduce her share of the scene.",
+          "affinity": "morrison-5",
+          "dissent": "fitzgerald-4",
+          "reason": "The scene may gain pressure if her private urgency remains visible in a small number of actions.",
+          "counter": "Compression can turn her back into a category. Make sure the cut preserves the detail that resists the host’s easy verdict.",
+          "experimentTitle": "One stubborn detail",
+          "experiment": "Reduce her speech by half. Keep one action that contradicts the host’s judgment of her. Read the scene without the label “selfish.”",
+          "compare": "Does the action carry a conflict that the label merely announced?",
+          "exception": "If the smaller part cannot hold what matters, consider whether the story has found a new center.",
+          "relation": "The objection"
+        }
+      ]
+    }
+  ]
+}

@@ -82,6 +82,8 @@ jobs:
         if: hashFiles('showcase/check-douglass-poe.mjs') != ''
       - run: node showcase/check-themed-readers.mjs --skip-build
         if: hashFiles('showcase/check-themed-readers.mjs') != ''
+      - run: node showcase/check-writing-reader.mjs --skip-build
+        if: hashFiles('showcase/check-writing-reader.mjs') != ''
       - run: node showcase/check-oct26-readers.mjs --skip-build
         if: hashFiles('showcase/check-oct26-readers.mjs') != ''
       - name: Verify comparison bundle restoration

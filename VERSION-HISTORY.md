@@ -1,5 +1,11 @@
 # History boundary
 
+## How writers write · November 2, 2026
+
+Adds the owner-approved editorial collection at `/writers/`, with twelve authors, comparative essays, exercises, source notes and a browser-local notebook. The final prose pass removes invented reader psychology, scolding conclusions, vague labels and internal preparation instructions. The existing copyeditor guidance records the failure and the broader review it requires.
+
+This reader has an explicit custom-runtime contract and exact source/output pins. Its original icons, cover and social card join the twenty-four-edition library. The previous readers retain their exact edition and runtime bytes; notebook formats and private boundaries remain intact. No offline support or physical-device acceptance is claimed for this new reader.
+
 ## Antigone, Ibsen and Tea · October 26, 2026
 
 The owner authorized three new public editions after final review: Antigone, A Doll’s House and The Book of Tea. Each retains its exact prepared text and distinct reading design. Tea includes three brewing methods and an adjustable timer that preserves its state through navigation and reload. Antigone’s optional comparison holds the burial order beside Teiresias’s warning and Creon’s reversal; Ibsen remains a working script with stage directions and source notes.

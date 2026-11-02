@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {validateEntries,renderLibrary} from '../showcase/library/render.mjs';
-import {readerPaths} from '../showcase/readers.mjs';
+import {readerPaths,readerRuntime} from '../showcase/readers.mjs';
 const data=JSON.parse(await readFile(new URL('../showcase/library/entries.json',import.meta.url),'utf8'));
 
 test('library admits reviewed discovery metadata without personal records or arbitrary hosts',()=>{
@@ -46,17 +46,30 @@ test('static library retains read and contribution destinations without JavaScri
 test('library stays outside the original-sample starter and edition inventory',async()=>{
  const publication=JSON.parse(await readFile(new URL('../publication.json',import.meta.url),'utf8'));
  assert.ok(!publication.starterFiles.some(p=>p.startsWith('showcase/')||p==='docs/LIBRARY.md'));
- assert.equal(publication.reviewedEditionFiles.filter(f=>!['inward-life','at-table','beside-the-bed','learning-to-see','music-and-feeling','mountains-and-heights','nietzsche-in-company','war-and-peace','douglass-narrative','fall-of-the-house-of-usher','ballads-and-a-play','kingdom-for-a-stage','pictures-after-dark','caesar-and-the-emperors','antigone','a-dolls-house','book-of-tea'].some(id=>f.path.startsWith('examples/'+id+'/'))).length,177);
+ const originalExamples=['pride-and-prejudice','alice-in-wonderland','walden','schopenhauer-hegel','odyssey','dracula'];
+ assert.equal(publication.reviewedEditionFiles.filter(f=>originalExamples.some(id=>f.path.startsWith('examples/'+id+'/'))).length,177);
  for(const b of data.editions){assert.ok(publication.files.includes(b.rightsPath));assert.ok((await readFile(new URL('../'+b.rightsPath,import.meta.url),'utf8')).trim());assert.ok(publication.reviewedEditionFiles.some(f=>f.path.startsWith('examples/'+b.exampleId+'/')));}
 });
-test('each admitted reader revalidates its worker and keeps its noindex boundary',async()=>{
+test('each reader keeps noindex and only offline readers advertise a worker',async()=>{
  const config=JSON.parse(await readFile(new URL('../showcase/vercel.json',import.meta.url),'utf8'));
+ const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
  const worker=config.routes.find(r=>r.headers?.['Cache-Control']==='no-cache, no-store, must-revalidate');
  const reader=config.routes.find(r=>r.headers?.['X-Robots-Tag']==='noindex, nofollow, noarchive');
  assert.ok(worker&&reader);
- for(const slug of Object.values(readerPaths)){
-  assert.match('/'+slug+'/sw.js',new RegExp(worker.src));
+ for(const entry of catalog.examples){
+  const slug=readerPaths[entry.id];
+  if(readerRuntime(entry)==='reader-kit-v1')assert.match('/'+slug+'/sw.js',new RegExp(worker.src));
+  else{
+   assert.ok(!entry.reviewedBuild.some(asset=>asset.path==='sw.js'),'The writing reader does not claim an offline worker');
+   assert.doesNotMatch('/'+slug+'/sw.js',new RegExp(worker.src));
+  }
   assert.match('/'+slug+'/',new RegExp(reader.src));
  }
  for(const url of ['/','/library/','/learn/'])assert.doesNotMatch(url,new RegExp(reader.src));
+});
+test('runtime admission rejects unknown or misplaced custom contracts',()=>{
+ assert.equal(readerRuntime({id:'writers-at-work',runtime:'writing-workroom-v1'}),'writing-workroom-v1');
+ assert.throws(()=>readerRuntime({id:'writers-at-work'}));
+ assert.throws(()=>readerRuntime({id:'walden',runtime:'writing-workroom-v1'}));
+ assert.throws(()=>readerRuntime({id:'walden',runtime:'unknown-runtime'}));
 });

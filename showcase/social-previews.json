@@ -288,6 +288,18 @@
       "bytes": 52208,
       "sha256": "3db63d12a01366fdc068b425c6d1ac05bd6067f59512d045ecc7a3f891e78508",
       "alt": "The Book of Tea by Okakura Kakuzō. Its New reading cover and edition details."
+    },
+    "writers": {
+      "id": "writers",
+      "file": "assets/social-writers.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "How writers write",
+      "author": "Hemingway · Morrison · Atwood · and others",
+      "feature": "Twelve writers on writing and revision.",
+      "alt": "How writers write: a pale cover with bold black lettering and a red underline, beside the title and names of Hemingway, Morrison, and Atwood.",
+      "bytes": 63380,
+      "sha256": "8abc10156f60961eb92844682cfc1a2e18f03e63e2e2aa089247ab23c3196793"
     }
   }
 }

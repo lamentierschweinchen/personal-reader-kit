@@ -119,3 +119,9 @@
 .mixed-library .cover-book-of-tea{background:#dce2cd;color:#34483b;font-family:TeaCover,Georgia,serif}
 .mixed-library .cover-book-of-tea strong{font-family:TeaCover,Georgia,serif;font-size:16cqw;line-height:1.02;font-weight:400}
 .mixed-library .cover-book-of-tea .cover-art{position:absolute;left:11%;top:44%;width:78%;height:39%}
+.mixed-library .cover-writers{background:#f6f7f3;color:#20251f}
+.mixed-library .cover-writers strong{font:600 25cqw/.95 Arial,Helvetica,sans-serif;letter-spacing:-.065em;left:11%;top:22%;text-align:left}
+.mixed-library .cover-writers strong em{font-style:normal;font-weight:600}
+.mixed-library .cover-writers .cover-art{color:#ad3527;top:67%;left:10%;width:80%;height:8%}
+.mixed-library .cover-writers .cover-meta,.mixed-library .cover-writers .cover-bottom{font-family:Arial,Helvetica,sans-serif}
+.mixed-library .cover-writers .cover-bottom{font-size:3.1cqw;letter-spacing:.01em}

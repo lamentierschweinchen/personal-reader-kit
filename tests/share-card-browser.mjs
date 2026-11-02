@@ -13,8 +13,15 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const defaultOutput=new URL('../test-results/share-card/',import.meta.url);
 const projects=['.'];
-try{projects.push(...JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8')).examples.map(e=>e.directory));}
-catch(error){if(error.code!=='ENOENT')throw error;}
+try{
+  const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
+  const {readerRuntime}=await import('../showcase/readers.mjs');
+  for(const entry of catalog.examples){
+    if(readerRuntime(entry)==='reader-kit-v1')projects.push(entry.directory);
+    else assert.equal(entry.id,'writers-at-work','Only the explicitly tested notebook runtime lacks passage cards');
+  }
+}
+catch(error){if(error.code!=='ENOENT'||error.path!==fileURLToPath(new URL('../examples/catalog.json',import.meta.url)))throw error;}
 
 const action=(page,name)=>page.locator(`[data-card-action="${name}"]`);
 const preview=page=>page.locator('.passage-card-preview');

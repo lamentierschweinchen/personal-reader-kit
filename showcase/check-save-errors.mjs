@@ -7,7 +7,7 @@ import {pathToFileURL} from 'node:url';
 import path from 'node:path';
 import {serve} from './serve.mjs';
 import {buildShowcase} from './build.mjs';
-import {readerPaths} from './readers.mjs';
+import {readerPaths,readerRuntime} from './readers.mjs';
 import {settledRender,settledCapture} from '../tests/experience-browser.mjs';
 
 if(!process.argv.includes('--skip-build'))await buildShowcase();
@@ -20,7 +20,13 @@ const locations={
  douglass:['douglass-1845','chapter-i'],poe:['usher-1845','story'],ballads:['iphigenie-de','a1s1'],shakespeare:['folger-julius-caesar','a1-s1'],'pictures-after-dark':['pictures-fr','ronde'],rome:['caesar-vii-en','vii-1'],
  antigone:['antigone-jebb-1917','play'],'a-dolls-house':['dolls-house-archer-1909','act-1'],'book-of-tea':['book-of-tea','chapter-1']
 };
-assert.deepEqual(Object.keys(locations).sort(),Object.values(readerPaths).sort(),'Every packaged reader has an actual-source journey');
+const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
+assert.deepEqual(Object.keys(locations).sort(),catalog.examples.filter(entry=>readerRuntime(entry)==='reader-kit-v1').map(entry=>readerPaths[entry.id]).sort(),'Every standard reader has an actual-source save-failure journey');
+// The custom localStorage/Web Locks notebook has real failed-save and recovery
+// coverage in check-writing-reader.mjs; an IndexedDB rejection cannot test it.
+for(const entry of catalog.examples.filter(entry=>readerRuntime(entry)==='writing-workroom-v1')){
+ assert.equal(entry.id,'writers-at-work');
+}
 const selected=process.env.SAVE_ERROR_IDS?.split(',')||Object.keys(locations),engines=process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'];
 assert.ok(selected.length&&selected.every(slug=>locations[slug]),'Unknown save-error reader');assert.ok(engines.every(e=>['chromium','webkit'].includes(e)),'Unknown browser engine');
 const out=process.env.REVIEW_OUTPUT?pathToFileURL(path.resolve(process.env.REVIEW_OUTPUT)+path.sep):new URL('../test-results/showcase/save-errors/',import.meta.url);await mkdir(out,{recursive:true});

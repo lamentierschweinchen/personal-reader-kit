@@ -10,10 +10,59 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers'});
+// Capabilities are explicit. A missing standard file must never silently select
+// another runtime, nor admit an unreviewed application through a generic fallback.
+export function readerRuntime(entry){
+  const runtime=entry.runtime??'reader-kit-v1';
+  assert.ok(['reader-kit-v1','writing-workroom-v1'].includes(runtime),'Unknown reader runtime: '+runtime);
+  assert.ok(Object.hasOwn(readerPaths,entry.id),'Unknown reviewed reader: '+entry.id);
+  assert.equal(runtime==='writing-workroom-v1',entry.id==='writers-at-work','The writing runtime is admitted only for its exact reviewed example');
+  return runtime;
+}
 function replace(text,from,to,count=1){
   assert.equal(text.split(from).length-1,count,'Reader mount assumption changed: '+from);
   return text.replaceAll(from,to);
+}
+
+async function mountWritingReader(entry,source,destination,base){
+  const expected=['app.mjs','apple-touch-icon.png','build.json','core.mjs','edition.json','icon-192.png','icon-512.png','icon.svg','index.html','manifest.webmanifest','style.css'];
+  assert.deepEqual(entry.reviewedBuild.map(asset=>asset.path).sort(),expected,'Writing runtime output contract changed');
+  const changed=[],unchanged=[];
+  for(const asset of entry.reviewedBuild){
+    const input=path.join(source,'dist',asset.path);
+    assert.ok((await lstat(input)).isFile());
+    const original=await readFile(input);
+    assert.equal(original.length,asset.bytes,entry.id+'/'+asset.path);
+    assert.equal(sha(original),asset.sha256,entry.id+'/'+asset.path);
+    let bytes=original;
+    if(asset.path==='index.html'){
+      let html=original.toString();
+      assert.ok(!html.includes('href="/privacy/"'),'Writing privacy link is already present');
+      html=replace(html,'</footer>','<a class="catalogue-return" href="/privacy/">Privacy</a></footer>');
+      html=injectSocialMetadata(html,socialMetadata('writers'));
+      // No public book IDs: this runtime offers only a bounded pageview, never
+      // the standard reader's verified-text event or access to notebook data.
+      bytes=Buffer.from(injectAnalytics(html,{edition:'writers',publicBooks:[]}));
+    }
+    if(asset.path==='app.mjs')bytes=Buffer.from(appendAnalyticsLoader(original.toString()));
+    if(asset.path==='manifest.webmanifest'){
+      const manifest=JSON.parse(original);manifest.id=base;manifest.start_url=base;manifest.scope=base;
+      assert.ok(Array.isArray(manifest.icons)&&manifest.icons.length);
+      for(const icon of manifest.icons){
+        const name=icon.src.replace(/^\.\//,'').replace(/^\//,'');
+        assert.ok(['icon-192.png','icon-512.png'].includes(name),'Unreviewed writing install icon');icon.src=base+name;
+      }
+      bytes=Buffer.from(JSON.stringify(manifest)+'\n');
+    }
+    await writeFile(path.join(destination,asset.path),bytes);
+    (bytes.equals(original)?unchanged:changed).push(asset.path);
+  }
+  assert.ok(unchanged.includes('edition.json'),'The complete writing edition must remain unchanged');
+  const {validateEdition}=await import(pathToFileURL(path.join(source,'site/core.mjs')));
+  validateEdition(JSON.parse(await readFile(path.join(destination,'edition.json'))));
+  const build=JSON.parse(await readFile(path.join(destination,'build.json')));
+  return {id:entry.id,path:base,runtime:'writing-workroom-v1',outputs:expected.length,version:build.revision??build.version,changed,unchanged:unchanged.length,exactEdition:true,offline:false,sharedContinuation:false,storage:'localStorage'};
 }
 
 export async function buildReaders(output){
@@ -23,12 +72,17 @@ export async function buildReaders(output){
   const receipt=[],continuationProfiles=[];
   for(const entry of catalog.examples){
     assert.equal(entry.directory,'examples/'+entry.id);
+    const runtime=readerRuntime(entry);
     const slug=readerPaths[entry.id],base='/'+slug+'/',source=path.join(root,entry.directory),destination=path.join(output,slug);
     const builder=await import(pathToFileURL(path.join(source,'scripts/build.mjs'))),built=await builder.build();
     assert.deepEqual([...built.files].sort(),entry.reviewedBuild.map(a=>a.path).sort(),'Reviewed output list changed: '+entry.id);
     const list=async(dir,prefix='')=>(await Promise.all((await readdir(dir,{withFileTypes:true})).map(async e=>e.isDirectory()?list(path.join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]))).flat();
     assert.deepEqual((await list(path.join(source,'dist'))).sort(),entry.reviewedBuild.map(a=>a.path).sort());
     await mkdir(destination,{recursive:true});
+    if(runtime==='writing-workroom-v1'){
+      receipt.push(await mountWritingReader(entry,source,destination,base));
+      continue;
+    }
     const changed=[],unchanged=[];
     // IDs are admitted from the same hash-checked public edition used by this mount.
     const libraryAsset=entry.reviewedBuild.find(asset=>asset.path==='library.json');

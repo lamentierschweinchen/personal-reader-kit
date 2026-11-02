@@ -1787,7 +1787,29 @@
     "showcase/assets/social-book-of-tea.jpg",
     "showcase/check-library-filters.mjs",
     "showcase/check-oct26-readers.mjs",
-    "tests/showcase-library-filters.test.mjs"
+    "tests/showcase-library-filters.test.mjs",
+    "examples/writers-at-work/AGENTS.md",
+    "examples/writers-at-work/LICENSE",
+    "examples/writers-at-work/README.md",
+    "examples/writers-at-work/VERSION-HISTORY.md",
+    "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
+    "examples/writers-at-work/edition-lock.json",
+    "examples/writers-at-work/edition/edition.json",
+    "examples/writers-at-work/package.json",
+    "examples/writers-at-work/scripts/build.mjs",
+    "examples/writers-at-work/site/app.mjs",
+    "examples/writers-at-work/site/apple-touch-icon.png",
+    "examples/writers-at-work/site/core.mjs",
+    "examples/writers-at-work/site/icon-192.png",
+    "examples/writers-at-work/site/icon-512.png",
+    "examples/writers-at-work/site/icon.svg",
+    "examples/writers-at-work/site/index.html",
+    "examples/writers-at-work/site/manifest.webmanifest",
+    "examples/writers-at-work/site/style.css",
+    "examples/writers-at-work/tests/edition.test.mjs",
+    "showcase/assets/social-writers.jpg",
+    "showcase/check-writing-reader.mjs",
+    "examples/writers-at-work/.vercelignore"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4623,6 +4645,12 @@
       "sha256": "695ddb78ee808d4fc3081933a56fc4035e1ca136bdbc666972e5571e75b00baa",
       "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-approved prepared edition or separately credited Met image; historical text, encoding, source notices and territorial limits are recorded in provenance. No private records."
+    },
+    {
+      "path": "examples/writers-at-work/edition/edition.json",
+      "sha256": "8fb8643c04c31f9882e18c64868bb3f41219584be9fcdc987f6566c58da3a68a",
+      "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized original editorial anthology: compact attributed advice summaries, linked topic cues, comparisons and original exercises. No complete protected source works or private records."
     }
   ],
   "reviewedSiteAssets": [
@@ -4967,6 +4995,12 @@
       "sha256": "3db63d12a01366fdc068b425c6d1ac05bd6067f59512d045ecc7a3f891e78508",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed 1200×630 public edition card, using the approved jacket and edition metadata. Antigone retains its credited Met CC0 photograph; other new jacket art is original."
+    },
+    {
+      "path": "showcase/assets/social-writers.jpg",
+      "sha256": "8abc10156f60961eb92844682cfc1a2e18f03e63e2e2aa089247ab23c3196793",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed 1200 x 630 share card from the original writing-reader typography and existing licensed site fonts; no source text or author portraits."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5593,6 +5627,24 @@
       "sha256": "c76f8b2a5ff0c4aff79b9d08012dca2b9d445f5761886806fee95488dba36c1c",
       "provenance": "examples/book-of-tea/docs/SOURCE-RIGHTS.md",
       "reason": "Original edition-specific opaque Home Screen icon; independent geometric artwork under the code license."
+    },
+    {
+      "path": "examples/writers-at-work/site/icon-192.png",
+      "sha256": "54de295450b65bd14471a1b1f033b674f0fd1da08ac20b549a82b5cda3e7f08f",
+      "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
+      "reason": "Original W vector icon rendered at the named Home Screen size; no literary source imagery or private records."
+    },
+    {
+      "path": "examples/writers-at-work/site/icon-512.png",
+      "sha256": "cafba79af54bd569d146161d399cc975fa976f66f7e40c930f74d63f5cdcf2fd",
+      "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
+      "reason": "Original W vector icon rendered at the named Home Screen size; no literary source imagery or private records."
+    },
+    {
+      "path": "examples/writers-at-work/site/apple-touch-icon.png",
+      "sha256": "2b92d2ebae152484f126319191c0a0568b03a605c1bf41f1af13391ad6d22e68",
+      "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
+      "reason": "Original W vector icon rendered at the named Home Screen size; no literary source imagery or private records."
     }
   ]
 }

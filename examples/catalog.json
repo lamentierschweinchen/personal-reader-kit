@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Twenty-three owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
+  "status": "Twenty-four owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -5527,6 +5527,86 @@
           "path": "text.mjs",
           "bytes": 3489,
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
+      ]
+    },
+    {
+      "id": "writers-at-work",
+      "title": "How writers write",
+      "description": "Writing advice, comparative essays and practical exercises from twelve writers.",
+      "directory": "examples/writers-at-work",
+      "sourceCommit": "5e1e6a571d9adf9475050547fcf5e56e56d95f86",
+      "sourceFileCount": 20,
+      "runtime": "writing-workroom-v1",
+      "packagingChanges": [
+        ".vercelignore",
+        "scripts/build.mjs",
+        "edition-lock.json",
+        "package.json",
+        "tests/edition.test.mjs",
+        "docs/SOURCE-RIGHTS.md",
+        "README.md",
+        "AGENTS.md",
+        "VERSION-HISTORY.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/writers/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 30792,
+          "sha256": "d77472bfb033a0dc34e1dd48097f9d1f0ce4bf4c144e11ba33b05e20bee5e393"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 1792,
+          "sha256": "2b92d2ebae152484f126319191c0a0568b03a605c1bf41f1af13391ad6d22e68"
+        },
+        {
+          "path": "build.json",
+          "bytes": 82,
+          "sha256": "252d9d61de0d31c2d07453950e1099e5f6f4f6a93d13313bb06572cff394fcc5"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 8740,
+          "sha256": "39904c3ce4fad6d0f3a1660c7441bc5bf5c38fd51f8c86452324222120e00586"
+        },
+        {
+          "path": "edition.json",
+          "bytes": 88669,
+          "sha256": "606498abb123423d42c30f0cb901baf5b59fb0dcdfd0234a787eaeac04b27677"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 1916,
+          "sha256": "54de295450b65bd14471a1b1f033b674f0fd1da08ac20b549a82b5cda3e7f08f"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 5444,
+          "sha256": "cafba79af54bd569d146161d399cc975fa976f66f7e40c930f74d63f5cdcf2fd"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 312,
+          "sha256": "a4cf0ecef27bd9c808061b9d5fec55d4a6c6bb8093d7663f70632d12f764a535"
+        },
+        {
+          "path": "index.html",
+          "bytes": 1879,
+          "sha256": "3ca14bbe35177a783571ee2e21df555a960aaf170073093e0249fdc84558ebb1"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 405,
+          "sha256": "259675c700aae13bdda596c21512bf985d2f0dcf4c767cd8678a86d9bdc686cf"
+        },
+        {
+          "path": "style.css",
+          "bytes": 22922,
+          "sha256": "a8c6dc3b4ff1e7b2d9b8378c73025e62c89f03f63cdf77b816d65bc88f99bff1"
         }
       ]
     }

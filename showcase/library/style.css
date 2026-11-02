@@ -137,3 +137,5 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-book-of-tea{background:#dce2cd;color:#34483b;font-family:TeaCover,Georgia,serif}
 .cover-book-of-tea strong{font-family:TeaCover,Georgia,serif;font-size:16cqw;line-height:1.02;font-weight:400}
 .cover-book-of-tea .cover-art{position:absolute;left:11%;top:44%;width:78%;height:39%}
+
+.cover-writers{background:#f6f7f3;color:#20251f}.cover-writers strong{font:600 25cqw/.95 Arial,Helvetica,sans-serif;letter-spacing:-.065em;left:11%;top:22%;text-align:left}.cover-writers strong em{font-style:normal;font-weight:600}.cover-writers .cover-art{color:#ad3527;top:67%;left:10%;width:80%;height:8%}.cover-writers .cover-meta,.cover-writers .cover-bottom{font-family:Arial,Helvetica,sans-serif}.cover-writers .cover-bottom{font-size:3.1cqw;letter-spacing:.01em}

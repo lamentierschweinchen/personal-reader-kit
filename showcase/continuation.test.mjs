@@ -46,10 +46,18 @@ test('sentinel resumes directly, replaces route once, and fails closed for inval
  for(const position of [{...pos,ratio:5},{...pos,blockId:'unknown'},{...pos,sectionId:'missing'}]){const bad=await adapterContext({hash:'#continue/'+book.id,position});assert.equal(bad.actions.length,0);assert.equal(bad.location.hash,'#shelf');}
  assert.throws(()=>adaptContinuationApp(source+source,profile));assert.throws(()=>adaptContinuationApp(source.replace('void offline();',''),profile));
 });
-test('all twenty-three real application sources satisfy unique strict adapter anchors',async()=>{
+test('standard application sources satisfy strict adapters; the writing notebook is separate',async()=>{
  const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
- const {readerPaths}=await import('./readers.mjs');
- for(const entry of catalog.examples){const edition=readerPaths[entry.id],fixture={edition,title:'Test profile',works:PUBLIC_WORKS[edition].map(id=>({id,title:'Test work',revision:'a'.repeat(64),fingerprint:'b'.repeat(64)}))};const text=await readFile(new URL('../'+entry.directory+'/site/app.mjs',import.meta.url),'utf8');assert.ok(adaptContinuationApp(text,fixture).includes('__nrContinuationProof'));}
+ const {readerPaths,readerRuntime}=await import('./readers.mjs');
+ const standard=catalog.examples.filter(entry=>readerRuntime(entry)==='reader-kit-v1');
+ assert.deepEqual(standard.map(entry=>readerPaths[entry.id]).sort(),Object.keys(PUBLIC_WORKS).sort());
+ for(const entry of standard){const edition=readerPaths[entry.id],fixture={edition,title:'Test profile',works:PUBLIC_WORKS[edition].map(id=>({id,title:'Test work',revision:'a'.repeat(64),fingerprint:'b'.repeat(64)}))};const text=await readFile(new URL('../'+entry.directory+'/site/app.mjs',import.meta.url),'utf8');assert.ok(adaptContinuationApp(text,fixture).includes('__nrContinuationProof'));}
+ for(const entry of catalog.examples.filter(entry=>readerRuntime(entry)==='writing-workroom-v1')){
+  assert.equal(PUBLIC_WORKS[readerPaths[entry.id]],undefined);
+  const text=await readFile(new URL('../'+entry.directory+'/site/app.mjs',import.meta.url),'utf8');
+  assert.ok(!text.includes('__nrContinuationProof'));
+  assert.equal(parsePointer(JSON.stringify({...pointer,edition:'writers',work:'writer'})),null);
+ }
 });
 test('marker listener accepts only canonical reader paths and never games or companions',()=>{
  function run(path,reader='austen'){const doc=new EventTarget(),win=new EventTarget(),stored=new Map();doc.querySelector=()=>({getAttribute:()=>JSON.stringify({profiles:[profile],reader})});win.location={protocol:'https:',hostname:'newreading.app',host:'newreading.app',pathname:path};win.navigator={locks:{request:(_name,callback)=>Promise.resolve(callback())}};win.localStorage={getItem:key=>stored.get(key),setItem:(key,value)=>stored.set(key,value)};const stop=startContinuation(win,doc);const event=new Event(CONTINUATION_EVENT);event.detail={work:book.id,at:Date.now()};doc.dispatchEvent(event);stop?.stop();return stored;}

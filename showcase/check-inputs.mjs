@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
-import {readerPaths} from './readers.mjs';
+import {readerPaths,readerRuntime} from './readers.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const inputs=JSON.parse(await readFile(new URL('./inputs.json',import.meta.url),'utf8'));
 const fixture=await mkdtemp(path.join(tmpdir(),'newreading-inputs-'));
@@ -17,7 +17,7 @@ try{
   execFileSync(process.execPath,['build.mjs'],{cwd:path.join(fixture,'showcase'),stdio:'pipe',maxBuffer:2*1024*1024});
   const output=path.join(fixture,'showcase/dist');
   const expected=JSON.parse(await readFile(path.join(root,'examples/catalog.json'))).examples;
-  for(const e of expected){const slug=readerPaths[e.id];assert.ok((await readFile(path.join(output,slug,'library.json'))).equals(await readFile(path.join(root,e.directory,'dist/library.json'))));}
+  for(const e of expected){const slug=readerPaths[e.id],edition=readerRuntime(e)==='writing-workroom-v1'?'edition.json':'library.json';assert.ok((await readFile(path.join(output,slug,edition))).equals(await readFile(path.join(root,e.directory,'dist',edition))),slug+' exact public edition');}
   assert.equal((await readdir(output)).filter(x=>Object.values(readerPaths).includes(x)).length,expected.length);
   const receipt={checkedAt:new Date().toISOString(),passed:true,inputFiles:inputs.files.length,exactEditions:expected.length,scope:'A fresh build with only the exact deployment inventory; no surrounding workspace, ignored inputs or arbitrary directories.'};
   await mkdir(new URL('../test-results/showcase/',import.meta.url),{recursive:true});await writeFile(new URL('../test-results/showcase/inputs.json',import.meta.url),JSON.stringify(receipt,null,2)+'\n');

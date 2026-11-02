@@ -664,6 +664,36 @@
         "url": "https://newreading.app/"
       },
       "rightsPath": "examples/book-of-tea/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "writers",
+      "exampleId": "writers-at-work",
+      "title": "How writers write",
+      "author": "Hemingway · Fitzgerald · King · Bradbury · Zinsser · Vonnegut · Morrison · Poe · Atwood · Ogilvy · Steinbeck · Wilder",
+      "shortAuthor": "Hemingway · Morrison · Atwood · and others",
+      "kind": "Writing",
+      "language": "English",
+      "edition": "An editorial collection of 105 short advice summaries and ten linked Atwood topics, based on twelve Open Culture lists and separately identified primary sources. Original comparisons and exercises.",
+      "editionLabel": "Twelve authors · editorial collection",
+      "feature": "Twelve writers on writing and revision.",
+      "description": "Short summaries with source notes, six comparative essays, and six writing exercises with a notebook.",
+      "categories": [
+        "words",
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.openculture.com/2013/02/seven_tips_from_ernest_hemingway_on_how_to_write_fiction.html",
+        "https://www.eapoe.org/works/essays/philcomp.htm"
+      ],
+      "sourceLabels": [
+        "Open Culture writing-advice index",
+        "Poe’s composition essay"
+      ],
+      "rightsPath": "examples/writers-at-work/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

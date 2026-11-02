@@ -10,7 +10,17 @@ const root=fileURLToPath(new URL('../',import.meta.url)),output=path.resolve(pro
 const pw=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright');
 const engines=process.env.QA_ENGINE?[process.env.QA_ENGINE]:['chromium','webkit'];
 const wanted=process.env.BACKDROP_TARGETS?.split(',');
-let examples=[];try{examples=(await readdir(path.join(root,'examples'),{withFileTypes:true})).filter(e=>e.isDirectory()).map(e=>e.name);}catch(error){if(error.code!=='ENOENT')throw error;}
+let examples=[];try{
+ const directories=(await readdir(path.join(root,'examples'),{withFileTypes:true})).filter(e=>e.isDirectory()).map(e=>e.name);
+ const catalog=JSON.parse(await readFile(path.join(root,'examples/catalog.json'),'utf8'));
+ const {readerRuntime}=await import('../showcase/readers.mjs');
+ assert.deepEqual(directories.sort(),catalog.examples.map(entry=>entry.id).sort(),'Every example directory needs an admitted runtime');
+ for(const entry of catalog.examples){
+  if(readerRuntime(entry)==='reader-kit-v1')examples.push(entry.id);
+  else assert.equal(entry.id,'writers-at-work','Custom source/backdrop journeys belong to showcase/check-writing-reader.mjs');
+ }
+}catch(error){if(error.code!=='ENOENT'||error.path!==path.join(root,'examples'))throw error;}
+if(wanted)assert.ok(wanted.every(name=>name==='starter'||examples.includes(name)||['alice-in-wonderland/play','dracula/play','odyssey/play'].includes(name)),'Use admitted standard BACKDROP_TARGETS; the writing notebook is covered by showcase/check-writing-reader.mjs');
 const targets=[{name:'starter',root},...examples.map(name=>({name,root:path.join(root,'examples',name)}))].filter(t=>!wanted||wanted.includes(t.name));
 const games=[{name:'alice-in-wonderland',module:'game.mjs',dialog:'#about-dialog',close:'#close-about'},{name:'dracula',module:'app.mjs',dialog:'#notes',close:'#close-notes'},{name:'odyssey',module:'game.mjs',dialog:'#source',close:'#source form[method="dialog"] button'}].filter(t=>examples.includes(t.name)&&(!wanted||wanted.includes(t.name+'/play')));
 const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2','.ttf':'font/ttf'};
