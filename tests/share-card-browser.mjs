@@ -295,7 +295,11 @@ export async function shareCardChecks({browser,base,engine,output=defaultOutput,
       const notice=page.locator('#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="notice-continue"]');
       if(await notice.count())await notice.first().click();
       else {
-        assert.match(await page.locator('#dialog-title').textContent(),/source|edition|Gutenberg/i,'Only the first-use source notice may be dismissed');
+        const title=await page.locator('#dialog-title').textContent();
+        if(project==='examples/the-awakening'&&title==='Before reading'){
+          assert.match(await page.locator('#dialog .access-notice').textContent(),/Project Gutenberg™ License/,'The new notice retains its required source terms');
+          assert.ok(await page.locator('#dialog a[href$="gutenberg-license.txt"]').count(),'The full source license is immediately accessible');
+        }else assert.match(title,/source|edition|Gutenberg/i,'Only the first-use source notice may be dismissed');
         await page.locator('#dialog[open] [data-action="close"]').first().click();
       }
       await page.locator('#dialog').waitFor({state:'hidden'});

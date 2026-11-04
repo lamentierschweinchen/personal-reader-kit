@@ -12,8 +12,8 @@ function database(snapshot,{version=1,upgrade=false,blocked=false,hung=false}={}
   const db={version,close(){audit.closed++;},objectStoreNames:{contains:()=>true},transaction(names,mode){audit.transactions.push({names,mode});const tx={objectStore:name=>({get:key=>({result:name==='state'?snapshot.state:snapshot.book})}),abort(){audit.aborted++;}};queueMicrotask(()=>tx.oncomplete?.());return tx;}};
   return {audit,open(...args){audit.opens.push(args);const request={result:db,transaction:{abort(){audit.aborted++;}}};queueMicrotask(()=>{if(upgrade)request.onupgradeneeded();else if(blocked)request.onblocked();else if(!hung)request.onsuccess();});return request;}};
 }
-test('profiles and tiny pointers admit only twenty-three declared public editions',()=>{
- assert.equal(Object.keys(PUBLIC_WORKS).length,23);assert.ok(validProfile(profile));assert.deepEqual(parsePointer(JSON.stringify(pointer),[profile]),pointer);
+test('profiles and tiny pointers admit only twenty-four declared public editions',()=>{
+ assert.equal(Object.keys(PUBLIC_WORKS).length,24);assert.ok(validProfile(profile));assert.deepEqual(parsePointer(JSON.stringify(pointer),[profile]),pointer);
  for(const extra of [{text:'private'},{position:pos},{v:2},{edition:'orwell'},{work:'private'},{at:Infinity},{at:Date.now()+120000}])assert.equal(parsePointer(JSON.stringify({...pointer,...extra}),[profile]),null);
  assert.equal(continuationHref(pointer),'/austen/#continue/austen-pride-1894');assert.equal(continuationHref({...pointer,edition:'orwell'}),null);
  for(const change of [{ratio:2},{ratio:NaN},{revision:'b'.repeat(64)},{blockId:undefined},{sectionId:'../first'}])assert.equal(validPosition({...pos,...change},profile.works[0]),false);

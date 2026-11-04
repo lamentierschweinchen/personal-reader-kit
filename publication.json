@@ -1809,7 +1809,50 @@
     "examples/writers-at-work/tests/edition.test.mjs",
     "showcase/assets/social-writers.jpg",
     "showcase/check-writing-reader.mjs",
-    "examples/writers-at-work/.vercelignore"
+    "examples/writers-at-work/.vercelignore",
+    "examples/the-awakening/.gitignore",
+    "examples/the-awakening/.vercelignore",
+    "examples/the-awakening/AGENTS.md",
+    "examples/the-awakening/LICENSE",
+    "examples/the-awakening/README.md",
+    "examples/the-awakening/VERSION-HISTORY.md",
+    "examples/the-awakening/docs/SHERWOOD-PLATE.md",
+    "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+    "examples/the-awakening/edition-lock.json",
+    "examples/the-awakening/edition/book.json",
+    "examples/the-awakening/edition/sherwood-p62.webp",
+    "examples/the-awakening/package.json",
+    "examples/the-awakening/samples/library.json",
+    "examples/the-awakening/scripts/build.mjs",
+    "examples/the-awakening/scripts/serve.mjs",
+    "examples/the-awakening/site/app.mjs",
+    "examples/the-awakening/site/apple-touch-icon.png",
+    "examples/the-awakening/site/awakening-zip.mjs",
+    "examples/the-awakening/site/bundle.mjs",
+    "examples/the-awakening/site/core.mjs",
+    "examples/the-awakening/site/db.mjs",
+    "examples/the-awakening/site/gutenberg-license.txt",
+    "examples/the-awakening/site/icon-192.png",
+    "examples/the-awakening/site/icon-512.png",
+    "examples/the-awakening/site/icon.svg",
+    "examples/the-awakening/site/index.html",
+    "examples/the-awakening/site/library.mjs",
+    "examples/the-awakening/site/manifest.webmanifest",
+    "examples/the-awakening/site/robots.txt",
+    "examples/the-awakening/site/share-card.css",
+    "examples/the-awakening/site/share-card.mjs",
+    "examples/the-awakening/site/share.mjs",
+    "examples/the-awakening/site/style.css",
+    "examples/the-awakening/site/text.mjs",
+    "examples/the-awakening/tests/awakening-zip.test.mjs",
+    "examples/the-awakening/tests/bundle.test.mjs",
+    "examples/the-awakening/tests/core.test.mjs",
+    "examples/the-awakening/tests/share-card.test.mjs",
+    "examples/the-awakening/tests/share.test.mjs",
+    "examples/the-awakening/tests/ui-icons.test.mjs",
+    "examples/the-awakening/vercel.json",
+    "showcase/assets/social-awakening.jpg",
+    "showcase/check-awakening.mjs"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4651,6 +4694,18 @@
       "sha256": "8fb8643c04c31f9882e18c64868bb3f41219584be9fcdc987f6566c58da3a68a",
       "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-authorized original editorial anthology: compact attributed advice summaries, linked topic cues, comparisons and original exercises. No complete protected source works or private records."
+    },
+    {
+      "path": "examples/the-awakening/edition/book.json",
+      "sha256": "9c961bbfbef732acf0fdf813e11e1c6eb9f6c5e92884163dd666dfd7106a2eec",
+      "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved complete Chopin novel, Gutenberg 160 transcription and retained source/context metadata. No accompanying short stories or private records."
+    },
+    {
+      "path": "examples/the-awakening/edition/sherwood-p62.webp",
+      "sha256": "f2f8e043e24e4a762ac962445e30ed0b0128ee6ec71956d6ec1f7ab58f596f4e",
+      "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact reviewed full page 62 of Sherwood’s 1897 etiquette manual, Library of Congress copy digitized by Internet Archive. U.S. public-domain scope; source PDF and private preparation excluded."
     }
   ],
   "reviewedSiteAssets": [
@@ -5001,6 +5056,12 @@
       "sha256": "8abc10156f60961eb92844682cfc1a2e18f03e63e2e2aa089247ab23c3196793",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed 1200 x 630 share card from the original writing-reader typography and existing licensed site fonts; no source text or author portraits."
+    },
+    {
+      "path": "showcase/assets/social-awakening.jpg",
+      "sha256": "c08cd67bdb5c9080f6552c52e4c69ee1352a3c104c82caee52bdad4dc44b2bab",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed 1200 x 630 cover card using original jacket geometry and existing licensed site fonts. No novel excerpt or private data."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5645,6 +5706,24 @@
       "sha256": "2b92d2ebae152484f126319191c0a0568b03a605c1bf41f1af13391ad6d22e68",
       "provenance": "examples/writers-at-work/docs/SOURCE-RIGHTS.md",
       "reason": "Original W vector icon rendered at the named Home Screen size; no literary source imagery or private records."
+    },
+    {
+      "path": "examples/the-awakening/site/apple-touch-icon.png",
+      "sha256": "157fc07b0294fa301518eba270686f8ba3f81730af5e950e297c7ab2d08a5b87",
+      "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+      "reason": "Original curved-line vector artwork rendered for this reader’s Home Screen icon. No third-party image or private record."
+    },
+    {
+      "path": "examples/the-awakening/site/icon-192.png",
+      "sha256": "89db4fc9312acd349ac3f5e5df9bbe6f50a5ea9695989c2a97e9e7abac929831",
+      "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+      "reason": "Original curved-line vector artwork rendered for this reader’s Home Screen icon. No third-party image or private record."
+    },
+    {
+      "path": "examples/the-awakening/site/icon-512.png",
+      "sha256": "9701c4fa94c0d967c30908846812184702c29e8272e29b46756b2f70c21b7194",
+      "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
+      "reason": "Original curved-line vector artwork rendered for this reader’s Home Screen icon. No third-party image or private record."
     }
   ]
 }

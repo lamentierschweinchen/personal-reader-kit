@@ -127,3 +127,7 @@ Ballads uses three original strokes; Shakespeare uses an original stage frame an
 ## How writers write — November 2, 2026
 
 The library cover uses original bold system-sans lettering, a pale background and a red vector underline. `assets/social-writers.jpg` is a reviewed 1200×630 rendering of that cover and public catalog metadata, using this site's existing licensed fonts. It contains no author portrait, source-work image, source passage or reading record. Its exact bytes are pinned in social-previews.json and publication.json.
+
+## The Awakening · November 4, 2026
+
+The pale green jacket and curved lines are original code-drawn artwork matching the reader’s entrance. `assets/social-awakening.jpg` is the reviewed 1200 × 630 rendering of that jacket and the catalog title, author and feature, using the site’s existing licensed fonts. It contains no novel text, historical image or private reading data. The selected Sherwood page is credited separately in `examples/the-awakening/docs/SOURCE-RIGHTS.md`.

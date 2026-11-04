@@ -33,6 +33,8 @@ For each proposed public reader, record:
 
 Do not treat an automated file audit as a rights decision. It can check an inventory and detect some mistakes; it cannot establish copyright status. A disclaimer cannot repair an unauthorized upload.
 
+Before freezing a prepared edition, check that its required full terms will travel with every export that needs them. Inspect an actual downloaded edition, bundle and records-only backup; a link to an optional separate download does not attach the license. If an existing edition must stay immutable for saved records, a reviewed archive can carry its unchanged JSON and license together. After unwrapping, retain the same schema and collision checks as the original JSON import, including customized editions and partial bundles.
+
 Review outward copies as well as the hosted reader: a standalone text quotation or image card may need credits, license links and change notices that an exact-edition bundle already retains. Follow the actual source terms for each format and bind its provenance to the verified complete edition, not just a reused title, ID or source-file hash. Preserve meaningful addition, deletion and reconstruction signs too. If an output cannot carry required notices or source meaning, refuse that format and offer an exact-edition export that retains them; do not silently simplify the quotation or attach another edition's notice.
 
 ## Public examples

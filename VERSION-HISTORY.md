@@ -1,5 +1,11 @@
 # History boundary
 
+## The Awakening · November 4, 2026
+
+Adds the owner-approved complete novel at `/awakening/`. The Calling cards note opens from the cover, Contents and Chapter XVII; early entry discloses its spoiler scope. It pairs the novel’s conversation with a passage and one full page from Sherwood’s 1897 etiquette manual, with a selectable transcription and precise source credit. The original prepared novel remains byte-identical, including its metadata, so existing private bundles remain compatible.
+
+The twenty-fifth edition uses the standard reader adapter, a scoped database and offline cache, bounded analytics, shared return-to-reading, and an original jacket and social card. Exact edition and historical-page admissions retain the U.S. rights limit; raw archives, private reviews and the independent repository history are excluded. See the release record in docs/STATUS.md for completed checks and limits.
+
 ## How writers write · November 2, 2026
 
 Adds the owner-approved editorial collection at `/writers/`, with twelve authors, comparative essays, exercises, source notes and a browser-local notebook. The final prose pass removes invented reader psychology, scolding conclusions, vague labels and internal preparation instructions. The existing copyeditor guidance records the failure and the broader review it requires.

@@ -694,6 +694,35 @@
         "Poe’s composition essay"
       ],
       "rightsPath": "examples/writers-at-work/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "awakening",
+      "exampleId": "the-awakening",
+      "title": "The Awakening",
+      "author": "Kate Chopin",
+      "shortAuthor": "Kate Chopin",
+      "kind": "A novel",
+      "language": "English",
+      "edition": "The complete novel from Project Gutenberg eBook 160, without the accompanying short stories. The context note includes page 62 of M. E. W. Sherwood’s Manners and Social Usages, new and revised edition (1897).",
+      "editionLabel": "1899 · Project Gutenberg transcription",
+      "feature": "Calling cards",
+      "description": "Edna’s afternoon off, her husband’s clients, and a page of nineteenth-century etiquette. A short note on the visits and obligations in Chapter XVII.",
+      "categories": [
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/160",
+        "https://commons.wikimedia.org/wiki/File:Manners_and_social_usages_(IA_mannerssocialusa01sher).pdf"
+      ],
+      "sourceLabels": [
+        "The novel · Project Gutenberg",
+        "Sherwood’s manual · 1897 scan"
+      ],
+      "rightsPath": "examples/the-awakening/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

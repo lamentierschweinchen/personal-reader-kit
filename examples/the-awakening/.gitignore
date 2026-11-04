@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.reader/
+test-results/
+.vercel/
+.env
+.DS_Store

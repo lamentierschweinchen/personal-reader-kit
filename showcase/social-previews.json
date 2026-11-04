@@ -300,6 +300,18 @@
       "alt": "How writers write: a pale cover with bold black lettering and a red underline, beside the title and names of Hemingway, Morrison, and Atwood.",
       "bytes": 63380,
       "sha256": "8abc10156f60961eb92844682cfc1a2e18f03e63e2e2aa089247ab23c3196793"
+    },
+    "awakening": {
+      "id": "awakening",
+      "file": "assets/social-awakening.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "The Awakening",
+      "author": "Kate Chopin",
+      "feature": "Calling cards",
+      "alt": "The Awakening by Kate Chopin. Pale green cover with fine curved lines; Calling cards.",
+      "bytes": 53104,
+      "sha256": "c08cd67bdb5c9080f6552c52e4c69ee1352a3c104c82caee52bdad4dc44b2bab"
     }
   }
 }

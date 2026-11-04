@@ -5609,6 +5609,149 @@
           "sha256": "a8c6dc3b4ff1e7b2d9b8378c73025e62c89f03f63cdf77b816d65bc88f99bff1"
         }
       ]
+    },
+    {
+      "id": "the-awakening",
+      "title": "The Awakening",
+      "description": "The complete novel with a sourced reading of the calling cards in Chapter XVII.",
+      "directory": "examples/the-awakening",
+      "sourceCommit": "ba10530eb0edeb9479c33c5c0dc3f5cc4f76c7e2",
+      "sourceFileCount": 30,
+      "packagingChanges": [
+        "edition/book.json",
+        "edition/sherwood-p62.webp",
+        ".gitignore",
+        ".vercelignore",
+        "scripts/build.mjs",
+        "scripts/serve.mjs",
+        "edition-lock.json",
+        "package.json",
+        "docs/SOURCE-RIGHTS.md",
+        "docs/SHERWOOD-PLATE.md",
+        "README.md",
+        "AGENTS.md",
+        "VERSION-HISTORY.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/awakening/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 89864,
+          "sha256": "7d939a9ba11ca079f09657e092a779da837acc062d956e8617016a127b79b413"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 2050,
+          "sha256": "157fc07b0294fa301518eba270686f8ba3f81730af5e950e297c7ab2d08a5b87"
+        },
+        {
+          "path": "awakening-zip.mjs",
+          "bytes": 5135,
+          "sha256": "c50f7625bdf43b0bb679fa7ac9f54748f977f4bd1a85f227b9e3ff2256d1c801"
+        },
+        {
+          "path": "build.json",
+          "bytes": 525,
+          "sha256": "011cabc725b82af1b60c90e22cfef67d165c682b5a800a4f7e94b2ee4721f815"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "gutenberg-license.txt",
+          "bytes": 17250,
+          "sha256": "da8d6d2c45e626a269f39ead63d8ed308538a4d884904296f0e8fc18b31e046a"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 2104,
+          "sha256": "89db4fc9312acd349ac3f5e5df9bbe6f50a5ea9695989c2a97e9e7abac929831"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 5842,
+          "sha256": "9701c4fa94c0d967c30908846812184702c29e8272e29b46756b2f70c21b7194"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 517,
+          "sha256": "25ab54673b11d6d2ef38696f1d8be63095fd1e82baa2bb7e4180f350a5c37ea1"
+        },
+        {
+          "path": "index.html",
+          "bytes": 2808,
+          "sha256": "e6b0c3400da8c44516304c96f97f4f3cf839762b1ab189621ee847308c5c9e6c"
+        },
+        {
+          "path": "library.json",
+          "bytes": 360684,
+          "sha256": "4b1749c0a6afd8a9e697a23533e3969872aa0e6d93c43d6cb2feaed9f44cb3d6"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 400,
+          "sha256": "2a98d3b3e8105041427ef0521da24ebb07739b0c24dfe156dddf35469916e9ff"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 17023,
+          "sha256": "34a2cebbbe45e5bc4b6661910fda5fb56c994587b20abeef2062a9dc33ba2c78"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "sherwood-p62.webp",
+          "bytes": 138732,
+          "sha256": "f2f8e043e24e4a762ac962445e30ed0b0128ee6ec71956d6ec1f7ab58f596f4e"
+        },
+        {
+          "path": "style.css",
+          "bytes": 28876,
+          "sha256": "f2bd29758a44d453d8ff3ea2f74580199809acb60e604935331820d5e680020c"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1304,
+          "sha256": "d17fcdfbdd635634ca1037464a88a008a8c590d9fd502ad534c0858291576ec2"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
+      ]
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"
