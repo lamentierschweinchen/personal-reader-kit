@@ -4,6 +4,12 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-five reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-five specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Narrow-screen Awakening layout · November 6, 2026
+
+The completed November 4 CI found two WebKit failures at 320px: the library jacket title clipped with wider font metrics, and the reader page overflowed during the passage-card check. The jacket title now leaves more horizontal space; the reader uses two header rows at widths up to 360px. A focused enlarged-text review also found and fixed wrapping in the quotation-card heading. The existing assertions remain unchanged.
+
+Local Chromium and WebKit checks pass for the library, passage cards, and mounted Awakening journey, including notes, position return, focus, licensed exports, and stopped-origin recovery. A separate wide-font control verifies the header failure mode; it does not reproduce the exact Linux font environment. Kit tests and all 25 packaged-reader builds pass. The exact 1,179-input deployment still produces 1,068 files; only the two jacket stylesheets, Awakening stylesheet, worker and build receipt change. All literary bytes, other readers, record formats, public inventories and the personal entrance are unchanged. Hosted CI and physical-device testing are separate from these local results.
+
 ## The Awakening · November 4, 2026
 
 The owner approved the complete Chopin novel and the focused refinement of its Calling cards note for `/awakening/`. The note opens from the cover, Contents and Chapter XVII. Early access discloses its chapter scope, then pairs the actual conversation with Sherwood’s 1897 etiquette manual, including one full historical page and a selectable transcription. Source credits and limits remain recoverable. The prepared novel is byte-identical to the reviewed local edition; stored editions, annotations and earlier bundles retain their identity. [Exact source and reuse scope](../examples/the-awakening/docs/SOURCE-RIGHTS.md).

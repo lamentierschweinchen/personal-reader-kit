@@ -1,5 +1,9 @@
 # History boundary
 
+## Narrow-screen Awakening layout · November 6, 2026
+
+The library and mixed-shelf jacket leave more room around the title for wider fallback fonts. At phone widths up to 360px, the reader header puts navigation below the title and Settings control, with matching sticky offsets. The quotation-card heading can wrap at enlarged text sizes. The prepared novel, reading records, public catalog, and separate personal entrance are unchanged.
+
 ## The Awakening · November 4, 2026
 
 Adds the owner-approved complete novel at `/awakening/`. The Calling cards note opens from the cover, Contents and Chapter XVII; early entry discloses its spoiler scope. It pairs the novel’s conversation with a passage and one full page from Sherwood’s 1897 etiquette manual, with a selectable transcription and precise source credit. The original prepared novel remains byte-identical, including its metadata, so existing private bundles remain compatible.

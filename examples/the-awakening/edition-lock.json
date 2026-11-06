@@ -57,8 +57,8 @@
     },
     {
       "path": "site/style.css",
-      "bytes": 28876,
-      "sha256": "f2bd29758a44d453d8ff3ea2f74580199809acb60e604935331820d5e680020c"
+      "bytes": 29359,
+      "sha256": "dbe91bfeb776c082ce398390f1b830934605ab9416395d99317e4fbbd7372701"
     },
     {
       "path": "site/manifest.webmanifest",

@@ -5630,7 +5630,8 @@
         "docs/SHERWOOD-PLATE.md",
         "README.md",
         "AGENTS.md",
-        "VERSION-HISTORY.md"
+        "VERSION-HISTORY.md",
+        "site/style.css"
       ],
       "rights": "docs/SOURCE-RIGHTS.md",
       "browserCommands": [],
@@ -5654,7 +5655,7 @@
         {
           "path": "build.json",
           "bytes": 525,
-          "sha256": "011cabc725b82af1b60c90e22cfef67d165c682b5a800a4f7e94b2ee4721f815"
+          "sha256": "42d0e87ed7458d3e9e4748aec19cd5d8cc7510d4147aaf3fc285bf19e8011df9"
         },
         {
           "path": "bundle.mjs",
@@ -5738,13 +5739,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 28876,
-          "sha256": "f2bd29758a44d453d8ff3ea2f74580199809acb60e604935331820d5e680020c"
+          "bytes": 29359,
+          "sha256": "dbe91bfeb776c082ce398390f1b830934605ab9416395d99317e4fbbd7372701"
         },
         {
           "path": "sw.js",
           "bytes": 1304,
-          "sha256": "d17fcdfbdd635634ca1037464a88a008a8c590d9fd502ad534c0858291576ec2"
+          "sha256": "b9d0d4870d793b59a6a27c59c77a268e6ed322f978e25fc1d7812f1776a8b0c7"
         },
         {
           "path": "text.mjs",
