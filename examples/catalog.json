@@ -5779,8 +5779,8 @@
       "reviewedBuild": [
         {
           "path": "app.mjs",
-          "bytes": 107836,
-          "sha256": "277eac4e25637194aceea47cb2c13c83698de4440eadeeed067744adc688f17b"
+          "bytes": 108133,
+          "sha256": "d349d8a8fc72091d76b9b7fdeb1bbe876458ea5d50eb71d94996611d7ea2c2bc"
         },
         {
           "path": "apple-touch-icon.png",
@@ -5790,7 +5790,7 @@
         {
           "path": "build.json",
           "bytes": 590,
-          "sha256": "53b1395d029cfb5f7b9672c042fbd3d84f5686f1d95c41ff800d6cd7724e2946"
+          "sha256": "95480a69e55ab819a17b8c6787887d05c103d59e184762dd11411e05912ac234"
         },
         {
           "path": "bundle.mjs",
@@ -5894,19 +5894,22 @@
         },
         {
           "path": "style.css",
-          "bytes": 39278,
-          "sha256": "1db5c437edcb6346454390cdcaa0da825dc3b6e88e2d516f5cfda167e368cb33"
+          "bytes": 39362,
+          "sha256": "edddc5adb8a3568781e6eb566ef848e8121fd96862d9c021715e700174f66980"
         },
         {
           "path": "sw.js",
           "bytes": 1391,
-          "sha256": "f594057ea7517c97fd7d42c09595ea81afcb42a10637a2364d46b7c664757992"
+          "sha256": "ee42f0c1ba18bb714b42e0019412281307c441597b2e3e5d70ab30ed80377cc9"
         },
         {
           "path": "text.mjs",
           "bytes": 20424,
           "sha256": "83a590b7d1d852d494e8bacdf578fe34613571aec3ab96689e77ac9ec0e27809"
         }
+      ],
+      "maintenanceChanges": [
+        "November 7, 2026: scholarly note targets clear the measured dialog header; Return to text stays in the header and restores citation focus and scroll. Source texts, images and records are unchanged."
       ]
     }
   ],

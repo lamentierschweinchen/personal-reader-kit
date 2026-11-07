@@ -143,7 +143,10 @@ async function readScholar(id){
  const bytes=await response.arrayBuffer();if(bytes.byteLength>2_000_000||await sha256(bytes)!==item.hash)throw new Error('This essay does not match its reviewed source.');
  const article=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));if(article.schema!=='scholar-reader@1'||article.id!==id||typeof article.body!=='string')throw new Error('This essay could not be opened.');
  scholarTrail=[];
- openDialog(item.title,`<article class="scholar-fulltext"><header><p class="eyebrow">${esc(item.publication)}</p><h1>${esc(item.title)}</h1><p class="scholar-byline">${esc(item.author)}</p></header><button class="text scholar-back" data-action="scholar-back" hidden>Return to text</button><div class="scholar-body">${article.body}</div><footer><a href="${item.url}" target="_blank" rel="noopener noreferrer">Journal source</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · ${esc(item.credit)}</footer></article>`);
+ openDialog(item.title,`<article class="scholar-fulltext"><header><p class="eyebrow">${esc(item.publication)}</p><h1>${esc(item.title)}</h1><p class="scholar-byline">${esc(item.author)}</p></header><div class="scholar-body">${article.body}</div><footer><a href="${item.url}" target="_blank" rel="noopener noreferrer">Journal source</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · ${esc(item.credit)}</footer></article>`);
+ const header=dialog.querySelector('.dialog-header');
+ header.classList.add('scholar-dialog-header');
+ header.insertAdjacentHTML('beforeend','<button class="text scholar-back" data-action="scholar-back" hidden>Return to text</button>');
 }
 
 function reader() {
@@ -559,8 +562,8 @@ async function act(target) {
   switch(action) {
     case 'close':closeDialog();break;
     case 'scholar-read':target.focus({preventScroll:true});await readScholar(target.dataset.essay);break;
-    case 'scholar-reference': {const destination=dialog.querySelector('#'+CSS.escape(target.dataset.ref||''));if(destination){scholarTrail.push({scroll:dialog.scrollTop,focus:target});dialog.querySelector('.scholar-back').hidden=false;destination.setAttribute('tabindex','-1');destination.scrollIntoView({block:'start'});destination.focus({preventScroll:true});}break;}
-    case 'scholar-back': {const previous=scholarTrail.pop();if(previous){dialog.scrollTop=previous.scroll;previous.focus?.focus({preventScroll:true});}target.hidden=!scholarTrail.length;break;}
+    case 'scholar-reference': {const destination=dialog.querySelector('#'+CSS.escape(target.dataset.ref||''));if(destination){scholarTrail.push({scroll:dialog.scrollTop,focus:target});dialog.querySelector('.scholar-back').hidden=false;destination.setAttribute('tabindex','-1');destination.scrollIntoView({block:'start'});const header=dialog.querySelector('.dialog-header');dialog.scrollTop+=destination.getBoundingClientRect().top-header.getBoundingClientRect().bottom-12;destination.focus({preventScroll:true});}break;}
+    case 'scholar-back': {const previous=scholarTrail.pop();target.hidden=!scholarTrail.length;if(previous){dialog.scrollTop=previous.scroll;previous.focus?.focus({preventScroll:true});}break;}
     case 'cart-notice-continue': {try{localStorage.setItem('cart-notice-'+CART_EDITION,'seen');closeDialog(true);}catch{const status=$('#notice-save-status');status.textContent='This browser could not remember the notice. It may appear again; reading remains available.';target.dataset.action='close';target.textContent='Continue reading';}break;}
     case 'source-back': {const previous=sourceTrail.pop();if(previous){$('#dialog-content').replaceChildren(previous.node);dialog.scrollTop=previous.scroll;previous.focus?.focus({preventScroll:true});}break;}
     case 'settings':await savePosition();settings();break;

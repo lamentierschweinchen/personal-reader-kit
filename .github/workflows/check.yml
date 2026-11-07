@@ -82,6 +82,8 @@ jobs:
         if: hashFiles('showcase/check-douglass-poe.mjs') != ''
       - run: node showcase/check-themed-readers.mjs --skip-build
         if: hashFiles('showcase/check-themed-readers.mjs') != ''
+      - run: node showcase/check-clay-cart.mjs --skip-build
+        if: hashFiles('showcase/check-clay-cart.mjs') != ''
       - run: node showcase/check-awakening.mjs --skip-build
         if: hashFiles('showcase/check-awakening.mjs') != ''
       - run: node showcase/check-writing-reader.mjs --skip-build

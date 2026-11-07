@@ -12,8 +12,8 @@
     },
     {
       "path": "site/app.mjs",
-      "bytes": 107836,
-      "sha256": "277eac4e25637194aceea47cb2c13c83698de4440eadeeed067744adc688f17b"
+      "bytes": 108133,
+      "sha256": "d349d8a8fc72091d76b9b7fdeb1bbe876458ea5d50eb71d94996611d7ea2c2bc"
     },
     {
       "path": "site/core.mjs",
@@ -62,8 +62,8 @@
     },
     {
       "path": "site/style.css",
-      "bytes": 39278,
-      "sha256": "1db5c437edcb6346454390cdcaa0da825dc3b6e88e2d516f5cfda167e368cb33"
+      "bytes": 39362,
+      "sha256": "edddc5adb8a3568781e6eb566ef848e8121fd96862d9c021715e700174f66980"
     },
     {
       "path": "site/manifest.webmanifest",

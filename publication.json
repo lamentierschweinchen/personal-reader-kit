@@ -1853,6 +1853,7 @@
     "examples/the-awakening/vercel.json",
     "showcase/assets/social-awakening.jpg",
     "showcase/check-awakening.mjs",
+    "showcase/check-clay-cart.mjs",
     "examples/little-clay-cart/.gitignore",
     "examples/little-clay-cart/.vercelignore",
     "examples/little-clay-cart/AGENTS.md",
