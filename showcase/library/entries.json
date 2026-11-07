@@ -723,6 +723,35 @@
         "Sherwood’s manual · 1897 scan"
       ],
       "rightsPath": "examples/the-awakening/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "clay-cart",
+      "exampleId": "little-clay-cart",
+      "title": "The Little Clay Cart",
+      "author": "Attributed to Śūdraka · translated by Arthur W. Ryder",
+      "shortAuthor": "Śūdraka · Arthur W. Ryder",
+      "kind": "Play",
+      "language": "English",
+      "edition": "Arthur W. Ryder’s 1905 translation, Project Gutenberg eBook 21020.",
+      "editionLabel": "1905 · Project Gutenberg transcription",
+      "feature": "Historical objects and essays",
+      "description": "A Sanskrit play of love, money, and mistaken identities, accompanied by historical objects and essays by scholars.",
+      "categories": [
+        "words",
+        "ideas",
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/21020"
+      ],
+      "sourceLabels": [
+        "Source edition · Project Gutenberg"
+      ],
+      "rightsPath": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

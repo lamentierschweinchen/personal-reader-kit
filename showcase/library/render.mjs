@@ -46,7 +46,7 @@ function editionContent(b){
 
 // Curated discovery shelves are separate from each edition’s format categories.
 export const libraryShelves=Object.freeze([
- {id:'stage',label:'On stage',editions:Object.freeze(['shakespeare','ballads','antigone','a-dolls-house'])},
+ {id:'stage',label:'On stage',editions:Object.freeze(['shakespeare','ballads','antigone','a-dolls-house','clay-cart'])},
  {id:'table',label:'At the table',editions:Object.freeze(['at-table','book-of-tea'])},
  {id:'dark',label:'After dark',editions:Object.freeze(['dracula','poe','pictures-after-dark'])},
  {id:'outdoors',label:'Out of doors',editions:Object.freeze(['walden','mountains','odyssey'])}

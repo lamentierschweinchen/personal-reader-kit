@@ -154,7 +154,7 @@ async function openFixture(page,base,item) {
   await openRoute(page,base,`#read/${item.id}/${item.section}`);
   await page.locator(`#reading-text[data-book="${item.id}"][data-position-ready="true"]`).waitFor();
   // Dracula's source notice appears at startup regardless of the chosen book.
-  const notice=page.locator('#dialog[open] [data-action="notice-read"]');
+  const notice=page.locator('#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="cart-notice-continue"]');
   if(await notice.count()){await notice.click();await page.locator('#dialog').waitFor({state:'hidden'});}
   await settle(page);
   const text=await page.evaluate(()=>{
@@ -292,7 +292,7 @@ export async function shareCardChecks({browser,base,engine,output=defaultOutput,
     const contentSecurityPolicy=response.headers()['content-security-policy'];
     assert.ok(contentSecurityPolicy,'Regression server sends the actual deployment CSP');
     if(await page.locator('#dialog[open]').count()) {
-      const notice=page.locator('#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="notice-continue"]');
+      const notice=page.locator('#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="notice-continue"],#dialog[open] [data-action="cart-notice-continue"]');
       if(await notice.count())await notice.first().click();
       else {
         const title=await page.locator('#dialog-title').textContent();

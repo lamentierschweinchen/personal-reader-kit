@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Twenty-four owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
+  "status": "Twenty-six owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -5751,6 +5751,161 @@
           "path": "text.mjs",
           "bytes": 3489,
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
+      ]
+    },
+    {
+      "id": "little-clay-cart",
+      "title": "The Little Clay Cart",
+      "description": "The play, with historical objects and scholarly essays.",
+      "directory": "examples/little-clay-cart",
+      "sourceCommit": "7f779bb741a711e361bbbc33f3aef1bc35039987",
+      "sourceFileCount": 30,
+      "packagingChanges": [
+        "edition/book.json",
+        "edition/scholar-sen-reader.json",
+        "edition/scholar-austin-reader.json",
+        "edition/commons-mathura-panel.jpg",
+        "edition/met-ear-ornament.jpg",
+        "edition/met-gaming-die.jpg",
+        "edition-lock.json",
+        "scripts/build.mjs",
+        "docs/SOURCE-RIGHTS.md",
+        "docs/OBJECTS-AND-SCHOLARSHIP.md"
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/clay-cart/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 107836,
+          "sha256": "277eac4e25637194aceea47cb2c13c83698de4440eadeeed067744adc688f17b"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 6569,
+          "sha256": "e27d416031f6e979c52f3e0c74d3cadee26f6b51a0fc6e849b9f5db4fd5019aa"
+        },
+        {
+          "path": "build.json",
+          "bytes": 590,
+          "sha256": "53b1395d029cfb5f7b9672c042fbd3d84f5686f1d95c41ff800d6cd7724e2946"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "commons-mathura-panel.jpg",
+          "bytes": 934574,
+          "sha256": "c0021a4bb66ef79d8cf2d4a5672c998469ed398109c8680cff0e9a740156a9e6"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 25647,
+          "sha256": "8119bc9b91343681b24873630ee7d1015be6fa1ba7e8aa32c711505a4c76c9f9"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 3451,
+          "sha256": "7cb75460bbd96d6acd594902cc3bdc8cb4b461a721ec95b8140de15d8c587227"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 23559,
+          "sha256": "61605fabf2eabecfdc98b15884bd816f9ee12077188e87da4528e8eebb863cf1"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 534,
+          "sha256": "45ea1535a524b24590a8049201d9fa37fe1fa58f60097a84c85dc53097064741"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3127,
+          "sha256": "0c81244b0396b6cf6f2eaff6a119f55f4cf71984903550a7e035f2cbf3c68905"
+        },
+        {
+          "path": "library.json",
+          "bytes": 925911,
+          "sha256": "a262e1794bfe04c4fea80307f2f8deb4b1a876cf06400222e1437e6a79b55bd9"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 407,
+          "sha256": "6c80bf76bcff8cd9975fabbea91c83f36586f675ce0196c16d23377edea3ee43"
+        },
+        {
+          "path": "met-ear-ornament.jpg",
+          "bytes": 1419138,
+          "sha256": "a4d9b5f2d501bc139f39a7c4ed2b8607a5f2e784be7cfd32681defa08cc47467"
+        },
+        {
+          "path": "met-gaming-die.jpg",
+          "bytes": 841717,
+          "sha256": "7391149dac9f3ad7dcb35f3cb636032fe2bec1fe82a2b043012d63e17280f67c"
+        },
+        {
+          "path": "recovery-graph.mjs",
+          "bytes": 15170,
+          "sha256": "cdf7ad065240609b11f349206e9e7863cb4e4de6e705c3492ded1ee4128a42c4"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "scholar-austin-reader.json",
+          "bytes": 145262,
+          "sha256": "799714f691a6fc5856645e6265152c32a34816eefcec31dddd2b85c5cff1a23d"
+        },
+        {
+          "path": "scholar-sen-reader.json",
+          "bytes": 41725,
+          "sha256": "202e9908b4de1cc1e885aff43db23ef4ccf4b6dc6a3fe342542d9ee92de01da6"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1970,
+          "sha256": "6364abea0119081b8cc98368325a25899cc00e2769f96b2da8c31b6a74fb6c1d"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 17236,
+          "sha256": "9754991418f76d43d42ddf1c6e6c5296cb87a253916bec35cfe3a28e2c4b7cce"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 39278,
+          "sha256": "1db5c437edcb6346454390cdcaa0da825dc3b6e88e2d516f5cfda167e368cb33"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1391,
+          "sha256": "f594057ea7517c97fd7d42c09595ea81afcb42a10637a2364d46b7c664757992"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 20424,
+          "sha256": "83a590b7d1d852d494e8bacdf578fe34613571aec3ab96689e77ac9ec0e27809"
         }
       ]
     }

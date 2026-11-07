@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {libraryShelves,renderLibrary} from '../showcase/library/render.mjs';
 const data=JSON.parse(await readFile(new URL('../showcase/library/entries.json',import.meta.url),'utf8'));
 const expected=[
- {id:'stage',label:'On stage',editions:['shakespeare','ballads','antigone','a-dolls-house']},
+ {id:'stage',label:'On stage',editions:['shakespeare','ballads','antigone','a-dolls-house','clay-cart']},
  {id:'table',label:'At the table',editions:['at-table','book-of-tea']},
  {id:'dark',label:'After dark',editions:['dracula','poe','pictures-after-dark']},
  {id:'outdoors',label:'Out of doors',editions:['walden','mountains','odyssey']}
@@ -29,7 +29,7 @@ test('all four existing filters and all four named shelves retain explicit toggl
 });
 
 test('default library order matches the physical shelf and assigns exact reset ranks',()=>{
- const expected=["alice","mountains","antigone","at-table","awakening","ballads","beside-the-bed","book-of-tea","rome","a-dolls-house","dracula","poe", "writers", "inward-life","shakespeare","learning-to-see","douglass","nietzsche","odyssey","pictures-after-dark","austen","two-halls","walden","war-and-peace","music-and-feeling"];
+ const expected=["alice","mountains","antigone","at-table","awakening","ballads","beside-the-bed","book-of-tea","rome","a-dolls-house","dracula","poe", "writers", "inward-life","shakespeare","learning-to-see","clay-cart","douglass","nietzsche","odyssey","pictures-after-dark","austen","two-halls","walden","war-and-peace","music-and-feeling"];
  const cards=[...renderLibrary(data).matchAll(/<article class="book" data-edition="([^"]+)" data-order="([0-9]+)"/g)];
  assert.deepEqual(cards.map(c=>c[1]),expected);
  assert.deepEqual(cards.map(c=>Number(c[2])),expected.map((_,i)=>i));

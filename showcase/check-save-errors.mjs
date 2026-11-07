@@ -18,7 +18,7 @@ const locations={
  'beside-the-bed':['nightingale-1898','id00210'],'learning-to-see':['ruskin','letter-1'],'music-and-feeling':['hanslick','chapter-1'],
  nietzsche:['nietzsche','book-1'],mountains:['conway-alps-1904','chapter-01'],'war-and-peace':['war-and-peace-maude','part-01-chapter-01'],
  douglass:['douglass-1845','chapter-i'],poe:['usher-1845','story'],ballads:['iphigenie-de','a1s1'],shakespeare:['folger-julius-caesar','a1-s1'],'pictures-after-dark':['pictures-fr','ronde'],rome:['caesar-vii-en','vii-1'],
- awakening:['kate-chopin-the-awakening-gutenberg-160','chapter-01'],antigone:['antigone-jebb-1917','play'],'a-dolls-house':['dolls-house-archer-1909','act-1'],'book-of-tea':['book-of-tea','chapter-1']
+ 'clay-cart':['clay-cart-ryder-1905','act-1'],awakening:['kate-chopin-the-awakening-gutenberg-160','chapter-01'],antigone:['antigone-jebb-1917','play'],'a-dolls-house':['dolls-house-archer-1909','act-1'],'book-of-tea':['book-of-tea','chapter-1']
 };
 const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
 assert.deepEqual(Object.keys(locations).sort(),catalog.examples.filter(entry=>readerRuntime(entry)==='reader-kit-v1').map(entry=>readerPaths[entry.id]).sort(),'Every standard reader has an actual-source save-failure journey');
@@ -36,7 +36,7 @@ const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const state=(page,mount)=>page.evaluate(async mount=>(await import(mount+'db.mjs')).loadState(),mount);
 const ready=(page,book,section)=>page.locator(`#reading-text[data-book="${book}"][data-section="${section}"][data-position-ready="true"]`).waitFor();
 async function notices(page){
- const dismiss=page.locator('#dialog[open] [data-action="notice-continue"],#dialog[open] [data-action="notice-read"]');
+ const dismiss=page.locator('#dialog[open] [data-action="notice-continue"],#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="cart-notice-continue"]');
  if(await dismiss.count()){await dismiss.first().click();await page.locator('#dialog').waitFor({state:'hidden'});}
  const inline=page.locator('[data-action="dismiss-source-notice"]');if(await inline.count())await inline.first().click();
 }

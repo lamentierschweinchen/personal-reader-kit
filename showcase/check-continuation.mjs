@@ -13,6 +13,8 @@ const server=process.env.BASE_URL?null:await serve();
 const base=process.env.BASE_URL||'http://127.0.0.1:'+server.address().port,results=[];
 const evidence=process.env.CONTINUATION_EVIDENCE||fileURLToPath(new URL('../test-results/continuation',import.meta.url));
 const engines=process.env.CONTINUATION_ENGINES?.split(',')||['chromium','webkit'];
+// This edition continues loading licensed notice data after its reading surface is ready.
+const settleReader=async(page,edition)=>{if(edition==='beside-the-bed')await page.evaluate(()=>import('/beside-the-bed/app.mjs'));};
 async function optionalModuleLoading(browser,engine){
  const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'}),errors=[];
  let release,requests=0;const held=new Promise(resolve=>release=resolve);
@@ -56,13 +58,13 @@ for(const engine of engines){
   if(process.argv.includes('--module-loading-only'))continue;
   for(const [edition,ids] of Object.entries(PUBLIC_WORKS)){
    const started=Date.now(),books=await (await context.request.get(base+'/'+edition+'/library.json')).json(),book=books.find(book=>book.id===ids.at(-1));
-   const section=book.sections.find(s=>s.id==='chapter-1')||book.sections.find(s=>s.blocks.reduce((n,b)=>n+(b.text?.length||0),0)>4000)||book.sections[0];
-   await page.goto(base+'/'+edition+'/#read/'+book.id+'/'+section.id);await page.locator('#reading-text[data-position-ready="true"]').waitFor({timeout:95000});
-   await page.waitForTimeout(350);const notice=page.locator('dialog[open] [data-action=close]').first();if(await notice.isVisible())await notice.click();await page.evaluate(()=>window.scrollTo(0,600));await page.waitForTimeout(800);await page.waitForFunction(({key,edition,work})=>{try{const p=JSON.parse(localStorage.getItem(key));return p.edition===edition&&p.work===work;}catch{return false;}},{key:CONTINUATION_KEY,edition,work:book.id},{timeout:15000});
+   const section=(edition==='clay-cart'&&book.sections.find(s=>s.id==='act-1'))||book.sections.find(s=>s.id==='chapter-1')||book.sections.find(s=>s.blocks.reduce((n,b)=>n+(b.text?.length||0),0)>4000)||book.sections[0];
+   await page.goto(base+'/'+edition+'/#read/'+book.id+'/'+section.id);await page.locator('#reading-text[data-position-ready="true"]').waitFor({timeout:95000});await settleReader(page,edition);
+   await page.waitForTimeout(350);const notice=page.locator('dialog[open] [data-action=cart-notice-continue], dialog[open] [data-action=close]').first();if(await notice.isVisible())await notice.click();await page.evaluate(()=>window.scrollTo(0,600));await page.waitForTimeout(800);await page.waitForFunction(({key,edition,work})=>{try{const p=JSON.parse(localStorage.getItem(key));return p.edition===edition&&p.work===work;}catch{return false;}},{key:CONTINUATION_KEY,edition,work:book.id},{timeout:15000});
    const marker=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),CONTINUATION_KEY);assert.deepEqual(Object.keys(marker).sort(),['at','edition','v','work']);
    await page.goto(base+'/library/');const link=page.locator('[data-continuation-link]');await link.waitFor({state:'visible'});assert.equal(await link.getAttribute('href'),'/'+edition+'/#continue/'+book.id);
-   await link.focus();await page.keyboard.press('Enter');await page.waitForURL(url=>url.hash.startsWith('#read/'));await page.locator('#reading-text[data-position-ready="true"]').waitFor();assert.equal(new URL(page.url()).hash,'#read/'+book.id+'/'+section.id);assert.ok(await page.evaluate(()=>scrollY)>10,'restores actual scroll '+edition+' '+section.id);
-   await page.goBack();await page.waitForURL(base+'/library/');await link.waitFor({state:'visible'});await link.click();await page.waitForURL(url=>url.hash.startsWith('#read/'));await page.reload();await page.locator('#reading-text[data-position-ready="true"]').waitFor();assert.ok(!page.url().includes('#continue/'));
+   await link.focus();await page.keyboard.press('Enter');await page.waitForURL(url=>url.hash.startsWith('#read/'));await page.locator('#reading-text[data-position-ready="true"]').waitFor();assert.equal(new URL(page.url()).hash,'#read/'+book.id+'/'+section.id);assert.ok(await page.evaluate(()=>scrollY)>10,'restores actual scroll '+edition+' '+section.id);await settleReader(page,edition);
+   await page.goBack();await page.waitForURL(base+'/library/');await link.waitFor({state:'visible'});await link.click();await page.waitForURL(url=>url.hash.startsWith('#read/'));await page.reload();await page.locator('#reading-text[data-position-ready="true"]').waitFor();assert.ok(!page.url().includes('#continue/'));await settleReader(page,edition);
    results.push({engine,edition,work:book.id,resumeBackRefresh:true,milliseconds:Date.now()-started});console.log(engine,edition,'resume/back/refresh passed');
   }
   // Opening companions and games is not a reading-position save.

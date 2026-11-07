@@ -131,3 +131,7 @@ The library cover uses original bold system-sans lettering, a pale background an
 ## The Awakening · November 4, 2026
 
 The pale green jacket and curved lines are original code-drawn artwork matching the reader’s entrance. `assets/social-awakening.jpg` is the reviewed 1200 × 630 rendering of that jacket and the catalog title, author and feature, using the site’s existing licensed fonts. It contains no novel text, historical image or private reading data. The selected Sherwood page is credited separately in `examples/the-awakening/docs/SOURCE-RIGHTS.md`.
+
+## The Little Clay Cart
+
+`assets/social-clay-cart.jpg` is an original 1200 × 630 composition with a wheel motif and licensed IM Fell typeface. It contains no book excerpt or private material. The source artwork and article licenses are documented in `examples/little-clay-cart/docs/SOURCE-RIGHTS.md`. SHA-256 `466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75`.

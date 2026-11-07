@@ -1,9 +1,10 @@
-# Twenty-five readers and three small games
+# Twenty-six readers and three small games
 
 These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not presets for the stock importer.
 
 | Reader | Character and optional companion | Source |
 | --- | --- | --- |
+| [The Little Clay Cart](little-clay-cart/README.md) | Ryder’s complete translation with historical objects and scholarly essays | [Source and rights](little-clay-cart/docs/SOURCE-RIGHTS.md) |
 | [The Awakening](the-awakening/README.md) | The complete novel and a short reading of the calls and obligations in Chapter XVII, beside Sherwood’s 1897 etiquette manual | Chopin; [Gutenberg 160](https://www.gutenberg.org/ebooks/160); [Sherwood scan](https://archive.org/details/mannerssocialusa01sher) |
 | [Pride and Prejudice](pride-and-prejudice/README.md) | An illustrated title page, fine rules and a quiet word index | Austen, Saintsbury and Thomson; [Gutenberg 1342](https://www.gutenberg.org/ebooks/1342) |
 | [Alice’s Adventures in Wonderland](alice-in-wonderland/README.md) | An asymmetric Rackham storybook, shaped verse, close looking and Tea at Six | Carroll, Dobson and Rackham; [Gutenberg 28885](https://www.gutenberg.org/ebooks/28885) |
@@ -49,7 +50,7 @@ Where the edition supports faithful image export, **Make card** creates a quotat
 
 ## What is public
 
-The user selected these twenty-five reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these twenty-six reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. Historical public-domain claims are scoped to the named edition and territory. Modern Folger texts retain **CC BY-NC 3.0**; admitted Wikisource and Perseus transcriptions retain **CC BY-SA 4.0**. The MIT software license does not relicense them. No declaration establishes worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -85,7 +86,7 @@ The owner approved the complete Douglass Narrative and its three historical docu
 
 The owner approved these four collections after their separate build and review. `/ballads/`, `/shakespeare/`, `/pictures-after-dark/` and `/rome/` have explicit source/license pages, exact source inventories and distinct reading interfaces. Translations remain separate editions; compare stanzas, paragraphs or numbered chapters without pretending the witnesses agree word for word. The selected Roman books are bounded parts, clearly labeled at the entrance.
 
-## One catalogue, twenty-five reader paths
+## One catalogue, twenty-six reader paths
 
 [newreading.app](https://newreading.app/) is built by the [showcase](../showcase/README.md) with the founding readers at `/austen/`, `/alice/`, `/walden/`, `/two-halls/`, `/odyssey/` and `/dracula/`. The five meetings have their own paths at `/at-table/`, `/inward-life/`, `/music-and-feeling/`, `/learning-to-see/` and `/beside-the-bed/`. It uses one Vercel project with `showcase` as the Root Directory. The existing `read.lookatseel.com` address remains available. The earlier book subdomains redirect network requests to the corresponding new paths.
 

@@ -312,6 +312,18 @@
       "alt": "The Awakening by Kate Chopin. Pale green cover with fine curved lines; Calling cards.",
       "bytes": 53104,
       "sha256": "c08cd67bdb5c9080f6552c52e4c69ee1352a3c104c82caee52bdad4dc44b2bab"
+    },
+    "clay-cart": {
+      "id": "clay-cart",
+      "file": "assets/social-clay-cart.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "The Little Clay Cart",
+      "author": "Śūdraka · Arthur W. Ryder",
+      "feature": "Historical objects and essays",
+      "alt": "The Little Clay Cart: a red cover with a wheel motif and the title beside it.",
+      "bytes": 66715,
+      "sha256": "466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75"
     }
   }
 }

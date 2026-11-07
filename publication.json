@@ -1852,7 +1852,45 @@
     "examples/the-awakening/tests/ui-icons.test.mjs",
     "examples/the-awakening/vercel.json",
     "showcase/assets/social-awakening.jpg",
-    "showcase/check-awakening.mjs"
+    "showcase/check-awakening.mjs",
+    "examples/little-clay-cart/.gitignore",
+    "examples/little-clay-cart/.vercelignore",
+    "examples/little-clay-cart/AGENTS.md",
+    "examples/little-clay-cart/LICENSE",
+    "examples/little-clay-cart/README.md",
+    "examples/little-clay-cart/VERSION-HISTORY.md",
+    "examples/little-clay-cart/docs/OBJECTS-AND-SCHOLARSHIP.md",
+    "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+    "examples/little-clay-cart/edition-lock.json",
+    "examples/little-clay-cart/edition/book.json",
+    "examples/little-clay-cart/edition/commons-mathura-panel.jpg",
+    "examples/little-clay-cart/edition/met-ear-ornament.jpg",
+    "examples/little-clay-cart/edition/met-gaming-die.jpg",
+    "examples/little-clay-cart/edition/scholar-austin-reader.json",
+    "examples/little-clay-cart/edition/scholar-sen-reader.json",
+    "examples/little-clay-cart/package.json",
+    "examples/little-clay-cart/scripts/build.mjs",
+    "examples/little-clay-cart/site/app.mjs",
+    "examples/little-clay-cart/site/apple-touch-icon.png",
+    "examples/little-clay-cart/site/bundle.mjs",
+    "examples/little-clay-cart/site/core.mjs",
+    "examples/little-clay-cart/site/db.mjs",
+    "examples/little-clay-cart/site/icon-192.png",
+    "examples/little-clay-cart/site/icon-512.png",
+    "examples/little-clay-cart/site/icon.svg",
+    "examples/little-clay-cart/site/index.html",
+    "examples/little-clay-cart/site/library.mjs",
+    "examples/little-clay-cart/site/manifest.webmanifest",
+    "examples/little-clay-cart/site/recovery-graph.mjs",
+    "examples/little-clay-cart/site/robots.txt",
+    "examples/little-clay-cart/site/share-card.css",
+    "examples/little-clay-cart/site/share-card.mjs",
+    "examples/little-clay-cart/site/share.mjs",
+    "examples/little-clay-cart/site/style.css",
+    "examples/little-clay-cart/site/text.mjs",
+    "examples/little-clay-cart/tests/release.test.mjs",
+    "examples/little-clay-cart/vercel.json",
+    "showcase/assets/social-clay-cart.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4706,6 +4744,42 @@
       "sha256": "f2f8e043e24e4a762ac962445e30ed0b0128ee6ec71956d6ec1f7ab58f596f4e",
       "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
       "reason": "Exact reviewed full page 62 of Sherwood’s 1897 etiquette manual, Library of Congress copy digitized by Internet Archive. U.S. public-domain scope; source PDF and private preparation excluded."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/book.json",
+      "sha256": "a60b09c9a93e2549c2ea6e8fb506d81c5d19e310b0767959b96e93d687ae5ed1",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/commons-mathura-panel.jpg",
+      "sha256": "c0021a4bb66ef79d8cf2d4a5672c998469ed398109c8680cff0e9a740156a9e6",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/met-ear-ornament.jpg",
+      "sha256": "a4d9b5f2d501bc139f39a7c4ed2b8607a5f2e784be7cfd32681defa08cc47467",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/met-gaming-die.jpg",
+      "sha256": "7391149dac9f3ad7dcb35f3cb636032fe2bec1fe82a2b043012d63e17280f67c",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/scholar-austin-reader.json",
+      "sha256": "799714f691a6fc5856645e6265152c32a34816eefcec31dddd2b85c5cff1a23d",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/little-clay-cart/edition/scholar-sen-reader.json",
+      "sha256": "202e9908b4de1cc1e885aff43db23ef4ccf4b6dc6a3fe342542d9ee92de01da6",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
     }
   ],
   "reviewedSiteAssets": [
@@ -5062,6 +5136,12 @@
       "sha256": "c08cd67bdb5c9080f6552c52e4c69ee1352a3c104c82caee52bdad4dc44b2bab",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed 1200 x 630 cover card using original jacket geometry and existing licensed site fonts. No novel excerpt or private data."
+    },
+    {
+      "path": "showcase/assets/social-clay-cart.jpg",
+      "sha256": "466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original 1200 by 630 catalog card and wheel motif with licensed site font; no book excerpt or private records."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5724,6 +5804,24 @@
       "sha256": "9701c4fa94c0d967c30908846812184702c29e8272e29b46756b2f70c21b7194",
       "provenance": "examples/the-awakening/docs/SOURCE-RIGHTS.md",
       "reason": "Original curved-line vector artwork rendered for this reader’s Home Screen icon. No third-party image or private record."
+    },
+    {
+      "path": "examples/little-clay-cart/site/apple-touch-icon.png",
+      "sha256": "e27d416031f6e979c52f3e0c74d3cadee26f6b51a0fc6e849b9f5db4fd5019aa",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed original reader icon; no third-party image or private records."
+    },
+    {
+      "path": "examples/little-clay-cart/site/icon-192.png",
+      "sha256": "7cb75460bbd96d6acd594902cc3bdc8cb4b461a721ec95b8140de15d8c587227",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed original reader icon; no third-party image or private records."
+    },
+    {
+      "path": "examples/little-clay-cart/site/icon-512.png",
+      "sha256": "61605fabf2eabecfdc98b15884bd816f9ee12077188e87da4528e8eebb863cf1",
+      "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed original reader icon; no third-party image or private records."
     }
   ]
 }
