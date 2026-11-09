@@ -2,7 +2,11 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-five reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-five specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-six reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-six specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+
+## Editorial benchmarks · November 9, 2026
+
+[The current benchmarks](GOLD-STANDARD.md) provide concrete public examples for commissioning and review. They are included in the exact starter inventory and linked from its working agreement, preparation guide and reader-copyeditor. The dated review scope distinguishes current rendered sampling from earlier technical evidence. No runtime, edition, image, catalog or hosting changes are part of this update. Verification: all 85 kit tests and the original-sample build pass. A fresh 79-file starter export contains the exact benchmark and workflow links, with no examples, private projects or Git history. The public file/index/reachable-history audit passes. No runtime changed, so the browser regression suite was not repeated locally; the benchmark’s editorial sampling is described separately.
 
 ## Narrow-screen Awakening layout · November 6, 2026
 

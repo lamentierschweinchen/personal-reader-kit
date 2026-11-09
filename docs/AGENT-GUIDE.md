@@ -68,6 +68,8 @@ Exploratory: learn what draws them to the book, whether they are travelling, and
 
 ## 3. Try three things, then build
 
+Use the [current reader benchmarks](GOLD-STANDARD.md) to calibrate the ambition before commissioning a companion. Choose a relevant example and use its characteristic action or contextual reading; then compare a worked sample of the new idea. Record the particular benefit and where it becomes apparent. An accurate, well-presented rearrangement of the book is not automatically a worthwhile addition. Do not copy a benchmark’s form or lower a richer brief to the easiest treatment.
+
 For a reader choosing an open-ended exploratory direction, present exactly three distinct proposals grounded in the actual material. This comparison is a design exercise, not a gate to reading. If the person has already chosen a direction or explicitly asks for a specific revision, honor that instruction and prototype only unresolved interactions; do not force them back through three speculative products. A requested retrospective concept exercise may end in retain, simplify or omit without new prototypes or another preference gate. Use these three proposal families, grounded in the work rather than filled in as a template:
 
 1. **Straightforward.** Meet an obvious reading need: a character reference, place guide, unfamiliar language, argument outline or another practical companion the material warrants.

@@ -84,6 +84,8 @@ Keep editorial acceptance separate from source and technical acceptance. In the 
 
 ## Before proposing a companion
 
+Calibrate the judgment against a relevant [reader benchmark](../../docs/GOLD-STANDARD.md), using the actual experience and a finished sample of the proposal. Let an independent reviewer encounter the sample before receiving the maker’s case for it. Someone who authored the treatment can review its execution, but their endorsement is not an independent challenge to its premise. Keep this distinction in the existing private review; no extra receipt or approval ceremony is needed.
+
 Use the three proposal families in [the agent guide](../../docs/AGENT-GUIDE.md#3-try-three-things-then-build): straightforward, scholarly and experimental. They are different approaches, not ascending quality tiers. Each needs evidence and a representative piece of finished prose before its interaction is built.
 
 Reject a concept if its sample could be transferred unchanged to another book, if its interest depends on an invented premise, or if it asks for more attention than its benefit warrants. An experimental pairing must show where the comparison breaks down, not just make an unexpected association. Ask what the proposal adds beyond existing controls; a useful paragraph may need only a source link, not another interface. Keep the proposal-family labels in the design discussion, rather than repeating the production taxonomy in the reader. Keep plain reading and omission of an unhelpful companion legitimate outcomes. Honor a direction the user already chose.

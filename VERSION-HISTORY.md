@@ -1,5 +1,9 @@
 # History boundary
 
+## Concrete editorial benchmarks · November 9, 2026
+
+The agent guide and reader-copyeditor now point to specific public experiences: Homeward for playful interpretation, Castle escape for atmosphere and progression, Make tea for a small useful addition, and the current Clay Cart object study for presenting competing readings. The reference names what to examine and what not to imitate. It distinguishes a treatment author’s execution review from independent judgment of the premise. The benchmark travels with the starter. This is a documentation update; reader applications, sources, records, catalog and hosting are unchanged.
+
 ## Narrow-screen Awakening layout · November 6, 2026
 
 The library and mixed-shelf jacket leave more room around the title for wider fallback fonts. At phone widths up to 360px, the reader header puts navigation below the title and Settings control, with matching sticky offsets. The quotation-card heading can wrap at enlarged text sizes. The prepared novel, reading records, public catalog, and separate personal entrance are unchanged.
