@@ -12,7 +12,7 @@ The unchanged prepared edition contains 43 fits, 3,112 poem lines, 132 source no
 
 - Retained source HTML SHA-256: `5eb3191ae344e9251bc221868ab28e17b58910294c03128901e116d7996d1424`.
 - Exact `edition/book.json` SHA-256: `0a4e6dffad82cc9e523e89adb926dc27914e8fd57768f6314d9e81fedd297958`.
-- Source project revision: `ce5c44e62d69136f2577a7617f1e91eb209b4131`. Its private history, research and records are not imported.
+- Source project revision: `5540daaa3cfc7555d5e050a9a1d40b1ba4cdc9bc`. Its private history, research and records are not imported.
 
 ## Historical companion and images
 

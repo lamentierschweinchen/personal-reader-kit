@@ -15,7 +15,7 @@ async function regular(relative){let current=root;const parts=relative.split('/'
 export async function build(){
  assert.equal(await realpath(root),path.resolve(root),'Project must not traverse a symlink');
  const lock=JSON.parse(await regular('edition-lock.json'));
- assert.equal(lock.schema,1);assert.equal(lock.sourceCommit,'ce5c44e62d69136f2577a7617f1e91eb209b4131');
+ assert.equal(lock.schema,1);assert.equal(lock.sourceCommit,'5540daaa3cfc7555d5e050a9a1d40b1ba4cdc9bc');
  assert.deepEqual(lock.files.map(f=>f.path),[...assets.map(f=>'site/'+f),'edition/book.json',...editionAssets.map(f=>'edition/'+f)]);
  assert.equal(JSON.parse(await regular('package.json')).version,KIT_VERSION);
  const inputs=new Map();for(const f of lock.files){const b=await regular(f.path);assert.equal(b.length,f.bytes,'Size changed: '+f.path);assert.equal(sha(b),f.sha256,'Reviewed input changed: '+f.path);inputs.set(f.path,b);}

@@ -134,3 +134,6 @@ button.hall-line-note{width:26px;height:26px;min-width:26px;min-height:26px;marg
 .world-visual-first>.world-prose{grid-column:1;grid-row:1}
 .world-columns>.world-prose>p{font:var(--size)/1.67 var(--serif);max-width:38rem}
 @media(max-width:760px){.world-visual-first>:first-child,.world-visual-first>.world-prose{grid-column:auto;grid-row:auto}}
+
+/* Cover the full viewport behind the sticky header when the dark hall passes beneath it. */
+.hall-edition .masthead::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:var(--paper);z-index:-1;pointer-events:none}

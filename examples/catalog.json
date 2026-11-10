@@ -5917,7 +5917,7 @@
       "title": "Beowulf",
       "description": "Hall’s translation with an illustrated study of early medieval halls and objects.",
       "directory": "examples/beowulf",
-      "sourceCommit": "ce5c44e62d69136f2577a7617f1e91eb209b4131",
+      "sourceCommit": "5540daaa3cfc7555d5e050a9a1d40b1ba4cdc9bc",
       "sourceFileCount": 28,
       "packagingChanges": [
         "edition/book.json",
@@ -5950,7 +5950,7 @@
         {
           "path": "build.json",
           "bytes": 600,
-          "sha256": "002eacb27b7947aca8889e8817a92e4d784f3309bc44521ac051703e3264438b"
+          "sha256": "6e90e3a6caa7ec5d324f175b4c1ad0539169c5d3dc30e8604cf792c6040cc9ef"
         },
         {
           "path": "bundle.mjs",
@@ -6059,13 +6059,13 @@
         },
         {
           "path": "style.css",
-          "bytes": 43628,
-          "sha256": "c5812530c4d797b4782176bff61dcffd12f6f82ac1e5b69620d99bd882aad152"
+          "bytes": 43902,
+          "sha256": "a96201ed41f687ae6f9f293c9bf8f5c8e18f267b7cb2e2f525cfbb8f1234d20a"
         },
         {
           "path": "sw.js",
           "bytes": 1393,
-          "sha256": "d5c4b02c66646bf29dae9faffa252784ade9ced9c48ef022bf48701c108a56bc"
+          "sha256": "2d1a964334ab49efa2659e03c709fb43da47b7c153f496c0ed75eb14e71136fe"
         },
         {
           "path": "text.mjs",

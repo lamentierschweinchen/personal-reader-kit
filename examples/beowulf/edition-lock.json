@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "sourceCommit": "ce5c44e62d69136f2577a7617f1e91eb209b4131",
+  "sourceCommit": "5540daaa3cfc7555d5e050a9a1d40b1ba4cdc9bc",
   "bookId": "beowulf-hall-gutenberg-16328",
   "sourceSha256": "5eb3191ae344e9251bc221868ab28e17b58910294c03128901e116d7996d1424",
   "librarySha256": "11e5b0389bcaaa381a412ada7e39fc22f5bd24c5e81ac7a3d9bcb12eb3aced54",
@@ -67,8 +67,8 @@
     },
     {
       "path": "site/style.css",
-      "bytes": 43628,
-      "sha256": "c5812530c4d797b4782176bff61dcffd12f6f82ac1e5b69620d99bd882aad152"
+      "bytes": 43902,
+      "sha256": "a96201ed41f687ae6f9f293c9bf8f5c8e18f267b7cb2e2f525cfbb8f1234d20a"
     },
     {
       "path": "site/manifest.webmanifest",

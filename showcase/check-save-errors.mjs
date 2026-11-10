@@ -13,6 +13,7 @@ import {settledRender,settledCapture} from '../tests/experience-browser.mjs';
 if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const locations={
+ beowulf:['beowulf-hall-gutenberg-16328','fit-I'],
  austen:['austen-pride-1894','chapter-1'],alice:['alice-rackham-28885','chapter-01'],walden:['walden','chap02'],'two-halls':['hegel','section-3'],
  odyssey:['odyssey-butler-1727','book-01'],dracula:['dracula','chap01'],'at-table':['savarin','s226'],'inward-life':['julian','s13'],
  'beside-the-bed':['nightingale-1898','id00210'],'learning-to-see':['ruskin','letter-1'],'music-and-feeling':['hanslick','chapter-1'],
@@ -36,18 +37,19 @@ const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const state=(page,mount)=>page.evaluate(async mount=>(await import(mount+'db.mjs')).loadState(),mount);
 const ready=(page,book,section)=>page.locator(`#reading-text[data-book="${book}"][data-section="${section}"][data-position-ready="true"]`).waitFor();
 async function notices(page){
- const dismiss=page.locator('#dialog[open] [data-action="notice-continue"],#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="cart-notice-continue"]');
+ const dismiss=page.locator('#dialog[open] [data-action="notice-continue"],#dialog[open] [data-action="notice-read"],#dialog[open] [data-action="cart-notice-continue"],#dialog[open] [data-action="hall-notice-continue"]');
  if(await dismiss.count()){await dismiss.first().click();await page.locator('#dialog').waitFor({state:'hidden'});}
  const inline=page.locator('[data-action="dismiss-source-notice"]');if(await inline.count())await inline.first().click();
 }
 async function selectSource(page,section,slug){
  return page.evaluate(({section,slug})=>{
   const blocks=[...document.querySelectorAll('#reading-text [data-block]')],source=new Map(section.blocks.map(b=>[b.id,b]));let pair;
+  // Beowulf uses individual verse lines, so its substantial selection spans two lines.
   // Nietzsche's aphorism number is a separate source block; retain it in the range.
   const span=slug==='nietzsche'?2:1;
   for(let i=0;i<blocks.length-span;i++){
    const selected=blocks.slice(i,i+span+1),a=source.get(selected[0].dataset.block),b=source.get(selected.at(-1).dataset.block);
-   if(a&&b&&a.text.length>100&&b.text.length>60&&selected.every(el=>el.textContent===source.get(el.dataset.block)?.text&&!el.querySelector('button,a'))){pair=selected;break;}
+   if(a&&b&&a.text.length>(slug==='beowulf'?30:100)&&b.text.length>(slug==='beowulf'?45:60)&&selected.every(el=>el.textContent===source.get(el.dataset.block)?.text&&!el.querySelector('button,a'))){pair=selected;break;}
   }
   // Some apparatus-rich editions interleave source links with every paragraph.
   // A genuine substantial single-block selection still exercises the save path.
