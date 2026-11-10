@@ -22,7 +22,7 @@ The separate public catalogue at newreading.app uses [bounded usage counts](http
 
 [How writers write](https://newreading.app/writers/) collects twelve writers’ advice with comparative essays and writing exercises.
 
-**Browse the [library](https://newreading.app/library/):** twenty-six editions, including bilingual collections and meetings of writers, with maker credit, companion previews and source details. [Propose a public edition](docs/LIBRARY.md) for review; keep personal books and reading records out of proposals.
+**Browse the [library](https://newreading.app/library/):** twenty-seven editions, including bilingual collections and meetings of writers, with maker credit, companion previews and source details. [Propose a public edition](docs/LIBRARY.md) for review; keep personal books and reading records out of proposals.
 
 **Read a complete example:** [Pride and Prejudice](https://newreading.app/austen/), [Alice](https://newreading.app/alice/), [Walden & Civil Disobedience](https://newreading.app/walden/), [Two lecture halls: Schopenhauer and Hegel](https://newreading.app/two-halls/), [The Odyssey](https://newreading.app/odyssey/), or [Dracula](https://newreading.app/dracula/). Alice, Odyssey and Dracula also have short visual games beside the reader. Each has its own visual identity, source adapter, credited edition and offline reading. [Example source and hosting details](examples/README.md). The public entrance is [newreading.app](https://newreading.app/); [release status](docs/STATUS.md) records the live verification and its limits.
 

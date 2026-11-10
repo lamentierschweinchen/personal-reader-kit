@@ -752,6 +752,35 @@
         "Source edition · Project Gutenberg"
       ],
       "rightsPath": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "beowulf",
+      "exampleId": "beowulf",
+      "title": "Beowulf",
+      "author": "Anonymous · translated by J. Lesslie Hall",
+      "shortAuthor": "J. Lesslie Hall’s translation",
+      "kind": "Epic poem",
+      "language": "English",
+      "edition": "Hall’s complete translation, Project Gutenberg eBook 16328. Original front matter, notes and reference apparatus retained. The historical companion has separately licensed photographs, including a noncommercial platter image.",
+      "editionLabel": "Hall’s translation · Project Gutenberg transcription",
+      "feature": "The world of the hall",
+      "description": "Read the poem, then explore timber buildings, feasting, a helmet’s animal design, and the work behind gold and cloth.",
+      "categories": [
+        "words",
+        "art",
+        "ideas"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16328"
+      ],
+      "sourceLabels": [
+        "Source edition · Project Gutenberg"
+      ],
+      "rightsPath": "examples/beowulf/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

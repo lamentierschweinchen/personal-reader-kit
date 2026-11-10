@@ -133,3 +133,7 @@
 .mixed-library .cover-clay-cart strong{font:normal 16cqw/1.02 Georgia,serif;top:20%;left:10%;text-align:left;z-index:2}
 .mixed-library .cover-clay-cart .cover-art{position:absolute;right:-4%;bottom:8%;width:78%;height:48%;opacity:.45}
 .mixed-library .cover-clay-cart .cover-meta,.mixed-library .cover-clay-cart .cover-bottom{z-index:2}
+.mixed-library .cover-beowulf{background:#263a43;color:#e8d4ac;font-family:Georgia,serif}
+.mixed-library .cover-beowulf strong{font:normal 16cqw/1.05 Georgia,serif;top:18%;left:8%;right:8%;text-align:center;z-index:2}
+.mixed-library .cover-beowulf img{position:absolute;left:15%;top:35%;width:70%;height:53%;object-fit:cover;object-position:center 50%;border-radius:45% 45% 8% 8%}
+.mixed-library .cover-beowulf .cover-meta,.mixed-library .cover-beowulf .cover-bottom{z-index:2}

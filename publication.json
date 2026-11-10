@@ -1892,7 +1892,49 @@
     "examples/little-clay-cart/site/text.mjs",
     "examples/little-clay-cart/tests/release.test.mjs",
     "examples/little-clay-cart/vercel.json",
-    "showcase/assets/social-clay-cart.jpg"
+    "showcase/assets/social-clay-cart.jpg",
+    "examples/beowulf/.gitignore",
+    "examples/beowulf/.vercelignore",
+    "examples/beowulf/AGENTS.md",
+    "examples/beowulf/LICENSE",
+    "examples/beowulf/README.md",
+    "examples/beowulf/VERSION-HISTORY.md",
+    "examples/beowulf/docs/HALL-WORLD-SOURCES.md",
+    "examples/beowulf/docs/SOURCE-RIGHTS.md",
+    "examples/beowulf/edition-lock.json",
+    "examples/beowulf/edition/book.json",
+    "examples/beowulf/package.json",
+    "examples/beowulf/scripts/build.mjs",
+    "examples/beowulf/site/app.mjs",
+    "examples/beowulf/site/apple-touch-icon.png",
+    "examples/beowulf/site/beowulf-model.mjs",
+    "examples/beowulf/site/bundle.mjs",
+    "examples/beowulf/site/core.mjs",
+    "examples/beowulf/site/db.mjs",
+    "examples/beowulf/edition/hall-birdoswald.jpg",
+    "examples/beowulf/edition/hall-clasp.jpg",
+    "examples/beowulf/edition/hall-helmet.jpg",
+    "examples/beowulf/edition/hall-imagined.png",
+    "examples/beowulf/edition/hall-platter.jpg",
+    "examples/beowulf/edition/hall-whorl.jpg",
+    "examples/beowulf/site/hall-world.mjs",
+    "examples/beowulf/site/icon-192.png",
+    "examples/beowulf/site/icon-512.png",
+    "examples/beowulf/site/icon.svg",
+    "examples/beowulf/site/index.html",
+    "examples/beowulf/site/library.mjs",
+    "examples/beowulf/site/manifest.webmanifest",
+    "examples/beowulf/site/robots.txt",
+    "examples/beowulf/site/share-card.css",
+    "examples/beowulf/site/share-card.mjs",
+    "examples/beowulf/site/share.mjs",
+    "examples/beowulf/site/style.css",
+    "examples/beowulf/site/text.mjs",
+    "examples/beowulf/tests/hall-profile.test.mjs",
+    "examples/beowulf/tests/release.test.mjs",
+    "examples/beowulf/vercel.json",
+    "showcase/assets/social-beowulf.jpg",
+    "showcase/check-beowulf.mjs"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4783,6 +4825,48 @@
       "sha256": "202e9908b4de1cc1e885aff43db23ef4ccf4b6dc6a3fe342542d9ee92de01da6",
       "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-approved edition, scholarly reflow or historical object photograph; source and license are recorded in the rights documentation."
+    },
+    {
+      "path": "examples/beowulf/edition/book.json",
+      "sha256": "0a4e6dffad82cc9e523e89adb926dc27914e8fd57768f6314d9e81fedd297958",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-birdoswald.jpg",
+      "sha256": "4f010ea6ab991e941362107cbb3b508506712eab65d2a8d0380de49fa188c39e",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-clasp.jpg",
+      "sha256": "0f1b11e548a7766c0a26449c4a0ae986b78fbe92a341f8ca63c0aed5f6224d2c",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-helmet.jpg",
+      "sha256": "8ed379eb4604b67d8678f28b0d436d381728e3bde7352ab62b27da381503a042",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-imagined.png",
+      "sha256": "0af36bb3d0dbfa27ba003a78bb3ed8f6b343d5bfe78b99e18039f1e898775f79",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-platter.jpg",
+      "sha256": "c60a1d4983a0499abfa0de261c04ce71c1d9c86d6776e490a47a9fadba5bc6f9",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/beowulf/edition/hall-whorl.jpg",
+      "sha256": "fa982b34dc6b968bab617cc48914414248fc4e4a21d1d69797838dd3a2c0879b",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
     }
   ],
   "reviewedSiteAssets": [
@@ -5145,6 +5229,12 @@
       "sha256": "466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75",
       "provenance": "showcase/ASSETS.md",
       "reason": "Original 1200 by 630 catalog card and wheel motif with licensed site font; no book excerpt or private records."
+    },
+    {
+      "path": "showcase/assets/social-beowulf.jpg",
+      "sha256": "f9e8e034a794d059a4ffb2a4856f573fc671a5cbbe95fca06026785c99d5771d",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Reviewed Beowulf cover card adapting Geni’s CC BY-SA 4.0 helmet photograph; attribution and adaptation terms recorded."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5825,6 +5915,24 @@
       "sha256": "61605fabf2eabecfdc98b15884bd816f9ee12077188e87da4528e8eebb863cf1",
       "provenance": "examples/little-clay-cart/docs/SOURCE-RIGHTS.md",
       "reason": "Reviewed original reader icon; no third-party image or private records."
+    },
+    {
+      "path": "examples/beowulf/site/apple-touch-icon.png",
+      "sha256": "1f593f5ddaa8c952314f66025bd0154db6d3bbf395beb39034fd4effbff3f5f8",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Original Beowulf ship-and-mast icon; no third-party image or book text."
+    },
+    {
+      "path": "examples/beowulf/site/icon-192.png",
+      "sha256": "a0c88ef8cd087d86fcf7b040935b5919eee2326a328859e9be39c0595d0e023b",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Original Beowulf ship-and-mast icon; no third-party image or book text."
+    },
+    {
+      "path": "examples/beowulf/site/icon-512.png",
+      "sha256": "f3ebb3b4a569fd023cbc6f87a99b385eb1f3ea4fa81162c737f278ea84224e71",
+      "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
+      "reason": "Original Beowulf ship-and-mast icon; no third-party image or book text."
     }
   ]
 }

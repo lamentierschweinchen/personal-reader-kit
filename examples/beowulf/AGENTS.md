@@ -1,0 +1,3 @@
+# Public Beowulf edition
+
+This is the owner-authorized public copy of Beowulf. Preserve the exact Hall edition, its identity, lineation, notes, marginal summaries, source destinations and complete Gutenberg notice/terms. Do not add private research or reading records. The active historical companion and its individually licensed photographs are separate from the source text. Preserve historical qualifications and attribution; the platter image is noncommercial-only. Update exact input/output pins and test the mounted reader before release. The code license does not relicense the book or images.

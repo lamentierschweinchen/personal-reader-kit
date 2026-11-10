@@ -324,6 +324,18 @@
       "alt": "The Little Clay Cart: a red cover with a wheel motif and the title beside it.",
       "bytes": 66715,
       "sha256": "466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75"
+    },
+    "beowulf": {
+      "id": "beowulf",
+      "file": "assets/social-beowulf.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "Beowulf",
+      "author": "J. Lesslie Hall’s translation",
+      "feature": "The world of the hall",
+      "alt": "Beowulf, J. Lesslie Hall’s translation. A dark blue jacket shows the reconstructed Sutton Hoo helmet. The world of the hall.",
+      "bytes": 57724,
+      "sha256": "f9e8e034a794d059a4ffb2a4856f573fc671a5cbbe95fca06026785c99d5771d"
     }
   }
 }

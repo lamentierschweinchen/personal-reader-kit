@@ -359,3 +359,7 @@ The owner directed a new homepage and guide for newreading.app after several rev
 ## Three additional public editions · 21 October 2026
 
 The owner authorized the Nietzsche/Epicurus and Mountains public copies, and resolution followed by publication of War and Peace. These are selected files from independent local source checkpoints, not imported histories. Their exact scope, packaging deltas, source/rights notes and reproducible output pins are in `examples/catalog.json`. The existing public destination and fourteen explicit newreading.app paths are the only catalogue audience; private and unpublished projects remain outside this history.
+
+## November 9, 2026 — Beowulf
+
+Adds the owner-authorized Hall translation and The world of the hall, accepted by the parent and independent editor after mobile artifact ordering and the building lede were corrected. Twenty-seven editions now have explicit catalogue, shelf, canonical route, analytics and continuation admission. The new package pins the unchanged source edition and separately licensed photographs, outside the starter export. Its mounted browser check covers all 43 fits, the four studies, source notices, notes, return position and stopped-origin recovery. Physical devices and full proofreading remain separate.

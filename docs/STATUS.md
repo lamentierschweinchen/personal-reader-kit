@@ -2,7 +2,11 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-six reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-six specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-seven reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-seven specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+
+## Beowulf — November 9, 2026
+
+The owner authorized publication if the parent and independent editor accepted the stronger replacement against the current benchmarks. Both accepted The world of the hall after correcting mobile image order and the building lede. The selected public copy adds the unchanged Hall edition at `/beowulf/`, with its library entry and illustrated context. [Exact sources, image terms and limits](../examples/beowulf/docs/SOURCE-RIGHTS.md). This scope includes the separately attributed noncommercial platter image, not commercial image reuse. Starter files, other source editions, private gates and the personal entrance retain their existing boundaries. The release’s exact build, hosted checks and CI are recorded in the workspace release record.
 
 ## Editorial benchmarks · November 9, 2026
 

@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "sourceCommit": "ce5c44e62d69136f2577a7617f1e91eb209b4131",
+  "bookId": "beowulf-hall-gutenberg-16328",
+  "sourceSha256": "5eb3191ae344e9251bc221868ab28e17b58910294c03128901e116d7996d1424",
+  "librarySha256": "11e5b0389bcaaa381a412ada7e39fc22f5bd24c5e81ac7a3d9bcb12eb3aced54",
+  "files": [
+    {
+      "path": "site/index.html",
+      "bytes": 3135,
+      "sha256": "8f7c2644fbe34367bd6be749c4ced7fe9011e17b26846f39a7ae7816428335f4"
+    },
+    {
+      "path": "site/app.mjs",
+      "bytes": 96242,
+      "sha256": "8ec2c495309ada2fbb46e5bdc2b10a7fc0beca2ec94d3ec4695f9b5019f7c482"
+    },
+    {
+      "path": "site/hall-world.mjs",
+      "bytes": 21208,
+      "sha256": "499172110cb7bdd6bcc7c4fabf3ac8b70b419f02d016301af2ade26ba0cdde5b"
+    },
+    {
+      "path": "site/core.mjs",
+      "bytes": 18232,
+      "sha256": "c757e99f1febc50ccfd409f7135aa86d56da332d6cec1a4d0400ad458b453580"
+    },
+    {
+      "path": "site/beowulf-model.mjs",
+      "bytes": 10625,
+      "sha256": "b36c8bbbb678220ebf7009c0bee44ca52739bf96883f5cc66486d6c186c6827e"
+    },
+    {
+      "path": "site/db.mjs",
+      "bytes": 7262,
+      "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+    },
+    {
+      "path": "site/bundle.mjs",
+      "bytes": 4496,
+      "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+    },
+    {
+      "path": "site/library.mjs",
+      "bytes": 1088,
+      "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+    },
+    {
+      "path": "site/text.mjs",
+      "bytes": 3489,
+      "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+    },
+    {
+      "path": "site/share.mjs",
+      "bytes": 1342,
+      "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+    },
+    {
+      "path": "site/share-card.mjs",
+      "bytes": 16900,
+      "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+    },
+    {
+      "path": "site/share-card.css",
+      "bytes": 1800,
+      "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+    },
+    {
+      "path": "site/style.css",
+      "bytes": 43628,
+      "sha256": "c5812530c4d797b4782176bff61dcffd12f6f82ac1e5b69620d99bd882aad152"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 415,
+      "sha256": "af8dfb104a1c3aa469e8fb49bb0f22f8c7db9cfcad8c3091fe05a81c560f2f9a"
+    },
+    {
+      "path": "site/icon.svg",
+      "bytes": 303,
+      "sha256": "cacbf4e52b647d92af500c6cf0fa9547759f2068a226cd4a9d9d6d4ed536ebb2"
+    },
+    {
+      "path": "site/apple-touch-icon.png",
+      "bytes": 4029,
+      "sha256": "1f593f5ddaa8c952314f66025bd0154db6d3bbf395beb39034fd4effbff3f5f8"
+    },
+    {
+      "path": "site/icon-192.png",
+      "bytes": 4208,
+      "sha256": "a0c88ef8cd087d86fcf7b040935b5919eee2326a328859e9be39c0595d0e023b"
+    },
+    {
+      "path": "site/icon-512.png",
+      "bytes": 10498,
+      "sha256": "f3ebb3b4a569fd023cbc6f87a99b385eb1f3ea4fa81162c737f278ea84224e71"
+    },
+    {
+      "path": "site/robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "edition/book.json",
+      "bytes": 1774705,
+      "sha256": "0a4e6dffad82cc9e523e89adb926dc27914e8fd57768f6314d9e81fedd297958"
+    },
+    {
+      "path": "edition/hall-imagined.png",
+      "bytes": 3157970,
+      "sha256": "0af36bb3d0dbfa27ba003a78bb3ed8f6b343d5bfe78b99e18039f1e898775f79"
+    },
+    {
+      "path": "edition/hall-platter.jpg",
+      "bytes": 193692,
+      "sha256": "c60a1d4983a0499abfa0de261c04ce71c1d9c86d6776e490a47a9fadba5bc6f9"
+    },
+    {
+      "path": "edition/hall-whorl.jpg",
+      "bytes": 19405,
+      "sha256": "fa982b34dc6b968bab617cc48914414248fc4e4a21d1d69797838dd3a2c0879b"
+    },
+    {
+      "path": "edition/hall-birdoswald.jpg",
+      "bytes": 555499,
+      "sha256": "4f010ea6ab991e941362107cbb3b508506712eab65d2a8d0380de49fa188c39e"
+    },
+    {
+      "path": "edition/hall-helmet.jpg",
+      "bytes": 205632,
+      "sha256": "8ed379eb4604b67d8678f28b0d436d381728e3bde7352ab62b27da381503a042"
+    },
+    {
+      "path": "edition/hall-clasp.jpg",
+      "bytes": 259980,
+      "sha256": "0f1b11e548a7766c0a26449c4a0ae986b78fbe92a341f8ca63c0aed5f6224d2c"
+    }
+  ]
+}

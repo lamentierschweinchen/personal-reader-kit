@@ -135,3 +135,7 @@ The pale green jacket and curved lines are original code-drawn artwork matching 
 ## The Little Clay Cart
 
 `assets/social-clay-cart.jpg` is an original 1200 × 630 composition with a wheel motif and licensed IM Fell typeface. It contains no book excerpt or private material. The source artwork and article licenses are documented in `examples/little-clay-cart/docs/SOURCE-RIGHTS.md`. SHA-256 `466f1d9a209986ea6c24b9854beb674330a1d65d98c7835e1c17d4c72c29dd75`.
+
+## Beowulf — November 9, 2026
+
+The dark blue jacket uses Geni’s photograph of the reconstructed Sutton Hoo helmet, [source](https://commons.wikimedia.org/wiki/File:Sutton_Hoo_helmet_2016.JPG), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), resized and cropped into an original jacket composition. It depicts the companion’s historical object, not a known helmet owned by Beowulf. The cover adaptation and `assets/social-beowulf.jpg` are offered under CC BY-SA 4.0; existing typeface licenses remain separate. The 1200 × 630 card was visually reviewed and contains no book quotation or private records. SHA-256 `f9e8e034a794d059a4ffb2a4856f573fc671a5cbbe95fca06026785c99d5771d`. The other companion photographs and noncommercial platter restriction are documented in `examples/beowulf/docs/SOURCE-RIGHTS.md`; they are not site-wide stock artwork.
