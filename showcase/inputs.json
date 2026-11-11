@@ -1,7 +1,13 @@
 {
   "schema": 1,
-  "description": "Exact build inputs for the catalog and twenty-seven owner-approved editions, including optional games. Source-specific reuse terms remain separate.",
+  "description": "Exact build inputs for the catalog, twenty-seven library editions, and the standalone Montaigne scan companion.",
   "files": [
+    "showcase/direct-scan.mjs",
+    "showcase/direct/montaigne/index.html",
+    "showcase/direct/montaigne/style.css",
+    "showcase/direct/montaigne/app.js",
+    "showcase/direct/montaigne/assets/icon.svg",
+    "showcase/assets/montaigne-1551.jpg",
     "examples/a-dolls-house/edition-lock.json",
     "examples/a-dolls-house/edition/book.json",
     "examples/a-dolls-house/package.json",
