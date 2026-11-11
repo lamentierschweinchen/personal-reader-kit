@@ -6,7 +6,7 @@ The public destination remains [lamentierschweinchen/personal-reader-kit](https:
 
 ## Library title legibility · November 10, 2026
 
-Library title links and the homepage’s selected-book label use semibold Piazzolla instead of the distressed display face. Beowulf’s jacket title is larger and heavier. All 27 labels fit at six viewport widths from 320 to 1440 pixels; measured title contrast is 14.66:1 normally and 5.62:1 on hover. Keyboard focus retains its outline and adds the same underline. The existing 14 Chromium/WebKit library layouts pass, including enlarged text and no-JavaScript access. These are browser checks, not physical-device testing. Reader source files, stored records, public scope and the personal entrance are unchanged.
+Library title links and the homepage’s selected-book label use semibold Piazzolla instead of the distressed display face. Beowulf’s jacket title is larger and heavier. All 27 labels fit at six viewport widths from 320 to 1440 pixels; measured title contrast is 14.66:1 normally and 5.62:1 on hover. Keyboard focus retains its outline and adds the same underline. The existing 14 Chromium/WebKit library layouts pass, including enlarged text and no-JavaScript access. Each visual row now aligns its author, title, description, credit and edition link. Geometry checks cover the full shelf, filtering, sorting and 200% text, with no overlap or fixed text heights. These are browser checks, not physical-device testing. Reader source files, stored records, public scope and the personal entrance are unchanged.
 
 ## Beowulf — November 9, 2026
 

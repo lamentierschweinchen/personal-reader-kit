@@ -2,7 +2,7 @@
 
 ## Legible library titles · November 10, 2026
 
-Library labels now use the existing Piazzolla face at semibold weight, with roomier lines and an underline on hover or keyboard focus. The homepage’s selected title and static shelf use the same treatment. Beowulf’s jacket title is larger and heavier. Cover illustrations, book wording and reader applications are unchanged.
+Library labels now use the existing Piazzolla face at semibold weight, with roomier lines and an underline on hover or keyboard focus. The homepage’s selected title and static shelf use the same treatment. Beowulf’s jacket title is larger and heavier. Cards in each library row align authors, titles, descriptions, credits and links while allowing text to wrap. Cover illustrations, book wording and reader applications are unchanged.
 
 ## Concrete editorial benchmarks · November 9, 2026
 

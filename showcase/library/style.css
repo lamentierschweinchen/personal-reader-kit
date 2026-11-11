@@ -36,6 +36,15 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 @media(max-width:1100px){.book-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,12rem),1fr))}.cover,.book-info{max-width:17rem}}
 @media(max-width:520px){.book-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,10rem),1fr))}.intro h1{font-size:clamp(2rem,10vw,2.5625rem)}.book-author,.credit,.filters button,.results-line,.sort select{font-size:.625rem}}
 
+/* Align each shelf row by content, including wrapped authors and titles. */
+@supports(grid-template-rows:subgrid){
+ .book-grid>.book{display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:0}
+ .book-grid>.book>.cover-button{align-self:start}
+ .book-grid .book-info{display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:0;width:100%;margin-block:0;align-self:stretch}
+ .book-grid .book-info>*{align-self:start}
+ .book-grid .book-info>.edition-link{justify-self:start}
+}
+
 .sort-control{position:relative;display:inline-flex;align-items:center;min-width:0}.sort-control>.icon{position:absolute;right:6px;width:14px;height:14px;pointer-events:none;transform:rotate(90deg);color:var(--muted)}
 
 /* A quiet baseline follows the native control without an oversized focus box. */

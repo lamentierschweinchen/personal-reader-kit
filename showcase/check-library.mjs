@@ -15,6 +15,22 @@ async function layout(page,label){
  const result=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,targets:[...document.querySelectorAll('a:not(.skip),button,input,select,summary')].filter(e=>!e.closest('p')&&e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden'&&!e.closest('details:not([open]) :not(summary)')).map(e=>{const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label')||e.textContent.trim().slice(0,40),w:r.width,h:r.height};})}));
  assert.ok(result.scroll<=result.width,label+' overflow');assert.ok(result.targets.every(t=>t.w>=44&&t.h>=44),label+' small targets: '+JSON.stringify(result.targets.filter(t=>t.w<44||t.h<44)));
 }
+// Neighboring cards align their text rows without clipping longer entries.
+async function alignedCards(page,label){
+ const cards=await page.locator('.book').evaluateAll(books=>books.filter(b=>b.getClientRects().length).map(b=>({
+  id:b.dataset.edition,top:b.getBoundingClientRect().top,
+  fields:['.book-author','h2','.book-feature','.credit','.edition-link'].map(selector=>{const r=b.querySelector(selector).getBoundingClientRect();return {selector,top:r.top,bottom:r.bottom};})
+ })));
+ const rows=[];
+ for(const card of cards){
+  let row=rows.find(r=>Math.abs(r[0].top-card.top)<1);if(!row)rows.push(row=[]);row.push(card);
+  card.fields.slice(1).forEach((field,i)=>assert.ok(field.top>=card.fields[i].bottom-.5,`${label}: ${card.id} overlapping ${field.selector}`));
+ }
+ for(const row of rows)for(let i=0;i<row[0].fields.length;i++){
+  const tops=row.map(card=>card.fields[i].top);
+  assert.ok(Math.max(...tops)-Math.min(...tops)<1,`${label}: ${row[0].fields[i].selector} misaligned in ${row.map(c=>c.id).join(', ')}`);
+ }
+}
 // Compare the jacket with the actual entrance, rather than accepting five
 // family declarations which can still flatten the readers into one template.
 async function collectionTypography(browser,page){
@@ -59,7 +75,7 @@ try{
    for(const viewport of sizes){
     const context=await browser.newContext({viewport,hasTouch:viewport.width<600,reducedMotion:'reduce'}),page=await context.newPage(),errors=[],unexpected=[];
     page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(base+'/')&&!r.url().startsWith('data:'))unexpected.push(r.url());});
-    await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');await jacketFit(page,`${engine}/${viewport.width} normal`);
+    await page.goto(base+'/library/');await page.waitForFunction(()=>document.body.dataset.libraryReady==='true');await settle(page);await layout(page,'Library');await alignedCards(page,'Library');await jacketFit(page,`${engine}/${viewport.width} normal`);
     for(const id of ['antigone','a-dolls-house','book-of-tea']){await page.locator(`[data-preview="${id}"]`).click();await page.locator('dialog[open]').waitFor();await settle(page);await jacketFit(page,`${engine}/${viewport.width} ${id} preview`,'#edition-dialog .cover');if(viewport.width===1280)await page.locator('dialog').screenshot({path:fileURLToPath(new URL(`${engine}-${id}-preview-1280.png`,out)),animations:'disabled'});await page.locator('.close-dialog').click();await page.waitForURL(base+'/library/');}
     // A wide system face guards the jacket when the preferred serif is absent.
     // This is a fallback-width control, not a simulation of a particular OS.
@@ -71,10 +87,10 @@ try{
     }
     const typography=viewport.width===320?await collectionTypography(browser,page):null;
     assert.equal(await page.locator('.book:not([hidden])').count(),editionCount);
-    const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);
+    const cardWidth=await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width);await page.locator('[data-filter="game"]').click();assert.equal(await page.locator('.book[data-edition="alice"]').evaluate(e=>e.getBoundingClientRect().width),cardWidth);assert.equal(await page.locator('.book:not([hidden])').count(),3);await alignedCards(page,'Filtered shelf');
     await page.locator('[data-filter="all"]').click();await page.locator('#search').fill('Haldane');assert.equal(await page.locator('.book:not([hidden])').getAttribute('data-edition'),'two-halls');
     await page.locator('#search').fill('not on this shelf');assert.equal(await page.locator('.empty').isVisible(),true);await page.locator('#reset').click();assert.equal(await page.locator('#search').evaluate(e=>e===document.activeElement),true);
-    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'a-dolls-house');await page.locator('#sort').selectOption('shelf');
+    await page.locator('#sort').selectOption('title');assert.equal(await page.locator('.book').first().getAttribute('data-edition'),'a-dolls-house');await alignedCards(page,'Sorted shelf');await page.locator('#sort').selectOption('shelf');
     // Native macOS WebKit Tab skips buttons; Option-Tab traversal is checked separately.
     // Native selection keeps a visible keyboard baseline without a large focus box.
     await page.locator('[data-filter="game"]').focus();await page.keyboard.press('Tab');
@@ -91,7 +107,7 @@ try{
     // Browser reading storage is unaffected by catalogue actions.
     assert.deepEqual(await page.evaluate(async()=>({dbs:(await indexedDB.databases()).map(d=>d.name),local:localStorage.length,session:sessionStorage.length})),{dbs:[],local:0,session:0});
     await page.locator('h1').click();await page.screenshot({path:fileURLToPath(new URL(`${engine}-${viewport.width}x${viewport.height}.png`,out)),fullPage:true,animations:'disabled'});
-    const originalSize=await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));await page.evaluate(()=>document.documentElement.style.fontSize='200%');assert.ok(await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>=originalSize*1.9);await layout(page,'200% text');await jacketFit(page,`${engine}/${viewport.width} enlarged`);
+    const originalSize=await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize));await page.evaluate(()=>document.documentElement.style.fontSize='200%');assert.ok(await page.locator('.book-feature').first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))>=originalSize*1.9);await layout(page,'200% text');await alignedCards(page,'200% text');await jacketFit(page,`${engine}/${viewport.width} enlarged`);
     assert.deepEqual(unexpected,[]);assert.deepEqual(errors,[]);receipts.push({engine,viewport,search:true,filter:true,sort:true,dialogExit:true,focusReturn:true,previewReopen:true,stableFilterWidth:true,noReadingStorage:true,...(typography?{typography}:{})});await context.close();
    }
    const plainContext=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width:390,height:844}}),plain=await plainContext.newPage();await plain.goto(base+'/library/');await settle(plain);assert.equal(await plain.locator('.cover-button').count(),editionCount);assert.equal(await plain.locator('.browse-tools').isVisible(),false);await plain.locator('[data-preview="alice"]').click();assert.equal(new URL(plain.url()).pathname,'/library/alice/');assert.equal(await plain.locator('h1').textContent(),'Alice’s Adventures in Wonderland');assert.equal(await plain.locator('.edition-description .button-dark').getAttribute('href'),'/alice/');await plain.locator('.source-details summary').click();assert.equal(await plain.locator('.source-details[open]').count(),1);await plainContext.close();
