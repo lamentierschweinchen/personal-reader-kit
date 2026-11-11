@@ -1467,3 +1467,23 @@
 !start.txt
 !style.css
 !vercel.json
+
+# Montaigne direct-route inputs
+!direct/
+!direct/montaigne/
+!direct/montaigne/assets/
+!direct-scan.mjs
+!direct/montaigne/index.html
+!direct/montaigne/style.css
+!direct/montaigne/app.js
+!direct/montaigne/assets/icon.svg
+!showcase/direct/
+!showcase/direct/montaigne/
+!showcase/direct/montaigne/assets/
+!showcase/direct-scan.mjs
+!showcase/direct/montaigne/index.html
+!showcase/direct/montaigne/style.css
+!showcase/direct/montaigne/app.js
+!showcase/direct/montaigne/assets/icon.svg
+!assets/montaigne-1551.jpg
+!showcase/assets/montaigne-1551.jpg

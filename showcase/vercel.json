@@ -51,6 +51,13 @@
       "status": 308
     },
     {
+      "src": "^/montaigne/$",
+      "headers": {
+        "Link": "<https://newreading.app/montaigne/>; rel=\"canonical\""
+      },
+      "continue": true
+    },
+    {
       "src": "^(?:/(.*))$",
       "headers": {
         "X-Content-Type-Options": "nosniff",
@@ -68,7 +75,7 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|writers|awakening|clay-cart|beowulf))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|writers|awakening|clay-cart|beowulf|montaigne))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

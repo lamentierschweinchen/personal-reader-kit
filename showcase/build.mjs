@@ -4,6 +4,7 @@ import path from 'node:path';
 import {buildLibrary} from './library/render.mjs';
 import {socialCards,validateSocialCards} from './social.mjs';
 import {buildPages} from './pages.mjs';
+import {mountDirectScan} from './direct-scan.mjs';
 import {injectAnalytics,appendAnalyticsLoader} from './analytics.mjs';
 import {injectContinuation,adaptContinuationLibrary} from './continuation.mjs';
 
@@ -37,7 +38,8 @@ export async function buildShowcase({readers=true,output=path.join(root,'dist')}
     const library=path.join(output,'library/index.html');
     await writeFile(library,injectContinuation(await readFile(library,'utf8'),{profiles:continuationProfiles}));
   }
-  const result={catalogueFiles:publicFiles.length+library.pages.length,readers:editions,personalBooksIncluded:false};
+  const directRoutes=readers?[await mountDirectScan(output)]:[];
+  const result={catalogueFiles:publicFiles.length+library.pages.length,readers:editions,directRoutes,personalBooksIncluded:false};
   console.log(JSON.stringify(result));return result;
 }
 if(process.argv[1]===fileURLToPath(import.meta.url))await buildShowcase();

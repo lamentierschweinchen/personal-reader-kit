@@ -3,6 +3,13 @@
   "sampleProvenance": "Original fictional writing created for this kit; MIT permission. No personal reader content.",
   "originalSampleSha256": "19cdbf9d1484693e3549bd360dc993c30b35755c8d28e499cf3a1e516dca1fc3",
   "files": [
+    "showcase/direct-scan.mjs",
+    "showcase/direct/montaigne/index.html",
+    "showcase/direct/montaigne/style.css",
+    "showcase/direct/montaigne/app.js",
+    "showcase/direct/montaigne/assets/icon.svg",
+    "showcase/assets/montaigne-1551.jpg",
+    "showcase/test-direct-scan.mjs",
     ".github/ISSUE_TEMPLATE/edition.yml",
     ".github/workflows/check.yml",
     ".gitignore",
@@ -4870,6 +4877,12 @@
     }
   ],
   "reviewedSiteAssets": [
+    {
+      "path": "showcase/assets/montaigne-1551.jpg",
+      "sha256": "034ff61f4a32e28a5d46990373a3276e60164db7a2ac318875ee8cf993172eee",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "John Carter Brown Library CC BY 4.0 1551 festival woodcut, two scan pages joined, cropped and resized; attribution and exact source recorded."
+    },
     {
       "path": "showcase/assets/book.webp",
       "sha256": "608caa3bbe510cfee50d3775b25bfa8145816eea7381dea7a949c915648044f9",
