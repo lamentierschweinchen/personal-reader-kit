@@ -61,7 +61,7 @@
 
 .mixed-library .chosen-book{min-height:159px;display:grid;grid-template-columns:minmax(200px,1.15fr) minmax(200px,1fr) auto;align-items:center;gap:50px;padding:27px 6px 32px}
 .mixed-library .chosen-author{font:.625rem/1.6 var(--mono);color:var(--muted);margin:0 0 7px}
-.mixed-library .chosen-bibliography h3{font:400 1.875rem/1.1 var(--display);letter-spacing:-.02em;text-wrap:balance}
+.mixed-library .chosen-bibliography h3{font:600 1.75rem/1.2 var(--body);letter-spacing:0;text-wrap:balance}
 .mixed-library .chosen-feature{font:italic 1.25rem/1.4 var(--body);color:var(--muted);max-width:30ch;text-wrap:balance}
 .mixed-library .chosen-read{display:inline-flex;align-items:center;gap:15px;min-height:44px;font:.6875rem/1.5 var(--mono);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .mixed-library .shelf-controls{display:flex;gap:6px;align-items:center}
@@ -71,7 +71,7 @@
 .mixed-library .shelf-fallback{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));gap:32px;list-style:none;margin-top:32px}
 .mixed-library .shelf-fallback li{min-width:0}
 .mixed-library .shelf-fallback a{display:block;min-height:44px}
-.mixed-library .shelf-fallback h3{font:400 1.5rem/1.1 var(--display);margin:18px 0 7px;text-wrap:balance}
+.mixed-library .shelf-fallback h3{font:600 1.375rem/1.25 var(--body);margin:18px 0 7px;text-wrap:balance}
 .mixed-library .shelf-fallback p{font:.625rem/1.65 var(--mono);color:var(--muted)}
 
 /* Lift the entire book; selection alone controls its angle. */

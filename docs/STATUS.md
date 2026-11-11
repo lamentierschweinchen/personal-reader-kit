@@ -4,6 +4,10 @@ The kit builder’s adversarial pass and the existing Canetti builder’s indepe
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-seven reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-seven specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
+## Library title legibility · November 10, 2026
+
+Library title links and the homepage’s selected-book label use semibold Piazzolla instead of the distressed display face. Beowulf’s jacket title is larger and heavier. All 27 labels fit at six viewport widths from 320 to 1440 pixels; measured title contrast is 14.66:1 normally and 5.62:1 on hover. Keyboard focus retains its outline and adds the same underline. The existing 14 Chromium/WebKit library layouts pass, including enlarged text and no-JavaScript access. These are browser checks, not physical-device testing. Reader source files, stored records, public scope and the personal entrance are unchanged.
+
 ## Beowulf — November 9, 2026
 
 The owner authorized publication if the parent and independent editor accepted the stronger replacement against the current benchmarks. Both accepted The world of the hall after correcting mobile image order and the building lede. The selected public copy adds the unchanged Hall edition at `/beowulf/`, with its library entry and illustrated context. [Exact sources, image terms and limits](../examples/beowulf/docs/SOURCE-RIGHTS.md). This scope includes the separately attributed noncommercial platter image, not commercial image reuse. Starter files, other source editions, private gates and the personal entrance retain their existing boundaries. The release’s exact build, hosted checks and CI are recorded in the workspace release record.

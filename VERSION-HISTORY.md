@@ -1,5 +1,9 @@
 # History boundary
 
+## Legible library titles · November 10, 2026
+
+Library labels now use the existing Piazzolla face at semibold weight, with roomier lines and an underline on hover or keyboard focus. The homepage’s selected title and static shelf use the same treatment. Beowulf’s jacket title is larger and heavier. Cover illustrations, book wording and reader applications are unchanged.
+
 ## Concrete editorial benchmarks · November 9, 2026
 
 The agent guide and reader-copyeditor now point to specific public experiences: Homeward for playful interpretation, Castle escape for atmosphere and progression, Make tea for a small useful addition, and the current Clay Cart object study for presenting competing readings. The reference names what to examine and what not to imitate. It distinguishes a treatment author’s execution review from independent judgment of the premise. The benchmark travels with the starter. This is a documentation update; reader applications, sources, records, catalog and hosting are unchanged.
