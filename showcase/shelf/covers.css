@@ -137,3 +137,6 @@
 .mixed-library .cover-beowulf strong{font:700 18cqw/1.1 Georgia,serif;top:18%;left:8%;right:8%;text-align:center;z-index:2}
 .mixed-library .cover-beowulf img{position:absolute;left:15%;top:35%;width:70%;height:53%;object-fit:cover;object-position:center 50%;border-radius:45% 45% 8% 8%}
 .mixed-library .cover-beowulf .cover-meta,.mixed-library .cover-beowulf .cover-bottom{z-index:2}
+.mixed-library .cover-dickinson{background:#f8f6f0;color:#292724;font-family:Georgia,serif;border:1px solid #d7d0c5}
+.mixed-library .cover-dickinson strong{font:400 25cqw/.9 Georgia,serif;letter-spacing:-.065em;top:41%;left:9%;right:7%;white-space:nowrap}
+.mixed-library .cover-dickinson .cover-period{color:#793e3a}

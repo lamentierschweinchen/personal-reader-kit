@@ -29,7 +29,7 @@ test('all four existing filters and all four named shelves retain explicit toggl
 });
 
 test('default library order matches the physical shelf and assigns exact reset ranks',()=>{
- const expected=["alice","mountains","antigone","at-table","awakening","ballads", "beowulf", "beside-the-bed","book-of-tea","rome","a-dolls-house","dracula","poe", "writers", "inward-life","shakespeare","learning-to-see","clay-cart","douglass","nietzsche","odyssey","pictures-after-dark","austen","two-halls","walden","war-and-peace","music-and-feeling"];
+ const expected=["alice","mountains","antigone","at-table","awakening","ballads", "beowulf", "beside-the-bed","book-of-tea","rome","a-dolls-house","dracula","poe", "writers", "inward-life","shakespeare","learning-to-see","clay-cart","douglass","nietzsche","odyssey","pictures-after-dark","dickinson", "austen","two-halls","walden","war-and-peace","music-and-feeling"];
  const cards=[...renderLibrary(data).matchAll(/<article class="book" data-edition="([^"]+)" data-order="([0-9]+)"/g)];
  assert.deepEqual(cards.map(c=>c[1]),expected);
  assert.deepEqual(cards.map(c=>Number(c[2])),expected.map((_,i)=>i));

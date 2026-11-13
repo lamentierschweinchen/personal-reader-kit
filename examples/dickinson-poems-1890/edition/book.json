@@ -1,0 +1,4038 @@
+{
+  "schema": 1,
+  "id": "dickinson-poems-1890-wikisource",
+  "title": "Poems",
+  "author": "Emily Dickinson",
+  "edition": "Roberts Brothers, 1890; Wikisource transcription",
+  "language": "en",
+  "source": {
+    "sha256": "3e1bd3e7a758da24f1ca1273d585df5871ae509d4f1ba70ca7e2a6c0e44db709",
+    "format": "application/epub+zip",
+    "description": "Wikisource EPUB export of Poems (Dickinson), generated November 13, 2026; based on the Roberts Brothers 1890 copy scanned as poemssucc00dickrich."
+  },
+  "sections": [
+    {
+      "id": "title-page",
+      "title": "Title and imprint",
+      "blocks": [
+        {
+          "id": "front-1",
+          "kind": "prose",
+          "text": "POEMS",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-2",
+          "kind": "prose",
+          "text": "BY",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-3",
+          "kind": "prose",
+          "text": "EMILY DICKINSON",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-4",
+          "kind": "prose",
+          "text": "Edited by two of her friends",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-5",
+          "kind": "prose",
+          "text": "MABEL LOOMIS TODD and T. W. HIGGINSON",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-6",
+          "kind": "prose",
+          "text": "\n❦",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-7",
+          "kind": "prose",
+          "text": "\nBOSTON\nROBERTS BROTHERS\n1890",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-8",
+          "kind": "prose",
+          "text": "Copyright, 1890,",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 16
+            }
+          ]
+        },
+        {
+          "id": "front-9",
+          "kind": "prose",
+          "text": "By Roberts Brothers.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-10",
+          "kind": "prose",
+          "text": "University Press:",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "front-11",
+          "kind": "prose",
+          "text": "John Wilson and Son, Cambridge.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "preface",
+      "title": "Preface",
+      "blocks": [
+        {
+          "id": "preface-1",
+          "kind": "prose",
+          "text": "THE verses of Emily Dickinson belong emphatically to what Emerson long since called \"the Poetry of the Portfolio\"—something produced absolutely without the thought of publication, and solely by way of expression of the writer's own mind. Such verse must inevitably forfeit whatever advantage lies in the discipline of public criticism and the enforced conformity to accepted ways. On the other hand, it may often gain something through the habit of freedom and the unconventional utterance of daring thoughts. In the case of the present author, there was absolutely no choice in the matter; she must write thus, or not at all. A recluse by temperament and habit, literally spending years without setting her foot beyond the doorstep, and many more years during which her walks were strictly limited to her father's grounds, she habitually concealed her mind, like her person, from all but a very few friends; and it was with great difficulty that she was persuaded to print, during her lifetime, three or four poems. Yet she wrote verses in great abundance; and though curiously indifferent to all conventional rules, had yet a rigorous literary standard of her own, and often altered a word many times to suit an ear which had its own tenacious fastidiousness.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "preface-2",
+          "kind": "prose",
+          "text": "Miss Dickinson was born in Amherst, Mass., Dec. 10, 1830, and died there May 15, 1886. Her father, Hon. Edward Dickinson, was the leading lawyer of Amherst, and was treasurer of the well-known college there situated. It was his custom once a year to hold a large reception at his house, attended by all the families connected with the institution and by the leading people of the town. On these occasions his daughter Emily emerged from her wonted retirement and did her part as gracious hostess; nor would any one have known from her manner, I have been told, that this was not a daily occurrence. The annual occasion once past, she withdrew again into her seclusion, and except for a very few friends was as invisible to the world as if she had dwelt in a nunnery. For myself, although I had corresponded with her for many years, I saw her but twice face to face, and brought away the impression of something as unique and remote as Undine or Mignon or Thekla.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "preface-3",
+          "kind": "prose",
+          "text": "This selection from her poems is published to meet the desire of her personal friends, and especially of her surviving sister. It is believed that the thoughtful reader will find in these pages a quality more suggestive of the poetry of William Blake than of anything to be elsewhere found,—flashes of wholly original and profound insight into nature and life; words and phrases exhibiting an extraordinary vividness of descriptive and imaginative power, yet often set in a seemingly whimsical or even rugged frame. They are here published as they were written, with very few and superficial changes; although it is fair to say that the titles have been assigned, almost invariably, by the editors. In many cases these verses will seem to the reader like poetry torn up by the roots, with rain and dew and earth still clinging to them, giving a freshness and a fragrance not otherwise to be conveyed. In other cases, as in the few poems of shipwreck or of mental conflict, we can only wonder at the gift of vivid imagination by which this recluse woman can delineate, by a few touches, the very crises of physical or mental conflict. And sometimes again we catch glimpses of a lyric strain, sustained perhaps but for a line or two at a time, and making the reader regret its sudden cessation. But the main quality of these poems is that of extraordinary grasp and insight, uttered with an uneven vigor sometimes exasperating, seemingly wayward, but really unsought and inevitable. After all, when a thought takes one's breath away, a lesson on grammar seems an impertinence. As Ruskin wrote in his earlier and better days, \"No weight nor mass nor beauty of execution can outweigh one grain or fragment of thought.\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "preface-signature",
+          "kind": "prose",
+          "text": "THOMAS WENTWORTH HIGGINSON.",
+          "after": "\n\n",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "id": "prelude",
+      "title": "Prelude",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "THIS is my letter to the world,\n  That never wrote to me,—\nThe simple news that Nature told,    \n  With tender majesty.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 31
+            },
+            {
+              "kind": "em",
+              "start": 34,
+              "end": 58
+            },
+            {
+              "kind": "em",
+              "start": 59,
+              "end": 92
+            },
+            {
+              "kind": "em",
+              "start": 99,
+              "end": 119
+            }
+          ],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Her message is committed\n  To hands I cannot see;\nFor love of her, sweet countrymen,\n  Judge tenderly of me! ",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 24
+            },
+            {
+              "kind": "em",
+              "start": 27,
+              "end": 49
+            },
+            {
+              "kind": "em",
+              "start": 50,
+              "end": 84
+            },
+            {
+              "kind": "em",
+              "start": 87,
+              "end": 109
+            }
+          ],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-001",
+      "title": "I.—LIFE · I. Success · p. 13",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "SUCCESS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "source-note",
+          "kind": "note",
+          "text": "[Published in \"A Masque of Poets\" at the request of\n\"H. H.,\" the author's fellow-townswoman and friend.]",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "SUCCESS is counted sweetest\nBy those who ne'er succeed.\nTo comprehend a nectar\nRequires sorest need.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Not one of all the purple host\nWho took the flag to-day\nCan tell the definition,\nSo clear, of victory,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "As he, defeated, dying,\nOn whose forbidden ear\nThe distant strains of triumph\nBreak, agonized and clear.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-002",
+      "title": "I.—LIFE · II. \"Our share of night to bear\" · p. 14",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "OUR share of night to bear,\nOur share of morning,\nOur blank in bliss to fill,\nOur blank in scorning.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Here a star, and there a star,\nSome lose their way.\nHere a mist, and there a mist,\nAfterwards—day!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-003",
+      "title": "I.—LIFE · III. Rouge et Noir · p. 15",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "ROUGE ET NOIR.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Soul, wilt thou toss again?\nBy just such a hazard\nHundreds have lost, indeed, \nBut tens have won an all.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Angels' breathless ballot\nLingers to record thee;\nImps in eager caucus\nRaffle for my soul.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-004",
+      "title": "I.—LIFE · IV. Rouge gagne · p. 16",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "ROUGE GAGNE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "'Tis so much joy! 'Tis so much joy!\nIf I should fail, what poverty!\nAnd yet, as poor as I\nHave ventured upon a throw;\nHave gained! Yes! Hesitated so\nThis side the victory!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Life is but life, and death but death!\nBliss is but bliss and breath but breath!\nAnd if, indeed, I fail,\nAt least to know the worst is sweet.\nDefeat means nothing but defeat,\nNo drearier can prevail!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "And if I gain,—oh, gun at sea,\nOh, bells that in the steeples be,\nAt first repeat it slow!\nFor heaven is a different thing\nConjectured, and waked sudden in,\nAnd might o'erwhelm me so!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-005",
+      "title": "I.—LIFE · V. \"Glee! the great storm is over\" · p. 17",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Glee! the great storm is over!\nFour have recovered the land;\nForty gone down together\nInto the boiling sand.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Ring, for the scant salvation!\nToll, for the bonnie souls,—\nNeighbor and friend and bridegroom,\nSpinning upon the shoals!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "How they will tell the shipwreck\nWhen winter shakes the door,\nTill the children ask, \"But the forty?\nDid they come back no more?\"",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Then a silence suffuses the story,\nAnd a softness the teller's eye;\nAnd the children no further question,\nAnd only the waves reply.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-006",
+      "title": "I.—LIFE · VI. \"If I can stop one heart from breaking\" · p. 18",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "If I can stop one heart from breaking,\nI shall not live in vain;\nIf I can ease one life the aching,\nOr cool one pain,\nOr help one fainting robin\nUnto his nest again,\nI shall not live in vain.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-007",
+      "title": "I.—LIFE · VII. Almost · p. 19",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "ALMOST!",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Within my reach!\nI could have touched!\nI might have chanced that way!\nSoft sauntered through the village,\nSauntered as soft away!\nSo unsuspected violets\nWithin the fields lie low;\nToo late for striving fingers\nThat passed, an hour ago.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-008",
+      "title": "I.—LIFE · VIII. \"A wounded deer leaps highest\" · p. 20",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A wounded deer leaps highest,\nI've heard the hunter tell;\n'T is but the ecstasy of death,\nAnd then the brake is still.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The smitten rock that gushes,\nThe trampled steel that springs:\nA cheek is always redder\nJust where the hectic stings!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Mirth is the mail of anguish,\nIn which it cautions arm,\nLest anybody spy the blood\nAnd \"You're hurt\" exclaim!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-009",
+      "title": "I.—LIFE · IX. \"The heart asks pleasure first\" · p. 21",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The heart asks pleasure first,\nAnd then, excuse from pain;\nAnd then, those little anodynes\nThat deaden suffering;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And then, to go to sleep;\nAnd then, if it should be\nThe will of its Inquisitor,\nThe liberty to die.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-010",
+      "title": "I.—LIFE · X. In a Library · p. 22",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "IN A LIBRARY.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A PRECIOUS, mouldering pleasure 't is\nTo meet an antique book,\nIn just the dress his century wore;\nA privilege, I think,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "His venerable hand to take,\nAnd warming in our own,\nA passage back, or two, to make\nTo times when he was young.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "His quaint opinions to inspect,\nHis knowledge to unfold\nOn what concerns our mutual mind,\nThe literature of old;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "What interested scholars most,\nWhat competitions ran\nWhen Plato was a certainty,\nAnd Sophocles a man;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " When Sappho was a living girl,\nAnd Beatrice wore\nThe gown that Dante deified.\nFacts, centuries before,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "He traverses familiar,\nAs one should come to town\nAnd tell you all your dreams were true:\nHe lived where dreams were sown.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-7",
+          "kind": "verse",
+          "text": "His presence is enchantment,\nYou beg him not to go;\nOld volumes shake their vellum heads\nAnd tantalize, just so.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-011",
+      "title": "I.—LIFE · XI. \"Much madness is divinest sense\" · p. 24",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Much madness is divinest sense\nTo a discerning eye;\nMuch sense the starkest madness.\n'T is the majority\nIn this, as all, prevails.\nAssent, and you are sane;\nDemur,—you're straightway dangerous,\nAnd handled with a chain.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-012",
+      "title": "I.—LIFE · XII. \"I asked no other thing\" · p. 25",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I asked no other thing.\nNo other was denied.\nI offered Being for it;\nThe mighty merchant smiled.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Brazil?  He twirled a button, \nWithout a glance my way:\n\"But, madam, is there nothing else\nThat we can show to-day?\"",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-013",
+      "title": "I.—LIFE · XIII. Exclusion · p. 26",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "EXCLUSION.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The soul selects her own society,\nThen shuts the door;\nOn her divine majority\nObtrude no more.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Unmoved, she notes the chariot's pausing\nAt her low gate;\nUnmoved, an emperor is kneeling\nUpon her mat.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "I've known her from an ample nation\nChoose one;\nThen close the valves to her attention\nLike stone.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-014",
+      "title": "I.—LIFE · XIV. The Secret · p. 27",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE SECRET.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Some things that fly there be,—\nBirds, hours, the bumble-bee:\nOf these no elegy.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Some things that stay there be,—\nGrief, hills, eternity:\nNor this behooveth me. ",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "There are, that resting, rise.\nCan I expound the skies?\nHow still the riddle lies!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-015",
+      "title": "I.—LIFE · XV. The Lonely House · p. 28",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE LONELY HOUSE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I know some lonely houses off the road\nA robber 'd like the look of,—\nWooden barred,\nAnd windows hanging low,\nInviting to\nA portico,\nWhere two could creep:\nOne hand the tools,\nThe other peep\nTo make sure all 's asleep.\nOld fashioned eyes,\nNot easy to surprise!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "How orderly the kitchen 'd look by night,\nWith just a clock,—\nBut they could gag the tick,\nAnd mice won't bark;\nAnd so the walls don't tell,\nNone will.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": " A pair of spectacles afar just stir—\nAn almanac 's aware.\nWas it the mat winked,\nOr a nervous star?\nThe moon slides down the stair\nTo see who 's there.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "There 's plunder,—where?\nTankard, or spoon,\nEarring, or stone,\nA watch, some ancient brooch\nTo match the grandmamma,\nStaid sleeping there.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "Day rattles, too,\nStealth 's slow;\nThe sun has got as far\nAs the third sycamore.\nScreams chanticleer,\n\"Who 's there?\"\nAnd echoes, trains away,\nSneer—\"Where?\"\nWhile the old couple, just astir,\nFancy the sunrise left the door ajar!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-016",
+      "title": "I.—LIFE · XVI. \"To fight aloud is very brave\" · p. 30",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "To fight aloud is very brave,\nBut gallanter, I know, \nWho charge within the bosom,\nThe cavalry of woe.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Who win, and nations do not see,\nWho fall, and none observe,\nWhose dying eyes no country\nRegards with patriot love.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "We trust, in plumed procession,\nFor such the angels go,\nRank after rank, with even feet\nAnd uniforms of snow.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-017",
+      "title": "I.—LIFE · XVII. Dawn · p. 31",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "DAWN.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "When night is almost done,    \nAnd sunrise grows so near\nThat we can touch the spaces,\nIt 's time to smooth the hair",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And get the dimples ready,\nAnd wonder we could care\nFor that old faded midnight\nThat frightened but an hour.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-018",
+      "title": "I.—LIFE · XVIII. The Book of Martyrs · p. 32",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE BOOK OF MARTYRS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Read, sweet, how others strove,\nTill we are stouter;\nWhat they renounced,\nTill we are less afraid;\nHow many times they bore\nThe faithful witness,\nTill we are helped,\nAs if a kingdom cared!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Read then of faith\nThat shone above the fagot;\nClear strains of hymn \nThe river could not drown;\nBrave names of men\nAnd celestial women,\nPassed out of record\nInto renown!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-019",
+      "title": "I.—LIFE · XIX. The Mystery of Pain · p. 33",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE MYSTERY OF PAIN.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Pain has an element of blank;\nIt cannot recollect\nWhen it began, or if there were\nA day when it was not.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "It has no future but itself,\nIts infinite realms contain\nIts past, enlightened to perceive\nNew periods of pain.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-020",
+      "title": "I.—LIFE · XX. \"I taste a liquor never brewed\" · p. 34",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I TASTE a liquor never brewed,\nFrom tankards scooped in pearl;\nNot all the vats upon the Rhine\nYield such an alcohol!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Inebriate of air am I,\nAnd debauchee of dew,\nReeling, through endless summer days,\nFrom inns of molten blue.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "When landlords turn the drunken bee\nOut of the foxglove's door,\nWhen butterflies renounce their drams,\nI shall but drink the more!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Till seraphs swing their snowy hats,\nAnd saints to windows run,\nTo see the little tippler\nLeaning against the sun!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-021",
+      "title": "I.—LIFE · XXI. A Book · p. 35",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "A BOOK.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "HE ate and drank the precious words,\nHis spirit grew robust;\nHe knew no more that he was poor,\nNor that his frame was dust.\nHe danced along the dingy days,\nAnd this bequest of wings\nWas but a book. What liberty\nA loosened spirit brings!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-022",
+      "title": "I.—LIFE · XXII. \"I had no time to hate, because\" · p. 36",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I had no time to hate, because\nThe grave would hinder me,\nAnd life was not so ample I\nCould finish enmity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Nor had I time to love; but since\nSome industry must be,\nThe little toil of love, I thought,\nWas large enough for me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-023",
+      "title": "I.—LIFE · XXIII. Unreturning · p. 37",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "UNRETURNING.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "'T was such a little, little boat\nThat toddled down the bay!\n'T was such a gallant, gallant sea\nThat beckoned it away!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "'T was such a greedy, greedy wave\nThat licked it from the coast;\nNor ever guessed the stately sails\nMy little craft was lost!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-024",
+      "title": "I.—LIFE · XXIV. \"Whether my bark went down at sea\" · p. 38",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Whether my bark went down at sea,\nWhether she met with gales,\nWhether to isles enchanted\nShe bent her docile sails;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "By what mystic mooring\nShe is held to-day,—\nThis is the errand of the eye\nOut upon the bay.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-025",
+      "title": "I.—LIFE · XXV. \"Belshazzar had a letter\" · p. 39",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Belshazzar had a letter,—\nHe never had but one;\nBelshazzar's correspondent\nConcluded and begun\nIn that immortal copy\nThe conscience of us all\nCan read without its glasses\nOn revelation's wall.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-026",
+      "title": "I.—LIFE · XXVI. \"The brain within its groove\" · p. 40",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The brain within its groove\nRuns evenly and true;\nBut let a splinter swerve,\n'T were easier for you\nTo put the water back\nWhen floods have slit the hills,\nAnd scooped a turnpike for themselves,\nAnd blotted out the mills!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-027",
+      "title": "II.—LOVE · I. Mine · p. 43",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "MINE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Mine by the right of the white election!\nMine by the royal seal!\nMine by the sign in the scarlet prison\nBars cannot conceal!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Mine, hear in vision and in veto!\nMine, by the grave's repeal\nTitled, confirmed,—delirious charter!\nMine, while the ages steal!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-028",
+      "title": "II.—LOVE · II. Bequest · p. 44",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "BEQUEST.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "You left me, sweet, two legacies,—\nA legacy of love\nA Heavenly Father would content,\nHad He the offer of;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "You left me boundaries of pain\nCapacious as the sea,\nBetween eternity and time,\nYour consciousness and me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-029",
+      "title": "II.—LOVE · III. \"Alter? When the hills do\" · p. 45",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "ALTER? When the hills do.\nFalter? When the sun\nQuestion if his glory\nBe the perfect one.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Surfeit? When the daffodil\nDoth of the dew:\nEven as herself, O friend!\nI will of you! ",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-030",
+      "title": "II.—LOVE · IV. Suspense · p. 46",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "SUSPENSE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Elysium is as far as to\nThe very nearest room,\nIf in that room a friend await\nFelicity or doom.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "What fortitude the soul contains,\nThat it can so endure\nThe accent of a coming foot,\nThe opening of a door!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-031",
+      "title": "II.—LOVE · V. Surrender · p. 47",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "Surrender",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Doubt me, my dim companion!\nWhy, God would be content\nWith but a fraction of the love \nPoured thee without a stint.\nThe whole of me, forever,\nWhat more the woman can,—\nSay quick, that I may dower thee\nWith last delight I own!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "It cannot be my spirit,\nFor that was thine before;\nI ceded all of dust I knew,—\nWhat opulence the more\nHad I, a humble maiden,\nWhose farthest of degree\nWas that she might,\nSome distant heaven,\nDwell timidly with thee!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-032",
+      "title": "II.—LOVE · VI. \"If you were coming in the fall\" · p. 48",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "IF you were coming in the fall,\nI'd brush the summer by\nWith half a smile and half a spurn,\nAs housewives do a fly.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "If I could see you in a year,\nI'd wind the months in balls,\nAnd put them each in separate drawers,\nUntil their time befalls.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "If only centuries delayed,\nI'd count them on my hand,\nSubtracting till my fingers dropped\nInto Van Diemen's land.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "If certain, when this life was out\nThat yours and mine should be,\nI'd toss it yonder like a rind,\nAnd taste eternity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " But now, all ignorant of the length\nOf time's uncertain wing,\nIt goads me, like the goblin bee,\nThat will not state its sting.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-033",
+      "title": "II.—LOVE · VII. With a Flower · p. 50",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "WITH A FLOWER.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I hide myself within my flower,\nThat wearing on your breast,\nYou, unsuspecting, wear me too—\nAnd angels know the rest.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "I hide myself within my flower,\nThat, fading from your vase,\nYou, unsuspecting, feel for me\nAlmost a loneliness.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-034",
+      "title": "II.—LOVE · VIII. Proof · p. 51",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "PROOF.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "That I did always love,\nI bring thee proof:\nThat till I loved \nI did not love enough.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "That I shall love alway,\nI offer thee\nThat love is life, \nAnd life hath immortality.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "This, dost thou doubt, sweet?\nThen have I\nNothing to show\nBut Calvary.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-035",
+      "title": "II.—LOVE · IX. \"Have you got a brook in your little heart?\" · p. 52",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Have you got a brook in your little heart,\nWhere bashful flowers blow,\nAnd blushing birds go down to drink,\nAnd shadows tremble so?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And nobody knows, so still it flows,\nThat any brook is there;\nAnd yet your little draught of life\nIs daily drunken there.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Then look out for the little brook in March,\nWhen the rivers overflow,\nAnd the snows come hurrying from the hills,\nAnd the bridges often go.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "And later, in August it may be,\nWhen the meadows parching lie,\nBeware, lest this little brook of life\nSome burning noon go dry!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-036",
+      "title": "II.—LOVE · X. Transplanted · p. 53",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "TRANSPLANTED.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "As if some little Arctic flower,\nUpon the polar hem,\nWent wandering down the latitudes,\nUntil it puzzled came\nTo continents of summer,\nTo firmaments of sun,\nTo strange, bright crowds of flowers,\nAnd birds of foreign tongue!\nI say, as if this little flower\nTo Eden wandered in—\nWhat then? Why, nothing,\nOnly, your interference therefrom!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-037",
+      "title": "II.—LOVE · XI. The Outlet · p. 54",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE OUTLET.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "My river runs to thee:        \nBlue sea, wilt welcome me?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "My river waits reply.\nOh sea, look graciously!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "I'll fetch thee brooks\nFrom spotted nooks,—",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Say, sea, take me!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-038",
+      "title": "II.—LOVE · XII. In Vain · p. 55",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "IN VAIN.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I cannot live with you,\nIt would be life,\nAnd life is over there\nBehind the shelf",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The sexton keeps the key to,\nPutting up\nOur life, his porcelain,\nLike a cup",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Discarded of the housewife,\nQuaint or broken;\nA new Sèvres pleases,\nOld ones crack.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "I could not die with you,\nFor one must wait\nTo shut the other's gaze down,—\nYou could not.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " And I, could I stand by\nAnd see you freeze,\nWithout my right of frost,\nDeath's privilege?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "Nor could I rise with you,\nBecause your face\nWould put out Jesus',\nThat new grace",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-7",
+          "kind": "verse",
+          "text": "Glow plain and foreign\nOn my homesick eye,\nExcept that you, than he\nShone closer by.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-8",
+          "kind": "verse",
+          "text": "They'd judge us—how?\nFor you served Heaven, you know,\nOr sought to;\nI could not,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-9",
+          "kind": "verse",
+          "text": "Because you saturated sight,\nAnd I had no more eyes\nFor sordid excellence\nAs Paradise.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-10",
+          "kind": "verse",
+          "text": " And were you lost, I would be,\nThough my name\nRang loudest\nOn the heavenly fame.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-11",
+          "kind": "verse",
+          "text": "And were you saved,\nAnd I condemned to be\nWhere you were not,\nThat self were hell to me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-12",
+          "kind": "verse",
+          "text": "So we must keep apart,\nYou there, I here,\nWith just the door ajar\nThat oceans are,\nAnd prayer,\nAnd that pale sustenance,\nDespair!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-039",
+      "title": "II.—LOVE · XIII. Renunciation · p. 58",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "RENUNCIATION.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "There came a day at summer's full\nEntirely for me;\nI thought that such were for the saints,\nWhere revelations be.\n\nThe sun, as common, went abroad,\nThe flowers, accustomed, blew,\nAs if no soul the solstice passed\nThat maketh all things new.\n\nThe time was scarce profaned by speech;\nThe symbol of a word\nWas needless, as at sacrament\nThe wardrobe of our Lord.\n\nEach was to each the sealed church,\nPermitted to commune this time,\nLest we too awkward show\nAt supper of the Lamb.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": " The hours slid fast, as hours will,\nClutched tight by greedy hands;\nSo faces on two decks look back,\nBound to opposing lands.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "And so, when all the time had failed,\nWithout external sound,\nEach bound the other's crucifix,\nWe gave no other bond.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Sufficient troth that we shall rise—\nDeposed, at length, the grave—\nTo that new marriage, justified\nThrough Calvaries of Love!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-040",
+      "title": "II.—LOVE · XIV. Love's Baptism · p. 60",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "LOVE'S BAPTISM.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I'm ceded, I've stopped being theirs;    \nThe name they dropped upon my face\nWith water, in the country church,\nIs finished using now,\nAnd they can put it with my dolls,\nMy childhood, and the string of spools\nI've finished threading too.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Baptized before without the choice,\nBut this time consciously, of grace\nUnto supremest name,\nCalled to my full, the crescent dropped,\nExistence's whole arc filled up\nWith one small diadem.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "My second rank, too small the first,\nCrowned, crowing on my father's breast,\n A half unconscious queen;\nBut this time, adequate, erect,\nWith will to choose or to reject,\nAnd I choose—just a throne.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-041",
+      "title": "II.—LOVE · XV. Resurrection · p. 62",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "RESURRECTION.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "'T was a long parting, but the time\nFor interview had come;\nBefore the judgment-seat of God,\nThe last and second time",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "These fleshless lovers met,\nA heaven in a gaze,\nA heaven of heavens, the privilege\nOf one another's eyes.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "No lifetime set on them,\nApparelled as the new\nUnborn, except they had beheld,\nBorn everlasting now.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Was bridal e'er like this?\nA paradise, the host,\nAnd cherubim and seraphim\nThe most familiar guest.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-042",
+      "title": "II.—LOVE · XVI. Apocalypse · p. 63",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "APOCALYPSE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I'm wife; I've finished that,\nThat other state;\nI'm Czar, I'm woman now:\nIt's safer so.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "How odd the girl's life looks\nBehind this soft eclipse!\nI think that earth seems so\nTo those in heaven now.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "This being comfort, then\nThat other kind was pain;\nBut why compare?\nI'm wife! stop there!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-043",
+      "title": "II.—LOVE · XVII. The Wife · p. 64",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE WIFE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "She rose to his requirement, dropped\nThe playthings of her life\nTo take the honorable work\nOf woman and of wife.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "If aught she missed in her new day\nOf amplitude, or awe,\nOr first prospective, or the gold\nIn using wore away,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "It lay unmentioned, as the sea\nDevelops pearl and weed,\nBut only to himself is known\nThe fathoms they abide.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-044",
+      "title": "II.—LOVE · XVIII. Apotheosis · p. 65",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "APOTHEOSIS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Come slowly, Eden!\nLips unused to thee,\nBashful, sip thy jasmines,\nAs the fainting bee,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Reaching late his flower,\nRound her chamber hums,\nCounts his nectars—enters, \nAnd is lost in balms!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-045",
+      "title": "III.—NATURE · I. \"New feet within my garden go\" · p. 69",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "New feet within my garden go,\nNew fingers stir the sod;\nA troubadour upon the elm\nBetrays the solitude.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "New children play upon the green,\nNew weary sleep below;\nAnd still the pensive spring returns,\nAnd still the punctual snow!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-046",
+      "title": "III.—NATURE · II. May-Flower · p. 70",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "MAY-FLOWER",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Pink, small, and punctual,\nAromatic, low,\nCovert in April,\nCandid in May,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Dear to the moss,\nKnown by the knoll,\nNext to the robin\nIn every human soul.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Bold little beauty,\nBedecked with thee,\nNature forswears\nAntiquity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-047",
+      "title": "III.—NATURE · III. Why? · p. 71",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "WHY?",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The murmur of a bee    \nA witchcraft yieldeth me.\nIf any ask me why,\n'T were easier to die\nThan tell.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The red upon the hill\nTaketh away my will;\nIf anybody sneer,\nTake care, for God is here,\nThat's all.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The breaking of the day\nAddeth to my degree;\nIf any ask me how,\nArtist, who drew me so,\nMust tell!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-048",
+      "title": "III.—NATURE · IV. \"Perhaps you'd like to buy a flower\" · p. 72",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Perhaps you'd like to buy a flower?\nBut I could never sell.\nIf you would like to borrow\nUntil the daffodil",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Unties her yellow bonnet\nBeneath the village door,\nUntil the bees, from clover rows\nTheir hock and sherry draw,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Why, I will lend until just then,\nBut not an hour more!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-049",
+      "title": "III.—NATURE · V. \"The pedigree of honey\" · p. 73",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The pedigree of honey        \nDoes not concern the bee;\nA clover, any time, to him\nIs aristocracy.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-050",
+      "title": "III.—NATURE · VI. A Service of Song · p. 74",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "A SERVICE OF SONG.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Some keep the Sabbath going to church;\nI keep it staying at home,\nWith a bobolink for a chorister,\nAnd an orchard for a dome.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Some keep the Sabbath in surplice;\nI just wear my wings,\nAnd instead of tolling the bell for church,\nOur little sexton sings.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "God preaches,—a noted clergyman,—\nAnd the sermon in never long;\nSo instead of getting to heaven at last,\nI'm going all along!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-051",
+      "title": "III.—NATURE · VII. \"The bee is not afraid of me\" · p. 75",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The bee is not afraid of me,\nI know the butterfly;\nThe pretty people in the woods\nReceive me cordially.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The brooks laugh louder when I come,\nThe breezes madder play.\nWherefore, mine eyes, thy silver mists?\nWherefore, O summer's day?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-052",
+      "title": "III.—NATURE · VIII. Summer's Armies · p. 76",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "SUMMER'S ARMIES.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Some rainbow coming from the fair!    \nSome vision of the world Cashmere\nI confidently see!\nOr else a peacock's purple train,\nFeather by feather, on the plain\nFritters itself away!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The dreamy butterflies bestir,\nLethargic pools resume the whir\nOf last year's sundered tune.\nFrom some old fortress on the sun\nBaronial bees march, one by one,\nIn murmuring platoon!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The robins stand as thick to-day\nAs flakes of snow stood yesterday,\n On fence and roof and twig.\nThe orchis binds her feather on\nFor her old love, Don the Sun,\nRevisiting the bog!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Without commander, countless, still,\nThe regiment of wood and hill\nIn bright detachment stand.\nBehold!  Whose multitudes are these?\nThe children of whose turbaned seas,\nOr what Circassian land?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-053",
+      "title": "III.—NATURE · IX. The Grass · p. 78",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE GRASS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "THE grass so little has to do,—\nA sphere of simple green,\nWith only butterflies to brood,\nAnd bees to entertain,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And stir all day to pretty tunes\nThe breezes fetch along,\nAnd hold the sunshine in its lap\nAnd bow to everything;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "And thread the dews all night, like pearls,\nAnd make myself so fine,—\nA duchess were too common\nFor such a noticing.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": " And even when it dies, to pass\nIn odors so divine,\nAs lowly spices gone to sleep,\nOr amulets of pine",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "And then to dwell in sovereign barns,\nAnd dream the days away,—\nThe grass so little has to do,\nI wish I were the hay!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-054",
+      "title": "III.—NATURE · X. \"A little road not made of man\" · p. 80",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A little road not made of man,\nEnabled of the eye,\nAccessible to thill of bee,\nOr cart of butterfly.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "If town it have, beyond itself,\n'T is that I cannot say;\nI only sigh,—no vehicle \nBears me along that way.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-055",
+      "title": "III.—NATURE · XI. Summer Shower · p. 81",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "SUMMER SHOWER.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A drop fell on the apple tree,\nAnother on the roof;\nA half a dozen kissed the eaves,\nAnd made the gables laugh.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "A few went out to help the brook,\nThat went to help the sea.\nMyself conjectured, Were they pearls,\nWhat necklaces could be!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The dust replaced in hoisted roads,\nThe birds jocoser sung;\nThe sunshine threw his hat away,\nThe orchards spangles hung.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "The breezes brought dejected lutes,\nAnd bathed them in the glee;\nThe East put out a single flag,\nAnd signed the fête away.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-056",
+      "title": "III.—NATURE · XII. Psalm of the Day · p. 82",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "PSALM OF THE DAY.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A something in a summer's day,\nAs slow her flambeaux burn away,\nWhich solemnizes me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "A something in a summer's noon,—\nAn azure depth, a wordless tune,\nTranscending ecstasy.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "And still within a summer's night\nA something so transporting bright,\nI clap my hands to see;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Then veil my too inspecting face,\nLest such a subtle, shimmering grace\nFlutter too far for me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "The wizard-fingers never rest,\nThe purple brook within the breast\nStill chafes its narrow bed;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": " Still rears the East her amber flag,\nGuides still the sun along the crag\nHis caravan of red,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-7",
+          "kind": "verse",
+          "text": "Like flowers that heard the tale of dews,\nBut never deemed the dripping prize\nAwaited their low brows",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-8",
+          "kind": "verse",
+          "text": "Or bees, that thought the summer's name\nSome rumor of delirium\nNo summer could for them;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-9",
+          "kind": "verse",
+          "text": "Or Arctic creature, dimly stirred\nBy tropic hint,—some travelled bird\nImported to the wood;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-10",
+          "kind": "verse",
+          "text": "Or wind's bright signal to the ear,\nMaking that homely and severe,\nContented, known, before",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-11",
+          "kind": "verse",
+          "text": "The heaven unexpected came,\nTo lives that thought their worshipping\nA too presumptuous psalm.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-057",
+      "title": "III.—NATURE · XIII. The Sea of Sunset · p. 84",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE SEA OF SUNSET.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "This is the land the sunset washes,        \nThese are the banks of the Yellow Sea;\nWhere it rose, or whither it rushes,\nThese are the western mystery!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Night after night her purple traffic\nStrews the landing with opal bales;\nMerchantmen poise upon horizons,\nDip, and vanish with fairy sails.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-058",
+      "title": "III.—NATURE · XIV. Purple Clover · p. 85",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "PURPLE CLOVER.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "There is a flower that bees prefer,\nAnd butterflies desire;\nTo gain the purple democrat\nThe humming-birds aspire.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And whatsoever insect pass,\nA honey bears away\nProportioned to his several dearth\nAnd her capacity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Her face is rounder than the moon,\nAnd ruddier than the gown\nOf orchis in the pasture,\nOr rhododendron worn.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "She doth not wait for June;\nBefore the world is green\nHer sturdy little countenance\nAgainst the wind is seen,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " Contending with the grass,\nNear kinsman to herself,\nFor privilege of sod and sun,\nSweet litigants for life.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "And when the hills are full,\nAnd newer fashions blow,\nDoth not retract a single spice\nFor pang of jealousy.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-7",
+          "kind": "verse",
+          "text": "Her public is the noon,\nHer providence the sun,\nHer progress by the bee proclaimed\nIn sovereign, swerveless tune.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-8",
+          "kind": "verse",
+          "text": "The bravest of the host,\nSurrendering the last,\nNor even of defeat aware\nWhen cancelled by the frost.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-059",
+      "title": "III.—NATURE · XV. The Bee · p. 87",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE BEE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Like trains of cars on tracks of plush\nI hear the level bee:\nA jar across the flowers goes,\nTheir velvet masonry",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Withstands until the sweet assault\nTheir chivalry consumes,\nWhile he, victorious, tilts away\nTo vanquish other blooms.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "His feet are shod with gauze,\nHis helmet is of gold;\nHis breast, a single onyx\nWith chrysoprase, inlaid.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "His labor is a chant,\nHis idleness a tune;\nOh, for a bee's experience\nOf clovers and of noon!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-060",
+      "title": "III.—NATURE · XVI. \"Presentiment is that long shadow\" · p. 88",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Presentiment is that long shadow on the lawn\nIndicative that suns go down;\nThe notice to the startled grass\nThat darkness is about to pass.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-061",
+      "title": "III.—NATURE · XVII. \"As children bid the guest good-night\" · p. 89",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "As children bid the guest good-night,\nAnd then reluctant turn,\nMy flowers raise their pretty lips,\nThen put their nightgowns on.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "As children caper when they wake,\nMerry that it is morn,\nMy flowers from a hundred cribs\nWill peep, and prance again.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-062",
+      "title": "III.—NATURE · XVIII. \"Angels in the early morning\" · p. 90",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Angels in the early morning\nMay be seen the dews among,\nStooping, plucking, smiling, flying:\nDo the buds to them belong?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Angels when the sun is hottest\nMay be seen the sands among,\nStooping, plucking, sighing, flying;\nParched the flowers they bear along.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-063",
+      "title": "III.—NATURE · XIX. \"So bashful when I spied her\" · p. 91",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "So bashful when I spied her,\nSo pretty, so ashamed!\nSo hidden in her leaflets,\nLest anybody find;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "So breathless till I passed her,\nSo helpless when I turned\nAnd bore her, struggling, blushing,\nHer simple haunts beyond!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "For whom I robbed the dingle,\nFor whom betrayed the dell,\nMany will doubtless ask me,\nBut I shall never tell!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-064",
+      "title": "III.—NATURE · XX. Two Worlds · p. 92",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "TWO WORLDS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "It makes no difference abroad,\nThe seasons fit the same,\nThe mornings blossom into noons,\nAnd split their pods of flame.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Wild-flowers kindle in the woods,\nThe brooks brag all the day;\nNo blackbird bates his jargoning\nFor passing Calvary.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Auto-da-fé and judgment\nAre nothing to the bee;\nHis separation from his rose\nTo him seems misery.",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-065",
+      "title": "III.—NATURE · XXI. The Mountain · p. 93",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE MOUNTAIN.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The mountain sat upon the plain\nIn his eternal chair,\nHis observation omnifold,\nHis inquest everywhere.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The seasons prayed around his knees,\nLike children round a sire:\nGrandfather of the days is he,\nOf dawn the ancestor.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-066",
+      "title": "III.—NATURE · XXII. A Day · p. 94",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "A DAY.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I'll tell you how the sun rose,—\nA ribbon at a time.\nThe steeples swam in amethyst,\nThe news like squirrels ran.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The hills untied their bonnets,\nThe bobolinks begun.\nThen I said softly to myself,\n\"That must have been the sun!\"\n·    ·    ·    ·    ·    ·\nBut how he set, I know not.\nThere seemed a purple stile\nWhich little yellow boys and girls\nWere climbing all the while",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Till when they reached the other side,\nA dominie in gray\nPut gently up the evening bars,\nAnd led the flock away.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-067",
+      "title": "III.—NATURE · XXIII. \"The butterfly's assumption-gown\" · p. 95",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The butterfly's assumption-gown,    \nIn chrysoprase apartments hung,\n  This afternoon put on.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "How condescending to descend,\nAnd be of buttercups the friend\n  In a New England town!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-068",
+      "title": "III.—NATURE · XXIV. The Wind · p. 96",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE WIND.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Of all the sounds despatched abroad,\nThere 's not a charge to me\nLike that old measure in the boughs,\nThat phraseless melody",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The wind does, working like a hand\nWhose fingers brush the sky,\nThen quiver down, with tufts of tune\nPermitted gods and me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "When winds go round and round in bands,\nAnd thrum upon the door,\nAnd birds take places overhead,\nTo bear them orchestra,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "I crave him grace, of summer boughs,\nIf such an outcast be,\nHe never heard that fleshless chant\nRise solemn in the tree,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " As if some caravan of sound\nOn deserts, in the sky,\nHad broken rank,\nThen knit, and passed\nIn seamless company.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-069",
+      "title": "III.—NATURE · XXV. Death and Life · p. 98",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "DEATH AND LIFE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Apparently with no surprise\nTo any happy flower,\nThe frost beheads it at its play\nIn accidental power.\nThe blond assassin passes on,\nThe sun proceeds unmoved\nTo measure off another day\nFor an approving God.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-070",
+      "title": "III.—NATURE · XXVI. \"'T was later when the summer went\" · p. 99",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "'Twas later when the summer went\nThan when the cricket came,\nAnd yet we knew that gentle clock\nMeant nought but going home.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "'T was sooner when the cricket went\nThan when the winter came,\nYet that pathetic pendulum\nKeeps esoteric time.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-071",
+      "title": "III.—NATURE · XXVII. Indian Summer · p. 100",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "INDIAN SUMMER.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "These are the days when birds come back,\nA very few, a bird or two,\nTo take a backward look.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "These are the days when skies put on\nThe old, old sophistries of June,—\nA blue and gold mistake.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Oh, fraud that cannot cheat the bee,\nAlmost thy plausibility\nInduces my belief,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Till ranks of seed their witness bear,\nAnd softly through the altered air\nHurries a timid leaf!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " Oh, sacrament of summer days,\nOh, last communion in the haze,\nPermit a child to join,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "Thy sacred emblems to partake,\nThy consecrated bread to break,\nTaste thine immortal wine!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-072",
+      "title": "III.—NATURE · XXVIII. Autumn · p. 102",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "AUTUMN.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The morns are meeker than they were,\nThe nuts are getting brown;\nThe berry's cheek is plumper,\nThe rose is out of town.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The maple wears a gayer scarf,\nThe field a scarlet gown.\nLest I should be old-fashioned, \nI'll put a trinket on.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-073",
+      "title": "III.—NATURE · XXIX. Beclouded · p. 103",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "BECLOUDED.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The sky is low, the clouds are mean,\nA travelling flake of snow\nAcross a barn or through a rut\nDebates if it will go.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "A narrow wind complains all day\nHow some one treated him;\nNature, like us, is sometimes caught\nWithout her diadem.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-074",
+      "title": "III.—NATURE · XXX. The Hemlock · p. 104",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE HEMLOCK.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I think the hemlock likes to stand\nUpon a marge of snow;\nIt suits his own austerity,\nAnd satisfies an awe",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "That men must slake in wilderness,\nOr in the desert cloy,—\nAn instinct for the hoar, the bald,\nLapland's necessity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The hemlock's nature thrives on cold;\nThe gnash of northern winds\nIs sweetest nutriment to him,\nHis best Norwegian wines.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": " To satin races he is nought;\nBut children on the Don\nBeneath his tabernacles play,\nAnd Dnieper wrestlers run.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-075",
+      "title": "III.—NATURE · XXXI. \"There's a certain slant of light\" · p. 106",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Heavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "None may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "When it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-076",
+      "title": "IV.—TIME AND ETERNITY · I. \"One dignity delays for all\" · p. 109",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "One dignity delays for all,\nOne mitred afternoon.\nNone can avoid this purple,\nNone evade this crown.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Coach it insures, and footmen,\nChamber and state and throng;\nBells, also, in the village,\nAs we ride grand along.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "What dignified attendants,\nWhat service when we pause!\nHow loyally at parting\nTheir hundred hats they raise!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "How pomp surpassing ermine,\nWhen simple you and I\nPresent our meek escutcheon,\nAnd claim the rank to die!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-077",
+      "title": "IV.—TIME AND ETERNITY · II. Too late · p. 110",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "TOO LATE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Delayed till she had ceased to know,\nDelayed till in its vest of snow\n  Her loving bosom lay.\nAn hour behind the fleeting breath,\nLater by just an hour than death,—\n  Oh, lagging yesterday!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Could she have guessed that it would be;\nCould but a crier of the glee\n  Have climbed the distant hill;\nHad not the bliss so slow a pace,—\nWho knows but this surrendered face\n  Were undefeated still?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": " Oh, if there may departing be\nAny forgot by victory\n  In her imperial round,\nShow them this meek apparelled thing,\nThat could not stop to be a king,\n  Doubtful if it be crowned!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-078",
+      "title": "IV.—TIME AND ETERNITY · III. Astra Castra · p. 112",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "ASTRA CASTRA",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Departed to the judgment,\nA mighty afternoon;\nGreat clouds like ushers leaning,\nCreation looking on.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The flesh surrendered, cancelled,\nThe bodiless begun;\nTwo worlds, like audiences, disperse\nAnd leave the soul alone.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-079",
+      "title": "IV.—TIME AND ETERNITY · IV. \"Safe in their alabaster chambers\" · p. 113",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Safe in their alabaster chambers,                \nUntouched by morning and untouched by noon,\nSleep the meek members of the resurrection,\nRafter of satin, and roof of stone.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Light laughs the breeze in her castle of sunshine;\nBabbles the bee in a stolid ear;\nPipe the sweet birds in ignorant cadence,—\nAh, what sagacity perished here!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Grand go the years in the crescent above them;\nWorlds scoop their arcs, and firmaments row,\nDiadems drop and Doges surrender,\nSoundless as dots on a disk of snow.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-080",
+      "title": "IV.—TIME AND ETERNITY · V. \"On this long storm the rainbow rose\" · p. 114",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "On this long storm the rainbow rose,\nOn this late morn the sun;\nThe clouds, like listless elephants,\nHorizons straggled down.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The birds rose smiling in their nests,\nThe gales indeed were done;\nAlas!  how heedless were the eyes\nOn whom the summer shone!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The quiet nonchalance of death\nNo daybreak can bestir;\nThe slow archangel's syllables\nMust awaken her.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-081",
+      "title": "IV.—TIME AND ETERNITY · VI. From the Chrysalis · p. 115",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "FROM THE CHRYSALIS.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "My cocoon tightens, colors tease,\nI'm feeling for the air;\nA dim capacity for wings\nDegrades the dress I wear.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "A power of butterfly must be\nThe aptitude to fly,\nMeadows of majesty concedes\nAnd easy sweeps of sky.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "So I must baffle at the hint\nAnd cipher at the sign,\nAnd make much blunder, if at last\nI take the clew divine.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-082",
+      "title": "IV.—TIME AND ETERNITY · VII. Setting Sail · p. 116",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "SETTING SAIL.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Exultation is the going\nOf an inland soul to sea,—\nPast the houses, past the headlands,\nInto deep eternity!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Bred as we, among the mountains,\nCan the sailor understand\nThe divine intoxication\nOf the first league out from land?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-083",
+      "title": "IV.—TIME AND ETERNITY · VIII. \"Look back on time with kindly eyes\" · p. 117",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Look back on time with kindly eyes,\nHe doubtless did his best;\nHow softly sinks his trembling sun\nIn human nature's west!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-084",
+      "title": "IV.—TIME AND ETERNITY · IX. \"A train went through a burial gate\" · p. 118",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "A train went through a burial gate,\nA bird broke forth and sang,\nAnd trilled, and quivered, and shook his throat\nTill all the churchyard rang;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And then adjusted his little notes,\nAnd bowed and sang again.\nDoubtless, he thought it meet of him\nTo say good-by to men.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-085",
+      "title": "IV.—TIME AND ETERNITY · X. \"I died for beauty, but was scarce\" · p. 119",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I died for beauty, but was scarce\nAdjusted in the tomb,\nWhen one who died for truth was lain\nIn an adjoining room.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "He questioned softly why I failed?\n\"For beauty,\" I replied.\n\"And I for truth,—the two are one;\nWe brethren are,\" he said.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "And so, as kinsmen met a night,\nWe talked between the rooms,\nUntil the moss had reached our lips,\nAnd covered up our names.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-086",
+      "title": "IV.—TIME AND ETERNITY · XI. Troubled about many things · p. 120",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "\"TROUBLED ABOUT MANY THINGS.\"",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "How many times these low feet staggered,\nOnly the soldered mouth can tell;\nTry!  can you stir the awful rivet?\nTry!  can you lift the hasps of steel?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Stroke the cool forehead, hot so often,\nLift, if you can, the listless hair;\nHandle the adamantine fingers\nNever a thimble more shall wear.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Buzz the dull flies on the chamber window;\nBrave shines the sun through the freckled pane;\nFearless the cobweb swings from the ceiling—\nIndolent housewife, in daisies lain!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-087",
+      "title": "IV.—TIME AND ETERNITY · XII. Real · p. 121",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "REAL.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I like a look of agony\nBecause I know it 's true;\nMen do not sham convulsion,\nNor simulate a throe.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The eyes gaze once, and that is death.\nImpossible to feign\nThe beads upon the forehead\nBy homely anguish strung.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-088",
+      "title": "IV.—TIME AND ETERNITY · XIII. The Funeral · p. 122",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE FUNERAL.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "That short, potential stir        \nThat each can make but once,\nThat bustle so illustrious\n'T is almost consequence,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Is the éclat of death.\nOh, thou unknown renown \nThat not a beggar would accept,\nHad he the power to spurn!",
+          "after": "\n\n",
+          "marks": [
+            {
+              "kind": "em",
+              "start": 7,
+              "end": 12
+            }
+          ],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-089",
+      "title": "IV.—TIME AND ETERNITY · XIV. \"I went to thank her\" · p. 123",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I went to thank her,\nBut she slept;\nHer bed a funnelled stone,\nWith nosegays at the head and foot,\nThat travellers had thrown,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Who went to thank her;\nBut she slept.\n'T was short to cross the sea\nTo look upon her like, alive,\nBut turning back 't was slow.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-090",
+      "title": "IV.—TIME AND ETERNITY · XV. \"I've seen a dying eye\" · p. 124",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I've seen a dying eye\nRun round and round a room\nIn search of something, as it seemed,\nThen cloudier become;\nAnd then, obscure with fog,\nAnd then be soldered down,\nWithout disclosing what it be,\n'T were blessed to have seen.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-091",
+      "title": "IV.—TIME AND ETERNITY · XVI. Refuge · p. 125",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "REFUGE.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The clouds their backs together laid,\nThe north begun to push,\nThe forests galloped till they fell,\nThe lightning skipped like mice;\nThe thunder crumbled like a stuff—\nHow good to be safe in tombs,\nWhere nature's temper cannot reach,\nNor vengeance ever comes!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-092",
+      "title": "IV.—TIME AND ETERNITY · XVII. \"I never saw a moor\" · p. 126",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I never saw a moor,\nI never saw the sea;\nYet know I how the heather looks,\nAnd what a wave must be.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "I never spoke with God,\nNor visited in heaven;\nYet certain am I of the spot\nAs if the chart were given.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-093",
+      "title": "IV.—TIME AND ETERNITY · XVIII. Playmates · p. 127",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "PLAYMATES.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "God permits industrious angels\nAfternoons to play.\nI met one,—forgot my school-mates,\nAll, for him, straightway.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "God calls home the angels promptly\nAt the setting sun;\nI missed mine. How dreary marbles,\nAfter playing Crown!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-094",
+      "title": "IV.—TIME AND ETERNITY · XIX. \"To know just how he suffered\" · p. 128",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "TO know just how he suffered would be dear;\nTo know if any human eyes were near\nTo whom he could intrust his wavering gaze,\nUntil it settled firm on Paradise.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "To know if he was patient, part content,\nWas dying as he thought, or different;\nWas it a pleasant day to die,\nAnd did the sunshine face his way?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "What was his furthest mind, of home, of God,\nOr what the distant say\nAt news that he ceased human nature \nOn such a day?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": " And wishes, had he any?\nJust his sigh, accented,\nHad been legible to me.\nAnd was he confident until\nIll fluttered out in everlasting well?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "And if he spoke, what name was best,\nWhat first,\nWhat one broke off with\nAt the drowsiest?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "Was he afraid, or tranquil?\nMight he know\nHow conscious consciousness could grow,\nTill love that was, and love too blest to be,\nMeet—and the junction be Eternity?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-095",
+      "title": "IV.—TIME AND ETERNITY · XX. \"The last night that she lived\" · p. 130",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The last night that she lived,\nIt was a common night,\nExcept the dying; this to us\nMade nature different.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "We noticed smallest things,—\nThings overlooked before,\nBy this great light upon our minds\nItalicized, as 't were.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "That others could exist\nWhile she must finish quite,\nA jealousy for her arose\nSo nearly infinite.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "We waited while she passed;\nIt was a narrow time,\nToo jostled were our souls to speak,\nAt length the notice came.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": " She mentioned, and forgot;\nThen lightly as a reed\nBent to the water, shivered scarce,\nConsented, and was dead.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-6",
+          "kind": "verse",
+          "text": "And we, we placed the hair,\nAnd drew the head erect;\nAnd then an awful leisure was,\nOur faith to regulate.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-096",
+      "title": "IV.—TIME AND ETERNITY · XXI. The First Lesson · p. 132",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE FIRST LESSON.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Not in this world to see his face    \nSounds long, until I read the place\nWhere this is said to be\nBut just the primer to a life\nUnopened, rare, upon the shelf,\nClasped yet to him and me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "And yet, my primer suits me so\nI would not choose a book to know\nThan that, be sweeter wise;\nMight some one else so learned be,\nAnd leave me just my A B C,\nHimself could have the skies.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-097",
+      "title": "IV.—TIME AND ETERNITY · XXII. \"The bustle in a house\" · p. 133",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The bustle in a house\nThe morning after death\nIs solemnest of industries\nEnacted upon earth,—",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The sweeping up the heart,\nAnd putting love away\nWe shall not want to use again\nUntil eternity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-098",
+      "title": "IV.—TIME AND ETERNITY · XXIII. \"I reason, earth is short\" · p. 134",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I reason, earth is short,\nAnd anguish absolute,\nAnd many hurt;\nBut what of that?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "I reason, we could die:\nThe best vitality \nCannot excel decay;\nBut what of that?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "I reason that in heaven\nSomehow, it will be even,\nSome new equation given;\nBut what of that?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-099",
+      "title": "IV.—TIME AND ETERNITY · XXIV. \"Afraid? Of whom am I afraid?\" · p. 135",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Afraid? Of whom am I afraid?\nNot death; for who is he?\nThe porter of my father's lodge\nAs much abasheth me.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Of life? 'T were odd I fear a thing\nThat comprehendeth me\nIn one or more existences \nAt Deity's decree. ",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Of resurrection? Is the east\nAfraid to trust the morn\nWith her fastidious forehead?\nAs soon impeach my crown!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-100",
+      "title": "IV.—TIME AND ETERNITY · XXV. Dying · p. 136",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "DYING.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The sun kept setting, setting still;\nNo hue of afternoon\nUpon the village I perceived,—\nFrom house to house 't was noon.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The dusk kept dropping, dropping still;\nNo dew upon the grass,\nBut only on my forehead stopped,\nAnd wandered in my face.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "My feet kept drowsing, drowsing still,\nMy fingers were awake;\nYet why so little sound myself\nUnto my seeming make?",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "How well I knew the light before!\nI could not see it now.\n'T is dying, I am doing;  but \nI'm not afraid to know.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-101",
+      "title": "IV.—TIME AND ETERNITY · XXVI. \"Two swimmers wrestled on a spar\" · p. 137",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Two swimmers wrestled on the spar\nUntil the morning sun,\nWhen one turned smiling to the land.\nO God, the other one!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "The stray ships passing spied a face\nUpon the waters borne,\nWith eyes in death still begging raised,\nAnd hands beseeching thrown.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-102",
+      "title": "IV.—TIME AND ETERNITY · XXVII. The Chariot · p. 138",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "THE CHARIOT.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Because I could not stop for Death,\nHe kindly stopped for me;\nThe carriage held but just ourselves\nAnd Immortality.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "We slowly drove, he knew no haste,\nAnd I had put away\nMy labor, and my leisure too,\nFor his civility.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "We passed the school where children played,\nTheir lessons scarcely done;\nWe passed the fields of gazing grain,\nWe passed the setting sun.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": " We paused before a house that seemed\nA swelling of the ground;\nThe roof was scarcely visible,\nThe cornice but a mound.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "Since then 't is centuries;  but each\nFeels shorter than the day\nI first surmised the horses' heads\nWere toward eternity.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-103",
+      "title": "IV.—TIME AND ETERNITY · XXVIII. \"She went as quiet as the dew\" · p. 140",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "She went as quiet as the dew\nFrom a familiar flower.\nNot like the dew did she return\nAt the accustomed hour!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "She dropt as softly as a star\nFrom out my summer's eve;\nLess skilful than Leverrier\nIt's sorer to believe!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-104",
+      "title": "IV.—TIME AND ETERNITY · XXIX. Resurgam · p. 141",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "RESURGAM.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "At last to be identified!\nAt last, the lamps upon thy side,\nThe rest of life to see!\nPast midnight, past the morning star!\nPast sunrise! Ah! what leagues there are\nBetween our feet and day!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-105",
+      "title": "IV.—TIME AND ETERNITY · XXX. \"Except to heaven she is nought\" · p. 142",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Except to heaven, she is nought;\nExcept for angels, lone;\nExcept to some wide-wandering bee, \nA flower superfluous blown;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Except for winds, provincial;\nExcept by butterflies,\nUnnoticed as a single dew\nThat on the acre lies.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The smallest housewife in the grass,\nYet take her from the lawn,\nAnd somebody has lost the face\nThat made existence home!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-106",
+      "title": "IV.—TIME AND ETERNITY · XXXI. \"Death is a dialogue between\" · p. 143",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Death is a dialogue between\nThe spirit and the dust.\n\"Dissolve,\" says Death. The Spirit, \"Sir,\nI have another trust.\"",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Death doubts it, argues from the ground.\nThe Spirit turns away,\nJust laying off, for evidence,\nAn overcoat of clay.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-107",
+      "title": "IV.—TIME AND ETERNITY · XXXII. \"It was too late for man\" · p. 144",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "It was too late for man,\nBut early yet for God;\nCreation impotent to help,\nBut prayer remained our side.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "How excellent the heaven,\nWhen earth cannot be had;\nHow hospitable, then, the face\nOf our old neighbor, God!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-108",
+      "title": "IV.—TIME AND ETERNITY · XXXIII. Along the Potomac · p. 145",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "ALONG THE POTOMAC.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "When I was small, a woman died.\nTo-day her only boy\nWent up from the Potomac,\nHis face all victory,",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "To look at her;  how slowly\nThe seasons must have turned\nTill bullets clipt an angle,\nAnd he passed quickly round!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "If pride shall be in Paradise\nI never can decide;\nOf their imperial conduct,\nNo person testified.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "But proud in apparition,\nThat woman and her boy\nPass back and forth before my brain,\nAs ever in the sky.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-109",
+      "title": "IV.—TIME AND ETERNITY · XXXIV. \"The daisy follows soft the Sun\" · p. 146",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "The daisy follows soft the sun,        \nAnd when his golden walk is done,\n  Sits shyly at his feet.\nHe, walking, finds the flower near.\n\"Wherefore, marauder, art thou here?\n  \"Because, sir, love is sweet!\"",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "We are the flower, Thou the sun!\nForgive us, if as days decline,\n  We nearer steal to Thee,—\nEnamoured of the parting west,\nThe peace, the flight, the amethyst,\n  Night's possibility!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-110",
+      "title": "IV.—TIME AND ETERNITY · XXXV. Emancipation · p. 147",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "EMANCIPATION.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "No rack can torture me,\nMy soul 's at liberty.\nBehind this mortal bone\nThere knits a bolder one",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "You cannot prick with saw,\nNor rend with scymitar.\nTwo bodies therefore be;\nBind one, and one will flee.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "The eagle of his nest\nNo easier divest\nAnd gain the sky,\nThan mayest thou.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Except thyself may be\nThine enemy;\nCaptivity is consciousness,\nSo 's liberty.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-111",
+      "title": "IV.—TIME AND ETERNITY · XXXVI. Lost · p. 148",
+      "blocks": [
+        {
+          "id": "printed-title-1",
+          "kind": "heading",
+          "text": "LOST.",
+          "after": "\n\n",
+          "marks": []
+        },
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I lost a world the other day.\nHas anybody found?\nYou'll know it by the row of stars\nAround its forehead bound.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "A rich man might not notice it;\nYet to my frugal eye\nOf more esteem than ducats.\nOh, find it, sir, for me!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-112",
+      "title": "IV.—TIME AND ETERNITY · XXXVII. \"If I shouldn't be alive\" · p. 149",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "If I should n't be alive\nWhen the robins come,\nGive the one in red cravat\nA memorial crumb.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "If I could n't thank you,\nBeing just asleep,\nYou will know I'm trying\nWith my granite lip!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-113",
+      "title": "IV.—TIME AND ETERNITY · XXXVIII. \"Sleep is supposed to be\" · p. 150",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "Sleep is supposed to be,\nBy souls of sanity,\nThe shutting of the eye.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Sleep is the station grand\nDown which on either hand\nThe hosts of witness stand!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-3",
+          "kind": "verse",
+          "text": "Morn is supposed to be,\nBy people of degree,\nThe breaking of the day.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-4",
+          "kind": "verse",
+          "text": "Morning has not occurred!\nThat shall aurora be\nEast of eternity;",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-5",
+          "kind": "verse",
+          "text": "One with the banner gay,\nOne in the red array,—\nThat is the break of day.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-114",
+      "title": "IV.—TIME AND ETERNITY · XXXIX. \"I shall know why when time is over\" · p. 151",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I shall know why, when time is over,\nAnd I have ceased to wonder why;\nChrist will explain each separate anguish\nIn the fair schoolroom of the sky.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "He will tell me what Peter promised,\nAnd I, for wonder at his woe,\nI shall forget the drop of anguish\nThat scalds me now, that scalds me now.",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    },
+    {
+      "id": "poem-115",
+      "title": "IV.—TIME AND ETERNITY · XL. \"I never lost as much but twice\" · p. 152",
+      "blocks": [
+        {
+          "id": "stanza-1",
+          "kind": "verse",
+          "text": "I never lost as much but twice,\nAnd that was in the sod;\nTwice have I stood a beggar\nBefore the door of God!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        },
+        {
+          "id": "stanza-2",
+          "kind": "verse",
+          "text": "Angels, twice descending,\nReimbursed my store.\nBurglar, banker, father,\nI am poor once more!",
+          "after": "\n\n",
+          "marks": [],
+          "layout": "reflow"
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "label": "The 1890 Poems",
+      "text": "Mabel Loomis Todd and Thomas Wentworth Higginson edited this first collection after Dickinson’s death. In his preface Higginson says the editors supplied nearly all the titles. They also changed punctuation and sometimes words; this reader follows the historical printed selection.",
+      "kind": "editorial",
+      "url": "https://www.emilydickinsonmuseum.org/emily-dickinson/poetry/the-poet-at-work/the-posthumous-discovery-of-dickinsons-poems/",
+      "through": null
+    },
+    {
+      "label": "Source and transcription",
+      "text": "Poems, Boston: Roberts Brothers, 1890. The transcription is the Wikisource EPUB export of Poems (Dickinson), with page scans from the Internet Archive copy. The Wikisource transcription has been adapted for this reader. Two places have been corrected against the scan: the preface’s ‘but a for line’ and the missing period after ‘friend’ in the note to ‘Success.’",
+      "kind": "source",
+      "url": "https://en.wikisource.org/wiki/Poems_(Dickinson)",
+      "through": null
+    },
+    {
+      "label": "Wikisource contributors",
+      "text": "Beleg Tâl, Jack Merridew, Billinghurst, SnowyCinema, Zyephyrus, ThomasBot, Xenophon (bot), TalBot, ShakespeareFan00, Khaldei, Sfan00 IMG, John Vandenberg, Xover, Pathosbot, Beleg Âlt, Bookofjude, CalendulaAsteraceae, EVula, Zhaladshar, Suicidalhamster, MBisanz, Prosody, Dylanpack, T. Mazzei, Londonjackbooks, Pathoschild, Psychless, Privatemusings, ThomasV, Mahir256, Ineuw, GrafZahl, Lili321, Kennemer, Jafeluv, Renamed user QaFQqK56bnsHrz, Yann, Shanel, Aberrantgeek, Mpaa, Ankry, Theornamentalist, DonQuixote, Neo-Jay, JVbot, Luxdormiens, Cygnis insignis, Rocket000, The Man in Question, Xxagile, Quillercouch, Cmsb705, Mukkakukaku, Newmanbe, Wylve, Notme~enwikisource, Chrisguise, DarkFalls, Kathleen.wright5, VIGNERON, Samwilson, Jan.Kamenicek, Einstein95, Icurite, Sociophilosophy, AnnaKucsma~enwikisource, Jarekt, Dbenbenn, Zscout370, Jacobolus, Indolences, Technion, Dha, Abigor, Reisio, Blurpeace, Dschwen, Steinsplitter, Boris23, KABALINI, Bromskloss, Tene~commonswiki, AzaToth, Bender235, PatríciaR",
+      "kind": "source",
+      "url": "https://en.wikisource.org/wiki/Poems_(Dickinson)",
+      "through": null
+    },
+    {
+      "label": "License for this adaptation",
+      "text": "The adapted transcription is offered under Creative Commons Attribution-ShareAlike 4.0 International. See the Wikisource pages for contributor histories and the source work.",
+      "kind": "source",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "through": null
+    }
+  ]
+}

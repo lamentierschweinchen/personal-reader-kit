@@ -1941,7 +1941,35 @@
     "examples/beowulf/tests/release.test.mjs",
     "examples/beowulf/vercel.json",
     "showcase/assets/social-beowulf.jpg",
-    "showcase/check-beowulf.mjs"
+    "showcase/check-beowulf.mjs",
+    "examples/dickinson-poems-1890/package.json",
+    "examples/dickinson-poems-1890/vercel.json",
+    "examples/dickinson-poems-1890/edition-lock.json",
+    "examples/dickinson-poems-1890/scripts/build.mjs",
+    "examples/dickinson-poems-1890/site/index.html",
+    "examples/dickinson-poems-1890/site/app.mjs",
+    "examples/dickinson-poems-1890/site/core.mjs",
+    "examples/dickinson-poems-1890/site/db.mjs",
+    "examples/dickinson-poems-1890/site/bundle.mjs",
+    "examples/dickinson-poems-1890/site/library.mjs",
+    "examples/dickinson-poems-1890/site/text.mjs",
+    "examples/dickinson-poems-1890/site/share.mjs",
+    "examples/dickinson-poems-1890/site/share-card.mjs",
+    "examples/dickinson-poems-1890/site/share-card.css",
+    "examples/dickinson-poems-1890/site/style.css",
+    "examples/dickinson-poems-1890/site/manifest.webmanifest",
+    "examples/dickinson-poems-1890/site/icon.svg",
+    "examples/dickinson-poems-1890/site/apple-touch-icon.png",
+    "examples/dickinson-poems-1890/site/icon-192.png",
+    "examples/dickinson-poems-1890/site/icon-512.png",
+    "examples/dickinson-poems-1890/site/robots.txt",
+    "examples/dickinson-poems-1890/edition/book.json",
+    "examples/dickinson-poems-1890/.vercelignore",
+    "examples/dickinson-poems-1890/LICENSE",
+    "examples/dickinson-poems-1890/README.md",
+    "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
+    "examples/dickinson-poems-1890/tests/release.test.mjs",
+    "showcase/assets/social-dickinson.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4874,6 +4902,12 @@
       "sha256": "fa982b34dc6b968bab617cc48914414248fc4e4a21d1d69797838dd3a2c0879b",
       "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-authorized Beowulf edition or individually licensed companion artwork; preserve the recorded source and image terms."
+    },
+    {
+      "path": "examples/dickinson-poems-1890/edition/book.json",
+      "sha256": "5bed521ddbf606c8cadd8509851099150d4bfe966c22173b4c0ea22e009285a8",
+      "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact authorized First Series text and attributed CC BY-SA 4.0 transcription adaptation."
     }
   ],
   "reviewedSiteAssets": [
@@ -5248,6 +5282,12 @@
       "sha256": "f9e8e034a794d059a4ffb2a4856f573fc671a5cbbe95fca06026785c99d5771d",
       "provenance": "showcase/ASSETS.md",
       "reason": "Reviewed Beowulf cover card adapting Geni’s CC BY-SA 4.0 helmet photograph; attribution and adaptation terms recorded."
+    },
+    {
+      "path": "showcase/assets/social-dickinson.jpg",
+      "sha256": "f3cfdc14abf6ec97cb1ee7fa239c55de9e7c1e7b69fd1572f38138553094015b",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original typography-only Dickinson jacket and social preview. No scan or manuscript image."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5946,6 +5986,24 @@
       "sha256": "f3ebb3b4a569fd023cbc6f87a99b385eb1f3ea4fa81162c737f278ea84224e71",
       "provenance": "examples/beowulf/docs/SOURCE-RIGHTS.md",
       "reason": "Original Beowulf ship-and-mast icon; no third-party image or book text."
+    },
+    {
+      "path": "examples/dickinson-poems-1890/site/apple-touch-icon.png",
+      "sha256": "d12bf1a0676774f699bb77c035c6d5c960f68118067e350508d0e26b9dca08e1",
+      "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
+      "reason": "Original opaque raster icon from the reviewed Dickinson monogram."
+    },
+    {
+      "path": "examples/dickinson-poems-1890/site/icon-192.png",
+      "sha256": "e36aaf3e4792e2e95c04ec7d4a4ca5b562a5cdd22d827fb7617f24d0cacef418",
+      "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
+      "reason": "Original opaque raster icon from the reviewed Dickinson monogram."
+    },
+    {
+      "path": "examples/dickinson-poems-1890/site/icon-512.png",
+      "sha256": "bea723848434c78c392756e36c58ff8e2150d59ac3018edcb246017544641b74",
+      "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
+      "reason": "Original opaque raster icon from the reviewed Dickinson monogram."
     }
   ]
 }
