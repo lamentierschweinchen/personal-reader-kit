@@ -781,6 +781,35 @@
         "Source edition · Project Gutenberg"
       ],
       "rightsPath": "examples/beowulf/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "dickinson",
+      "exampleId": "dickinson-poems-1890",
+      "title": "Poems",
+      "author": "Emily Dickinson",
+      "shortAuthor": "Emily Dickinson",
+      "kind": "Poetry",
+      "language": "English",
+      "edition": "The First Series, edited by Mabel Loomis Todd and T. W. Higginson. Roberts Brothers, Boston, 1890.",
+      "editionLabel": "First Series · 1890",
+      "feature": "Life, Love, Nature, Time and Eternity",
+      "description": "The 1890 First Series, from the italic Prelude through all four books, with Higginson’s preface.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Poems_(Dickinson)",
+        "https://archive.org/details/poemssucc00dickrich"
+      ],
+      "sourceLabels": [
+        "Wikisource transcription",
+        "1890 edition · Bancroft scan"
+      ],
+      "rightsPath": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

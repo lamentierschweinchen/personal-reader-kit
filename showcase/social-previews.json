@@ -336,6 +336,18 @@
       "alt": "Beowulf, J. Lesslie Hall’s translation. A dark blue jacket shows the reconstructed Sutton Hoo helmet. The world of the hall.",
       "bytes": 57724,
       "sha256": "f9e8e034a794d059a4ffb2a4856f573fc671a5cbbe95fca06026785c99d5771d"
+    },
+    "dickinson": {
+      "id": "dickinson",
+      "file": "assets/social-dickinson.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "Poems",
+      "author": "Emily Dickinson",
+      "feature": "Life, Love, Nature, Time and Eternity",
+      "alt": "Emily Dickinson’s Poems. A cream jacket with a red period and the line First Series · 1890.",
+      "bytes": 40425,
+      "sha256": "f3cfdc14abf6ec97cb1ee7fa239c55de9e7c1e7b69fd1572f38138553094015b"
     }
   }
 }

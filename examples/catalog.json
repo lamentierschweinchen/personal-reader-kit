@@ -6073,6 +6073,122 @@
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ]
+    },
+    {
+      "id": "dickinson-poems-1890",
+      "title": "Poems",
+      "description": "The 1890 First Series, from the italic Prelude through all four books, with Higginson’s preface.",
+      "directory": "examples/dickinson-poems-1890",
+      "sourceCommit": "a1131ecc9d407a503305254adbaa1f5c4cd575a9",
+      "sourceFileCount": 17,
+      "packagingChanges": [
+        "Exact selected book and runtime, packaged with a byte-pinned edition build and source rights notice."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/dickinson/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 81403,
+          "sha256": "266fddda2667bcdc683242fbabbdc507a4bcd2a980cd585c1bf24e20e7af572c"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 3441,
+          "sha256": "d12bf1a0676774f699bb77c035c6d5c960f68118067e350508d0e26b9dca08e1"
+        },
+        {
+          "path": "build.json",
+          "bytes": 453,
+          "sha256": "522af874e53cfb3739aa438659aabba1f91d5811eaf26ee3a900263279db0f53"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 2360,
+          "sha256": "e36aaf3e4792e2e95c04ec7d4a4ca5b562a5cdd22d827fb7617f24d0cacef418"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 14367,
+          "sha256": "bea723848434c78c392756e36c58ff8e2150d59ac3018edcb246017544641b74"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 295,
+          "sha256": "81a21acb6bb563c939f726a241fd6bca1716dac88e91082e513aaf842fc6df39"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3036,
+          "sha256": "f73a0fd0ee3892a46d767f817a531ac3468b1830e1a4f39de70684b10fab2b5e"
+        },
+        {
+          "path": "library.json",
+          "bytes": 95522,
+          "sha256": "9d6a3bbc6e999005538615df94117ff85061e51601172d59bec13d597a9eb983"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 411,
+          "sha256": "0390b3f87851237ceb40b563bd978d361fc72d6b96bb42d53baf0189a88b5a39"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 27546,
+          "sha256": "fccc979b8dc6edc2264beacd0c0575081af591b789b9ea258ffcecedf30c8882"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1237,
+          "sha256": "6e24cf29044de0195cd5c454b433ec4467893f8ede8f62098256364c53e2af77"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4655,
+          "sha256": "28a2de4cb7b57bd6aac614f81a8783b05aa2d1c34817b68cca5df335ce2281f4"
+        }
+      ]
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"

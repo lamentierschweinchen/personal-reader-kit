@@ -2,7 +2,7 @@
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
-The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-seven reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-seven specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
+The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-eight reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-eight specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
 
 ## Library title legibility · November 10, 2026
 

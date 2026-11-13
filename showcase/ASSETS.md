@@ -143,3 +143,7 @@ The dark blue jacket uses Geni’s photograph of the reconstructed Sutton Hoo he
 ## Montaigne — November 11, 2026
 
 `assets/montaigne-1551.jpg` is derived from the John Carter Brown Library's scan of the 1551 Rouen royal-entry book, [Internet Archive item and catalog record](https://archive.org/details/cestladeductiond00unkn), leaves K2 verso and K3 recto (PDF pages 90 and 91). The institution identifies these leaves as the *Figure des Brisilians* woodcut. The two scanned pages were joined, cropped and resized; the central gap is present in the scan. The direct-route page makes additional detail crops. Courtesy of the John Carter Brown Library; its [digital collection permissions](https://jcblibrary.org/permissions/) apply [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), including to its Internet Archive materials. No endorsement is implied. The scan PDF SHA-256 is `7fad7701718cdd8cbea7de2c3fea2f5e5bc291d51ec450ec5030992b38603b8f`; the exact derived image SHA-256 is `034ff61f4a32e28a5d46990373a3276e60164db7a2ac318875ee8cf993172eee`. The image appears in the standalone Montaigne study.
+
+## Dickinson — November 13, 2026
+
+The cream jacket and social preview use original typography, with the reader’s red period and the 1890 edition label. No historical image was reproduced.
