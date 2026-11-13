@@ -5288,6 +5288,12 @@
       "sha256": "f3cfdc14abf6ec97cb1ee7fa239c55de9e7c1e7b69fd1572f38138553094015b",
       "provenance": "showcase/ASSETS.md",
       "reason": "Original typography-only Dickinson jacket and social preview. No scan or manuscript image."
+    },
+    {
+      "path": "showcase/assets/social-poe.jpg",
+      "sha256": "ceaa1113c8f9c804a0e77ea9deeb1204bd70b3c522558b610d47165d46a06541",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Refreshed Usher social preview with extra space between the title and the existing Beardsley illustration. Same artwork and provenance."
     }
   ],
   "reviewedHistoricalFiles": [
