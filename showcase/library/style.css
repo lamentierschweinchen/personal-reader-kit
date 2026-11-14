@@ -116,7 +116,7 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-douglass .cover-bottom{font-size:3.1cqw}
 .cover-poe{background:#282625;color:#ece5d3}
 .cover-poe strong{top:14%;font-family:Fell,Georgia,serif;font-size:16cqw;line-height:1.02}
-.cover-poe img{position:absolute;left:25%;top:43%;width:50%;height:40%;object-fit:contain}
+.cover-poe img{position:absolute;left:25%;top:53%;width:50%;height:31%;object-fit:contain}
 .cover-poe .cover-meta{font-size:3.7cqw;letter-spacing:.15em}
 .cover-poe .cover-bottom{font-size:3.3cqw;letter-spacing:.16em}
 

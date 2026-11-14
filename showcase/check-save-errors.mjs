@@ -13,6 +13,7 @@ import {settledRender,settledCapture} from '../tests/experience-browser.mjs';
 if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const locations={
+ dickinson:['dickinson-poems-1890-wikisource','preface'],
  beowulf:['beowulf-hall-gutenberg-16328','fit-I'],
  austen:['austen-pride-1894','chapter-1'],alice:['alice-rackham-28885','chapter-01'],walden:['walden','chap02'],'two-halls':['hegel','section-3'],
  odyssey:['odyssey-butler-1727','book-01'],dracula:['dracula','chap01'],'at-table':['savarin','s226'],'inward-life':['julian','s13'],
