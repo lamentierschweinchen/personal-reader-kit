@@ -84,6 +84,8 @@ For a teaching companion, demonstrate the lesson through actual examples and a c
 
 Build a small interactive prototype of each in the same project. Use a short authorized local excerpt or original stand-in; keep private prototypes under `.reader/` and never host them by default. Test the characteristic interaction: opening a passage from a route, comparing two works, hearing rhythm through controlled pacing, or another material-led action. A static screenshot is not enough for an interaction choice.
 
+Before showing the three choices, compare each prototype with the same material in the plain reader. Use the prototype and record what it helped you notice, do or enjoy. If another reviewer is available, let them try it before seeing your explanation. Replace any idea whose value only comes across in the design brief.
+
 For an open choice, show all three with clear, comparable navigation and ask which they prefer and what should change. If the person delegates creative judgment, make that comparison privately, choose on evidence and refine it before presenting the result. A hybrid is useful only if it stays coherent. Record the decision and its author privately, then build the chosen direction. If the person has already chosen, do not repeatedly ask for approval.
 
 Give the chosen reader a visual identity from its material: a brief thesis and structural choices in composition, type, navigation or genuine source imagery. Use [the design review](DESIGN.md#give-each-reader-a-visual-identity), including settled ordinary-reading and awkward-state views. Do not deliver the sample layout with only a new title and accent. Simple mode should stay restrained and require no additional design interview.
