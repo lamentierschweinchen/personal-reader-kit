@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Twenty-nine owner-approved editions for the established newreading.app catalog. Each package records the exact source, contributors and territorial limits.",
+  "status": "Thirty owner-approved editions for the established newreading.app catalog. Each package records the exact source, contributors and territorial limits.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -6303,6 +6303,162 @@
           "path": "text.mjs",
           "bytes": 3489,
           "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
+        }
+      ]
+    },
+    {
+      "id": "the-yellow-wall-paper",
+      "title": "The Yellow Wall-Paper",
+      "description": "Gilman’s complete story with its original engravings and an illustrated study of Victorian wallpaper and sickrooms.",
+      "directory": "examples/the-yellow-wall-paper",
+      "sourceCommit": "e85d1d93ac6826d1f21ef0a8876d66b4a4078e92",
+      "sourceFileCount": 26,
+      "packagingChanges": [
+        "Selected illustrated runtime, wallpaper study and exact edition build. Public attribution follows the publisher’s edition-specific license."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/yellow-wall-paper/",
+      "reviewedBuild": [
+        {
+          "path": "alegreya-OFL.txt",
+          "bytes": 4395,
+          "sha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68"
+        },
+        {
+          "path": "alegreya-italic.woff2",
+          "bytes": 170792,
+          "sha256": "bb51b7d7a138ab9314eb8518b359534d1a51d91652a6fc60dae371a088ac7f77"
+        },
+        {
+          "path": "alegreya-normal.woff2",
+          "bytes": 161220,
+          "sha256": "7b280b08beda4f54bed2c2e1cdc64063bc5b5bf38832cffbf04f5efadf3bfa87"
+        },
+        {
+          "path": "app.mjs",
+          "bytes": 84677,
+          "sha256": "39b2313906e48f2a7a2530a7da35a6dd0f86d17b44110bf6f974978146c378e2"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 5510,
+          "sha256": "ac4cb06536ff1622d1b8d549c37e041a07c19d2586eff756db46b429cd2eed5b"
+        },
+        {
+          "path": "build.json",
+          "bytes": 631,
+          "sha256": "0070c9c8a90141be30bc989b54f1659344ac609ef8ff3efa24751581f59502dc"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4651,
+          "sha256": "8d1801b21bc6df1d3e132ddc36105d27646d4bfa07879bfc009117ec2356d86e"
+        },
+        {
+          "path": "cc-by-sa-4.0.txt",
+          "bytes": 20138,
+          "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 18173,
+          "sha256": "df6837f3fa2798d6301dbd350d2ada9db3258dfa6412aa625a816ce7da9fe236"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7361,
+          "sha256": "767503d329ab4ef1bfbfd0eea8ea47076e2e5785dc110ef50ce99916ee56777e"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 6295,
+          "sha256": "1bf605c9b724abe6169c76f2bbe193b7f50049a13a5c46d9e2c05dcb8a53d8be"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 14548,
+          "sha256": "5ca7a3bf4e267b3066b9089eed3f3430e7e42d736c11fdcf0d48e519f05ec4a1"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 317,
+          "sha256": "a7d7ca57ac607227f569b7caa489142a6e0b8fcfd865757d33b400c4bd462ef4"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3066,
+          "sha256": "b2a17e1fc6ea67eab696712c01238ee3c28c1dad68fdd5ce052710758a0e1b38"
+        },
+        {
+          "path": "library.json",
+          "bytes": 5577814,
+          "sha256": "f9f5e6d3e5fb1cafe1ebc7a4c2a461be923c45efeefaaf1bf14b3b2e98013183"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 409,
+          "sha256": "5a80ff2df68215f5329c87cd03226b60c0319a0291e85dec8c0efa015961acd6"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 29349,
+          "sha256": "83cd846261a8e64a0465fd114c22c186109d65e389cbf8259f6092ada1c68d63"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1440,
+          "sha256": "95f5f839cb9ea17b28bc341a708c0ec553006e9959633e17c04bbeae4d28cadc"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 5083,
+          "sha256": "754793336d4c09d553fbcb94bf712a49281064975521b21a74cc71c74259e49d"
+        },
+        {
+          "path": "the-paper-on-the-wall.html",
+          "bytes": 14160,
+          "sha256": "fe9283086658b3942788d18c7d51f04b7e4c71a783d6532e3426c66c494dd95e"
+        },
+        {
+          "path": "wall-media.mjs",
+          "bytes": 5777,
+          "sha256": "5da4ca94e9d87ac47d78f3b4221600e358f9837668732ccfd9678064c4b0cb28"
+        },
+        {
+          "path": "wallpaper-marigold.jpg",
+          "bytes": 1413922,
+          "sha256": "70f0c017fb8199de0d68cb23f6e9f5cfcbb908bd2dfc138488ef907d8e9cd692"
+        },
+        {
+          "path": "wallpaper-pink-and-rose.jpg",
+          "bytes": 424295,
+          "sha256": "3cb21ef79901b813cd047251634605618bdb37a00138660338321c0aa94cbea5"
         }
       ]
     }

@@ -839,6 +839,38 @@
         "1856 edition · Bancroft scan"
       ],
       "rightsPath": "examples/bartleby/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "yellow-wall-paper",
+      "exampleId": "the-yellow-wall-paper",
+      "title": "The Yellow Wall-Paper",
+      "author": "Charlotte Perkins Gilman",
+      "shortAuthor": "Charlotte Perkins Gilman",
+      "kind": "Short fiction",
+      "language": "English",
+      "edition": "The January 1892 New England Magazine printing, with Jo. H. Hatfield’s engravings.",
+      "editionLabel": "The New England Magazine · 1892",
+      "feature": "The paper on the wall",
+      "description": "Gilman’s complete story with its original engravings and an illustrated study of Victorian wallpaper and sickrooms.",
+      "categories": [
+        "words",
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.ncbi.nlm.nih.gov/nlmcatalog/101504878",
+        "https://github.com/LiteratureInContext/LiC-data/blob/9c9ccf255390310c481f639c0870bd8890312db1/data/Gilman/gilman-yellow.xml",
+        "https://www.metmuseum.org/art/collection/search/384018"
+      ],
+      "sourceLabels": [
+        "National Library of Medicine scan",
+        "Literature in Context transcription",
+        "Marigold wallpaper · The Met"
+      ],
+      "rightsPath": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

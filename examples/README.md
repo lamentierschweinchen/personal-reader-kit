@@ -33,6 +33,7 @@ These are complete, runnable examples of what an agent can build with the kit. E
 | [How writers write](writers-at-work/README.md) | Twelve writers’ advice, six comparisons and six writing exercises | [Witnesses and editorial scope](writers-at-work/docs/SOURCE-RIGHTS.md) |
 | [Poems](dickinson-poems-1890/README.md) | Emily Dickinson’s complete 1890 First Series | [Edition and reuse terms](dickinson-poems-1890/docs/SOURCE-RIGHTS.md) |
 | [Bartleby](bartleby/README.md) | Herman Melville’s complete story from *The Piazza Tales* | [Edition and reuse terms](bartleby/docs/SOURCE-RIGHTS.md) |
+| [The Yellow Wall-Paper](the-yellow-wall-paper/README.md) | Gilman’s complete story, with engravings and a wallpaper study | [Edition and reuse terms](the-yellow-wall-paper/docs/SOURCE-RIGHTS.md) |
 
 ## Try one
 
@@ -53,7 +54,7 @@ Where the edition supports faithful image export, **Make card** creates a quotat
 
 ## What is public
 
-The user selected these twenty-nine reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these thirty reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. Historical public-domain claims are scoped to the named edition and territory. Modern Folger texts retain **CC BY-NC 3.0**; admitted Wikisource and Perseus transcriptions retain **CC BY-SA 4.0**. The MIT software license does not relicense them. No declaration establishes worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 

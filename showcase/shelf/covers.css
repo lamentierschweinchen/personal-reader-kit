@@ -144,3 +144,10 @@
 .mixed-library .cover-bartleby::before{content:"";position:absolute;inset:14% 7%;border-block:1px solid #667064;pointer-events:none}
 .mixed-library .cover-bartleby strong{font:400 22cqw/.95 Georgia,serif;letter-spacing:-.065em;top:43%;left:7%;right:6%}
 .mixed-library .cover-bartleby .cover-period{color:#4b5b4e}
+.mixed-library .cover-yellow-wall-paper{background:#eee9d8;color:#282e26;border:1px solid #b7ab8e}
+.mixed-library .cover-yellow-wall-paper::before{content:"";position:absolute;inset:8% 7%;border:1px solid #a0916c;pointer-events:none}
+.mixed-library .cover-yellow-wall-paper .cover-meta,.mixed-library .cover-yellow-wall-paper .cover-bottom{left:12%;right:12%;line-height:1.4;text-align:center}
+.mixed-library .cover-yellow-wall-paper .cover-meta{top:13%}
+.mixed-library .cover-yellow-wall-paper .cover-bottom{bottom:13%}
+.mixed-library .cover-yellow-wall-paper strong{inset:38% 8% auto;text-align:center;font:400 16.5cqw/.95 Georgia,serif;letter-spacing:-.06em}
+.mixed-library .cover-yellow-wall-paper em{font-weight:400;color:#6e5737}
