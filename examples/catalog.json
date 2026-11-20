@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Twenty-seven owner-approved editions for the established newreading.app catalogue; exact source, contributor and territorial scopes are recorded with each package.",
+  "status": "Twenty-nine owner-approved editions for the established newreading.app catalog. Each package records the exact source, contributors and territorial limits.",
   "examples": [
     {
       "id": "pride-and-prejudice",
@@ -6187,6 +6187,122 @@
           "path": "text.mjs",
           "bytes": 4655,
           "sha256": "28a2de4cb7b57bd6aac614f81a8783b05aa2d1c34817b68cca5df335ce2281f4"
+        }
+      ]
+    },
+    {
+      "id": "bartleby",
+      "title": "Bartleby",
+      "description": "Melville’s Wall Street story in the 1856 book edition, with a short note on how clerks checked hand-copied pages.",
+      "directory": "examples/bartleby",
+      "sourceCommit": "9396040fd679b05916c064087856e34e8970a029",
+      "sourceFileCount": 18,
+      "packagingChanges": [
+        "Selected reader files and an exact edition build, with the source and reuse record."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/bartleby/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 81172,
+          "sha256": "9e078ffd28ebf74306a394dd5ca9838a375ed7c26ea1f53ec5d6a10926a5f41a"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 5693,
+          "sha256": "011da40cbdd9e4572286de947b9a45ba887ac6a7a5b8191eb35fdf077ec846a9"
+        },
+        {
+          "path": "build.json",
+          "bytes": 451,
+          "sha256": "2c8e618b4bfdc72d503e8f29964c20fa25f5aec1fcfee6a698218487f180a5e0"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 6155,
+          "sha256": "73d785d521069752c9162fc9bc98e9db6555c65c95e7a31eb30a5a43d3f59720"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 14701,
+          "sha256": "8234c966acbb7fb63ef5fe2fc5b4dae19e341ff915d49eaf694620e4ef064a8a"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 558,
+          "sha256": "bf725d4f2a31d63e8855c5f0ae908b538aebaf6e2b38b433d95b629d4164cb04"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3011,
+          "sha256": "0e51dd616370f352d3eb232e1c0aeded23500ca800d5d9b6c9d5f8150b551162"
+        },
+        {
+          "path": "library.json",
+          "bytes": 101281,
+          "sha256": "09d493de7d3fefd10763a59f2fcdb2d2860702d35956ea909a70ccf59cee4eb6"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 417,
+          "sha256": "61e120ee932d2328db959f48e17282e7b078a33ffa15357ce0d73391e859b552"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 26568,
+          "sha256": "a01ddc839d619f9e4d487a6636277bb46124ae3f6ee62cb5859261503f6ad3ec"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1236,
+          "sha256": "0b989b505befaed431bc94ab1f3e5b20d9096e6e38649f44f14687621ffe9806"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 3489,
+          "sha256": "0d8f19406b7c0e9e635ecffc1067e4578fc92df0a7a5939f698e7aff2b8a9fe5"
         }
       ]
     }

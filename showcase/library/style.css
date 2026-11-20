@@ -167,3 +167,8 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-dickinson{background:#f8f6f0;color:#292724;font-family:Georgia,serif;border:1px solid #d7d0c5}
 .cover-dickinson strong{font:400 25cqw/.9 Georgia,serif;letter-spacing:-.065em;top:41%;left:9%;right:7%;white-space:nowrap}
 .cover-dickinson .cover-period{color:#793e3a}
+
+.cover-bartleby{background:#eee9dc;color:#292c29;font-family:Georgia,serif;border:1px solid #bdb9aa}
+.cover-bartleby::before{content:"";position:absolute;inset:14% 7%;border-block:1px solid #667064;pointer-events:none}
+.cover-bartleby strong{font:400 22cqw/.95 Georgia,serif;letter-spacing:-.065em;top:43%;left:7%;right:6%}
+.cover-bartleby .cover-period{color:#4b5b4e}

@@ -1969,7 +1969,35 @@
     "examples/dickinson-poems-1890/README.md",
     "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
     "examples/dickinson-poems-1890/tests/release.test.mjs",
-    "showcase/assets/social-dickinson.jpg"
+    "showcase/assets/social-dickinson.jpg",
+    "examples/bartleby/.vercelignore",
+    "examples/bartleby/LICENSE",
+    "examples/bartleby/README.md",
+    "examples/bartleby/docs/SOURCE-RIGHTS.md",
+    "examples/bartleby/edition-lock.json",
+    "examples/bartleby/package.json",
+    "examples/bartleby/scripts/build.mjs",
+    "examples/bartleby/tests/release.test.mjs",
+    "examples/bartleby/vercel.json",
+    "examples/bartleby/site/index.html",
+    "examples/bartleby/site/app.mjs",
+    "examples/bartleby/site/core.mjs",
+    "examples/bartleby/site/db.mjs",
+    "examples/bartleby/site/bundle.mjs",
+    "examples/bartleby/site/library.mjs",
+    "examples/bartleby/site/text.mjs",
+    "examples/bartleby/site/share.mjs",
+    "examples/bartleby/site/share-card.mjs",
+    "examples/bartleby/site/share-card.css",
+    "examples/bartleby/site/style.css",
+    "examples/bartleby/site/manifest.webmanifest",
+    "examples/bartleby/site/icon.svg",
+    "examples/bartleby/site/apple-touch-icon.png",
+    "examples/bartleby/site/icon-192.png",
+    "examples/bartleby/site/icon-512.png",
+    "examples/bartleby/site/robots.txt",
+    "examples/bartleby/edition/book.json",
+    "showcase/assets/social-bartleby.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4908,6 +4936,12 @@
       "sha256": "5bed521ddbf606c8cadd8509851099150d4bfe966c22173b4c0ea22e009285a8",
       "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
       "reason": "Exact authorized First Series text and attributed CC BY-SA 4.0 transcription adaptation."
+    },
+    {
+      "path": "examples/bartleby/edition/book.json",
+      "sha256": "25d50ceb9daa63f08300fca07e4f9547f91391d2faaf16352f7238a73d7a63a8",
+      "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved Bartleby chapter from the 1856 book transcription."
     }
   ],
   "reviewedSiteAssets": [
@@ -5294,6 +5328,12 @@
       "sha256": "ceaa1113c8f9c804a0e77ea9deeb1204bd70b3c522558b610d47165d46a06541",
       "provenance": "showcase/ASSETS.md",
       "reason": "Refreshed Usher social preview with extra space between the title and the existing Beardsley illustration. Same artwork and provenance."
+    },
+    {
+      "path": "showcase/assets/social-bartleby.jpg",
+      "sha256": "bb268af3a48b29b0f2296f99fb23924693be814f5c01d03c4368d1bfaf4d7768",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original typographic share card from the reviewed Bartleby cover."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -6010,6 +6050,24 @@
       "sha256": "bea723848434c78c392756e36c58ff8e2150d59ac3018edcb246017544641b74",
       "provenance": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md",
       "reason": "Original opaque raster icon from the reviewed Dickinson monogram."
+    },
+    {
+      "path": "examples/bartleby/site/apple-touch-icon.png",
+      "sha256": "011da40cbdd9e4572286de947b9a45ba887ac6a7a5b8191eb35fdf077ec846a9",
+      "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
+      "reason": "Original ruled-ledger icon drawn for this Bartleby edition."
+    },
+    {
+      "path": "examples/bartleby/site/icon-192.png",
+      "sha256": "73d785d521069752c9162fc9bc98e9db6555c65c95e7a31eb30a5a43d3f59720",
+      "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
+      "reason": "Original ruled-ledger icon drawn for this Bartleby edition."
+    },
+    {
+      "path": "examples/bartleby/site/icon-512.png",
+      "sha256": "8234c966acbb7fb63ef5fe2fc5b4dae19e341ff915d49eaf694620e4ef064a8a",
+      "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
+      "reason": "Original ruled-ledger icon drawn for this Bartleby edition."
     }
   ]
 }

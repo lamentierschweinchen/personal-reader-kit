@@ -810,6 +810,35 @@
         "1890 edition · Bancroft scan"
       ],
       "rightsPath": "examples/dickinson-poems-1890/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "bartleby",
+      "exampleId": "bartleby",
+      "title": "Bartleby",
+      "author": "Herman Melville",
+      "shortAuthor": "Herman Melville",
+      "kind": "Short fiction",
+      "language": "English",
+      "edition": "From The Piazza Tales, published by Dix & Edwards, New York, 1856.",
+      "editionLabel": "The Piazza Tales · 1856",
+      "feature": "Four cents a folio",
+      "description": "Melville’s Wall Street story in the 1856 book edition, with a short note on how clerks checked hand-copied pages.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15859",
+        "https://commons.wikimedia.org/wiki/File:The_piazza_tales_(IA_piazztales00melvrich).pdf"
+      ],
+      "sourceLabels": [
+        "Project Gutenberg transcription",
+        "1856 edition · Bancroft scan"
+      ],
+      "rightsPath": "examples/bartleby/docs/SOURCE-RIGHTS.md"
     }
   ]
 }
