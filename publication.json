@@ -1997,7 +1997,44 @@
     "examples/bartleby/site/icon-512.png",
     "examples/bartleby/site/robots.txt",
     "examples/bartleby/edition/book.json",
-    "showcase/assets/social-bartleby.jpg"
+    "showcase/assets/social-bartleby.jpg",
+    "examples/the-yellow-wall-paper/.vercelignore",
+    "examples/the-yellow-wall-paper/LICENSE",
+    "examples/the-yellow-wall-paper/README.md",
+    "examples/the-yellow-wall-paper/docs/FONTS.md",
+    "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+    "examples/the-yellow-wall-paper/edition-lock.json",
+    "examples/the-yellow-wall-paper/package.json",
+    "examples/the-yellow-wall-paper/scripts/build.mjs",
+    "examples/the-yellow-wall-paper/tests/release.test.mjs",
+    "examples/the-yellow-wall-paper/vercel.json",
+    "examples/the-yellow-wall-paper/site/index.html",
+    "examples/the-yellow-wall-paper/site/app.mjs",
+    "examples/the-yellow-wall-paper/site/core.mjs",
+    "examples/the-yellow-wall-paper/site/wall-media.mjs",
+    "examples/the-yellow-wall-paper/site/the-paper-on-the-wall.html",
+    "examples/the-yellow-wall-paper/edition/wallpaper-marigold.jpg",
+    "examples/the-yellow-wall-paper/edition/wallpaper-pink-and-rose.jpg",
+    "examples/the-yellow-wall-paper/site/db.mjs",
+    "examples/the-yellow-wall-paper/site/bundle.mjs",
+    "examples/the-yellow-wall-paper/site/library.mjs",
+    "examples/the-yellow-wall-paper/site/text.mjs",
+    "examples/the-yellow-wall-paper/site/share.mjs",
+    "examples/the-yellow-wall-paper/site/share-card.mjs",
+    "examples/the-yellow-wall-paper/site/share-card.css",
+    "examples/the-yellow-wall-paper/site/style.css",
+    "examples/the-yellow-wall-paper/site/alegreya-normal.woff2",
+    "examples/the-yellow-wall-paper/site/alegreya-italic.woff2",
+    "examples/the-yellow-wall-paper/site/alegreya-OFL.txt",
+    "examples/the-yellow-wall-paper/site/cc-by-sa-4.0.txt",
+    "examples/the-yellow-wall-paper/site/manifest.webmanifest",
+    "examples/the-yellow-wall-paper/site/icon.svg",
+    "examples/the-yellow-wall-paper/site/apple-touch-icon.png",
+    "examples/the-yellow-wall-paper/site/icon-192.png",
+    "examples/the-yellow-wall-paper/site/icon-512.png",
+    "examples/the-yellow-wall-paper/site/robots.txt",
+    "examples/the-yellow-wall-paper/edition/book.json",
+    "showcase/assets/social-yellow-wall-paper.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4942,6 +4979,24 @@
       "sha256": "25d50ceb9daa63f08300fca07e4f9547f91391d2faaf16352f7238a73d7a63a8",
       "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
       "reason": "Exact owner-approved Bartleby chapter from the 1856 book transcription."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/edition/book.json",
+      "sha256": "2008e999afbeef5446e44cf4e085409228835bf4c5dd4c47ec93da54d6ef65ab",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Complete illustrated Gilman text and embedded NLM page images with reviewed public attribution."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/edition/wallpaper-marigold.jpg",
+      "sha256": "70f0c017fb8199de0d68cb23f6e9f5cfcbb908bd2dfc138488ef907d8e9cd692",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed Open Access public-domain Metropolitan Museum of Art photograph, resized."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/edition/wallpaper-pink-and-rose.jpg",
+      "sha256": "3cb21ef79901b813cd047251634605618bdb37a00138660338321c0aa94cbea5",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed Open Access public-domain Metropolitan Museum of Art photograph, resized."
     }
   ],
   "reviewedSiteAssets": [
@@ -5334,6 +5389,12 @@
       "sha256": "bb268af3a48b29b0f2296f99fb23924693be814f5c01d03c4368d1bfaf4d7768",
       "provenance": "showcase/ASSETS.md",
       "reason": "Original typographic share card from the reviewed Bartleby cover."
+    },
+    {
+      "path": "showcase/assets/social-yellow-wall-paper.jpg",
+      "sha256": "0cd4d240f8738793a2b99eeec2ae0a91a66631196e79e85c540388a1377aef24",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Typographic share card with Jo. H. Hatfield’s 1892 engraving from the reviewed public-domain NLM edition."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5526,6 +5587,22 @@
       "reason": "Unchanged locally served Source font; complete SIL OFL license included with this reader.",
       "license": "examples/book-of-tea/site/source-serif-license.txt",
       "licenseSha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464"
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/site/alegreya-normal.woff2",
+      "sha256": "7b280b08beda4f54bed2c2e1cdc64063bc5b5bf38832cffbf04f5efadf3bfa87",
+      "provenance": "examples/the-yellow-wall-paper/docs/FONTS.md",
+      "license": "examples/the-yellow-wall-paper/site/alegreya-OFL.txt",
+      "licenseSha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
+      "reason": "Exact Alegreya WOFF2 from the reviewed source checkpoint under SIL OFL 1.1."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/site/alegreya-italic.woff2",
+      "sha256": "bb51b7d7a138ab9314eb8518b359534d1a51d91652a6fc60dae371a088ac7f77",
+      "provenance": "examples/the-yellow-wall-paper/docs/FONTS.md",
+      "license": "examples/the-yellow-wall-paper/site/alegreya-OFL.txt",
+      "licenseSha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
+      "reason": "Exact Alegreya WOFF2 from the reviewed source checkpoint under SIL OFL 1.1."
     }
   ],
   "reviewedIconFiles": [
@@ -6068,6 +6145,24 @@
       "sha256": "8234c966acbb7fb63ef5fe2fc5b4dae19e341ff915d49eaf694620e4ef064a8a",
       "provenance": "examples/bartleby/docs/SOURCE-RIGHTS.md",
       "reason": "Original ruled-ledger icon drawn for this Bartleby edition."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/site/apple-touch-icon.png",
+      "sha256": "ac4cb06536ff1622d1b8d549c37e041a07c19d2586eff756db46b429cd2eed5b",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Original geometric window emblem, designed for this edition."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/site/icon-192.png",
+      "sha256": "1bf605c9b724abe6169c76f2bbe193b7f50049a13a5c46d9e2c05dcb8a53d8be",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Original geometric window emblem, designed for this edition."
+    },
+    {
+      "path": "examples/the-yellow-wall-paper/site/icon-512.png",
+      "sha256": "5ca7a3bf4e267b3066b9089eed3f3430e7e42d736c11fdcf0d48e519f05ec4a1",
+      "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
+      "reason": "Original geometric window emblem, designed for this edition."
     }
   ]
 }

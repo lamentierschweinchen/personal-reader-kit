@@ -172,3 +172,11 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-bartleby::before{content:"";position:absolute;inset:14% 7%;border-block:1px solid #667064;pointer-events:none}
 .cover-bartleby strong{font:400 22cqw/.95 Georgia,serif;letter-spacing:-.065em;top:43%;left:7%;right:6%}
 .cover-bartleby .cover-period{color:#4b5b4e}
+
+.cover-yellow-wall-paper{background:#eee9d8;color:#282e26;border:1px solid #b7ab8e}
+.cover-yellow-wall-paper::before{content:"";position:absolute;inset:8% 7%;border:1px solid #a0916c;pointer-events:none}
+.cover-yellow-wall-paper .cover-meta,.cover-yellow-wall-paper .cover-bottom{left:12%;right:12%;line-height:1.4;text-align:center}
+.cover-yellow-wall-paper .cover-meta{top:13%}
+.cover-yellow-wall-paper .cover-bottom{bottom:13%}
+.cover-yellow-wall-paper strong{inset:38% 8% auto;text-align:center;font:400 16.5cqw/.95 Georgia,serif;letter-spacing:-.06em}
+.cover-yellow-wall-paper em{font-weight:400;color:#6e5737}

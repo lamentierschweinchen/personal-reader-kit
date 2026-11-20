@@ -1,5 +1,7 @@
 # Kit status · 0.5.0
 
+The Yellow Wall-Paper joins the library as edition 30. It pairs the complete illustrated story with a study of Victorian wallpaper and sickrooms. [Read the story](https://newreading.app/yellow-wall-paper/) · [Source and reuse](../examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md)
+
 Bartleby joins the library as edition 29. The reader contains the complete 1856 book text of the story, an original ruled cover and a short note on checking a copy. [Read Bartleby](https://newreading.app/bartleby/) · [Source and reuse](../examples/bartleby/docs/SOURCE-RIGHTS.md)
 
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)

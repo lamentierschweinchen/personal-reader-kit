@@ -149,3 +149,5 @@ The dark blue jacket uses Geni’s photograph of the reconstructed Sutton Hoo he
 The cream jacket and social preview use original typography, with the reader’s red period and the 1890 edition label. No historical image was reproduced.
 
 `assets/social-bartleby.jpg` is an original 1200 × 630 typographic rendering of the Bartleby cover, using Georgia and the edition’s cream ledger rules. It contains no scanned artwork. The [source record](../examples/bartleby/docs/SOURCE-RIGHTS.md) identifies the edition.
+
+`assets/social-yellow-wall-paper.jpg` combines the catalogue title with Jo. H. Hatfield’s 1892 engraving, sourced from the U.S. National Library of Medicine. [Source and reuse](../examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md)

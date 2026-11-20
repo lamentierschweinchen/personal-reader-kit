@@ -360,6 +360,18 @@
       "alt": "Bartleby by Herman Melville. A cream title page with ruled lines and a green period. The Piazza Tales, 1856.",
       "bytes": 38066,
       "sha256": "bb268af3a48b29b0f2296f99fb23924693be814f5c01d03c4368d1bfaf4d7768"
+    },
+    "yellow-wall-paper": {
+      "id": "yellow-wall-paper",
+      "file": "assets/social-yellow-wall-paper.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "The Yellow Wall-Paper",
+      "author": "Charlotte Perkins Gilman",
+      "feature": "The paper on the wall",
+      "alt": "The Yellow Wall-Paper by Charlotte Perkins Gilman, alongside Jo. H. Hatfield’s 1892 engraving.",
+      "bytes": 134591,
+      "sha256": "0cd4d240f8738793a2b99eeec2ae0a91a66631196e79e85c540388a1377aef24"
     }
   }
 }
