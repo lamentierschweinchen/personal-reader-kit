@@ -99,8 +99,8 @@ async function keyboardJourney(page){
  await page.keyboard.press('Space');await settled(page);await state(page,'dracula','Space activates');
  await page.keyboard.press('ArrowRight');await settled(page);await state(page,'poe','Right arrow');
  await page.keyboard.press('Home');await settled(page);await state(page,'alice','Home');
- await page.keyboard.press('End');await settled(page);await state(page,'music-and-feeling','End');
- await page.keyboard.press('ArrowLeft');await settled(page);await state(page,'war-and-peace','Left arrow');
+ await page.keyboard.press('End');await settled(page);await state(page,order.at(-1),'End');
+ await page.keyboard.press('ArrowLeft');await settled(page);await state(page,order.at(-2),'Left arrow');
  await pick(page,'at-table').focus();await page.keyboard.press('Enter');await settled(page);await state(page,'at-table','Enter activates');
  assert.equal(await page.locator('#selection-status').getAttribute('aria-live'),'polite');
  assert.match(await page.locator('#selection-status').textContent(),/At Table/);
@@ -141,7 +141,7 @@ try{
      {
       assert.equal(await page.locator('[data-shelf-step="1"]').isVisible(),true,'Shelf navigation stays available at every width');
       assert.equal(await page.locator('[data-shelf-step="1"]').isDisabled(),true,'Last book disables Next');
-      await page.locator('[data-shelf-step="-1"]').click();await settled(page);await state(page,'war-and-peace','Previous control');
+      await page.locator('[data-shelf-step="-1"]').click();await settled(page);await state(page,order.at(-2),'Previous control');
       await pick(page,'alice').focus();await page.keyboard.press('Home');await settled(page);
       assert.equal(await page.locator('[data-shelf-step="-1"]').isDisabled(),true,'First book disables Previous');
       await page.locator('[data-shelf-step="1"]').click();await settled(page);await state(page,'mountains','Next control');
@@ -169,9 +169,9 @@ try{
     await screenshot(page,engine+'-desktop-inward');
     await pick(page,'alice').focus();await page.keyboard.press('Home');
     for(let i=0;i<order.length-1;i++)await page.keyboard.press('ArrowRight');
-    await settled(page);await state(page,'music-and-feeling','Rapid keyboard changes');await layout(page,engine+' rapid desktop');
+    await settled(page);await state(page,order.at(-1),'Rapid keyboard changes');await layout(page,engine+' rapid desktop');
     for(const width of [1280,1281,390,1280]){
-     await page.setViewportSize({width,height:900});await settled(page);await state(page,'music-and-feeling','Resize '+width);await layout(page,engine+' resize '+width);
+     await page.setViewportSize({width,height:900});await settled(page);await state(page,order.at(-1),'Resize '+width);await layout(page,engine+' resize '+width);
     }
     await page.setViewportSize({width:390,height:844});await settled(page);
     await pick(page,'austen').click();await settled(page);await page.locator('#chosen-book .chosen-read').click();
