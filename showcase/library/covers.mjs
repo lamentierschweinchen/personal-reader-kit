@@ -1,5 +1,6 @@
 // Cover compositions around the exact reviewed reader artwork.
 export const cover=(b,mini=false)=>`<div class="cover cover-${b.id}${mini?' mini':''}" aria-hidden="true">${{
+ bartleby:'<span class="cover-meta">HERMAN MELVILLE</span><strong>Bartleby<span class="cover-period">.</span></strong><span class="cover-bottom">THE PIAZZA TALES · 1856</span>',
  dickinson:'<span class="cover-meta">EMILY DICKINSON</span><strong>Poems<span class="cover-period">.</span></strong><span class="cover-bottom">FIRST SERIES · 1890</span>',
  beowulf:'<span class="cover-meta">J. LESSLIE HALL</span><strong>Beowulf</strong><img src="/beowulf/hall-helmet.jpg" alt=""><span class="cover-bottom">AN ANGLO-SAXON EPIC POEM</span>',
  'clay-cart':'<span class="cover-meta">ŚŪDRAKA · RYDER</span><strong>The<br>Little<br><em>Clay Cart</em></strong><svg class="cover-art" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor"><circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="59"/><circle cx="100" cy="100" r="9"/><path d="M100 18v164M18 100h164M42 42l116 116M158 42 42 158"/></g></svg><span class="cover-bottom">A PLAY IN TEN ACTS</span>',

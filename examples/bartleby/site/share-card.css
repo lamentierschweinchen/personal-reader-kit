@@ -1,0 +1,15 @@
+.passage-card-preview{margin:20px 0 4px;padding-top:16px;border-top:1px solid var(--line);min-width:0}
+.passage-card-preview[hidden],.passage-card-preview [hidden]{display:none!important}
+.passage-card-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.passage-card-heading h3{font:400 1.35rem/1.2 var(--serif);margin:0;letter-spacing:-.02em}
+.passage-card-heading h3:focus{outline:none}
+.passage-card-preview .passage-card-status{min-height:1.55em;margin:0 0 14px;overflow-wrap:anywhere}
+.passage-card-image{display:block;width:min(100%,540px);height:auto;margin:0 auto;background:var(--share-card-paper,var(--paper));border:1px solid var(--line)}
+.passage-card-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:16px}
+.passage-card-actions button,.passage-card-actions a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;max-width:100%;padding:10px 16px;line-height:1.4;overflow-wrap:anywhere;text-align:center;box-sizing:border-box}
+.passage-card-actions a{color:inherit;text-decoration:none}
+.passage-card-preview button,.passage-card-make{min-width:44px;min-height:44px}
+.passage-card-preview a:focus-visible,.passage-card-preview button:focus-visible,.passage-card-make:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.passage-card-preview[data-card-state=generating] .passage-card-status{color:var(--ink)}
+@media(max-width:360px){.passage-card-heading{align-items:flex-start}.passage-card-heading h3{padding-top:9px}.passage-card-actions{gap:8px}.passage-card-actions>*{flex:1 1 auto}}
+@media(prefers-reduced-motion:no-preference){.passage-card-image{animation:passage-card-reveal 160ms ease-out}@keyframes passage-card-reveal{from{opacity:.4}to{opacity:1}}}

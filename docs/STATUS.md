@@ -1,5 +1,7 @@
 # Kit status · 0.5.0
 
+Bartleby joins the library as edition 29. The reader contains the complete 1856 book text of the story, an original ruled cover and a short note on checking a copy. [Read Bartleby](https://newreading.app/bartleby/) · [Source and reuse](../examples/bartleby/docs/SOURCE-RIGHTS.md)
+
 The kit builder’s adversarial pass and the existing Canetti builder’s independent review have both been incorporated. The external review inspected `4eaeec6`; its findings were reconciled against the self-review release `aa60a42` before this update. [Finding-by-finding response](REVIEW.md)
 
 The public destination remains [lamentierschweinchen/personal-reader-kit](https://github.com/lamentierschweinchen/personal-reader-kit), published on `main` as a GitHub template. The public entrance is now [newreading.app](https://newreading.app/) with twenty-eight reader paths; `read.lookatseel.com` remains available. Live verification is recorded below. Personal reader applications, private records and raw preparation remain outside this repository. The twenty-eight specifically reviewed readers are the bounded public exception. The specifically authorized map-only Canetti preview below is a separate, exact asset exception.
