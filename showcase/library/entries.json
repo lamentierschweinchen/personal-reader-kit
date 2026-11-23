@@ -871,6 +871,37 @@
         "Marigold wallpaper · The Met"
       ],
       "rightsPath": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "open-boat",
+      "exampleId": "the-open-boat",
+      "title": "The Open Boat",
+      "author": "Stephen Crane",
+      "shortAuthor": "Stephen Crane",
+      "kind": "Short fiction",
+      "language": "English",
+      "edition": "The title story from William Heinemann’s 1898 London edition.",
+      "editionLabel": "William Heinemann · 1898",
+      "feature": "Thirty hours in a dinghy",
+      "description": "Four men in a ten-foot dinghy off the Florida coast. The complete story, with an original illustration and a note on Crane’s newspaper account.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45524",
+        "https://archive.org/details/openboatandother00cranrich",
+        "https://sites.lafayette.edu/crane-edition/the-new-york-press/"
+      ],
+      "sourceLabels": [
+        "Project Gutenberg transcription",
+        "1898 edition · Bancroft scan",
+        "Crane’s newspaper account · spoiler"
+      ],
+      "rightsPath": "examples/the-open-boat/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

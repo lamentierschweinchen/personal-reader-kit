@@ -1,5 +1,6 @@
 // Cover compositions around the exact reviewed reader artwork.
 export const cover=(b,mini=false)=>`<div class="cover cover-${b.id}${mini?' mini':''}" aria-hidden="true">${{
+ 'open-boat':'<span class="cover-meta">STEPHEN CRANE</span><strong>The<br>Open Boat</strong><img src="/open-boat/cover.webp" alt=""><span class="cover-bottom">LONDON · 1898</span>',
  'yellow-wall-paper':'<span class="cover-meta">CHARLOTTE<br>PERKINS GILMAN</span><strong>The Yellow<br><em>Wall-Paper</em></strong><span class="cover-bottom">NEW ENGLAND MAGAZINE<br>1892</span>',
  bartleby:'<span class="cover-meta">HERMAN MELVILLE</span><strong>Bartleby<span class="cover-period">.</span></strong><span class="cover-bottom">THE PIAZZA TALES · 1856</span>',
  dickinson:'<span class="cover-meta">EMILY DICKINSON</span><strong>Poems<span class="cover-period">.</span></strong><span class="cover-bottom">FIRST SERIES · 1890</span>',

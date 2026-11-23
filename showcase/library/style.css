@@ -180,3 +180,10 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 .cover-yellow-wall-paper .cover-bottom{bottom:13%}
 .cover-yellow-wall-paper strong{inset:38% 8% auto;text-align:center;font:400 16.5cqw/.95 Georgia,serif;letter-spacing:-.06em}
 .cover-yellow-wall-paper em{font-weight:400;color:#6e5737}
+
+.cover-open-boat{background:#f1ece0;color:#203337;border:1px solid #b5b9aa}
+.cover-open-boat .cover-meta,.cover-open-boat .cover-bottom{left:10%;right:10%;text-align:center}
+.cover-open-boat .cover-meta{top:10%}
+.cover-open-boat .cover-bottom{bottom:9%}
+.cover-open-boat strong{inset:22% 7% auto;text-align:center;font:400 14.5cqw/.94 Baskerville,Georgia,serif;letter-spacing:-.045em}
+.cover-open-boat img{position:absolute;inset:57% 8% auto;width:84%;height:25%;object-fit:cover}
