@@ -151,3 +151,9 @@
 .mixed-library .cover-yellow-wall-paper .cover-bottom{bottom:13%}
 .mixed-library .cover-yellow-wall-paper strong{inset:38% 8% auto;text-align:center;font:400 16.5cqw/.95 Georgia,serif;letter-spacing:-.06em}
 .mixed-library .cover-yellow-wall-paper em{font-weight:400;color:#6e5737}
+.mixed-library .cover-open-boat{background:#f1ece0;color:#203337;border:1px solid #b5b9aa}
+.mixed-library .cover-open-boat .cover-meta,.mixed-library .cover-open-boat .cover-bottom{left:10%;right:10%;text-align:center}
+.mixed-library .cover-open-boat .cover-meta{top:10%}
+.mixed-library .cover-open-boat .cover-bottom{bottom:9%}
+.mixed-library .cover-open-boat strong{inset:22% 7% auto;text-align:center;font:400 14.5cqw/.94 Baskerville,Georgia,serif;letter-spacing:-.045em}
+.mixed-library .cover-open-boat img{position:absolute;inset:57% 8% auto;width:84%;height:25%;object-fit:cover}

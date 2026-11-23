@@ -151,3 +151,5 @@ The cream jacket and social preview use original typography, with the reader’s
 `assets/social-bartleby.jpg` is an original 1200 × 630 typographic rendering of the Bartleby cover, using Georgia and the edition’s cream ledger rules. It contains no scanned artwork. The [source record](../examples/bartleby/docs/SOURCE-RIGHTS.md) identifies the edition.
 
 `assets/social-yellow-wall-paper.jpg` combines the catalogue title with Jo. H. Hatfield’s 1892 engraving, sourced from the U.S. National Library of Medicine. [Source and reuse](../examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md)
+
+The Open Boat share image (`assets/social-open-boat.jpg`) uses the original sea-level illustration made for this edition, with a new title and author lockup. See [sources and reuse](../examples/the-open-boat/docs/SOURCE-RIGHTS.md).

@@ -6461,6 +6461,127 @@
           "sha256": "3cb21ef79901b813cd047251634605618bdb37a00138660338321c0aa94cbea5"
         }
       ]
+    },
+    {
+      "id": "the-open-boat",
+      "title": "The Open Boat",
+      "description": "Four men in a ten-foot dinghy off the Florida coast. The complete story, with an original illustration and a note on Crane’s newspaper account.",
+      "directory": "examples/the-open-boat",
+      "sourceCommit": "3d415dc525b97740e693cca4502ec9fcb0323455",
+      "sourceFileCount": 19,
+      "packagingChanges": [
+        "Exact reviewed story, artwork, and reading experience. Sources includes the public license notice and links to the original formats."
+      ],
+      "rights": "docs/SOURCE-RIGHTS.md",
+      "browserCommands": [],
+      "url": "https://newreading.app/open-boat/",
+      "reviewedBuild": [
+        {
+          "path": "app.mjs",
+          "bytes": 83932,
+          "sha256": "baa5da351cf561326c609b615d729c18033ae16bb4429286cb5368d4cbd2281b"
+        },
+        {
+          "path": "apple-touch-icon.png",
+          "bytes": 7317,
+          "sha256": "85a52ed743610bec19234224ce17b0cd64bb5aabc0233968fc0bf92329d10a9d"
+        },
+        {
+          "path": "build.json",
+          "bytes": 448,
+          "sha256": "18fae19b7b9cdf3d7e61f7f3a4fb33c8f4eee0f340070b5cc7f5f9d715880318"
+        },
+        {
+          "path": "bundle.mjs",
+          "bytes": 4496,
+          "sha256": "14dfd6b8dcecce836a5a18a830a3c986ec8e0193641e1a38110edeeee44673ea"
+        },
+        {
+          "path": "core.mjs",
+          "bytes": 17935,
+          "sha256": "15700c44e8fe1aaec87be7bea0614b8fb6d91db67079c0212412d10f5e82984c"
+        },
+        {
+          "path": "cover.webp",
+          "bytes": 95080,
+          "sha256": "7f7ec1601885e624b00f59dbef27746595d26b0e8abff32ed2197fee8c9ef3c6"
+        },
+        {
+          "path": "db.mjs",
+          "bytes": 7262,
+          "sha256": "a731f4d8ad9514eb66cd452238d3fd48a4de72d2706546cc751c517e034944b4"
+        },
+        {
+          "path": "icon-192.png",
+          "bytes": 7362,
+          "sha256": "9b3756387b57af95c1a778b6e8c83a8ea810cede930ddaf00f17825ab6e29f2f"
+        },
+        {
+          "path": "icon-512.png",
+          "bytes": 22376,
+          "sha256": "ff56c0f7e7c36343f96ea106802cb3e7220640f9f4e0ce460d2da43d272fe437"
+        },
+        {
+          "path": "icon.svg",
+          "bytes": 438,
+          "sha256": "43dd701f3f16fb3c2f898e9c09b7ddac3bd0e80cebf0d608caf5849b7ecf81b1"
+        },
+        {
+          "path": "index.html",
+          "bytes": 3088,
+          "sha256": "7ebd4e0b2a7bd3b88b8fbaa1002842db268d43fda47026a015861426f4791f70"
+        },
+        {
+          "path": "library.json",
+          "bytes": 68869,
+          "sha256": "65d595c237ef70a6c19b6439e393b35e36f4c7e6c2aad1dbe1900fc40ae36f39"
+        },
+        {
+          "path": "library.mjs",
+          "bytes": 1088,
+          "sha256": "0e3b0d5250f5bd881c68d4882df9a4d04d86c3ea4c087d8088918e1a44f1c186"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 419,
+          "sha256": "5fe818edf27abb387475e8d5c935b9f5c907cb7358ad52988cda95b16e2a5909"
+        },
+        {
+          "path": "robots.txt",
+          "bytes": 26,
+          "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+        },
+        {
+          "path": "share-card.css",
+          "bytes": 1800,
+          "sha256": "5eeab63b86e85fcab1f60241a50cd2616c171bbe675daecda2b4c49d9e86b188"
+        },
+        {
+          "path": "share-card.mjs",
+          "bytes": 16900,
+          "sha256": "f9a63736d6a513afb2876b716c71c842b920d3e7a8278e72130d1677d4957a5b"
+        },
+        {
+          "path": "share.mjs",
+          "bytes": 1342,
+          "sha256": "d36eef065c7baf34c32696fbe1c0ec04876aecec7420802ab41b21ca2fef1f3f"
+        },
+        {
+          "path": "style.css",
+          "bytes": 29910,
+          "sha256": "c9bf12b4a9aa861be4a54189daa99e9e7495bc63f96a766d117090ce8d8e38dc"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 1251,
+          "sha256": "13844eb4a9c4e83e2cb674866d22aa8d357bc1051eebd1d5fdfbeb8407d5f4cf"
+        },
+        {
+          "path": "text.mjs",
+          "bytes": 4013,
+          "sha256": "8236abdadedb95b62450a8fc8f71960d6354be49fa7b28e5b61a1ad3d1b18a39"
+        }
+      ]
     }
   ],
   "showcaseUrl": "https://read.lookatseel.com/"

@@ -372,6 +372,18 @@
       "alt": "The Yellow Wall-Paper by Charlotte Perkins Gilman, alongside Jo. H. Hatfield’s 1892 engraving.",
       "bytes": 134591,
       "sha256": "0cd4d240f8738793a2b99eeec2ae0a91a66631196e79e85c540388a1377aef24"
+    },
+    "open-boat": {
+      "id": "open-boat",
+      "file": "assets/social-open-boat.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "The Open Boat",
+      "author": "Stephen Crane",
+      "feature": "Thirty hours in a dinghy",
+      "alt": "The Open Boat by Stephen Crane. A low view across slate-colored waves.",
+      "bytes": 101837,
+      "sha256": "ced2fd71ed12cd53ae8e5b1ea394266282698f45a806f362d191a4468f08a457"
     }
   }
 }

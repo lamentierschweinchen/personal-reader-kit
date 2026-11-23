@@ -10,7 +10,7 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper','the-open-boat':'open-boat'});
 // Capabilities are explicit. A missing standard file must never silently select
 // another runtime, nor admit an unreviewed application through a generic fallback.
 export function readerRuntime(entry){
@@ -140,6 +140,12 @@ export async function buildReaders(output){
         for(const file of ['commons-mathura-panel.jpg','met-ear-ornament.jpg','met-gaming-die.jpg'])text=replace(text,`src="/${file}"`,`src="${base}${file}"`);
         text=replace(text,"fetch('/scholar-'+id+'-reader.json'",`fetch('${base}scholar-'+id+'-reader.json'`);
         text=replace(text,"fetch('/scholar-'+name+'-reader.json'",`fetch('${base}scholar-'+name+'-reader.json'`);
+        bytes=Buffer.from(text);
+      }
+      if(asset.path==='app.mjs'&&slug==='open-boat'){
+        let text=replace(bytes.toString(),'src="/cover.webp"',`src="${base}cover.webp"`);
+        text=replace(text,'src="/icon.svg"',`src="${base}icon.svg"`);
+        text=replace(text,'<span>New reading</span><button id="offline-status"','<span><a href="/library/">Library</a> · <a href="/privacy/">Privacy</a></span><button id="offline-status"');
         bytes=Buffer.from(text);
       }
       if(asset.path==='app.mjs'&&slug==='book-of-tea')bytes=Buffer.from(replace(bytes.toString(),'src="/context-harunobu.jpg"',`src="${base}context-harunobu.jpg"`));

@@ -2034,7 +2034,36 @@
     "examples/the-yellow-wall-paper/site/icon-512.png",
     "examples/the-yellow-wall-paper/site/robots.txt",
     "examples/the-yellow-wall-paper/edition/book.json",
-    "showcase/assets/social-yellow-wall-paper.jpg"
+    "showcase/assets/social-yellow-wall-paper.jpg",
+    "examples/the-open-boat/.vercelignore",
+    "examples/the-open-boat/LICENSE",
+    "examples/the-open-boat/README.md",
+    "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+    "examples/the-open-boat/edition-lock.json",
+    "examples/the-open-boat/edition/book.json",
+    "examples/the-open-boat/edition/cover.webp",
+    "examples/the-open-boat/package.json",
+    "examples/the-open-boat/scripts/build.mjs",
+    "examples/the-open-boat/site/app.mjs",
+    "examples/the-open-boat/site/apple-touch-icon.png",
+    "examples/the-open-boat/site/bundle.mjs",
+    "examples/the-open-boat/site/core.mjs",
+    "examples/the-open-boat/site/db.mjs",
+    "examples/the-open-boat/site/icon-192.png",
+    "examples/the-open-boat/site/icon-512.png",
+    "examples/the-open-boat/site/icon.svg",
+    "examples/the-open-boat/site/index.html",
+    "examples/the-open-boat/site/library.mjs",
+    "examples/the-open-boat/site/manifest.webmanifest",
+    "examples/the-open-boat/site/robots.txt",
+    "examples/the-open-boat/site/share-card.css",
+    "examples/the-open-boat/site/share-card.mjs",
+    "examples/the-open-boat/site/share.mjs",
+    "examples/the-open-boat/site/style.css",
+    "examples/the-open-boat/site/text.mjs",
+    "examples/the-open-boat/tests/release.test.mjs",
+    "examples/the-open-boat/vercel.json",
+    "showcase/assets/social-open-boat.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -4997,6 +5026,18 @@
       "sha256": "3cb21ef79901b813cd047251634605618bdb37a00138660338321c0aa94cbea5",
       "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
       "reason": "Reviewed Open Access public-domain Metropolitan Museum of Art photograph, resized."
+    },
+    {
+      "path": "examples/the-open-boat/edition/book.json",
+      "sha256": "bf972e1eeb773394946dade7c258d73dc13e2b2ba1ffb409aec41910f8ecb4fe",
+      "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact owner-approved Gutenberg transcription of the complete historical story."
+    },
+    {
+      "path": "examples/the-open-boat/edition/cover.webp",
+      "sha256": "7f7ec1601885e624b00f59dbef27746595d26b0e8abff32ed2197fee8c9ef3c6",
+      "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+      "reason": "Original sea-level illustration made for the reviewed edition."
     }
   ],
   "reviewedSiteAssets": [
@@ -5395,6 +5436,12 @@
       "sha256": "0cd4d240f8738793a2b99eeec2ae0a91a66631196e79e85c540388a1377aef24",
       "provenance": "showcase/ASSETS.md",
       "reason": "Typographic share card with Jo. H. Hatfield’s 1892 engraving from the reviewed public-domain NLM edition."
+    },
+    {
+      "path": "showcase/assets/social-open-boat.jpg",
+      "sha256": "ced2fd71ed12cd53ae8e5b1ea394266282698f45a806f362d191a4468f08a457",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original share image using the reviewed sea-level illustration."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -6163,6 +6210,24 @@
       "sha256": "5ca7a3bf4e267b3066b9089eed3f3430e7e42d736c11fdcf0d48e519f05ec4a1",
       "provenance": "examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md",
       "reason": "Original geometric window emblem, designed for this edition."
+    },
+    {
+      "path": "examples/the-open-boat/site/apple-touch-icon.png",
+      "sha256": "85a52ed743610bec19234224ce17b0cd64bb5aabc0233968fc0bf92329d10a9d",
+      "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific installation icon."
+    },
+    {
+      "path": "examples/the-open-boat/site/icon-192.png",
+      "sha256": "9b3756387b57af95c1a778b6e8c83a8ea810cede930ddaf00f17825ab6e29f2f",
+      "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific installation icon."
+    },
+    {
+      "path": "examples/the-open-boat/site/icon-512.png",
+      "sha256": "ff56c0f7e7c36343f96ea106802cb3e7220640f9f4e0ce460d2da43d272fe437",
+      "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
+      "reason": "Original edition-specific installation icon."
     }
   ]
 }
