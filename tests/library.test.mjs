@@ -54,8 +54,9 @@ test('each reader keeps noindex and only offline readers advertise a worker',asy
  const config=JSON.parse(await readFile(new URL('../showcase/vercel.json',import.meta.url),'utf8'));
  const catalog=JSON.parse(await readFile(new URL('../examples/catalog.json',import.meta.url),'utf8'));
  const worker=config.routes.find(r=>r.headers?.['Cache-Control']==='no-cache, no-store, must-revalidate');
- const reader=config.routes.find(r=>r.headers?.['X-Robots-Tag']==='noindex, nofollow, noarchive');
- assert.ok(worker&&reader);
+ const noindex=config.routes.filter(r=>r.headers?.['X-Robots-Tag']==='noindex, nofollow, noarchive');
+ const excluded=url=>noindex.some(route=>new RegExp(route.src).test(url));
+ assert.ok(worker&&noindex.length);
  for(const entry of catalog.examples){
   const slug=readerPaths[entry.id];
   if(readerRuntime(entry)==='reader-kit-v1')assert.match('/'+slug+'/sw.js',new RegExp(worker.src));
@@ -63,9 +64,10 @@ test('each reader keeps noindex and only offline readers advertise a worker',asy
    assert.ok(!entry.reviewedBuild.some(asset=>asset.path==='sw.js'),'The writing reader does not claim an offline worker');
    assert.doesNotMatch('/'+slug+'/sw.js',new RegExp(worker.src));
   }
-  assert.match('/'+slug+'/',new RegExp(reader.src));
+  assert.ok(excluded('/'+slug+'/'),slug+' reading page is noindex');
  }
- for(const url of ['/','/library/','/learn/'])assert.doesNotMatch(url,new RegExp(reader.src));
+ assert.ok(excluded('/montaigne/'));
+ for(const url of ['/','/library/','/learn/'])assert.equal(excluded(url),false);
 });
 test('runtime admission rejects unknown or misplaced custom contracts',()=>{
  assert.equal(readerRuntime({id:'writers-at-work',runtime:'writing-workroom-v1'}),'writing-workroom-v1');

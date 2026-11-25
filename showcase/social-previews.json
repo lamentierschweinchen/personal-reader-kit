@@ -384,6 +384,18 @@
       "alt": "The Open Boat by Stephen Crane. A low view across slate-colored waves.",
       "bytes": 101837,
       "sha256": "ced2fd71ed12cd53ae8e5b1ea394266282698f45a806f362d191a4468f08a457"
+    },
+    "woolf": {
+      "id": "woolf",
+      "file": "assets/social-woolf.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "A Room of One’s Own",
+      "author": "Virginia Woolf",
+      "feature": "Newnham’s kitchen committee",
+      "alt": "A Room of One’s Own by Virginia Woolf. A blue jacket with a four-pane window.",
+      "bytes": 58111,
+      "sha256": "34fb3405e2c16655aea4e27d26bfcf9e3a5190012b774bdd4e97332294ba768a"
     }
   }
 }

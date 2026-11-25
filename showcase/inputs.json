@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "description": "Exact build inputs for the catalog, twenty-seven library editions, and the standalone Montaigne scan companion.",
+  "description": "Exact build inputs for the catalog, thirty-two library editions, and the standalone Montaigne scan edition.",
   "files": [
     "showcase/direct-scan.mjs",
     "showcase/direct/montaigne/index.html",
@@ -1347,6 +1347,27 @@
     "examples/the-open-boat/site/style.css",
     "examples/the-open-boat/site/text.mjs",
     "examples/the-open-boat/vercel.json",
-    "showcase/assets/social-open-boat.jpg"
+    "showcase/assets/social-open-boat.jpg",
+    "examples/a-room-of-ones-own/edition-lock.json",
+    "examples/a-room-of-ones-own/edition/library.json",
+    "examples/a-room-of-ones-own/package.json",
+    "examples/a-room-of-ones-own/scripts/build.mjs",
+    "examples/a-room-of-ones-own/vercel.json",
+    "examples/a-room-of-ones-own/site/index.html",
+    "examples/a-room-of-ones-own/site/app.mjs",
+    "examples/a-room-of-ones-own/site/core.mjs",
+    "examples/a-room-of-ones-own/site/db.mjs",
+    "examples/a-room-of-ones-own/site/bundle.mjs",
+    "examples/a-room-of-ones-own/site/text.mjs",
+    "examples/a-room-of-ones-own/site/share.mjs",
+    "examples/a-room-of-ones-own/site/conditions.mjs",
+    "examples/a-room-of-ones-own/site/style.css",
+    "examples/a-room-of-ones-own/site/manifest.webmanifest",
+    "examples/a-room-of-ones-own/site/icon.svg",
+    "examples/a-room-of-ones-own/site/apple-touch-icon.png",
+    "examples/a-room-of-ones-own/site/icon-192.png",
+    "examples/a-room-of-ones-own/site/icon-512.png",
+    "examples/a-room-of-ones-own/site/robots.txt",
+    "showcase/assets/social-woolf.jpg"
   ]
 }

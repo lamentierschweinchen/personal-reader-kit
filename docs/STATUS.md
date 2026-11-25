@@ -1,5 +1,9 @@
 # Kit status · 0.5.0
 
+## Montaigne and Woolf · November 25, 2026
+
+Montaigne’s standalone page can turn and enlarge the original 1877 scan pages in place. The woodcut study compares four printed pages while keeping the saved reading page. A Room of One’s Own joins the library as edition 32. It keeps the complete 1929 Hogarth text, original notes, marginalia, and a short Newnham kitchen committee note after Chapter I. [Montaigne](https://newreading.app/montaigne/) · [Woolf](https://newreading.app/woolf/) · [Woolf source and reuse terms](../examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md)
+
 The Yellow Wall-Paper joins the library as edition 30. It pairs the complete illustrated story with a study of Victorian wallpaper and sickrooms. [Read the story](https://newreading.app/yellow-wall-paper/) · [Source and reuse](../examples/the-yellow-wall-paper/docs/SOURCE-RIGHTS.md)
 
 Bartleby joins the library as edition 29. The reader contains the complete 1856 book text of the story, an original ruled cover and a short note on checking a copy. [Read Bartleby](https://newreading.app/bartleby/) · [Source and reuse](../examples/bartleby/docs/SOURCE-RIGHTS.md)

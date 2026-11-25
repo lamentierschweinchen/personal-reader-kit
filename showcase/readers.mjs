@@ -10,7 +10,7 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper','the-open-boat':'open-boat'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper','the-open-boat':'open-boat','a-room-of-ones-own':'woolf'});
 // Capabilities are explicit. A missing standard file must never silently select
 // another runtime, nor admit an unreviewed application through a generic fallback.
 export function readerRuntime(entry){
@@ -126,7 +126,7 @@ export async function buildReaders(output){
         bytes=Buffer.from(text);
       }
       if(asset.path==='db.mjs'){
-        const prior=slug==='a-dolls-house'?'dolls-house-reader-v1':slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
+        const prior=slug==='woolf'?'woolf-room-v1':slug==='a-dolls-house'?'dolls-house-reader-v1':slug==='douglass'?'douglass-narrative-v1':slug==='poe'?'usher-reader-v1':slug==='odyssey'?'odyssey-reader-v1':slug==='dracula'?'dracula-reader-v1':['at-table','inward-life','beside-the-bed','learning-to-see','music-and-feeling','war-and-peace'].includes(slug)?slug+'-v1':'reading-kit-v1';
         bytes=Buffer.from(replace(original.toString(),`indexedDB.open('${prior}',1)`,`indexedDB.open('newreading-${slug}-v1',1)`));
       }
       if(asset.path==='folio.mjs'&&slug==='pictures-after-dark'){

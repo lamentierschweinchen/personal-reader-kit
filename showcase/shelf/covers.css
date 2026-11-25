@@ -157,3 +157,10 @@
 .mixed-library .cover-open-boat .cover-bottom{bottom:9%}
 .mixed-library .cover-open-boat strong{inset:22% 7% auto;text-align:center;font:400 14.5cqw/.94 Baskerville,Georgia,serif;letter-spacing:-.045em}
 .mixed-library .cover-open-boat img{position:absolute;inset:57% 8% auto;width:84%;height:25%;object-fit:cover}
+.mixed-library .cover-woolf{background:#203b4b;color:#f5f0e4;border:1px solid #17313e}
+.mixed-library .cover-woolf .cover-meta,.mixed-library .cover-woolf .cover-bottom{left:10%;right:10%;text-align:left}
+.mixed-library .cover-woolf .cover-meta{top:9%}
+.mixed-library .cover-woolf .cover-bottom{bottom:8%}
+.mixed-library .cover-woolf strong{inset:24% 8% auto;font:400 15cqw/.94 Georgia,serif;letter-spacing:-.055em}
+.mixed-library .cover-woolf em{font-weight:400}
+.mixed-library .cover-woolf .cover-woolf-window{position:absolute;left:52%;top:60%;width:35%;height:23%;border:3px solid #9daba6;background:linear-gradient(90deg,transparent 47%,#9daba6 47% 53%,transparent 53%),linear-gradient(0deg,transparent 46%,#9daba6 46% 54%,transparent 54%),linear-gradient(137deg,#d4dacf 36%,#aabeb6 37% 50%,#d4dacf 51%);box-shadow:0 4px 0 #9daba6;transform:skewY(-3deg)}
