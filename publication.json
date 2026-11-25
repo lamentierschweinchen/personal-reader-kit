@@ -2063,7 +2063,33 @@
     "examples/the-open-boat/site/text.mjs",
     "examples/the-open-boat/tests/release.test.mjs",
     "examples/the-open-boat/vercel.json",
-    "showcase/assets/social-open-boat.jpg"
+    "showcase/assets/social-open-boat.jpg",
+    "examples/a-room-of-ones-own/.vercelignore",
+    "examples/a-room-of-ones-own/LICENSE",
+    "examples/a-room-of-ones-own/README.md",
+    "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
+    "examples/a-room-of-ones-own/edition-lock.json",
+    "examples/a-room-of-ones-own/edition/library.json",
+    "examples/a-room-of-ones-own/package.json",
+    "examples/a-room-of-ones-own/scripts/build.mjs",
+    "examples/a-room-of-ones-own/site/app.mjs",
+    "examples/a-room-of-ones-own/site/apple-touch-icon.png",
+    "examples/a-room-of-ones-own/site/bundle.mjs",
+    "examples/a-room-of-ones-own/site/conditions.mjs",
+    "examples/a-room-of-ones-own/site/core.mjs",
+    "examples/a-room-of-ones-own/site/db.mjs",
+    "examples/a-room-of-ones-own/site/icon-192.png",
+    "examples/a-room-of-ones-own/site/icon-512.png",
+    "examples/a-room-of-ones-own/site/icon.svg",
+    "examples/a-room-of-ones-own/site/index.html",
+    "examples/a-room-of-ones-own/site/manifest.webmanifest",
+    "examples/a-room-of-ones-own/site/robots.txt",
+    "examples/a-room-of-ones-own/site/share.mjs",
+    "examples/a-room-of-ones-own/site/style.css",
+    "examples/a-room-of-ones-own/site/text.mjs",
+    "examples/a-room-of-ones-own/tests/release.test.mjs",
+    "examples/a-room-of-ones-own/vercel.json",
+    "showcase/assets/social-woolf.jpg"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -5038,6 +5064,12 @@
       "sha256": "7f7ec1601885e624b00f59dbef27746595d26b0e8abff32ed2197fee8c9ef3c6",
       "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
       "reason": "Original sea-level illustration made for the reviewed edition."
+    },
+    {
+      "path": "examples/a-room-of-ones-own/edition/library.json",
+      "sha256": "4f392ccf9553c3457a3b223d25965ac7e3e433c148ecdc7f63e5c52782c049ed",
+      "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved 1929 Hogarth text, Wikisource adaptation under CC BY-SA 4.0."
     }
   ],
   "reviewedSiteAssets": [
@@ -5442,6 +5474,12 @@
       "sha256": "ced2fd71ed12cd53ae8e5b1ea394266282698f45a806f362d191a4468f08a457",
       "provenance": "showcase/ASSETS.md",
       "reason": "Original share image using the reviewed sea-level illustration."
+    },
+    {
+      "path": "showcase/assets/social-woolf.jpg",
+      "sha256": "34fb3405e2c16655aea4e27d26bfcf9e3a5190012b774bdd4e97332294ba768a",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Original share image recreated from the reviewed Woolf window jacket."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -6228,6 +6266,24 @@
       "sha256": "ff56c0f7e7c36343f96ea106802cb3e7220640f9f4e0ce460d2da43d272fe437",
       "provenance": "examples/the-open-boat/docs/SOURCE-RIGHTS.md",
       "reason": "Original edition-specific installation icon."
+    },
+    {
+      "path": "examples/a-room-of-ones-own/site/apple-touch-icon.png",
+      "sha256": "b491df488165b48ffd53d084c1f7dfc5cd4d0d1e58d7604356d232d75617738a",
+      "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
+      "reason": "Original window icon from the reviewed Woolf edition."
+    },
+    {
+      "path": "examples/a-room-of-ones-own/site/icon-192.png",
+      "sha256": "b3663b7cd9f2f620c2d88f95ef5e3e61e252bb7b883296257223111177087d80",
+      "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
+      "reason": "Original window icon from the reviewed Woolf edition."
+    },
+    {
+      "path": "examples/a-room-of-ones-own/site/icon-512.png",
+      "sha256": "80610ffa9ea0bf768e21bea98246c3f73b2bafdc9c881317e7ba3f4ec7592ab1",
+      "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
+      "reason": "Original window icon from the reviewed Woolf edition."
     }
   ]
 }

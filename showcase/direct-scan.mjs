@@ -8,9 +8,9 @@ const root=fileURLToPath(new URL('./',import.meta.url));
 export const directScan=Object.freeze({
   id:'montaigne',route:'/montaigne/',runtime:'external-scan-v1',
   files:Object.freeze([
-    {path:'index.html',bytes:15272,sha256:'30387a8048aa6e97634f81aaf62eb225faa6236f7d54a92422a65d561b68719f'},
-    {path:'style.css',bytes:6933,sha256:'822fbd7bc505e624db53c707d3ec7674873ee7e5fa7836abc2a48e803e292bd6'},
-    {path:'app.js',bytes:1489,sha256:'e0c23713ff585c641d2cb828abfae5d11ea4bdfac4c098062ad73af9e3daf4d9'},
+    {path:'index.html',bytes:16066,sha256:'e05049fe11ae9b1a23c88b3b1b5917eef3979c3eaf7693de59d85006bcdad342'},
+    {path:'style.css',bytes:9114,sha256:'4ae4ecde18a5c444fa8eeb417a580436ce7fb33b0caadc834d6f5aa879e95419'},
+    {path:'app.js',bytes:7609,sha256:'9e8f13882da46fbc4a8f5e667a1653d9ee894d2428f5ccb483cb21f71f8c74e8'},
     {path:'assets/icon.svg',bytes:189,sha256:'333890bf4ea139d2ca3a183d03899f4e9a58f1cd7e769ad56ebffebdedff20a8'},
     {path:'assets/figure-des-brisilians.jpg',source:'assets/montaigne-1551.jpg',bytes:2051064,sha256:'034ff61f4a32e28a5d46990373a3276e60164db7a2ac318875ee8cf993172eee'}
   ])

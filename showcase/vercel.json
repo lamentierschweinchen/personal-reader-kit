@@ -51,11 +51,16 @@
       "status": 308
     },
     {
-      "src": "^/montaigne/$",
+      "src": "^/montaigne/(?:index\\.html)?$",
       "headers": {
-        "Link": "<https://newreading.app/montaigne/>; rel=\"canonical\""
+        "Link": "<https://newreading.app/montaigne/>; rel=\"canonical\"",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://archive.org https://*.us.archive.org; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
+        "Permissions-Policy": "geolocation=(), camera=(), microphone=()",
+        "X-Robots-Tag": "noindex, nofollow, noarchive"
       },
-      "continue": true
+      "dest": "/montaigne/index.html"
     },
     {
       "src": "^(?:/(.*))$",
@@ -68,14 +73,14 @@
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|awakening|clay-cart|beowulf|dickinson|bartleby|yellow-wall-paper|open-boat))/sw\\.js$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|awakening|clay-cart|beowulf|dickinson|bartleby|yellow-wall-paper|open-boat|woolf))/sw\\.js$",
       "headers": {
         "Cache-Control": "no-cache, no-store, must-revalidate"
       },
       "continue": true
     },
     {
-      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|writers|awakening|clay-cart|beowulf|dickinson|bartleby|yellow-wall-paper|open-boat|montaigne))(?:/(.*))$",
+      "src": "^(?:/(austen|alice|walden|two-halls|odyssey|dracula|at-table|inward-life|music-and-feeling|learning-to-see|beside-the-bed|nietzsche|mountains|war-and-peace|douglass|poe|ballads|shakespeare|pictures-after-dark|rome|antigone|a-dolls-house|book-of-tea|writers|awakening|clay-cart|beowulf|dickinson|bartleby|yellow-wall-paper|open-boat|woolf|montaigne))(?:/(.*))$",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow, noarchive"
       },

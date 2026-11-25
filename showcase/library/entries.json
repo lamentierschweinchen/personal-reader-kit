@@ -902,6 +902,35 @@
         "Crane’s newspaper account · spoiler"
       ],
       "rightsPath": "examples/the-open-boat/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "woolf",
+      "exampleId": "a-room-of-ones-own",
+      "title": "A Room of One’s Own",
+      "author": "Virginia Woolf",
+      "shortAuthor": "Virginia Woolf",
+      "kind": "Essay",
+      "language": "English",
+      "edition": "The complete 1929 Hogarth Press edition, from the scan-backed Wikisource transcription.",
+      "editionLabel": "Hogarth Press · 1929",
+      "feature": "Newnham’s kitchen committee",
+      "description": "Woolf’s complete 1929 essay, with its original notes and a short account of how Newnham students answered it.",
+      "categories": [
+        "words"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/A_Room_of_One%27s_Own_(Hogarth_1929)",
+        "https://newn.cam.ac.uk/feminist-radical-histories/virginia-woolf"
+      ],
+      "sourceLabels": [
+        "1929 Hogarth text and scan",
+        "Newnham College archive account"
+      ],
+      "rightsPath": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md"
     }
   ]
 }
