@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Goblin Market · Christina Rossetti</title>
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="preload" href="newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="reader.css">
+  <script type="module" src="reader.mjs"></script>
+  <meta name="theme-color" content="#18262f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body>
+  <a class="skip" href="#poem">Skip to the poem</a>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17m-6-6 6 6-6 6"/></symbol>
+    <symbol id="down" viewBox="0 0 24 24"><path d="M12 3v17m-6-6 6 6 6-6"/></symbol>
+    <symbol id="quiet" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5m0 6v5h-5m-6 0H4v-5M9 12h6"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="expand" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-6 6M4 14v6h6m-6 0 6-6"/></symbol>
+  </svg>
+  <header class="bar">
+    <a class="bar-title" href="#cover"><img src="mark.svg" width="24" height="24" alt="">Goblin Market</a>
+    <nav aria-label="Reader">
+      <button type="button" data-dialog="notes">Notes</button>
+      <button type="button" data-dialog="type">Type</button>
+      <button type="button" data-focus aria-label="Enter Focus mode" title="Focus"><svg class="icon" aria-hidden="true" focusable="false"><use href="#quiet"/></svg><span>Focus</span></button>
+    </nav>
+  </header>
+  <header class="quiet-bar" hidden><span>Goblin Market</span><button class="quiet-exit" type="button" data-focus aria-label="Exit Focus mode" title="Exit Focus"><span>Exit Focus</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#close"/></svg></button></header>
+  <p id="storage-error" class="storage-error" role="status" hidden></p>
+  <main>
+    <section id="cover" class="cover" aria-labelledby="book-title">
+      <div class="cover-inner">
+        <div class="cover-type">
+          <p class="author">Christina Rossetti</p>
+          <h1 id="book-title">Goblin<br>Market</h1>
+          <p class="imprint">Macmillan · 1862</p>
+          <a id="read-link" class="start" href="#poem"><span>Read the poem</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#down"/></svg></a>
+          <a id="from-start" class="from-start" href="#poem" hidden>From the beginning</a>
+        </div>
+        <figure class="cover-art">
+          <img src="market-detail.webp" width="1200" height="837" alt="Wood-engraved goblins peer from the dark with a basket of fruit.">
+          <figcaption>Detail from the frontispiece by Dante Gabriel Rossetti</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section id="poem" class="poem" aria-labelledby="poem-title">
+      <header class="poem-head">
+        <h2 id="poem-title" tabindex="-1">GOBLIN MARKET.</h2>
+      </header>
+      <p id="load-message" role="status">Opening the poem…</p>
+      <article id="verse" aria-label="Poem text" lang="en"></article>
+      <div class="endmatter" hidden>
+        <footer class="edition-footer">
+          <button type="button" data-dialog="sources">Sources &amp; credits</button>
+          <a href="https://newreading.app/library/">Library</a>
+          <a href="https://newreading.app/privacy/">Privacy</a>
+          <a href="#cover">Back to the cover</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+  <button id="keep" class="keep" type="button" hidden>Keep passage</button>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <div class="panel-inner">
+      <header class="panel-header"><h2 id="panel-title"></h2><button type="button" id="close-panel" aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="#close"/></svg></button></header>
+      <div id="panel-content"></div>
+    </div>
+  </dialog>
+  <div id="announcement" class="announcement" role="status"></div>
+  <template id="engraving-notes">
+    <aside class="engraving-note" id="the-bargain" data-after="line-140" aria-labelledby="bargain-title">
+      <figure>
+        <button type="button" class="plate-button" data-plate="frontispiece" aria-label="Enlarge the frontispiece"><img src="frontispiece.webp" width="2218" height="2651" loading="lazy" alt="Laura lifts a lock of hair among the goblins. Lizzie glances back from the upper left, pitcher in hand."><svg class="icon" aria-hidden="true" focusable="false"><use href="#expand"/></svg></button>
+        <figcaption>Frontispiece · Dante Gabriel Rossetti</figcaption>
+      </figure>
+      <div class="engraving-commentary">
+        <h3 id="bargain-title">A curl for the fruit</h3>
+        <p>Dante Gabriel Rossetti designed this frontispiece for his sister’s first book, published in 1862. By the time Laura cuts her hair, Lizzie has already run away. The picture keeps her in the upper-left corner, looking back.</p>
+        <p>Laura says her only gold is on the furze, a bush with yellow flowers. The goblins find gold in her hair. Dante Gabriel catches the moment before the first bite, with the price in Laura’s hand and the fruit within reach.</p>
+      </div>
+    </aside>
+    <aside class="engraving-note" id="the-sisters" data-after="line-198" aria-labelledby="sisters-title">
+      <figure>
+        <button type="button" class="plate-button" data-plate="title" aria-label="Enlarge the illustrated title page"><img src="title-page.webp" width="2340" height="3151" loading="lazy" alt="The sisters hold each other in bed. Above them, goblins carry fruit through a round inset."><svg class="icon" aria-hidden="true" focusable="false"><use href="#expand"/></svg></button>
+        <figcaption>Title page · Dante Gabriel Rossetti</figcaption>
+      </figure>
+      <div class="engraving-commentary">
+        <h3 id="sisters-title">The market in the corner</h3>
+        <p>On the original title page, the sisters lie like the two pigeons in the stanza, each tucked into the other’s arms. The goblins that crowded the first picture now file through a small circle above the bed.</p>
+        <p>In the poem the wind sings and even the owls keep still. The engraving keeps the market going within sight of the bed.</p>
+      </div>
+    </aside>
+  </template>
+  <template id="sources">
+    <p>Christina Rossetti, <cite>Goblin Market and Other Poems</cite>, first edition (London and Cambridge, Macmillan and Co., 1862), pp. 1–30.</p>
+    <p>The underlying 1862 poem is in the public domain in the UK and the United States. The digital text adapts the English Wikisource contributors’ transcription. It restores readings and typography from the scan and adds reflowing verse and print-page anchors. The adaptation is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    <ul>
+      <li><a href="https://en.wikisource.org/w/index.php?title=Goblin_Market_and_Other_Poems_(1862)/Goblin_Market&amp;oldid=13249268">Wikisource transcription</a> · <a href="https://en.wikisource.org/w/index.php?title=Goblin_Market_and_Other_Poems_(1862)/Goblin_Market&amp;action=history">Contributor history</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Goblin_Market_and_Other_Poems_-_C_G_Rossetti_(1862,_1st_ed).djvu">First-edition scan</a> · <a href="https://anthology.lib.virginia.edu/work/Rossetti/rossetti-goblin-market">University of Virginia comparison edition</a></li>
+    </ul>
+    <h3>The engravings</h3>
+    <p>Both designs are by Dante Gabriel Rossetti. William James Linton engraved the title page, signed WJL. The frontispiece bears the mark of Morris, Marshall, Faulkner &amp; Co. The Rossetti Archive and the Metropolitan Museum of Art attribute the work on the block to Charles Joseph Faulkner. The Archive records a competing attribution to Morris.</p>
+    <p>The two images reproduce the same 1862 witness as the poem. Wikimedia Commons marks each reproduction as public domain. The cover uses a crop of the frontispiece.</p>
+    <ul>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Goblin_Market_and_Other_Poems_-_Rossetti_(1862)_-_frontispiece.png">Frontispiece reproduction</a> · <a href="https://commons.wikimedia.org/wiki/File:Goblin_Market_and_Other_Poems_-_Rossetti_(1862)_-_title_page.png">Title-page reproduction</a></li>
+      <li><a href="https://www.rossettiarchive.org/docs/s143.raw.html">Rossetti Archive</a> · <a href="https://www.metmuseum.org/art/collection/search/642949">Metropolitan Museum of Art</a></li>
+    </ul>
+    <p class="fine">Newsreader is distributed under the <a href="newsreader-OFL.txt">SIL Open Font License</a>.</p>
+  </template>
+</body>
+</html>

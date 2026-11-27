@@ -1,5 +1,9 @@
 # Kit status · 0.5.0
 
+## Goblin Market · November 27, 2026
+
+The complete 1862 title poem joins the library as edition 33. Its frontispiece follows Laura’s bargain and its illustrated title page follows the sleeping sisters. Both plates can be enlarged. Focus keeps the poem continuous. [Goblin Market](https://newreading.app/goblin-market/) · [Library entry](https://newreading.app/library/goblin-market/) · [Sources and reuse](../examples/goblin-market/docs/SOURCE-RIGHTS.md)
+
 ## Montaigne and Woolf · November 25, 2026
 
 Montaigne’s standalone page can turn and enlarge the original 1877 scan pages in place. The woodcut study compares four printed pages while keeping the saved reading page. A Room of One’s Own joins the library as edition 32. It keeps the complete 1929 Hogarth text, original notes, marginalia, and a short Newnham kitchen committee note after Chapter I. [Montaigne](https://newreading.app/montaigne/) · [Woolf](https://newreading.app/woolf/) · [Woolf source and reuse terms](../examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md)

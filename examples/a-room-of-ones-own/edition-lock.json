@@ -9,8 +9,8 @@
     },
     {
       "path": "site/app.mjs",
-      "bytes": 67131,
-      "sha256": "c4c657bc4a2d7f3720959a3c1c36d4d7a66f35b73044c3845ea0c1830cdbba65"
+      "bytes": 67727,
+      "sha256": "4385d796ad0e7e769755a37f35c7c3d18e7e0d600a5b7e51bc357d873f177dba"
     },
     {
       "path": "site/core.mjs",

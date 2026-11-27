@@ -1,4 +1,4 @@
-# Twenty-seven readers and three small games
+# Thirty-three readers and three small games
 
 These are complete, runnable examples of what an agent can build with the kit. Each starts with faithful reading and takes its visual character from its edition. They are separate applications, with source-aware adapters; they are not presets for the stock importer.
 
@@ -54,7 +54,7 @@ Where the edition supports faithful image export, **Make card** creates a quotat
 
 ## What is public
 
-The user selected these thirty-two reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
+The user selected these thirty-three reviewed editions for this public repository. The original four examples were packaged from committed source snapshots. Odyssey and Dracula add narrowly selected application files and exactly pinned prepared editions from their recorded local source commits; no independent project history, original archive, private intake, personal note, device link or browser capture was copied. [catalog.json](catalog.json) records the source revision, packaging changes, source evidence and exact reviewed build bytes. Those snapshots establish the initial editions and designs. Later reviewed maintenance is listed in `maintenanceChanges`, with updated exact build bytes; it does not silently replace the source snapshots or their rights evidence.
 
 Each example retains its edition-specific rights, fidelity and builder-feedback documents. Historical public-domain claims are scoped to the named edition and territory. Modern Folger texts retain **CC BY-NC 3.0**; admitted Wikisource and Perseus transcriptions retain **CC BY-SA 4.0**. The MIT software license does not relicense them. No declaration establishes worldwide clearance. Translations, prefaces, illustrations, publisher devices and required notices are part of that review. Code and original samples use MIT; third-party editions retain their own source terms. The examples are free independent adaptations, without source-provider endorsement. Consult [the rights guide](../docs/RIGHTS.md) before redistributing in a different territory or context.
 
@@ -105,3 +105,5 @@ The five collections added in October 2026 carry a quiet, optional Made with new
 [The Open Boat](the-open-boat/) is Stephen Crane’s complete story, with an original sea-level illustration and a note on his newspaper account. [Read the edition](https://newreading.app/open-boat/).
 
 [A Room of One’s Own](a-room-of-ones-own/) is Woolf’s complete 1929 Hogarth essay, with all original notes and a short Newnham kitchen committee note after Chapter I. [Read the edition](https://newreading.app/woolf/) · [Sources and reuse](a-room-of-ones-own/docs/SOURCE-RIGHTS.md).
+
+[Goblin Market](goblin-market/) is the complete 1862 title poem. Dante Gabriel Rossetti’s two engravings appear inside the verse, with a note on what each picture brings into the scene. [Read the edition](https://newreading.app/goblin-market/) · [Sources and reuse](goblin-market/docs/SOURCE-RIGHTS.md).

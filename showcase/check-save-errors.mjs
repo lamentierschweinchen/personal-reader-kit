@@ -13,6 +13,7 @@ import {settledRender,settledCapture} from '../tests/experience-browser.mjs';
 if(!process.argv.includes('--skip-build'))await buildShowcase();
 const require=createRequire(import.meta.url),pw=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const locations={
+ woolf:['woolf-room-1929','chapter-1'],
  'open-boat':['the-open-boat','section-1'],
  'yellow-wall-paper':['yellow-wall-paper-1892','story'],
  bartleby:['bartleby-1856-gutenberg-15859','bartleby'],

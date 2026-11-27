@@ -396,6 +396,18 @@
       "alt": "A Room of One’s Own by Virginia Woolf. A blue jacket with a four-pane window.",
       "bytes": 58111,
       "sha256": "34fb3405e2c16655aea4e27d26bfcf9e3a5190012b774bdd4e97332294ba768a"
+    },
+    "goblin-market": {
+      "id": "goblin-market",
+      "file": "assets/social-goblin-market.jpg",
+      "width": 1200,
+      "height": 630,
+      "title": "Goblin Market",
+      "author": "Christina Rossetti",
+      "feature": "The bargain and the bedside",
+      "alt": "Goblin Market by Christina Rossetti, beside a detail of the goblins in the original 1862 frontispiece.",
+      "bytes": 141549,
+      "sha256": "d037305070451b4830ff6b1f98e8be4ffef973e383733a55fabbc6bc2917a4ae"
     }
   }
 }

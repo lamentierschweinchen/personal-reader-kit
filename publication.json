@@ -2089,7 +2089,38 @@
     "examples/a-room-of-ones-own/site/text.mjs",
     "examples/a-room-of-ones-own/tests/release.test.mjs",
     "examples/a-room-of-ones-own/vercel.json",
-    "showcase/assets/social-woolf.jpg"
+    "showcase/assets/social-woolf.jpg",
+    "examples/goblin-market/package.json",
+    "examples/goblin-market/vercel.json",
+    "examples/goblin-market/edition-lock.json",
+    "examples/goblin-market/scripts/build.mjs",
+    "examples/goblin-market/site/index.html",
+    "examples/goblin-market/site/reader.mjs",
+    "examples/goblin-market/site/reader.css",
+    "examples/goblin-market/site/mark.svg",
+    "examples/goblin-market/site/core.mjs",
+    "examples/goblin-market/site/db.mjs",
+    "examples/goblin-market/site/bundle.mjs",
+    "examples/goblin-market/site/text.mjs",
+    "examples/goblin-market/site/newsreader-normal.woff2",
+    "examples/goblin-market/site/newsreader-italic.woff2",
+    "examples/goblin-market/site/newsreader-OFL.txt",
+    "examples/goblin-market/site/apple-touch-icon.png",
+    "examples/goblin-market/site/icon-192.png",
+    "examples/goblin-market/site/icon-512.png",
+    "examples/goblin-market/site/manifest.webmanifest",
+    "examples/goblin-market/site/robots.txt",
+    "examples/goblin-market/edition/edition.json",
+    "examples/goblin-market/edition/market-detail.webp",
+    "examples/goblin-market/edition/frontispiece.webp",
+    "examples/goblin-market/edition/title-page.webp",
+    "examples/goblin-market/README.md",
+    "examples/goblin-market/LICENSE",
+    "examples/goblin-market/.vercelignore",
+    "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+    "examples/goblin-market/tests/release.test.mjs",
+    "showcase/assets/social-goblin-market.jpg",
+    "showcase/check-goblin-market.mjs"
   ],
   "starterFiles": [
     ".github/workflows/check.yml",
@@ -5070,6 +5101,30 @@
       "sha256": "4f392ccf9553c3457a3b223d25965ac7e3e433c148ecdc7f63e5c52782c049ed",
       "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
       "reason": "Exact approved 1929 Hogarth text, Wikisource adaptation under CC BY-SA 4.0."
+    },
+    {
+      "path": "examples/goblin-market/edition/edition.json",
+      "sha256": "2b65791ec078a719f4bfb1433956056a7445a5cf5f015a08bd0f9726868e06b7",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Exact approved 1862 title poem, a scan-collated Wikisource adaptation under CC BY-SA 4.0."
+    },
+    {
+      "path": "examples/goblin-market/edition/market-detail.webp",
+      "sha256": "e8bd34fb8e43a8bb8b5cd7c7b15638b335e0a8492ecccf4cb2fe0de496571651",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed public-domain frontispiece or illustrated title-page derivative from the first-edition witness."
+    },
+    {
+      "path": "examples/goblin-market/edition/frontispiece.webp",
+      "sha256": "f2be60874c1cb28be81e9e6c3dbed1c8edefeb160717a0e35a7193bb3c620df4",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed public-domain frontispiece or illustrated title-page derivative from the first-edition witness."
+    },
+    {
+      "path": "examples/goblin-market/edition/title-page.webp",
+      "sha256": "23673dd53da480a365ad026a4c38c710db290ed3baf4fc9e421d1f11c3b4da6d",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Reviewed public-domain frontispiece or illustrated title-page derivative from the first-edition witness."
     }
   ],
   "reviewedSiteAssets": [
@@ -5480,6 +5535,12 @@
       "sha256": "34fb3405e2c16655aea4e27d26bfcf9e3a5190012b774bdd4e97332294ba768a",
       "provenance": "showcase/ASSETS.md",
       "reason": "Original share image recreated from the reviewed Woolf window jacket."
+    },
+    {
+      "path": "showcase/assets/social-goblin-market.jpg",
+      "sha256": "d037305070451b4830ff6b1f98e8be4ffef973e383733a55fabbc6bc2917a4ae",
+      "provenance": "showcase/ASSETS.md",
+      "reason": "Goblin Market share card with the reviewed first-edition frontispiece crop."
     }
   ],
   "reviewedHistoricalFiles": [
@@ -5688,6 +5749,24 @@
       "license": "examples/the-yellow-wall-paper/site/alegreya-OFL.txt",
       "licenseSha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
       "reason": "Exact Alegreya WOFF2 from the reviewed source checkpoint under SIL OFL 1.1."
+    },
+    {
+      "path": "examples/goblin-market/site/newsreader-normal.woff2",
+      "sha256": "52f54c34206c51e23e2907bfda4f04fb11ac6ba7f75f8021b2d0075b091d1308",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "bytes": 214960,
+      "license": "examples/goblin-market/site/newsreader-OFL.txt",
+      "licenseSha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8",
+      "reason": "Exact previously reviewed Newsreader face, with full SIL Open Font License."
+    },
+    {
+      "path": "examples/goblin-market/site/newsreader-italic.woff2",
+      "sha256": "8920f06c4c116e91721a2cbbbb195d1ab6997a657cb3313dab5c99b6b202d899",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "bytes": 239360,
+      "license": "examples/goblin-market/site/newsreader-OFL.txt",
+      "licenseSha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8",
+      "reason": "Exact previously reviewed Newsreader face, with full SIL Open Font License."
     }
   ],
   "reviewedIconFiles": [
@@ -6284,6 +6363,24 @@
       "sha256": "80610ffa9ea0bf768e21bea98246c3f73b2bafdc9c881317e7ba3f4ec7592ab1",
       "provenance": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md",
       "reason": "Original window icon from the reviewed Woolf edition."
+    },
+    {
+      "path": "examples/goblin-market/site/apple-touch-icon.png",
+      "sha256": "6378f1d06883f2b378e3d0037a4739698cc61159a506ff599b16b97c7ab16a55",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Home Screen icon rendered from the original Goblin Market reader mark."
+    },
+    {
+      "path": "examples/goblin-market/site/icon-192.png",
+      "sha256": "ef01c68cb082d0f5e8c2479e6b4036ece707f04c37dc3f248b1f42c02f422a5f",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Home Screen icon rendered from the original Goblin Market reader mark."
+    },
+    {
+      "path": "examples/goblin-market/site/icon-512.png",
+      "sha256": "ec39805c196b3da029c53bc413e5e9a66d2785563ee62db5c0bff1654cec3932",
+      "provenance": "examples/goblin-market/docs/SOURCE-RIGHTS.md",
+      "reason": "Home Screen icon rendered from the original Goblin Market reader mark."
     }
   ]
 }

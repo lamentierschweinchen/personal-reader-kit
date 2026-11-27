@@ -59,7 +59,7 @@ test('each reader keeps noindex and only offline readers advertise a worker',asy
  assert.ok(worker&&noindex.length);
  for(const entry of catalog.examples){
   const slug=readerPaths[entry.id];
-  if(readerRuntime(entry)==='reader-kit-v1')assert.match('/'+slug+'/sw.js',new RegExp(worker.src));
+  if(readerRuntime(entry)!=='writing-workroom-v1')assert.match('/'+slug+'/sw.js',new RegExp(worker.src));
   else{
    assert.ok(!entry.reviewedBuild.some(asset=>asset.path==='sw.js'),'The writing reader does not claim an offline worker');
    assert.doesNotMatch('/'+slug+'/sw.js',new RegExp(worker.src));

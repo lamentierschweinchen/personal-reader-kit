@@ -17,14 +17,14 @@ let examples=[];try{
  assert.deepEqual(directories.sort(),catalog.examples.map(entry=>entry.id).sort(),'Every example directory needs an admitted runtime');
  for(const entry of catalog.examples){
   if(readerRuntime(entry)==='reader-kit-v1')examples.push(entry.id);
-  else assert.equal(entry.id,'writers-at-work','Custom source/backdrop journeys belong to showcase/check-writing-reader.mjs');
+  else assert.ok(['writers-at-work','goblin-market'].includes(entry.id),'Custom readers need their own backdrop journeys');
  }
 }catch(error){if(error.code!=='ENOENT'||error.path!==path.join(root,'examples'))throw error;}
 if(wanted)assert.ok(wanted.every(name=>name==='starter'||examples.includes(name)||['alice-in-wonderland/play','dracula/play','odyssey/play'].includes(name)),'Use admitted standard BACKDROP_TARGETS; the writing notebook is covered by showcase/check-writing-reader.mjs');
 const targets=[{name:'starter',root},...examples.map(name=>({name,root:path.join(root,'examples',name)}))].filter(t=>!wanted||wanted.includes(t.name));
 const games=[{name:'alice-in-wonderland',module:'game.mjs',dialog:'#about-dialog',close:'#close-about'},{name:'dracula',module:'app.mjs',dialog:'#notes',close:'#close-notes'},{name:'odyssey',module:'game.mjs',dialog:'#source',close:'#source form[method="dialog"] button'}].filter(t=>examples.includes(t.name)&&(!wanted||wanted.includes(t.name+'/play')));
 const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2','.ttf':'font/ttf'};
-await mkdir(output,{recursive:true});const receipt={passed:false,results:[],fixture:'Original prose, source context, saved note and synthetic figure; no added historical text.'};
+await mkdir(output,{recursive:true});const receipt={passed:false,results:[],fixture:'Original inputs, plus the exact public Open Boat edition for its dedicated entrance.'};
 const settle=page=>page.evaluate(async()=>{await document.fonts.ready;await Promise.all(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished.catch(()=>{})));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
 const state=page=>page.evaluate(async()=>(await import('/db.mjs')).loadState());
 async function outside(page,selector='#dialog'){
@@ -38,15 +38,20 @@ async function backdrop(page,{touch=false,selector='#dialog'}={}){
 }
 async function serverFor(target,book){
  const server=createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),name=url.pathname==='/'?'index.html':decodeURIComponent(url.pathname).slice(1);if(name.split('/').some(p=>!p||p==='.'||p==='..'))throw Error('Path');
-  let bytes;if(name==='backdrop-setup.html')bytes=Buffer.from('<!doctype html><title>Original fixture setup</title><p>Preparing an original local edition.</p>');else if(name==='library.json')bytes=Buffer.from(JSON.stringify([book]));else if(name==='backdrop-fixture.svg')bytes=Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="60"><rect width="80" height="60" fill="#467b84"/></svg>');else bytes=await readFile(name.startsWith('play/')?path.join(target.root,name):path.join(target.root,'site',name));
+  let bytes;if(name==='backdrop-setup.html')bytes=Buffer.from('<!doctype html><title>Original fixture setup</title><p>Preparing an original local edition.</p>');else if(name==='library.json')bytes=Buffer.from(JSON.stringify([book]));else if(name==='cover.webp'&&target.name==='the-open-boat')bytes=await readFile(path.join(target.root,'edition/cover.webp'));else if(name==='backdrop-fixture.svg')bytes=Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="60"><rect width="80" height="60" fill="#467b84"/></svg>');else bytes=await readFile(name.startsWith('play/')?path.join(target.root,name):path.join(target.root,'site',name));
   res.writeHead(200,{'Content-Type':types[path.extname(name)]||'application/octet-stream','Cache-Control':'no-store'});res.end(bytes);
  }catch{res.writeHead(404);res.end();}});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));return{origin:'http://127.0.0.1:'+server.address().port,stop:async()=>{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}};
 }
 async function readerChecks(browser,engine,target){
  const core=await import(pathToFileURL(path.join(target.root,'site/core.mjs')));
- const book=await core.fromText(Array.from({length:40},(_,i)=>`An original window frames a blue cup. The reader keeps this sentence in view. This is fixture paragraph ${i+1}.`).join('\n\n'),{title:'Original backdrop fixture',author:'Original test writing'});
- book.id='original-backdrop-fixture';book.context=[{label:'Original source context',text:'An original source note stays beside this original paragraph. '.repeat(12),kind:'source',through:null}];core.validateBook(book);
+ let book;
+ if(target.name==='the-open-boat')book=JSON.parse(await readFile(path.join(target.root,'edition/book.json'),'utf8'));
+ else{
+  book=await core.fromText(Array.from({length:40},(_,i)=>`An original window frames a blue cup. The reader keeps this sentence in view. This is fixture paragraph ${i+1}.`).join('\n\n'),{title:'Original backdrop fixture',author:'Original test writing'});
+  book.id='original-backdrop-fixture';book.context=[{label:'Original source context',text:'An original source note stays beside this original paragraph. '.repeat(12),kind:'source',through:null}];
+ }
+ core.validateBook(book);
  const note={...core.passageAt(book,book.sections[0],book.sections[0].blocks[0],0,32),id:'original-backdrop-note',note:'Original saved fixture note.',updated:1};
  const server=await serverFor(target,book),context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,serviceWorkers:'block',reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
  page.setDefaultTimeout(10000);
@@ -103,7 +108,10 @@ async function readerChecks(browser,engine,target){
 
   // Use the real guarded note editor; Cancel must preserve the draft and saved note.
   stage='dirty note backdrop Cancel';
-  await page.goto(server.origin+'/#passages');await page.locator('[data-action="edit-note"][data-note="'+note.id+'"]').click();await page.locator('#note-text').fill('Original unsaved draft to retain.');
+  await page.goto(server.origin+'/#passages');
+  // Reopen the branded reader so it loads the fixture note seeded in IndexedDB.
+  if(target.name==='the-open-boat')await page.reload();
+  await page.locator('[data-action="edit-note"][data-note="'+note.id+'"]').click();await page.locator('#note-text').fill('Original unsaved draft to retain.');
   let prompt;page.once('dialog',async dialog=>{prompt=dialog.message();await dialog.dismiss();});await backdrop(page);await retained('Cancel retains editor');
   assert.match(prompt,/unsaved|discard/i);assert.equal(await page.locator('#note-text').inputValue(),'Original unsaved draft to retain.');assert.deepEqual((await state(page)).notes,[note]);
   stage='dirty note touch backdrop confirmation';

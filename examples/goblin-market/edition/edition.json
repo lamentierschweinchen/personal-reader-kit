@@ -1,0 +1,7410 @@
+{
+  "book": {
+    "schema": 1,
+    "profile": "personal-reader/text@1",
+    "id": "goblin-market-1862",
+    "title": "Goblin Market",
+    "author": "Christina Rossetti",
+    "edition": "Macmillan and Co., first edition, 1862, pp. 1–30",
+    "language": "en",
+    "source": {
+      "sha256": "edff490b41c1f09bf65214a979b6b369b9a49963bd312229b75744d8dd051cda",
+      "format": "scan-collated verse",
+      "description": "Wikisource 13249268 collated to the first edition. The hash identifies the exact digital verse and its layout."
+    },
+    "sections": [
+      {
+        "id": "poem",
+        "title": "GOBLIN MARKET.",
+        "blocks": [
+          {
+            "id": "line-1",
+            "kind": "verse",
+            "text": "Morning and evening",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-2",
+            "kind": "verse",
+            "text": "Maids heard the goblins cry:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-3",
+            "kind": "verse",
+            "text": "“Come buy our orchard fruits,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-4",
+            "kind": "verse",
+            "text": "Come buy, come buy:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-5",
+            "kind": "verse",
+            "text": "Apples and quinces,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-6",
+            "kind": "verse",
+            "text": "Lemons and oranges,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-7",
+            "kind": "verse",
+            "text": "Plump unpecked cherries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-8",
+            "kind": "verse",
+            "text": "Melons and raspberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-9",
+            "kind": "verse",
+            "text": "Bloom-down-cheeked peaches,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-10",
+            "kind": "verse",
+            "text": "Swart-headed mulberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-11",
+            "kind": "verse",
+            "text": "Wild free-born cranberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-12",
+            "kind": "verse",
+            "text": "Crab-apples, dewberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-13",
+            "kind": "verse",
+            "text": "Pine-apples, blackberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-14",
+            "kind": "verse",
+            "text": "Apricots, strawberries;—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-15",
+            "kind": "verse",
+            "text": "All ripe together",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-16",
+            "kind": "verse",
+            "text": "In summer weather,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-17",
+            "kind": "verse",
+            "text": "Morns that pass by,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-18",
+            "kind": "verse",
+            "text": "Fair eves that fly;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-19",
+            "kind": "verse",
+            "text": "Come buy, come buy:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-20",
+            "kind": "verse",
+            "text": "Our grapes fresh from the vine,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-21",
+            "kind": "verse",
+            "text": "Pomegranates full and fine,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-22",
+            "kind": "verse",
+            "text": "Dates and sharp bullaces,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-23",
+            "kind": "verse",
+            "text": "Rare pears and greengages,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-24",
+            "kind": "verse",
+            "text": "Damsons and bilberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-25",
+            "kind": "verse",
+            "text": "Taste them and try:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-26",
+            "kind": "verse",
+            "text": "Currants and gooseberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-27",
+            "kind": "verse",
+            "text": "Bright-fire-like barberries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-28",
+            "kind": "verse",
+            "text": "Figs to fill your mouth,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-29",
+            "kind": "verse",
+            "text": "Citrons from the South,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-30",
+            "kind": "verse",
+            "text": "Sweet to tongue and sound to eye;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-31",
+            "kind": "verse",
+            "text": "Come buy, come buy.”",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-32",
+            "kind": "verse",
+            "text": "Evening by evening",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-33",
+            "kind": "verse",
+            "text": "Among the brookside rushes,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-34",
+            "kind": "verse",
+            "text": "Laura bowed her head to hear,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-35",
+            "kind": "verse",
+            "text": "Lizzie veiled her blushes:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-36",
+            "kind": "verse",
+            "text": "Crouching close together",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-37",
+            "kind": "verse",
+            "text": "In the cooling weather,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-38",
+            "kind": "verse",
+            "text": "With clasping arms and cautioning lips,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-39",
+            "kind": "verse",
+            "text": "With tingling cheeks and finger tips.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-40",
+            "kind": "verse",
+            "text": "“Lie close,” Laura said,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-41",
+            "kind": "verse",
+            "text": "Pricking up her golden head:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-42",
+            "kind": "verse",
+            "text": "“We must not look at goblin men,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-43",
+            "kind": "verse",
+            "text": "We must not buy their fruits:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-44",
+            "kind": "verse",
+            "text": "Who knows upon what soil they fed",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-45",
+            "kind": "verse",
+            "text": "Their hungry thirsty roots?”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-46",
+            "kind": "verse",
+            "text": "“Come buy,” call the goblins",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-47",
+            "kind": "verse",
+            "text": "Hobbling down the glen.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-48",
+            "kind": "verse",
+            "text": "“Oh,” cried Lizzie, “Laura, Laura,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-49",
+            "kind": "verse",
+            "text": "You should not peep at goblin men.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-50",
+            "kind": "verse",
+            "text": "Lizzie covered up her eyes,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-51",
+            "kind": "verse",
+            "text": "Covered close lest they should look;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-52",
+            "kind": "verse",
+            "text": "Laura reared her glossy head,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-53",
+            "kind": "verse",
+            "text": "And whispered like the restless brook:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-54",
+            "kind": "verse",
+            "text": "“Look, Lizzie, look, Lizzie,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-55",
+            "kind": "verse",
+            "text": "Down the glen tramp little men.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-56",
+            "kind": "verse",
+            "text": "One hauls a basket,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-57",
+            "kind": "verse",
+            "text": "One bears a plate,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-58",
+            "kind": "verse",
+            "text": "One lugs a golden dish",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-59",
+            "kind": "verse",
+            "text": "Of many pounds weight.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-60",
+            "kind": "verse",
+            "text": "How fair the vine must grow",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-61",
+            "kind": "verse",
+            "text": "Whose grapes are so luscious;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-62",
+            "kind": "verse",
+            "text": "How warm the wind must blow",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-63",
+            "kind": "verse",
+            "text": "Through those fruit bushes.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-64",
+            "kind": "verse",
+            "text": "“No,” said Lizzie: “No, no, no;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-65",
+            "kind": "verse",
+            "text": "Their offers should not charm us,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-66",
+            "kind": "verse",
+            "text": "Their evil gifts would harm us.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-67",
+            "kind": "verse",
+            "text": "She thrust a dimpled finger",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-68",
+            "kind": "verse",
+            "text": "In each ear, shut eyes and ran:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-69",
+            "kind": "verse",
+            "text": "Curious Laura chose to linger",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-70",
+            "kind": "verse",
+            "text": "Wondering at each merchant man.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-71",
+            "kind": "verse",
+            "text": "One had a cat’s face,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-72",
+            "kind": "verse",
+            "text": "One whisked a tail,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-73",
+            "kind": "verse",
+            "text": "One tramped at a rat’s pace,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-74",
+            "kind": "verse",
+            "text": "One crawled like a snail,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-75",
+            "kind": "verse",
+            "text": "One like a wombat prowled obtuse and furry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-76",
+            "kind": "verse",
+            "text": "One like a ratel tumbled hurry skurry.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-77",
+            "kind": "verse",
+            "text": "She heard a voice like voice of doves",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-78",
+            "kind": "verse",
+            "text": "Cooing all together:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-79",
+            "kind": "verse",
+            "text": "They sounded kind and full of loves",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-80",
+            "kind": "verse",
+            "text": "In the pleasant weather.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-81",
+            "kind": "verse",
+            "text": "Laura stretched her gleaming neck",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-82",
+            "kind": "verse",
+            "text": "Like a rush-imbedded swan,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-83",
+            "kind": "verse",
+            "text": "Like a lily from the beck,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-84",
+            "kind": "verse",
+            "text": "Like a moonlit poplar branch,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-85",
+            "kind": "verse",
+            "text": "Like a vessel at the launch",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-86",
+            "kind": "verse",
+            "text": "When its last restraint is gone.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-87",
+            "kind": "verse",
+            "text": "Backwards up the mossy glen",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-88",
+            "kind": "verse",
+            "text": "Turned and trooped the goblin men,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-89",
+            "kind": "verse",
+            "text": "With their shrill repeated cry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-90",
+            "kind": "verse",
+            "text": "“Come buy, come buy.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-91",
+            "kind": "verse",
+            "text": "When they reached where Laura was",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-92",
+            "kind": "verse",
+            "text": "They stood stock still upon the moss,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-93",
+            "kind": "verse",
+            "text": "Leering at each other,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-94",
+            "kind": "verse",
+            "text": "Brother with queer brother;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-95",
+            "kind": "verse",
+            "text": "Signalling each other,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-96",
+            "kind": "verse",
+            "text": "Brother with sly brother.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-97",
+            "kind": "verse",
+            "text": "One set his basket down,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-98",
+            "kind": "verse",
+            "text": "One reared his plate;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-99",
+            "kind": "verse",
+            "text": "One began to weave a crown",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-100",
+            "kind": "verse",
+            "text": "Of tendrils, leaves and rough nuts brown",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-101",
+            "kind": "verse",
+            "text": "(Men sell not such in any town);",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-102",
+            "kind": "verse",
+            "text": "One heaved the golden weight",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-103",
+            "kind": "verse",
+            "text": "Of dish and fruit to offer her:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-104",
+            "kind": "verse",
+            "text": "“Come buy, come buy,” was still their cry.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-105",
+            "kind": "verse",
+            "text": "Laura stared but did not stir,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-106",
+            "kind": "verse",
+            "text": "Longed but had no money:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-107",
+            "kind": "verse",
+            "text": "The whisk-tailed merchant bade her taste",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-108",
+            "kind": "verse",
+            "text": "In tones as smooth as honey,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-109",
+            "kind": "verse",
+            "text": "The cat-faced purr’d,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-110",
+            "kind": "verse",
+            "text": "The rat-paced spoke a word",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-111",
+            "kind": "verse",
+            "text": "Of welcome, and the snail-paced even was heard;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-112",
+            "kind": "verse",
+            "text": "One parrot-voiced and jolly",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-113",
+            "kind": "verse",
+            "text": "Cried “Pretty Goblin” still for “Pretty Polly;”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-114",
+            "kind": "verse",
+            "text": "One whistled like a bird.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-115",
+            "kind": "verse",
+            "text": "But sweet-tooth Laura spoke in haste:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-116",
+            "kind": "verse",
+            "text": "“Good folk, I have no coin;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-117",
+            "kind": "verse",
+            "text": "To take were to purloin:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-118",
+            "kind": "verse",
+            "text": "I have no copper in my purse,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-119",
+            "kind": "verse",
+            "text": "I have no silver either,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-120",
+            "kind": "verse",
+            "text": "And all my gold is on the furze",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-121",
+            "kind": "verse",
+            "text": "That shakes in windy weather",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-122",
+            "kind": "verse",
+            "text": "Above the rusty heather.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-123",
+            "kind": "verse",
+            "text": "“You have much gold upon your head,”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-124",
+            "kind": "verse",
+            "text": "They answered all together:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-125",
+            "kind": "verse",
+            "text": "“Buy from us with a golden curl.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-126",
+            "kind": "verse",
+            "text": "She clipped a precious golden lock,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-127",
+            "kind": "verse",
+            "text": "She dropped a tear more rare than pearl,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-128",
+            "kind": "verse",
+            "text": "Then sucked their fruit globes fair or red:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-129",
+            "kind": "verse",
+            "text": "Sweeter than honey from the rock,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-130",
+            "kind": "verse",
+            "text": "Stronger than man-rejoicing wine,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-131",
+            "kind": "verse",
+            "text": "Clearer than water flowed that juice;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-132",
+            "kind": "verse",
+            "text": "She never tasted such before,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-133",
+            "kind": "verse",
+            "text": "How should it cloy with length of use?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-134",
+            "kind": "verse",
+            "text": "She sucked and sucked and sucked the more",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-135",
+            "kind": "verse",
+            "text": "Fruits which that unknown orchard bore;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-136",
+            "kind": "verse",
+            "text": "She sucked until her lips were sore;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-137",
+            "kind": "verse",
+            "text": "Then flung the emptied rinds away",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-138",
+            "kind": "verse",
+            "text": "But gathered up one kernel-stone,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-139",
+            "kind": "verse",
+            "text": "And knew not was it night or day",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-140",
+            "kind": "verse",
+            "text": "As she turned home alone.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-141",
+            "kind": "verse",
+            "text": "Lizzie met her at the gate",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-142",
+            "kind": "verse",
+            "text": "Full of wise upbraidings:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-143",
+            "kind": "verse",
+            "text": "“Dear, you should not stay so late,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-144",
+            "kind": "verse",
+            "text": "Twilight is not good for maidens;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-145",
+            "kind": "verse",
+            "text": "Should not loiter in the glen",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-146",
+            "kind": "verse",
+            "text": "In the haunts of goblin men.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-147",
+            "kind": "verse",
+            "text": "Do you not remember Jeanie,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-148",
+            "kind": "verse",
+            "text": "How she met them in the moonlight,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-149",
+            "kind": "verse",
+            "text": "Took their gifts both choice and many,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-150",
+            "kind": "verse",
+            "text": "Ate their fruits and wore their flowers",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-151",
+            "kind": "verse",
+            "text": "Plucked from bowers",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-152",
+            "kind": "verse",
+            "text": "Where summer ripens at all hours?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-153",
+            "kind": "verse",
+            "text": "But ever in the noonlight",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-154",
+            "kind": "verse",
+            "text": "She pined and pined away;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-155",
+            "kind": "verse",
+            "text": "Sought them by night and day,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-156",
+            "kind": "verse",
+            "text": "Found them no more but dwindled and grew grey;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-157",
+            "kind": "verse",
+            "text": "Then fell with the first snow,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-158",
+            "kind": "verse",
+            "text": "While to this day no grass will grow",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-159",
+            "kind": "verse",
+            "text": "Where she lies low:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-160",
+            "kind": "verse",
+            "text": "I planted daisies there a year ago",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-161",
+            "kind": "verse",
+            "text": "That never blow.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-162",
+            "kind": "verse",
+            "text": "You should not loiter so.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-163",
+            "kind": "verse",
+            "text": "“Nay, hush,” said Laura:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-164",
+            "kind": "verse",
+            "text": "“Nay, hush, my sister:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-165",
+            "kind": "verse",
+            "text": "I ate and ate my fill,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-166",
+            "kind": "verse",
+            "text": "Yet my mouth waters still;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-167",
+            "kind": "verse",
+            "text": "To-morrow night I will",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-168",
+            "kind": "verse",
+            "text": "Buy more:” and kissed her:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-169",
+            "kind": "verse",
+            "text": "“Have done with sorrow;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-170",
+            "kind": "verse",
+            "text": "I’ll bring you plums to-morrow",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-171",
+            "kind": "verse",
+            "text": "Fresh on their mother twigs,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-172",
+            "kind": "verse",
+            "text": "Cherries worth getting;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-173",
+            "kind": "verse",
+            "text": "You cannot think what figs",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-174",
+            "kind": "verse",
+            "text": "My teeth have met in,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-175",
+            "kind": "verse",
+            "text": "What melons icy-cold",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-176",
+            "kind": "verse",
+            "text": "Piled on a dish of gold",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-177",
+            "kind": "verse",
+            "text": "Too huge for me to hold,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-178",
+            "kind": "verse",
+            "text": "What peaches with a velvet nap,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-179",
+            "kind": "verse",
+            "text": "Pellucid grapes without one seed:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-180",
+            "kind": "verse",
+            "text": "Odorous indeed must be the mead",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-181",
+            "kind": "verse",
+            "text": "Whereon they grow, and pure the wave they drink",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-182",
+            "kind": "verse",
+            "text": "With lilies at the brink,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-183",
+            "kind": "verse",
+            "text": "And sugar-sweet their sap.”",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-184",
+            "kind": "verse",
+            "text": "Golden head by golden head,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-185",
+            "kind": "verse",
+            "text": "Like two pigeons in one nest",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-186",
+            "kind": "verse",
+            "text": "Folded in each other’s wings,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-187",
+            "kind": "verse",
+            "text": "They lay down in their curtained bed:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-188",
+            "kind": "verse",
+            "text": "Like two blossoms on one stem,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-189",
+            "kind": "verse",
+            "text": "Like two flakes of new-fall’n snow,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-190",
+            "kind": "verse",
+            "text": "Like two wands of ivory",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-191",
+            "kind": "verse",
+            "text": "Tipped with gold for awful kings.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-192",
+            "kind": "verse",
+            "text": "Moon and stars gazed in at them,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-193",
+            "kind": "verse",
+            "text": "Wind sang to them lullaby,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-194",
+            "kind": "verse",
+            "text": "Lumbering owls forbore to fly,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-195",
+            "kind": "verse",
+            "text": "Not a bat flapped to and fro",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-196",
+            "kind": "verse",
+            "text": "Round their rest:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-197",
+            "kind": "verse",
+            "text": "Cheek to cheek and breast to breast",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-198",
+            "kind": "verse",
+            "text": "Locked together in one nest.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-199",
+            "kind": "verse",
+            "text": "Early in the morning",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-200",
+            "kind": "verse",
+            "text": "When the first cock crowed his warning,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-201",
+            "kind": "verse",
+            "text": "Neat like bees, as sweet and busy,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-202",
+            "kind": "verse",
+            "text": "Laura rose with Lizzie:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-203",
+            "kind": "verse",
+            "text": "Fetched in honey, milked the cows,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-204",
+            "kind": "verse",
+            "text": "Aired and set to rights the house,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-205",
+            "kind": "verse",
+            "text": "Kneaded cakes of whitest wheat,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-206",
+            "kind": "verse",
+            "text": "Cakes for dainty mouths to eat,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-207",
+            "kind": "verse",
+            "text": "Next churned butter, whipped up cream,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-208",
+            "kind": "verse",
+            "text": "Fed their poultry, sat and sewed;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-209",
+            "kind": "verse",
+            "text": "Talked as modest maidens should:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-210",
+            "kind": "verse",
+            "text": "Lizzie with an open heart,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-211",
+            "kind": "verse",
+            "text": "Laura in an absent dream,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-212",
+            "kind": "verse",
+            "text": "One content, one sick in part;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-213",
+            "kind": "verse",
+            "text": "One warbling for the mere bright day’s delight,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-214",
+            "kind": "verse",
+            "text": "One longing for the night.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-215",
+            "kind": "verse",
+            "text": "At length slow evening came:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-216",
+            "kind": "verse",
+            "text": "They went with pitchers to the reedy brook;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-217",
+            "kind": "verse",
+            "text": "Lizzie most placid in her look,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-218",
+            "kind": "verse",
+            "text": "Laura most like a leaping flame.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-219",
+            "kind": "verse",
+            "text": "They drew the gurgling water from its deep;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-220",
+            "kind": "verse",
+            "text": "Lizzie plucked purple and rich golden flags,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-221",
+            "kind": "verse",
+            "text": "Then turning homewards said: “The sunset flushes",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-222",
+            "kind": "verse",
+            "text": "Those furthest loftiest crags;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-223",
+            "kind": "verse",
+            "text": "Come, Laura, not another maiden lags,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-224",
+            "kind": "verse",
+            "text": "No wilful squirrel wags,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-225",
+            "kind": "verse",
+            "text": "The beasts and birds are fast asleep.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-226",
+            "kind": "verse",
+            "text": "But Laura loitered still among the rushes",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-227",
+            "kind": "verse",
+            "text": "And said the bank was steep.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-228",
+            "kind": "verse",
+            "text": "And said the hour was early still,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-229",
+            "kind": "verse",
+            "text": "The dew not fall’n, the wind not chill:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-230",
+            "kind": "verse",
+            "text": "Listening ever, but not catching",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-231",
+            "kind": "verse",
+            "text": "The customary cry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-232",
+            "kind": "verse",
+            "text": "“Come buy, come buy,”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-233",
+            "kind": "verse",
+            "text": "With its iterated jingle",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-234",
+            "kind": "verse",
+            "text": "Of sugar-baited words:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-235",
+            "kind": "verse",
+            "text": "Not for all her watching",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-236",
+            "kind": "verse",
+            "text": "Once discerning even one goblin",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-237",
+            "kind": "verse",
+            "text": "Racing, whisking, tumbling, hobbling;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-238",
+            "kind": "verse",
+            "text": "Let alone the herds",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-239",
+            "kind": "verse",
+            "text": "That used to tramp along the glen,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-240",
+            "kind": "verse",
+            "text": "In groups or single,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-241",
+            "kind": "verse",
+            "text": "Of brisk fruit-merchant men.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-242",
+            "kind": "verse",
+            "text": "Till Lizzie urged, “O Laura, come;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-243",
+            "kind": "verse",
+            "text": "I hear the fruit-call but I dare not look:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-244",
+            "kind": "verse",
+            "text": "You should not loiter longer at this brook:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-245",
+            "kind": "verse",
+            "text": "Come with me home.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-246",
+            "kind": "verse",
+            "text": "The stars rise, the moon bends her arc,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-247",
+            "kind": "verse",
+            "text": "Each glowworm winks her spark,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-248",
+            "kind": "verse",
+            "text": "Let us get home before the night grows dark:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-249",
+            "kind": "verse",
+            "text": "For clouds may gather",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-250",
+            "kind": "verse",
+            "text": "Though this is summer weather,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-251",
+            "kind": "verse",
+            "text": "Put out the lights and drench us through;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-252",
+            "kind": "verse",
+            "text": "Then if we lost our way what should we do?”",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-253",
+            "kind": "verse",
+            "text": "Laura turned cold as stone",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-254",
+            "kind": "verse",
+            "text": "To find her sister heard that cry alone,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-255",
+            "kind": "verse",
+            "text": "That goblin cry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-256",
+            "kind": "verse",
+            "text": "“Come buy our fruits, come buy.”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-257",
+            "kind": "verse",
+            "text": "Must she then buy no more such dainty fruits?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-258",
+            "kind": "verse",
+            "text": "Must she no more that succous pasture find,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-259",
+            "kind": "verse",
+            "text": "Gone deaf and blind?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-260",
+            "kind": "verse",
+            "text": "Her tree of life drooped from the root:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-261",
+            "kind": "verse",
+            "text": "She said not one word in her heart’s sore ache;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-262",
+            "kind": "verse",
+            "text": "But peering thro’ the dimness, nought discerning,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-263",
+            "kind": "verse",
+            "text": "Trudged home, her pitcher dripping all the way;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-264",
+            "kind": "verse",
+            "text": "So crept to bed, and lay",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-265",
+            "kind": "verse",
+            "text": "Silent till Lizzie slept;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-266",
+            "kind": "verse",
+            "text": "Then sat up in a passionate yearning,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-267",
+            "kind": "verse",
+            "text": "And gnashed her teeth for baulked desire, and wept",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-268",
+            "kind": "verse",
+            "text": "As if her heart would break.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-269",
+            "kind": "verse",
+            "text": "Day after day, night after night,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-270",
+            "kind": "verse",
+            "text": "Laura kept watch in vain",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-271",
+            "kind": "verse",
+            "text": "In sullen silence of exceeding pain.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-272",
+            "kind": "verse",
+            "text": "She never caught again the goblin cry:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-273",
+            "kind": "verse",
+            "text": "“Come buy, come buy;”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-274",
+            "kind": "verse",
+            "text": "She never spied the goblin men",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-275",
+            "kind": "verse",
+            "text": "Hawking their fruits along the glen:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-276",
+            "kind": "verse",
+            "text": "But when the noon waxed bright",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-277",
+            "kind": "verse",
+            "text": "Her hair grew thin and grey;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-278",
+            "kind": "verse",
+            "text": "She dwindled, as the fair full moon doth turn",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-279",
+            "kind": "verse",
+            "text": "To swift decay and burn",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-280",
+            "kind": "verse",
+            "text": "Her fire away.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-281",
+            "kind": "verse",
+            "text": "One day remembering her kernel-stone",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-282",
+            "kind": "verse",
+            "text": "She set it by a wall that faced the south;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-283",
+            "kind": "verse",
+            "text": "Dewed it with tears, hoped for a root,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-284",
+            "kind": "verse",
+            "text": "Watched for a waxing shoot,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-285",
+            "kind": "verse",
+            "text": "But there came none;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-286",
+            "kind": "verse",
+            "text": "It never saw the sun,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-287",
+            "kind": "verse",
+            "text": "It never felt the trickling moisture run:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-288",
+            "kind": "verse",
+            "text": "While with sunk eyes and faded mouth",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-289",
+            "kind": "verse",
+            "text": "She dreamed of melons, as a traveller sees",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-290",
+            "kind": "verse",
+            "text": "False waves in desert drouth",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-291",
+            "kind": "verse",
+            "text": "With shade of leaf-crowned trees,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-292",
+            "kind": "verse",
+            "text": "And burns the thirstier in the sandful breeze.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-293",
+            "kind": "verse",
+            "text": "She no more swept the house,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-294",
+            "kind": "verse",
+            "text": "Tended the fowls or cows,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-295",
+            "kind": "verse",
+            "text": "Fetched honey, kneaded cakes of wheat,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-296",
+            "kind": "verse",
+            "text": "Brought water from the brook:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-297",
+            "kind": "verse",
+            "text": "But sat down listless in the chimney-nook",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-298",
+            "kind": "verse",
+            "text": "And would not eat.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-299",
+            "kind": "verse",
+            "text": "Tender Lizzie could not bear",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-300",
+            "kind": "verse",
+            "text": "To watch her sister’s cankerous care",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-301",
+            "kind": "verse",
+            "text": "Yet not to share.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-302",
+            "kind": "verse",
+            "text": "She night and morning",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-303",
+            "kind": "verse",
+            "text": "Caught the goblins’ cry:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-304",
+            "kind": "verse",
+            "text": "“Come buy our orchard fruits,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-305",
+            "kind": "verse",
+            "text": "Come buy, come buy:”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-306",
+            "kind": "verse",
+            "text": "Beside the brook, along the glen,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-307",
+            "kind": "verse",
+            "text": "She heard the tramp of goblin men,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-308",
+            "kind": "verse",
+            "text": "The voice and stir",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-309",
+            "kind": "verse",
+            "text": "Poor Laura could not hear;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-310",
+            "kind": "verse",
+            "text": "Longed to buy fruit to comfort her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-311",
+            "kind": "verse",
+            "text": "But feared to pay too dear.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-312",
+            "kind": "verse",
+            "text": "She thought of Jeanie in her grave,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-313",
+            "kind": "verse",
+            "text": "Who should have been a bride;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-314",
+            "kind": "verse",
+            "text": "But who for joys brides hope to have",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-315",
+            "kind": "verse",
+            "text": "Fell sick and died",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-316",
+            "kind": "verse",
+            "text": "In her gay prime,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-317",
+            "kind": "verse",
+            "text": "In earliest Winter time,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-318",
+            "kind": "verse",
+            "text": "With the first glazing rime,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-319",
+            "kind": "verse",
+            "text": "With the first snow-fall of crisp Winter time.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-320",
+            "kind": "verse",
+            "text": "Till Laura dwindling",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-321",
+            "kind": "verse",
+            "text": "Seemed knocking at Death’s door:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-322",
+            "kind": "verse",
+            "text": "Then Lizzie weighed no more",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-323",
+            "kind": "verse",
+            "text": "Better and worse;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-324",
+            "kind": "verse",
+            "text": "But put a silver penny in her purse,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-325",
+            "kind": "verse",
+            "text": "Kissed Laura, crossed the heath with clumps of furze",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-326",
+            "kind": "verse",
+            "text": "At twilight, halted by the brook:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-327",
+            "kind": "verse",
+            "text": "And for the first time in her life",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-328",
+            "kind": "verse",
+            "text": "Began to listen and look.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-329",
+            "kind": "verse",
+            "text": "Laughed every goblin",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-330",
+            "kind": "verse",
+            "text": "When they spied her peeping:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-331",
+            "kind": "verse",
+            "text": "Came towards her hobbling,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-332",
+            "kind": "verse",
+            "text": "Flying, running, leaping,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-333",
+            "kind": "verse",
+            "text": "Puffing and blowing,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-334",
+            "kind": "verse",
+            "text": "Chuckling, clapping, crowing,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-335",
+            "kind": "verse",
+            "text": "Clucking and gobbling,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-336",
+            "kind": "verse",
+            "text": "Mopping and mowing,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-337",
+            "kind": "verse",
+            "text": "Full of airs and graces,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-338",
+            "kind": "verse",
+            "text": "Pulling wry faces,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-339",
+            "kind": "verse",
+            "text": "Demure grimaces,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-340",
+            "kind": "verse",
+            "text": "Cat-like and rat-like,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-341",
+            "kind": "verse",
+            "text": "Ratel- and wombat-like,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-342",
+            "kind": "verse",
+            "text": "Snail-paced in a hurry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-343",
+            "kind": "verse",
+            "text": "Parrot-voiced and whistler,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-344",
+            "kind": "verse",
+            "text": "Helter skelter, hurry skurry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-345",
+            "kind": "verse",
+            "text": "Chattering like magpies,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-346",
+            "kind": "verse",
+            "text": "Fluttering like pigeons,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-347",
+            "kind": "verse",
+            "text": "Gliding like fishes,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-348",
+            "kind": "verse",
+            "text": "Hugged her and kissed her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-349",
+            "kind": "verse",
+            "text": "Squeezed and caressed her:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-350",
+            "kind": "verse",
+            "text": "Stretched up their dishes,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-351",
+            "kind": "verse",
+            "text": "Panniers, and plates:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-352",
+            "kind": "verse",
+            "text": "“Look at our apples",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-353",
+            "kind": "verse",
+            "text": "Russet and dun,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-354",
+            "kind": "verse",
+            "text": "Bob at our cherries,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-355",
+            "kind": "verse",
+            "text": "Bite at our peaches,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-356",
+            "kind": "verse",
+            "text": "Citrons and dates,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-357",
+            "kind": "verse",
+            "text": "Grapes for the asking,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-358",
+            "kind": "verse",
+            "text": "Pears red with basking",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-359",
+            "kind": "verse",
+            "text": "Out in the sun,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-360",
+            "kind": "verse",
+            "text": "Plums on their twigs;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-361",
+            "kind": "verse",
+            "text": "Pluck them and suck them,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-362",
+            "kind": "verse",
+            "text": "Pomegranates, figs.”—",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-363",
+            "kind": "verse",
+            "text": "“Good folk,” said Lizzie,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-364",
+            "kind": "verse",
+            "text": "Mindful of Jeanie:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-365",
+            "kind": "verse",
+            "text": "“Give me much and many:”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-366",
+            "kind": "verse",
+            "text": "Held out her apron,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-367",
+            "kind": "verse",
+            "text": "Tossed them her penny.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-368",
+            "kind": "verse",
+            "text": "“Nay, take a seat with us,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-369",
+            "kind": "verse",
+            "text": "Honour and eat with us,”",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-370",
+            "kind": "verse",
+            "text": "They answered grinning:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-371",
+            "kind": "verse",
+            "text": "“Our feast is but beginning.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-372",
+            "kind": "verse",
+            "text": "Night yet is early,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-373",
+            "kind": "verse",
+            "text": "Warm and dew-pearly,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-374",
+            "kind": "verse",
+            "text": "Wakeful and starry:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-375",
+            "kind": "verse",
+            "text": "Such fruits as these",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-376",
+            "kind": "verse",
+            "text": "No man can carry;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-377",
+            "kind": "verse",
+            "text": "Half their bloom would fly,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-378",
+            "kind": "verse",
+            "text": "Half their dew would dry,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-379",
+            "kind": "verse",
+            "text": "Half their flavour would pass by.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-380",
+            "kind": "verse",
+            "text": "Sit down and feast with us,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-381",
+            "kind": "verse",
+            "text": "Be welcome guest with us,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-382",
+            "kind": "verse",
+            "text": "Cheer you and rest with us.”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-383",
+            "kind": "verse",
+            "text": "“Thank you,” said Lizzie: “But one waits",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-384",
+            "kind": "verse",
+            "text": "At home alone for me:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-385",
+            "kind": "verse",
+            "text": "So without further parleying,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-386",
+            "kind": "verse",
+            "text": "If you will not sell me any",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-387",
+            "kind": "verse",
+            "text": "Of your fruits though much and many,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-388",
+            "kind": "verse",
+            "text": "Give me back my silver penny",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-389",
+            "kind": "verse",
+            "text": "I tossed you for a fee.”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-390",
+            "kind": "verse",
+            "text": "They began to scratch their pates,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-391",
+            "kind": "verse",
+            "text": "No longer wagging, purring,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-392",
+            "kind": "verse",
+            "text": "But visibly demurring,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-393",
+            "kind": "verse",
+            "text": "Grunting and snarling.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-394",
+            "kind": "verse",
+            "text": "One called her proud,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-395",
+            "kind": "verse",
+            "text": "Cross-grained, uncivil;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-396",
+            "kind": "verse",
+            "text": "Their tones waxed loud,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-397",
+            "kind": "verse",
+            "text": "Their looks were evil.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-398",
+            "kind": "verse",
+            "text": "Lashing their tails",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-399",
+            "kind": "verse",
+            "text": "They trod and hustled her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-400",
+            "kind": "verse",
+            "text": "Elbowed and jostled her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-401",
+            "kind": "verse",
+            "text": "Clawed with their nails,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-402",
+            "kind": "verse",
+            "text": "Barking, mewing, hissing, mocking,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-403",
+            "kind": "verse",
+            "text": "Tore her gown and soiled her stocking,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-404",
+            "kind": "verse",
+            "text": "Twitched her hair out by the roots,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-405",
+            "kind": "verse",
+            "text": "Stamped upon her tender feet,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-406",
+            "kind": "verse",
+            "text": "Held her hands and squeezed their fruits",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-407",
+            "kind": "verse",
+            "text": "Against her mouth to make her eat.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-408",
+            "kind": "verse",
+            "text": "White and golden Lizzie stood,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-409",
+            "kind": "verse",
+            "text": "Like a lily in a flood,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-410",
+            "kind": "verse",
+            "text": "Like a rock of blue-veined stone",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-411",
+            "kind": "verse",
+            "text": "Lashed by tides obstreperously,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-412",
+            "kind": "verse",
+            "text": "Like a beacon left alone",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-413",
+            "kind": "verse",
+            "text": "In a hoary roaring sea,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-414",
+            "kind": "verse",
+            "text": "Sending up a golden fire,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-415",
+            "kind": "verse",
+            "text": "Like a fruit-crowned orange-tree",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-416",
+            "kind": "verse",
+            "text": "White with blossoms honey-sweet",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-417",
+            "kind": "verse",
+            "text": "Sore beset by wasp and bee,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-418",
+            "kind": "verse",
+            "text": "Like a royal virgin town",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-419",
+            "kind": "verse",
+            "text": "Topped with gilded dome and spire",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-420",
+            "kind": "verse",
+            "text": "Close beleaguered by a fleet",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-421",
+            "kind": "verse",
+            "text": "Mad to tug her standard down.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-422",
+            "kind": "verse",
+            "text": "One may lead a horse to water,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-423",
+            "kind": "verse",
+            "text": "Twenty cannot make him drink.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-424",
+            "kind": "verse",
+            "text": "Though the goblins cuffed and caught her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-425",
+            "kind": "verse",
+            "text": "Coaxed and fought her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-426",
+            "kind": "verse",
+            "text": "Bullied and besought her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-427",
+            "kind": "verse",
+            "text": "Scratched her, pinched her black as ink,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-428",
+            "kind": "verse",
+            "text": "Kicked and knocked her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-429",
+            "kind": "verse",
+            "text": "Mauled and mocked her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-430",
+            "kind": "verse",
+            "text": "Lizzie uttered not a word;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-431",
+            "kind": "verse",
+            "text": "Would not open lip from lip",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-432",
+            "kind": "verse",
+            "text": "Lest they should cram a mouthful in:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-433",
+            "kind": "verse",
+            "text": "But laughed in heart to feel the drip",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-434",
+            "kind": "verse",
+            "text": "Of juice that syrupped all her face,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-435",
+            "kind": "verse",
+            "text": "And lodged in dimples of her chin,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-436",
+            "kind": "verse",
+            "text": "And streaked her neck which quaked like curd.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-437",
+            "kind": "verse",
+            "text": "At last the evil people",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-438",
+            "kind": "verse",
+            "text": "Worn out by her resistance",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-439",
+            "kind": "verse",
+            "text": "Flung back her penny, kicked their fruit",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-440",
+            "kind": "verse",
+            "text": "Along whichever road they took,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-441",
+            "kind": "verse",
+            "text": "Not leaving root or stone or shoot;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-442",
+            "kind": "verse",
+            "text": "Some writhed into the ground,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-443",
+            "kind": "verse",
+            "text": "Some dived into the brook",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-444",
+            "kind": "verse",
+            "text": "With ring and ripple,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-445",
+            "kind": "verse",
+            "text": "Some scudded on the gale without a sound,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-446",
+            "kind": "verse",
+            "text": "Some vanished in the distance.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-447",
+            "kind": "verse",
+            "text": "In a smart, ache, tingle,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-448",
+            "kind": "verse",
+            "text": "Lizzie went her way;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-449",
+            "kind": "verse",
+            "text": "Knew not was it night or day;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-450",
+            "kind": "verse",
+            "text": "Sprang up the bank, tore thro’ the furze,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-451",
+            "kind": "verse",
+            "text": "Threaded copse and dingle,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-452",
+            "kind": "verse",
+            "text": "And heard her penny jingle",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-453",
+            "kind": "verse",
+            "text": "Bouncing in her purse,—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-454",
+            "kind": "verse",
+            "text": "Its bounce was music to her ear.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-455",
+            "kind": "verse",
+            "text": "She ran and ran",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-456",
+            "kind": "verse",
+            "text": "As if she feared some goblin man",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-457",
+            "kind": "verse",
+            "text": "Dogged her with gibe or curse",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-458",
+            "kind": "verse",
+            "text": "Or something worse:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-459",
+            "kind": "verse",
+            "text": "But not one goblin skurried after,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-460",
+            "kind": "verse",
+            "text": "Nor was she pricked by fear;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-461",
+            "kind": "verse",
+            "text": "The kind heart made her windy-paced",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-462",
+            "kind": "verse",
+            "text": "That urged her home quite out of breath with haste",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-463",
+            "kind": "verse",
+            "text": "And inward laughter.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-464",
+            "kind": "verse",
+            "text": "She cried “Laura,” up the garden,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-465",
+            "kind": "verse",
+            "text": "“Did you miss me?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-466",
+            "kind": "verse",
+            "text": "Come and kiss me.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-467",
+            "kind": "verse",
+            "text": "Never mind my bruises,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-468",
+            "kind": "verse",
+            "text": "Hug me, kiss me, suck my juices",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-469",
+            "kind": "verse",
+            "text": "Squeezed from goblin fruits for you,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-470",
+            "kind": "verse",
+            "text": "Goblin pulp and goblin dew.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-471",
+            "kind": "verse",
+            "text": "Eat me, drink me, love me;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-472",
+            "kind": "verse",
+            "text": "Laura, make much of me:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-473",
+            "kind": "verse",
+            "text": "For your sake I have braved the glen",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-474",
+            "kind": "verse",
+            "text": "And had to do with goblin merchant men.”",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-475",
+            "kind": "verse",
+            "text": "Laura started from her chair,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-476",
+            "kind": "verse",
+            "text": "Flung her arms up in the air,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-477",
+            "kind": "verse",
+            "text": "Clutched her hair:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-478",
+            "kind": "verse",
+            "text": "“Lizzie, Lizzie, have you tasted",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-479",
+            "kind": "verse",
+            "text": "For my sake the fruit forbidden?",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-480",
+            "kind": "verse",
+            "text": "Must your light like mine be hidden,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-481",
+            "kind": "verse",
+            "text": "Your young life like mine be wasted,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-482",
+            "kind": "verse",
+            "text": "Undone in mine undoing",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-483",
+            "kind": "verse",
+            "text": "And ruined in my ruin,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-484",
+            "kind": "verse",
+            "text": "Thirsty, cankered, goblin-ridden?”—",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-485",
+            "kind": "verse",
+            "text": "She clung about her sister,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-486",
+            "kind": "verse",
+            "text": "Kissed and kissed and kissed her:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-487",
+            "kind": "verse",
+            "text": "Tears once again",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-488",
+            "kind": "verse",
+            "text": "Refreshed her shrunken eyes,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-489",
+            "kind": "verse",
+            "text": "Dropping like rain",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-490",
+            "kind": "verse",
+            "text": "After long sultry drouth;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-491",
+            "kind": "verse",
+            "text": "Shaking with aguish fear, and pain,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-492",
+            "kind": "verse",
+            "text": "She kissed and kissed her with a hungry mouth.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-493",
+            "kind": "verse",
+            "text": "Her lips began to scorch,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-494",
+            "kind": "verse",
+            "text": "That juice was wormwood to her tongue,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-495",
+            "kind": "verse",
+            "text": "She loathed the feast:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-496",
+            "kind": "verse",
+            "text": "Writhing as one possessed she leaped and sung,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-497",
+            "kind": "verse",
+            "text": "Rent all her robe, and wrung",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-498",
+            "kind": "verse",
+            "text": "Her hands in lamentable haste,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-499",
+            "kind": "verse",
+            "text": "And beat her breast.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-500",
+            "kind": "verse",
+            "text": "Her locks streamed like the torch",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-501",
+            "kind": "verse",
+            "text": "Borne by a racer at full speed,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-502",
+            "kind": "verse",
+            "text": "Or like the mane of horses in their flight,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-503",
+            "kind": "verse",
+            "text": "Or like an eagle when she stems the light",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-504",
+            "kind": "verse",
+            "text": "Straight toward the sun,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-505",
+            "kind": "verse",
+            "text": "Or like a caged thing freed,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-506",
+            "kind": "verse",
+            "text": "Or like a flying flag when armies run.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-507",
+            "kind": "verse",
+            "text": "Swift fire spread through her veins, knocked at her heart,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-508",
+            "kind": "verse",
+            "text": "Met the fire smouldering there",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-509",
+            "kind": "verse",
+            "text": "And overbore its lesser flame;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-510",
+            "kind": "verse",
+            "text": "She gorged on bitterness without a name:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-511",
+            "kind": "verse",
+            "text": "Ah! fool, to choose such part",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-512",
+            "kind": "verse",
+            "text": "Of soul-consuming care!",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-513",
+            "kind": "verse",
+            "text": "Sense failed in the mortal strife:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-514",
+            "kind": "verse",
+            "text": "Like the watch-tower of a town",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-515",
+            "kind": "verse",
+            "text": "Which an earthquake shatters down,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-516",
+            "kind": "verse",
+            "text": "Like a lightning-stricken mast,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-517",
+            "kind": "verse",
+            "text": "Like a wind-uprooted tree",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-518",
+            "kind": "verse",
+            "text": "Spun about,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-519",
+            "kind": "verse",
+            "text": "Like a foam-topped waterspout",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-520",
+            "kind": "verse",
+            "text": "Cast down headlong in the sea,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-521",
+            "kind": "verse",
+            "text": "She fell at last;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-522",
+            "kind": "verse",
+            "text": "Pleasure past and anguish past,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-523",
+            "kind": "verse",
+            "text": "Is it death or is it life?",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-524",
+            "kind": "verse",
+            "text": "Life out of death.",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-525",
+            "kind": "verse",
+            "text": "That night long Lizzie watched by her,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-526",
+            "kind": "verse",
+            "text": "Counted her pulse’s flagging stir,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-527",
+            "kind": "verse",
+            "text": "Felt for her breath,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-528",
+            "kind": "verse",
+            "text": "Held water to her lips, and cooled her face",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-529",
+            "kind": "verse",
+            "text": "With tears and fanning leaves:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-530",
+            "kind": "verse",
+            "text": "But when the first birds chirped about their eaves,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-531",
+            "kind": "verse",
+            "text": "And early reapers plodded to the place",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-532",
+            "kind": "verse",
+            "text": "Of golden sheaves,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-533",
+            "kind": "verse",
+            "text": "And dew-wet grass",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-534",
+            "kind": "verse",
+            "text": "Bowed in the morning winds so brisk to pass,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-535",
+            "kind": "verse",
+            "text": "And new buds with new day",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-536",
+            "kind": "verse",
+            "text": "Opened of cup-like lilies on the stream,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-537",
+            "kind": "verse",
+            "text": "Laura awoke as from a dream,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-538",
+            "kind": "verse",
+            "text": "Laughed in the innocent old way,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-539",
+            "kind": "verse",
+            "text": "Hugged Lizzie but not twice or thrice;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-540",
+            "kind": "verse",
+            "text": "Her gleaming locks showed not one thread of grey,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-541",
+            "kind": "verse",
+            "text": "Her breath was sweet as May",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-542",
+            "kind": "verse",
+            "text": "And light danced in her eyes.",
+            "after": "\n\n",
+            "marks": []
+          },
+          {
+            "id": "line-543",
+            "kind": "verse",
+            "text": "Days, weeks, months, years,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-544",
+            "kind": "verse",
+            "text": "Afterwards, when both were wives",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-545",
+            "kind": "verse",
+            "text": "With children of their own;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-546",
+            "kind": "verse",
+            "text": "Their mother-hearts beset with fears,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-547",
+            "kind": "verse",
+            "text": "Their lives bound up in tender lives;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-548",
+            "kind": "verse",
+            "text": "Laura would call the little ones",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-549",
+            "kind": "verse",
+            "text": "And tell them of her early prime,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-550",
+            "kind": "verse",
+            "text": "Those pleasant days long gone",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-551",
+            "kind": "verse",
+            "text": "Of not-returning time:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-552",
+            "kind": "verse",
+            "text": "Would talk about the haunted glen,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-553",
+            "kind": "verse",
+            "text": "The wicked, quaint fruit-merchant men,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-554",
+            "kind": "verse",
+            "text": "Their fruits like honey to the throat",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-555",
+            "kind": "verse",
+            "text": "But poison in the blood;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-556",
+            "kind": "verse",
+            "text": "(Men sell not such in any town:)",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-557",
+            "kind": "verse",
+            "text": "Would tell them how her sister stood",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-558",
+            "kind": "verse",
+            "text": "In deadly peril to do her good,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-559",
+            "kind": "verse",
+            "text": "And win the fiery antidote:",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-560",
+            "kind": "verse",
+            "text": "Then joining hands to little hands",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-561",
+            "kind": "verse",
+            "text": "Would bid them cling together,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-562",
+            "kind": "verse",
+            "text": "“For there is no friend like a sister",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-563",
+            "kind": "verse",
+            "text": "In calm or stormy weather;",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-564",
+            "kind": "verse",
+            "text": "To cheer one on the tedious way,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-565",
+            "kind": "verse",
+            "text": "To fetch one if one goes astray,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-566",
+            "kind": "verse",
+            "text": "To lift one if one totters down,",
+            "after": "\n",
+            "marks": []
+          },
+          {
+            "id": "line-567",
+            "kind": "verse",
+            "text": "To strengthen whilst one stands.”",
+            "after": "",
+            "marks": []
+          }
+        ]
+      }
+    ],
+    "context": []
+  },
+  "layout": {
+    "line-1": [
+      0,
+      false,
+      1,
+      7
+    ],
+    "line-2": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-3": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-4": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-5": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-6": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-7": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-8": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-9": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-10": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-11": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-12": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-13": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-14": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-15": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-16": [
+      0,
+      false,
+      2,
+      0
+    ],
+    "line-17": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-18": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-19": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-20": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-21": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-22": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-23": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-24": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-25": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-26": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-27": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-28": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-29": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-30": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-31": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-32": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-33": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-34": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-35": [
+      0,
+      false,
+      3,
+      0
+    ],
+    "line-36": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-37": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-38": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-39": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-40": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-41": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-42": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-43": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-44": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-45": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-46": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-47": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-48": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-49": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-50": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-51": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-52": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-53": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-54": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-55": [
+      0,
+      false,
+      4,
+      0
+    ],
+    "line-56": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-57": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-58": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-59": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-60": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-61": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-62": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-63": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-64": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-65": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-66": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-67": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-68": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-69": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-70": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-71": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-72": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-73": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-74": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-75": [
+      0,
+      false,
+      5,
+      0
+    ],
+    "line-76": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-77": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-78": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-79": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-80": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-81": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-82": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-83": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-84": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-85": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-86": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-87": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-88": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-89": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-90": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-91": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-92": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-93": [
+      0,
+      false,
+      6,
+      0
+    ],
+    "line-94": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-95": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-96": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-97": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-98": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-99": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-100": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-101": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-102": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-103": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-104": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-105": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-106": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-107": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-108": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-109": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-110": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-111": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-112": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-113": [
+      0,
+      false,
+      7,
+      0
+    ],
+    "line-114": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-115": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-116": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-117": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-118": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-119": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-120": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-121": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-122": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-123": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-124": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-125": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-126": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-127": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-128": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-129": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-130": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-131": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-132": [
+      0,
+      false,
+      8,
+      0
+    ],
+    "line-133": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-134": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-135": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-136": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-137": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-138": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-139": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-140": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-141": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-142": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-143": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-144": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-145": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-146": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-147": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-148": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-149": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-150": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-151": [
+      0,
+      false,
+      9,
+      0
+    ],
+    "line-152": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-153": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-154": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-155": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-156": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-157": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-158": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-159": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-160": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-161": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-162": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-163": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-164": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-165": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-166": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-167": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-168": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-169": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-170": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-171": [
+      0,
+      false,
+      10,
+      0
+    ],
+    "line-172": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-173": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-174": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-175": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-176": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-177": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-178": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-179": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-180": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-181": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-182": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-183": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-184": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-185": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-186": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-187": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-188": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-189": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-190": [
+      0,
+      false,
+      11,
+      0
+    ],
+    "line-191": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-192": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-193": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-194": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-195": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-196": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-197": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-198": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-199": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-200": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-201": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-202": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-203": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-204": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-205": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-206": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-207": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-208": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-209": [
+      0,
+      false,
+      12,
+      0
+    ],
+    "line-210": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-211": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-212": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-213": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-214": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-215": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-216": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-217": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-218": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-219": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-220": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-221": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-222": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-223": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-224": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-225": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-226": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-227": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-228": [
+      1,
+      true,
+      13,
+      0
+    ],
+    "line-229": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-230": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-231": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-232": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-233": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-234": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-235": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-236": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-237": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-238": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-239": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-240": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-241": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-242": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-243": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-244": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-245": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-246": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-247": [
+      0,
+      false,
+      14,
+      0
+    ],
+    "line-248": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-249": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-250": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-251": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-252": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-253": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-254": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-255": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-256": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-257": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-258": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-259": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-260": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-261": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-262": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-263": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-264": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-265": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-266": [
+      0,
+      false,
+      15,
+      0
+    ],
+    "line-267": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-268": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-269": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-270": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-271": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-272": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-273": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-274": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-275": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-276": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-277": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-278": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-279": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-280": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-281": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-282": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-283": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-284": [
+      0,
+      false,
+      16,
+      0
+    ],
+    "line-285": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-286": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-287": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-288": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-289": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-290": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-291": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-292": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-293": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-294": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-295": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-296": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-297": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-298": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-299": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-300": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-301": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-302": [
+      0,
+      false,
+      17,
+      0
+    ],
+    "line-303": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-304": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-305": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-306": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-307": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-308": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-309": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-310": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-311": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-312": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-313": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-314": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-315": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-316": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-317": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-318": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-319": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-320": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-321": [
+      0,
+      false,
+      18,
+      0
+    ],
+    "line-322": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-323": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-324": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-325": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-326": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-327": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-328": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-329": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-330": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-331": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-332": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-333": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-334": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-335": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-336": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-337": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-338": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-339": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-340": [
+      0,
+      false,
+      19,
+      0
+    ],
+    "line-341": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-342": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-343": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-344": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-345": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-346": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-347": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-348": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-349": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-350": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-351": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-352": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-353": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-354": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-355": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-356": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-357": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-358": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-359": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-360": [
+      0,
+      false,
+      20,
+      0
+    ],
+    "line-361": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-362": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-363": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-364": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-365": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-366": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-367": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-368": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-369": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-370": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-371": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-372": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-373": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-374": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-375": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-376": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-377": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-378": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-379": [
+      0,
+      false,
+      21,
+      0
+    ],
+    "line-380": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-381": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-382": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-383": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-384": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-385": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-386": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-387": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-388": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-389": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-390": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-391": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-392": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-393": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-394": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-395": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-396": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-397": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-398": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-399": [
+      0,
+      false,
+      22,
+      0
+    ],
+    "line-400": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-401": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-402": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-403": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-404": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-405": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-406": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-407": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-408": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-409": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-410": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-411": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-412": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-413": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-414": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-415": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-416": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-417": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-418": [
+      0,
+      false,
+      23,
+      0
+    ],
+    "line-419": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-420": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-421": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-422": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-423": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-424": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-425": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-426": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-427": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-428": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-429": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-430": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-431": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-432": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-433": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-434": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-435": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-436": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-437": [
+      0,
+      false,
+      24,
+      0
+    ],
+    "line-438": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-439": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-440": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-441": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-442": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-443": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-444": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-445": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-446": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-447": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-448": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-449": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-450": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-451": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-452": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-453": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-454": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-455": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-456": [
+      0,
+      false,
+      25,
+      0
+    ],
+    "line-457": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-458": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-459": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-460": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-461": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-462": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-463": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-464": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-465": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-466": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-467": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-468": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-469": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-470": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-471": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-472": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-473": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-474": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-475": [
+      1,
+      true,
+      26,
+      0
+    ],
+    "line-476": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-477": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-478": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-479": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-480": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-481": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-482": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-483": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-484": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-485": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-486": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-487": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-488": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-489": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-490": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-491": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-492": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-493": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-494": [
+      0,
+      false,
+      27,
+      0
+    ],
+    "line-495": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-496": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-497": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-498": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-499": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-500": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-501": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-502": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-503": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-504": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-505": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-506": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-507": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-508": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-509": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-510": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-511": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-512": [
+      0,
+      false,
+      28,
+      0
+    ],
+    "line-513": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-514": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-515": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-516": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-517": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-518": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-519": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-520": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-521": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-522": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-523": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-524": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-525": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-526": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-527": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-528": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-529": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-530": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-531": [
+      0,
+      false,
+      29,
+      0
+    ],
+    "line-532": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-533": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-534": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-535": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-536": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-537": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-538": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-539": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-540": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-541": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-542": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-543": [
+      1,
+      true,
+      0,
+      0
+    ],
+    "line-544": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-545": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-546": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-547": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-548": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-549": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-550": [
+      0,
+      false,
+      30,
+      0
+    ],
+    "line-551": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-552": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-553": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-554": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-555": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-556": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-557": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-558": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-559": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-560": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-561": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-562": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-563": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-564": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-565": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-566": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "line-567": [
+      0,
+      false,
+      0,
+      0
+    ],
+    "passages": {
+      "bargain": [
+        "line-123",
+        "line-129",
+        "The bargain"
+      ],
+      "bed": [
+        "line-184",
+        "line-195",
+        "The sisters’ night"
+      ]
+    }
+  }
+}

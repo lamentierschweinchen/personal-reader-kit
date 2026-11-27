@@ -10,14 +10,15 @@ import {createContinuationProfile,injectContinuation,adaptContinuationApp} from 
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper','the-open-boat':'open-boat','a-room-of-ones-own':'woolf'});
+export const readerPaths=Object.freeze({'pride-and-prejudice':'austen','alice-in-wonderland':'alice',walden:'walden','schopenhauer-hegel':'two-halls',odyssey:'odyssey',dracula:'dracula','at-table':'at-table','inward-life':'inward-life','beside-the-bed':'beside-the-bed','learning-to-see':'learning-to-see','music-and-feeling':'music-and-feeling','nietzsche-in-company':'nietzsche','mountains-and-heights':'mountains','war-and-peace':'war-and-peace','douglass-narrative':'douglass','fall-of-the-house-of-usher':'poe','ballads-and-a-play':'ballads','kingdom-for-a-stage':'shakespeare','pictures-after-dark':'pictures-after-dark','caesar-and-the-emperors':'rome',antigone:'antigone','a-dolls-house':'a-dolls-house','book-of-tea':'book-of-tea','writers-at-work':'writers','the-awakening':'awakening','little-clay-cart':'clay-cart',beowulf:'beowulf','dickinson-poems-1890':'dickinson',bartleby:'bartleby','the-yellow-wall-paper':'yellow-wall-paper','the-open-boat':'open-boat','a-room-of-ones-own':'woolf','goblin-market':'goblin-market'});
 // Capabilities are explicit. A missing standard file must never silently select
 // another runtime, nor admit an unreviewed application through a generic fallback.
 export function readerRuntime(entry){
   const runtime=entry.runtime??'reader-kit-v1';
-  assert.ok(['reader-kit-v1','writing-workroom-v1'].includes(runtime),'Unknown reader runtime: '+runtime);
+  assert.ok(['reader-kit-v1','writing-workroom-v1','goblin-market-v1'].includes(runtime),'Unknown reader runtime: '+runtime);
   assert.ok(Object.hasOwn(readerPaths,entry.id),'Unknown reviewed reader: '+entry.id);
   assert.equal(runtime==='writing-workroom-v1',entry.id==='writers-at-work','The writing runtime is admitted only for its exact reviewed example');
+  assert.equal(runtime==='goblin-market-v1',entry.id==='goblin-market','The illustrated poem runtime is admitted only for its exact reviewed example');
   return runtime;
 }
 function replace(text,from,to,count=1){
@@ -81,6 +82,35 @@ export async function buildReaders(output){
     await mkdir(destination,{recursive:true});
     if(runtime==='writing-workroom-v1'){
       receipt.push(await mountWritingReader(entry,source,destination,base));
+      continue;
+    }
+    if(runtime==='goblin-market-v1'){
+      const outputs=new Map();
+      for(const asset of entry.reviewedBuild){
+        assert.match(asset.path,/^[a-zA-Z0-9][a-zA-Z0-9_.-]+$/);
+        const input=path.join(source,'dist',asset.path);
+        assert.ok((await lstat(input)).isFile());
+        const original=await readFile(input);
+        assert.equal(original.length,asset.bytes,asset.path);
+        assert.equal(sha(original),asset.sha256,asset.path);
+        if(asset.path==='sw.js')continue;
+        let bytes=original;
+        if(asset.path==='index.html')bytes=Buffer.from(injectSocialMetadata(original.toString(),socialMetadata(slug)));
+        if(asset.path==='manifest.webmanifest'){
+          const manifest=JSON.parse(original);
+          manifest.id=base;manifest.start_url=base;manifest.scope=base;
+          for(const icon of manifest.icons){
+            assert.ok(['icon-192.png','icon-512.png'].includes(icon.src),'Unreviewed Goblin Market install icon');
+            icon.src=base+icon.src;
+          }
+          bytes=Buffer.from(JSON.stringify(manifest)+'\n');
+        }
+        outputs.set(asset.path,bytes);
+      }
+      const worker=builder.workerFor(outputs);
+      outputs.set('sw.js',worker.bytes);
+      for(const [name,bytes] of outputs)await writeFile(path.join(destination,name),bytes);
+      receipt.push({id:entry.id,path:base,runtime,outputs:outputs.size,version:worker.version,changed:['index.html','manifest.webmanifest','sw.js'],unchanged:outputs.size-3,exactEdition:true,offline:true,sharedContinuation:false,storage:'IndexedDB'});
       continue;
     }
     const changed=[],unchanged=[];
@@ -149,6 +179,11 @@ export async function buildReaders(output){
         bytes=Buffer.from(text);
       }
       if(asset.path==='app.mjs'&&slug==='book-of-tea')bytes=Buffer.from(replace(bytes.toString(),'src="/context-harunobu.jpg"',`src="${base}context-harunobu.jpg"`));
+      if(asset.path==='edition.css'&&slug==='book-of-tea'){
+        let text=bytes.toString();
+        for(const font of ['source-serif-regular.woff2','source-serif-italic.woff2','source-sans-regular.woff2','source-sans-semibold.woff2'])text=replace(text,`url('/${font}')`,`url('${base}${font}')`);
+        bytes=Buffer.from(text);
+      }
       if(asset.path==='app.mjs'&&slug==='nietzsche')bytes=Buffer.from(replace(bytes.toString(),"fetch('/company.json'",`fetch('${base}company.json'`));
       if(slug==='poe'){
         if(asset.path==='app.mjs'){

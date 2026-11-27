@@ -1,5 +1,6 @@
 // Cover compositions around the exact reviewed reader artwork.
 export const cover=(b,mini=false)=>`<div class="cover cover-${b.id}${mini?' mini':''}" aria-hidden="true">${{
+ 'goblin-market':'<span class="cover-meta">CHRISTINA ROSSETTI</span><strong>Goblin<br>Market</strong><img src="/goblin-market/market-detail.webp" alt=""><span class="cover-bottom">MACMILLAN · 1862</span>',
  woolf:'<span class="cover-meta">VIRGINIA WOOLF</span><strong>A Room of<br><em>One’s Own</em></strong><span class="cover-woolf-window"></span><span class="cover-bottom">HOGARTH PRESS · 1929</span>',
  'open-boat':'<span class="cover-meta">STEPHEN CRANE</span><strong>The<br>Open Boat</strong><img src="/open-boat/cover.webp" alt=""><span class="cover-bottom">LONDON · 1898</span>',
  'yellow-wall-paper':'<span class="cover-meta">CHARLOTTE<br>PERKINS GILMAN</span><strong>The Yellow<br><em>Wall-Paper</em></strong><span class="cover-bottom">NEW ENGLAND MAGAZINE<br>1892</span>',

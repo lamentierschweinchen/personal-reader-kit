@@ -17,7 +17,7 @@ if(!integrityOnly&&!process.argv.includes('--skip-build'))await buildShowcase();
 const integrationSource=integrityOnly?await readFile(new URL('showcase/analytics.mjs',root),'utf8'):null;
 const vendorBytes=await readFile(process.env.ANALYTICS_VENDOR_SCRIPT||new URL('vendor-script.js',out));
 const providerSha256=createHash('sha256').update(vendorBytes).digest('hex');
-assert.equal(providerSha256,'050e35bf7e6e96590f2a9de114c14ff792806ed28457b3248762944350c0ba4c','Provider script changed: review its payload and privacy behavior before updating this pin');
+assert.equal(providerSha256,'ff99d37b7bef6369731037824f61d0f8007c38e0272bac56fe370ad69914e358','Provider script changed: review its payload and privacy behavior before updating this pin');
 assert.equal(PROVIDER_INTEGRITY,'sha256-'+createHash('sha256').update(vendorBytes).digest('base64'),'Runtime SRI pin must match reviewed provider bytes');
 const vendor=vendorBytes.toString('utf8');
 assert.ok(vendor.includes('disableAutoTrack')&&vendor.includes('beforeSend'),'Use the reviewed real provider script');

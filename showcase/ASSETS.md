@@ -1,5 +1,9 @@
 # Showcase assets
 
+## Goblin Market · November 27, 2026
+
+The library jacket and 1200 × 630 share card use the reader’s approved crop of Dante Gabriel Rossetti’s 1862 frontispiece, with blue and gold lettering drawn from the reader cover. The original plate reproduction and contributors are credited in the [edition’s source and rights record](../examples/goblin-market/docs/SOURCE-RIGHTS.md). The share card uses Georgia rasterized into the image. It contains no reading records or book passages.
+
 ## Edition social cards · 25 October 2026
 
 The 23 `assets/social-<edition>.jpg` cards and `assets/social-library.jpg` are 1200 × 630 JPEG renderings of the existing public library covers. Each edition keeps its cover artwork and lettering; the surrounding title, author and feature come from the reviewed public `library/entries.json`. The library card shows Austen, Alice, Pictures after dark and Caesar and the emperors. No book passages, annotations, reading positions or private preparation appear.

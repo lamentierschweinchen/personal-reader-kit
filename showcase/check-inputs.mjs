@@ -18,7 +18,7 @@ try{
   execFileSync(process.execPath,['build.mjs'],{cwd:path.join(fixture,'showcase'),stdio:'pipe',maxBuffer:2*1024*1024});
   const output=path.join(fixture,'showcase/dist');
   const expected=JSON.parse(await readFile(path.join(root,'examples/catalog.json'))).examples;
-  for(const e of expected){const slug=readerPaths[e.id],edition=readerRuntime(e)==='writing-workroom-v1'?'edition.json':'library.json';assert.ok((await readFile(path.join(output,slug,edition))).equals(await readFile(path.join(root,e.directory,'dist',edition))),slug+' exact public edition');}
+  for(const e of expected){const slug=readerPaths[e.id],edition=readerRuntime(e)==='reader-kit-v1'?'library.json':'edition.json';assert.ok((await readFile(path.join(output,slug,edition))).equals(await readFile(path.join(root,e.directory,'dist',edition))),slug+' exact public edition');}
   assert.equal((await readdir(output)).filter(x=>Object.values(readerPaths).includes(x)).length,expected.length);
   for(const asset of directScan.files)assert.ok((await readFile(path.join(output,'montaigne',asset.path))).equals(await readFile(asset.source?path.join(root,'showcase',asset.source):path.join(root,'showcase/direct/montaigne',asset.path))),'Exact direct scan output: '+asset.path);
   const receipt={checkedAt:new Date().toISOString(),passed:true,inputFiles:inputs.files.length,exactEditions:expected.length,exactDirectScanFiles:directScan.files.length,scope:'A fresh build with only the exact deployment inventory; no surrounding workspace, ignored inputs or arbitrary directories.'};

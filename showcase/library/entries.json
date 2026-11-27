@@ -931,6 +931,38 @@
         "Newnham College archive account"
       ],
       "rightsPath": "examples/a-room-of-ones-own/docs/SOURCE-RIGHTS.md"
+    },
+    {
+      "id": "goblin-market",
+      "exampleId": "goblin-market",
+      "title": "Goblin Market",
+      "author": "Christina Rossetti",
+      "shortAuthor": "Christina Rossetti",
+      "kind": "Poem",
+      "language": "English",
+      "edition": "The complete title poem from the 1862 Macmillan first edition, with both original engravings.",
+      "editionLabel": "Macmillan · 1862",
+      "feature": "The bargain and the bedside",
+      "description": "Laura buys the goblins’ fruit with a lock of hair. Read Christina Rossetti’s complete poem with Dante Gabriel Rossetti’s two first-edition engravings alongside the scenes they depict.",
+      "categories": [
+        "words",
+        "art"
+      ],
+      "preparedBy": {
+        "name": "New reading",
+        "url": "https://newreading.app/"
+      },
+      "sourceUrls": [
+        "https://archive.org/details/rossettigoblinmarket",
+        "https://www.metmuseum.org/art/collection/search/642949",
+        "https://data.fitzmuseum.cam.ac.uk/id/object/3353"
+      ],
+      "sourceLabels": [
+        "1862 Macmillan first-edition scan",
+        "Frontispiece · The Met",
+        "Illustrated title page · The Fitzwilliam Museum"
+      ],
+      "rightsPath": "examples/goblin-market/docs/SOURCE-RIGHTS.md"
     }
   ]
 }

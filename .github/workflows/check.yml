@@ -90,6 +90,8 @@ jobs:
         if: hashFiles('showcase/check-awakening.mjs') != ''
       - run: node showcase/check-writing-reader.mjs --skip-build
         if: hashFiles('showcase/check-writing-reader.mjs') != ''
+      - run: node showcase/check-goblin-market.mjs
+        if: hashFiles('showcase/check-goblin-market.mjs') != ''
       - run: node showcase/check-oct26-readers.mjs --skip-build
         if: hashFiles('showcase/check-oct26-readers.mjs') != ''
       - name: Verify comparison bundle restoration

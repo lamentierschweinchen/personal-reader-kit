@@ -3,7 +3,7 @@
 // The provider-reserved attribution key is checked for presence only; it is never parsed.
 export const PUBLIC_EDITIONS=Object.freeze(['austen','alice','walden','two-halls','odyssey','dracula','at-table','inward-life','music-and-feeling','learning-to-see','beside-the-bed','nietzsche','mountains','war-and-peace','douglass','poe','ballads','shakespeare','pictures-after-dark','rome','antigone','a-dolls-house','book-of-tea','writers','awakening','clay-cart','beowulf','dickinson','bartleby','yellow-wall-paper','open-boat','woolf']);
 // Fail closed if the provider changes before its client receives another privacy review.
-export const PROVIDER_INTEGRITY='sha256-BQ41v35ullkPKp3hFMFP95KAbtKEV7Mkh2KUQ1DAukw=';
+export const PROVIDER_INTEGRITY='sha256-/5nTe3vvY2lzEDeCT2HQ+AB8OOAnK6xW/jcK1pkU41g=';
 const games=new Set(['alice','odyssey','dracula']);
 const origin='https://newreading.app';
 const cataloguePages=new Set(['home','guide','library']);

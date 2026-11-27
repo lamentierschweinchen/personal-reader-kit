@@ -18,7 +18,7 @@ try{
   const {readerRuntime}=await import('../showcase/readers.mjs');
   for(const entry of catalog.examples){
     if(readerRuntime(entry)==='reader-kit-v1')projects.push(entry.directory);
-    else assert.equal(entry.id,'writers-at-work','Only the explicitly tested notebook runtime lacks passage cards');
+    else assert.ok(['writers-at-work','goblin-market'].includes(entry.id),'Custom readers can omit passage cards');
   }
 }
 catch(error){if(error.code!=='ENOENT'||error.path!==fileURLToPath(new URL('../examples/catalog.json',import.meta.url)))throw error;}

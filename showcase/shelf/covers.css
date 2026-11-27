@@ -157,6 +157,9 @@
 .mixed-library .cover-open-boat .cover-bottom{bottom:9%}
 .mixed-library .cover-open-boat strong{inset:22% 7% auto;text-align:center;font:400 14.5cqw/.94 Baskerville,Georgia,serif;letter-spacing:-.045em}
 .mixed-library .cover-open-boat img{position:absolute;inset:57% 8% auto;width:84%;height:25%;object-fit:cover}
+.mixed-library .cover-goblin-market{background:#18262f;color:#e3caa2;border:1px solid #8d795b}
+.mixed-library .cover-goblin-market strong{top:20%;font:400 20cqw/.9 Georgia,serif;letter-spacing:-.055em}
+.mixed-library .cover-goblin-market img{position:absolute;left:9%;top:49%;width:82%;height:35%;object-fit:cover;object-position:52% 34%;border:1px solid #8d795b}
 .mixed-library .cover-woolf{background:#203b4b;color:#f5f0e4;border:1px solid #17313e}
 .mixed-library .cover-woolf .cover-meta,.mixed-library .cover-woolf .cover-bottom{left:10%;right:10%;text-align:left}
 .mixed-library .cover-woolf .cover-meta{top:9%}
